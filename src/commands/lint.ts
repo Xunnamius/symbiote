@@ -119,7 +119,7 @@ export default async function command({
                 return {
                   ...oldOptionConfig,
                   demandThisOption: true,
-                  // ? Only one linter way run
+                  // ? Only one linter may run in --baseline mode
                   check: [oldOptionConfig.check || []]
                     .flat()
                     .concat(function checkChoiceIsGivenByItself(
