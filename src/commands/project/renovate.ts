@@ -746,7 +746,7 @@ Due to the current limitations of GitHub's REST API, the following renovations a
 By default, this command will preserve the origin repository's pre-existing configuration. Run this command with --force to overwrite any pre-existing configuration EXCEPT the origin repository's description and homepage, which can never be overwritten by this renovation.`,
     requiresForce: false,
     conflicts: conflictingUpstreamRenovationTasks.filter(
-      (o) => o['github-reconfigure-repo'] !== true
+      (o) => !o['github-reconfigure-repo']
     ),
     supportedScopes: [ProjectRenovateScope.Unlimited],
     subOptions: {},
@@ -1261,7 +1261,7 @@ By default, this command will preserve the origin repository's pre-existing conf
       }
     },
     conflicts: conflictingUpstreamRenovationTasks.filter(
-      (o) => o['github-rename-repo'] !== true
+      (o) => !o['github-rename-repo']
     ),
     async run(argv_, { log }) {
       const argv = argv_ as RenovationTaskArgv;
@@ -1283,7 +1283,7 @@ By default, this command will preserve the origin repository's pre-existing conf
     supportedScopes: [ProjectRenovateScope.Unlimited],
     subOptions: {},
     conflicts: conflictingUpstreamRenovationTasks.filter(
-      (o) => o['github-pause-rulesets'] !== true
+      (o) => !o['github-pause-rulesets']
     ),
     async run(argv_, { log }) {
       const argv = argv_ as RenovationTaskArgv;
@@ -1305,7 +1305,7 @@ By default, this command will preserve the origin repository's pre-existing conf
     supportedScopes: projectRenovateScopes,
     subOptions: {},
     conflicts: conflictingUpstreamRenovationTasks.filter(
-      (o) => o['github-delete-all-releases'] !== true
+      (o) => !o['github-delete-all-releases']
     ),
     async run(argv_, { log }) {
       const argv = argv_ as RenovationTaskArgv;
@@ -1328,7 +1328,7 @@ By default, this command will preserve the origin repository's pre-existing conf
     supportedScopes: [ProjectRenovateScope.Unlimited],
     subOptions: {},
     conflicts: conflictingUpstreamRenovationTasks.filter(
-      (o) => o['github-clone-remote-wiki'] !== true
+      (o) => !o['github-clone-remote-wiki']
     ),
     async run(argv_, { log }) {
       const argv = argv_ as RenovationTaskArgv;
@@ -1352,7 +1352,7 @@ By default, this command will preserve the origin repository's pre-existing conf
     supportedScopes: [ProjectRenovateScope.Unlimited],
     subOptions: {},
     conflicts: conflictingUpstreamRenovationTasks.filter(
-      (o) => o['github-kill-master'] !== true
+      (o) => !o['github-kill-master']
     ),
     async run(argv_, { log }) {
       const argv = argv_ as RenovationTaskArgv;
@@ -1375,7 +1375,7 @@ By default, this command will preserve the origin repository's pre-existing conf
     supportedScopes: [ProjectRenovateScope.Unlimited],
     subOptions: {},
     conflicts: conflictingUpstreamRenovationTasks.filter(
-      (o) => o['generate-scoped-tags'] !== true
+      (o) => !o['generate-scoped-tags']
     ),
     async run(argv_, { log }) {
       const argv = argv_ as RenovationTaskArgv;
@@ -1399,7 +1399,7 @@ By default, this command will preserve the origin repository's pre-existing conf
     requiresForce: true,
     supportedScopes: [ProjectRenovateScope.ThisPackage],
     subOptions: {},
-    conflicts: conflictingUpstreamRenovationTasks.filter((o) => o['deprecate'] !== true),
+    conflicts: conflictingUpstreamRenovationTasks.filter((o) => !o.deprecate),
     async run(argv_, { log }) {
       const argv = argv_ as RenovationTaskArgv;
 
@@ -1421,9 +1421,7 @@ By default, this command will preserve the origin repository's pre-existing conf
     requiresForce: true,
     supportedScopes: [ProjectRenovateScope.ThisPackage],
     subOptions: {},
-    conflicts: conflictingUpstreamRenovationTasks.filter(
-      (o) => o['undeprecate'] !== true
-    ),
+    conflicts: conflictingUpstreamRenovationTasks.filter((o) => !o.undeprecate),
     async run(argv_, { log }) {
       const argv = argv_ as RenovationTaskArgv;
 
