@@ -26,6 +26,7 @@ import {
   uriSchemeSubDelimiter
 } from 'multiverse+project-utils:alias.ts';
 
+import { generatePackageJsonEngineMaintainedNodeVersions } from 'multiverse+project-utils:analyze.ts';
 import { ProjectError } from 'multiverse+project-utils:error.ts';
 
 import {
@@ -38,7 +39,7 @@ import {
   type AbsolutePath
 } from 'multiverse+project-utils:fs.ts';
 
-import { createDebugLogger } from 'multiverse+rejoinder';
+import { createDebugLogger, createGenericLogger } from 'multiverse+rejoinder';
 
 import { makeTransformer } from 'universe:assets.ts';
 
@@ -71,6 +72,10 @@ const sharedRestrictedImportRules = [
       'This warning is a reminder that the import needs to be removed once the corresponding package is published.'
   } as const
 ];
+
+const log = createGenericLogger({
+  namespace: `${globalDebuggerNamespace}:asset:eslint`
+});
 
 export type EslintConfig = Extract<Config, unknown[]>[number];
 
@@ -820,10 +825,14 @@ export async function assertEnvironment(): Promise<
     with: { type: 'json' }
   })) as PackageJson;
 
-  const { node: packageJsonEnginesNode } = packageJson.engines || {};
+  const { node: packageJsonEnginesNode_ } = packageJson.engines || {};
 
-  if (typeof packageJsonEnginesNode !== 'string') {
-    throw new ProjectError(ErrorMessage.BadEnginesNodeInPackageJson(packageJsonPath));
+  const packageJsonEnginesNode =
+    packageJsonEnginesNode_ || generatePackageJsonEngineMaintainedNodeVersions();
+
+  if (typeof packageJsonEnginesNode_ !== 'string') {
+    log.warn(ErrorMessage.BadEnginesNodeInPackageJson(packageJsonPath));
+    log.warn('"engines.node" value defaulted to: %O', packageJsonEnginesNode);
   }
 
   const projectBasePath = toAbsolutePath(currentWorkingDirectory, Tsconfig.ProjectBase);
