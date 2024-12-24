@@ -677,6 +677,22 @@ async function makeOctokit({
   });
 }
 
+/**
+ * These renovation tasks CANNOT be run in parallel with one another since they
+ * all rely on the upstream GitHub repository not changing while they operate.
+ */
+const conflictingUpstreamRenovationTasks = [
+  'github-reconfigure-repo',
+  'github-rename-repo',
+  'github-pause-rulesets',
+  'github-delete-all-releases',
+  'github-clone-remote-wiki',
+  'github-kill-master',
+  'generate-scoped-tags',
+  'deprecate',
+  'undeprecate'
+].map((t) => ({ [t]: true }));
+
 // TODO: When we settle on a unified task-runner API, these should be placed
 // TODO: into their own files. Maybe they should be so placed before then...
 /**
@@ -729,14 +745,9 @@ Due to the current limitations of GitHub's REST API, the following renovations a
 
 By default, this command will preserve the origin repository's pre-existing configuration. Run this command with --force to overwrite any pre-existing configuration EXCEPT the origin repository's description and homepage, which can never be overwritten by this renovation.`,
     requiresForce: false,
-    conflicts: [
-      'deprecate',
-      'undeprecate',
-      'github-rename-repo',
-      'github-pause-rulesets',
-      'github-kill-master',
-      'generate-scoped-tags'
-    ],
+    conflicts: conflictingUpstreamRenovationTasks.filter(
+      (o) => o['github-reconfigure-repo'] !== true
+    ),
     supportedScopes: [ProjectRenovateScope.Unlimited],
     subOptions: {},
     async run(argv_, { debug, log }) {
@@ -1229,11 +1240,10 @@ By default, this command will preserve the origin repository's pre-existing conf
   'github-rename-repo': {
     emoji: '🧬',
     taskAliases: [],
-    actionDescription:
-      'Updating origin repository name and synchronizing local configuration',
+    actionDescription: 'Updating origin repository name and relevant metadata',
     shortHelpDescription:
-      'Rename the origin repository and update git remotes accordingly',
-    longHelpDescription: `This renovation will rename the origin repository, rename (move) the repository directory on the local filesystem, and update the remotes in .git/config accordingly.\n\nIf the origin repository cannot be renamed, the rename attempt will be aborted and no local changes will occur.`,
+      'Rename the origin repository and update relevant metadata accordingly',
+    longHelpDescription: `This renovation will (1) rename the origin repository on GitHub, (2) rename (move) the repository directory on the local filesystem, (3) update the package name in GitHub releases, (4) and update the remotes in .git/config accordingly.\n\nIf the origin repository cannot be renamed, this command will abort immediately and without making any further updates.`,
     requiresForce: false,
     supportedScopes: [ProjectRenovateScope.Unlimited],
     subOptions: {
@@ -1250,6 +1260,9 @@ By default, this command will preserve the origin repository's pre-existing conf
         }
       }
     },
+    conflicts: conflictingUpstreamRenovationTasks.filter(
+      (o) => o['github-rename-repo'] !== true
+    ),
     async run(argv_, { log }) {
       const argv = argv_ as RenovationTaskArgv;
       checkRuntimeIsReadyForGithub(argv, log);
@@ -1269,6 +1282,9 @@ By default, this command will preserve the origin repository's pre-existing conf
     requiresForce: false,
     supportedScopes: [ProjectRenovateScope.Unlimited],
     subOptions: {},
+    conflicts: conflictingUpstreamRenovationTasks.filter(
+      (o) => o['github-pause-rulesets'] !== true
+    ),
     async run(argv_, { log }) {
       const argv = argv_ as RenovationTaskArgv;
       checkRuntimeIsReadyForGithub(argv, log);
@@ -1288,6 +1304,9 @@ By default, this command will preserve the origin repository's pre-existing conf
     requiresForce: true,
     supportedScopes: projectRenovateScopes,
     subOptions: {},
+    conflicts: conflictingUpstreamRenovationTasks.filter(
+      (o) => o['github-delete-all-releases'] !== true
+    ),
     async run(argv_, { log }) {
       const argv = argv_ as RenovationTaskArgv;
       checkRuntimeIsReadyForGithub(argv, log);
@@ -1308,6 +1327,9 @@ By default, this command will preserve the origin repository's pre-existing conf
     requiresForce: false,
     supportedScopes: [ProjectRenovateScope.Unlimited],
     subOptions: {},
+    conflicts: conflictingUpstreamRenovationTasks.filter(
+      (o) => o['github-clone-remote-wiki'] !== true
+    ),
     async run(argv_, { log }) {
       const argv = argv_ as RenovationTaskArgv;
       checkRuntimeIsReadyForGithub(argv, log);
@@ -1329,6 +1351,9 @@ By default, this command will preserve the origin repository's pre-existing conf
     requiresForce: false,
     supportedScopes: [ProjectRenovateScope.Unlimited],
     subOptions: {},
+    conflicts: conflictingUpstreamRenovationTasks.filter(
+      (o) => o['github-kill-master'] !== true
+    ),
     async run(argv_, { log }) {
       const argv = argv_ as RenovationTaskArgv;
       checkRuntimeIsReadyForGithub(argv, log);
@@ -1349,6 +1374,9 @@ By default, this command will preserve the origin repository's pre-existing conf
     requiresForce: false,
     supportedScopes: [ProjectRenovateScope.Unlimited],
     subOptions: {},
+    conflicts: conflictingUpstreamRenovationTasks.filter(
+      (o) => o['generate-scoped-tags'] !== true
+    ),
     async run(argv_, { log }) {
       const argv = argv_ as RenovationTaskArgv;
 
@@ -1371,7 +1399,7 @@ By default, this command will preserve the origin repository's pre-existing conf
     requiresForce: true,
     supportedScopes: [ProjectRenovateScope.ThisPackage],
     subOptions: {},
-    conflicts: { undeprecate: true },
+    conflicts: conflictingUpstreamRenovationTasks.filter((o) => o['deprecate'] !== true),
     async run(argv_, { log }) {
       const argv = argv_ as RenovationTaskArgv;
 
@@ -1393,7 +1421,9 @@ By default, this command will preserve the origin repository's pre-existing conf
     requiresForce: true,
     supportedScopes: [ProjectRenovateScope.ThisPackage],
     subOptions: {},
-    conflicts: { deprecate: true },
+    conflicts: conflictingUpstreamRenovationTasks.filter(
+      (o) => o['undeprecate'] !== true
+    ),
     async run(argv_, { log }) {
       const argv = argv_ as RenovationTaskArgv;
 
@@ -1433,8 +1463,6 @@ This renovation should be re-run each time a package is added to, or removed fro
 See the xscripts wiki documentation for more details on this command and all available assets.
 `,
     requiresForce: false,
-    // ? These renovations modify the filesystem, so only one can run at once
-    conflicts: ['synchronize-interdependencies', 'update-dependencies'],
     supportedScopes: [ProjectRenovateScope.Unlimited],
     subOptions: {
       'assets-preset': {
@@ -1461,6 +1489,14 @@ See the xscripts wiki documentation for more details on this command and all ava
         default: []
       }
     },
+    // ? These renovations modify the filesystem, so only one can run at once
+    conflicts: [
+      'synchronize-interdependencies',
+      'deprecate',
+      'undeprecate',
+      'github-rename-repo',
+      'github-clone-remote-wiki'
+    ],
     async run(argv_, { debug, log }) {
       const argv = argv_ as RenovationTaskArgv;
 
@@ -1645,6 +1681,15 @@ See the xscripts wiki documentation for more details on this command and all ava
     // ? This renovation can only be run when no other tasks given
     supportedScopes: projectRenovateScopes,
     subOptions: {},
+    check: function (currentArgumentValue, argv) {
+      return (
+        !currentArgumentValue ||
+        Object.keys(renovationTasks).every(
+          (task) => task === 'update-dependencies' || !argv[task]
+        ) ||
+        ErrorMessage.OptionValueMustBeAlone('update-dependencies', 'renovation')
+      );
+    } as RenovationTask['check'],
     async run(argv_, { log }) {
       const argv = argv_ as RenovationTaskArgv;
 
@@ -1666,6 +1711,8 @@ See the xscripts wiki documentation for more details on this command and all ava
     requiresForce: false,
     supportedScopes: projectRenovateScopes,
     subOptions: {},
+    // ? These renovations modify the filesystem, so only one can run at once
+    conflicts: ['deprecate', 'undeprecate', 'github-rename-repo'],
     async run(argv_, { debug, log }) {
       const argv = argv_ as RenovationTaskArgv;
       const { scope, [$executionContext]: globalExecutionContext } = argv;
