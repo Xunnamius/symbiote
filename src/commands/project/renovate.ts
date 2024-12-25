@@ -1374,10 +1374,10 @@ To create and recreate alias tags for existing release tags with more fidelity a
 
             logReplacement({
               wasReplaced: shouldUpdateReleaseName,
-              replacedDescription: 'Updated GitHub release name',
+              replacedDescription: 'Updated release name',
               previousValue: oldReleaseName,
               updatedValue: updatedReleaseName,
-              skippedDescription: `updating GitHub release "${oldReleaseName}": unnecessary`
+              skippedDescription: `updating release "${oldReleaseName}": unnecessary`
             });
           })
         );
@@ -1386,7 +1386,7 @@ To create and recreate alias tags for existing release tags with more fidelity a
           wasReplaced: false,
           replacedDescription: '',
           skippedDescription:
-            'updating existing GitHub release names since root package name was not updated (use --force to run these updates anyway)'
+            'updating existing release names since root package name was not updated (use --force to run these updates anyway)'
         });
       }
 

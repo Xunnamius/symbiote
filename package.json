@@ -1,5 +1,5 @@
 {
-  "name": "@-xun/scripts",
+  "name": "@-xun/symbiote",
   "version": "1.33.0",
   "private": false,
   "description": "The scripts and assets powering Xunnamius's NPM-based projects",
