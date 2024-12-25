@@ -1,6 +1,9 @@
-import { mkdir, rm } from 'node:fs/promises';
+import { mkdir, rename as renamePath, rm } from 'node:fs/promises';
+import path from 'node:path';
 
+import { run } from '@-xun/run';
 import { CliError, type ChildConfiguration } from '@black-flag/core';
+import escapeStringRegexp from 'escape-string-regexp~4';
 import libsodium from 'libsodium-wrappers';
 import getInObject from 'lodash.get';
 
@@ -22,9 +25,11 @@ import {
 } from 'multiverse+cli-utils:logging.ts';
 
 import { scriptBasename } from 'multiverse+cli-utils:util.ts';
-import { type Package } from 'multiverse+project-utils:analyze.ts';
+import { ProjectAttribute, type Package } from 'multiverse+project-utils:analyze.ts';
 
 import {
+  getCurrentWorkingDirectory,
+  isAccessible,
   packageJsonConfigPackageBase,
   toAbsolutePath,
   toDirname,
@@ -41,7 +46,11 @@ import {
 
 import { version as packageVersion } from 'rootverse:package.json';
 
-import { parsePackageJsonRepositoryIntoOwnerAndRepo } from 'universe:assets/transformers/_package.json.ts';
+import {
+  deriveGitHubUrl,
+  deriveJsonRepositoryValue,
+  parsePackageJsonRepositoryIntoOwnerAndRepo
+} from 'universe:assets/transformers/_package.json.ts';
 
 import {
   $delete,
@@ -1233,12 +1242,236 @@ By default, this command will preserve the origin repository's pre-existing conf
     conflicts: conflictingUpstreamRenovationTasks.filter(
       (o) => !o['github-rename-root']
     ),
-    async run(argv_, { log }) {
+    async run(argv_, { log, debug }) {
       const argv = argv_ as RenovationTaskArgv;
       checkRuntimeIsReadyForGithub(argv, log);
 
-      // TODO:
-      log.message([LogTag.IF_NOT_SILENCED], `✖️ This task is currently a no-op (todo)`);
+      const {
+        newRepoName: _newRepoName,
+        newRootPackageName: _newRootPackageName,
+        [$executionContext]: { projectMetadata }
+      } = argv;
+
+      hardAssert(projectMetadata, ErrorMessage.GuruMeditation());
+
+      const {
+        // * Since "this-package" is not supported, we can't use cwdPackage
+        rootPackage,
+        subRootPackages
+      } = projectMetadata;
+
+      const { root: projectRoot, attributes: projectAttributes } = rootPackage;
+
+      const oldRootPackageName = rootPackage.json.name;
+      const updatedRepoName = _newRepoName as string;
+      const updatedRootPackageName = _newRootPackageName as string;
+      const logReplacement = makeReplacementLogger(log);
+      const github = await makeOctokit({ debug, log });
+      const ownerAndRepo = parsePackageJsonRepositoryIntoOwnerAndRepo(rootPackage.json);
+
+      debug('projectRoot: %O', projectRoot);
+      debug('oldRootPackageName: %O', oldRootPackageName);
+      debug('updatedRepoName: %O', updatedRepoName);
+      debug('updatedRootPackageName: %O', updatedRootPackageName);
+      debug('logReplacement: %O', logReplacement);
+      debug('github: %O', github);
+      debug('ownerAndRepo: %O', ownerAndRepo);
+
+      // * Rename the origin repository on GitHub
+
+      const {
+        data: { name: oldRepoName }
+      } = await github.repos.get({ ...ownerAndRepo });
+
+      const shouldUpdateRepoName = oldRepoName !== updatedRepoName;
+      debug('oldRepoName: %O', oldRepoName);
+
+      if (shouldUpdateRepoName) {
+        await github.repos.update({ ...ownerAndRepo, name: updatedRepoName });
+      }
+
+      logReplacement({
+        wasReplaced: shouldUpdateRepoName,
+        replacedDescription: 'Renamed the origin repository on GitHub',
+        previousValue: oldRepoName,
+        updatedValue: updatedRepoName,
+        skippedDescription: `updating "${oldRepoName}" repository (old name already equals new name)`
+      });
+
+      ownerAndRepo.repo = updatedRepoName;
+      debug('ownerAndRepo: %O', ownerAndRepo);
+
+      // * Update the root package name in GitHub releases
+
+      if (shouldUpdateRepoName) {
+        const oldReleases = await github.paginate(github.repos.listReleases, {
+          ...ownerAndRepo
+        });
+
+        await Promise.all(
+          oldReleases.map(async ({ id: release_id, name: oldReleaseName }) => {
+            if (!oldReleaseName) {
+              log.warn(
+                [LogTag.IF_NOT_QUIETED],
+                'Release id %O is missing a name!',
+                release_id
+              );
+              return;
+            }
+
+            const updatedReleaseName = oldReleaseName.replace(
+              oldRootPackageName,
+              updatedRootPackageName
+            );
+
+            const shouldUpdateReleaseName = oldReleaseName !== updatedReleaseName;
+
+            debug('oldReleaseName: %O', oldReleaseName);
+            debug('updatedReleaseName: %O', updatedReleaseName);
+
+            if (shouldUpdateReleaseName) {
+              await github.repos.updateRelease({
+                ...ownerAndRepo,
+                release_id,
+                name: updatedReleaseName
+              });
+            }
+
+            logReplacement({
+              wasReplaced: shouldUpdateReleaseName,
+              replacedDescription: 'Updated a release name on GitHub',
+              previousValue: oldReleaseName,
+              updatedValue: updatedReleaseName,
+              skippedDescription: `updating release "${oldReleaseName}" (old name already equals new name)`
+            });
+          })
+        );
+      } else {
+        logReplacement({
+          wasReplaced: false,
+          replacedDescription: '',
+          skippedDescription:
+            'updating existing GitHub release names (see above skip message)'
+        });
+      }
+
+      // * Update the name field in the root package's package.json file
+      // ? Note that it is updated here but committed to the filesystem later
+
+      rootPackage.json.name = updatedRootPackageName;
+
+      // * Update the package.json::repository of all packages in the project
+      await Promise.all(
+        [rootPackage, ...(subRootPackages?.values() || [])].map(
+          async ({ root: packageRoot, json: packageJson }) => {
+            packageJson.repository = deriveJsonRepositoryValue(
+              deriveGitHubUrl(ownerAndRepo)
+            );
+
+            const packageJsonPath = toPath(packageRoot, packageJsonConfigPackageBase);
+
+            debug(
+              'updating package.json::repository at %O with:',
+              packageJsonPath,
+              packageJson.repository
+            );
+
+            await writeFile(packageJsonPath, JSON.stringify(packageJson));
+          }
+        )
+      );
+
+      logReplacement({
+        replacedDescription: 'Updated the package.json::repository field in all packages'
+      });
+
+      // * Update the origin remote in .git/config accordingly
+
+      const { stdout: oldRemoteUrl } = await run('git', ['remote', 'get-url', 'origin']);
+      const shouldUpdateRemoteUrl = oldRemoteUrl.includes(oldRepoName);
+
+      const updatedRemoteUrl = oldRemoteUrl.replace(
+        new RegExp(`/${escapeStringRegexp(oldRepoName)}(?:\\.git)?$`),
+        updatedRepoName
+      );
+
+      debug('oldRemoteUrl: %O', oldRemoteUrl);
+      debug('shouldUpdateRemoteUrl: %O', shouldUpdateRemoteUrl);
+      debug('updatedRemoteUrl: %O', updatedRemoteUrl);
+
+      if (shouldUpdateRemoteUrl) {
+        await run('git', ['remote', 'set-url', 'origin', updatedRemoteUrl]);
+      }
+
+      logReplacement({
+        wasReplaced: shouldUpdateRemoteUrl,
+        replacedDescription: 'Updated the origin remote repository url',
+        previousValue: oldRemoteUrl,
+        updatedValue: updatedRemoteUrl,
+        skippedDescription: 'updating origin remote url'
+      });
+
+      // * Rename (move) the repository directory on the local filesystem
+
+      const oldRoot = projectRoot;
+      const updatedRoot = toPath(toDirname(projectRoot), updatedRepoName);
+
+      softAssert(
+        !(await isAccessible(updatedRoot, { useCached: false })),
+        ErrorMessage.RenovationDestinationAlreadyExists(updatedRoot)
+      );
+
+      debug('oldRoot: %O', oldRoot);
+      debug('updatedRoot: %O', updatedRoot);
+
+      try {
+        process.chdir(path.parse(getCurrentWorkingDirectory()).root);
+        await renamePath(oldRoot, updatedRoot);
+      } finally {
+        try {
+          // ? That the cwd is what it always is is a core assumption made all
+          // ? over this codebase!
+          process.chdir(oldRoot);
+        } catch (error) {
+          debug.error(
+            'experienced super-fatal error during attempted cleanup: %O',
+            error
+          );
+        }
+      }
+
+      process.chdir(updatedRoot);
+
+      logReplacement({
+        replacedDescription:
+          'Renamed (moved) the project directory on the local filesystem',
+        previousValue: oldRoot,
+        updatedValue: updatedRoot
+      });
+
+      log.newline([LogTag.IF_NOT_HUSHED]);
+
+      log(
+        [LogTag.IF_NOT_HUSHED],
+        `⚠️🚧 The renovation completed successfully! But there are further tasks that must be completed manually:
+
+- The terminal's current working directory is outdated. Change directories now with:
+\`cd ${updatedRoot}\`
+
+- All packages in this project have had their package.json files updated. These changes should be committed with the appropriate scope(s) and, if necessary, new releases should be cut.
+
+- Other tooling may need their configurations updated, such as vscode's project path settings.` +
+          (projectAttributes[ProjectAttribute.Polyrepo] ||
+          projectAttributes[ProjectAttribute.Hybridrepo]
+            ? `
+
+- The root package name being updated necessitates the deprecation of the old package with a message pointing users to install the new package:
+\`npm deprecate '${oldRootPackageName}'\` 'This package has been superseded by \`${updatedRootPackageName}\`'`
+            : '')
+      );
+
+      log.newline([LogTag.IF_NOT_HUSHED]);
+
       // ? Typescript wants this here because of our "as const" for some reason
       return undefined;
     }
