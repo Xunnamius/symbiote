@@ -157,6 +157,8 @@ const canaryProtectRuleset: NewRuleset = {
   bypass_actors: []
 };
 
+const whitespaceRegExp = /\s/;
+
 /**
  * @see {@link ProjectRenovateScope}
  */
@@ -1445,7 +1447,8 @@ Do note that this renovation can also be used to update any GitHub releases name
 
       // * Add new tags with the updated root package name (nothing is deleted)
 
-      const { stdout: tags } = await run('git', ['tag', '--list'], { lines: true });
+      const { stdout: tags_ } = await run('git', ['tag', '--list']);
+      const tags = tags_.split(whitespaceRegExp);
 
       debug('tags: %O', tags);
 

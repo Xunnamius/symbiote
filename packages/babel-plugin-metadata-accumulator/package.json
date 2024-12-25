@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Xunnamius/babel-plugin-metadata-accumulator.git"
+    "url": "git+https://github.com/Xunnamius/symbiote.git"
   },
   "license": "MIT",
   "author": "Xunnamius",
