@@ -1296,12 +1296,6 @@ Do note that this renovation can also be used to update any GitHub releases name
 
       debug('force: %O', force);
       debug('projectRoot: %O', projectRoot);
-      debug('oldRootPackageName: %O', oldRootPackageName);
-      debug('updatedRootPackageName: %O', updatedRootPackageName);
-      debug('updatedRepoName: %O', updatedRepoName);
-      debug('logReplacement: %O', logReplacement);
-      debug('github: %O', github);
-      debug('ownerAndRepo: %O', ownerAndRepo);
 
       // * Rename the origin repository on GitHub
 
@@ -1309,8 +1303,11 @@ Do note that this renovation can also be used to update any GitHub releases name
         data: { name: oldRepoName }
       } = await github.repos.get({ ...ownerAndRepo });
 
-      const shouldUpdateRepoName = oldRepoName !== updatedRepoName;
       debug('oldRepoName: %O', oldRepoName);
+      debug('updatedRepoName: %O', updatedRepoName);
+
+      const shouldUpdateRepoName = oldRepoName !== updatedRepoName;
+      const shouldUpdateRootPackageName = oldRootPackageName !== updatedRootPackageName;
 
       if (shouldUpdateRepoName) {
         await github.repos.update({ ...ownerAndRepo, name: updatedRepoName });
@@ -1324,12 +1321,16 @@ Do note that this renovation can also be used to update any GitHub releases name
         skippedDescription: `updating "${oldRepoName}" repository: old name already equals new name`
       });
 
+      debug('ownerAndRepo (initial): %O', ownerAndRepo);
       ownerAndRepo.repo = updatedRepoName;
-      debug('ownerAndRepo: %O', ownerAndRepo);
+      debug('ownerAndRepo (updated): %O', ownerAndRepo);
 
       // * Update the root package name in GitHub releases
 
-      if (force || shouldUpdateRepoName) {
+      debug('oldRootPackageName: %O', oldRootPackageName);
+      debug('updatedRootPackageName: %O', updatedRootPackageName);
+
+      if (force || shouldUpdateRootPackageName) {
         const oldReleases = await github.paginate(github.repos.listReleases, {
           ...ownerAndRepo
         });
@@ -1356,11 +1357,11 @@ Do note that this renovation can also be used to update any GitHub releases name
             const shouldUpdateReleaseName = oldReleaseName !== updatedReleaseName;
 
             debug('oldReleaseName: %O', oldReleaseName);
+            debug('updatedReleaseName: %O', updatedReleaseName);
             debug(
               'isOldReleaseNameSemverAndRelevant: %O',
               isOldReleaseNameSemverAndRelevant
             );
-            debug('updatedReleaseName: %O', updatedReleaseName);
             debug('shouldUpdateReleaseName: %O', shouldUpdateReleaseName);
 
             if (shouldUpdateReleaseName) {
@@ -1385,7 +1386,7 @@ Do note that this renovation can also be used to update any GitHub releases name
           wasReplaced: false,
           replacedDescription: '',
           skippedDescription:
-            'updating existing GitHub release names since repo name was not updated (use --force to run these updates anyway)'
+            'updating existing GitHub release names since root package name was not updated (use --force to run these updates anyway)'
         });
       }
 
@@ -1411,13 +1412,14 @@ Do note that this renovation can also be used to update any GitHub releases name
             );
 
             await writeFile(packageJsonPath, stringifyJson(packageJson));
+
+            logReplacement({
+              replacedDescription: `Updated package.json::repository field`,
+              updatedValue: `in: ${toRelativePath(projectRoot, packageJsonPath)}`
+            });
           }
         )
       );
-
-      logReplacement({
-        replacedDescription: 'Updated the package.json::repository field in all packages'
-      });
 
       // * Update the origin remote in .git/config accordingly
 
@@ -1431,8 +1433,8 @@ Do note that this renovation can also be used to update any GitHub releases name
       );
 
       debug('oldRemoteUrl: %O', oldRemoteUrl);
-      debug('shouldUpdateRemoteUrl: %O', shouldUpdateRemoteUrl);
       debug('updatedRemoteUrl: %O', updatedRemoteUrl);
+      debug('shouldUpdateRemoteUrl: %O', shouldUpdateRemoteUrl);
 
       if (shouldUpdateRemoteUrl) {
         await run('git', ['remote', 'set-url', 'origin', updatedRemoteUrl]);
@@ -1449,7 +1451,7 @@ Do note that this renovation can also be used to update any GitHub releases name
       // * Add new tags with the updated root package name (nothing is deleted)
 
       const { stdout: tags_ } = await run('git', ['tag', '--list']);
-      const tags = tags_.split(whitespaceRegExp);
+      const currentTags = tags_.split(whitespaceRegExp);
 
       const oldTagExtractSemverRegExp = new RegExp(
         // TODO: isn't this logic somewhere else too? conventional.config?
@@ -1457,51 +1459,108 @@ Do note that this renovation can also be used to update any GitHub releases name
       );
 
       debug('oldTagExtractSemverRegExp: %O', oldTagExtractSemverRegExp);
-      debug('tags: %O', tags);
+      debug('currentTags (length): %O', currentTags.length);
 
-      if (shouldUpdateRepoName && tags.length) {
-        for (const oldTag of tags) {
-          const oldTagSemver =
-            semver.valid(oldTag) || oldTag.match(oldTagExtractSemverRegExp)?.[1];
+      if (currentTags.length) {
+        if (force || shouldUpdateRootPackageName) {
+          for (const oldTag of currentTags) {
+            const oldTagSemver =
+              semver.valid(oldTag) || oldTag.match(oldTagExtractSemverRegExp)?.[1];
 
-          if (oldTagSemver) {
             // TODO: same with this too, isn't this logic repeated elsewhere?
             const aliasTag = `${updatedRootPackageName}@${oldTagSemver}`;
 
-            debug('aliasTag: %O', aliasTag);
+            debug('oldTag: %O', oldTag);
+            debug('oldTagSemver: %O', oldTagSemver);
 
-            // eslint-disable-next-line no-await-in-loop
-            await run('git', [
-              'tag',
-              '-m',
-              `alias => ${oldTag}`,
-              aliasTag,
-              `${oldTag}^{}`
-            ]);
+            if (oldTagSemver) {
+              debug('aliasTag: %O', aliasTag);
+
+              const doesAliasTagAlreadyExist = currentTags.includes(aliasTag);
+              const oldTagCommitterDate = await run('git', [
+                'show',
+                `${oldTag}^{}`,
+                '--format=%aD'
+              ]).then(({ stdout }) => stdout.split('\n')[0]);
+
+              debug('doesAliasTagAlreadyExist: %O', doesAliasTagAlreadyExist);
+              debug('oldTagCommitterDate: %O', oldTagCommitterDate);
+
+              if (doesAliasTagAlreadyExist) {
+                softAssert(
+                  // ? The only time we should be deleting remote tags is when
+                  // ? they are already alias tags; we can be reasonably sure
+                  // ? that if the root package name hasn't updated and force is
+                  // ? being used and we've reached this point, that we're
+                  // ? dealing with our own alias tags that require recreation.
+                  force && !shouldUpdateRootPackageName,
+                  ErrorMessage.RenovationTagAliasAlreadyExists(aliasTag)
+                );
+
+                debug.message('deleting tag %O locally and from origin', oldTag);
+
+                // ? Delete the tag locally
+                await run('git', ['tag', '--delete', oldTag]).catch((error) =>
+                  log.warn(
+                    [LogTag.IF_NOT_QUIETED],
+                    'Failed to delete tag %O from local repository: %O',
+                    oldTag,
+                    error
+                  )
+                );
+
+                // ? Delete the tag from origin
+                await run('git', ['push', 'origin', `:refs/tags/${oldTag}`]).catch(
+                  (error) =>
+                    log.warn(
+                      [LogTag.IF_NOT_QUIETED],
+                      'Failed to delete tag %O from origin remote: %O',
+                      oldTag,
+                      error
+                    )
+                );
+              }
+
+              debug.message('creating new tag %O that aliases %O', aliasTag, oldTag);
+
+              // eslint-disable-next-line no-await-in-loop
+              await run(
+                'git',
+                ['tag', '-m', `alias => ${oldTag}`, aliasTag, `${oldTag}^{}`],
+                {
+                  env: {
+                    // ? We need to preserve the date of the aliased tag
+                    GIT_COMMITTER_DATE: oldTagCommitterDate
+                  }
+                }
+              );
+            }
 
             logReplacement({
-              replacedDescription: `Created alias tag`,
-              updatedValue: `"${aliasTag}" => "${oldTag}"`
-            });
-          } else {
-            logReplacement({
-              wasReplaced: false,
-              replacedDescription: '',
-              skippedDescription: `creating alias tag for "${oldTag}"`
+              wasReplaced: !!oldTagSemver,
+              replacedDescription: `Created alias tag (committer date preserved)`,
+              updatedValue: `"${aliasTag}" => "${oldTag}"`,
+              skippedDescription: `creating alias tag for "${oldTag}": irrelevant or not semver`
             });
           }
+
+          await run('git', ['push', '--follow-tags']);
+
+          logReplacement({
+            replacedDescription: 'Pushed all reachable annotated tags to origin'
+          });
+        } else {
+          logReplacement({
+            wasReplaced: false,
+            replacedDescription: '',
+            skippedDescription: `creating alias tags: root package name has not changed (use --force to delete and recreate relevant alias tags)`
+          });
         }
-
-        await run('git', ['push', '--follow-tags']);
-
-        logReplacement({
-          replacedDescription: 'Pushed all reachable annotated tags to origin'
-        });
       } else {
         logReplacement({
           wasReplaced: false,
           replacedDescription: '',
-          skippedDescription: `creating alias tags: nothing to alias`
+          skippedDescription: 'creating alias tags: no tags to alias'
         });
       }
 
@@ -1509,15 +1568,17 @@ Do note that this renovation can also be used to update any GitHub releases name
 
       const oldRoot = projectRoot;
       const updatedRoot = toPath(toDirname(projectRoot), updatedRepoName);
+      const shouldMoveProjectRoot = oldRoot !== updatedRoot;
 
-      if (shouldUpdateRepoName) {
+      debug('oldRoot: %O', oldRoot);
+      debug('updatedRoot: %O', updatedRoot);
+      debug('shouldMoveProjectRoot: %O', shouldMoveProjectRoot);
+
+      if (shouldMoveProjectRoot) {
         softAssert(
           !(await isAccessible(updatedRoot, { useCached: false })),
           ErrorMessage.RenovationDestinationAlreadyExists(updatedRoot)
         );
-
-        debug('oldRoot: %O', oldRoot);
-        debug('updatedRoot: %O', updatedRoot);
 
         try {
           process.chdir(path.parse(getCurrentWorkingDirectory()).root);
@@ -1536,38 +1597,33 @@ Do note that this renovation can also be used to update any GitHub releases name
         }
 
         process.chdir(updatedRoot);
-
-        logReplacement({
-          replacedDescription:
-            'Renamed (moved) the project directory on the local filesystem',
-          previousValue: oldRoot,
-          updatedValue: updatedRoot
-        });
-      } else {
-        logReplacement({
-          wasReplaced: false,
-          replacedDescription: '',
-          skippedDescription: `renaming (moving) project directory: path has not changed`
-        });
       }
+
+      logReplacement({
+        wasReplaced: shouldMoveProjectRoot,
+        replacedDescription:
+          'Renamed (moved) the project directory on the local filesystem',
+        previousValue: oldRoot,
+        updatedValue: updatedRoot,
+        skippedDescription: `renaming (moving) project directory: path has not changed`
+      });
 
       log.newline([LogTag.IF_NOT_HUSHED]);
 
       if (!isHushed) {
         process.stdout.write(
-          `⚠️🚧 The renovation completed successfully! But there are further tasks that must be completed manually:
-
-- The terminal's current working directory may be outdated. Change directories now with:
-cd ${updatedRoot}
-
-- All packages in this project may have had their package.json files updated. These changes should be reviewed and committed with the appropriate scope(s). If necessary, new releases should also be cut.
+          `⚠️🚧 The renovation completed successfully! But there are further tasks that must be completed manually:` +
+            (shouldMoveProjectRoot
+              ? `\n\n- The terminal's current working directory may be outdated. Change directories now with:\ncd ${updatedRoot}`
+              : '') +
+            `\n
+- Several packages in this project may have had their package.json files updated. Any changes should be reviewed and committed with the appropriate scope(s). If necessary, new releases should also be cut.
 
 - Other tooling may need their configurations updated, such as VS Code's workspace settings. Note that Codecov should recognize the rename automatically and update of its own accord; no changes to CODECOV_TOKEN are required.` +
-            (oldRootPackageName !== updatedRootPackageName &&
+            (shouldUpdateRootPackageName &&
             (projectAttributes[ProjectAttribute.Polyrepo] ||
               projectAttributes[ProjectAttribute.Hybridrepo])
-              ? `
-
+              ? `\n
 - The root package name being updated necessitates the deprecation of the old package with a message pointing users to install the new package:
 npm deprecate '${oldRootPackageName}'\` 'This package has been superseded by \`${updatedRootPackageName}\`'`
               : '') +

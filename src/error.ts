@@ -304,6 +304,9 @@ export const ErrorMessage = {
   RenovationDestinationAlreadyExists(path: string) {
     return `destination path already exists; move/delete it before retrying: ${path}`;
   },
+  RenovationTagAliasAlreadyExists(tag: string) {
+    return `alias tag "${tag}" cannot be created because it already exists (try again with --force to delete and recreate)`;
+  },
   /**
    * These are "error" messages that are not necessarily meant to be the message
    * of an {@link Error} instance, but are reported to the user in other ways
