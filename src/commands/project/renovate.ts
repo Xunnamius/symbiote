@@ -763,7 +763,8 @@ By default, this command will preserve the origin repository's pre-existing conf
       hardAssert(projectMetadata, ErrorMessage.GuruMeditation());
 
       const {
-        cwdPackage: { json },
+        // * Since "this-package" is not supported, we can't use cwdPackage
+        rootPackage: { json },
         subRootPackages
       } = projectMetadata;
 
@@ -1289,6 +1290,7 @@ By default, this command will preserve the origin repository's pre-existing conf
       const argv = argv_ as RenovationTaskArgv;
       checkRuntimeIsReadyForGithub(argv, log);
 
+      // * Since "this-package" is not supported, we can't use cwdPackage
       // TODO: countdown, press any key to unpause immediately
       log.message([LogTag.IF_NOT_SILENCED], `✖️ This task is currently a no-op (todo)`);
       // ? Typescript wants this here because of our "as const" for some reason
@@ -1334,6 +1336,7 @@ By default, this command will preserve the origin repository's pre-existing conf
       const argv = argv_ as RenovationTaskArgv;
       checkRuntimeIsReadyForGithub(argv, log);
 
+      // * Since "this-package" is not supported, we can't use cwdPackage
       // TODO: do not proceed if the .wiki dir already exists unless --force
       // TODO: create wiki via GitHub api if it does not already exist
       log.message([LogTag.IF_NOT_SILENCED], `✖️ This task is currently a no-op (todo)`);
@@ -1358,6 +1361,7 @@ By default, this command will preserve the origin repository's pre-existing conf
       const argv = argv_ as RenovationTaskArgv;
       checkRuntimeIsReadyForGithub(argv, log);
 
+      // * Since "this-package" is not supported, we can't use cwdPackage
       // TODO: default branch => main
       log.message([LogTag.IF_NOT_SILENCED], `✖️ This task is currently a no-op (todo)`);
       // ? Typescript wants this here because of our "as const" for some reason
@@ -1380,6 +1384,7 @@ By default, this command will preserve the origin repository's pre-existing conf
     async run(argv_, { log }) {
       const argv = argv_ as RenovationTaskArgv;
 
+      // * Since "this-package" is not supported, we can't use cwdPackage
       // TODO: only since [INIT] (if found)
       void argv;
       log.message([LogTag.IF_NOT_SILENCED], `✖️ This task is currently a no-op (todo)`);
@@ -1507,7 +1512,7 @@ See the xscripts wiki documentation for more details on this command and all ava
       hardAssert(projectMetadata, ErrorMessage.GuruMeditation());
 
       const {
-        cwdPackage: { root: packageRoot },
+        // * Since "this-package" is not supported, we can't use cwdPackage
         rootPackage: { root: projectRoot, json: projectJson }
       } = projectMetadata;
 
@@ -1519,7 +1524,9 @@ See the xscripts wiki documentation for more details on this command and all ava
         debug,
 
         toPackageAbsolutePath: (...pathsLike) =>
-          toAbsolutePath(packageRoot, ...pathsLike),
+          hardAssert(
+            ErrorMessage.CannotGenerateCurrentPackagePathInUnlimitedScope(pathsLike)
+          ),
         toProjectAbsolutePath: (...pathsLike) =>
           toAbsolutePath(projectRoot, ...pathsLike),
 
