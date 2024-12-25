@@ -1229,7 +1229,7 @@ By default, this command will preserve the origin repository's pre-existing conf
 
 6. In a hybridrepo or polyrepo, add new annotated tags with the updated root package name as respective aliases of tags with the old package name, and then push them to the origin repository. If --force is given, local and remote tags matching the old package name (WHICH MAY MATCH THE "NEW" PACKAGE NAME WHEN RE-RUNNING THIS COMMAND) will be DELETED and RECREATED. THIS IS POTENTIALLY VERY DANGEROUS and can damage existing releases if done without proper consideration.
 
-Do not call this renovation with --force if the repository has published non-alias tags that look like alias tags. If you do, those non-alias tags will be deleted and recreated, which may break corresponding GitHub releases and other tooling.
+⚠🚧 Do not call this renovation with --force if the repository has published non-alias tags that look like alias tags. If you do, those non-alias tags will be deleted and recreated, which may break corresponding GitHub releases and other tooling.
 
 7. Rename (move) the repository directory on the local filesystem, if the repository name has changed. If the destination directory path already exists, this step will fail.
 
