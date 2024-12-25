@@ -1248,6 +1248,7 @@ By default, this command will preserve the origin repository's pre-existing conf
       checkRuntimeIsReadyForGithub(argv, log);
 
       const {
+        force,
         newRepoName: _newRepoName,
         newRootPackageName: _newRootPackageName,
         [$executionContext]: { projectMetadata }
@@ -1270,6 +1271,7 @@ By default, this command will preserve the origin repository's pre-existing conf
       const github = await makeOctokit({ debug, log });
       const ownerAndRepo = parsePackageJsonRepositoryIntoOwnerAndRepo(rootPackage.json);
 
+      debug('force: %O', force);
       debug('projectRoot: %O', projectRoot);
       debug('oldRootPackageName: %O', oldRootPackageName);
       debug('updatedRepoName: %O', updatedRepoName);
@@ -1304,7 +1306,7 @@ By default, this command will preserve the origin repository's pre-existing conf
 
       // * Update the root package name in GitHub releases
 
-      if (shouldUpdateRepoName) {
+      if (force || shouldUpdateRepoName) {
         const oldReleases = await github.paginate(github.repos.listReleases, {
           ...ownerAndRepo
         });
@@ -1352,7 +1354,7 @@ By default, this command will preserve the origin repository's pre-existing conf
           wasReplaced: false,
           replacedDescription: '',
           skippedDescription:
-            'updating existing GitHub release names (see above skip message)'
+            'updating existing GitHub release names since repo name was not updated (use --force to run these updates anyway)'
         });
       }
 
