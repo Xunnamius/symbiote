@@ -298,10 +298,8 @@ export default function command(
   return {
     builder,
     description: 'Bring a project into compliance with latest best practices',
-    usage:
-      withGlobalUsage(`$1 via the execution of one or more renovation "tasks". A task is executed by specifying its renovation "task flag", e.g. --an-example-task-flag. The following task flags are available:
-
-${printRenovationTasks()}
+    usage: withGlobalUsage(
+      `$1 via the execution of one or more renovation "tasks". A task is executed by specifying its renovation "task flag", e.g. --an-example-task-flag. All available task flags are enumerated in detail at the end of this help text.
 
 This command must be invoked with at least one task flag. Tasks are run concurrently unless --no-parallel is given, and are all run to completion even if one of the tasks fails unless --run-to-completion=false is given.
 
@@ -315,7 +313,11 @@ Renovations are performed on the entire project by default, and typically involv
 
 If this command is invoked in a repository with an unclean working directory, it will fail unless --force is given. Similarly, tasks with potentially destructive or permanent consequences must be manually authorized via --force. That said, all renovation tasks are idempotent: running the same renovations back-to-back on an otherwise-unchanged project/package is essentially a no-op.
 
-Currently, this command only functions with origin repositories hosted on GitHub.`),
+Currently, this command only functions with origin repositories hosted on GitHub.
+
+${printRenovationTasks()}`,
+      { appendPeriod: false }
+    ),
     handler: withGlobalHandler(async function (argv) {
       const { $0: scriptFullName, scope, parallel, force, runToCompletion } = argv;
 
@@ -517,7 +519,7 @@ function renovationTasksToBlackFlagOptions(
           ...Object.entries(subOptions).map(([optionName, subOption]) => [
             optionName,
             {
-              group: 'Task-dependent Options:',
+              group: 'Task Options:',
               ...subOption,
               requires: { ...subOption.requires, [taskName]: true }
             }
@@ -584,7 +586,7 @@ function printRenovationTasks() {
     const subOptionNames = Object.keys(subOptions);
     hardAssert(supportedScopes.length, ErrorMessage.GuruMeditation());
 
-    tasksString += `Renovation task:${SINGLE_SPACE} --${taskName} ${emoji}${requiresForce ? ` (requires --force)` : ''}${
+    tasksString += `\n\n=====\n\nRenovation task:${SINGLE_SPACE} --${taskName} ${emoji}${requiresForce ? ` (requires --force)` : ''}${
       taskAliases.length
         ? `\nTask aliases:${SINGLE_SPACE.repeat(4)} --${taskAliases.join(', --')}`
         : ''
@@ -595,10 +597,10 @@ function printRenovationTasks() {
     }
 Supported scopes: ${supportedScopes.join(', ')}
 
-${longHelpDescription.trim()}\n\n=====\n\n`;
+${longHelpDescription.trim()}`;
   }
 
-  return tasksString.trim();
+  return `====================\n\nAVAILABLE RENOVATION TASKS\n\n${tasksString.trim()}\n\n====================`;
 }
 
 function checkRuntimeIsReadyForGithub(argv: RenovationTaskArgv, log: ExtendedLogger) {
@@ -1209,7 +1211,7 @@ By default, this command will preserve the origin repository's pre-existing conf
     taskAliases: [],
     actionDescription: 'Updating origin repository name and relevant metadata',
     shortHelpDescription:
-      'Rename the origin repository and the root package, and update any relevant metadata accordingly',
+      'Rename the origin repo and root package, and update related metadata',
     longHelpDescription: `This renovation will (1) rename the origin repository on GitHub, (2) update the package name in the origin repository's releases on GitHub, (3) update the name field in the root package's package.json file, (4) update the package.json::repository of all packages in the project, (5) update the origin remote in .git/config, and (6) rename (move) the repository directory on the local filesystem.\n\nIf any step fails, the renovation will abort immediately.`,
     requiresForce: false,
     supportedScopes: [ProjectRenovateScope.Unlimited],
