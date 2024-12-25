@@ -1471,7 +1471,7 @@ By default, this command will preserve the origin repository's pre-existing conf
 - The terminal's current working directory is outdated. Change directories now with:
 \`cd ${updatedRoot}\`
 
-- All packages in this project have had their package.json files updated. These changes should be committed with the appropriate scope(s) and, if necessary, new releases should be cut.
+- All packages in this project have had their package.json files updated. These changes should be reviewed and committed with the appropriate scope(s). If necessary, new releases should also be cut.
 
 - Other tooling may need their configurations updated, such as vscode's project path settings.` +
           (projectAttributes[ProjectAttribute.Polyrepo] ||
