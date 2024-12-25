@@ -775,6 +775,7 @@ By default, this command will preserve the origin repository's pre-existing conf
         homepage
       } = json;
 
+      const logReplacement = makeReplacementLogger(log);
       const github = await makeOctokit({ debug, log });
       const ownerAndRepo = parsePackageJsonRepositoryIntoOwnerAndRepo(json);
 
@@ -1144,50 +1145,6 @@ By default, this command will preserve the origin repository's pre-existing conf
           previousValue: previousValue,
           updatedValue: updatedValue
         });
-      }
-
-      function logReplacement(
-        input:
-          | {
-              wasReplaced?: undefined;
-              replacedDescription: string;
-              skippedDescription?: undefined;
-              previousValue?: unknown;
-              updatedValue?: unknown;
-            }
-          | {
-              wasReplaced: boolean;
-              replacedDescription: string;
-              skippedDescription: string;
-              previousValue?: unknown;
-              updatedValue?: unknown;
-            }
-      ) {
-        const {
-          wasReplaced = true,
-          replacedDescription,
-          skippedDescription = ''
-        } = input;
-
-        if (wasReplaced) {
-          log([LogTag.IF_NOT_QUIETED], `✅ ${replacedDescription}`);
-
-          if ('previousValue' in input) {
-            log(
-              [LogTag.IF_NOT_HUSHED],
-              `Original value:  ${String(input.previousValue)}`
-            );
-          }
-
-          if ('updatedValue' in input) {
-            log(
-              [LogTag.IF_NOT_HUSHED],
-              `Committed value: ${String(input.updatedValue)}`
-            );
-          }
-        } else {
-          log([LogTag.IF_NOT_QUIETED], `✖️ Skipped ${skippedDescription}`);
-        }
       }
 
       async function createOrUpdateRuleset(
@@ -1882,4 +1839,40 @@ function rethrowErrorIfNotStatus404(errorResponse: unknown) {
   }
 
   return undefined;
+}
+
+function makeReplacementLogger(log: ExtendedLogger) {
+  return function (
+    input:
+      | {
+          wasReplaced?: undefined;
+          replacedDescription: string;
+          skippedDescription?: undefined;
+          previousValue?: unknown;
+          updatedValue?: unknown;
+        }
+      | {
+          wasReplaced: boolean;
+          replacedDescription: string;
+          skippedDescription: string;
+          previousValue?: unknown;
+          updatedValue?: unknown;
+        }
+  ) {
+    const { wasReplaced = true, replacedDescription, skippedDescription = '' } = input;
+
+    if (wasReplaced) {
+      log([LogTag.IF_NOT_QUIETED], `✅ ${replacedDescription}`);
+
+      if ('previousValue' in input) {
+        log([LogTag.IF_NOT_HUSHED], `Original value:  ${String(input.previousValue)}`);
+      }
+
+      if ('updatedValue' in input) {
+        log([LogTag.IF_NOT_HUSHED], `Committed value: ${String(input.updatedValue)}`);
+      }
+    } else {
+      log([LogTag.IF_NOT_QUIETED], `✖️ Skipped ${skippedDescription}`);
+    }
+  };
 }
