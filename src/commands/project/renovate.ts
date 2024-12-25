@@ -1480,7 +1480,7 @@ Do note that this renovation can also be used to update any GitHub releases name
 
             logReplacement({
               replacedDescription: `Created alias tag`,
-              updatedValue: `"${oldTag}" => "${aliasTag}"`
+              updatedValue: `"${aliasTag}" => "${oldTag}"`
             });
           } else {
             logReplacement({
