@@ -1470,7 +1470,7 @@ To create and recreate alias tags for existing release tags with more fidelity a
               semver.valid(oldTag) || oldTag.match(oldTagExtractSemverRegExp)?.[1];
 
             // TODO: same with this too, isn't this logic repeated elsewhere?
-            const aliasTag = `${updatedRootPackageName}@${oldTagSemver}`;
+            const aliasTag = `${updatedRootPackageName}@${oldTagSemver || ''}`;
 
             debug('oldTag: %O', oldTag);
             debug('oldTagSemver: %O', oldTagSemver);
@@ -1482,6 +1482,7 @@ To create and recreate alias tags for existing release tags with more fidelity a
               debug('shouldCreateNewAliasTag: %O', shouldCreateNewAliasTag);
 
               if (shouldCreateNewAliasTag) {
+                // eslint-disable-next-line no-await-in-loop
                 const oldTagCommitterDate = await run('git', [
                   'show',
                   `${oldTag}^{}`,
