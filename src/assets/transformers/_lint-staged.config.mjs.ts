@@ -7,9 +7,7 @@ import { globalDebuggerNamespace } from 'universe:constant.ts';
 
 export function moduleExport() {
   return {
-    '*.md': 'npx symbiote format --only-markdown --files',
-    'package.json': 'npx symbiote format --only-package-json --files',
-    '*': 'npx symbiote format --only-prettier --files'
+    '*': 'npx symbiote format --files'
   } as const;
 }
 
