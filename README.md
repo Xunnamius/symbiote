@@ -6,11 +6,8 @@
 
 <p align="center" width="100%">
 <!-- xscripts-template-region-end -->
-
-The NPM-based tooling that underpin all of my projects.
-
+Eddie Brock is your repo. This tool is the suit.
 <!-- xscripts-template-region-start 2 -->
-
 </p>
 
 <hr />

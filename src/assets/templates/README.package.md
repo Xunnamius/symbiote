@@ -6,11 +6,8 @@
 
 <p align="center" width="100%">
 <!-- xscripts-template-region-end -->
-
-{{projectMetadata.cwdPackage.json.description|<!-- TODO -->}}
-
+{{projectMetadata.cwdPackage.json.description|<!-- TODO: a brief description/blurb -->}}
 <!-- xscripts-template-region-start 2 -->
-
 </p>
 
 <hr />
