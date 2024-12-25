@@ -1419,7 +1419,8 @@ Do note that this renovation can also be used to update any GitHub releases name
       // * Update the origin remote in .git/config accordingly
 
       const { stdout: oldRemoteUrl } = await run('git', ['remote', 'get-url', 'origin']);
-      const shouldUpdateRemoteUrl = force || oldRemoteUrl.includes(oldRepoName);
+      const shouldUpdateRemoteUrl =
+        force || (shouldUpdateRepoName && oldRemoteUrl.includes(oldRepoName));
 
       const updatedRemoteUrl = oldRemoteUrl.replace(
         new RegExp(`/${force ? '[^/]+' : escapeStringRegexp(oldRepoName)}(?:\\.git)?$`),
