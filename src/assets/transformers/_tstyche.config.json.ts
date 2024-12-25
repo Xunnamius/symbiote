@@ -1,6 +1,7 @@
 import { tstycheConfigProjectBase } from 'multiverse+project-utils:fs.ts';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
+import { stringifyJson } from 'universe:util.ts';
 
 export const { transformer } = makeTransformer(function (context) {
   const { toProjectAbsolutePath } = context;
@@ -11,14 +12,10 @@ export const { transformer } = makeTransformer(function (context) {
       {
         path: toProjectAbsolutePath(tstycheConfigProjectBase),
         generate: () =>
-          JSON.stringify(
-            {
-              $schema: 'https://tstyche.org/schemas/config.json',
-              testFileMatch: ['**/type-*.test.ts', '**/type-*.test.tsx']
-            },
-            undefined,
-            2
-          )
+          stringifyJson({
+            $schema: 'https://tstyche.org/schemas/config.json',
+            testFileMatch: ['**/type-*.test.ts', '**/type-*.test.tsx']
+          })
       }
     ];
   });

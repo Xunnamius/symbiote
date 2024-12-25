@@ -69,7 +69,7 @@ import {
 import { globalDebuggerNamespace } from 'universe:constant.ts';
 import { ErrorMessage } from 'universe:error.ts';
 
-import type { LiteralUnion, Merge } from 'type-fest';
+import type { Jsonifiable, LiteralUnion, Merge } from 'type-fest';
 import type { RawAliasMapping } from 'multiverse+project-utils:alias.ts';
 import type { TransformerContext } from 'universe:assets.ts';
 
@@ -864,6 +864,14 @@ export async function importAdditionalRawAliasMappings(
   }
 
   return [];
+}
+
+/**
+ * Take a JavaScript object and return its stringified form with some semblance
+ * of proper formatting.
+ */
+export function stringifyJson(o: Jsonifiable, spaceTabs = 2) {
+  return JSON.stringify(o, undefined, spaceTabs);
 }
 
 // TODO: probably prudent to make these part of cli-utils

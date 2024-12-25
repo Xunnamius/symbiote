@@ -12,6 +12,7 @@ import {
 } from 'universe:assets.ts';
 
 import { makeGeneratedAliasesWarningComment } from 'universe:constant.ts';
+import { stringifyJson } from 'universe:util.ts';
 
 // {@xscripts/notExtraneous typescript}
 
@@ -184,11 +185,7 @@ export const { transformer } = makeTransformer(async function (context) {
   const { shouldDeriveAliases, projectMetadata, toProjectAbsolutePath } = context;
 
   const derivedAliasesSourceSnippet = shouldDeriveAliases
-    ? JSON.stringify(
-        deriveAliasesForTypeScript(generateRawAliasMap(projectMetadata)),
-        undefined,
-        6
-      )
+    ? stringifyJson(deriveAliasesForTypeScript(generateRawAliasMap(projectMetadata)), 6)
         // ? Make it a bit prettier
         .replaceAll(/\[\s+"/g, '["')
         .replaceAll(/"\s+\]/g, '"]')

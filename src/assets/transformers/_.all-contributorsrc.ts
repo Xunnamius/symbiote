@@ -6,6 +6,8 @@ import {
   makeTransformer
 } from 'universe:assets.ts';
 
+import { stringifyJson } from 'universe:util.ts';
+
 // {@xscripts/notExtraneous all-contributors-cli}
 
 export const { transformer } = makeTransformer(function (context) {
@@ -22,38 +24,27 @@ export const { transformer } = makeTransformer(function (context) {
       {
         path: toProjectAbsolutePath(allContributorsConfigProjectBase),
         generate: () =>
-          JSON.stringify(
-            {
-              projectName: repoName,
-              projectOwner: 'Xunnamius',
-              repoType: 'github',
-              repoHost: 'https://github.com',
-              files: ['README.md'],
-              imageSize: 100,
-              commit: false,
-              commitConvention: 'angular',
-              contributors: [
-                {
-                  login: 'Xunnamius',
-                  name: 'Bernard',
-                  avatar_url: 'https://avatars.githubusercontent.com/u/656017?v=4',
-                  profile: 'https://xunn.io/',
-                  contributions: [
-                    'infra',
-                    'code',
-                    'doc',
-                    'maintenance',
-                    'test',
-                    'review'
-                  ]
-                }
-              ],
-              contributorsPerLine: 7,
-              linkToUsage: true
-            },
-            undefined,
-            2
-          )
+          stringifyJson({
+            projectName: repoName,
+            projectOwner: 'Xunnamius',
+            repoType: 'github',
+            repoHost: 'https://github.com',
+            files: ['README.md'],
+            imageSize: 100,
+            commit: false,
+            commitConvention: 'angular',
+            contributors: [
+              {
+                login: 'Xunnamius',
+                name: 'Bernard',
+                avatar_url: 'https://avatars.githubusercontent.com/u/656017?v=4',
+                profile: 'https://xunn.io/',
+                contributions: ['infra', 'code', 'doc', 'maintenance', 'test', 'review']
+              }
+            ],
+            contributorsPerLine: 7,
+            linkToUsage: true
+          })
       }
     ];
   });

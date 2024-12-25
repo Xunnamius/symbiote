@@ -44,6 +44,7 @@ import {
 } from 'universe:constant.ts';
 
 import { ErrorMessage } from 'universe:error.ts';
+import { stringifyJson } from 'universe:util.ts';
 
 import type { TransformOptions as BabelConfig } from '@babel/core';
 import type { Options as BabelPresetEnvConfig } from '@babel/preset-env';
@@ -334,9 +335,8 @@ export function moduleExport({
 export const { transformer } = makeTransformer(function (context) {
   const { asset, shouldDeriveAliases, projectMetadata, toProjectAbsolutePath } = context;
   const derivedAliasesSourceSnippet = shouldDeriveAliases
-    ? `return ${JSON.stringify(
+    ? `return ${stringifyJson(
         deriveAliasesForBabel(generateRawAliasMap(projectMetadata)),
-        undefined,
         4
       ).replace(/^}/m, '  }')}`
     : 'return {}';

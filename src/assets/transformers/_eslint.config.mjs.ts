@@ -49,6 +49,7 @@ import {
 } from 'universe:constant.ts';
 
 import { ErrorMessage } from 'universe:error.ts';
+import { stringifyJson } from 'universe:util.ts';
 
 import {
   extensionsJavascript,
@@ -759,9 +760,8 @@ export const { transformer } = makeTransformer(function ({
   projectMetadata
 }) {
   const derivedAliasesSourceSnippet = shouldDeriveAliases
-    ? `return ${JSON.stringify(
+    ? `return ${stringifyJson(
         deriveAliasesForEslint(generateRawAliasMap(projectMetadata)),
-        undefined,
         4
       )
         // ? Make it a bit prettier

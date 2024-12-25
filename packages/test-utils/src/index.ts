@@ -895,7 +895,11 @@ export function npmCopySelfFixture(): MockFixture {
 
       await writeFile({
         path: destinationPackageJson,
-        data: JSON.stringify({ ...dummyPackageJson, dependencies: installTargets }),
+        data: JSON.stringify(
+          { ...dummyPackageJson, dependencies: installTargets },
+          undefined,
+          2
+        ),
         context
       });
 

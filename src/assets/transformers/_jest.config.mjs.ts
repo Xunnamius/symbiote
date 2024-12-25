@@ -19,6 +19,7 @@ import {
 } from 'universe:constant.ts';
 
 import { ErrorMessage } from 'universe:error.ts';
+import { stringifyJson } from 'universe:util.ts';
 
 const debug = createDebugLogger({
   namespace: `${globalDebuggerNamespace}:asset:jest`
@@ -131,9 +132,8 @@ export const { transformer } = makeTransformer(function (context) {
   const { asset, shouldDeriveAliases, projectMetadata, toProjectAbsolutePath } = context;
 
   const derivedAliasesSourceSnippet = shouldDeriveAliases
-    ? `return ${JSON.stringify(
+    ? `return ${stringifyJson(
         deriveAliasesForJest(generateRawAliasMap(projectMetadata)),
-        undefined,
         4
       ).replace(/^}/m, '  }')}`
     : 'return {}';

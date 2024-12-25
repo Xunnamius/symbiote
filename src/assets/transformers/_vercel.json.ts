@@ -6,6 +6,8 @@ import {
   makeTransformer
 } from 'universe:assets.ts';
 
+import { stringifyJson } from 'universe:util.ts';
+
 export const { transformer } = makeTransformer(function (context) {
   const { toProjectAbsolutePath, assetPreset } = context;
 
@@ -19,7 +21,7 @@ export const { transformer } = makeTransformer(function (context) {
       {
         // TODO:
         path: toProjectAbsolutePath(vercelConfigProjectBase),
-        generate: () => JSON.stringify({}, undefined, 2)
+        generate: () => stringifyJson({})
       }
     ];
   });

@@ -25,6 +25,7 @@ import {
 } from 'universe:assets.ts';
 
 import { ErrorMessage } from 'universe:error.ts';
+import { stringifyJson } from 'universe:util.ts';
 
 export type GeneratorParameters = [
   json: Package['json'] &
@@ -303,5 +304,5 @@ export const { transformer } = makeTransformer(function (context) {
 });
 
 function stringify(o: Jsonifiable, context: TransformerContext) {
-  return compileTemplateInMemory(JSON.stringify(o, undefined, 2), context);
+  return compileTemplateInMemory(stringifyJson(o), context);
 }

@@ -20,7 +20,7 @@ import {
   wellKnownCommitTypes
 } from 'universe:assets/transformers/_conventional.config.cjs.ts';
 
-import { noSpecialInitialCommitIndicator } from 'universe:util.ts';
+import { noSpecialInitialCommitIndicator, stringifyJson } from 'universe:util.ts';
 
 import { fixtureToProjectMetadata } from 'testverse+project-utils:helpers/dummy-repo.ts';
 
@@ -970,11 +970,7 @@ function getBaseEnvironmentConfig({
     testIdentifier: testIdentifier ?? TEST_IDENTIFIER,
     options: {
       performCleanup: true,
-      initialFileContents: {
-        'package.json': JSON.stringify({
-          name: 'dummy-pkg'
-        })
-      },
+      initialFileContents: { 'package.json': stringifyJson({ name: 'dummy-pkg' }) },
       use: [dummyNpmPackageFixture(), gitRepositoryFixture()],
       ...options
     }
@@ -1027,7 +1023,7 @@ async function withMockedFixtureWrapper(
   const { test: customFn } = incomingConfig;
   const config = getBaseEnvironmentConfig(incomingConfig);
 
-  config.options.initialFileContents['package.json'] = JSON.stringify(dummyPackageJson);
+  config.options.initialFileContents['package.json'] = stringifyJson(dummyPackageJson);
 
   return withMockedFixture({
     ...config,
@@ -1158,7 +1154,7 @@ function generatePatchesForEnvironment6(): TestEnvironmentPatch[] {
       async callback({ context: { git, fs } }) {
         await fs.writeFile({
           path: 'package.json',
-          data: JSON.stringify({
+          data: stringifyJson({
             ...JSON.parse(await fs.readFile({ path: 'package.json' })),
             version: '0.1.0'
           })
@@ -1181,7 +1177,7 @@ function generatePatchesForEnvironment7(): TestEnvironmentPatch[] {
       async callback({ context: { git, fs } }) {
         await fs.writeFile({
           path: 'package.json',
-          data: JSON.stringify({
+          data: stringifyJson({
             ...JSON.parse(await fs.readFile({ path: 'package.json' })),
             version: '0.2.0'
           })
@@ -1200,7 +1196,7 @@ function generatePatchesForEnvironment8(): TestEnvironmentPatch[] {
       async callback({ context: { git, fs } }) {
         await fs.writeFile({
           path: 'package.json',
-          data: JSON.stringify({
+          data: stringifyJson({
             ...JSON.parse(await fs.readFile({ path: 'package.json' })),
             version: '0.2.1'
           })
@@ -1224,7 +1220,7 @@ function generatePatchesForEnvironment9(): TestEnvironmentPatch[] {
       async callback({ context: { git, fs } }) {
         await fs.writeFile({
           path: 'package.json',
-          data: JSON.stringify({
+          data: stringifyJson({
             ...JSON.parse(await fs.readFile({ path: 'package.json' })),
             version: '1.0.0'
           })
@@ -1249,7 +1245,7 @@ function generatePatchesForEnvironment10(): TestEnvironmentPatch[] {
       async callback({ context: { git, fs } }) {
         await fs.writeFile({
           path: 'package.json',
-          data: JSON.stringify({
+          data: stringifyJson({
             ...JSON.parse(await fs.readFile({ path: 'package.json' })),
             version: '1.1.0'
           })
@@ -1275,7 +1271,7 @@ function generatePatchesForEnvironment11(): TestEnvironmentPatch[] {
       async callback({ context: { git, fs } }) {
         await fs.writeFile({
           path: 'package.json',
-          data: JSON.stringify({
+          data: stringifyJson({
             ...JSON.parse(await fs.readFile({ path: 'package.json' })),
             version: '1.1.1'
           })
