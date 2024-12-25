@@ -868,10 +868,10 @@ export async function importAdditionalRawAliasMappings(
 
 /**
  * Take a JavaScript object and return its stringified form with some semblance
- * of proper formatting.
+ * of proper formatting. Also appends a newline.
  */
 export function stringifyJson(o: Jsonifiable, spaceTabs = 2) {
-  return JSON.stringify(o, undefined, spaceTabs);
+  return JSON.stringify(o, undefined, spaceTabs) + '\n';
 }
 
 // TODO: probably prudent to make these part of cli-utils
