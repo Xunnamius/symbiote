@@ -1651,16 +1651,32 @@ Do note that this renovation can also be used to update any GitHub releases name
     actionDescription: 'Generating scoped aliases for each non-scoped version tag',
     shortHelpDescription:
       'Generate a scoped version tag for each non-scoped version tag',
-    longHelpDescription: `This renovation creates an alias of each old-style version tag in the repository going all the way back to the initial commit.\n\nNote that this renovation will respect the "[INIT]" xpipeline command when it appears in commit messages. See the xscripts wiki and xchangelog/xrelease documentation for details on xpipeline command semantics.`,
+    longHelpDescription: `This renovation creates an alias of each old-style version tag in the repository going all the way back to the initial commit. The alias tags will be named according to --tag-scope, i.e.: \`\${tagScope}@\${toSemver(oldStyleTag)}\`.
+
+Note that this renovation will respect the "[INIT]" xpipeline command when it appears in commit messages. See the xscripts wiki and xchangelog/xrelease documentation for details on xpipeline command semantics.`,
     requiresForce: false,
     supportedScopes: [ProjectRenovateScope.Unlimited],
-    subOptions: {},
+    subOptions: {
+      'tag-scope': {
+        string: true,
+        description: 'The characters preceding "@" in newly created alias tags',
+        subOptionOf: {
+          'generate-scoped-tags': {
+            when: (superOptionValue) => superOptionValue,
+            update(oldOptionConfig) {
+              return { ...oldOptionConfig, demandThisOption: true };
+            }
+          }
+        }
+      }
+    },
     conflicts: conflictingUpstreamRenovationTasks.filter(
       (o) => !o['generate-scoped-tags']
     ),
     async run(argv_, { log }) {
       const argv = argv_ as RenovationTaskArgv;
 
+      // TODO: the logic for this is pretty much done in --github-rename-root
       // * Since "this-package" is not supported, we can't use cwdPackage
       // TODO: only since [INIT] (if found)
       void argv;
