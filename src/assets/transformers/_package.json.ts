@@ -48,10 +48,7 @@ export function generateBaseXPackageJson(
     bugs: {
       url: `${repoUrl}/issues`
     },
-    repository: {
-      type: 'git',
-      url: `git+${repoUrl}.git`
-    },
+    repository: deriveJsonRepositoryValue(repoUrl),
     license: incomingPackageJson.license ?? 'MIT',
     author: incomingPackageJson.author ?? 'Xunnamius',
     sideEffects: incomingPackageJson.sideEffects ?? false,
@@ -182,6 +179,28 @@ export function parsePackageJsonRepositoryIntoOwnerAndRepo({
   throw new ProjectError(ErrorMessage.BadRepositoryInPackageJson(name));
 }
 
+/**
+ * Takes a `repoUrl` and returns a {@link XPackageJson.repository} non-primitive
+ * object.
+ */
+export function deriveJsonRepositoryValue(repoUrl: string) {
+  return {
+    type: 'git',
+    url: `git+${repoUrl}.git`
+  } satisfies NonNullable<XPackageJson['repository']>;
+}
+
+/**
+ * Takes an `owner` and a `repo` and returns a URL pointing to a GitHub
+ * repository.
+ */
+export function deriveGitHubUrl({
+  owner,
+  repo
+}: ReturnType<typeof parsePackageJsonRepositoryIntoOwnerAndRepo>) {
+  return `https://github.com/${owner}/${repo}`;
+}
+
 export const { transformer } = makeTransformer(function (context) {
   const {
     toProjectAbsolutePath,
@@ -197,8 +216,8 @@ export const { transformer } = makeTransformer(function (context) {
     function ({ package_, contextWithCwdPackage }) {
       const { json: packageJson } = package_;
 
-      const { owner, repo } = parsePackageJsonRepositoryIntoOwnerAndRepo(packageJson);
-      const repoUrl = `https://github.com/${owner}/${repo}`;
+      const ownerAndRepo = parsePackageJsonRepositoryIntoOwnerAndRepo(packageJson);
+      const repoUrl = deriveGitHubUrl(ownerAndRepo);
 
       const isNonHybridMonorepo =
         projectAttributes[ProjectAttribute.Monorepo] &&
