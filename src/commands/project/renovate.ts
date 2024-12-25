@@ -1535,7 +1535,7 @@ Do note that this renovation can also be used to update any GitHub releases name
 
 - All packages in this project have had their package.json files updated. These changes should be reviewed and committed with the appropriate scope(s). If necessary, new releases should also be cut.
 
-- Other tooling may need their configurations updated, such as vscode's project path settings.` +
+- Other tooling may need their configurations updated, such as VS Code's workspace settings. Note that Codecov should recognize the rename automatically and update of its own accord; no changes to CODECOV_TOKEN are required.` +
           (projectAttributes[ProjectAttribute.Polyrepo] ||
           projectAttributes[ProjectAttribute.Hybridrepo]
             ? `
