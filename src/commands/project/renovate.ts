@@ -1235,7 +1235,7 @@ Do not call this renovation with --force if the repository has published non-ali
 
 If any step fails, the renovation will abort immediately.
 
-Do note that this renovation can also be used to update any GitHub releases named in the old style (e.g. "v1.2.3") to their modern counterparts (e.g. "package-name@1.2.3"). To accomplish this without attempting to rename the repository, invoke the --generate-scoped-tags renovation instead.`,
+To create and recreate alias tags for existing release tags with more fidelity and control, see the --generate-scoped-tags renovation.`,
     requiresForce: false,
     supportedScopes: [ProjectRenovateScope.Unlimited],
     subOptions: {
