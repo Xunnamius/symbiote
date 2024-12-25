@@ -1271,6 +1271,7 @@ Do note that this renovation can also be used to update any GitHub releases name
 
       const {
         force,
+        hush: isHushed,
         newRepoName: _newRepoName,
         newRootPackageName: _newRootPackageName,
         [$executionContext]: { projectMetadata }
@@ -1287,8 +1288,8 @@ Do note that this renovation can also be used to update any GitHub releases name
       const { root: projectRoot, attributes: projectAttributes } = rootPackage;
 
       const oldRootPackageName = rootPackage.json.name;
-      const updatedRepoName = _newRepoName as string;
       const updatedRootPackageName = _newRootPackageName as string;
+      const updatedRepoName = _newRepoName as string;
       const logReplacement = makeReplacementLogger(log);
       const github = await makeOctokit({ debug, log });
       const ownerAndRepo = parsePackageJsonRepositoryIntoOwnerAndRepo(rootPackage.json);
@@ -1296,8 +1297,8 @@ Do note that this renovation can also be used to update any GitHub releases name
       debug('force: %O', force);
       debug('projectRoot: %O', projectRoot);
       debug('oldRootPackageName: %O', oldRootPackageName);
-      debug('updatedRepoName: %O', updatedRepoName);
       debug('updatedRootPackageName: %O', updatedRootPackageName);
+      debug('updatedRepoName: %O', updatedRepoName);
       debug('logReplacement: %O', logReplacement);
       debug('github: %O', github);
       debug('ownerAndRepo: %O', ownerAndRepo);
@@ -1552,9 +1553,9 @@ Do note that this renovation can also be used to update any GitHub releases name
 
       log.newline([LogTag.IF_NOT_HUSHED]);
 
-      log(
-        [LogTag.IF_NOT_HUSHED],
-        `⚠️🚧 The renovation completed successfully! But there are further tasks that must be completed manually:
+      if (!isHushed) {
+        process.stdout.write(
+          `⚠️🚧 The renovation completed successfully! But there are further tasks that must be completed manually:
 
 - The terminal's current working directory may be outdated. Change directories now with:
 cd ${updatedRoot}
@@ -1562,15 +1563,17 @@ cd ${updatedRoot}
 - All packages in this project may have had their package.json files updated. These changes should be reviewed and committed with the appropriate scope(s). If necessary, new releases should also be cut.
 
 - Other tooling may need their configurations updated, such as VS Code's workspace settings. Note that Codecov should recognize the rename automatically and update of its own accord; no changes to CODECOV_TOKEN are required.` +
-          ((oldRootPackageName !== updatedRootPackageName &&
-            projectAttributes[ProjectAttribute.Polyrepo]) ||
-          projectAttributes[ProjectAttribute.Hybridrepo]
-            ? `
+            ((oldRootPackageName !== updatedRootPackageName &&
+              projectAttributes[ProjectAttribute.Polyrepo]) ||
+            projectAttributes[ProjectAttribute.Hybridrepo]
+              ? `
 
 - The root package name being updated necessitates the deprecation of the old package with a message pointing users to install the new package:
 npm deprecate '${oldRootPackageName}'\` 'This package has been superseded by \`${updatedRootPackageName}\`'`
-            : '')
-      );
+              : '') +
+            '\n'
+        );
+      }
 
       log.newline([LogTag.IF_NOT_HUSHED]);
 
