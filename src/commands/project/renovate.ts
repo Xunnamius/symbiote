@@ -6,6 +6,7 @@ import { CliError, type ChildConfiguration } from '@black-flag/core';
 import escapeStringRegexp from 'escape-string-regexp~4';
 import libsodium from 'libsodium-wrappers';
 import getInObject from 'lodash.get';
+import semver from 'semver';
 
 import {
   getInvocableExtendedHandler,
@@ -83,6 +84,7 @@ import {
   magicStringReplacerRegionEnd,
   magicStringReplacerRegionStart,
   runGlobalPreChecks,
+  stringifyJson,
   withGlobalBuilder,
   withGlobalUsage,
   writeFile
@@ -1211,7 +1213,7 @@ By default, this command will preserve the origin repository's pre-existing conf
     taskAliases: [],
     actionDescription: 'Updating origin repository name and relevant metadata',
     shortHelpDescription: 'Rename the origin repo and root package, and update metadata',
-    longHelpDescription: `This renovation will (1) rename the origin repository on GitHub, (2) update the package name in the origin repository's releases on GitHub, (3) update the name field in the root package's package.json file, (4) update the package.json::repository of all packages in the project, (5) update the origin remote in .git/config, and (6) rename (move) the repository directory on the local filesystem.\n\nIf any step fails, the renovation will abort immediately.`,
+    longHelpDescription: `This renovation will (1) rename the origin repository on GitHub, (2) update the package name in the origin repository's releases on GitHub, (3) update the name field in the root package's package.json file, (4) update the package.json::repository of all packages in the project, (5) update the origin remote in .git/config, and (6) rename (move) the repository directory on the local filesystem.\n\nIf any step fails, the renovation will abort immediately.\n\nDo note that this renovation can also be used to update any GitHub releases named in the old style (e.g. "v1.2.3") to their modern counterparts (e.g. "package-name@1.2.3"). To accomplish this without renaming the repository, provide --force and the current repository and package names for --new-repo-name and --new-root-package-name respectively.`,
     requiresForce: false,
     supportedScopes: [ProjectRenovateScope.Unlimited],
     subOptions: {
@@ -1322,15 +1324,23 @@ By default, this command will preserve the origin repository's pre-existing conf
               return;
             }
 
-            const updatedReleaseName = oldReleaseName.replace(
-              oldRootPackageName,
-              updatedRootPackageName
-            );
+            const isOldReleaseNameSemverAndRelevant =
+              force && !!semver.valid(oldReleaseName);
+
+            const updatedReleaseName = isOldReleaseNameSemverAndRelevant
+              ? // TODO: isn't this logic centralized in conventional config?
+                `${updatedRootPackageName}@${oldReleaseName}`
+              : oldReleaseName.replace(oldRootPackageName, updatedRootPackageName);
 
             const shouldUpdateReleaseName = oldReleaseName !== updatedReleaseName;
 
             debug('oldReleaseName: %O', oldReleaseName);
+            debug(
+              'isOldReleaseNameSemverAndRelevant: %O',
+              isOldReleaseNameSemverAndRelevant
+            );
             debug('updatedReleaseName: %O', updatedReleaseName);
+            debug('shouldUpdateReleaseName: %O', shouldUpdateReleaseName);
 
             if (shouldUpdateReleaseName) {
               await github.repos.updateRelease({
@@ -1342,10 +1352,10 @@ By default, this command will preserve the origin repository's pre-existing conf
 
             logReplacement({
               wasReplaced: shouldUpdateReleaseName,
-              replacedDescription: 'Updated a release name on GitHub',
+              replacedDescription: 'Updated GitHub release name',
               previousValue: oldReleaseName,
               updatedValue: updatedReleaseName,
-              skippedDescription: `updating release "${oldReleaseName}": old name already equals new name`
+              skippedDescription: `updating GitHub release "${oldReleaseName}"`
             });
           })
         );
@@ -1379,7 +1389,7 @@ By default, this command will preserve the origin repository's pre-existing conf
               packageJson.repository
             );
 
-            await writeFile(packageJsonPath, JSON.stringify(packageJson));
+            await writeFile(packageJsonPath, stringifyJson(packageJson));
           }
         )
       );
@@ -2023,7 +2033,7 @@ See the xscripts wiki documentation for more details on this command and all ava
         }
 
         if (didUpdatePackageJson) {
-          await writeFile(ourPackageJsonPath, JSON.stringify(ourPackageJson));
+          await writeFile(ourPackageJsonPath, stringifyJson(ourPackageJson));
 
           debug(`formatting ${ourPackageJsonPath} (calling out to sub-command)`);
 
