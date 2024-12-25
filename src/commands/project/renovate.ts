@@ -1563,9 +1563,9 @@ cd ${updatedRoot}
 - All packages in this project may have had their package.json files updated. These changes should be reviewed and committed with the appropriate scope(s). If necessary, new releases should also be cut.
 
 - Other tooling may need their configurations updated, such as VS Code's workspace settings. Note that Codecov should recognize the rename automatically and update of its own accord; no changes to CODECOV_TOKEN are required.` +
-            ((oldRootPackageName !== updatedRootPackageName &&
-              projectAttributes[ProjectAttribute.Polyrepo]) ||
-            projectAttributes[ProjectAttribute.Hybridrepo]
+            (oldRootPackageName !== updatedRootPackageName &&
+            (projectAttributes[ProjectAttribute.Polyrepo] ||
+              projectAttributes[ProjectAttribute.Hybridrepo])
               ? `
 
 - The root package name being updated necessitates the deprecation of the old package with a message pointing users to install the new package:
