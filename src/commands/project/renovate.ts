@@ -1210,8 +1210,7 @@ By default, this command will preserve the origin repository's pre-existing conf
     emoji: '🧬',
     taskAliases: [],
     actionDescription: 'Updating origin repository name and relevant metadata',
-    shortHelpDescription:
-      'Rename the origin repo and root package, and update related metadata',
+    shortHelpDescription: 'Rename the origin repo and root package, and update metadata',
     longHelpDescription: `This renovation will (1) rename the origin repository on GitHub, (2) update the package name in the origin repository's releases on GitHub, (3) update the name field in the root package's package.json file, (4) update the package.json::repository of all packages in the project, (5) update the origin remote in .git/config, and (6) rename (move) the repository directory on the local filesystem.\n\nIf any step fails, the renovation will abort immediately.`,
     requiresForce: false,
     supportedScopes: [ProjectRenovateScope.Unlimited],
