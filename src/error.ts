@@ -95,9 +95,6 @@ export const ErrorMessage = {
   BadSkipArgs() {
     return 'impossible combination of skipIgnored and skipUnknown was encountered';
   },
-  BadAssetContextKey(key: string) {
-    return `assertion failed: asset context value at expected key "${key}" is either not a string, is empty, or is undefined`;
-  },
   BadPostNpmInstallScript(path: string) {
     return `unable to execute "${path}" as a JavaScript (ESM) module. Please ensure it is syntactically sound`;
   },
@@ -289,6 +286,9 @@ export const ErrorMessage = {
   ) {
     return `renovation task "${taskName}" only supports the \`${supportedScopes.join('` and `')}\` scope${supportedScopes.length === 1 ? '' : 's'}, but \`${givenScope}\` was seen instead`;
   },
+  CannotGenerateCurrentPackagePathInUnlimitedScope(pathsLike: string[]) {
+    return `an asset transformer attempted to generate a path relative to the "current package" root, but there is no "current package" when --scope=unlimited; attempt arguments: ${pathsLike.join(' ')}`;
+  },
   DangerousRenovationRequiresForce(taskName: string) {
     return `renovation task "${taskName}" is DANGEROUS and therefore must be invoked with --force`;
   },
@@ -300,6 +300,9 @@ export const ErrorMessage = {
   },
   RenovationEncounteredObsoleteProtectionRules(branch: string) {
     return `encountered obsolete legacy branch protection rules for branch: ${branch}`;
+  },
+  RenovationDestinationAlreadyExists(path: string) {
+    return `destination path already exists; move/delete it before retrying: ${path}`;
   },
   /**
    * These are "error" messages that are not necessarily meant to be the message
