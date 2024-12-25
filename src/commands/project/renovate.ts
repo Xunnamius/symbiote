@@ -1663,13 +1663,13 @@ Do note that this renovation can also be used to update any GitHub releases name
     actionDescription: 'Generating scoped aliases for each non-scoped version tag',
     shortHelpDescription:
       'Generate a scoped version tag for each non-scoped version tag',
-    longHelpDescription: `This renovation creates an alias of each old-style version tag in the repository going all the way back to the initial commit. The alias tags will be named according to --tag-scope, i.e.: \`\${tagScope}@\${toSemver(oldStyleTag)}\`.
+    longHelpDescription: `This renovation creates an alias of each old-style version tag in the repository going all the way back to the initial commit. The alias tags will be named according to --new-scope (and with respect to the optional --old-scope), i.e.: \`\${newScope}@\${toSemver(tagUsingOldScope)}\`
 
 Note that this renovation will respect the "[INIT]" xpipeline command when it appears in commit messages. See the symbiote wiki and xchangelog/xrelease documentation for details on xpipeline command semantics.`,
     requiresForce: false,
     supportedScopes: [ProjectRenovateScope.Unlimited],
     subOptions: {
-      'tag-scope': {
+      'new-scope': {
         string: true,
         description: 'The characters preceding "@" in newly created alias tags',
         subOptionOf: {
@@ -1680,6 +1680,11 @@ Note that this renovation will respect the "[INIT]" xpipeline command when it ap
             }
           }
         }
+      },
+      'old-scope': {
+        string: true,
+        description: 'The characters preceding "@" in existing tags to be aliased',
+        defaultDescription: '"v" without "@", e.g. "v${version}"'
       }
     },
     conflicts: conflictingUpstreamRenovationTasks.filter(
