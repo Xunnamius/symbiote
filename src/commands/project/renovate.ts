@@ -1377,7 +1377,7 @@ To create and recreate alias tags for existing release tags with more fidelity a
               replacedDescription: 'Updated GitHub release name',
               previousValue: oldReleaseName,
               updatedValue: updatedReleaseName,
-              skippedDescription: `updating GitHub release "${oldReleaseName}"`
+              skippedDescription: `updating GitHub release "${oldReleaseName}": unnecessary`
             });
           })
         );
@@ -1512,7 +1512,7 @@ To create and recreate alias tags for existing release tags with more fidelity a
               logReplacement({
                 wasReplaced: false,
                 replacedDescription: '',
-                skippedDescription: `creating alias tag for "${oldTag}": not relevant/semver`
+                skippedDescription: `creating alias tag for "${oldTag}": not relevant`
               });
             }
           }
