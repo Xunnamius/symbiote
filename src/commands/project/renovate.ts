@@ -1475,7 +1475,7 @@ Do note that this renovation can also be used to update any GitHub releases name
               '-m',
               `alias => ${oldTag}`,
               aliasTag,
-              '${oldTag}^{}'
+              `${oldTag}^{}`
             ]);
 
             logReplacement({
