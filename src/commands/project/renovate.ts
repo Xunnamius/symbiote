@@ -1227,9 +1227,7 @@ By default, this command will preserve the origin repository's pre-existing conf
 
 5. Update the origin remote url in \`.git/config\` if it matches the old origin url. If --force is given, the origin remote url will always be updated regardless of its value.
 
-6. In a hybridrepo or polyrepo, add new annotated tags with the updated root package name as respective aliases of tags with the old package name, and then push them to the origin repository. If --force is given, local and remote tags matching the old package name (WHICH MAY MATCH THE "NEW" PACKAGE NAME WHEN RE-RUNNING THIS COMMAND) will be DELETED and RECREATED. THIS IS POTENTIALLY VERY DANGEROUS and can damage existing releases if done without proper consideration.
-
-⚠🚧 Do not call this renovation with --force if the repository has published non-alias tags that look like alias tags. If you do, those non-alias tags will be deleted and recreated, which may break corresponding GitHub releases and other tooling.
+6. In a hybridrepo or polyrepo, add new annotated tags with the updated root package name as respective aliases of tags with the old package name, and then push them to the origin repository. If --force is given, alias tags will be created for any tags with old-style semver valid names (e.g. "v1.2.3").
 
 7. Rename (move) the repository directory on the local filesystem, if the repository name has changed. If the destination directory path already exists, this step will fail.
 
@@ -1478,72 +1476,45 @@ To create and recreate alias tags for existing release tags with more fidelity a
             if (oldTagSemver) {
               debug('aliasTag: %O', aliasTag);
 
-              const doesAliasTagAlreadyExist = currentTags.includes(aliasTag);
+              const shouldCreateNewAliasTag = !currentTags.includes(aliasTag);
               const oldTagCommitterDate = await run('git', [
                 'show',
                 `${oldTag}^{}`,
                 '--format=%aD'
               ]).then(({ stdout }) => stdout.split('\n')[0]);
 
-              debug('doesAliasTagAlreadyExist: %O', doesAliasTagAlreadyExist);
+              debug('shouldCreateNewAliasTag: %O', shouldCreateNewAliasTag);
               debug('oldTagCommitterDate: %O', oldTagCommitterDate);
 
-              if (doesAliasTagAlreadyExist) {
-                softAssert(
-                  // ? The only time we should be deleting remote tags is when
-                  // ? they are already alias tags; we can be reasonably sure
-                  // ? that if the root package name hasn't updated and force is
-                  // ? being used and we've reached this point, that we're
-                  // ? dealing with our own alias tags that require recreation.
-                  force && !shouldUpdateRootPackageName,
-                  ErrorMessage.RenovationTagAliasAlreadyExists(aliasTag)
-                );
+              if (shouldCreateNewAliasTag) {
+                debug.message('creating new tag %O that aliases %O', aliasTag, oldTag);
 
-                debug.message('deleting tag %O locally and from origin', oldTag);
-
-                // ? Delete the tag locally
-                await run('git', ['tag', '--delete', oldTag]).catch((error) =>
-                  log.warn(
-                    [LogTag.IF_NOT_QUIETED],
-                    'Failed to delete tag %O from local repository: %O',
-                    oldTag,
-                    error
-                  )
-                );
-
-                // ? Delete the tag from origin
-                await run('git', ['push', 'origin', `:refs/tags/${oldTag}`]).catch(
-                  (error) =>
-                    log.warn(
-                      [LogTag.IF_NOT_QUIETED],
-                      'Failed to delete tag %O from origin remote: %O',
-                      oldTag,
-                      error
-                    )
+                // eslint-disable-next-line no-await-in-loop
+                await run(
+                  'git',
+                  ['tag', '-m', `alias => ${oldTag}`, aliasTag, `${oldTag}^{}`],
+                  {
+                    env: {
+                      // ? We need to preserve the date of the aliased tag
+                      GIT_COMMITTER_DATE: oldTagCommitterDate
+                    }
+                  }
                 );
               }
 
-              debug.message('creating new tag %O that aliases %O', aliasTag, oldTag);
-
-              // eslint-disable-next-line no-await-in-loop
-              await run(
-                'git',
-                ['tag', '-m', `alias => ${oldTag}`, aliasTag, `${oldTag}^{}`],
-                {
-                  env: {
-                    // ? We need to preserve the date of the aliased tag
-                    GIT_COMMITTER_DATE: oldTagCommitterDate
-                  }
-                }
-              );
+              logReplacement({
+                wasReplaced: shouldCreateNewAliasTag,
+                replacedDescription: `Created alias tag`,
+                updatedValue: `"${aliasTag}" => "${oldTag}"`,
+                skippedDescription: `creating alias tag for "${oldTag}": tag already exists`
+              });
+            } else {
+              logReplacement({
+                wasReplaced: false,
+                replacedDescription: '',
+                skippedDescription: `creating alias tag for "${oldTag}": irrelevant or not semver`
+              });
             }
-
-            logReplacement({
-              wasReplaced: !!oldTagSemver,
-              replacedDescription: `Created alias tag (committer date preserved)`,
-              updatedValue: `"${aliasTag}" => "${oldTag}"`,
-              skippedDescription: `creating alias tag for "${oldTag}": irrelevant or not semver`
-            });
           }
 
           await run('git', ['push', '--follow-tags']);
@@ -1768,6 +1739,31 @@ Note that this renovation will respect the "[INIT]" xpipeline command when it ap
     ),
     async run(argv_, { log }) {
       const argv = argv_ as RenovationTaskArgv;
+
+      // TODO: high fidelity and control over which tags are deleted and changed
+
+      // debug.message('deleting tag %O locally and from origin', oldTag);
+
+      // // ? Delete the tag locally
+      // await run('git', ['tag', '--delete', oldTag]).catch((error) =>
+      //   log.warn(
+      //     [LogTag.IF_NOT_QUIETED],
+      //     'Failed to delete tag %O from local repository: %O',
+      //     oldTag,
+      //     error
+      //   )
+      // );
+
+      // // ? Delete the tag from origin
+      // await run('git', ['push', 'origin', `:refs/tags/${oldTag}`]).catch(
+      //   (error) =>
+      //     log.warn(
+      //       [LogTag.IF_NOT_QUIETED],
+      //       'Failed to delete tag %O from origin remote: %O',
+      //       oldTag,
+      //       error
+      //     )
+      // );
 
       // TODO: the logic for this is pretty much done in --github-rename-root
       // * Since "this-package" is not supported, we can't use cwdPackage
