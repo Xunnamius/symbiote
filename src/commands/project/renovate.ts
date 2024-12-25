@@ -1451,7 +1451,7 @@ To create and recreate alias tags for existing release tags with more fidelity a
       // * Add new tags with the updated root package name
 
       const { stdout: tags_ } = await run('git', ['tag', '--list']);
-      const currentTags = tags_.split(whitespaceRegExp);
+      const oldTags = tags_.split(whitespaceRegExp);
 
       const oldTagExtractSemverRegExp = new RegExp(
         // TODO: isn't this logic somewhere else too? conventional.config?
@@ -1459,11 +1459,13 @@ To create and recreate alias tags for existing release tags with more fidelity a
       );
 
       debug('oldTagExtractSemverRegExp: %O', oldTagExtractSemverRegExp);
-      debug('currentTags (length): %O', currentTags.length);
+      debug('oldTags (length): %O', oldTags.length);
 
-      if (currentTags.length) {
+      const allTags = [...oldTags];
+
+      if (oldTags.length) {
         if (force || shouldUpdateRootPackageName) {
-          for (const oldTag of currentTags) {
+          for (const oldTag of oldTags) {
             const oldTagSemver =
               semver.valid(oldTag) || oldTag.match(oldTagExtractSemverRegExp)?.[1];
 
@@ -1476,17 +1478,17 @@ To create and recreate alias tags for existing release tags with more fidelity a
             if (oldTagSemver) {
               debug('aliasTag: %O', aliasTag);
 
-              const shouldCreateNewAliasTag = !currentTags.includes(aliasTag);
-              const oldTagCommitterDate = await run('git', [
-                'show',
-                `${oldTag}^{}`,
-                '--format=%aD'
-              ]).then(({ stdout }) => stdout.split('\n')[0]);
-
+              const shouldCreateNewAliasTag = !allTags.includes(aliasTag);
               debug('shouldCreateNewAliasTag: %O', shouldCreateNewAliasTag);
-              debug('oldTagCommitterDate: %O', oldTagCommitterDate);
 
               if (shouldCreateNewAliasTag) {
+                const oldTagCommitterDate = await run('git', [
+                  'show',
+                  `${oldTag}^{}`,
+                  '--format=%aD'
+                ]).then(({ stdout }) => stdout.split('\n')[0]);
+
+                debug('oldTagCommitterDate: %O', oldTagCommitterDate);
                 debug.message('creating new tag %O that aliases %O', aliasTag, oldTag);
 
                 // eslint-disable-next-line no-await-in-loop
@@ -1500,6 +1502,8 @@ To create and recreate alias tags for existing release tags with more fidelity a
                     }
                   }
                 );
+
+                allTags.push(aliasTag);
               }
 
               logReplacement({
