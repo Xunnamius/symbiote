@@ -31,11 +31,6 @@ import {
 
 import packageJson from './package.json' with { type: 'json' };
 
-// TODO: add these back:
-// TODO: specific to this project; delete these after generalization
-//'**/dummy-repo/**/*',
-//'src/assets/templates/.remarkrc.mjs'
-
 // TODO: import this from project-utils:alias instead
 const uriSchemeDelimiter = ':';
 
