@@ -1500,7 +1500,7 @@ Do note that this renovation can also be used to update any GitHub releases name
         logReplacement({
           wasReplaced: false,
           replacedDescription: '',
-          skippedDescription: `creating alias tags (nothing to alias)`
+          skippedDescription: `creating alias tags: nothing to alias`
         });
       }
 
@@ -1509,38 +1509,46 @@ Do note that this renovation can also be used to update any GitHub releases name
       const oldRoot = projectRoot;
       const updatedRoot = toPath(toDirname(projectRoot), updatedRepoName);
 
-      softAssert(
-        !(await isAccessible(updatedRoot, { useCached: false })),
-        ErrorMessage.RenovationDestinationAlreadyExists(updatedRoot)
-      );
+      if (shouldUpdateRepoName) {
+        softAssert(
+          !(await isAccessible(updatedRoot, { useCached: false })),
+          ErrorMessage.RenovationDestinationAlreadyExists(updatedRoot)
+        );
 
-      debug('oldRoot: %O', oldRoot);
-      debug('updatedRoot: %O', updatedRoot);
+        debug('oldRoot: %O', oldRoot);
+        debug('updatedRoot: %O', updatedRoot);
 
-      try {
-        process.chdir(path.parse(getCurrentWorkingDirectory()).root);
-        await renamePath(oldRoot, updatedRoot);
-      } finally {
         try {
-          // ? That the cwd is what it always is is a core assumption made all
-          // ? over this codebase!
-          process.chdir(oldRoot);
-        } catch (error) {
-          debug.error(
-            'experienced super-fatal error during attempted cleanup: %O',
-            error
-          );
+          process.chdir(path.parse(getCurrentWorkingDirectory()).root);
+          await renamePath(oldRoot, updatedRoot);
+        } finally {
+          try {
+            // ? That the cwd is what it always is is a core assumption made all
+            // ? over this codebase!
+            process.chdir(oldRoot);
+          } catch (error) {
+            debug.error(
+              'experienced super-fatal error during attempted cleanup: %O',
+              error
+            );
+          }
         }
+
+        process.chdir(updatedRoot);
+
+        logReplacement({
+          replacedDescription:
+            'Renamed (moved) the project directory on the local filesystem',
+          previousValue: oldRoot,
+          updatedValue: updatedRoot
+        });
+      } else {
+        logReplacement({
+          wasReplaced: false,
+          replacedDescription: '',
+          skippedDescription: `renaming (moving) project directory: path has not changed`
+        });
       }
-
-      process.chdir(updatedRoot);
-
-      logReplacement({
-        replacedDescription:
-          'Renamed (moved) the project directory on the local filesystem',
-        previousValue: oldRoot,
-        updatedValue: updatedRoot
-      });
 
       log.newline([LogTag.IF_NOT_HUSHED]);
 
