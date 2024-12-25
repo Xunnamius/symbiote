@@ -1458,7 +1458,7 @@ Do note that this renovation can also be used to update any GitHub releases name
       debug('oldTagExtractSemverRegExp: %O', oldTagExtractSemverRegExp);
       debug('tags: %O', tags);
 
-      if (tags.length) {
+      if (shouldUpdateRepoName && tags.length) {
         for (const oldTag of tags) {
           const oldTagSemver =
             semver.valid(oldTag) || oldTag.match(oldTagExtractSemverRegExp)?.[1];
@@ -1486,17 +1486,23 @@ Do note that this renovation can also be used to update any GitHub releases name
             logReplacement({
               wasReplaced: false,
               replacedDescription: '',
-              skippedDescription: `creating alias for irrelevant tag "${oldTag}"`
+              skippedDescription: `creating alias tag for "${oldTag}"`
             });
           }
         }
+
+        await run('git', ['push', '--follow-tags']);
+
+        logReplacement({
+          replacedDescription: 'Pushed all reachable annotated tags to origin'
+        });
+      } else {
+        logReplacement({
+          wasReplaced: false,
+          replacedDescription: '',
+          skippedDescription: `creating alias tags (nothing to alias)`
+        });
       }
-
-      await run('git', ['push', '--follow-tags']);
-
-      logReplacement({
-        replacedDescription: 'Pushed all reachable annotated tags to origin'
-      });
 
       // * Rename (move) the repository directory on the local filesystem
 
