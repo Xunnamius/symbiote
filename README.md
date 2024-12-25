@@ -31,13 +31,13 @@ Eddie Brock is your repo. 🕸️ This tool is the suit.
 
 <!-- symbiote-template-region-end -->
 
-> Also known as `xscripts` or `@-xun/scripts`
+> Formerly `xscripts` (`@-xun/scripts`)
 
 Symbiote is a highly-opinionated personal tool that supercharges 🕷️ all my
 NPM-based projects. It can also exist symbiotically within foreign repositories
 (e.g. when I'm contributing to open source), glomming onto clones and granting
-me some semblance of the powers I'm used to in my own projects without requiring
-changes to any of the foreign repository's files.
+me some semblance of the powers I'm used to in my own projects. All without
+requiring changes to any of the foreign repository's files.
 
 Symbiote is similar in intent to kcd-scripts, react-scripts, etc, but with many
 more opinions.
