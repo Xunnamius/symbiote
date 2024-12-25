@@ -1,13 +1,13 @@
-<!-- xscripts-template-region-start 1 -->
+<!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./xscripts.png">
+  <img width="300" src="./symbiote.png">
 </p>
 
 <p align="center" width="100%">
-<!-- xscripts-template-region-end -->
-Eddie Brock is your repo. This tool is the suit.
-<!-- xscripts-template-region-start 2 -->
+<!-- symbiote-template-region-end -->
+Eddie Brock is your repo. 🕸️ This tool is the suit.
+<!-- symbiote-template-region-start 2 -->
 </p>
 
 <hr />
@@ -27,22 +27,29 @@ Eddie Brock is your repo. This tool is the suit.
 
 <br />
 
-# xscripts (@-xun/scripts)
+# symbiote (@-xun/symbiote)
 
-<!-- xscripts-template-region-end -->
+<!-- symbiote-template-region-end -->
 
-`xscripts` is a highly-opinionated personal tool for building, linting, and
-deploying my NPM-based projects. Similar in intent to kcd-scripts,
-react-scripts, etc.
+> Also known as `xscripts` or `@-xun/scripts`
 
-<!-- xscripts-template-region-start 3 -->
+Symbiote is a highly-opinionated personal tool that supercharges 🕷️ all my
+NPM-based projects. It can also exist symbiotically within foreign repositories
+(e.g. when I'm contributing to open source), glomming onto clones and granting
+me some semblance of the powers I'm used to in my own projects without requiring
+changes to any of the foreign repository's files.
+
+Symbiote is similar in intent to kcd-scripts, react-scripts, etc, but with many
+more opinions.
+
+<!-- symbiote-template-region-start 3 -->
 
 <br />
 
 ---
 
 <!-- remark-ignore-start -->
-<!-- xscripts-template-region-end -->
+<!-- symbiote-template-region-end -->
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
@@ -55,31 +62,31 @@ react-scripts, etc.
   - [Contributors](#contributors)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-<!-- xscripts-template-region-start 4 -->
+<!-- symbiote-template-region-start 4 -->
 <!-- remark-ignore-end -->
 
 <br />
 
 ## Install
 
-<!-- xscripts-template-region-end -->
+<!-- symbiote-template-region-end -->
 
 You can install this package globally:
 
 ```shell
-npm install --global @-xun/scripts
+npm install --global @-xun/symbiote
 ```
 
 And then execute the CLI:
 
 ```shell
-npx xscripts ...
+npx symbiote ...
 ```
 
 Alternatively, you can use npx to execute the CLI without pre-installation:
 
 ```shell
-npx @-xun/scripts ...
+npx @-xun/symbiote ...
 ```
 
 ## Usage
@@ -88,7 +95,7 @@ npx @-xun/scripts ...
 
 TODO
 
-<!-- xscripts-template-region-start 5 -->
+<!-- symbiote-template-region-start 5 -->
 
 ## Appendix
 
@@ -101,9 +108,9 @@ built by Babel for use in Node.js versions that are not end-of-life. For
 TypeScript users, this package supports both `"Node10"` and `"Node16"` module
 resolution strategies.
 
-<!-- xscripts-template-region-end -->
+<!-- symbiote-template-region-end -->
 <!-- TODO: custom details here -->
-<!-- xscripts-template-region-start 6 -->
+<!-- symbiote-template-region-start 6 -->
 
 <details><summary>Expand details</summary>
 
@@ -135,7 +142,7 @@ also that [`package.json`][x-repo-package-json] may include the
 [`sideEffects`][x-pkg-side-effects-key] key, which is almost always `false` for
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
-<!-- xscripts-template-region-end -->
+<!-- symbiote-template-region-end -->
 <!-- TODO: custom details here -->
 
 </details>
@@ -200,24 +207,24 @@ specification. Contributions of any kind welcome!
 [x-badge-blm-image]: https://xunn.at/badge-blm 'Join the movement!'
 [x-badge-blm-link]: https://xunn.at/donate-blm
 [x-badge-codecov-image]:
-  https://img.shields.io/codecov/c/github/Xunnamius/xscripts/main?style=flat-square&token=HWRIOBAAPW&flag=package.main_root
+  https://img.shields.io/codecov/c/github/Xunnamius/symbiote/main?style=flat-square&token=HWRIOBAAPW&flag=package.main_root
   'Is this package well-tested?'
-[x-badge-codecov-link]: https://codecov.io/gh/Xunnamius/xscripts
+[x-badge-codecov-link]: https://codecov.io/gh/Xunnamius/symbiote
 [x-badge-downloads-image]:
-  https://img.shields.io/npm/dm/@-xun/scripts?style=flat-square
+  https://img.shields.io/npm/dm/@-xun/symbiote?style=flat-square
   'Number of times this package has been downloaded per month'
 [x-badge-lastcommit-image]:
-  https://img.shields.io/github/last-commit/Xunnamius/xscripts?style=flat-square
+  https://img.shields.io/github/last-commit/Xunnamius/symbiote?style=flat-square
   'Latest commit timestamp'
 [x-badge-license-image]:
-  https://img.shields.io/npm/l/@-xun/scripts?style=flat-square
+  https://img.shields.io/npm/l/@-xun/symbiote?style=flat-square
   "This package's source license"
-[x-badge-license-link]: https://github.com/Xunnamius/xscripts/blob/main/LICENSE
+[x-badge-license-link]: https://github.com/Xunnamius/symbiote/blob/main/LICENSE
 [x-badge-npm-image]:
-  https://xunn.at/npm-pkg-version/@-xun/scripts
+  https://xunn.at/npm-pkg-version/@-xun/symbiote
   'Install this package using npm or yarn!'
-[x-badge-npm-link]: https://npmtrends.com/@-xun/scripts
-[x-badge-repo-link]: https://github.com/Xunnamius/xscripts
+[x-badge-npm-link]: https://npmtrends.com/@-xun/symbiote
+[x-badge-repo-link]: https://github.com/Xunnamius/symbiote
 [x-badge-semanticrelease-image]:
   https://xunn.at/badge-semantic-release
   'This repo practices continuous integration and deployment!'
@@ -241,11 +248,11 @@ specification. Contributions of any kind welcome!
 [x-repo-all-contributors]: https://github.com/all-contributors/all-contributors
 [x-repo-all-contributors-emojis]: https://allcontributors.org/docs/en/emoji-key
 [x-repo-choose-new-issue]:
-  https://github.com/Xunnamius/xscripts/issues/new/choose
+  https://github.com/Xunnamius/symbiote/issues/new/choose
 [x-repo-contributing]: /CONTRIBUTING.md
 [x-repo-docs]: docs
 [x-repo-license]: ./LICENSE
 [x-repo-package-json]: package.json
-[x-repo-pr-compare]: https://github.com/Xunnamius/xscripts/compare
+[x-repo-pr-compare]: https://github.com/Xunnamius/symbiote/compare
 [x-repo-sponsor]: https://github.com/sponsors/Xunnamius
 [x-repo-support]: /.github/SUPPORT.md
