@@ -9,9 +9,9 @@ calling-birds:
   - dewey
   - louie
   - fred
-# {@xscripts/notExtraneous all-contributors-cli remark-cli jest husky doctoc}
-# {@xscripts/notInvalid all-contributors-cli remark-cli jest husky @doc/toc}
-# {@xscripts/something-awful all-contributors-cli remark-cli jest husky doctoc}
+# {@symbiote/notExtraneous all-contributors-cli remark-cli jest husky doctoc}
+# {@symbiote/notInvalid all-contributors-cli remark-cli jest husky @doc/toc}
+# {@symbiote/something-awful all-contributors-cli remark-cli jest husky doctoc}
 xmas-fifth-day:
   calling-birds: four
   french-hens: 3

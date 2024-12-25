@@ -1,4 +1,4 @@
-// {@xscripts/notInvalid
+// {@symbiote/notInvalid
 //   all-contributors-cli
 //   remark-cli
 //   jest
@@ -6,26 +6,26 @@
 //   doctoc
 // }
 
-'// {@xscripts/notInvalid}'
+'// {@symbiote/notInvalid}'
 
-/**{@xscripts/notInvalid}*/
-/**{@xscripts/notExtraneous}*/
+/**{@symbiote/notInvalid}*/
+/**{@symbiote/notExtraneous}*/
 
 export const configs = [
-  // {@xscripts/notInvalid something}
+  // {@symbiote/notInvalid something}
   'something',
-  // {@xscripts/notInvalid something}
+  // {@symbiote/notInvalid something}
   'something',
-  // {@xscripts/notInvalid something}
+  // {@symbiote/notInvalid something}
   'something',
-  // {@xscripts/notInvalid something}
+  // {@symbiote/notInvalid something}
   'something',
-  // {@xscripts/notInvalid something}
+  // {@symbiote/notInvalid something}
   'something',
-  // {@xscripts/notInvalid something-else }
+  // {@symbiote/notInvalid something-else }
   'something',
-  // {@xscripts/notInvalid something- else}
+  // {@symbiote/notInvalid something- else}
   'something',
-  // {@xscripts/notInvalidugly but works}
+  // {@symbiote/notInvalidugly but works}
   'something',
 ]
