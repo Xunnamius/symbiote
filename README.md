@@ -31,7 +31,7 @@ Eddie Brock is your repo. 🕸️ This tool is the suit.
 
 <!-- symbiote-template-region-end -->
 
-> Formerly `symbiote` (`@-xun/symbiote`)
+> Formerly `xscripts` (`@-xun/scripts`)
 
 Symbiote is a highly-opinionated personal tool that supercharges 🕷️ all my
 NPM-based projects. It can also exist symbiotically within foreign repositories
@@ -41,6 +41,47 @@ requiring changes to any of the foreign repository's files.
 
 Symbiote is similar in intent to kcd-scripts, react-scripts, etc, but with many
 more opinions.
+
+I have three main goal with symbiote:
+
+**I.** Concentrate the configuration explosion inherent in the modern JS
+ecosystem into one centralized location. That's symbiote. Reuse as much
+configuration from symbiote as possible. Spend as little time as possible
+tweaking configuration in repositories outside of symbiote. No more ugly
+package.json files filled with unreadable spaghetti scripts. Never have to worry
+about cross-environment concerns—symbiote works on both Linux and Windows.
+
+Make it easy and quick integrate shiny new tooling into symbiote as the JS
+ecosystem changes. And when that same tooling falls out of fashion or is
+superseded, make it painless to augment, upgrade, or discard that same tooling,
+or replace it with an entirely different tool, across all projects using
+symbiote.
+
+Projects that have tight integrations with tooling that ends up changing
+incompatibly or getting replaced have the option to pin the version of symbiote
+they require while other projects can continue to evolve as symbiote and the JS
+ecosystem does.
+
+<br />
+
+**II.** Minimize to near zero the context switching penalty I incur when
+shifting focus between projects. Especially open source. Keep coding fun after
+coding for work. Prevent burnout. Never be discouraged from returning to a very
+old project. Make each dev environment some level of predictable and familiar.
+
+<br />
+
+**III.** Standardize my opinion of an ideal toolchain, build process, and
+release flow. Reduce the complexity of managing CI/CD pipelines (i.e. GitHub
+Actions + [xrelease][1]) across a constellation of projects, and centralize the
+remaining complexity into [xpipeline][2].
+
+Make it super simple and unintimidating for others to contribute to
+symbiote-powered projects. Contributions can be made without the contributor
+ever knowing symbiote is there. "Continuous linting" tools like Husky, and npm
+scripts with standard names like "test" and "build", invoke symbiote when
+necessary. Symbiote encapsulates and hides the sprawling complexity of the JS
+ecosystem behind a stable-but-highly-opinionated API and CLI.
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -256,3 +297,5 @@ specification. Contributions of any kind welcome!
 [x-repo-pr-compare]: https://github.com/Xunnamius/symbiote/compare
 [x-repo-sponsor]: https://github.com/sponsors/Xunnamius
 [x-repo-support]: /.github/SUPPORT.md
+[1]: https://github.com/Xunnamius/xrelease
+[2]: https://github.com/Xunnamius/xpipeline
