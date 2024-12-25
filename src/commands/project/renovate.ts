@@ -1223,7 +1223,7 @@ By default, this command will preserve the origin repository's pre-existing conf
 
 4. Update the package.json::repository of all packages in the project.
 
-5. Update the origin remote in .git/config.
+5. Update the origin remote in \`.git/config\`.
 
 6. If the repo is not a non-hybrid monorepo, add new repository tags with the updated root package name as aliases for corresponding tags with the old name and push them.
 
@@ -1231,7 +1231,7 @@ By default, this command will preserve the origin repository's pre-existing conf
 
 If any step fails, the renovation will abort immediately.
 
-Do note that this renovation can also be used to update any GitHub releases named in the old style (e.g. "v1.2.3") to their modern counterparts (e.g. "package-name@1.2.3"). To accomplish this without renaming the repository, invoke the --generate-scoped-tags renovation instead.`,
+Do note that this renovation can also be used to update any GitHub releases named in the old style (e.g. "v1.2.3") to their modern counterparts (e.g. "package-name@1.2.3"). To accomplish this without attempting to rename the repository, invoke the --generate-scoped-tags renovation instead.`,
     requiresForce: false,
     supportedScopes: [ProjectRenovateScope.Unlimited],
     subOptions: {
