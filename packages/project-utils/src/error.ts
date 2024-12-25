@@ -173,7 +173,7 @@ makeNamedError(NotAGitRepositoryError, 'NotAGitRepositoryError');
 
 /**
  * Represents encountering an unparsable package.json file in an
- * xscripts-powered project.
+ * symbiote-powered project.
  */
 export class XPackageJsonNotParsableError extends ProjectError {
   // TODO: this prop should be added by makeNamedError or whatever other fn

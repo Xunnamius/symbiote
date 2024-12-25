@@ -196,9 +196,9 @@ Alternatively, you can provide --baseline when you want to construct your own cu
 
 Note that the tsc linter always chooses its paths using the relevant tsconfig file regardless of execution plan (i.e. the first of: "${Tsconfig.PackageLint}" at the current package root, or "${Tsconfig.ProjectLint}" or "${Tsconfig.ProjectBase}" at the project root).
 
-Also note that the remark linter is configured to respect .remarkignore files only when run by "xscripts lint"; when executing "xscripts format", .remarkignore files are always disregarded. This means you can use .remarkignore files to prevent certain paths from being linted by "xscripts lint" without preventing them from being formatted by "xscripts format".
+Also note that the remark linter is configured to respect .remarkignore files only when run by "symbiote lint"; when executing "symbiote format", .remarkignore files are always disregarded. This means you can use .remarkignore files to prevent certain paths from being linted by "symbiote lint" without preventing them from being formatted by "symbiote format".
 
-Provide --allow-warning-comments to set the XSCRIPTS_LINT_ALLOW_WARNING_COMMENTS environment variable in the runtime environment. This will be picked up by linters, causing them to ignore any warning comments. This includes warnings about relative imports of @-xun/* packages from /node_modules/.`
+Provide --allow-warning-comments to set the SYMBIOTE_LINT_ALLOW_WARNING_COMMENTS environment variable in the runtime environment. This will be picked up by linters, causing them to ignore any warning comments. This includes warnings about relative imports of @-xun/* packages from /node_modules/.`
     ),
     handler: withGlobalHandler(async function ({
       $0: scriptFullName,
@@ -348,7 +348,7 @@ Provide --allow-warning-comments to set the XSCRIPTS_LINT_ALLOW_WARNING_COMMENTS
           runLinter('npx', npxEslintArguments, {
             cwd: projectRoot,
             env: {
-              XSCRIPTS_LINT_ALLOW_WARNING_COMMENTS: allowWarningComments.toString()
+              SYMBIOTE_LINT_ALLOW_WARNING_COMMENTS: allowWarningComments.toString()
             }
           })
         );
@@ -371,7 +371,7 @@ Provide --allow-warning-comments to set the XSCRIPTS_LINT_ALLOW_WARNING_COMMENTS
         });
 
         const npxRemarkArguments = [
-          // {@xscripts/notExtraneous remark-cli}
+          // {@symbiote/notExtraneous remark-cli}
           'remark',
           ...(isHushed ? ['--quiet'] : []),
           '--color',
@@ -401,7 +401,7 @@ Provide --allow-warning-comments to set the XSCRIPTS_LINT_ALLOW_WARNING_COMMENTS
           runLinter('npx', npxRemarkArguments, {
             env: {
               NODE_ENV: 'lint',
-              XSCRIPTS_LINT_ALLOW_WARNING_COMMENTS: allowWarningComments.toString()
+              SYMBIOTE_LINT_ALLOW_WARNING_COMMENTS: allowWarningComments.toString()
             }
           })
         );

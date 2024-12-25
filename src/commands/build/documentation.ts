@@ -85,11 +85,11 @@ export default function command({
       await run(
         'npx',
         [
-          // {@xscripts/notExtraneous typedoc}
+          // {@symbiote/notExtraneous typedoc}
           'typedoc',
 
           '--plugin',
-          // {@xscripts/notExtraneous typedoc-plugin-markdown}
+          // {@symbiote/notExtraneous typedoc-plugin-markdown}
           'typedoc-plugin-markdown',
           '--skipErrorChecking',
           '--excludeInternal',

@@ -28,7 +28,7 @@ const debug = createDebugLogger({
 export type { Config as JestConfig };
 
 /**
- * {@xscripts/notExtraneous
+ * {@symbiote/notExtraneous
  *   - babel-jest
  *   - @types/jest
  *   - jest-circus
@@ -37,7 +37,7 @@ export type { Config as JestConfig };
  * }
  */
 
-// {@xscripts/notInvalid @sinclair/typebox}
+// {@symbiote/notInvalid @sinclair/typebox}
 
 /**
  * An array of NODE_ENV values recognized by this configuration file.
@@ -74,7 +74,7 @@ export function baseConfig({
     // ? Minimum 2 concurrent tests executed at once; maximum of cpu cores - 1
     maxConcurrency: Math.max(cpus().length - 1, 2),
     verbose: false,
-    // ? This key is sometimes overridden on the CLI level by xscripts
+    // ? This key is sometimes overridden on the CLI level by symbiote
     testPathIgnorePatterns: [
       '/node_modules/',
       '/dist/',
@@ -84,7 +84,7 @@ export function baseConfig({
       String.raw`/type-.*\.test\.(c|m)?tsx?`
     ],
     setupFilesAfterEnv: ['./test/setup.ts'],
-    // ? This is computed dynamically by xscripts
+    // ? This is computed dynamically by symbiote
     //collectCoverageFrom: [],
     // ? Tell Jest to transpile node_modules (for ESM interop)
     //transformIgnorePatterns: [],
@@ -147,8 +147,8 @@ export const { transformer } = makeTransformer(function (context) {
 // @ts-check
 'use strict';
 
-import { deepMergeConfig } from '@-xun/scripts/assets';
-import { assertEnvironment, moduleExport } from '@-xun/scripts/assets/${asset}';
+import { deepMergeConfig } from '@-xun/symbiote/assets';
+import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/${asset}';
 
 // TODO: publish latest rejoinder package first, then update configs to use it
 //import { createDebugLogger } from 'rejoinder';
@@ -158,7 +158,7 @@ import { assertEnvironment, moduleExport } from '@-xun/scripts/assets/${asset}';
 const config = deepMergeConfig(
   moduleExport({ derivedAliases: getJestAliases(), ...assertEnvironment() }),
   /**
-   * @type {import('@-xun/scripts/assets/${asset}').JestConfig}
+   * @type {import('@-xun/symbiote/assets/${asset}').JestConfig}
    */
   {
     // Any custom configs here will be deep merged with moduleExport's result
@@ -200,7 +200,7 @@ export function assertEnvironment(): Omit<
   }
 
   const isDebugging = !!process.env.VSCODE_INSPECTOR_OPTIONS;
-  const skipSlowTestsLevel = Number(process.env.XSCRIPTS_TEST_JEST_SKIP_SLOW_TESTS) || 0;
+  const skipSlowTestsLevel = Number(process.env.SYMBIOTE_TEST_JEST_SKIP_SLOW_TESTS) || 0;
 
   return { isDebugging, skipSlowTestsLevel };
 }

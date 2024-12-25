@@ -22,7 +22,7 @@ import cloneDeepWith from 'lodash.clonedeepwith';
 import isEqual from 'lodash.isequal';
 import { type ParserConfigurationOptions } from 'yargs';
 // ? Black Flag will always come with its own yargs dependency
-// {@xscripts/notInvalid yargs}
+// {@symbiote/notInvalid yargs}
 import makeVanillaYargs from 'yargs/yargs';
 
 import { createDebugLogger } from 'multiverse+rejoinder';

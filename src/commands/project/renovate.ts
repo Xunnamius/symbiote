@@ -200,7 +200,7 @@ export type RenovationTask = Omit<
    */
   taskAliases: string[];
   /**
-   * A symbol that will be placed before xscripts output text concerning this
+   * A symbol that will be placed before symbiote output text concerning this
    * task.
    */
   emoji: string;
@@ -662,7 +662,7 @@ async function makeOctokit({
   const ghLog = log.extend('gh');
 
   return new Octokit({
-    userAgent: `Xunnamius/xscripts@${packageVersion}`,
+    userAgent: `Xunnamius/symbiote@${packageVersion}`,
     auth: process.env.GITHUB_TOKEN,
     log: {
       debug: debug.extend('gh'),
@@ -1653,7 +1653,7 @@ Do note that this renovation can also be used to update any GitHub releases name
       'Generate a scoped version tag for each non-scoped version tag',
     longHelpDescription: `This renovation creates an alias of each old-style version tag in the repository going all the way back to the initial commit. The alias tags will be named according to --tag-scope, i.e.: \`\${tagScope}@\${toSemver(oldStyleTag)}\`.
 
-Note that this renovation will respect the "[INIT]" xpipeline command when it appears in commit messages. See the xscripts wiki and xchangelog/xrelease documentation for details on xpipeline command semantics.`,
+Note that this renovation will respect the "[INIT]" xpipeline command when it appears in commit messages. See the symbiote wiki and xchangelog/xrelease documentation for details on xpipeline command semantics.`,
     requiresForce: false,
     supportedScopes: [ProjectRenovateScope.Unlimited],
     subOptions: {
@@ -1691,7 +1691,7 @@ Note that this renovation will respect the "[INIT]" xpipeline command when it ap
     actionDescription: 'Deprecating package',
     shortHelpDescription:
       'Deprecate the current package and possibly the entire repository',
-    longHelpDescription: `This renovation will execute the standard deprecation procedure on the current package. See the xscripts wiki for details on the standard deprecation procedure.
+    longHelpDescription: `This renovation will execute the standard deprecation procedure on the current package. See the symbiote wiki for details on the standard deprecation procedure.
 
     Regardless of --scope, if this renovation is used on a polyrepo, the entire repository will also be deprecated; if this renovation is used on a monorepo, it will apply only to the current package unless the repository is a hybridrepo and deprecating the current package would result in all packages having been deprecated. In case of the latter, the entire repository will also be deprecated.`,
     requiresForce: true,
@@ -1716,7 +1716,7 @@ Note that this renovation will respect the "[INIT]" xpipeline command when it ap
     actionDescription: 'Un-deprecating package',
     shortHelpDescription:
       'Reverse the deprecation of the current package and repository',
-    longHelpDescription: `This renovation will make a best effort at undoing the standard deprecation procedure on the current package and its containing repository, effectively "un-deprecating" them both. See the xscripts wiki for details on the standard deprecation procedure and what the ramifications of an "un-deprecation" are.`,
+    longHelpDescription: `This renovation will make a best effort at undoing the standard deprecation procedure on the current package and its containing repository, effectively "un-deprecating" them both. See the symbiote wiki for details on the standard deprecation procedure and what the ramifications of an "un-deprecation" are.`,
     requiresForce: true,
     supportedScopes: [ProjectRenovateScope.ThisPackage],
     subOptions: {},
@@ -1745,19 +1745,19 @@ Provide --assets-preset (required) to specify which assets to regenerate. The pa
 
 Use --skip-asset-paths to further narrow which files are regenerated. The parameter accepts regular expressions that are matched against the paths to be written out. Any paths matching one of the aforesaid regular expressions will have their contents discarded instead of written out.
 
-This renovation attempts to import the "import-aliases.mjs" file if it exists at the root of the project. Use this file to provide additional \`RawAliasMapping[]\`s to include when regenerating files defining the project's import aliases. See the xscripts wiki documentation for further details.
+This renovation attempts to import the "import-aliases.mjs" file if it exists at the root of the project. Use this file to provide additional \`RawAliasMapping[]\`s to include when regenerating files defining the project's import aliases. See the symbiote wiki documentation for further details.
 
 When renovating Markdown files with templates divided into replacer regions via the magic comments "${magicStringReplacerRegionStart}" and "${magicStringReplacerRegionEnd}", this command will perform so-called "regional replacements" where only the content between the "start" and "end" comments will be modified. Regions without matching ids are ignored.
 
 When regional replacements are performed, matching non-numeric reference definitions will be overwritten respectively, and new definitions will be appended. However, when attempting to renovate a Markdown file and either (1) it does not have replacer regions when its corresponding template contains replacer regions or (2) --force is used, the entire file will be overwritten instead.
 
-Note that only certain Markdown files support regional replacements. See the xscripts wiki documentation for more details.
+Note that only certain Markdown files support regional replacements. See the symbiote wiki documentation for more details.
 
 After invoking this renovation, you should use your IDE's diff tools to compare and contrast the latest best practices with the project's current configuration setup.
 
-This renovation should be re-run each time a package is added to, or removed from, a xscripts-compliant monorepo but should NEVER be run in a CI environment or anywhere logs can be viewed publicly.
+This renovation should be re-run each time a package is added to, or removed from, a symbiote-compliant monorepo but should NEVER be run in a CI environment or anywhere logs can be viewed publicly.
 
-See the xscripts wiki documentation for more details on this command and all available assets.
+See the symbiote wiki documentation for more details on this command and all available assets.
 `,
     requiresForce: false,
     supportedScopes: [ProjectRenovateScope.Unlimited],

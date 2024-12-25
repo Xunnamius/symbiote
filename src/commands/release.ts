@@ -6,7 +6,7 @@ import { setTimeout as delay } from 'node:timers/promises';
 import { run, runNoRejectOnBadExit, type RunOptions } from '@-xun/run';
 import { CliError, type ChildConfiguration } from '@black-flag/core';
 // ? Patches global Proxy and spawn functions; see documentation for details
-import '@-xun/scripts/assets/conventional.config.cjs';
+import '@-xun/symbiote/assets/conventional.config.cjs';
 import { type Merge, type OmitIndexSignature, type StringKeyOf } from 'type-fest';
 
 import {
@@ -218,7 +218,7 @@ export interface BaseProtoTask {
    */
   helpDescription: string;
   /**
-   * A symbol that will be placed before xscripts output text concerning this
+   * A symbol that will be placed before symbiote output text concerning this
    * task.
    */
   emoji?: string;
@@ -406,7 +406,7 @@ export default function command(
     description: 'Pack and release existing production-ready distributables',
     usage: withGlobalUsage(
       `
-$1 according to the release procedure described in the MAINTAINING.md file and at length in the xscripts wiki: https://github.com/Xunnamius/xscripts/wiki. The procedure is composed of the core "release" task as well as ${prereleaseTasks.length + postreleaseTasks.length} "prerelease" and "postrelease" tasks:
+$1 according to the release procedure described in the MAINTAINING.md file and at length in the symbiote wiki: https://github.com/Xunnamius/symbiote/wiki. The procedure is composed of the core "release" task as well as ${prereleaseTasks.length + postreleaseTasks.length} "prerelease" and "postrelease" tasks:
 
 ${printTasks(tasksInRunOrder)}
 
@@ -418,15 +418,15 @@ ${SHORT_TAB}- ${getRelevantDotEnvFilePaths(projectMetadata_).join(`\n${SHORT_TAB
 
 Provide --ci (--continuous-integration) to enable useful functionality for CI execution environments. Specifically: run npm ci (task #${findTaskByDescription(/npm ci/).id}), run xrelease in CI mode (task #${findTaskByDescription(/@-xun\/release/).id}), and facilitate package provenance if the runtime environment supports it (task #${findTaskByDescription(/@-xun\/release/).id}). If running the release procedure by hand instead of via CI/CD, use --no-ci to disable CI-specific functionality. --no-ci (--ci=false) is the default when the NODE_ENV environment variable is undefined or "development," otherwise --ci (--ci=true) is the default.
 
-Task #${findTaskByDescription(/@-xun\/changelog/).id} sets the XSCRIPTS_RELEASE_REBUILD_CHANGELOG environment variable in the current execution environment. This will be picked up by xrelease, causing it to rebuild the changelog using \`xscripts build changelog\`.
+Task #${findTaskByDescription(/@-xun\/changelog/).id} sets the SYMBIOTE_RELEASE_REBUILD_CHANGELOG environment variable in the current execution environment. This will be picked up by xrelease, causing it to rebuild the changelog using \`symbiote build changelog\`.
 
-Task #${findTaskByDescription(/sync-deps/).id} runs the equivalent of \`xscripts project renovate --scope=this-package --synchronize-interdependencies\` as a pre-release task.
+Task #${findTaskByDescription(/sync-deps/).id} runs the equivalent of \`symbiote project renovate --scope=this-package --synchronize-interdependencies\` as a pre-release task.
 
-Task #${findTaskByDescription(/codecov/i).id}, a postrelease task that uploads test coverage data to Codecov, is only performed if (1) coverage data already exists (see task #${findTaskByDescription(/xscripts test/).id}) and (2) a ${codecovConfigProjectBase} configuration file exists at the project root. An error will be thrown if no coverage data exists unless --force is provided. The task will be skipped if no configuration file exists. When uploading coverage data, the package's name and current branch are used to derive one or more flags (https://docs.codecov.com/docs/flags). Codecov uses flags to map reports to specific packages in its UI and coverage badges. See the xscripts wiki for details on flag semantics and usage.
+Task #${findTaskByDescription(/codecov/i).id}, a postrelease task that uploads test coverage data to Codecov, is only performed if (1) coverage data already exists (see task #${findTaskByDescription(/symbiote test/).id}) and (2) a ${codecovConfigProjectBase} configuration file exists at the project root. An error will be thrown if no coverage data exists unless --force is provided. The task will be skipped if no configuration file exists. When uploading coverage data, the package's name and current branch are used to derive one or more flags (https://docs.codecov.com/docs/flags). Codecov uses flags to map reports to specific packages in its UI and coverage badges. See the symbiote wiki for details on flag semantics and usage.
 
-Running \`xscripts release\` will usually execute all prerelease and postrelease tasks. Provide --skip-tasks=task-id (where "task-id" is a valid task number) to skip running a specific task, --skip-tasks=prerelease to skip running tasks #${firstSkippablePrereleaseTaskId}-${prereleaseTasks.at(-1)!.id}, --skip-tasks=postrelease to skip running tasks #${postreleaseTasks[0].id} and above, or --skip-tasks=all to skip running all skippable prerelease and postrelease tasks.
+Running \`symbiote release\` will usually execute all prerelease and postrelease tasks. Provide --skip-tasks=task-id (where "task-id" is a valid task number) to skip running a specific task, --skip-tasks=prerelease to skip running tasks #${firstSkippablePrereleaseTaskId}-${prereleaseTasks.at(-1)!.id}, --skip-tasks=postrelease to skip running tasks #${postreleaseTasks[0].id} and above, or --skip-tasks=all to skip running all skippable prerelease and postrelease tasks.
 
-There is also --skip-tasks=${allManualPrereleaseTasks}, which will skip running tasks ${firstSkippablePrereleaseTaskId} through ${lastSchedulerPurviewTaskId}. This is useful when xscripts is being managed by a task scheduling tool like Turbo that decides out-of-band if/when/how it wants to run these specific tasks; such a tool only calls \`xscripts release\` afterwards, when it's ready to trigger xrelease. It is for this reason that --skip-tasks=${allManualPrereleaseTasks} becomes the default when Turbo is detected in the runtime environment (by checking for the existence of process.env.TURBO_HASH).
+There is also --skip-tasks=${allManualPrereleaseTasks}, which will skip running tasks ${firstSkippablePrereleaseTaskId} through ${lastSchedulerPurviewTaskId}. This is useful when symbiote is being managed by a task scheduling tool like Turbo that decides out-of-band if/when/how it wants to run these specific tasks; such a tool only calls \`symbiote release\` afterwards, when it's ready to trigger xrelease. It is for this reason that --skip-tasks=${allManualPrereleaseTasks} becomes the default when Turbo is detected in the runtime environment (by checking for the existence of process.env.TURBO_HASH).
 
 When a task executes an NPM script, it will typically select from one of several choices. If the package's package.json file is missing every NPM script a task might choose, this command will exit with an error unless (1) the task allows itself to be skipped or (2) --skip-task-missing-scripts is provided. In either case, any missing scripts are noted in a warning but otherwise ignored.
 
@@ -434,7 +434,7 @@ The only available scope is "${ReleaseScope.ThisPackage}"; hence, when invoking 
 
 Provide --dry-run to ensure no permanent changes to the project are made, no release is cut, and no publishing or git write operations occur. Use --dry-run to test what would happen if you were to cut a release. Note that --dry-run will NOT prevent prerelease tasks from running; however, postrelease tasks that exclusively run NPM scripts are always skipped.
 
-Further, note the minimum package version this command will release will always be 1.0.0. This is because xrelease (nor upstream semantic-release) does not officially support "experimental packages," which are packages with versions below semver 1.0.0. If you attempt to release a package with a version below 1.0.0 (e.g. 0.0.1), it will be released as a 1.0.0 (breaking change) instead. It is not wise to use experimental package versions with xrelease or xscripts.
+Further, note the minimum package version this command will release will always be 1.0.0. This is because xrelease (nor upstream semantic-release) does not officially support "experimental packages," which are packages with versions below semver 1.0.0. If you attempt to release a package with a version below 1.0.0 (e.g. 0.0.1), it will be released as a 1.0.0 (breaking change) instead. It is not wise to use experimental package versions with xrelease or symbiote.
 
 WARNING: this command is NOT DESIGNED TO HANDLE CONCURRENT EXECUTION ON THE SAME GIT REPOSITORY IN A SAFE MANNER. DO NOT run multiple instances of this command on the same repository or project. If using a tool like Turbo, ensure it runs all NPM "release" scripts serially (and ideally topologically).
 `.trim()
@@ -908,7 +908,7 @@ const protoPrereleaseTasks: ProtoPrereleaseTask[][] = [
       skippable: true,
       emoji: '✍🏿',
       npmScripts: ['format'],
-      helpDescription: 'xscripts format'
+      helpDescription: 'symbiote format'
     }
   ],
   [
@@ -916,19 +916,19 @@ const protoPrereleaseTasks: ProtoPrereleaseTask[][] = [
       skippable: true,
       emoji: '🔍',
       npmScripts: ['lint:package', 'lint'],
-      helpDescription: 'xscripts lint --scope=this-package'
+      helpDescription: 'symbiote lint --scope=this-package'
     },
     {
       skippable: true,
       emoji: '📦',
       npmScripts: ['build:dist', 'build'],
-      helpDescription: 'xscripts build distributables'
+      helpDescription: 'symbiote build distributables'
     },
     {
       skippable: true,
       emoji: '📚',
       npmScripts: ['build:docs'],
-      helpDescription: 'xscripts build documentation'
+      helpDescription: 'symbiote build documentation'
     }
   ],
   [
@@ -937,14 +937,14 @@ const protoPrereleaseTasks: ProtoPrereleaseTask[][] = [
       emoji: '🧪',
       io: 'inherit',
       npmScripts: ['test:package:all', 'test'],
-      helpDescription: 'xscripts test --scope=this-package --coverage'
+      helpDescription: 'symbiote test --scope=this-package --coverage'
     },
     // * The other skippable tasks before this task (above) are skipped by Turbo
     {
       skippable: true,
       emoji: '🧹',
       actionDescription: 'Pulling latest versions of intra-project package dependencies',
-      helpDescription: 'xscripts project renovate --scope=this-package --sync-deps',
+      helpDescription: 'symbiote project renovate --scope=this-package --sync-deps',
       async run(globalExecutionContext, argv, { debug }) {
         debug(`renovating this package (sync-deps only) (calling out to sub-command)`);
 
@@ -992,7 +992,7 @@ const protoPrereleaseTasks: ProtoPrereleaseTask[][] = [
       actionDescription: 'Changelog will be rebuilt',
       helpDescription: 'Run @-xun/changelog (rebuild CHANGELOG.md)',
       async run() {
-        process.env.XSCRIPTS_RELEASE_REBUILD_CHANGELOG = 'true';
+        process.env.SYMBIOTE_RELEASE_REBUILD_CHANGELOG = 'true';
       }
     }
   ]
@@ -1012,7 +1012,7 @@ const protoReleaseTask: ProtoCoreReleaseTask = {
     hardAssert(cwdPackageName, ErrorMessage.GuruMeditation());
 
     const { NODE_OPTIONS } = process.env;
-    const XSCRIPTS_SPECIAL_INITIAL_COMMIT =
+    const SYMBIOTE_SPECIAL_INITIAL_COMMIT =
       await getLatestCommitWithXpipelineInitCommandSuffixOrTagSuffix(
         `${cwdPackageName}@`
       );
@@ -1029,8 +1029,8 @@ const protoReleaseTask: ProtoCoreReleaseTask = {
       ],
       {
         env: {
-          NODE_OPTIONS: `${NODE_OPTIONS ? `${NODE_OPTIONS} ` : ''}--require @-xun/scripts/assets/conventional.config.cjs`,
-          XSCRIPTS_SPECIAL_INITIAL_COMMIT,
+          NODE_OPTIONS: `${NODE_OPTIONS ? `${NODE_OPTIONS} ` : ''}--require @-xun/symbiote/assets/conventional.config.cjs`,
+          SYMBIOTE_SPECIAL_INITIAL_COMMIT,
           HUSKY: '0'
           // ? process.env is already automatically included
         },
@@ -1073,7 +1073,7 @@ const protoPostreleaseTasks: ProtoPostreleaseTask[][] = [
           const { exitCode } = await runNoRejectOnBadExit('codecov', ['--help']);
 
           const isMissingCodecov = exitCode !== 0;
-          const codecovDownloadDir = toPath(tmpdir(), 'xscripts-codecov-tmp');
+          const codecovDownloadDir = toPath(tmpdir(), 'symbiote-codecov-tmp');
           const codecovDownloadedFile = toPath(codecovDownloadDir, 'codecov');
 
           const codecovCommand = isMissingCodecov ? codecovDownloadedFile : 'codecov';

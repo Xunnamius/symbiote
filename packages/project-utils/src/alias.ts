@@ -286,14 +286,14 @@ export function makeRawAliasMapping(
  * - `"rootverse:some/path.js"`             (root ./some/path.js)
  * - `"rootverse+package-id:some/path.ts"`  (package ./some/path.ts)
  *
- * @see https://github.com/Xunnamius/xscripts/wiki/Standard-Aliases
+ * @see https://github.com/Xunnamius/symbiote/wiki/Standard-Aliases
  */
 export function generateRawAliasMap(
   projectMetadata: GenericProjectMetadata
 ): RawAliasMapping[] {
   // TODO: need to take into account that projects with assets being imported
   // TODO: via JS need their own aliases (assetverse) (perhaps this is a concern
-  // TODO: best handled at the xscripts project init/renovate level?)
+  // TODO: best handled at the symbiote project init/renovate level?)
 
   // * Universe mappings only support root-level aliases (i.e. without
   // * uriSchemeDelimiter)

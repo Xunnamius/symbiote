@@ -120,7 +120,7 @@ export type ImportedAliasMap = RawAliasMapping[] | RawAliasMapperFunction;
 
 /**
  * Magic string used to denote the beginning of a replacer region in Markdown
- * files processed by xscripts.
+ * files processed by symbiote.
  *
  * This is the photogenic version of
  * {@link magicStringReplacerRegionStartWithId}, which is the actual variable
@@ -129,13 +129,13 @@ export type ImportedAliasMap = RawAliasMapping[] | RawAliasMapperFunction;
  * Note that this string is actually a regular expression that can be used to
  * match region start comments containing an ID parameter.
  */
-export const magicStringReplacerRegionStart = String.raw`<!-- xscripts-template-region-start (\S+) -->`;
+export const magicStringReplacerRegionStart = String.raw`<!-- symbiote-template-region-start (\S+) -->`;
 
 /**
  * Magic string used to denote the beginning of a replacer region in Markdown
- * files processed by xscripts.
+ * files processed by symbiote.
  */
-export const magicStringReplacerRegionEnd = '<!-- xscripts-template-region-end -->';
+export const magicStringReplacerRegionEnd = '<!-- symbiote-template-region-end -->';
 
 /**
  * A regular expression that will match a replacer region in a string. Contains
@@ -208,7 +208,7 @@ export { withStandardUsage as withGlobalUsage };
 
 /**
  * This function runs common checks against the runtime to ensure the
- * environment is suitable for running xscripts.
+ * environment is suitable for running symbiote.
  *
  * This function should be called at the top of just about every command
  * handler.
@@ -988,7 +988,7 @@ export function isNonEmptyString(o: unknown): o is string {
 // TODO: migrate some part of this into xpipeline and hoist the other part up ^^
 
 /**
- * The value populating the XSCRIPTS_SPECIAL_INITIAL_COMMIT environment variable
+ * The value populating the SYMBIOTE_SPECIAL_INITIAL_COMMIT environment variable
  * when there was no special initialization commit reference found.
  */
 export const noSpecialInitialCommitIndicator = 'N/A';

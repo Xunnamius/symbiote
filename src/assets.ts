@@ -42,7 +42,7 @@ const debug_ = createDebugLogger({ namespace: globalDebuggerNamespace });
  * result of an {@link Asset.generate} function instead of normal string
  * content.
  */
-export const $delete = Symbol.for('xscripts-delete-file-at-path');
+export const $delete = Symbol.for('symbiote-delete-file-at-path');
 
 /**
  * The directory containing files exporting functions that transform
@@ -68,64 +68,64 @@ export const directoryAssetTemplates = toAbsolutePath(__dirname, 'assets', 'temp
  * when they're invoked. By specifying a preset, only the assets it represents
  * will be generated. All others will be ignored.
  *
- * See the xscripts wiki for details.
+ * See the symbiote wiki for details.
  */
 export enum AssetPreset {
   /**
-   * Represents the most basic assets necessary for xscripts to be fully
+   * Represents the most basic assets necessary for symbiote to be fully
    * functional.
    *
    * This preset is the basis for all others and can be used on any
-   * xscripts-compliant project when returning only a subset of files are
+   * symbiote-compliant project when returning only a subset of files are
    * desired.
    *
-   * See the xscripts wiki for details.
+   * See the symbiote wiki for details.
    */
   Basic = 'basic',
   /**
-   * Represents the standard assets for an xscripts-compliant command-line
-   * interface project (such as `@black-flag/core`-powered tools like `xscripts`
+   * Represents the standard assets for an symbiote-compliant command-line
+   * interface project (such as `@black-flag/core`-powered tools like `symbiote`
    * itself).
    *
-   * See the xscripts wiki for details.
+   * See the symbiote wiki for details.
    */
   Cli = 'cli',
   /**
-   * Represents the standard assets for an xscripts-compliant library project
+   * Represents the standard assets for an symbiote-compliant library project
    * built for both CJS and ESM consumers (such as the case with
    * `@black-flag/core`) and potentially also browser and other consumers as
    * well.
    *
-   * See the xscripts wiki for details.
+   * See the symbiote wiki for details.
    */
   Lib = 'lib',
   /**
-   * Represents the standard assets for an xscripts-compliant library project
+   * Represents the standard assets for an symbiote-compliant library project
    * built exclusively for ESM and ESM-compatible consumers (such as the case
    * with the `unified-utils` monorepo).
    *
-   * See the xscripts wiki for details.
+   * See the symbiote wiki for details.
    */
   LibEsm = 'lib-esm',
   /**
-   * Represents the standard assets for an xscripts-compliant library project
+   * Represents the standard assets for an symbiote-compliant library project
    * built exclusively for ESM consumers operating in a browser-like runtime
    * (such as the case with the `next-utils` monorepo).
    *
-   * See the xscripts wiki for details.
+   * See the symbiote wiki for details.
    */
   LibWeb = 'lib-web',
   /**
-   * Represents the standard assets for an xscripts-compliant React project.
+   * Represents the standard assets for an symbiote-compliant React project.
    *
-   * See the xscripts wiki for details.
+   * See the symbiote wiki for details.
    */
   React = 'react',
   /**
-   * Represents the standard assets for an xscripts-compliant Next.js + React
+   * Represents the standard assets for an symbiote-compliant Next.js + React
    * project.
    *
-   * See the xscripts wiki for details.
+   * See the symbiote wiki for details.
    */
   Nextjs = 'nextjs'
 }

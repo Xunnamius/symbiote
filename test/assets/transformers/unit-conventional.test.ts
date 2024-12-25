@@ -856,7 +856,7 @@ it('does not linkify @string if it is a scoped package (including with hyphens)'
           const config = moduleExport(dummyModuleExportConfig);
 
           await createBasicCommit(
-            'fix: update @typescript-eslint/some-pkg and @-xun/scripts and @eslint/js@5 and npm@beta',
+            'fix: update @typescript-eslint/some-pkg and @-xun/symbiote and @eslint/js@5 and npm@beta',
             context
           );
 
@@ -866,7 +866,7 @@ it('does not linkify @string if it is a scoped package (including with hyphens)'
           });
 
           expect(changelog).toInclude(
-            '* Update @typescript-eslint/some-pkg and @-xun/scripts and @eslint/js@5 and npm@beta'
+            '* Update @typescript-eslint/some-pkg and @-xun/symbiote and @eslint/js@5 and npm@beta'
           );
 
           expect(changelog).not.toInclude('(https://github.com/5');

@@ -518,11 +518,11 @@ export type MonorepoMetadata<Json extends PackageJson | XPackageJson = XPackageJ
   };
 
 /**
- * Additional scripts available when working on an xscripts-powered project.
+ * Additional scripts available when working on an symbiote-powered project.
  */
 export type XPackageJsonScripts = {
   /**
-   * Run by users, xscripts, and related tooling when building the current
+   * Run by users, symbiote, and related tooling when building the current
    * package's production-ready distributables.
    *
    * This script is usually a reference to `npm run build:dist`.
@@ -531,56 +531,56 @@ export type XPackageJsonScripts = {
    */
   build?: string;
   /**
-   * Run by users, xscripts, and related tooling when building the current
+   * Run by users, symbiote, and related tooling when building the current
    * package's `CHANGELOG.md` file.
    *
-   * @example `NODE_NO_WARNINGS=1 xscripts build changelog`
+   * @example `NODE_NO_WARNINGS=1 symbiote build changelog`
    */
   'build:changelog'?: string;
   /**
-   * Run by users, xscripts, and related tooling when building the current
+   * Run by users, symbiote, and related tooling when building the current
    * package's production-ready distributables.
    *
-   * @example `NODE_NO_WARNINGS=1 xscripts build distributables`
+   * @example `NODE_NO_WARNINGS=1 symbiote build distributables`
    */
   'build:dist'?: string;
   /**
-   * Run by users, xscripts, and related tooling when building the current
+   * Run by users, symbiote, and related tooling when building the current
    * package's documentation (typically found under `docs/`).
    *
-   * @example `NODE_NO_WARNINGS=1 xscripts build docs`
+   * @example `NODE_NO_WARNINGS=1 symbiote build docs`
    */
   'build:docs'?: string;
   /**
-   * Run by users, xscripts, and related tooling when removing files from the
+   * Run by users, symbiote, and related tooling when removing files from the
    * project or package that are ignored by git (with exceptions).
    *
-   * @example `NODE_NO_WARNINGS=1 xscripts clean`
+   * @example `NODE_NO_WARNINGS=1 symbiote clean`
    */
   clean?: string;
   /**
-   * Run by users, xscripts, and related tooling when deploying built
+   * Run by users, symbiote, and related tooling when deploying built
    * distributables to the appropriate remote system(s).
    *
-   * @example `NODE_NO_WARNINGS=1 xscripts deploy --target ssh --host prod.x.y.com --to-path /prod/some/path`
+   * @example `NODE_NO_WARNINGS=1 symbiote deploy --target ssh --host prod.x.y.com --to-path /prod/some/path`
    */
   deploy?: string;
   /**
-   * Run by users, xscripts, and related tooling when formatting the project
+   * Run by users, symbiote, and related tooling when formatting the project
    * or package.
    *
-   * @example `NODE_NO_WARNINGS=1 xscripts format --hush`
+   * @example `NODE_NO_WARNINGS=1 symbiote format --hush`
    */
   format?: string;
   /**
-   * Run by users, xscripts, and related tooling when printing information
+   * Run by users, symbiote, and related tooling when printing information
    * about the current project or package.
    *
-   * @example `NODE_NO_WARNINGS=1 xscripts project info`
+   * @example `NODE_NO_WARNINGS=1 symbiote project info`
    */
   info?: string;
   /**
-   * Run by users, xscripts, and related tooling when linting the current
+   * Run by users, symbiote, and related tooling when linting the current
    * package's files.
    *
    * This script is usually a reference to `npm run lint:package`.
@@ -589,79 +589,79 @@ export type XPackageJsonScripts = {
    */
   lint?: string;
   /**
-   * Run by users, xscripts, and related tooling when linting all of the
+   * Run by users, symbiote, and related tooling when linting all of the
    * lintable files under the current package's root along with any other
    * source files that comprise this package's build targets (see
    * {@link gatherPackageBuildTargets}).
    *
-   * @example `NODE_NO_WARNINGS=1 xscripts lint --scope this-package`
+   * @example `NODE_NO_WARNINGS=1 symbiote lint --scope this-package`
    */
   'lint:package'?: string;
   /**
-   * Run by users, xscripts, and related tooling when linting all lintable
+   * Run by users, symbiote, and related tooling when linting all lintable
    * files in the entire project.
    *
-   * @example `NODE_NO_WARNINGS=1 xscripts lint --scope unlimited`
+   * @example `NODE_NO_WARNINGS=1 symbiote lint --scope unlimited`
    */
   'lint:packages'?: string;
   /**
-   * Run by users, xscripts, and related tooling when linting a project's
+   * Run by users, symbiote, and related tooling when linting a project's
    * metadata, such as its file structure and configuration settings.
    *
-   * @example `NODE_NO_WARNINGS=1 xscripts project lint`
+   * @example `NODE_NO_WARNINGS=1 symbiote project lint`
    */
   'lint:project'?: string;
   /**
-   * Run by users, xscripts, and related tooling when printing information
+   * Run by users, symbiote, and related tooling when printing information
    * about available scripts in `package.json`.
    *
-   * @example `NODE_NO_WARNINGS=1 xscripts list-tasks`
+   * @example `NODE_NO_WARNINGS=1 symbiote list-tasks`
    */
   'list-tasks'?: string;
   /**
-   * Run by users, xscripts, and related tooling when preparing a fresh
+   * Run by users, symbiote, and related tooling when preparing a fresh
    * development environment.
    *
    * See [the
    * docs](https://docs.npmjs.com/cli/v9/using-npm/scripts#prepare-and-prepublish)
    * for more information.
    *
-   * @example `NODE_NO_WARNINGS=1 xscripts project prepare`
+   * @example `NODE_NO_WARNINGS=1 symbiote project prepare`
    */
   prepare?: string;
   /**
-   * Run by users, xscripts, and related tooling when potentially releasing
+   * Run by users, symbiote, and related tooling when potentially releasing
    * the next version of a package.
    *
-   * @example `NODE_NO_WARNINGS=1 xscripts release`
+   * @example `NODE_NO_WARNINGS=1 symbiote release`
    */
   release?: string;
   /**
-   * Run by users, xscripts, and related tooling when manipulating a project's
+   * Run by users, symbiote, and related tooling when manipulating a project's
    * _metadata_, such as its file structure and configuration settings, with the
    * goal of bringing the project up to date with latest best practices.
    *
-   * @example `NODE_NO_WARNINGS=1 xscripts project renovate
+   * @example `NODE_NO_WARNINGS=1 symbiote project renovate
    * --github-reconfigure-repo --regenerate-assets --assets-preset basic`
    */
   renovate?: string;
   /**
-   * Run by users, xscripts, and related tooling when attempting to execute a
+   * Run by users, symbiote, and related tooling when attempting to execute a
    * project's distributables locally.
    *
    * See [the docs](https://docs.npmjs.com/cli/v9/using-npm/scripts#npm-start)
    * for more information.
    *
-   * @example `NODE_NO_WARNINGS=1 xscripts start --`
+   * @example `NODE_NO_WARNINGS=1 symbiote start --`
    */
   start?: string;
   /**
-   * Run by users, xscripts, and related tooling when spinning up a project's
+   * Run by users, symbiote, and related tooling when spinning up a project's
    * local development environment.
    */
   dev?: string;
   /**
-   * Run by users, xscripts, and related tooling  when executing unit tests
+   * Run by users, symbiote, and related tooling  when executing unit tests
    * against the current package.
    *
    * This script is usually a reference to `npm run test:package:unit`. See
@@ -672,52 +672,52 @@ export type XPackageJsonScripts = {
    */
   test?: string;
   /**
-   * Run by users, xscripts, and related tooling when executing all possible
+   * Run by users, symbiote, and related tooling when executing all possible
    * tests against the current package. In a monorepo context, this script
    * will also run the tests of any package that this package depends on
    * (including transitive dependencies).
    *
-   * @example `NODE_NO_WARNINGS=1 xscripts test --scope this-package --coverage`
+   * @example `NODE_NO_WARNINGS=1 symbiote test --scope this-package --coverage`
    */
   'test:package:all'?: string;
   /**
-   * Run by users, xscripts, and related tooling when executing end-to-end
+   * Run by users, symbiote, and related tooling when executing end-to-end
    * tests against the current package. In a monorepo context, this script
    * will also run the tests of any package that this package depends on
    * (including transitive dependencies).
    *
-   * @example `NODE_NO_WARNINGS=1 xscripts test --scope this-package --tests end-to-end`
+   * @example `NODE_NO_WARNINGS=1 symbiote test --scope this-package --tests end-to-end`
    */
   'test:package:e2e'?: string;
   /**
-   * Run by users, xscripts, and related tooling when executing integration
+   * Run by users, symbiote, and related tooling when executing integration
    * tests against the current package. In a monorepo context, this script
    * will also run the tests of any package that this package depends on
    * (including transitive dependencies).
    *
-   * @example `NODE_NO_WARNINGS=1 xscripts test --scope this-package --tests integration`
+   * @example `NODE_NO_WARNINGS=1 symbiote test --scope this-package --tests integration`
    */
   'test:package:integration'?: string;
   /**
-   * Run by users, xscripts, and related tooling when executing unit tests
+   * Run by users, symbiote, and related tooling when executing unit tests
    * against the current package. In a monorepo context, this script
    * will also run the tests of any package that this package depends on
    * (including transitive dependencies).
    *
-   * @example `NODE_NO_WARNINGS=1 xscripts test --scope this-package --tests unit`
+   * @example `NODE_NO_WARNINGS=1 symbiote test --scope this-package --tests unit`
    */
   'test:package:unit'?: string;
   /**
-   * Run by users, xscripts, and related tooling when executing all possible
+   * Run by users, symbiote, and related tooling when executing all possible
    * tests across the entire project.
    *
-   * @example `NODE_NO_WARNINGS=1 xscripts test --scope unlimited --coverage`
+   * @example `NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage`
    */
   'test:packages:all'?: string;
 };
 
 /**
- * A version of {@link PackageJson} used by xscripts-powered projects with
+ * A version of {@link PackageJson} used by symbiote-powered projects with
  * certain additional properties and other properties that are guaranteed to
  * exist.
  */

@@ -144,15 +144,15 @@ There are two ways to execute the release procedure by hand. The first is by
 leveraging the release script:
 
 ```bash
-# Do a xscripts dry run first:
+# Do a symbiote dry run first:
 npm run release -- --dry-run
-# Then do the actual xscripts-based release:
+# Then do the actual symbiote-based release:
 npm run release
 ```
 
 > [!NOTE]
 >
-> See `npx xscripts release --help` for more options.
+> See `npx symbiote release --help` for more options.
 
 The second way is by running the following npm scripts in the specified order:
 
@@ -210,10 +210,10 @@ With somber focus, the following steps should be taken:
 
 > [!TIP]
 >
-> If you're using [xscripts][12], all of this can be done automatically:
+> If you're using [symbiote][12], all of this can be done automatically:
 >
 > ```bash
-> npx xscripts project renovate --deprecate
+> npx symbiote project renovate --deprecate
 > ```
 
 > These steps were inspired by [Richard Litt's checklist][13].
@@ -222,7 +222,7 @@ With somber focus, the following steps should be taken:
 
 > [!IMPORTANT]
 >
-> If the deprecated project is using [xscripts][12]/[xpipeline][14], at least
+> If the deprecated project is using [symbiote][12]/[xpipeline][14], at least
 > one of the commits created as a result of following these instructions must be
 > of the [`build` type][15] so that a final "deprecated" version with updated
 > deprecation documentation is released. If operating on a monorepo, said commit
@@ -340,13 +340,13 @@ Thank you so much for helping to maintain this project!
 [9]: https://dev.to/paulinevos/atomic-commits-will-help-you-git-legit-35i7
 [10]: https://github.com/Xunnamius/xrelease
 [11]:
-  https://github.com/Xunnamius/xscripts/blob/151f64052b9160fca6dd519ea6e6787a95160544/src/assets/transformers/_release.config.cjs.ts#L147-L157
-[12]: https://github.com/Xunnamius/xscripts
+  https://github.com/Xunnamius/symbiote/blob/151f64052b9160fca6dd519ea6e6787a95160544/src/assets/transformers/_release.config.cjs.ts#L147-L157
+[12]: https://github.com/Xunnamius/symbiote
 [13]:
   https://github.com/RichardLitt/knowledge/blob/master/github/how-to-deprecate-a-repository-on-github.md
 [14]: https://github.com/Xunnamius/pipeline
 [15]:
-  https://github.com/Xunnamius/xscripts/blob/151f64052b9160fca6dd519ea6e6787a95160544/src/assets/transformers/_conventional.config.cjs.ts#L264-L277
+  https://github.com/Xunnamius/symbiote/blob/151f64052b9160fca6dd519ea6e6787a95160544/src/assets/transformers/_conventional.config.cjs.ts#L264-L277
 [16]: https://github.com/orgs/community/discussions/54372
 [17]: https://github.com/orgs/community/discussions/16925
 [18]: https://docs.npmjs.com/cli/v10/configuring-npm/package-json#description-1

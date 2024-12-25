@@ -2,7 +2,7 @@
 // * - @semantic-release/release-notes-generator
 // * - @semantic-release/changelog
 
-// {@xscripts/notExtraneous @-xun/release}
+// {@symbiote/notExtraneous @-xun/release}
 import assert from 'node:assert';
 import crypto from 'node:crypto';
 import { readFile, rm as rmFile, writeFile } from 'node:fs/promises';
@@ -97,7 +97,7 @@ export function moduleExport({
 
   const releaseSectionPath = toPath(
     os.tmpdir(),
-    `xscripts-release-changelog-${crypto.randomBytes(4).readUInt32LE(0).toString(16)}.md`
+    `symbiote-release-changelog-${crypto.randomBytes(4).readUInt32LE(0).toString(16)}.md`
   );
 
   debug('releaseSectionPath: %O', releaseSectionPath);
@@ -160,7 +160,7 @@ export function moduleExport({
       // ? This block pulls in a custom semantic-release plugin that mutates
       // ? internal state as required.
       [
-        `@-xun/scripts/assets/${xreleaseConfigProjectBase}`,
+        `@-xun/symbiote/assets/${xreleaseConfigProjectBase}`,
         {
           releaseSectionPath,
           parserOpts,
@@ -184,7 +184,7 @@ export function moduleExport({
       // This comes bundled with semantic-release
       '@semantic-release/npm',
       [
-        // {@xscripts/notExtraneous @semantic-release/git}
+        // {@symbiote/notExtraneous @semantic-release/git}
         '@semantic-release/git',
         {
           assets: ['package.json', 'package-lock.json', 'CHANGELOG.md', 'docs'],
@@ -212,12 +212,12 @@ export const { transformer } = makeTransformer(function (context) {
 // @ts-check
 'use strict';
 
-const { deepMergeConfig } = require('@-xun/scripts/assets');
+const { deepMergeConfig } = require('@-xun/symbiote/assets');
 
 const {
   assertEnvironment,
   moduleExport
-} = require('@-xun/scripts/assets/${asset}');
+} = require('@-xun/symbiote/assets/${asset}');
 
 // TODO: publish latest rejoinder package first, then update configs to use it
 //const { createDebugLogger } = require('rejoinder');
@@ -227,7 +227,7 @@ const {
 module.exports = deepMergeConfig(
   moduleExport(assertEnvironment({ projectRoot: __dirname })),
   /**
-   * @type {import('@-xun/scripts/assets/${asset}').ReleaseConfig}
+   * @type {import('@-xun/symbiote/assets/${asset}').ReleaseConfig}
    */
   {
     // Any custom configs here will be deep merged with moduleExport's result
@@ -249,11 +249,11 @@ export function assertEnvironment({
 }: {
   projectRoot: string;
 }): Omit<Parameters<typeof moduleExport>[0], 'derivedAliases'> {
-  const specialInitialCommit = process.env.XSCRIPTS_SPECIAL_INITIAL_COMMIT;
+  const specialInitialCommit = process.env.SYMBIOTE_SPECIAL_INITIAL_COMMIT;
 
   assert(
     specialInitialCommit && typeof specialInitialCommit === 'string',
-    ErrorMessage.MissingXscriptsEnvironmentVariable('XSCRIPTS_SPECIAL_INITIAL_COMMIT')
+    ErrorMessage.MissingSymbioteEnvironmentVariable('SYMBIOTE_SPECIAL_INITIAL_COMMIT')
   );
 
   const { parserOpts, writerOpts } = require(
@@ -296,7 +296,7 @@ export function verifyConditions(
 
 /**
  * This is a custom semantic-release plugin step that replaces
- * `nextRelease.notes` with the version patched by xscripts.
+ * `nextRelease.notes` with the version patched by symbiote.
  */
 export async function generateNotes(
   { releaseSectionPath, parserOpts, writerOpts }: PluginConfig,
@@ -306,10 +306,10 @@ export async function generateNotes(
   pluginDebug('entered step function');
 
   const {
-    env: { XSCRIPTS_RELEASE_REBUILD_CHANGELOG }
+    env: { SYMBIOTE_RELEASE_REBUILD_CHANGELOG }
   } = context;
 
-  const shouldRebuildChangelog = XSCRIPTS_RELEASE_REBUILD_CHANGELOG !== 'false';
+  const shouldRebuildChangelog = SYMBIOTE_RELEASE_REBUILD_CHANGELOG !== 'false';
   pluginDebug('shouldRebuildChangelog: %O', shouldRebuildChangelog);
 
   const pseudoBfGlobalExecutionContext = await configureExecutionContext({
@@ -337,7 +337,7 @@ export async function generateNotes(
   await writeFile(releaseSectionPath, rawNotes);
 
   if (shouldRebuildChangelog) {
-    pluginDebug('rebuilding changelog (calling out to xscripts api)');
+    pluginDebug('rebuilding changelog (calling out to symbiote api)');
 
     await buildChangelogHandler({
       [$executionContext]: pseudoBfGlobalExecutionContext,
@@ -357,13 +357,13 @@ export async function generateNotes(
       changelogFile: 'CHANGELOG.md'
     });
 
-    pluginDebug('xscripts api call completed successfully');
+    pluginDebug('symbiote api call completed successfully');
   } else {
     pluginDebug('skipped rebuilding changelog');
   }
 
   pluginDebug(
-    `patching and formatting ${releaseSectionPath} (calling out to xscripts api)`
+    `patching and formatting ${releaseSectionPath} (calling out to symbiote api)`
   );
 
   await buildChangelogHandler({
@@ -383,7 +383,7 @@ export async function generateNotes(
     changelogFile: releaseSectionPath
   });
 
-  pluginDebug('xscripts api call completed successfully');
+  pluginDebug('symbiote api call completed successfully');
 
   const prettyTrimmedNotes = (await readFile(releaseSectionPath, 'utf8')).trim();
   pluginDebug('prettyTrimmedNotes: %O', prettyTrimmedNotes);

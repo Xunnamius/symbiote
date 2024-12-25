@@ -52,7 +52,7 @@ export const wellKnownGithubAlerts = [
 export const wellKnownNodeEnvValues = ['lint', 'lint-no-undef', 'format'] as const;
 
 export const noUndefinedReferencesPlugin: PluggableListSupportingSpecifiers = [
-  // {@xscripts/notExtraneous remark-lint-no-undefined-references}
+  // {@symbiote/notExtraneous remark-lint-no-undefined-references}
   'remark-lint-no-undefined-references',
   { allow: [/![A-Z]+/] }
 ] as const;
@@ -66,7 +66,7 @@ export const noUndefinedReferencesPlugin: PluggableListSupportingSpecifiers = [
 function lintConfigNoUndef(): RemarkConfig {
   return {
     plugins: [
-      'gfm', // {@xscripts/notExtraneous remark-gfm}
+      'gfm', // {@symbiote/notExtraneous remark-gfm}
       noUndefinedReferencesPlugin
     ]
   };
@@ -80,82 +80,82 @@ function lintConfigNoUndef(): RemarkConfig {
 function lintConfig(allowWarningComments: boolean): RemarkConfig {
   const config: RemarkConfig = {
     plugins: [
-      // {@xscripts/notExtraneous remark-ignore}
+      // {@symbiote/notExtraneous remark-ignore}
       'remark-ignore',
-      // {@xscripts/notExtraneous remark-frontmatter}
+      // {@symbiote/notExtraneous remark-frontmatter}
       'remark-frontmatter',
-      // {@xscripts/notExtraneous remark-gfm}
+      // {@symbiote/notExtraneous remark-gfm}
       'remark-gfm',
-      // {@xscripts/notExtraneous remark-lint}
+      // {@symbiote/notExtraneous remark-lint}
       'remark-lint',
-      // {@xscripts/notExtraneous remark-lint-definition-case}
+      // {@symbiote/notExtraneous remark-lint-definition-case}
       'remark-lint-definition-case',
-      // {@xscripts/notExtraneous remark-lint-fenced-code-flag}
+      // {@symbiote/notExtraneous remark-lint-fenced-code-flag}
       'remark-lint-fenced-code-flag',
-      // {@xscripts/notExtraneous remark-lint-fenced-code-flag-case}
+      // {@symbiote/notExtraneous remark-lint-fenced-code-flag-case}
       'remark-lint-fenced-code-flag-case',
-      // {@xscripts/notExtraneous remark-lint-file-extension}
+      // {@symbiote/notExtraneous remark-lint-file-extension}
       'remark-lint-file-extension',
-      // {@xscripts/notExtraneous remark-lint-first-heading-level}
+      // {@symbiote/notExtraneous remark-lint-first-heading-level}
       'remark-lint-first-heading-level',
-      // {@xscripts/notExtraneous remark-lint-heading-increment}
+      // {@symbiote/notExtraneous remark-lint-heading-increment}
       'remark-lint-heading-increment',
-      // {@xscripts/notExtraneous remark-lint-heading-whitespace}
+      // {@symbiote/notExtraneous remark-lint-heading-whitespace}
       'remark-lint-heading-whitespace',
-      // {@xscripts/notExtraneous remark-lint-list-item-style}
+      // {@symbiote/notExtraneous remark-lint-list-item-style}
       ['remark-lint-list-item-style', { checkPunctuation: false }],
-      // {@xscripts/notExtraneous remark-lint-no-duplicate-defined-urls}
+      // {@symbiote/notExtraneous remark-lint-no-duplicate-defined-urls}
       'remark-lint-no-duplicate-defined-urls',
-      // {@xscripts/notExtraneous remark-lint-no-duplicate-headings-in-section}
+      // {@symbiote/notExtraneous remark-lint-no-duplicate-headings-in-section}
       'remark-lint-no-duplicate-headings-in-section',
-      // {@xscripts/notExtraneous remark-lint-no-empty-sections}
+      // {@symbiote/notExtraneous remark-lint-no-empty-sections}
       'remark-lint-no-empty-sections',
-      // {@xscripts/notExtraneous remark-lint-no-empty-url}
+      // {@symbiote/notExtraneous remark-lint-no-empty-url}
       'remark-lint-no-empty-url',
-      // {@xscripts/notExtraneous remark-lint-heading-word-length}
+      // {@symbiote/notExtraneous remark-lint-heading-word-length}
       'remark-lint-heading-word-length',
-      // {@xscripts/notExtraneous remark-lint-no-heading-like-paragraph}
+      // {@symbiote/notExtraneous remark-lint-no-heading-like-paragraph}
       'remark-lint-no-heading-like-paragraph',
-      // {@xscripts/notExtraneous remark-lint-no-heading-punctuation}
+      // {@symbiote/notExtraneous remark-lint-no-heading-punctuation}
       'remark-lint-no-heading-punctuation',
-      // {@xscripts/notExtraneous remark-lint-no-literal-urls}
+      // {@symbiote/notExtraneous remark-lint-no-literal-urls}
       'remark-lint-no-literal-urls',
-      // {@xscripts/notExtraneous remark-lint-no-multiple-toplevel-headings}
+      // {@symbiote/notExtraneous remark-lint-no-multiple-toplevel-headings}
       'remark-lint-no-multiple-toplevel-headings',
-      // {@xscripts/notExtraneous remark-lint-no-reference-like-url}
+      // {@symbiote/notExtraneous remark-lint-no-reference-like-url}
       'remark-lint-no-reference-like-url',
-      // {@xscripts/notExtraneous remark-lint-no-shell-dollars}
+      // {@symbiote/notExtraneous remark-lint-no-shell-dollars}
       'remark-lint-no-shell-dollars',
-      // {@xscripts/notExtraneous remark-lint-no-shortcut-reference-image}
+      // {@symbiote/notExtraneous remark-lint-no-shortcut-reference-image}
       'remark-lint-no-shortcut-reference-image',
-      // {@xscripts/notExtraneous remark-lint-no-shortcut-reference-link}
+      // {@symbiote/notExtraneous remark-lint-no-shortcut-reference-link}
       'remark-lint-no-shortcut-reference-link',
-      // {@xscripts/notExtraneous remark-lint-no-tabs}
+      // {@symbiote/notExtraneous remark-lint-no-tabs}
       'remark-lint-no-tabs',
       noUndefinedReferencesPlugin,
-      // {@xscripts/notExtraneous remark-lint-ordered-list-marker-value}
+      // {@symbiote/notExtraneous remark-lint-ordered-list-marker-value}
       'remark-lint-ordered-list-marker-value',
-      // {@xscripts/notExtraneous remark-lint-strikethrough-marker}
+      // {@symbiote/notExtraneous remark-lint-strikethrough-marker}
       ['remark-lint-strikethrough-marker', '~~'],
-      // {@xscripts/notExtraneous remark-lint-unordered-list-marker-style}
+      // {@symbiote/notExtraneous remark-lint-unordered-list-marker-style}
       // ? Prettier will reformat list markers UNLESS they precede checkboxes
       ['remark-lint-unordered-list-marker-style', '-'],
-      // {@xscripts/notExtraneous remark-lint-final-newline}
+      // {@symbiote/notExtraneous remark-lint-final-newline}
       'remark-lint-final-newline',
-      // {@xscripts/notExtraneous remark-lint-hard-break-spaces}
+      // {@symbiote/notExtraneous remark-lint-hard-break-spaces}
       'remark-lint-hard-break-spaces',
-      // {@xscripts/notExtraneous remark-lint-no-blockquote-without-marker}
+      // {@symbiote/notExtraneous remark-lint-no-blockquote-without-marker}
       'remark-lint-no-blockquote-without-marker',
-      // {@xscripts/notExtraneous remark-lint-no-duplicate-definitions}
+      // {@symbiote/notExtraneous remark-lint-no-duplicate-definitions}
       'remark-lint-no-duplicate-definitions',
-      // {@xscripts/notExtraneous remark-lint-no-heading-content-indent}
+      // {@symbiote/notExtraneous remark-lint-no-heading-content-indent}
       'remark-lint-no-heading-content-indent',
-      // {@xscripts/notExtraneous remark-lint-no-unused-definitions}
+      // {@symbiote/notExtraneous remark-lint-no-unused-definitions}
       // TODO: this package seems broken, perhaps submit a bug fix?
       //'remark-lint-no-unused-definitions',
-      // {@xscripts/notExtraneous remark-lint-ordered-list-marker-style}
+      // {@symbiote/notExtraneous remark-lint-ordered-list-marker-style}
       'remark-lint-ordered-list-marker-style',
-      // {@xscripts/notExtraneous remark-validate-links}
+      // {@symbiote/notExtraneous remark-validate-links}
       'remark-validate-links'
     ]
   };
@@ -178,15 +178,15 @@ function formatConfig(
 ): RemarkConfig {
   return {
     plugins: [
-      // {@xscripts/notExtraneous remark-ignore}
+      // {@symbiote/notExtraneous remark-ignore}
       'remark-ignore',
-      // {@xscripts/notExtraneous remark-frontmatter}
+      // {@symbiote/notExtraneous remark-frontmatter}
       'remark-frontmatter',
-      // {@xscripts/notExtraneous remark-gfm}
+      // {@symbiote/notExtraneous remark-gfm}
       'remark-gfm',
-      // {@xscripts/notExtraneous remark-tight-comments}
+      // {@symbiote/notExtraneous remark-tight-comments}
       'remark-tight-comments',
-      // {@xscripts/notExtraneous remark-capitalize-headings}
+      // {@symbiote/notExtraneous remark-capitalize-headings}
       [
         'remark-capitalize-headings',
         {
@@ -198,16 +198,16 @@ function formatConfig(
             .filter(Boolean)
         }
       ],
-      // {@xscripts/notExtraneous remark-remove-unused-definitions}
+      // {@symbiote/notExtraneous remark-remove-unused-definitions}
       'remark-remove-unused-definitions',
-      // {@xscripts/notExtraneous remark-remove-url-trailing-slash}
+      // {@symbiote/notExtraneous remark-remove-url-trailing-slash}
       'remark-remove-url-trailing-slash',
       ...(shouldRenumberReferences
-        ? // {@xscripts/notExtraneous remark-renumber-references}
+        ? // {@symbiote/notExtraneous remark-renumber-references}
           ['remark-renumber-references']
-        : // {@xscripts/notExtraneous remark-reference-links}
+        : // {@symbiote/notExtraneous remark-reference-links}
           ['remark-reference-links']),
-      // {@xscripts/notExtraneous remark-sort-definitions}
+      // {@symbiote/notExtraneous remark-sort-definitions}
       'sort-definitions'
     ]
   };
@@ -279,10 +279,10 @@ export async function assertEnvironment(): Promise<Parameters<typeof moduleExpor
     '(undefined)') as (typeof wellKnownNodeEnvValues)[number];
 
   const shouldRenumberReferences =
-    process.env.XSCRIPTS_FORMAT_RENUMBER_REFERENCES === 'true';
+    process.env.SYMBIOTE_FORMAT_RENUMBER_REFERENCES === 'true';
 
   const allowWarningComments =
-    process.env.XSCRIPTS_LINT_ALLOW_WARNING_COMMENTS === 'true';
+    process.env.SYMBIOTE_LINT_ALLOW_WARNING_COMMENTS === 'true';
 
   if (!wellKnownNodeEnvValues.includes(mode)) {
     throw new ProjectError(
@@ -310,8 +310,8 @@ export const { transformer } = makeTransformer(function (context) {
         generate: () => /*js*/ `
 // @ts-check
 
-import { deepMergeConfig } from '@-xun/scripts/assets';
-import { assertEnvironment, moduleExport } from '@-xun/scripts/assets/${asset}';
+import { deepMergeConfig } from '@-xun/symbiote/assets';
+import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/${asset}';
 
 // TODO: publish latest rejoinder package first, then update configs to use it
 //import { createDebugLogger } from 'rejoinder';
@@ -321,7 +321,7 @@ import { assertEnvironment, moduleExport } from '@-xun/scripts/assets/${asset}';
 const config = deepMergeConfig(
   moduleExport(await assertEnvironment()),
   /**
-   * @type {import('@-xun/scripts/assets/${asset}').RemarkConfig}
+   * @type {import('@-xun/symbiote/assets/${asset}').RemarkConfig}
    */
   {
     // Any custom configs here will be deep merged with moduleExport

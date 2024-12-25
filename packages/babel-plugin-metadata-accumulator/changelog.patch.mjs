@@ -4,7 +4,7 @@ import packageJson from './package.json' with { type: 'json' };
 const { name: packageName } = packageJson;
 
 /**
- * @type {import('@-xun/scripts/commands/build/changelog').ChangelogPatcherFunction}
+ * @type {import('@-xun/symbiote/commands/build/changelog').ChangelogPatcherFunction}
  */
 export default function changelogPatcher(changelog, patcher) {
   // ? Fixup old-style gac photogenic commits

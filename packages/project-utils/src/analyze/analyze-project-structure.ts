@@ -76,7 +76,7 @@ export type AnalyzeProjectStructureOptions = {
   /**
    * Allow unnamed packages in this project, which will result in looser and
    * less useful types being returned. Setting this to `true` is only useful
-   * when analyzing projects that do not adhere to standard xscripts (or
+   * when analyzing projects that do not adhere to standard symbiote (or
    * NPM/Node) best practices.
    *
    * @default false

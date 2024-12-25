@@ -3,7 +3,7 @@ import { ncuConfigProjectBase } from 'multiverse+project-utils:fs.ts';
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 import { globalDebuggerNamespace } from 'universe:constant.ts';
 
-// {@xscripts/notExtraneous npm-check-updates}
+// {@symbiote/notExtraneous npm-check-updates}
 
 export const { transformer } = makeTransformer(function (context) {
   const { toProjectAbsolutePath } = context;

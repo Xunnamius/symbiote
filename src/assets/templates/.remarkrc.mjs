@@ -4,7 +4,7 @@ import assert from 'node:assert';
 import config from '../../../.remarkrc.mjs';
 
 // TODO: use rejoinder instead
-const debug = (await import('debug')).default('xscripts:config:remark:asset-templates');
+const debug = (await import('debug')).default('symbiote:config:remark:asset-templates');
 
 /**
  * * The goal of this file is to disable remark-validate-links for template
@@ -12,7 +12,7 @@ const debug = (await import('debug')).default('xscripts:config:remark:asset-temp
  */
 
 /**
- * @type {import('@-xun/scripts/assets/.remarkrc.mjs').RemarkConfig}
+ * @type {import('@-xun/symbiote/assets/.remarkrc.mjs').RemarkConfig}
  */
 const subConfig = { ...config };
 

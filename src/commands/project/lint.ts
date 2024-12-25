@@ -92,7 +92,7 @@ export default function command({
       // TODO (warn about .prettierignore files that aren't at the project root)
       // TODO (warn about peer dependencies that aren't semver ranges)
       // TODO (https://github.com/JamieMason/syncpack, https://www.npmjs.com/package/@manypkg/cli, https://www.npmjs.com/package/sherif)
-      // TODO (warnings can be disabled using Node.js-style flags like --disable-warning=... or by defining XSCRIPTS_LINT_NO_WARNINGS as not 0/false)
+      // TODO (warnings can be disabled using Node.js-style flags like --disable-warning=... or by defining SYMBIOTE_LINT_NO_WARNINGS as not 0/false)
       // TODO (no `bin` package.json entries should have non-string values, if the `bin` is given at all)
       // TODO (warn when xunn.at packages are not pinned to a specific version)
       // TODO (warn when GitHub metadata description lacks an emoji prefix)

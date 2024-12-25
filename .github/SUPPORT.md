@@ -46,13 +46,13 @@ you for contribution 🎉, your efforts are greatly appreciated! 🙌🏿
 - Issues that go for an extended period without activity are subject to closure.
 
 [badge-issue-percentage]:
-  https://isitmaintained.com/badge/open/Xunnamius/xscripts.svg
+  https://isitmaintained.com/badge/open/Xunnamius/symbiote.svg
   'Open issues as a percentage of all issues'
 [badge-issue-resolution]:
-  https://isitmaintained.com/badge/resolution/Xunnamius/xscripts.svg
+  https://isitmaintained.com/badge/resolution/Xunnamius/symbiote.svg
   'Average time to resolve an issue'
-[choose-new-issue]: https://github.com/Xunnamius/xscripts/issues/new/choose
+[choose-new-issue]: https://github.com/Xunnamius/symbiote/issues/new/choose
 [github-blog]:
   https://github.com/blog/2119-add-reactions-to-pull-requests-issues-and-comments
-[link-issue-resolution]: https://isitmaintained.com/project/Xunnamius/xscripts
-[open-issues]: https://github.com/Xunnamius/xscripts/issues?q=
+[link-issue-resolution]: https://isitmaintained.com/project/Xunnamius/symbiote
+[open-issues]: https://github.com/Xunnamius/symbiote/issues?q=

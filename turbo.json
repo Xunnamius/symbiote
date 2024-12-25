@@ -1,11 +1,11 @@
 {
-  // {@xscripts/notExtraneous turbo}
+  // {@symbiote/notExtraneous turbo}
   "$schema": "https://turbo.build/schema.json",
   "tasks": {
     "build:dist": {
       "outputs": ["dist/**", "!dist/types/**"]
     },
-    // TODO: update this whole file for xscripts etc
+    // TODO: update this whole file for symbiote etc
     // "build:types": {
     //   "outputs": ["dist/types/**"]
     // }

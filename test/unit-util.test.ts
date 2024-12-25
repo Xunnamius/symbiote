@@ -291,34 +291,34 @@ describe('::replaceRegionsRespectively', () => {
 
   const dummyExisting = `
 EXISTING Outside
-<!-- xscripts-template-region-start 1 -->
+<!-- symbiote-template-region-start 1 -->
 EXISTING Inside
-<!-- xscripts-template-region-end -->
+<!-- symbiote-template-region-end -->
 
 EXISTING Also outside
 
-<!-- xscripts-template-region-start two -->
+<!-- symbiote-template-region-start two -->
 
 EXISTING Another insider
 
-<!-- xscripts-template-region-end -->
+<!-- symbiote-template-region-end -->
 
 EXISTING Final outside
 `;
 
   const dummyTemplate = `
 TEMPLATE Outside
-<!-- xscripts-template-region-start 1 -->
+<!-- symbiote-template-region-start 1 -->
 TEMPLATE Inside
-<!-- xscripts-template-region-end -->
+<!-- symbiote-template-region-end -->
 
 TEMPLATE Also outside
 
-<!-- xscripts-template-region-start two -->
+<!-- symbiote-template-region-start two -->
 
 TEMPLATE Another insider
 
-<!-- xscripts-template-region-end -->
+<!-- symbiote-template-region-end -->
 
 TEMPLATE Final outside
 `;
@@ -338,17 +338,17 @@ TEMPLATE Final outside
       })
     ).resolves.toBe(`
 EXISTING Outside
-<!-- xscripts-template-region-start 1 -->
+<!-- symbiote-template-region-start 1 -->
 TEMPLATE Inside
-<!-- xscripts-template-region-end -->
+<!-- symbiote-template-region-end -->
 
 EXISTING Also outside
 
-<!-- xscripts-template-region-start two -->
+<!-- symbiote-template-region-start two -->
 
 TEMPLATE Another insider
 
-<!-- xscripts-template-region-end -->
+<!-- symbiote-template-region-end -->
 
 EXISTING Final outside
 `);
@@ -393,17 +393,17 @@ EXISTING Final outside
         })
       ).resolves.toBe(`
 EXISTING Outside
-<!-- xscripts-template-region-start 1 -->
+<!-- symbiote-template-region-start 1 -->
 TEMPLATE Inside
-<!-- xscripts-template-region-end -->
+<!-- symbiote-template-region-end -->
 
 EXISTING Also outside
 
-<!-- xscripts-template-region-start two -->
+<!-- symbiote-template-region-start two -->
 
 TEMPLATE Another insider
 
-<!-- xscripts-template-region-end -->
+<!-- symbiote-template-region-end -->
 
 EXISTING Final outside
 
@@ -445,17 +445,17 @@ EXISTING Final outside
         })
       ).resolves.toBe(`
 EXISTING Outside
-<!-- xscripts-template-region-start 1 -->
+<!-- symbiote-template-region-start 1 -->
 TEMPLATE Inside
-<!-- xscripts-template-region-end -->
+<!-- symbiote-template-region-end -->
 
 EXISTING Also outside
 
-<!-- xscripts-template-region-start two -->
+<!-- symbiote-template-region-start two -->
 
 TEMPLATE Another insider
 
-<!-- xscripts-template-region-end -->
+<!-- symbiote-template-region-end -->
 
 EXISTING Final outside
 
@@ -533,21 +533,21 @@ EXISTING Final outside
 
     const spy = jest.spyOn(nodeFs, 'readFile');
     const additionalRegionY = `
-<!-- xscripts-template-region-start is-y -->
+<!-- symbiote-template-region-start is-y -->
 
 EXISTING Also insider
 
-<!-- xscripts-template-region-end -->`;
+<!-- symbiote-template-region-end -->`;
 
     spy.mockImplementation(() =>
       Promise.resolve(
         dummyExisting +
           `
-<!-- xscripts-template-region-start is-not-y -->
+<!-- symbiote-template-region-start is-not-y -->
 
 EXISTING Also insider
 
-<!-- xscripts-template-region-end -->`
+<!-- symbiote-template-region-end -->`
       )
     );
 
@@ -565,11 +565,11 @@ EXISTING Also insider
 
     const spy = jest.spyOn(nodeFs, 'readFile');
     const additionalRegion = `
-<!-- xscripts-template-region-start x -->
+<!-- symbiote-template-region-start x -->
 
 EXISTING Also insider
 
-<!-- xscripts-template-region-end -->`;
+<!-- symbiote-template-region-end -->`;
 
     spy.mockImplementation(() => Promise.resolve(dummyExisting + additionalRegion));
 

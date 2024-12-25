@@ -8,7 +8,7 @@
       "type": "process",
       "command": "npx",
       "args": [
-        "xscripts",
+        "symbiote",
         "lint",
         "--scope=unlimited",
         "--linter=eslint",

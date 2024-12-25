@@ -44,7 +44,7 @@ export type GlobalExecutionContext = StandardExecutionContext & {
 
 /**
  * Determines which project files are considered within a command's purview.
- * Files outside of a command's purview will be treated by xscripts as if they
+ * Files outside of a command's purview will be treated by symbiote as if they
  * do not exist where possible.
  *
  * This enum is essentially {@link ThisPackageGlobalScope} +
@@ -64,7 +64,7 @@ export enum DefaultGlobalScope {
    * Do not limit or exclude any files by default when running the command.
    *
    * This is useful, for instance, when attempting to manually lint an entire
-   * monorepo at once; e.g. `npx xscripts lint --scope=unlimited`.
+   * monorepo at once; e.g. `npx symbiote lint --scope=unlimited`.
    */
   Unlimited = 'unlimited'
 }
@@ -188,7 +188,7 @@ export const configureExecutionContext = async function (context) {
       standardContext.state.globalVersionOption = {
         name: 'version',
         description: defaultVersionTextDescription,
-        // ? Lets us know when we're loading a custom-built "dev" xscripts.
+        // ? Lets us know when we're loading a custom-built "dev" symbiote.
         text: String(packageVersion) + ` (dev from ${__filename})`
       };
     } else {

@@ -5,7 +5,7 @@
 const read = require('node:fs/promises').readFile;
 
 const debug = require('debug')('commit-spell');
-// {@xscripts/notExtraneous spellchecker @types/spellchecker node-gyp}
+// {@symbiote/notExtraneous spellchecker @types/spellchecker node-gyp}
 const spellcheck = require('spellchecker');
 
 const tryToRead = async (
@@ -72,7 +72,7 @@ void (async () => {
             tryToRead('./.vscode/settings.json').then(asJson),
             tryToRead(`${homeDir}/.config/Code/User/settings.json`).then(asJson)
           ])),
-          // {@xscripts/notExtraneous text-extensions}
+          // {@symbiote/notExtraneous text-extensions}
           ...(await import('text-extensions')).default,
           // ? Popular contractions
           've',

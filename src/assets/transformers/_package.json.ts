@@ -15,7 +15,7 @@ import { generatePackageJsonEngineMaintainedNodeVersions } from 'multiverse+proj
 import { ProjectError } from 'multiverse+project-utils:error.ts';
 import { packageJsonConfigPackageBase } from 'multiverse+project-utils:fs.ts';
 
-import { version as xscriptsVersion } from 'rootverse:package.json';
+import { version as symbioteVersion } from 'rootverse:package.json';
 
 import {
   compileTemplateInMemory,
@@ -77,29 +77,29 @@ export function generateBaseXPackageJson(
     scripts: {
       ...incomingPackageJson.scripts,
       build: 'npm run build:dist --',
-      'build:changelog': 'NODE_NO_WARNINGS=1 xscripts build changelog',
-      'build:dist': 'NODE_NO_WARNINGS=1 xscripts build distributables',
-      'build:docs': 'NODE_NO_WARNINGS=1 xscripts build docs',
-      clean: 'NODE_NO_WARNINGS=1 xscripts clean',
-      format: 'NODE_NO_WARNINGS=1 xscripts format --hush',
-      info: 'NODE_NO_WARNINGS=1 xscripts project info',
+      'build:changelog': 'NODE_NO_WARNINGS=1 symbiote build changelog',
+      'build:dist': 'NODE_NO_WARNINGS=1 symbiote build distributables',
+      'build:docs': 'NODE_NO_WARNINGS=1 symbiote build docs',
+      clean: 'NODE_NO_WARNINGS=1 symbiote clean',
+      format: 'NODE_NO_WARNINGS=1 symbiote format --hush',
+      info: 'NODE_NO_WARNINGS=1 symbiote project info',
       lint: 'npm run lint:package --',
-      'lint:package': 'NODE_NO_WARNINGS=1 xscripts lint',
-      'lint:packages': 'NODE_NO_WARNINGS=1 xscripts lint --scope unlimited',
-      'lint:project': 'NODE_NO_WARNINGS=1 xscripts project lint',
-      'list-tasks': 'NODE_NO_WARNINGS=1 xscripts list-tasks',
-      prepare: 'NODE_NO_WARNINGS=1 xscripts project prepare',
-      release: 'NODE_NO_WARNINGS=1 xscripts release',
+      'lint:package': 'NODE_NO_WARNINGS=1 symbiote lint',
+      'lint:packages': 'NODE_NO_WARNINGS=1 symbiote lint --scope unlimited',
+      'lint:project': 'NODE_NO_WARNINGS=1 symbiote project lint',
+      'list-tasks': 'NODE_NO_WARNINGS=1 symbiote list-tasks',
+      prepare: 'NODE_NO_WARNINGS=1 symbiote project prepare',
+      release: 'NODE_NO_WARNINGS=1 symbiote release',
       renovate:
-        'NODE_NO_WARNINGS=1 xscripts project renovate --github-reconfigure-repo --regenerate-assets --assets-preset basic',
-      start: 'NODE_NO_WARNINGS=1 xscripts start --',
+        'NODE_NO_WARNINGS=1 symbiote project renovate --github-reconfigure-repo --regenerate-assets --assets-preset basic',
+      start: 'NODE_NO_WARNINGS=1 symbiote start --',
       test: 'npm run test:package:unit --',
-      'test:package:all': 'NODE_NO_WARNINGS=1 xscripts test --coverage',
-      'test:package:e2e': 'NODE_NO_WARNINGS=1 xscripts test --tests end-to-end',
-      'test:package:integration': 'NODE_NO_WARNINGS=1 xscripts test --tests integration',
-      'test:package:unit': 'NODE_NO_WARNINGS=1 xscripts test --tests unit',
+      'test:package:all': 'NODE_NO_WARNINGS=1 symbiote test --coverage',
+      'test:package:e2e': 'NODE_NO_WARNINGS=1 symbiote test --tests end-to-end',
+      'test:package:integration': 'NODE_NO_WARNINGS=1 symbiote test --tests integration',
+      'test:package:unit': 'NODE_NO_WARNINGS=1 symbiote test --tests unit',
       'test:packages:all':
-        'NODE_NO_WARNINGS=1 xscripts test --scope unlimited --coverage'
+        'NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage'
     },
     engines: incomingPackageJson.engines ?? {
       node: generatePackageJsonEngineMaintainedNodeVersions({ format: 'engines' })
@@ -119,7 +119,7 @@ export function generateBasePolyrepoXPackageJson(
     ...generateBaseXPackageJson(incomingPackageJson, repoUrl),
     dependencies: incomingPackageJson.dependencies ?? {},
     devDependencies: incomingPackageJson.devDependencies ?? {
-      '@-xun/scripts': `^${xscriptsVersion}`
+      '@-xun/symbiote': `^${symbioteVersion}`
     }
   } as const satisfies XPackageJsonPolyrepoRoot;
 }

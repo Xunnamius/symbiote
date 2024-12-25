@@ -761,18 +761,18 @@ describe('::compileTemplateInMemory', () => {
     expect.hasAssertions();
 
     const templateString = `
-<!-- xscripts-template-region-start 1 -->
+<!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
   <img width="300" src="./{{repoName}}.png">
 </p>
 
 <p align="center" width="100%">
-<!-- xscripts-template-region-end -->
+<!-- symbiote-template-region-end -->
 
 {{projectMetadata.cwdPackage.json.description}}
 
-<!-- xscripts-template-region-start 2 -->
+<!-- symbiote-template-region-start 2 -->
 
 <div align="center">
 
@@ -782,7 +782,7 @@ describe('::compileTemplateInMemory', () => {
 
 # <!-- TODO: --> Project Title Here
 
-<!-- xscripts-template-region-end -->
+<!-- symbiote-template-region-end -->
 
 {{projectMetadata.cwdPackage.json.description}}
 
@@ -810,18 +810,18 @@ npm install {{projectMetadata.cwdPackage.json.name}}
     expect(
       compileTemplateInMemory(templateString, { ...dummyContext, asset: 'in-memory' })
     ).toMatchInlineSnapshot(`
-      "<!-- xscripts-template-region-start 1 -->
+      "<!-- symbiote-template-region-start 1 -->
 
       <p align="center" width="100%">
         <img width="300" src="./repo-name.png">
       </p>
 
       <p align="center" width="100%">
-      <!-- xscripts-template-region-end -->
+      <!-- symbiote-template-region-end -->
 
       good-hybridrepo-description
 
-      <!-- xscripts-template-region-start 2 -->
+      <!-- symbiote-template-region-start 2 -->
 
       <div align="center">
 
@@ -831,7 +831,7 @@ npm install {{projectMetadata.cwdPackage.json.name}}
 
       # <!-- TODO: --> Project Title Here
 
-      <!-- xscripts-template-region-end -->
+      <!-- symbiote-template-region-end -->
 
       good-hybridrepo-description
 

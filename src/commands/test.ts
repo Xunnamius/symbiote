@@ -52,7 +52,7 @@ import {
 } from 'universe:util.ts';
 
 // TODO: delete me when you see me (unless test-utils is still under packages/)
-// {@xscripts/notExtraneous simple-git}
+// {@symbiote/notExtraneous simple-git}
 
 // ! Cannot use the global (g) flag
 const tstycheTargetRegExp = /(^|\/)type-.*\.test\.(m|c)?tsx?$/;
@@ -320,9 +320,9 @@ Provide --collect-coverage to instruct Jest to collect coverage information. --c
 
 For detecting flakiness in tests, which is almost always a sign of deep developer error, provide --repeat; e.g. \`--repeat 100\`. Note that this flag cannot be used when running Tstyche "type" tests.
 
-For running "intermediate" test files transpiled by \`xscripts build\`, provide --scope=${TesterScope.ThisPackageIntermediates} to set the XSCRIPTS_TEST_JEST_TRANSPILED environment variable in the testing environment. This will be picked up by Jest and other relevant tooling causing them to reconfigure themselves to run any transpiled tests under the ./.transpiled directory.
+For running "intermediate" test files transpiled by \`symbiote build\`, provide --scope=${TesterScope.ThisPackageIntermediates} to set the SYMBIOTE_TEST_JEST_TRANSPILED environment variable in the testing environment. This will be picked up by Jest and other relevant tooling causing them to reconfigure themselves to run any transpiled tests under the ./.transpiled directory.
 
-Provide --skip-slow-tests (or -x) to set the XSCRIPTS_TEST_JEST_SKIP_SLOW_TESTS environment variable in the testing environment. This will activate the \`reconfigureJestGlobalsToSkipTestsInThisFileIfRequested\` function of the @-xun/jest library, which will force Jest to skip by default all tests within files where said function was invoked. Providing --skip-slow-tests twice (or -xx) has the same effect, with the addition that test files that have "-slow." in their name are skipped entirely (not even looked at by Jest or executed by Node). This can be used in those rare instances where even the mere execution of a test file is too slow, such as a test file with hundreds or even thousands of generated tests that must be skipped. Note, however, that --skip-slow-tests has no bearing on the Tstyche runtime.`,
+Provide --skip-slow-tests (or -x) to set the SYMBIOTE_TEST_JEST_SKIP_SLOW_TESTS environment variable in the testing environment. This will activate the \`reconfigureJestGlobalsToSkipTestsInThisFileIfRequested\` function of the @-xun/jest library, which will force Jest to skip by default all tests within files where said function was invoked. Providing --skip-slow-tests twice (or -xx) has the same effect, with the addition that test files that have "-slow." in their name are skipped entirely (not even looked at by Jest or executed by Node). This can be used in those rare instances where even the mere execution of a test file is too slow, such as a test file with hundreds or even thousands of generated tests that must be skipped. Note, however, that --skip-slow-tests has no bearing on the Tstyche runtime.`,
     handler: withGlobalHandler(async function ({
       $0: scriptFullName,
       scope,
@@ -404,11 +404,11 @@ Provide --skip-slow-tests (or -x) to set the XSCRIPTS_TEST_JEST_SKIP_SLOW_TESTS 
       };
 
       if (scope === TesterScope.ThisPackageIntermediates) {
-        env.XSCRIPTS_TEST_JEST_TRANSPILED = 'true';
+        env.SYMBIOTE_TEST_JEST_TRANSPILED = 'true';
       }
 
       if (skipSlowTests) {
-        env.XSCRIPTS_TEST_JEST_SKIP_SLOW_TESTS = skipSlowTests.toString();
+        env.SYMBIOTE_TEST_JEST_SKIP_SLOW_TESTS = skipSlowTests.toString();
       }
 
       if (isRepeating) {
@@ -515,7 +515,7 @@ Provide --skip-slow-tests (or -x) to set the XSCRIPTS_TEST_JEST_SKIP_SLOW_TESTS 
 
         // * When scope is set to Intermediate, that's handled in
         // * jest.config.mjs, which is aware of the
-        // * XSCRIPTS_TEST_JEST_TRANSPILED environment variable.
+        // * SYMBIOTE_TEST_JEST_TRANSPILED environment variable.
 
         if (tests.includes(Test.Unit)) {
           // ? These sorts of patterns match at any depth (leading / isn't root)
@@ -645,7 +645,7 @@ Provide --skip-slow-tests (or -x) to set the XSCRIPTS_TEST_JEST_SKIP_SLOW_TESTS 
           shouldRunTstycheTests
             ? // ? Always run tstyche if custom tester options were given
               hasTstycheTargets || testerOptions.length
-              ? // {@xscripts/notExtraneous tstyche}
+              ? // {@symbiote/notExtraneous tstyche}
                 runNoRejectOnBadExit('npx', npxTstycheArguments, {
                   all: true,
                   env,

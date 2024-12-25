@@ -132,7 +132,7 @@ export default function command({
 
 Note that the root project's .prettierignore file (and not .gitignore!) is used as the single exclusive source of truth for which files are and are not ignored when formatters are run. To prevent a file from being formatted by _any formatter_, add it to .prettierignore. To disregard .prettierignore when formatters are run, use --no-skip-ignored.
 
-With respect to .prettierignore being the single source of truth for formatters: note that remark is configured to respect .remarkignore files only when run by "xscripts lint"; when executing "xscripts format" (this command), .remarkignore files are always disregarded. This means you can use .remarkignore files to prevent certain paths from being linted by "xscripts lint" without preventing them from being formatted by this command.`
+With respect to .prettierignore being the single source of truth for formatters: note that remark is configured to respect .remarkignore files only when run by "symbiote lint"; when executing "symbiote format" (this command), .remarkignore files are always disregarded. This means you can use .remarkignore files to prevent certain paths from being linted by "symbiote lint" without preventing them from being formatted by this command.`
     ),
     handler: withGlobalHandler(async function ({
       [$artificiallyInvoked]: wasArtificiallyInvoked,
@@ -306,7 +306,7 @@ With respect to .prettierignore being the single source of truth for formatters:
         const { all, exitCode } = await runNoRejectOnBadExit(
           'npx',
           [
-            // {@xscripts/notExtraneous remark-cli}
+            // {@symbiote/notExtraneous remark-cli}
             'remark',
             ...(isHushed ? ['--quiet'] : []),
             '--no-stdout',
@@ -372,7 +372,7 @@ With respect to .prettierignore being the single source of truth for formatters:
         }
 
         const sortedPackageJsonFiles = shouldDoPackageJson
-          ? // {@xscripts/notExtraneous sort-package-json}
+          ? // {@symbiote/notExtraneous sort-package-json}
             run('npx', ['sort-package-json', ...targetPackageJsonFiles], {
               cwd: projectRoot
             }).catch((error: unknown) => {
@@ -386,7 +386,7 @@ With respect to .prettierignore being the single source of truth for formatters:
 
           status.doctoc = null;
 
-          // {@xscripts/notExtraneous doctoc}
+          // {@symbiote/notExtraneous doctoc}
           await run(
             'npx',
             [
@@ -455,7 +455,7 @@ With respect to .prettierignore being the single source of truth for formatters:
           await run(
             'npx',
             [
-              // {@xscripts/notExtraneous remark-cli}
+              // {@symbiote/notExtraneous remark-cli}
               'remark',
               ...(isHushed ? ['--quiet'] : []),
               '--output',
@@ -473,7 +473,7 @@ With respect to .prettierignore being the single source of truth for formatters:
               cwd: projectRoot,
               env: {
                 NODE_ENV: 'format',
-                XSCRIPTS_FORMAT_RENUMBER_REFERENCES: renumberReferences.toString()
+                SYMBIOTE_FORMAT_RENUMBER_REFERENCES: renumberReferences.toString()
               },
               stdout: isHushed ? 'ignore' : 'inherit',
               stderr: isQuieted ? 'ignore' : 'inherit'

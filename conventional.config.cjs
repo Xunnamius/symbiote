@@ -4,12 +4,12 @@
 const {
   assertEnvironment,
   moduleExport
-} = require('@-xun/scripts/assets/conventional.config.cjs');
+} = require('@-xun/symbiote/assets/conventional.config.cjs');
 
 // TODO: publish latest rejoinder package first, then update configs to use it
 //const { createDebugLogger } = require('rejoinder');
 
-/*const debug = createDebugLogger({ namespace: 'xscripts:config:conventional' });*/
+/*const debug = createDebugLogger({ namespace: 'symbiote:config:conventional' });*/
 
 module.exports = moduleExport({
   ...assertEnvironment(),

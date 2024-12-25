@@ -32,7 +32,7 @@ const debug = createDebugLogger({
   namespace: `${globalDebuggerNamespace}:asset:conventional`
 });
 
-// ! Watch out for the dual package hazard! (relevant for xscripts local dev)
+// ! Watch out for the dual package hazard! (relevant for symbiote local dev)
 const cubby = ((
   globalThis as typeof globalThis & {
     $$xspace?: {
@@ -209,7 +209,7 @@ export const commandHeaderPattern = /^(.*) \[([^\]]*)]$/is;
 export const defaultIssuePrefixes = ['#'] as const;
 
 /**
- * These are the only conventional commit types supported by xscripts-based
+ * These are the only conventional commit types supported by symbiote-based
  * pipelines and are therefore considered "well known".
  *
  * Commit types corresponding to entries with `{ hidden: false }` will appear in
@@ -286,7 +286,7 @@ export const { transformer } = makeTransformer(function (context) {
 const {
   assertEnvironment,
   moduleExport
-} = require('@-xun/scripts/assets/${asset}');
+} = require('@-xun/symbiote/assets/${asset}');
 
 // TODO: publish latest rejoinder package first, then update configs to use it
 //const { createDebugLogger } = require('rejoinder');
@@ -316,11 +316,11 @@ export function assertEnvironment(): Omit<
   Parameters<typeof moduleExport>[0],
   'configOverrides'
 > {
-  const specialInitialCommit = process.env.XSCRIPTS_SPECIAL_INITIAL_COMMIT;
+  const specialInitialCommit = process.env.SYMBIOTE_SPECIAL_INITIAL_COMMIT;
 
   assert(
     specialInitialCommit && typeof specialInitialCommit === 'string',
-    ErrorMessage.MissingXscriptsEnvironmentVariable('XSCRIPTS_SPECIAL_INITIAL_COMMIT')
+    ErrorMessage.MissingSymbioteEnvironmentVariable('SYMBIOTE_SPECIAL_INITIAL_COMMIT')
   );
 
   const projectMetadata = analyzeProjectStructure.sync({ useCached: true });

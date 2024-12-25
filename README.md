@@ -31,7 +31,7 @@ Eddie Brock is your repo. 🕸️ This tool is the suit.
 
 <!-- symbiote-template-region-end -->
 
-> Formerly `xscripts` (`@-xun/scripts`)
+> Formerly `symbiote` (`@-xun/symbiote`)
 
 Symbiote is a highly-opinionated personal tool that supercharges 🕷️ all my
 NPM-based projects. It can also exist symbiotically within foreign repositories
@@ -182,7 +182,7 @@ key][x-repo-all-contributors-emojis]):
 <table>
   <tbody>
     <tr>
-      <td align="center" valign="top" width="14.28%"><a href="https://xunn.io/"><img src="https://avatars.githubusercontent.com/u/656017?v=4?s=100" width="100px;" alt="Bernard"/><br /><sub><b>Bernard</b></sub></a><br /><a href="#infra-Xunnamius" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/Xunnamius/xscripts/commits?author=Xunnamius" title="Code">💻</a> <a href="https://github.com/Xunnamius/xscripts/commits?author=Xunnamius" title="Documentation">📖</a> <a href="#maintenance-Xunnamius" title="Maintenance">🚧</a> <a href="https://github.com/Xunnamius/xscripts/commits?author=Xunnamius" title="Tests">⚠️</a> <a href="https://github.com/Xunnamius/xscripts/pulls?q=is%3Apr+reviewed-by%3AXunnamius" title="Reviewed Pull Requests">👀</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://xunn.io/"><img src="https://avatars.githubusercontent.com/u/656017?v=4?s=100" width="100px;" alt="Bernard"/><br /><sub><b>Bernard</b></sub></a><br /><a href="#infra-Xunnamius" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="https://github.com/Xunnamius/symbiote/commits?author=Xunnamius" title="Code">💻</a> <a href="https://github.com/Xunnamius/symbiote/commits?author=Xunnamius" title="Documentation">📖</a> <a href="#maintenance-Xunnamius" title="Maintenance">🚧</a> <a href="https://github.com/Xunnamius/symbiote/commits?author=Xunnamius" title="Tests">⚠️</a> <a href="https://github.com/Xunnamius/symbiote/pulls?q=is%3Apr+reviewed-by%3AXunnamius" title="Reviewed Pull Requests">👀</a></td>
     </tr>
   </tbody>
   <tfoot>

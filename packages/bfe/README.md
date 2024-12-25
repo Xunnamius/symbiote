@@ -1967,7 +1967,7 @@ export default function command({ state }: CustomExecutionContext) {
 
 ```text
 $ x deploy
-Usage: xscripts deploy
+Usage: symbiote deploy
 
 Deploy distributes to the appropriate remote.
 
@@ -1986,12 +1986,12 @@ Common Options:
   --quiet   Set output to be dramatically less verbose (implies --hush)            [boolean] [default: false]
   --silent  No output will be generated (implies --quiet)                          [boolean] [default: false]
 
-  xscripts:<error> ❌ Execution failed: missing required argument: target
+  symbiote:<error> ❌ Execution failed: missing required argument: target
 ```
 
 ```text
 $ x deploy --help
-Usage: xscripts deploy
+Usage: symbiote deploy
 
 Deploy distributes to the appropriate remote.
 
@@ -2013,7 +2013,7 @@ Common Options:
 
 ```text
 $ x deploy --target=ssh
-Usage: xscripts deploy
+Usage: symbiote deploy
 
 Deploy distributes to the appropriate remote.
 
@@ -2028,12 +2028,12 @@ Common Options:
   --quiet   Set output to be dramatically less verbose (implies --hush) [boolean] [default: false]
   --silent  No output will be generated (implies --quiet)               [boolean] [default: false]
 
-  xscripts:<error> ❌ Execution failed: missing required arguments: host, to-path
+  symbiote:<error> ❌ Execution failed: missing required arguments: host, to-path
 ```
 
 ```text
 $ x deploy --target=vercel --to-path
-Usage: xscripts deploy
+Usage: symbiote deploy
 
 Deploy distributes to the appropriate remote.
 
@@ -2050,13 +2050,13 @@ Common Options:
   --quiet   Set output to be dramatically less verbose (implies --hush)     [boolean] [default: false]
   --silent  No output will be generated (implies --quiet)                   [boolean] [default: false]
 
-  xscripts:<error> ❌ Execution failed: the following arguments must be given alongside "to-path":
-  xscripts:<error>   ➜ target == "ssh"
+  symbiote:<error> ❌ Execution failed: the following arguments must be given alongside "to-path":
+  symbiote:<error>   ➜ target == "ssh"
 ```
 
 ```text
 $ x deploy --target=ssh --host prime --to-path '/some/path' --preview
-Usage: xscripts deploy
+Usage: symbiote deploy
 
 Deploy distributes to the appropriate remote.
 
@@ -2071,13 +2071,13 @@ Common Options:
   --quiet   Set output to be dramatically less verbose (implies --hush)  [boolean] [default: false]
   --silent  No output will be generated (implies --quiet)                [boolean] [default: false]
 
-  xscripts:<error> ❌ Execution failed: the following arguments must be given alongside "preview":
-  xscripts:<error>   ➜ target == vercel
+  symbiote:<error> ❌ Execution failed: the following arguments must be given alongside "preview":
+  symbiote:<error>   ➜ target == vercel
 ```
 
 ```text
 $ x deploy --target=vercel --preview=false --production=false
-xscripts:<error> ❌ Execution failed: must choose either --preview or --production deployment environment
+symbiote:<error> ❌ Execution failed: must choose either --preview or --production deployment environment
 ```
 
 ## Appendix
@@ -2375,7 +2375,7 @@ specification. Contributions of any kind welcome!
 [32]: https://yargs.js.org/docs#api-reference-groupkeys-groupname
 [33]: https://github.com/Xunnamius/xunnctl?tab=readme-ov-file#xunnctl
 [34]: ./docs/functions/withUsageExtensions.md
-[35]: https://github.com/Xunnamius/xscripts/blob/main/src/commands/deploy.ts
+[35]: https://github.com/Xunnamius/symbiote/blob/main/src/commands/deploy.ts
 [36]: https://yargs.js.org/docs#api-reference
 [37]:
   https://github.com/Xunnamius/black-flag/blob/main/docs/index/type-aliases/ConfigureExecutionPrologue.md

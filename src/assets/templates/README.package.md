@@ -1,13 +1,13 @@
-<!-- xscripts-template-region-start 1 -->
+<!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
   <img width="300" src="./{{repoName}}.png">
 </p>
 
 <p align="center" width="100%">
-<!-- xscripts-template-region-end -->
+<!-- symbiote-template-region-end -->
 {{projectMetadata.cwdPackage.json.description|<!-- TODO: a brief description/blurb -->}}
-<!-- xscripts-template-region-start 2 -->
+<!-- symbiote-template-region-start 2 -->
 </p>
 
 <hr />
@@ -29,18 +29,18 @@
 
 # <!-- TODO: --> Project Title Here
 
-<!-- xscripts-template-region-end -->
+<!-- symbiote-template-region-end -->
 
 {{projectMetadata.cwdPackage.json.description|<!-- TODO -->}}
 
-<!-- xscripts-template-region-start 3 -->
+<!-- symbiote-template-region-start 3 -->
 
 <br />
 
 ---
 
 <!-- remark-ignore-start -->
-<!-- xscripts-template-region-end -->
+<!-- symbiote-template-region-end -->
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
@@ -53,14 +53,14 @@
   - [Contributors](#contributors)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
-<!-- xscripts-template-region-start 4 -->
+<!-- symbiote-template-region-start 4 -->
 <!-- remark-ignore-end -->
 
 <br />
 
 ## Install
 
-<!-- xscripts-template-region-end -->
+<!-- symbiote-template-region-end -->
 
 To install {{repoName}}:
 
@@ -74,7 +74,7 @@ npm install {{projectMetadata.cwdPackage.json.name}}
 
 TODO
 
-<!-- xscripts-template-region-start 5 -->
+<!-- symbiote-template-region-start 5 -->
 
 ## Appendix
 
@@ -102,9 +102,9 @@ browser-like environments. For TypeScript users, this package supports both
 `"Node10"` and `"Node16"` module resolution strategies.
 
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
-<!-- xscripts-template-region-end -->
+<!-- symbiote-template-region-end -->
 <!-- TODO: custom details here -->
-<!-- xscripts-template-region-start 6 -->
+<!-- symbiote-template-region-start 6 -->
 
 <details><summary>Expand details</summary>
 
@@ -154,7 +154,7 @@ also that [`package.json`][x-repo-package-json] may include the
 [`sideEffects`][x-pkg-side-effects-key] key, which is almost always `false` for
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
-<!-- xscripts-template-region-end -->
+<!-- symbiote-template-region-end -->
 <!-- TODO: custom details here -->
 
 </details>

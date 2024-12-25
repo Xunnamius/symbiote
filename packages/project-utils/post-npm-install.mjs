@@ -1,6 +1,6 @@
 // @ts-check
-// * This script is run automatically by `npx xscripts project prepare`, see
-// * `npx xscripts project prepare --help` for details.
+// * This script is run automatically by `npx symbiote project prepare`, see
+// * `npx symbiote project prepare --help` for details.
 // ! It is imperative that operations performed by this script are IDEMPOTENT!
 
 import { mkdir, writeFile } from 'node:fs/promises';
@@ -10,7 +10,7 @@ import { glob as globAsync } from 'glob';
 
 // TODO: replace with rejoinder once published
 // eslint-disable-next-line import/no-relative-packages
-import { createGenericLogger } from '../../node_modules/@-xun/scripts/dist/packages/rejoinder/src/index.js';
+import { createGenericLogger } from '../../node_modules/@-xun/symbiote/dist/packages/rejoinder/src/index.js';
 
 const root = import.meta.dirname;
 const log = createGenericLogger({

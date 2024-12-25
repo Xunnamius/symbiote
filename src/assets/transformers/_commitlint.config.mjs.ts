@@ -4,7 +4,7 @@ import { wellKnownCommitTypes } from 'universe:assets/transformers/_conventional
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 import { globalDebuggerNamespace } from 'universe:constant.ts';
 
-// {@xscripts/notExtraneous @commitlint/cli @commitlint/config-conventional}
+// {@symbiote/notExtraneous @commitlint/cli @commitlint/config-conventional}
 
 /**
  * @see https://github.com/conventional-changelog/commitlint/blob/master/docs/reference/rules-configuration.md
@@ -54,8 +54,8 @@ export const { transformer } = makeTransformer(function (context) {
 // @ts-check
 'use strict';
 
-import { deepMergeConfig } from '@-xun/scripts/assets';
-import { moduleExport } from '@-xun/scripts/assets/${asset}';
+import { deepMergeConfig } from '@-xun/symbiote/assets';
+import { moduleExport } from '@-xun/symbiote/assets/${asset}';
 // TODO: publish latest rejoinder package first, then update configs to use it
 //import { createDebugLogger } from 'rejoinder';
 

@@ -383,7 +383,7 @@ After targets are built, CLI projects will have their entry points chmod-ed to b
 
 The only available scope is "${DistributablesBuilderScope.ThisPackage}"; hence, when invoking this command, only the package at the current working directory will be built. Use Npm's workspace features, or Turbo's, if your goal is to build distributables from multiple packages.
 
-When you need to access the intermediate babel transpilation result for non-production non-Next.js build outputs, which can be extremely useful when debugging strange problems in development and testing environments, see the --generate-intermediates-for option and the corresponding \`xscripts test --scope=${TesterScope.ThisPackageIntermediates}\` command.
+When you need to access the intermediate babel transpilation result for non-production non-Next.js build outputs, which can be extremely useful when debugging strange problems in development and testing environments, see the --generate-intermediates-for option and the corresponding \`symbiote test --scope=${TesterScope.ThisPackageIntermediates}\` command.
 
 In scenarios where build times must be reduced (such as during rapid iteration or debugging), a combination of --no-generate-types (skip types) and --partial-filter (limit scope to only file paths that match one of the filters, which are regular expressions) allows you to skip the two most costly operations executed by this command: type generation and transpilation of the entire entire source dependency tree. Using either --no-generate-types or --partial-filter also disables this command's output validation post-build step, though note that --partial-filter by itself only filters build targets and has no effect on the output of type definition files.
 
@@ -554,7 +554,7 @@ Finally, note that, when attempting to build a Next.js package, this command wil
               useCached: true
             });
 
-          // TODO: this needs to be split off into xscripts project lint along
+          // TODO: this needs to be split off into symbiote project lint along
           // TODO: with the other half of the bijection checks below. For now,
           // TODO: we'll keep them here in this command:
           await lintNonSourceTypescriptFilesForSpecifierOk();
@@ -788,7 +788,7 @@ distrib root: ${absoluteOutputDirPath}
             const babelDTsOptions =
               loadBabelOptions({
                 rootMode: 'upward',
-                filename: '[xscripts-internal-types].tsx'
+                filename: '[symbiote-internal-types].tsx'
               }) || undefined;
 
             debug('babel options: %O', babelDTsOptions);
@@ -838,7 +838,7 @@ distrib root: ${absoluteOutputDirPath}
           };
 
           if (generateIntermediatesFor) {
-            babelNodeEnvironment.XSCRIPTS_TEST_JEST_TRANSPILED = 'true';
+            babelNodeEnvironment.SYMBIOTE_TEST_JEST_TRANSPILED = 'true';
           }
 
           genericLogger.newline([LogTag.IF_NOT_HUSHED]);
@@ -871,7 +871,7 @@ distrib root: ${absoluteOutputDirPath}
           const babelOptions =
             loadBabelOptions({
               rootMode: 'upward',
-              filename: '[xscripts-internal].tsx'
+              filename: '[symbiote-internal].tsx'
             }) || undefined;
 
           debug('babel options: %O', babelOptions);
@@ -1128,14 +1128,14 @@ distrib root: ${absoluteOutputDirPath}
              * Check dist type definitions for correctness using attw.
              */
             async function checkDistAreTheTypesWrong() {
-              // {@xscripts/notExtraneous @arethetypeswrong/cli}
+              // {@symbiote/notExtraneous @arethetypeswrong/cli}
               return runNoRejectOnBadExit(
                 'npx',
                 [
                   'attw',
                   '--pack',
                   '.',
-                  // ? We handle internal resolution checks in xscripts instead
+                  // ? We handle internal resolution checks in symbiote instead
                   '--ignore-rules',
                   'internal-resolution-error'
                 ],

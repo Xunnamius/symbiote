@@ -1,5 +1,5 @@
 /* eslint-disable unicorn/prevent-abbreviations */
-// {@xscripts/notExtraneous eslint}
+// {@symbiote/notExtraneous eslint}
 import assert from 'node:assert';
 
 import { fixupConfigRules } from '@eslint/compat';
@@ -54,7 +54,7 @@ import { stringifyJson } from 'universe:util.ts';
 import {
   extensionsJavascript,
   extensionsTypescript
-} from '@-xun/scripts/assets/babel.config.cjs';
+} from '@-xun/symbiote/assets/babel.config.cjs';
 
 import type { PackageJson } from 'type-fest';
 
@@ -404,17 +404,17 @@ function nodeRules(
     'n/no-unpublished-bin': 'error',
     // ? Handled (albeit badly currently) by eslint-plugin-import
     'n/file-extension-in-import': 'off',
-    // ? Handled by xscripts project lint and xscripts build distributables
+    // ? Handled by symbiote project lint and symbiote build distributables
     'n/no-missing-import': 'off',
-    // ? Handled by xscripts project lint and xscripts build distributables
+    // ? Handled by symbiote project lint and symbiote build distributables
     'n/no-missing-require': 'off',
-    // ? Handled by xscripts project lint and xscripts build distributables
+    // ? Handled by symbiote project lint and symbiote build distributables
     'n/no-extraneous-import': 'off',
-    // ? Handled by xscripts project lint and xscripts build distributables
+    // ? Handled by symbiote project lint and symbiote build distributables
     'n/no-extraneous-require': 'off',
-    // ? Handled by xscripts project lint and xscripts build distributables
+    // ? Handled by symbiote project lint and symbiote build distributables
     'n/no-unpublished-import': 'off',
-    // ? Handled by xscripts project lint and xscripts build distributables
+    // ? Handled by symbiote project lint and symbiote build distributables
     'n/no-unpublished-require': 'off',
     // ? Handled by babel and core-js
     'n/no-unsupported-features/es-builtins': 'off',
@@ -616,7 +616,7 @@ export function moduleExport({
       eslintPluginImport.flatConfigs.typescript,
       eslintPluginUnicornRecommended,
       {
-        name: '@-xun/scripts:base',
+        name: '@-xun/symbiote:base',
         rules: reifiedGenericRules,
         languageOptions: {
           ecmaVersion: 'latest',
@@ -643,14 +643,14 @@ export function moduleExport({
           // ? Switch parsers depending on which type of file we're looking at
           'import/parsers': {
             // ! Note how Babel is NOT being used to transpile TypeScript here!
-            // {@xscripts/notExtraneous @typescript-eslint/parser}
+            // {@symbiote/notExtraneous @typescript-eslint/parser}
             '@typescript-eslint/parser': extensionsTypescript,
-            // {@xscripts/notExtraneous @babel/eslint-parser}
+            // {@symbiote/notExtraneous @babel/eslint-parser}
             '@babel/eslint-parser': extensionsJavascript
           },
           'import/resolver': {
             // ? Aliases come from tsconfig's paths now
-            // {@xscripts/notExtraneous eslint-import-resolver-typescript}
+            // {@symbiote/notExtraneous eslint-import-resolver-typescript}
             typescript: {
               alwaysTryTypes: true,
               project: cwdTsconfigFile
@@ -678,7 +678,7 @@ export function moduleExport({
     // * Early configs, likely overridden applying only to ANY JavaScript file
     // ? These do not apply to TypeScript files, and likely get overridden later
     {
-      name: '@-xun/scripts:any-js-no-ts',
+      name: '@-xun/symbiote:any-js-no-ts',
       files: [`**/*.{${toCommaSeparatedExtensionList(extensionsJavascript)}}`],
       rules: earlyJsOnlyRules()
     },
@@ -739,7 +739,7 @@ export function moduleExport({
     // * Configs applying only to Jest test files (any relevant extension)
     {
       ...eslintPluginJestAll,
-      name: '@-xun/scripts:jest',
+      name: '@-xun/symbiote:jest',
       files: [`**/*.test.{${toCommaSeparatedExtensionList(extensionsTsAndJs)}}`],
       ignores: [`**/type-*.test.{${toCommaSeparatedExtensionList(extensionsTsAndJs)}}`],
       rules: {
@@ -777,12 +777,12 @@ export const { transformer } = makeTransformer(function ({
       generate: () => /*js*/ `
 // @ts-check
 
-import { deepMergeConfig } from '@-xun/scripts/assets';
+import { deepMergeConfig } from '@-xun/symbiote/assets';
 
 import {
   assertEnvironment,
   moduleExport
-} from '@-xun/scripts/assets/${asset}';
+} from '@-xun/symbiote/assets/${asset}';
 
 // TODO: publish latest rejoinder package first, then update configs to use it
 /*import { createDebugLogger } from 'rejoinder';*/
@@ -792,7 +792,7 @@ import {
 const config = deepMergeConfig(
   moduleExport({ derivedAliases: getEslintAliases(), ...await assertEnvironment() }),
   /**
-   * @type {import('@-xun/scripts/assets/${asset}').EslintConfig}
+   * @type {import('@-xun/symbiote/assets/${asset}').EslintConfig}
    */
   {
     // Any custom configs here will be deep merged with moduleExport
@@ -838,7 +838,7 @@ export async function assertEnvironment(): Promise<
   const projectBasePath = toAbsolutePath(currentWorkingDirectory, Tsconfig.ProjectBase);
   const projectLintPath = toAbsolutePath(currentWorkingDirectory, Tsconfig.ProjectLint);
 
-  // * Despite the scope used by xscripts, we want as broad a configuration file
+  // * Despite the scope used by symbiote, we want as broad a configuration file
   // * as possible and we'll leave the further narrowing of scope to others.
   const cwdTsconfigFile = (await isAccessible(projectLintPath, { useCached: true }))
     ? projectLintPath
@@ -847,7 +847,7 @@ export async function assertEnvironment(): Promise<
       : toss(new ProjectError(ErrorMessage.CannotImportTsconfig()));
 
   const shouldAllowWarningComments =
-    process.env.XSCRIPTS_LINT_ALLOW_WARNING_COMMENTS === 'true';
+    process.env.SYMBIOTE_LINT_ALLOW_WARNING_COMMENTS === 'true';
 
   return { packageJsonEnginesNode, cwdTsconfigFile, shouldAllowWarningComments };
 }

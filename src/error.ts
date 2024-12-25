@@ -162,8 +162,8 @@ export const ErrorMessage = {
   MustChooseDeployEnvironment() {
     return 'must choose either --preview or --production deployment environment';
   },
-  MissingXscriptsEnvironmentVariable(variableName: string) {
-    return `the expected xscripts environment variable "${variableName}" must be defined in process.env`;
+  MissingSymbioteEnvironmentVariable(variableName: string) {
+    return `the expected symbiote environment variable "${variableName}" must be defined in process.env`;
   },
   MultipleConfigsWhenExpectingOnlyOne(filename1: string, filename2: string) {
     return `expected one configuration file but encountered multiple conflicting files: ${filename1} conflicts with ${filename2}`;
@@ -233,13 +233,13 @@ export const ErrorMessage = {
     return 'the release pipeline has terminated but the repository remains in an unclean state. This can be evidence of an incomplete or broken build process';
   },
   BadReleaseSectionPath() {
-    return 'the @-xun/scripts semantic-release plugin requires the "releaseSectionPath" option be a non-empty string ending with ".md"';
+    return 'the @-xun/symbiote semantic-release plugin requires the "releaseSectionPath" option be a non-empty string ending with ".md"';
   },
   BadParserOpts() {
-    return 'the @-xun/scripts semantic-release plugin requires the "parserOpts" option to be defined';
+    return 'the @-xun/symbiote semantic-release plugin requires the "parserOpts" option to be defined';
   },
   BadWriterOpts() {
-    return 'the @-xun/scripts semantic-release plugin requires the "writerOpts" option to be defined';
+    return 'the @-xun/symbiote semantic-release plugin requires the "writerOpts" option to be defined';
   },
   CodecovDownloaderOnlySupportsLinux() {
     return 'the Codecov downloader only supports the Linux operating system; ensure a suitable "codecov" binary exists in the runtime path before reattempting this command';

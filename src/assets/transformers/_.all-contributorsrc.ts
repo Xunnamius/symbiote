@@ -8,7 +8,7 @@ import {
 
 import { stringifyJson } from 'universe:util.ts';
 
-// {@xscripts/notExtraneous all-contributors-cli}
+// {@symbiote/notExtraneous all-contributors-cli}
 
 export const { transformer } = makeTransformer(function (context) {
   const { toProjectAbsolutePath, assetPreset, repoName } = context;

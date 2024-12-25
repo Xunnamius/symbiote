@@ -91,7 +91,7 @@
         "NODE_ENV": "test",
         "NODE_OPTIONS": "--no-warnings --experimental-vm-modules",
         "DEBUG_COLORS": "false",
-        "XSCRIPTS_TEST_JEST_TRANSPILED": "true"
+        "SYMBIOTE_TEST_JEST_TRANSPILED": "true"
       },
       "windows": {
         "program": "${workspaceFolder}/node_modules/jest/bin/jest"

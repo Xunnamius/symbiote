@@ -33,7 +33,7 @@ export enum PseudodecoratorTag {
    * **Invalid characters**: whitespace and any character that isn't valid in an
    * NPM package name.
    */
-  NotExtraneous = '@xscripts/notExtraneous',
+  NotExtraneous = '@symbiote/notExtraneous',
   /**
    * This pseudodecorator provides a list of package names that should not be
    * considered invalid (the relevant checks are skipped).
@@ -42,7 +42,7 @@ export enum PseudodecoratorTag {
    * **Invalid characters**: whitespace and any character that isn't valid in an
    * NPM package name.
    */
-  NotInvalid = '@xscripts/notInvalid'
+  NotInvalid = '@symbiote/notInvalid'
 }
 
 // * Lol, the pseudodecorators in the example text below are being picked up by
@@ -50,7 +50,7 @@ export enum PseudodecoratorTag {
 /**
  * A so-called "pseudodecorator" is a decorator-like syntax that can appear
  * anywhere in almost any type of file and is used to pass information to
- * xscripts. They consist of an opening brace "{", a {@link PseudodecoratorTag},
+ * symbiote. They consist of an opening brace "{", a {@link PseudodecoratorTag},
  * an optional delimiter, a _delimited_ list of _valid characters_, an optional
  * delimiter, and a closing brace "}".
  *
@@ -60,13 +60,13 @@ export enum PseudodecoratorTag {
  * any document or file type without corruption. Which characters are valid and
  * which are invalid depend on the {@link PseudodecoratorTag} used.
  *
- * For example, using the `@xscripts/notExtraneous` pseudodecorator:
+ * For example, using the `@symbiote/notExtraneous` pseudodecorator:
  *
  * **TypeScript:**
  *
  * ```typescript
  * /·*
- *  * {@xscripts/notExtraneous
+ *  * {@symbiote/notExtraneous
  *  *   all-contributors-cli remark-cli
  *  *   jest husky
  *  *   doctoc
@@ -83,7 +83,7 @@ export enum PseudodecoratorTag {
  * **JavaScript:**
  *
  * ```javascript
- * // {@xscripts/notExtraneous
+ * // {@symbiote/notExtraneous
  * //  - all-contributors-cli
  * //  - remark-cli
  * //  - jest
@@ -103,7 +103,7 @@ export enum PseudodecoratorTag {
  * ```json
  * {
  *   "name": "my-package",
- *   "//": "{@xscripts/notExtraneous all-contributors-cli remark-cli jest husky doctoc}"
+ *   "//": "{@symbiote/notExtraneous all-contributors-cli remark-cli jest husky doctoc}"
  * }
  * ```
  *
@@ -113,14 +113,14 @@ export enum PseudodecoratorTag {
  * # My Documentation
  * Something or other.
  *
- * <!-- {@xscripts/notExtraneous all-contributors-cli remark-cli jest husky doctoc } -->
+ * <!-- {@symbiote/notExtraneous all-contributors-cli remark-cli jest husky doctoc } -->
  *
  * ## A Subsection
  * More text.
  * ```
  *
  * **And any other type of file** that can contain text. See [the
- * docs](https://github.com/Xunnamius/xscripts/wiki/Generic-Project-Architecture)
+ * docs](https://github.com/Xunnamius/symbiote/wiki/Generic-Project-Architecture)
  * for more details.
  *
  * @see {@link PseudodecoratorTag}

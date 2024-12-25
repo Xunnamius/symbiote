@@ -56,7 +56,7 @@ import type {
 
 import type { PackageJson } from 'type-fest';
 
-// {@xscripts/notExtraneous @babel/cli}
+// {@symbiote/notExtraneous @babel/cli}
 
 const debug = createDebugLogger({
   namespace: `${globalDebuggerNamespace}:asset:babel`
@@ -107,7 +107,7 @@ export const extensionsJavascript = [
 ] as const;
 
 /**
- * All possible extensions accepted by Babel using standard xscripts configs
+ * All possible extensions accepted by Babel using standard symbiote configs
  * (except `.d.ts`).
  */
 export const extensionsAcceptedByBabel = [
@@ -167,7 +167,7 @@ function makeTransformRewriteImportsSourceModuleResolver(
   projectRoot: AbsolutePath
 ) {
   return [
-    // {@xscripts/notExtraneous babel-plugin-transform-rewrite-imports}
+    // {@symbiote/notExtraneous babel-plugin-transform-rewrite-imports}
     'babel-plugin-transform-rewrite-imports',
     {
       appendExtension: '.js',
@@ -199,7 +199,7 @@ function makeTransformRewriteImportsDefinitionModuleResolver(
   projectRoot: AbsolutePath
 ) {
   return [
-    // {@xscripts/notExtraneous babel-plugin-transform-rewrite-imports}
+    // {@symbiote/notExtraneous babel-plugin-transform-rewrite-imports}
     'babel-plugin-transform-rewrite-imports',
     {
       // ? Don't append extensions to imports in .d.ts files (tsc sometimes spits
@@ -248,7 +248,7 @@ export function moduleExport({
     generatorOpts: { importAttributesKeyword: 'with' },
     assumptions: { constantReexports: true },
     plugins: [
-      // {@xscripts/notExtraneous @babel/plugin-proposal-export-default-from}
+      // {@symbiote/notExtraneous @babel/plugin-proposal-export-default-from}
       '@babel/plugin-proposal-export-default-from'
     ],
     // ? Sub-keys under the "env" config key will augment the above
@@ -260,14 +260,14 @@ export function moduleExport({
         comments: true,
         sourceMaps: 'inline',
         presets: [
-          // {@xscripts/notExtraneous @babel/preset-env @types/babel__preset-env}
+          // {@symbiote/notExtraneous @babel/preset-env @types/babel__preset-env}
           [
             '@babel/preset-env',
             { targets: { node: true } } satisfies BabelPresetEnvConfig
           ],
-          // {@xscripts/notExtraneous @babel/preset-typescript}
+          // {@symbiote/notExtraneous @babel/preset-typescript}
           ['@babel/preset-typescript', { allowDeclareFields: true }],
-          // {@xscripts/notExtraneous @babel/preset-react}
+          // {@symbiote/notExtraneous @babel/preset-react}
           ['@babel/preset-react', { runtime: 'automatic' }]
           // ? We don't care about minification
         ],
@@ -278,7 +278,7 @@ export function moduleExport({
           // TODO: latest babel mode (need to rename usage, rather than exports)
           // ? Only active when testing, the plugin solves the following problem:
           // ? https://stackoverflow.com/q/40771520/1367414
-          // {@xscripts/notExtraneous babel-plugin-explicit-exports-references}
+          // {@symbiote/notExtraneous babel-plugin-explicit-exports-references}
           //'babel-plugin-explicit-exports-references'
         ]
       },
@@ -286,7 +286,7 @@ export function moduleExport({
       'production-cjs': {
         presets: [
           [
-            // {@xscripts/notExtraneous @babel/preset-env @types/babel__preset-env}
+            // {@symbiote/notExtraneous @babel/preset-env @types/babel__preset-env}
             '@babel/preset-env',
             {
               // ? https://babeljs.io/docs/en/babel-preset-env#modules
@@ -298,9 +298,9 @@ export function moduleExport({
               exclude: ['transform-dynamic-import']
             } satisfies BabelPresetEnvConfig
           ],
-          // {@xscripts/notExtraneous @babel/preset-typescript}
+          // {@symbiote/notExtraneous @babel/preset-typescript}
           ['@babel/preset-typescript', { allowDeclareFields: true }],
-          // {@xscripts/notExtraneous @babel/preset-react}
+          // {@symbiote/notExtraneous @babel/preset-react}
           ['@babel/preset-react', { runtime: 'automatic' }]
         ],
         plugins: [
@@ -316,7 +316,7 @@ export function moduleExport({
       'production-types': {
         comments: true,
         plugins: [
-          // {@xscripts/notExtraneous @babel/plugin-syntax-typescript}
+          // {@symbiote/notExtraneous @babel/plugin-syntax-typescript}
           ['@babel/plugin-syntax-typescript', { dts: true }],
           makeTransformRewriteImportsDefinitionModuleResolver(
             derivedAliases,
@@ -350,12 +350,12 @@ export const { transformer } = makeTransformer(function (context) {
 // @ts-check
 'use strict';
 
-const { deepMergeConfig } = require('@-xun/scripts/assets');
+const { deepMergeConfig } = require('@-xun/symbiote/assets');
 
 const {
   assertEnvironment,
   moduleExport
-} = require('@-xun/scripts/assets/${asset}');
+} = require('@-xun/symbiote/assets/${asset}');
 
 // TODO: publish latest rejoinder package first, then update configs to use it
 //const { createDebugLogger } = require('rejoinder');
@@ -368,7 +368,7 @@ module.exports = deepMergeConfig(
     ...assertEnvironment({ projectRoot: __dirname })
   }),
   /**
-   * @type {import('@-xun/scripts/assets/${asset}').BabelConfig}
+   * @type {import('@-xun/symbiote/assets/${asset}').BabelConfig}
    */
   {
     // Any custom configs here will be deep merged with moduleExport's result
@@ -416,8 +416,8 @@ export function assertEnvironment({
 /**
  * Returns the core-js version to use with babel (always
  * {@link CORE_JS_LIBRARY_VERSION}). Usually it should just be whatever
- * `@-xun/scripts` is providing, but it could be the case that the current
- * package supplies its own version of `core-js` (and prevents `@-xun/scripts`'s
+ * `@-xun/symbiote` is providing, but it could be the case that the current
+ * package supplies its own version of `core-js` (and prevents `@-xun/symbiote`'s
  * version from being hoisted). In this case, we should try to use their
  * version.
  */
@@ -505,7 +505,7 @@ function doCoreJsVersionChecksAndReturnHardcodedVersion({
     }
   } else {
     // * We don't throw an error here to be kind to the build process; this
-    // * error should be caught by post-build checks from "xscripts build"
+    // * error should be caught by post-build checks from "symbiote build"
     log.warn(
       [LogTag.IF_NOT_QUIETED],
       ErrorMessage.specialized.BabelCorejsDependencyMissing(

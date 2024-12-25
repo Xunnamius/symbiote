@@ -14,7 +14,7 @@ import {
 import { makeGeneratedAliasesWarningComment } from 'universe:constant.ts';
 import { stringifyJson } from 'universe:util.ts';
 
-// {@xscripts/notExtraneous typescript}
+// {@symbiote/notExtraneous typescript}
 
 const tsconfigFiles = {
   [Tsconfig.ProjectBase]: `

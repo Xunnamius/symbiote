@@ -1,7 +1,7 @@
 // @ts-check
 
 /**
- * @type {import('@-xun/scripts/commands/build/changelog').ChangelogPatches}
+ * @type {import('@-xun/symbiote/commands/build/changelog').ChangelogPatches}
  */
 export default [
   // ? Oops

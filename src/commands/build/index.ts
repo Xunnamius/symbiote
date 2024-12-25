@@ -20,7 +20,7 @@ export default async function command(
     aliases: [],
     description: 'Transpile source and assets',
     usage: withGlobalUsage(
-      `This command is a direct alias for "xscripts build distributables". See that command's help text for more information.`
+      `This command is a direct alias for "symbiote build distributables". See that command's help text for more information.`
     )
   } satisfies ChildConfiguration<CustomCliArguments, GlobalExecutionContext>;
 }

@@ -11,7 +11,7 @@ import {
 import { generateRootOnlyAssets, makeTransformer, type Asset } from 'universe:assets.ts';
 import { readFile } from 'universe:util.ts';
 
-// {@xscripts/notExtraneous dotenv-cli}
+// {@symbiote/notExtraneous dotenv-cli}
 
 const startsWithAlphaNumeric = /^[a-z0-9]/i;
 

@@ -6,9 +6,9 @@
   "keywords": [
     "Xunnamius"
   ],
-  "homepage": "https://github.com/Xunnamius/xscripts#readme",
+  "homepage": "https://github.com/Xunnamius/symbiote#readme",
   "bugs": {
-    "url": "https://github.com/Xunnamius/xscripts/issues"
+    "url": "https://github.com/Xunnamius/symbiote/issues"
   },
   "repository": {
     "type": "git",
@@ -65,7 +65,7 @@
     }
   },
   "bin": {
-    "xscripts": "./dist/src/cli.js"
+    "symbiote": "./dist/src/cli.js"
   },
   "files": [
     "/dist",
@@ -79,27 +79,27 @@
   ],
   "scripts": {
     "build": "npm run build:dist --",
-    "build:changelog": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/scripts/dist/src/cli.js build changelog",
-    "build:dist": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/scripts/dist/src/cli.js build distributables --exclude-internal-file .remarkrc.mjs",
-    "build:docs": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/scripts/dist/src/cli.js build docs",
-    "clean": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/scripts/dist/src/cli.js clean",
-    "format": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/scripts/dist/src/cli.js format --hush",
-    "info": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/scripts/dist/src/cli.js project info",
+    "build:changelog": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js build changelog",
+    "build:dist": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js build distributables --exclude-internal-file .remarkrc.mjs",
+    "build:docs": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js build docs",
+    "clean": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js clean",
+    "format": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js format --hush",
+    "info": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js project info",
     "lint": "npm run lint:package --",
-    "lint:package": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/scripts/dist/src/cli.js lint",
-    "lint:packages": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/scripts/dist/src/cli.js lint --scope unlimited",
-    "lint:project": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/scripts/dist/src/cli.js project lint",
-    "list-tasks": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/scripts/dist/src/cli.js list-tasks",
-    "prepare": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/scripts/dist/src/cli.js project prepare",
-    "release": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/scripts/dist/src/cli.js release --no-parallel",
-    "renovate": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/scripts/dist/src/cli.js project renovate --github-reconfigure-repo --regenerate-assets --assets-preset cli",
-    "start": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/scripts/dist/src/cli.js start --",
+    "lint:package": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js lint",
+    "lint:packages": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js lint --scope unlimited",
+    "lint:project": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js project lint",
+    "list-tasks": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js list-tasks",
+    "prepare": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js project prepare",
+    "release": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js release --no-parallel",
+    "renovate": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js project renovate --github-reconfigure-repo --regenerate-assets --assets-preset cli",
+    "start": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js start --",
     "test": "npm run test:package:unit --",
-    "test:package:all": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/scripts/dist/src/cli.js test --coverage",
-    "test:package:e2e": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/scripts/dist/src/cli.js test --tests end-to-end",
-    "test:package:integration": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/scripts/dist/src/cli.js test --tests integration",
-    "test:package:unit": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/scripts/dist/src/cli.js test --tests unit",
-    "test:packages:all": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/scripts/dist/src/cli.js test --scope unlimited --coverage"
+    "test:package:all": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js test --coverage",
+    "test:package:e2e": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js test --tests end-to-end",
+    "test:package:integration": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js test --tests integration",
+    "test:package:unit": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js test --tests unit",
+    "test:packages:all": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js test --scope unlimited --coverage"
   },
   "dependencies": {
     "@-xun/changelog": "^1.0.0",
@@ -254,7 +254,7 @@
     "validate-npm-package-name": "^6.0.0"
   },
   "devDependencies": {
-    "@-xun/scripts": "^1.33.0"
+    "@-xun/symbiote": "^1.33.0"
   },
   "engines": {
     "node": "18.20.0 || ^20.15.0 || >=22.5.0"

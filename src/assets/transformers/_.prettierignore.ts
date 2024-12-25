@@ -12,7 +12,7 @@ export const { transformer } = makeTransformer(function (context) {
         path: toProjectAbsolutePath(prettierIgnoreConfigProjectBase),
         generate: () => `
 # * Paths below are ignored by prettier as well as remark and doctoc when called
-# * with \`xscripts format\`.
+# * with \`symbiote format\`.
 
 # ! Note that any pattern with a / in the beginning OR MIDDLE (but not end) will
 # ! be considered relative to this file ONLY. Matching subdirs will NOT match!

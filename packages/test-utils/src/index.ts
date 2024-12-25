@@ -44,7 +44,7 @@ export function asMockedFunction<T extends AnyFunction>(fn?: T): jest.MockedFunc
 /**
  * This function replaces Jest's `describe`, `test`, and `it` functions in the
  * current file with `describe.skip`, `test.skip`, and `it.skip` if
- * `process.env.XSCRIPTS_TEST_JEST_SKIP_SLOW_TESTS >= 1`. The replaced functions
+ * `process.env.SYMBIOTE_TEST_JEST_SKIP_SLOW_TESTS >= 1`. The replaced functions
  * also have a `noskip` method which are aliases for their respective original
  * versions.
  *
@@ -56,7 +56,7 @@ export function asMockedFunction<T extends AnyFunction>(fn?: T): jest.MockedFunc
  * file with hundreds or thousands of tests that still take a noticeable amount
  * of time to skip), include the string `-slow.` in the file's name, e.g.
  * `unit-my-slow.test.ts`, and set
- * `process.env.XSCRIPTS_TEST_JEST_SKIP_SLOW_TESTS >= 2`.
+ * `process.env.SYMBIOTE_TEST_JEST_SKIP_SLOW_TESTS >= 2`.
  */
 // TODO: import jest-specific globals from package instead of using global scope
 // TODO:
@@ -97,7 +97,7 @@ export function reconfigureJestGlobalsToSkipTestsInThisFileIfRequested(
   const test_ = globalThis.test;
   const it_ = globalThis.it;
 
-  if (Number(process.env.XSCRIPTS_TEST_JEST_SKIP_SLOW_TESTS) >= 1) {
+  if (Number(process.env.SYMBIOTE_TEST_JEST_SKIP_SLOW_TESTS) >= 1) {
     if (replaceDescribe) {
       globalThis.describe = globalThis.describe.skip;
     }
@@ -111,14 +111,14 @@ export function reconfigureJestGlobalsToSkipTestsInThisFileIfRequested(
     }
 
     debug(
-      'reconfigured jest global targets (%O) to skip all tests by default: process.env.XSCRIPTS_TEST_JEST_SKIP_SLOW_TESTS (%O) >= 1',
+      'reconfigured jest global targets (%O) to skip all tests by default: process.env.SYMBIOTE_TEST_JEST_SKIP_SLOW_TESTS (%O) >= 1',
       targets,
-      process.env.XSCRIPTS_TEST_JEST_SKIP_SLOW_TESTS
+      process.env.SYMBIOTE_TEST_JEST_SKIP_SLOW_TESTS
     );
   } else {
     debug(
-      'did not reconfigure jest globals: process.env.XSCRIPTS_TEST_JEST_SKIP_SLOW_TESTS (%O) is not >=1',
-      process.env.XSCRIPTS_TEST_JEST_SKIP_SLOW_TESTS
+      'did not reconfigure jest globals: process.env.SYMBIOTE_TEST_JEST_SKIP_SLOW_TESTS (%O) is not >=1',
+      process.env.SYMBIOTE_TEST_JEST_SKIP_SLOW_TESTS
     );
   }
 
