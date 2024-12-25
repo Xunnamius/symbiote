@@ -1450,13 +1450,21 @@ Do note that this renovation can also be used to update any GitHub releases name
       const { stdout: tags_ } = await run('git', ['tag', '--list']);
       const tags = tags_.split(whitespaceRegExp);
 
+      const oldTagExtractSemverRegExp = new RegExp(
+        // TODO: isn't this logic somewhere else too? conventional.config?
+        `${escapeStringRegexp(oldRootPackageName)}@(.+)$`
+      );
+
+      debug('oldTagExtractSemverRegExp: %O', oldTagExtractSemverRegExp);
       debug('tags: %O', tags);
 
       if (tags.length) {
         for (const oldTag of tags) {
-          const oldTagSemver = semver.valid(oldTag) || oldTag.match(/^/)?.[1];
+          const oldTagSemver =
+            semver.valid(oldTag) || oldTag.match(oldTagExtractSemverRegExp)?.[1];
 
           if (oldTagSemver) {
+            // TODO: same with this too, isn't this logic repeated elsewhere?
             const aliasTag = `${updatedRootPackageName}@${oldTagSemver}`;
 
             debug('aliasTag: %O', aliasTag);
