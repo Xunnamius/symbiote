@@ -42,7 +42,7 @@ requiring changes to any of the foreign repository's files.
 Symbiote is similar in intent to kcd-scripts, react-scripts, etc, but with many
 more opinions.
 
-I have three main goal with symbiote:
+I have three main goals with symbiote:
 
 **I.** Concentrate the configuration explosion inherent in the modern JS
 ecosystem into one centralized location. That's symbiote. Reuse as much
