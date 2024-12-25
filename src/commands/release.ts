@@ -962,15 +962,15 @@ const protoPrereleaseTasks: ProtoPrereleaseTask[][] = [
           synchronizeInterdependencies: true,
 
           githubPauseRulesets: false,
-          githubRenameRepo: false,
+          githubRenameRoot: false,
           githubCloneRemoteWiki: false,
           githubDeleteAllReleases: false,
           githubReconfigureRepo: false,
           githubKillMaster: false,
           generateScopedTags: false,
           regenerateAssets: false,
-          deprecate: false,
-          undeprecate: false,
+          fullDeprecate: false,
+          fullUndeprecate: false,
           updateDependencies: false,
 
           runToCompletion: true,

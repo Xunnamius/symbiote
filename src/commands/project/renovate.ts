@@ -683,14 +683,14 @@ async function makeOctokit({
  */
 const conflictingUpstreamRenovationTasks = [
   'github-reconfigure-repo',
-  'github-rename-repo',
+  'github-rename-root',
   'github-pause-rulesets',
   'github-delete-all-releases',
   'github-clone-remote-wiki',
   'github-kill-master',
   'generate-scoped-tags',
-  'deprecate',
-  'undeprecate'
+  'full-deprecate',
+  'full-undeprecate'
 ].map((t) => ({ [t]: true }));
 
 // TODO: When we settle on a unified task-runner API, these should be placed
@@ -1238,21 +1238,33 @@ By default, this command will preserve the origin repository's pre-existing conf
       }
     }
   },
-  'github-rename-repo': {
+  'github-rename-root': {
     emoji: '🧬',
     taskAliases: [],
     actionDescription: 'Updating origin repository name and relevant metadata',
     shortHelpDescription:
-      'Rename the origin repository and update relevant metadata accordingly',
-    longHelpDescription: `This renovation will (1) rename the origin repository on GitHub, (2) rename (move) the repository directory on the local filesystem, (3) update the package name in GitHub releases, (4) and update the remotes in .git/config accordingly.\n\nIf the origin repository cannot be renamed, this command will abort immediately and without making any further updates.`,
+      'Rename the origin repository and the root package, and update any relevant metadata accordingly',
+    longHelpDescription: `This renovation will (1) rename the origin repository on GitHub, (2) update the package name in the origin repository's releases on GitHub, (3) update the name field in the root package's package.json file, (4) update the package.json::repository of all packages in the project, (5) update the origin remote in .git/config, and (6) rename (move) the repository directory on the local filesystem.\n\nIf any step fails, the renovation will abort immediately.`,
     requiresForce: false,
     supportedScopes: [ProjectRenovateScope.Unlimited],
     subOptions: {
-      'new-name': {
+      'new-repo-name': {
         string: true,
         description: "The repository's new name",
         subOptionOf: {
-          'github-rename-repo': {
+          'github-rename-root': {
+            when: (superOptionValue) => superOptionValue,
+            update(oldOptionConfig) {
+              return { ...oldOptionConfig, demandThisOption: true };
+            }
+          }
+        }
+      },
+      'new-root-package-name': {
+        string: true,
+        description: "The root package's new name",
+        subOptionOf: {
+          'github-rename-root': {
             when: (superOptionValue) => superOptionValue,
             update(oldOptionConfig) {
               return { ...oldOptionConfig, demandThisOption: true };
@@ -1262,7 +1274,7 @@ By default, this command will preserve the origin repository's pre-existing conf
       }
     },
     conflicts: conflictingUpstreamRenovationTasks.filter(
-      (o) => !o['github-rename-repo']
+      (o) => !o['github-rename-root']
     ),
     async run(argv_, { log }) {
       const argv = argv_ as RenovationTaskArgv;
@@ -1392,7 +1404,7 @@ By default, this command will preserve the origin repository's pre-existing conf
       return undefined;
     }
   },
-  deprecate: {
+  'full-deprecate': {
     emoji: '🪦',
     taskAliases: [],
     actionDescription: 'Deprecating package',
@@ -1400,11 +1412,11 @@ By default, this command will preserve the origin repository's pre-existing conf
       'Deprecate the current package and possibly the entire repository',
     longHelpDescription: `This renovation will execute the standard deprecation procedure on the current package. See the xscripts wiki for details on the standard deprecation procedure.
 
-    Regardless of --scope, if this renovation is used on a polyrepo, the entire repository will also be deprecated; if this renovation is used on a monorepo, it will apply only to the current package unless deprecating the current package would result in all packages in the monorepo having been deprecated, in which case the entire repository will also be deprecated.`,
+    Regardless of --scope, if this renovation is used on a polyrepo, the entire repository will also be deprecated; if this renovation is used on a monorepo, it will apply only to the current package unless the repository is a hybridrepo and deprecating the current package would result in all packages having been deprecated. In case of the latter, the entire repository will also be deprecated.`,
     requiresForce: true,
     supportedScopes: [ProjectRenovateScope.ThisPackage],
     subOptions: {},
-    conflicts: conflictingUpstreamRenovationTasks.filter((o) => !o.deprecate),
+    conflicts: conflictingUpstreamRenovationTasks.filter((o) => !o['full-deprecate']),
     async run(argv_, { log }) {
       const argv = argv_ as RenovationTaskArgv;
 
@@ -1417,16 +1429,17 @@ By default, this command will preserve the origin repository's pre-existing conf
       return undefined;
     }
   },
-  undeprecate: {
+  'full-undeprecate': {
     emoji: '🧟',
     taskAliases: [],
     actionDescription: 'Un-deprecating package',
-    shortHelpDescription: 'Un-deprecate the current package and repository',
+    shortHelpDescription:
+      'Reverse the deprecation of the current package and repository',
     longHelpDescription: `This renovation will make a best effort at undoing the standard deprecation procedure on the current package and its containing repository, effectively "un-deprecating" them both. See the xscripts wiki for details on the standard deprecation procedure and what the ramifications of an "un-deprecation" are.`,
     requiresForce: true,
     supportedScopes: [ProjectRenovateScope.ThisPackage],
     subOptions: {},
-    conflicts: conflictingUpstreamRenovationTasks.filter((o) => !o.undeprecate),
+    conflicts: conflictingUpstreamRenovationTasks.filter((o) => !o['full-undeprecate']),
     async run(argv_, { log }) {
       const argv = argv_ as RenovationTaskArgv;
 
@@ -1495,9 +1508,9 @@ See the xscripts wiki documentation for more details on this command and all ava
     // ? These renovations modify the filesystem, so only one can run at once
     conflicts: [
       'synchronize-interdependencies',
-      'deprecate',
-      'undeprecate',
-      'github-rename-repo',
+      'full-deprecate',
+      'full-undeprecate',
+      'github-rename-root',
       'github-clone-remote-wiki'
     ],
     async run(argv_, { debug, log }) {
@@ -1717,7 +1730,7 @@ See the xscripts wiki documentation for more details on this command and all ava
     supportedScopes: projectRenovateScopes,
     subOptions: {},
     // ? These renovations modify the filesystem, so only one can run at once
-    conflicts: ['deprecate', 'undeprecate', 'github-rename-repo'],
+    conflicts: ['full-deprecate', 'full-undeprecate', 'github-rename-root'],
     async run(argv_, { debug, log }) {
       const argv = argv_ as RenovationTaskArgv;
       const { scope, [$executionContext]: globalExecutionContext } = argv;
