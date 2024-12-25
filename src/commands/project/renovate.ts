@@ -1213,7 +1213,25 @@ By default, this command will preserve the origin repository's pre-existing conf
     taskAliases: [],
     actionDescription: 'Updating origin repository name and relevant metadata',
     shortHelpDescription: 'Rename the origin repo and root package, and update metadata',
-    longHelpDescription: `This renovation will (1) rename the origin repository on GitHub, (2) update the package name in the origin repository's releases on GitHub, (3) update the name field in the root package's package.json file, (4) update the package.json::repository of all packages in the project, (5) update the origin remote in .git/config, and (6) rename (move) the repository directory on the local filesystem.\n\nIf any step fails, the renovation will abort immediately.\n\nDo note that this renovation can also be used to update any GitHub releases named in the old style (e.g. "v1.2.3") to their modern counterparts (e.g. "package-name@1.2.3"). To accomplish this without renaming the repository, provide --force and the current repository and package names for --new-repo-name and --new-root-package-name respectively.`,
+    longHelpDescription: `This renovation will:
+
+1. Rename the origin repository on GitHub.
+
+2. Update the package name in the origin repository's releases on GitHub.
+
+3. Update the name field in the root package's package.json file.
+
+4. Update the package.json::repository of all packages in the project.
+
+5. Update the origin remote in .git/config.
+
+6. If the repo is not a non-hybrid monorepo, add new repository tags with the updated root package name as aliases for corresponding tags with the old name and push them.
+
+7. Rename (move) the repository directory on the local filesystem.
+
+If any step fails, the renovation will abort immediately.
+
+Do note that this renovation can also be used to update any GitHub releases named in the old style (e.g. "v1.2.3") to their modern counterparts (e.g. "package-name@1.2.3"). To accomplish this without renaming the repository, invoke the --generate-scoped-tags renovation instead.`,
     requiresForce: false,
     supportedScopes: [ProjectRenovateScope.Unlimited],
     subOptions: {
@@ -1422,6 +1440,50 @@ By default, this command will preserve the origin repository's pre-existing conf
         previousValue: oldRemoteUrl,
         updatedValue: updatedRemoteUrl,
         skippedDescription: 'updating origin remote url (use --force to overwrite)'
+      });
+
+      // * Add new tags with the updated root package name (nothing is deleted)
+
+      const { stdout: tags } = await run('git', ['tag', '--list'], { lines: true });
+
+      debug('tags: %O', tags);
+
+      if (tags.length) {
+        for (const oldTag of tags) {
+          const oldTagSemver = semver.valid(oldTag) || oldTag.match(/^/)?.[1];
+
+          if (oldTagSemver) {
+            const aliasTag = `${updatedRootPackageName}@${oldTagSemver}`;
+
+            debug('aliasTag: %O', aliasTag);
+
+            // eslint-disable-next-line no-await-in-loop
+            await run('git', [
+              'tag',
+              '-m',
+              `alias => ${oldTag}`,
+              aliasTag,
+              '${oldTag}^{}'
+            ]);
+
+            logReplacement({
+              replacedDescription: `Created alias tag`,
+              updatedValue: `"${oldTag}" => "${aliasTag}"`
+            });
+          } else {
+            logReplacement({
+              wasReplaced: false,
+              replacedDescription: '',
+              skippedDescription: `creating alias for irrelevant tag "${oldTag}"`
+            });
+          }
+        }
+      }
+
+      await run('git', ['push', '--follow-tags']);
+
+      logReplacement({
+        replacedDescription: 'Pushed all reachable annotated tags to origin'
       });
 
       // * Rename (move) the repository directory on the local filesystem
