@@ -1219,17 +1219,19 @@ By default, this command will preserve the origin repository's pre-existing conf
 
 1. Rename the origin repository on GitHub.
 
-2. Update the package name in the origin repository's releases on GitHub.
+2. Update the package name in the origin repository's release names on GitHub that match the old root package's name. If --force is given, all releases with old-style semver valid names (e.g. "v1.2.3") will also be updated (to e.g. "new-package-name@1.2.3").
 
 3. Update the name field in the root package's package.json file.
 
 4. Update the package.json::repository of all packages in the project.
 
-5. Update the origin remote in \`.git/config\`.
+5. Update the origin remote url in \`.git/config\` if it matches the old origin url. If --force is given, the origin remote url will always be updated regardless of its value.
 
-6. If the repo is not a non-hybrid monorepo, add new repository tags with the updated root package name as aliases for corresponding tags with the old name and push them.
+6. In a hybridrepo or polyrepo, add new annotated tags with the updated root package name as respective aliases of tags with the old package name, and then push them to the origin repository. If --force is given, local and remote tags matching the old package name (WHICH MAY MATCH THE "NEW" PACKAGE NAME WHEN RE-RUNNING THIS COMMAND) will be DELETED and RECREATED. THIS IS POTENTIALLY VERY DANGEROUS and can damage existing releases if done without proper consideration.
 
-7. Rename (move) the repository directory on the local filesystem.
+Do not call this renovation with --force if the repository has published non-alias tags that look like alias tags. If you do, those non-alias tags will be deleted and recreated, which may break corresponding GitHub releases and other tooling.
+
+7. Rename (move) the repository directory on the local filesystem, if the repository name has changed. If the destination directory path already exists, this step will fail.
 
 If any step fails, the renovation will abort immediately.
 
@@ -1448,7 +1450,7 @@ Do note that this renovation can also be used to update any GitHub releases name
         skippedDescription: 'updating origin remote url (use --force to overwrite)'
       });
 
-      // * Add new tags with the updated root package name (nothing is deleted)
+      // * Add new tags with the updated root package name
 
       const { stdout: tags_ } = await run('git', ['tag', '--list']);
       const currentTags = tags_.split(whitespaceRegExp);
