@@ -341,7 +341,7 @@ this project adheres to [Semantic Versioning][2].
 ### ⚙️ Build System
 
 - Add pseudodecorators where appropriate ([dc47cfb][166])
-- **package:** fix dependency issues identified by symbiote when analyzing its own project structure ([ebb4fb5][167])
+- **package:** fix dependency issues identified by xscripts when analyzing its own project structure ([ebb4fb5][167])
 - **package:** remove extraneous dependencies ([ccc82b3][168])
 
 <br />
@@ -356,7 +356,7 @@ this project adheres to [Semantic Versioning][2].
 
 - **eslint:** disable no-unsupported-features checks, generalize `overwriteFileProperty`, fix eslint-plugin-n bug ([0c3f85c][171])
 - **src:** ensure CannotRunOutsideRoot error only triggers when outside root ([531d3ea][172])
-- **src:** properly add the development tag when using self-referential symbiote ([a7a66d9][173])
+- **src:** properly add the development tag when using self-referential xscripts ([a7a66d9][173])
 
 ### ⚙️ Build System
 
@@ -448,7 +448,7 @@ this project adheres to [Semantic Versioning][2].
 
 #### 🪄 Fixes
 
-- Ensure symbiote supports limited invocations outside of project root ([0864f92][214])
+- Ensure xscripts supports limited invocations outside of project root ([0864f92][214])
 - **src/commands/lint:** ensure no erroneous whitespaces are inserted between outputs ([ff3853f][215])
 
 <br />
@@ -571,7 +571,7 @@ this project adheres to [Semantic Versioning][2].
 - **husky:** update lint script to use latest name ([ea6aaff][260])
 - **package:** add final npm scripts ([eb5631b][261])
 - **package:** replace typescript babel preset dependency with syntax plugin ([b72401a][262])
-- **package:** update lint scripts to use symbiote ([7c1e7f1][263])
+- **package:** update lint scripts to use xscripts ([7c1e7f1][263])
 
 <br />
 
@@ -660,7 +660,7 @@ this project adheres to [Semantic Versioning][2].
 
 ### ⚙️ Build System
 
-- **lint-staged.config:** update to use symbiote ([d290ba5][296])
+- **lint-staged.config:** update to use xscripts ([d290ba5][296])
 - Reorganize deps/devdeps and re-enable commit-spell ([4ea8aa4][297])
 
 <br />
@@ -760,7 +760,7 @@ this project adheres to [Semantic Versioning][2].
 
 ### ⚙️ Build System
 
-- **package:** use real path to devdep version of symbiote ([99d5786][327])
+- **package:** use real path to devdep version of xscripts ([99d5786][327])
 
 <br />
 
