@@ -1510,7 +1510,7 @@ To create and recreate alias tags for existing release tags with more fidelity a
                 wasReplaced: shouldCreateNewAliasTag,
                 replacedDescription: `Created alias tag`,
                 updatedValue: `"${aliasTag}" => "${oldTag}"`,
-                skippedDescription: `creating alias tag for "${oldTag}": tag already exists`
+                skippedDescription: `creating alias tag for "${oldTag}": already exists`
               });
             } else {
               logReplacement({
