@@ -1401,11 +1401,11 @@ By default, this command will preserve the origin repository's pre-existing conf
       // * Update the origin remote in .git/config accordingly
 
       const { stdout: oldRemoteUrl } = await run('git', ['remote', 'get-url', 'origin']);
-      const shouldUpdateRemoteUrl = oldRemoteUrl.includes(oldRepoName);
+      const shouldUpdateRemoteUrl = force || oldRemoteUrl.includes(oldRepoName);
 
       const updatedRemoteUrl = oldRemoteUrl.replace(
-        new RegExp(`/${escapeStringRegexp(oldRepoName)}(?:\\.git)?$`),
-        updatedRepoName
+        new RegExp(`/${force ? '[^/]+' : escapeStringRegexp(oldRepoName)}(?:\\.git)?$`),
+        `/${updatedRepoName}.git`
       );
 
       debug('oldRemoteUrl: %O', oldRemoteUrl);
@@ -1421,7 +1421,7 @@ By default, this command will preserve the origin repository's pre-existing conf
         replacedDescription: 'Updated the origin remote repository url',
         previousValue: oldRemoteUrl,
         updatedValue: updatedRemoteUrl,
-        skippedDescription: 'updating origin remote url'
+        skippedDescription: 'updating origin remote url (use --force to overwrite)'
       });
 
       // * Rename (move) the repository directory on the local filesystem
