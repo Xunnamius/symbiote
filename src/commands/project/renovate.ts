@@ -1298,7 +1298,7 @@ By default, this command will preserve the origin repository's pre-existing conf
         replacedDescription: 'Renamed the origin repository on GitHub',
         previousValue: oldRepoName,
         updatedValue: updatedRepoName,
-        skippedDescription: `updating "${oldRepoName}" repository (old name already equals new name)`
+        skippedDescription: `updating "${oldRepoName}" repository: old name already equals new name`
       });
 
       ownerAndRepo.repo = updatedRepoName;
@@ -1345,7 +1345,7 @@ By default, this command will preserve the origin repository's pre-existing conf
               replacedDescription: 'Updated a release name on GitHub',
               previousValue: oldReleaseName,
               updatedValue: updatedReleaseName,
-              skippedDescription: `updating release "${oldReleaseName}" (old name already equals new name)`
+              skippedDescription: `updating release "${oldReleaseName}": old name already equals new name`
             });
           })
         );
