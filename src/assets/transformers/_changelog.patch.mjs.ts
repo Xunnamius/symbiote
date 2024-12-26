@@ -1,4 +1,7 @@
-import { changelogPatchConfigPackageBase } from 'multiverse+project-utils:fs.ts';
+import {
+  changelogPatchConfigPackageBase,
+  isAccessible
+} from 'multiverse+project-utils:fs.ts';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 
@@ -7,10 +10,15 @@ export const { transformer } = makeTransformer(function (context) {
 
   // * Only the root package gets these files
   return generateRootOnlyAssets(context, async function () {
-    return [
-      {
-        path: toProjectAbsolutePath(changelogPatchConfigPackageBase),
-        generate: () => /*js*/ `
+    const path = toProjectAbsolutePath(changelogPatchConfigPackageBase);
+    const patchAlreadyExists = await isAccessible(path, { useCached: true });
+
+    return patchAlreadyExists
+      ? []
+      : [
+          {
+            path,
+            generate: () => /*js*/ `
 // @ts-check
 
 /**
@@ -22,7 +30,7 @@ export default [
   //['--output-file', '--changelog-file'],
 ];
 `
-      }
-    ];
+          }
+        ];
   });
 });
