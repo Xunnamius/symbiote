@@ -7,14 +7,7 @@ export const { transformer } = makeTransformer(function (context) {
 
   // * Only the root package gets these files
   return generateRootOnlyAssets(context, async function () {
-    const assets: Asset[] = [
-      {
-        path: toProjectAbsolutePath(directoryTypesProjectBase, 'global.ts'),
-        generate: () => /*js*/ `
-export type {};
-`
-      }
-    ];
+    const assets: Asset[] = [];
 
     const outputDirAlreadyExists = await isAccessible(
       toProjectAbsolutePath(directoryTypesProjectBase),
@@ -22,9 +15,16 @@ export type {};
     );
 
     if (!outputDirAlreadyExists) {
-      assets.push({
-        path: toProjectAbsolutePath(directoryTypesProjectBase, '_example-d.ts'),
-        generate: () => /*js*/ `
+      assets.push(
+        {
+          path: toProjectAbsolutePath(directoryTypesProjectBase, 'global.ts'),
+          generate: () => /*js*/ `
+export type {};
+`
+        },
+        {
+          path: toProjectAbsolutePath(directoryTypesProjectBase, '_example-d.ts'),
+          generate: () => /*js*/ `
 declare module 'glob-gitignore' {
   import type { GlobOptions } from 'glob';
 
@@ -50,7 +50,8 @@ declare module 'glob-gitignore' {
   export function hasMagic(patterns: string | string[], options?: GlobOptions): string;
 }
 `
-      });
+        }
+      );
     }
 
     return assets;
