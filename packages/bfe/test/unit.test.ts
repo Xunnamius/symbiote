@@ -5649,6 +5649,46 @@ describe('::getInvocableExtendedHandler', () => {
     ]);
   });
 
+  it('integrates with builder and handler extensions', async () => {
+    expect.hasAssertions();
+
+    const mockCustomHandler = jest.fn();
+    const mockContext = generateFakeExecutionContext();
+
+    const handler = await getInvocableExtendedHandler<
+      { clickityClackity: boolean; rickityRackity: boolean },
+      typeof mockContext
+    >(function command(_: AsStrictExecutionContext<typeof mockContext>) {
+      const [builder, withHandlerExtensions] = withBuilderExtensions({
+        'clickity-clackity': {
+          boolean: true,
+          default: false,
+          demandThisOptionOr: 'rickity-rackity'
+        },
+        'rickity-rackity': {
+          boolean: true,
+          default: false,
+          demandThisOptionOr: 'clickity-clackity'
+        }
+      });
+
+      return {
+        builder,
+        handler: withHandlerExtensions(mockCustomHandler)
+      };
+    }, mockContext);
+
+    await handler({
+      $0: 'fake',
+      _: [],
+      clickityClackity: true,
+      rickityRackity: false,
+      [$executionContext]: mockContext
+    });
+
+    expect(mockCustomHandler).toHaveBeenCalled();
+  });
+
   it('throws a framework error if resolved command is falsy', async () => {
     expect.hasAssertions();
 

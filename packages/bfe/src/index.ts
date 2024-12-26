@@ -63,6 +63,9 @@ type OptionsMetadata = {
    * An array of groups of both canonical (under `$canonical`) and expanded
    * option names, and their expected values, that are implied by the existence
    * of some other option.
+   *
+   * This object contains expanded along with canonical option names because it
+   * is merged into argv before it's passed to a command handler.
    */
   implied: (FlattenedExtensionValue & { [$canonical]: Record<string, unknown> })[];
   /**
@@ -101,7 +104,11 @@ type OptionsMetadata = {
    */
   optional: string[];
   /**
-   * A mapping of canonical option names to their default values.
+   * A mapping of canonical option names and their expansions to their default
+   * values.
+   *
+   * This object contains expanded along with canonical option names because it
+   * is merged into argv before it's passed to a command handler.
    */
   defaults: Record<string, unknown>;
   /**
@@ -115,11 +122,11 @@ type OptionsMetadata = {
   >;
   /**
    * Since yargs-parser configuration might result in an option's canonical name
-   * being stripped out of argv, we need to track a key-value mapping between an
-   * option's canonical name (value) and one of its corresponding keys in argv
-   * (key).
+   * being stripped out of argv, we need to track a key-value mapping between
+   * each valid permutations of an option's canonical name (any of which may be
+   * seen in argv) and said canonical name (as seen in the builder object).
    */
-  optionNamesAsSeenInArgv: { [keySeenInArgv: string]: string };
+  optionNamesAsSeenInArgv: { [keyPotentiallySeenInArgv: string]: string };
   /**
    * This is used to ensure option names, aliases, and their expansions are not
    * colliding with one another.
@@ -863,7 +870,7 @@ export function withBuilderExtensions<
         parserConfiguration
       });
 
-      debug('option local metadata: %O', optionsMetadata);
+      debug('option local metadata: %O', optionLocalMetadata);
 
       // * Automatic grouping happens on both first pass and second pass
       if (!disableAutomaticGrouping) {
@@ -979,14 +986,19 @@ export function withBuilderExtensions<
         deleteDefaultedArguments({ argv: realArgv, defaultedOptions });
         debug('real argv with defaults deleted: %O', realArgv);
 
-        const pseudoArgv = new Map<string, unknown>();
+        // ? This is a map between canonical names and their value in realArgv
+        const canonicalArgv = new Map<string, unknown>();
 
         Object.entries(optionsMetadata.optionNamesAsSeenInArgv).forEach(
-          ([name, realName]) =>
-            realArgv[realName] !== undefined && pseudoArgv.set(name, realArgv[realName])
+          ([maybeNameInRealArgv, canonicalName]) => {
+            const valueInRealArgv = realArgv[maybeNameInRealArgv];
+            if (valueInRealArgv !== undefined) {
+              canonicalArgv.set(canonicalName, valueInRealArgv);
+            }
+          }
         );
 
-        debug('argv used for checks: %O', pseudoArgv);
+        debug('"canonical argv" used for checks: %O', canonicalArgv);
 
         // * Run requires checks
         optionsMetadata.required.forEach(({ [$genesis]: requirer, ...requireds }) => {
@@ -995,16 +1007,16 @@ export function withBuilderExtensions<
             ErrorMessage.MetadataInvariantViolated('requires')
           );
 
-          if (pseudoArgv.has(requirer)) {
+          if (canonicalArgv.has(requirer)) {
             const missingRequiredKeyValues: Entries<typeof requireds> = [];
 
             Object.entries(requireds).forEach((required) => {
               const [requiredKey, requiredValue] = required;
-              const givenValue = pseudoArgv.get(requiredKey);
+              const givenValue = canonicalArgv.get(requiredKey);
               const givenValueIsArray = Array.isArray(givenValue);
 
               if (
-                !pseudoArgv.has(requiredKey) ||
+                !canonicalArgv.has(requiredKey) ||
                 (requiredValue !== $exists &&
                   ((givenValueIsArray &&
                     !givenValue.some((value) => isEqual(value, requiredValue))) ||
@@ -1029,16 +1041,16 @@ export function withBuilderExtensions<
               ErrorMessage.MetadataInvariantViolated('conflicts')
             );
 
-            if (pseudoArgv.has(conflicter)) {
+            if (canonicalArgv.has(conflicter)) {
               const seenConflictingKeyValues: Entries<typeof conflicteds> = [];
 
               Object.entries(conflicteds).forEach((keyValue) => {
                 const [conflictedKey, conflictedValue] = keyValue;
-                const givenValue = pseudoArgv.get(conflictedKey);
+                const givenValue = canonicalArgv.get(conflictedKey);
                 const givenValueIsArray = Array.isArray(givenValue);
 
                 if (
-                  pseudoArgv.has(conflictedKey) &&
+                  canonicalArgv.has(conflictedKey) &&
                   (conflictedValue === $exists ||
                     (givenValueIsArray &&
                       givenValue.some((value) => isEqual(value, conflictedValue))) ||
@@ -1063,15 +1075,15 @@ export function withBuilderExtensions<
             ErrorMessage.MetadataInvariantViolated('demandThisOptionIf')
           );
 
-          const sawDemanded = pseudoArgv.has(demanded);
+          const sawDemanded = canonicalArgv.has(demanded);
 
           Object.entries(demanders).forEach((demander) => {
             const [demanderKey, demanderValue] = demander;
-            const givenValue = pseudoArgv.get(demanderKey);
+            const givenValue = canonicalArgv.get(demanderKey);
             const givenValueIsArray = Array.isArray(givenValue);
 
             const sawADemander =
-              pseudoArgv.has(demanderKey) &&
+              canonicalArgv.has(demanderKey) &&
               (demanderValue === $exists ||
                 (givenValueIsArray &&
                   givenValue.some((value) => isEqual(value, demanderValue))) ||
@@ -1089,11 +1101,11 @@ export function withBuilderExtensions<
           const groupEntries = Object.entries(group);
           const sawAtLeastOne = groupEntries.some((keyValue) => {
             const [key, value] = keyValue;
-            const givenValue = pseudoArgv.get(key);
+            const givenValue = canonicalArgv.get(key);
             const givenValueIsArray = Array.isArray(givenValue);
 
             return (
-              pseudoArgv.has(key) &&
+              canonicalArgv.has(key) &&
               (value === $exists ||
                 (givenValueIsArray &&
                   givenValue.some((value_) => isEqual(value_, value))) ||
@@ -1111,11 +1123,11 @@ export function withBuilderExtensions<
 
           groupEntries.forEach((keyValue) => {
             const [key, value] = keyValue;
-            const givenValue = pseudoArgv.get(key);
+            const givenValue = canonicalArgv.get(key);
             const givenValueIsArray = Array.isArray(givenValue);
 
             if (
-              pseudoArgv.has(key) &&
+              canonicalArgv.has(key) &&
               (value === $exists ||
                 (givenValueIsArray &&
                   givenValue.some((value_) => isEqual(value_, value))) ||
@@ -1155,9 +1167,9 @@ export function withBuilderExtensions<
             );
 
             if (
-              pseudoArgv.has(implier) &&
+              canonicalArgv.has(implier) &&
               (optionsMetadata!.implyVacuously.includes(implier) ||
-                pseudoArgv.get(implier) !== false)
+                canonicalArgv.get(implier) !== false)
             ) {
               Object.assign(impliedKeyValues, expandedImplications);
 
@@ -1168,8 +1180,11 @@ export function withBuilderExtensions<
                 Object.entries(canonicalImplications).forEach((keyValue) => {
                   const [key, value] = keyValue;
 
-                  if (pseudoArgv.has(key) && !isEqual(pseudoArgv.get(key), value)) {
-                    seenConflictingKeyValues.push([key, pseudoArgv.get(key)]);
+                  if (
+                    canonicalArgv.has(key) &&
+                    !isEqual(canonicalArgv.get(key), value)
+                  ) {
+                    seenConflictingKeyValues.push([key, canonicalArgv.get(key)]);
                   }
                 });
 
@@ -1550,12 +1565,12 @@ function analyzeBuilderObject<
       allPossibleOptionNamesAndAliasesSet
     );
 
-    // ? Keep track of the key we can reference to get this option's value
+    // ? Keep track of the keys we can reference to get this option's value
     // ? from argv. We have to do this because argv might strip out an
     // ? option's canonical name depending on yargs-parser configuration
-    metadata.optionNamesAsSeenInArgv[option] = getFirstValueFromNonEmptySet(
-      allPossibleOptionNamesAndAliasesSet
-    );
+    allPossibleOptionNamesAndAliasesSet.forEach((expandedName) => {
+      metadata.optionNamesAsSeenInArgv[expandedName] = option;
+    });
 
     if (requires !== undefined) {
       const normalizedOption = validateAndFlattenExtensionValue(
@@ -1583,6 +1598,7 @@ function analyzeBuilderObject<
     }
 
     if (default_ !== undefined) {
+      // ? Unlike the others, defaults and implies contain their expansions
       allPossibleOptionNamesAndAliasesSet.forEach((expandedName) => {
         metadata.defaults[expandedName] = default_;
       });
@@ -1601,6 +1617,7 @@ function analyzeBuilderObject<
         ([impliedOption, impliedValue]) => {
           const { alias: impliedOptionAliases } = builderObject[impliedOption];
 
+          // ? Unlike the others, defaults and implies contain their expansions
           expandOptionNameAndAliasesWithRespectToParserConfiguration({
             option: impliedOption,
             aliases: impliedOptionAliases,
