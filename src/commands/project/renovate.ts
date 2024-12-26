@@ -2020,6 +2020,8 @@ See the symbiote wiki documentation for more details on this command and all ava
         onlyPrettier: false
       });
 
+      let threw = false;
+
       try {
         if (errorCount > 0) {
           let firstError = new Error(ErrorMessage.GuruMeditation());
@@ -2042,6 +2044,9 @@ See the symbiote wiki documentation for more details on this command and all ava
 
           throw firstError;
         }
+      } catch (error) {
+        threw = true;
+        throw error;
       } finally {
         log([LogTag.IF_NOT_HUSHED], 'Waiting for formatter sub-command to complete...');
 
@@ -2052,9 +2057,13 @@ See the symbiote wiki documentation for more details on this command and all ava
             debug.error('formatter sub-command failed:', error);
             log.warn(
               [LogTag.IF_NOT_SILENCED],
-              'Formatter sub-command experienced a non-fatal failure; please check related configuration files'
+              `Formatter sub-command experienced a fatal error${threw ? ' (that was ignored due to another error)' : ''}:`
             );
             log.warn([LogTag.IF_NOT_SILENCED], error);
+
+            if (!threw) {
+              throw error;
+            }
           }
         );
       }
