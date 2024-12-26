@@ -67,12 +67,18 @@ const dummyContext: IncomingTransformerContext = {
   year: '1776'
 };
 
-dummyContext.log.enabled = false;
-dummyContext.log.warn.enabled = false;
-dummyContext.log.error.enabled = false;
-dummyContext.debug.enabled = false;
-dummyContext.debug.warn.enabled = false;
-dummyContext.debug.error.enabled = false;
+beforeEach(() => {
+  // TODO: when the feature of disabling root log also disables pre-extension
+  // TODO: loggers too is implemented in rejoinder, remove these lines:
+  dummyContext.log.enabled = false;
+  dummyContext.log.message.enabled = false;
+  dummyContext.log.warn.enabled = false;
+  dummyContext.log.error.enabled = false;
+  dummyContext.debug.enabled = false;
+  dummyContext.debug.message.enabled = false;
+  dummyContext.debug.warn.enabled = false;
+  dummyContext.debug.error.enabled = false;
+});
 
 describe('::gatherAssetsFromTransformer', () => {
   it('invoke a transformer via its filename', async () => {
@@ -122,7 +128,7 @@ describe('::gatherAssetsFromTransformer', () => {
           expect.hasAssertions();
 
           const projectMetadata = fixtureToProjectMetadata(
-            'goodPolyrepoNoSrc',
+            'goodPolyrepoNoSrcYesDefaultEnv',
             'self'
           ) as TransformerContext['projectMetadata'];
 
@@ -143,7 +149,7 @@ describe('::gatherAssetsFromTransformer', () => {
           expect.hasAssertions();
 
           const projectMetadata = fixtureToProjectMetadata(
-            'goodPolyrepoNoSrc',
+            'goodPolyrepoNoSrcYesDefaultEnv',
             'self'
           ) as TransformerContext['projectMetadata'];
 
@@ -165,7 +171,7 @@ describe('::gatherAssetsFromTransformer', () => {
           expect.hasAssertions();
 
           const projectMetadata = fixtureToProjectMetadata(
-            'goodPolyrepoNoSrc',
+            'goodPolyrepoNoSrcYesDefaultEnv',
             'self'
           ) as TransformerContext['projectMetadata'];
 
@@ -330,11 +336,12 @@ describe('::gatherAssetsFromTransformer', () => {
 
   describe('<additional asset content tests>', () => {
     describe('dotenv', () => {
-      it('appends to current .env only if force is used', async () => {
+      it('appends to current .env and .env.default only if force is used', async () => {
         expect.hasAssertions();
 
         {
           const projectMetadata = fixtureToProjectMetadata(
+            // * Has .env, no .env.default
             'goodPolyrepo'
           ) as TransformerContext['projectMetadata'];
 
@@ -343,18 +350,26 @@ describe('::gatherAssetsFromTransformer', () => {
             transformerContext: {
               ...dummyContext,
               projectMetadata,
+              // Not with force
               ...makeDummyPathFunctions(projectMetadata)
             },
             options: { transformerFiletype: 'ts' }
           });
 
-          expect(assets).not.toHaveProperty(
-            toPath(projectMetadata.rootPackage.root, dotEnvConfigProjectBase)
-          );
+          expect(assets).toContainAllKeys([
+            toPath(projectMetadata.rootPackage.root, dotEnvDefaultConfigProjectBase)
+          ]);
+
+          await expect(
+            assets[
+              toPath(projectMetadata.rootPackage.root, dotEnvDefaultConfigProjectBase)
+            ]()
+          ).resolves.toMatchSnapshot('.env=yes,.end.default=no,force=no');
         }
 
         {
           const projectMetadata = fixtureToProjectMetadata(
+            // * Has .env, no .env.default
             'goodPolyrepo'
           ) as TransformerContext['projectMetadata'];
 
@@ -363,6 +378,56 @@ describe('::gatherAssetsFromTransformer', () => {
             transformerContext: {
               ...dummyContext,
               projectMetadata,
+              // * With force
+              forceOverwritePotentiallyDestructive: true,
+              ...makeDummyPathFunctions(projectMetadata)
+            },
+            options: { transformerFiletype: 'ts' }
+          });
+
+          await expect(
+            assets[toPath(projectMetadata.rootPackage.root, dotEnvConfigProjectBase)]()
+          ).resolves.toMatchSnapshot('.env=yes,.end.default=no,force=yes');
+
+          await expect(
+            assets[
+              toPath(projectMetadata.rootPackage.root, dotEnvDefaultConfigProjectBase)
+            ]()
+          ).resolves.toMatchSnapshot('.env=yes,.end.default=no,force=yes');
+        }
+
+        {
+          const projectMetadata = fixtureToProjectMetadata(
+            // * Has .env and .env.default
+            'goodPolyrepoNoSrcYesDefaultEnv'
+          ) as TransformerContext['projectMetadata'];
+
+          const assets = await gatherAssetsFromTransformer({
+            transformerId: dotEnvDefaultConfigProjectBase,
+            transformerContext: {
+              ...dummyContext,
+              projectMetadata,
+              // Not with force
+              ...makeDummyPathFunctions(projectMetadata)
+            },
+            options: { transformerFiletype: 'ts' }
+          });
+
+          expect(assets).toBeEmpty();
+        }
+
+        {
+          const projectMetadata = fixtureToProjectMetadata(
+            // * Has .env and .env.default
+            'goodPolyrepoNoSrcYesDefaultEnv'
+          ) as TransformerContext['projectMetadata'];
+
+          const assets = await gatherAssetsFromTransformer({
+            transformerId: dotEnvDefaultConfigProjectBase,
+            transformerContext: {
+              ...dummyContext,
+              projectMetadata,
+              // * With force
               forceOverwritePotentiallyDestructive: true,
               ...makeDummyPathFunctions(projectMetadata)
             },
@@ -380,16 +445,139 @@ describe('::gatherAssetsFromTransformer', () => {
 
             SOMETHING=5
             #
-
-            GITHUB_TOKEN=
-            GIT_AUTHOR_NAME=
-            GIT_COMMITTER_NAME=
-            GIT_AUTHOR_EMAIL=
-            GIT_COMMITTER_EMAIL=
-            GPG_PASSPHRASE=
-            GPG_PRIVATE_KEY=
+            A_NEW_ONE=new-default-value
             "
           `);
+
+          await expect(
+            assets[
+              toPath(projectMetadata.rootPackage.root, dotEnvDefaultConfigProjectBase)
+            ]()
+          ).resolves.toMatchInlineSnapshot(`
+            "# shellcheck disable=all
+
+            FAKE_SECRET=default_value
+            FAKE_SECRET_2=default-string-thing
+            SOMETHING=
+            A_NEW_ONE=new-default-value
+
+            # TODO: document these
+            NPM_TOKEN=
+            CODECOV_TOKEN=
+            "
+          `);
+        }
+
+        {
+          const projectMetadata = fixtureToProjectMetadata(
+            // * Has no .env, no .env.default
+            'goodPolyrepoNoEnv'
+          ) as TransformerContext['projectMetadata'];
+
+          const assets = await gatherAssetsFromTransformer({
+            transformerId: dotEnvDefaultConfigProjectBase,
+            transformerContext: {
+              ...dummyContext,
+              projectMetadata,
+              // Not with force
+              ...makeDummyPathFunctions(projectMetadata)
+            },
+            options: { transformerFiletype: 'ts' }
+          });
+
+          await expect(
+            assets[toPath(projectMetadata.rootPackage.root, dotEnvConfigProjectBase)]()
+          ).resolves.toMatchSnapshot('.env=no,.end.default=no,force=no');
+
+          await expect(
+            assets[
+              toPath(projectMetadata.rootPackage.root, dotEnvDefaultConfigProjectBase)
+            ]()
+          ).resolves.toMatchSnapshot('.env=no,.end.default=no,force=no');
+        }
+
+        {
+          const projectMetadata = fixtureToProjectMetadata(
+            // * Has no .env, no .env.default
+            'goodPolyrepoNoEnv'
+          ) as TransformerContext['projectMetadata'];
+
+          const assets = await gatherAssetsFromTransformer({
+            transformerId: dotEnvDefaultConfigProjectBase,
+            transformerContext: {
+              ...dummyContext,
+              projectMetadata,
+              // * With force
+              forceOverwritePotentiallyDestructive: true,
+              ...makeDummyPathFunctions(projectMetadata)
+            },
+            options: { transformerFiletype: 'ts' }
+          });
+
+          await expect(
+            assets[toPath(projectMetadata.rootPackage.root, dotEnvConfigProjectBase)]()
+          ).resolves.toMatchSnapshot('.env=no,.end.default=no,force=yes');
+
+          await expect(
+            assets[
+              toPath(projectMetadata.rootPackage.root, dotEnvDefaultConfigProjectBase)
+            ]()
+          ).resolves.toMatchSnapshot('.env=no,.end.default=no,force=yes');
+        }
+
+        {
+          const projectMetadata = fixtureToProjectMetadata(
+            // * Has .env.default, no .env
+            'goodPolyrepoOnlyDefaultEnv'
+          ) as TransformerContext['projectMetadata'];
+
+          const assets = await gatherAssetsFromTransformer({
+            transformerId: dotEnvDefaultConfigProjectBase,
+            transformerContext: {
+              ...dummyContext,
+              projectMetadata,
+              // Not with force
+              ...makeDummyPathFunctions(projectMetadata)
+            },
+            options: { transformerFiletype: 'ts' }
+          });
+
+          expect(assets).toContainAllKeys([
+            toPath(projectMetadata.rootPackage.root, dotEnvConfigProjectBase)
+          ]);
+
+          await expect(
+            assets[toPath(projectMetadata.rootPackage.root, dotEnvConfigProjectBase)]()
+          ).resolves.toMatchSnapshot('.env=no,.end.default=yes,force=no');
+        }
+
+        {
+          const projectMetadata = fixtureToProjectMetadata(
+            // * Has .env.default, no .env
+            'goodPolyrepoOnlyDefaultEnv'
+          ) as TransformerContext['projectMetadata'];
+
+          const assets = await gatherAssetsFromTransformer({
+            transformerId: dotEnvDefaultConfigProjectBase,
+            transformerContext: {
+              ...dummyContext,
+              projectMetadata,
+              // * With force
+              forceOverwritePotentiallyDestructive: true,
+              ...makeDummyPathFunctions(projectMetadata)
+            },
+            options: { transformerFiletype: 'ts' }
+          });
+
+          await expect(
+            assets[toPath(projectMetadata.rootPackage.root, dotEnvConfigProjectBase)]()
+          ).resolves.toMatchSnapshot('.env=no,.end.default=yes,force=yes');
+
+          await expect(
+            assets[
+              toPath(projectMetadata.rootPackage.root, dotEnvDefaultConfigProjectBase)
+            ]()
+          ).resolves.toMatchSnapshot('.env=no,.end.default=yes,force=yes');
         }
       });
     });
@@ -655,7 +843,7 @@ describe('::gatherAssetsFromAllTransformers', () => {
         expect.hasAssertions();
 
         const projectMetadata = fixtureToProjectMetadata(
-          'goodPolyrepoNoSrc',
+          'goodPolyrepoNoSrcYesDefaultEnv',
           'self'
         ) as TransformerContext['projectMetadata'];
 
@@ -1459,7 +1647,7 @@ async function expectAssetsToMatchSnapshots(
 ) {
   const entries = Object.entries(assets);
 
-  if (scope === DefaultGlobalScope.ThisPackage && !entries.length) {
+  if (!entries.length) {
     // ? Allow empty entries to satisfy expect.hasAssertions
     expect(true).toBeTrue();
   }
