@@ -1,8 +1,8 @@
-[**@-xun/scripts**](../../../../README.md)
+[**@-xun/symbiote**](../../../../README.md)
 
 ***
 
-[@-xun/scripts](../../../../README.md) / [src/commands/lint](../README.md) / Linter
+[@-xun/symbiote](../../../../README.md) / [src/commands/lint](../README.md) / Linter
 
 # Enumeration: Linter
 
@@ -14,7 +14,7 @@
 
 #### Defined in
 
-[src/commands/lint.ts:50](https://github.com/Xunnamius/xscripts/blob/28c221bb8a859e69003ba2447e3f5763dc92a0ec/src/commands/lint.ts#L50)
+[src/commands/lint.ts:50](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/commands/lint.ts#L50)
 
 ***
 
@@ -24,7 +24,7 @@
 
 #### Defined in
 
-[src/commands/lint.ts:48](https://github.com/Xunnamius/xscripts/blob/28c221bb8a859e69003ba2447e3f5763dc92a0ec/src/commands/lint.ts#L48)
+[src/commands/lint.ts:48](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/commands/lint.ts#L48)
 
 ***
 
@@ -34,7 +34,7 @@
 
 #### Defined in
 
-[src/commands/lint.ts:49](https://github.com/Xunnamius/xscripts/blob/28c221bb8a859e69003ba2447e3f5763dc92a0ec/src/commands/lint.ts#L49)
+[src/commands/lint.ts:49](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/commands/lint.ts#L49)
 
 ***
 
@@ -44,4 +44,4 @@
 
 #### Defined in
 
-[src/commands/lint.ts:47](https://github.com/Xunnamius/xscripts/blob/28c221bb8a859e69003ba2447e3f5763dc92a0ec/src/commands/lint.ts#L47)
+[src/commands/lint.ts:47](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/commands/lint.ts#L47)

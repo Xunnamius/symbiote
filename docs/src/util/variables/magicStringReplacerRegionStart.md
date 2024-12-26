@@ -1,15 +1,15 @@
-[**@-xun/scripts**](../../../README.md)
+[**@-xun/symbiote**](../../../README.md)
 
 ***
 
-[@-xun/scripts](../../../README.md) / [src/util](../README.md) / magicStringReplacerRegionStart
+[@-xun/symbiote](../../../README.md) / [src/util](../README.md) / magicStringReplacerRegionStart
 
 # Variable: magicStringReplacerRegionStart
 
 > `const` **magicStringReplacerRegionStart**: `string`
 
 Magic string used to denote the beginning of a replacer region in Markdown
-files processed by xscripts.
+files processed by symbiote.
 
 This is the photogenic version of
 magicStringReplacerRegionStartWithId, which is the actual variable
@@ -20,4 +20,4 @@ match region start comments containing an ID parameter.
 
 ## Defined in
 
-[src/util.ts:132](https://github.com/Xunnamius/xscripts/blob/28c221bb8a859e69003ba2447e3f5763dc92a0ec/src/util.ts#L132)
+[src/util.ts:132](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/util.ts#L132)

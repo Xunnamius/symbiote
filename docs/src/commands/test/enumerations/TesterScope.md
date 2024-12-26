@@ -1,8 +1,8 @@
-[**@-xun/scripts**](../../../../README.md)
+[**@-xun/symbiote**](../../../../README.md)
 
 ***
 
-[@-xun/scripts](../../../../README.md) / [src/commands/test](../README.md) / \_TesterScope
+[@-xun/symbiote](../../../../README.md) / [src/commands/test](../README.md) / \_TesterScope
 
 # Enumeration: \_TesterScope
 
@@ -17,4 +17,4 @@ within `./.transpiled` (with respect to the current working directory).
 
 #### Defined in
 
-[src/commands/test.ts:95](https://github.com/Xunnamius/xscripts/blob/28c221bb8a859e69003ba2447e3f5763dc92a0ec/src/commands/test.ts#L95)
+[src/commands/test.ts:110](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/commands/test.ts#L110)

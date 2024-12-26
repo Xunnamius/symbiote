@@ -1,8 +1,8 @@
-[**@-xun/scripts**](../../../../../README.md)
+[**@-xun/symbiote**](../../../../../README.md)
 
 ***
 
-[@-xun/scripts](../../../../../README.md) / [src/commands/project/lint](../README.md) / projectLinterScopes
+[@-xun/symbiote](../../../../../README.md) / [src/commands/project/lint](../README.md) / projectLinterScopes
 
 # Variable: projectLinterScopes
 
@@ -14,4 +14,4 @@
 
 ## Defined in
 
-[src/commands/project/lint.ts:28](https://github.com/Xunnamius/xscripts/blob/28c221bb8a859e69003ba2447e3f5763dc92a0ec/src/commands/project/lint.ts#L28)
+[src/commands/project/lint.ts:28](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/commands/project/lint.ts#L28)

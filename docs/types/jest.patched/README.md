@@ -1,8 +1,8 @@
-[**@-xun/scripts**](../../README.md)
+[**@-xun/symbiote**](../../README.md)
 
 ***
 
-[@-xun/scripts](../../README.md) / types/jest.patched
+[@-xun/symbiote](../../README.md) / types/jest.patched
 
 # types/jest.patched
 

@@ -1,8 +1,8 @@
-[**@-xun/scripts**](../../../../../README.md)
+[**@-xun/symbiote**](../../../../../README.md)
 
 ***
 
-[@-xun/scripts](../../../../../README.md) / [src/assets/transformers/\_package.json](../README.md) / parsePackageJsonRepositoryIntoOwnerAndRepo
+[@-xun/symbiote](../../../../../README.md) / [src/assets/transformers/\_package.json](../README.md) / parsePackageJsonRepositoryIntoOwnerAndRepo
 
 # Function: parsePackageJsonRepositoryIntoOwnerAndRepo()
 
@@ -31,4 +31,4 @@ name or throws if said information is not derivable.
 
 ## Defined in
 
-[src/assets/transformers/\_package.json.ts:168](https://github.com/Xunnamius/xscripts/blob/28c221bb8a859e69003ba2447e3f5763dc92a0ec/src/assets/transformers/_package.json.ts#L168)
+[src/assets/transformers/\_package.json.ts:166](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/assets/transformers/_package.json.ts#L166)

@@ -1,8 +1,8 @@
-[**@-xun/scripts**](../../../../../README.md)
+[**@-xun/symbiote**](../../../../../README.md)
 
 ***
 
-[@-xun/scripts](../../../../../README.md) / [src/assets/transformers/\_jest.config.mjs](../README.md) / JestConfig
+[@-xun/symbiote](../../../../../README.md) / [src/assets/transformers/\_jest.config.mjs](../README.md) / JestConfig
 
 # Type Alias: JestConfig
 

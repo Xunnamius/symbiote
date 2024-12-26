@@ -1,8 +1,8 @@
-[**@-xun/scripts**](../../../../README.md)
+[**@-xun/symbiote**](../../../../README.md)
 
 ***
 
-[@-xun/scripts](../../../../README.md) / [src/commands/release](../README.md) / ReleaseTask
+[@-xun/symbiote](../../../../README.md) / [src/commands/release](../README.md) / ReleaseTask
 
 # Type Alias: ReleaseTask
 
@@ -12,4 +12,4 @@ A prerelease, release, or postrelease task to be executed by this command.
 
 ## Defined in
 
-[src/commands/release.ts:165](https://github.com/Xunnamius/xscripts/blob/28c221bb8a859e69003ba2447e3f5763dc92a0ec/src/commands/release.ts#L165)
+[src/commands/release.ts:165](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/commands/release.ts#L165)

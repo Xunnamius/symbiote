@@ -1,8 +1,8 @@
-[**@-xun/scripts**](../../README.md)
+[**@-xun/symbiote**](../../README.md)
 
 ***
 
-[@-xun/scripts](../../README.md) / types/unique-filename
+[@-xun/symbiote](../../README.md) / types/unique-filename
 
 # types/unique-filename
 

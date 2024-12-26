@@ -1,8 +1,8 @@
-[**@-xun/scripts**](../../README.md)
+[**@-xun/symbiote**](../../README.md)
 
 ***
 
-[@-xun/scripts](../../README.md) / types/glob-gitignore
+[@-xun/symbiote](../../README.md) / types/glob-gitignore
 
 # types/glob-gitignore
 

@@ -1,8 +1,8 @@
-[**@-xun/scripts**](../../../README.md)
+[**@-xun/symbiote**](../../../README.md)
 
 ***
 
-[@-xun/scripts](../../../README.md) / [src/configure](../README.md) / UnlimitedGlobalScope
+[@-xun/symbiote](../../../README.md) / [src/configure](../README.md) / UnlimitedGlobalScope
 
 # Enumeration: UnlimitedGlobalScope
 
@@ -25,4 +25,4 @@ checking commands that only operate in the "unlimited" scope.
 
 #### Defined in
 
-[src/configure.ts:95](https://github.com/Xunnamius/xscripts/blob/28c221bb8a859e69003ba2447e3f5763dc92a0ec/src/configure.ts#L95)
+[src/configure.ts:95](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/configure.ts#L95)

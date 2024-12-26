@@ -1,16 +1,16 @@
-[**@-xun/scripts**](../../../README.md)
+[**@-xun/symbiote**](../../../README.md)
 
 ***
 
-[@-xun/scripts](../../../README.md) / [src/util](../README.md) / magicStringReplacerRegionEnd
+[@-xun/symbiote](../../../README.md) / [src/util](../README.md) / magicStringReplacerRegionEnd
 
 # Variable: magicStringReplacerRegionEnd
 
-> `const` **magicStringReplacerRegionEnd**: `"<!-- xscripts-template-region-end -->"` = `'<!-- xscripts-template-region-end -->'`
+> `const` **magicStringReplacerRegionEnd**: `"<!-- symbiote-template-region-end -->"` = `'<!-- symbiote-template-region-end -->'`
 
 Magic string used to denote the beginning of a replacer region in Markdown
-files processed by xscripts.
+files processed by symbiote.
 
 ## Defined in
 
-[src/util.ts:138](https://github.com/Xunnamius/xscripts/blob/28c221bb8a859e69003ba2447e3f5763dc92a0ec/src/util.ts#L138)
+[src/util.ts:138](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/util.ts#L138)

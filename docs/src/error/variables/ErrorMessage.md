@@ -1,8 +1,8 @@
-[**@-xun/scripts**](../../../README.md)
+[**@-xun/symbiote**](../../../README.md)
 
 ***
 
-[@-xun/scripts](../../../README.md) / [src/error](../README.md) / ErrorMessage
+[@-xun/symbiote](../../../README.md) / [src/error](../README.md) / ErrorMessage
 
 # Variable: ErrorMessage
 
@@ -283,18 +283,6 @@ punctuation and capitalization rules as the other error messages.
 
 `string`
 
-### BadAssetContextKey()
-
-#### Parameters
-
-##### key
-
-`string`
-
-#### Returns
-
-`string`
-
 ### BadEnginesNodeInPackageJson()
 
 #### Parameters
@@ -426,6 +414,18 @@ punctuation and capitalization rules as the other error messages.
 ##### to
 
 `string`
+
+#### Returns
+
+`string`
+
+### CannotGenerateCurrentPackagePathInUnlimitedScope()
+
+#### Parameters
+
+##### pathsLike
+
+`string`[]
 
 #### Returns
 
@@ -649,7 +649,7 @@ readonly `string`[]
 
 `string`
 
-### MissingXscriptsEnvironmentVariable()
+### MissingSymbioteEnvironmentVariable()
 
 #### Parameters
 
@@ -775,6 +775,18 @@ readonly `string`[]
 
 `string`
 
+### RenovationDestinationAlreadyExists()
+
+#### Parameters
+
+##### path
+
+`string`
+
+#### Returns
+
+`string`
+
 ### RenovationEncounteredObsoleteProtectionRules()
 
 #### Parameters
@@ -812,6 +824,18 @@ readonly `string`[]
 ##### index
 
 `number`
+
+#### Returns
+
+`string`
+
+### RenovationTagAliasAlreadyExists()
+
+#### Parameters
+
+##### tag
+
+`string`
 
 #### Returns
 
@@ -981,4 +1005,4 @@ readonly `string`[]
 
 ## Defined in
 
-[src/error.ts:63](https://github.com/Xunnamius/xscripts/blob/28c221bb8a859e69003ba2447e3f5763dc92a0ec/src/error.ts#L63)
+[src/error.ts:63](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/error.ts#L63)

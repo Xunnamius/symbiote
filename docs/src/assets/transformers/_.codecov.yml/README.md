@@ -1,8 +1,8 @@
-[**@-xun/scripts**](../../../../README.md)
+[**@-xun/symbiote**](../../../../README.md)
 
 ***
 
-[@-xun/scripts](../../../../README.md) / src/assets/transformers/\_.codecov.yml
+[@-xun/symbiote](../../../../README.md) / src/assets/transformers/\_.codecov.yml
 
 # src/assets/transformers/\_.codecov.yml
 

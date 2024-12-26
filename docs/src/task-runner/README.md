@@ -1,8 +1,8 @@
-[**@-xun/scripts**](../../README.md)
+[**@-xun/symbiote**](../../README.md)
 
 ***
 
-[@-xun/scripts](../../README.md) / src/task-runner
+[@-xun/symbiote](../../README.md) / src/task-runner
 
 # src/task-runner
 

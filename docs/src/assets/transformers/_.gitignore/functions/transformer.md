@@ -1,8 +1,8 @@
-[**@-xun/scripts**](../../../../../README.md)
+[**@-xun/symbiote**](../../../../../README.md)
 
 ***
 
-[@-xun/scripts](../../../../../README.md) / [src/assets/transformers/\_.gitignore](../README.md) / transformer
+[@-xun/symbiote](../../../../../README.md) / [src/assets/transformers/\_.gitignore](../README.md) / transformer
 
 # Function: transformer()
 
@@ -28,4 +28,4 @@
 
 ## Defined in
 
-[src/assets/transformers/\_.gitignore.ts:5](https://github.com/Xunnamius/xscripts/blob/28c221bb8a859e69003ba2447e3f5763dc92a0ec/src/assets/transformers/_.gitignore.ts#L5)
+[src/assets/transformers/\_.gitignore.ts:5](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/assets/transformers/_.gitignore.ts#L5)

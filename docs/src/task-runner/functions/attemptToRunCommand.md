@@ -1,8 +1,8 @@
-[**@-xun/scripts**](../../../README.md)
+[**@-xun/symbiote**](../../../README.md)
 
 ***
 
-[@-xun/scripts](../../../README.md) / [src/task-runner](../README.md) / attemptToRunCommand
+[@-xun/symbiote](../../../README.md) / [src/task-runner](../README.md) / attemptToRunCommand
 
 # Function: attemptToRunCommand()
 
@@ -28,4 +28,4 @@
 
 ## Defined in
 
-[src/task-runner.ts:9](https://github.com/Xunnamius/xscripts/blob/28c221bb8a859e69003ba2447e3f5763dc92a0ec/src/task-runner.ts#L9)
+[src/task-runner.ts:9](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/task-runner.ts#L9)

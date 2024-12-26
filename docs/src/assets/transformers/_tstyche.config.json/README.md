@@ -1,8 +1,8 @@
-[**@-xun/scripts**](../../../../README.md)
+[**@-xun/symbiote**](../../../../README.md)
 
 ***
 
-[@-xun/scripts](../../../../README.md) / src/assets/transformers/\_tstyche.config.json
+[@-xun/symbiote](../../../../README.md) / src/assets/transformers/\_tstyche.config.json
 
 # src/assets/transformers/\_tstyche.config.json
 

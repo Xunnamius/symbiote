@@ -1,8 +1,8 @@
-[**@-xun/scripts**](../../../../README.md)
+[**@-xun/symbiote**](../../../../README.md)
 
 ***
 
-[@-xun/scripts](../../../../README.md) / src/assets/transformers/\_.env.default
+[@-xun/symbiote](../../../../README.md) / src/assets/transformers/\_.env.default
 
 # src/assets/transformers/\_.env.default
 

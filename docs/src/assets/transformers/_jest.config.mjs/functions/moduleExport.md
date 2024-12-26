@@ -1,8 +1,8 @@
-[**@-xun/scripts**](../../../../../README.md)
+[**@-xun/symbiote**](../../../../../README.md)
 
 ***
 
-[@-xun/scripts](../../../../../README.md) / [src/assets/transformers/\_jest.config.mjs](../README.md) / moduleExport
+[@-xun/symbiote](../../../../../README.md) / [src/assets/transformers/\_jest.config.mjs](../README.md) / moduleExport
 
 # Function: moduleExport()
 
@@ -91,4 +91,4 @@ as `1` while entirely skipping tests from files with names containing
 
 ## Defined in
 
-[src/assets/transformers/\_jest.config.mjs.ts:103](https://github.com/Xunnamius/xscripts/blob/28c221bb8a859e69003ba2447e3f5763dc92a0ec/src/assets/transformers/_jest.config.mjs.ts#L103)
+[src/assets/transformers/\_jest.config.mjs.ts:104](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/assets/transformers/_jest.config.mjs.ts#L104)

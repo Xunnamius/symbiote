@@ -1,8 +1,8 @@
-[**@-xun/scripts**](../../../README.md)
+[**@-xun/symbiote**](../../../README.md)
 
 ***
 
-[@-xun/scripts](../../../README.md) / [src/util](../README.md) / checkIsNotNil
+[@-xun/symbiote](../../../README.md) / [src/util](../README.md) / checkIsNotNil
 
 # Function: checkIsNotNil()
 
@@ -30,4 +30,4 @@
 
 ## Defined in
 
-[src/util.ts:961](https://github.com/Xunnamius/xscripts/blob/28c221bb8a859e69003ba2447e3f5763dc92a0ec/src/util.ts#L961)
+[src/util.ts:969](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/util.ts#L969)

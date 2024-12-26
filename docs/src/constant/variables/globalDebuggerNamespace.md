@@ -1,15 +1,15 @@
-[**@-xun/scripts**](../../../README.md)
+[**@-xun/symbiote**](../../../README.md)
 
 ***
 
-[@-xun/scripts](../../../README.md) / [src/constant](../README.md) / globalDebuggerNamespace
+[@-xun/symbiote](../../../README.md) / [src/constant](../README.md) / globalDebuggerNamespace
 
 # Variable: globalDebuggerNamespace
 
-> `const` **globalDebuggerNamespace**: `"xscripts"` = `globalCliName`
+> `const` **globalDebuggerNamespace**: `"symbiote"` = `globalCliName`
 
 The CLI-wide namespace that appears in debugger output.
 
 ## Defined in
 
-[src/constant.ts:14](https://github.com/Xunnamius/xscripts/blob/28c221bb8a859e69003ba2447e3f5763dc92a0ec/src/constant.ts#L14)
+[src/constant.ts:14](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/constant.ts#L14)

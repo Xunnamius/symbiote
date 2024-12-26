@@ -1,7 +1,7 @@
-[**@-xun/scripts**](../../README.md)
+[**@-xun/symbiote**](../../README.md)
 
 ***
 
-[@-xun/scripts](../../README.md) / types/global
+[@-xun/symbiote](../../README.md) / types/global
 
 # types/global

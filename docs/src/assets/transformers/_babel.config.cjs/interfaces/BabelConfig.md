@@ -1,8 +1,8 @@
-[**@-xun/scripts**](../../../../../README.md)
+[**@-xun/symbiote**](../../../../../README.md)
 
 ***
 
-[@-xun/scripts](../../../../../README.md) / [src/assets/transformers/\_babel.config.cjs](../README.md) / BabelConfig
+[@-xun/symbiote](../../../../../README.md) / [src/assets/transformers/\_babel.config.cjs](../README.md) / BabelConfig
 
 # Interface: BabelConfig
 

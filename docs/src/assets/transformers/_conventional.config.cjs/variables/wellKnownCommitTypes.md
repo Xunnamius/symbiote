@@ -1,14 +1,14 @@
-[**@-xun/scripts**](../../../../../README.md)
+[**@-xun/symbiote**](../../../../../README.md)
 
 ***
 
-[@-xun/scripts](../../../../../README.md) / [src/assets/transformers/\_conventional.config.cjs](../README.md) / wellKnownCommitTypes
+[@-xun/symbiote](../../../../../README.md) / [src/assets/transformers/\_conventional.config.cjs](../README.md) / wellKnownCommitTypes
 
 # Variable: wellKnownCommitTypes
 
 > `const` **wellKnownCommitTypes**: `NonNullable`\<`XchangelogSpec`\[`"types"`\]\>
 
-These are the only conventional commit types supported by xscripts-based
+These are the only conventional commit types supported by symbiote-based
 pipelines and are therefore considered "well known".
 
 Commit types corresponding to entries with `{ hidden: false }` will appear in
@@ -36,4 +36,4 @@ Valid commit types are alphanumeric and may contain an underscore (_) or dash
 
 ## Defined in
 
-[src/assets/transformers/\_conventional.config.cjs.ts:238](https://github.com/Xunnamius/xscripts/blob/28c221bb8a859e69003ba2447e3f5763dc92a0ec/src/assets/transformers/_conventional.config.cjs.ts#L238)
+[src/assets/transformers/\_conventional.config.cjs.ts:238](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/assets/transformers/_conventional.config.cjs.ts#L238)

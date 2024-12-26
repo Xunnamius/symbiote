@@ -1,8 +1,8 @@
-[**@-xun/scripts**](../../../../README.md)
+[**@-xun/symbiote**](../../../../README.md)
 
 ***
 
-[@-xun/scripts](../../../../README.md) / src/assets/transformers/\_.browserslistrc
+[@-xun/symbiote](../../../../README.md) / src/assets/transformers/\_.browserslistrc
 
 # src/assets/transformers/\_.browserslistrc
 

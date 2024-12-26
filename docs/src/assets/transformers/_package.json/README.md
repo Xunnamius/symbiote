@@ -1,8 +1,8 @@
-[**@-xun/scripts**](../../../../README.md)
+[**@-xun/symbiote**](../../../../README.md)
 
 ***
 
-[@-xun/scripts](../../../../README.md) / src/assets/transformers/\_package.json
+[@-xun/symbiote](../../../../README.md) / src/assets/transformers/\_package.json
 
 # src/assets/transformers/\_package.json
 
@@ -18,6 +18,8 @@
 
 ### Functions
 
+- [deriveGitHubUrl](functions/deriveGitHubUrl.md)
+- [deriveJsonRepositoryValue](functions/deriveJsonRepositoryValue.md)
 - [generateBaseHybridrepoProjectRootXPackageJson](functions/generateBaseHybridrepoProjectRootXPackageJson.md)
 - [generateBaseMonorepoPackageRootXPackageJson](functions/generateBaseMonorepoPackageRootXPackageJson.md)
 - [generateBaseMonorepoProjectRootXPackageJson](functions/generateBaseMonorepoProjectRootXPackageJson.md)

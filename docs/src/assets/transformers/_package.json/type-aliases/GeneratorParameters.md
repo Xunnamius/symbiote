@@ -1,8 +1,8 @@
-[**@-xun/scripts**](../../../../../README.md)
+[**@-xun/symbiote**](../../../../../README.md)
 
 ***
 
-[@-xun/scripts](../../../../../README.md) / [src/assets/transformers/\_package.json](../README.md) / GeneratorParameters
+[@-xun/symbiote](../../../../../README.md) / [src/assets/transformers/\_package.json](../README.md) / GeneratorParameters
 
 # Type Alias: GeneratorParameters
 
@@ -10,4 +10,4 @@
 
 ## Defined in
 
-[src/assets/transformers/\_package.json.ts:29](https://github.com/Xunnamius/xscripts/blob/28c221bb8a859e69003ba2447e3f5763dc92a0ec/src/assets/transformers/_package.json.ts#L29)
+[src/assets/transformers/\_package.json.ts:30](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/assets/transformers/_package.json.ts#L30)

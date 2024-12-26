@@ -1,8 +1,8 @@
-[**@-xun/scripts**](../../../../../README.md)
+[**@-xun/symbiote**](../../../../../README.md)
 
 ***
 
-[@-xun/scripts](../../../../../README.md) / [src/assets/transformers/\_.remarkrc.mjs](../README.md) / wellKnownNodeEnvValues
+[@-xun/symbiote](../../../../../README.md) / [src/assets/transformers/\_.remarkrc.mjs](../README.md) / wellKnownNodeEnvValues
 
 # Variable: wellKnownNodeEnvValues
 
@@ -12,4 +12,4 @@ An array of NODE_ENV values recognized by this configuration file.
 
 ## Defined in
 
-[src/assets/transformers/\_.remarkrc.mjs.ts:52](https://github.com/Xunnamius/xscripts/blob/28c221bb8a859e69003ba2447e3f5763dc92a0ec/src/assets/transformers/_.remarkrc.mjs.ts#L52)
+[src/assets/transformers/\_.remarkrc.mjs.ts:52](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/assets/transformers/_.remarkrc.mjs.ts#L52)

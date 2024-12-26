@@ -1,8 +1,8 @@
-[**@-xun/scripts**](../../../README.md)
+[**@-xun/symbiote**](../../../README.md)
 
 ***
 
-[@-xun/scripts](../../../README.md) / [src/configure](../README.md) / GlobalExecutionContext
+[@-xun/symbiote](../../../README.md) / [src/configure](../README.md) / GlobalExecutionContext
 
 # Type Alias: GlobalExecutionContext
 
@@ -16,4 +16,4 @@
 
 ## Defined in
 
-[src/configure.ts:41](https://github.com/Xunnamius/xscripts/blob/28c221bb8a859e69003ba2447e3f5763dc92a0ec/src/configure.ts#L41)
+[src/configure.ts:41](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/configure.ts#L41)

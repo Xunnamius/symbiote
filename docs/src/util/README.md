@@ -1,8 +1,8 @@
-[**@-xun/scripts**](../../README.md)
+[**@-xun/symbiote**](../../README.md)
 
 ***
 
-[@-xun/scripts](../../README.md) / src/util
+[@-xun/symbiote](../../README.md) / src/util
 
 # src/util
 
@@ -42,6 +42,7 @@
 - [readFile](functions/readFile.md)
 - [replaceRegionsRespectively](functions/replaceRegionsRespectively.md)
 - [runGlobalPreChecks](functions/runGlobalPreChecks.md)
+- [stringifyJson](functions/stringifyJson.md)
 - [withGlobalBuilder](functions/withGlobalBuilder.md)
 - [withGlobalUsage](functions/withGlobalUsage.md)
 - [writeFile](functions/writeFile.md)

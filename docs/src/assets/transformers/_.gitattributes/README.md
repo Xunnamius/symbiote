@@ -1,8 +1,8 @@
-[**@-xun/scripts**](../../../../README.md)
+[**@-xun/symbiote**](../../../../README.md)
 
 ***
 
-[@-xun/scripts](../../../../README.md) / src/assets/transformers/\_.gitattributes
+[@-xun/symbiote](../../../../README.md) / src/assets/transformers/\_.gitattributes
 
 # src/assets/transformers/\_.gitattributes
 

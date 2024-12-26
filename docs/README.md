@@ -1,8 +1,8 @@
-**@-xun/scripts**
+**@-xun/symbiote**
 
 ***
 
-# @-xun/scripts
+# @-xun/symbiote
 
 ## Modules
 

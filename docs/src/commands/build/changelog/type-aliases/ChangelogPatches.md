@@ -1,8 +1,8 @@
-[**@-xun/scripts**](../../../../../README.md)
+[**@-xun/symbiote**](../../../../../README.md)
 
 ***
 
-[@-xun/scripts](../../../../../README.md) / [src/commands/build/changelog](../README.md) / ChangelogPatches
+[@-xun/symbiote](../../../../../README.md) / [src/commands/build/changelog](../README.md) / ChangelogPatches
 
 # Type Alias: ChangelogPatches
 
@@ -15,4 +15,4 @@ An array of zero or more [ChangelogPatch](ChangelogPatch.md)es.
 
 ## Defined in
 
-[src/commands/build/changelog.ts:83](https://github.com/Xunnamius/xscripts/blob/28c221bb8a859e69003ba2447e3f5763dc92a0ec/src/commands/build/changelog.ts#L83)
+[src/commands/build/changelog.ts:83](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/commands/build/changelog.ts#L83)

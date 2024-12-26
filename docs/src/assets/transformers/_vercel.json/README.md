@@ -1,8 +1,8 @@
-[**@-xun/scripts**](../../../../README.md)
+[**@-xun/symbiote**](../../../../README.md)
 
 ***
 
-[@-xun/scripts](../../../../README.md) / src/assets/transformers/\_vercel.json
+[@-xun/symbiote](../../../../README.md) / src/assets/transformers/\_vercel.json
 
 # src/assets/transformers/\_vercel.json
 

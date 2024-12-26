@@ -1,8 +1,8 @@
-[**@-xun/scripts**](../../README.md)
+[**@-xun/symbiote**](../../README.md)
 
 ***
 
-[@-xun/scripts](../../README.md) / types/eslint-plugin-jest
+[@-xun/symbiote](../../README.md) / types/eslint-plugin-jest
 
 # types/eslint-plugin-jest
 

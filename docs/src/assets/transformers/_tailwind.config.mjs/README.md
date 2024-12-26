@@ -1,8 +1,8 @@
-[**@-xun/scripts**](../../../../README.md)
+[**@-xun/symbiote**](../../../../README.md)
 
 ***
 
-[@-xun/scripts](../../../../README.md) / src/assets/transformers/\_tailwind.config.mjs
+[@-xun/symbiote](../../../../README.md) / src/assets/transformers/\_tailwind.config.mjs
 
 # src/assets/transformers/\_tailwind.config.mjs
 

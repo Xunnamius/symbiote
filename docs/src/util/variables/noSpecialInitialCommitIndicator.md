@@ -1,16 +1,16 @@
-[**@-xun/scripts**](../../../README.md)
+[**@-xun/symbiote**](../../../README.md)
 
 ***
 
-[@-xun/scripts](../../../README.md) / [src/util](../README.md) / noSpecialInitialCommitIndicator
+[@-xun/symbiote](../../../README.md) / [src/util](../README.md) / noSpecialInitialCommitIndicator
 
 # Variable: noSpecialInitialCommitIndicator
 
 > `const` **noSpecialInitialCommitIndicator**: `"N/A"` = `'N/A'`
 
-The value populating the XSCRIPTS_SPECIAL_INITIAL_COMMIT environment variable
+The value populating the SYMBIOTE_SPECIAL_INITIAL_COMMIT environment variable
 when there was no special initialization commit reference found.
 
 ## Defined in
 
-[src/util.ts:986](https://github.com/Xunnamius/xscripts/blob/28c221bb8a859e69003ba2447e3f5763dc92a0ec/src/util.ts#L986)
+[src/util.ts:994](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/util.ts#L994)

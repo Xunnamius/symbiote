@@ -1,8 +1,8 @@
-[**@-xun/scripts**](../../../README.md)
+[**@-xun/symbiote**](../../../README.md)
 
 ***
 
-[@-xun/scripts](../../../README.md) / [src/assets](../README.md) / TransformerContainer
+[@-xun/symbiote](../../../README.md) / [src/assets](../README.md) / TransformerContainer
 
 # Type Alias: TransformerContainer
 
@@ -21,4 +21,4 @@ Rather than tediously construct such an object manually, consider using
 
 ## Defined in
 
-[src/assets.ts:194](https://github.com/Xunnamius/xscripts/blob/28c221bb8a859e69003ba2447e3f5763dc92a0ec/src/assets.ts#L194)
+[src/assets.ts:194](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/assets.ts#L194)

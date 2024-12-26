@@ -1,8 +1,8 @@
-[**@-xun/scripts**](../../../../../README.md)
+[**@-xun/symbiote**](../../../../../README.md)
 
 ***
 
-[@-xun/scripts](../../../../../README.md) / [src/assets/transformers/\_package.json](../README.md) / generateBasePolyrepoXPackageJson
+[@-xun/symbiote](../../../../../README.md) / [src/assets/transformers/\_package.json](../README.md) / generateBasePolyrepoXPackageJson
 
 # Function: generateBasePolyrepoXPackageJson()
 
@@ -284,11 +284,11 @@ Default: `'latest'`
 
 #### repository.type
 
-> `readonly` **type**: `"git"` = `'git'`
+> **type**: `string` = `'git'`
 
 #### repository.url
 
-> `readonly` **url**: \`git+$\{string\}.git\`
+> **url**: `string`
 
 ### resolutions?
 
@@ -306,47 +306,47 @@ Selective version resolutions. Allows the definition of custom package versions 
 
 #### scripts.build:changelog
 
-> `readonly` **build:changelog**: `"NODE_NO_WARNINGS=1 xscripts build changelog"` = `'NODE_NO_WARNINGS=1 xscripts build changelog'`
+> `readonly` **build:changelog**: `"NODE_NO_WARNINGS=1 symbiote build changelog"` = `'NODE_NO_WARNINGS=1 symbiote build changelog'`
 
 #### scripts.build:dist
 
-> `readonly` **build:dist**: `"NODE_NO_WARNINGS=1 xscripts build distributables"` = `'NODE_NO_WARNINGS=1 xscripts build distributables'`
+> `readonly` **build:dist**: `"NODE_NO_WARNINGS=1 symbiote build distributables"` = `'NODE_NO_WARNINGS=1 symbiote build distributables'`
 
 #### scripts.build:docs
 
-> `readonly` **build:docs**: `"NODE_NO_WARNINGS=1 xscripts build docs"` = `'NODE_NO_WARNINGS=1 xscripts build docs'`
+> `readonly` **build:docs**: `"NODE_NO_WARNINGS=1 symbiote build docs"` = `'NODE_NO_WARNINGS=1 symbiote build docs'`
 
 #### scripts.clean
 
-> `readonly` **clean**: `"NODE_NO_WARNINGS=1 xscripts clean"` = `'NODE_NO_WARNINGS=1 xscripts clean'`
+> `readonly` **clean**: `"NODE_NO_WARNINGS=1 symbiote clean"` = `'NODE_NO_WARNINGS=1 symbiote clean'`
 
 #### scripts.deploy?
 
 > `readonly` `optional` **deploy**: `string`
 
-Run by users, xscripts, and related tooling when deploying built
+Run by users, symbiote, and related tooling when deploying built
 distributables to the appropriate remote system(s).
 
 ##### Example
 
 ```ts
-`NODE_NO_WARNINGS=1 xscripts deploy --target ssh --host prod.x.y.com --to-path /prod/some/path`
+`NODE_NO_WARNINGS=1 symbiote deploy --target ssh --host prod.x.y.com --to-path /prod/some/path`
 ```
 
 #### scripts.dev?
 
 > `readonly` `optional` **dev**: `string`
 
-Run by users, xscripts, and related tooling when spinning up a project's
+Run by users, symbiote, and related tooling when spinning up a project's
 local development environment.
 
 #### scripts.format
 
-> `readonly` **format**: `"NODE_NO_WARNINGS=1 xscripts format --hush"` = `'NODE_NO_WARNINGS=1 xscripts format --hush'`
+> `readonly` **format**: `"NODE_NO_WARNINGS=1 symbiote format --hush"` = `'NODE_NO_WARNINGS=1 symbiote format --hush'`
 
 #### scripts.info
 
-> `readonly` **info**: `"NODE_NO_WARNINGS=1 xscripts project info"` = `'NODE_NO_WARNINGS=1 xscripts project info'`
+> `readonly` **info**: `"NODE_NO_WARNINGS=1 symbiote project info"` = `'NODE_NO_WARNINGS=1 symbiote project info'`
 
 #### scripts.install?
 
@@ -360,19 +360,19 @@ Run **after** the package is installed.
 
 #### scripts.lint:package
 
-> `readonly` **lint:package**: `"NODE_NO_WARNINGS=1 xscripts lint"` = `'NODE_NO_WARNINGS=1 xscripts lint'`
+> `readonly` **lint:package**: `"NODE_NO_WARNINGS=1 symbiote lint"` = `'NODE_NO_WARNINGS=1 symbiote lint'`
 
 #### scripts.lint:packages
 
-> `readonly` **lint:packages**: `"NODE_NO_WARNINGS=1 xscripts lint --scope unlimited"` = `'NODE_NO_WARNINGS=1 xscripts lint --scope unlimited'`
+> `readonly` **lint:packages**: `"NODE_NO_WARNINGS=1 symbiote lint --scope unlimited"` = `'NODE_NO_WARNINGS=1 symbiote lint --scope unlimited'`
 
 #### scripts.lint:project
 
-> `readonly` **lint:project**: `"NODE_NO_WARNINGS=1 xscripts project lint"` = `'NODE_NO_WARNINGS=1 xscripts project lint'`
+> `readonly` **lint:project**: `"NODE_NO_WARNINGS=1 symbiote project lint"` = `'NODE_NO_WARNINGS=1 symbiote project lint'`
 
 #### scripts.list-tasks
 
-> `readonly` **list-tasks**: `"NODE_NO_WARNINGS=1 xscripts list-tasks"` = `'NODE_NO_WARNINGS=1 xscripts list-tasks'`
+> `readonly` **list-tasks**: `"NODE_NO_WARNINGS=1 symbiote list-tasks"` = `'NODE_NO_WARNINGS=1 symbiote list-tasks'`
 
 #### scripts.postinstall?
 
@@ -442,7 +442,7 @@ Run **before** a tarball is packed (on `npm pack`, `npm publish`, and when insta
 
 #### scripts.prepare
 
-> `readonly` **prepare**: `"NODE_NO_WARNINGS=1 xscripts project prepare"` = `'NODE_NO_WARNINGS=1 xscripts project prepare'`
+> `readonly` **prepare**: `"NODE_NO_WARNINGS=1 symbiote project prepare"` = `'NODE_NO_WARNINGS=1 symbiote project prepare'`
 
 #### scripts.prepublish?
 
@@ -500,11 +500,11 @@ Run **after** the package is published.
 
 #### scripts.release
 
-> `readonly` **release**: `"NODE_NO_WARNINGS=1 xscripts release"` = `'NODE_NO_WARNINGS=1 xscripts release'`
+> `readonly` **release**: `"NODE_NO_WARNINGS=1 symbiote release"` = `'NODE_NO_WARNINGS=1 symbiote release'`
 
 #### scripts.renovate
 
-> `readonly` **renovate**: `"NODE_NO_WARNINGS=1 xscripts project renovate --github-reconfigure-repo --regenerate-assets --assets-preset basic"` = `'NODE_NO_WARNINGS=1 xscripts project renovate --github-reconfigure-repo --regenerate-assets --assets-preset basic'`
+> `readonly` **renovate**: `"NODE_NO_WARNINGS=1 symbiote project renovate --github-reconfigure-repo --regenerate-assets --assets-preset basic"` = `'NODE_NO_WARNINGS=1 symbiote project renovate --github-reconfigure-repo --regenerate-assets --assets-preset basic'`
 
 #### scripts.restart?
 
@@ -514,7 +514,7 @@ Run with the `npm restart` command. Note: `npm restart` will run the `stop` and 
 
 #### scripts.start
 
-> `readonly` **start**: `"NODE_NO_WARNINGS=1 xscripts start --"` = `'NODE_NO_WARNINGS=1 xscripts start --'`
+> `readonly` **start**: `"NODE_NO_WARNINGS=1 symbiote start --"` = `'NODE_NO_WARNINGS=1 symbiote start --'`
 
 #### scripts.stop?
 
@@ -528,23 +528,23 @@ Run with the `npm stop` command.
 
 #### scripts.test:package:all
 
-> `readonly` **test:package:all**: `"NODE_NO_WARNINGS=1 xscripts test --coverage"` = `'NODE_NO_WARNINGS=1 xscripts test --coverage'`
+> `readonly` **test:package:all**: `"NODE_NO_WARNINGS=1 symbiote test --coverage"` = `'NODE_NO_WARNINGS=1 symbiote test --coverage'`
 
 #### scripts.test:package:e2e
 
-> `readonly` **test:package:e2e**: `"NODE_NO_WARNINGS=1 xscripts test --tests end-to-end"` = `'NODE_NO_WARNINGS=1 xscripts test --tests end-to-end'`
+> `readonly` **test:package:e2e**: `"NODE_NO_WARNINGS=1 symbiote test --tests end-to-end"` = `'NODE_NO_WARNINGS=1 symbiote test --tests end-to-end'`
 
 #### scripts.test:package:integration
 
-> `readonly` **test:package:integration**: `"NODE_NO_WARNINGS=1 xscripts test --tests integration"` = `'NODE_NO_WARNINGS=1 xscripts test --tests integration'`
+> `readonly` **test:package:integration**: `"NODE_NO_WARNINGS=1 symbiote test --tests integration"` = `'NODE_NO_WARNINGS=1 symbiote test --tests integration'`
 
 #### scripts.test:package:unit
 
-> `readonly` **test:package:unit**: `"NODE_NO_WARNINGS=1 xscripts test --tests unit"` = `'NODE_NO_WARNINGS=1 xscripts test --tests unit'`
+> `readonly` **test:package:unit**: `"NODE_NO_WARNINGS=1 symbiote test --tests unit"` = `'NODE_NO_WARNINGS=1 symbiote test --tests unit'`
 
 #### scripts.test:packages:all
 
-> `readonly` **test:packages:all**: `"NODE_NO_WARNINGS=1 xscripts test --scope unlimited --coverage"` = `'NODE_NO_WARNINGS=1 xscripts test --scope unlimited --coverage'`
+> `readonly` **test:packages:all**: `"NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage"` = `'NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage'`
 
 #### scripts.uninstall?
 
@@ -598,4 +598,4 @@ Please note that the top-level `private` property of `package.json` **must** be 
 
 ## Defined in
 
-[src/assets/transformers/\_package.json.ts:117](https://github.com/Xunnamius/xscripts/blob/28c221bb8a859e69003ba2447e3f5763dc92a0ec/src/assets/transformers/_package.json.ts#L117)
+[src/assets/transformers/\_package.json.ts:115](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/assets/transformers/_package.json.ts#L115)

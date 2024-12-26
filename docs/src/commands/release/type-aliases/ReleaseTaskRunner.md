@@ -1,8 +1,8 @@
-[**@-xun/scripts**](../../../../README.md)
+[**@-xun/symbiote**](../../../../README.md)
 
 ***
 
-[@-xun/scripts](../../../../README.md) / [src/commands/release](../README.md) / ReleaseTaskRunner
+[@-xun/symbiote](../../../../README.md) / [src/commands/release](../README.md) / ReleaseTaskRunner
 
 # Type Alias: ReleaseTaskRunner()
 
@@ -26,4 +26,4 @@ A reified [ProtoReleaseTaskRunner](ProtoReleaseTaskRunner.md). Generated automat
 
 ## Defined in
 
-[src/commands/release.ts:143](https://github.com/Xunnamius/xscripts/blob/28c221bb8a859e69003ba2447e3f5763dc92a0ec/src/commands/release.ts#L143)
+[src/commands/release.ts:143](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/commands/release.ts#L143)

@@ -1,8 +1,8 @@
-[**@-xun/scripts**](../../../../README.md)
+[**@-xun/symbiote**](../../../../README.md)
 
 ***
 
-[@-xun/scripts](../../../../README.md) / src/commands/project/renovate
+[@-xun/symbiote](../../../../README.md) / src/commands/project/renovate
 
 # src/commands/project/renovate
 

@@ -1,8 +1,8 @@
-[**@-xun/scripts**](../../../README.md)
+[**@-xun/symbiote**](../../../README.md)
 
 ***
 
-[@-xun/scripts](../../../README.md) / [src/assets](../README.md) / AssetPreset
+[@-xun/symbiote](../../../README.md) / [src/assets](../README.md) / AssetPreset
 
 # Enumeration: AssetPreset
 
@@ -10,7 +10,7 @@ These presets determine which assets will be returned by which transformers
 when they're invoked. By specifying a preset, only the assets it represents
 will be generated. All others will be ignored.
 
-See the xscripts wiki for details.
+See the symbiote wiki for details.
 
 ## Enumeration Members
 
@@ -18,18 +18,18 @@ See the xscripts wiki for details.
 
 > **Basic**: `"basic"`
 
-Represents the most basic assets necessary for xscripts to be fully
+Represents the most basic assets necessary for symbiote to be fully
 functional.
 
 This preset is the basis for all others and can be used on any
-xscripts-compliant project when returning only a subset of files are
+symbiote-compliant project when returning only a subset of files are
 desired.
 
-See the xscripts wiki for details.
+See the symbiote wiki for details.
 
 #### Defined in
 
-[src/assets.ts:84](https://github.com/Xunnamius/xscripts/blob/28c221bb8a859e69003ba2447e3f5763dc92a0ec/src/assets.ts#L84)
+[src/assets.ts:84](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/assets.ts#L84)
 
 ***
 
@@ -37,15 +37,15 @@ See the xscripts wiki for details.
 
 > **Cli**: `"cli"`
 
-Represents the standard assets for an xscripts-compliant command-line
-interface project (such as `@black-flag/core`-powered tools like `xscripts`
+Represents the standard assets for an symbiote-compliant command-line
+interface project (such as `@black-flag/core`-powered tools like `symbiote`
 itself).
 
-See the xscripts wiki for details.
+See the symbiote wiki for details.
 
 #### Defined in
 
-[src/assets.ts:92](https://github.com/Xunnamius/xscripts/blob/28c221bb8a859e69003ba2447e3f5763dc92a0ec/src/assets.ts#L92)
+[src/assets.ts:92](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/assets.ts#L92)
 
 ***
 
@@ -53,16 +53,16 @@ See the xscripts wiki for details.
 
 > **Lib**: `"lib"`
 
-Represents the standard assets for an xscripts-compliant library project
+Represents the standard assets for an symbiote-compliant library project
 built for both CJS and ESM consumers (such as the case with
 `@black-flag/core`) and potentially also browser and other consumers as
 well.
 
-See the xscripts wiki for details.
+See the symbiote wiki for details.
 
 #### Defined in
 
-[src/assets.ts:101](https://github.com/Xunnamius/xscripts/blob/28c221bb8a859e69003ba2447e3f5763dc92a0ec/src/assets.ts#L101)
+[src/assets.ts:101](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/assets.ts#L101)
 
 ***
 
@@ -70,15 +70,15 @@ See the xscripts wiki for details.
 
 > **LibEsm**: `"lib-esm"`
 
-Represents the standard assets for an xscripts-compliant library project
+Represents the standard assets for an symbiote-compliant library project
 built exclusively for ESM and ESM-compatible consumers (such as the case
 with the `unified-utils` monorepo).
 
-See the xscripts wiki for details.
+See the symbiote wiki for details.
 
 #### Defined in
 
-[src/assets.ts:109](https://github.com/Xunnamius/xscripts/blob/28c221bb8a859e69003ba2447e3f5763dc92a0ec/src/assets.ts#L109)
+[src/assets.ts:109](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/assets.ts#L109)
 
 ***
 
@@ -86,15 +86,15 @@ See the xscripts wiki for details.
 
 > **LibWeb**: `"lib-web"`
 
-Represents the standard assets for an xscripts-compliant library project
+Represents the standard assets for an symbiote-compliant library project
 built exclusively for ESM consumers operating in a browser-like runtime
 (such as the case with the `next-utils` monorepo).
 
-See the xscripts wiki for details.
+See the symbiote wiki for details.
 
 #### Defined in
 
-[src/assets.ts:117](https://github.com/Xunnamius/xscripts/blob/28c221bb8a859e69003ba2447e3f5763dc92a0ec/src/assets.ts#L117)
+[src/assets.ts:117](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/assets.ts#L117)
 
 ***
 
@@ -102,14 +102,14 @@ See the xscripts wiki for details.
 
 > **Nextjs**: `"nextjs"`
 
-Represents the standard assets for an xscripts-compliant Next.js + React
+Represents the standard assets for an symbiote-compliant Next.js + React
 project.
 
-See the xscripts wiki for details.
+See the symbiote wiki for details.
 
 #### Defined in
 
-[src/assets.ts:130](https://github.com/Xunnamius/xscripts/blob/28c221bb8a859e69003ba2447e3f5763dc92a0ec/src/assets.ts#L130)
+[src/assets.ts:130](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/assets.ts#L130)
 
 ***
 
@@ -117,10 +117,10 @@ See the xscripts wiki for details.
 
 > **React**: `"react"`
 
-Represents the standard assets for an xscripts-compliant React project.
+Represents the standard assets for an symbiote-compliant React project.
 
-See the xscripts wiki for details.
+See the symbiote wiki for details.
 
 #### Defined in
 
-[src/assets.ts:123](https://github.com/Xunnamius/xscripts/blob/28c221bb8a859e69003ba2447e3f5763dc92a0ec/src/assets.ts#L123)
+[src/assets.ts:123](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/assets.ts#L123)

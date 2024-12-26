@@ -1,8 +1,8 @@
-[**@-xun/scripts**](../../../../../README.md)
+[**@-xun/symbiote**](../../../../../README.md)
 
 ***
 
-[@-xun/scripts](../../../../../README.md) / [src/commands/build/documentation](../README.md) / documentationBuilderScopes
+[@-xun/symbiote](../../../../../README.md) / [src/commands/build/documentation](../README.md) / documentationBuilderScopes
 
 # Variable: documentationBuilderScopes
 
@@ -14,4 +14,4 @@
 
 ## Defined in
 
-[src/commands/build/documentation.ts:31](https://github.com/Xunnamius/xscripts/blob/28c221bb8a859e69003ba2447e3f5763dc92a0ec/src/commands/build/documentation.ts#L31)
+[src/commands/build/documentation.ts:31](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/commands/build/documentation.ts#L31)
