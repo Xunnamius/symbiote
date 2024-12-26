@@ -87,8 +87,8 @@ export const { transformer } = makeTransformer(function (context) {
   return generateRootOnlyAssets(context, async function () {
     const [doesDefaultsFileAlreadyExist, doesSecretsFileAlreadyExist] =
       await Promise.all([
-        isAccessible(defaultsFilePath, { useCached: false }),
-        isAccessible(secretsFilePath, { useCached: false })
+        isAccessible(defaultsFilePath, { useCached: true }),
+        isAccessible(secretsFilePath, { useCached: true })
       ]);
 
     const shouldGenerateDefaultsFile =

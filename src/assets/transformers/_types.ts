@@ -1,20 +1,28 @@
-import { directoryTypesProjectBase } from 'multiverse+project-utils:fs.ts';
+import { directoryTypesProjectBase, isAccessible } from 'multiverse+project-utils:fs.ts';
 
-import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
+import { generateRootOnlyAssets, makeTransformer, type Asset } from 'universe:assets.ts';
 
 export const { transformer } = makeTransformer(function (context) {
   const { toProjectAbsolutePath } = context;
 
   // * Only the root package gets these files
   return generateRootOnlyAssets(context, async function () {
-    return [
+    const assets: Asset[] = [
       {
         path: toProjectAbsolutePath(directoryTypesProjectBase, 'global.ts'),
         generate: () => /*js*/ `
 export type {};
 `
-      },
-      {
+      }
+    ];
+
+    const outputDirAlreadyExists = await isAccessible(
+      toProjectAbsolutePath(directoryTypesProjectBase),
+      { useCached: true }
+    );
+
+    if (!outputDirAlreadyExists) {
+      assets.push({
         path: toProjectAbsolutePath(directoryTypesProjectBase, '_example-d.ts'),
         generate: () => /*js*/ `
 declare module 'glob-gitignore' {
@@ -42,7 +50,9 @@ declare module 'glob-gitignore' {
   export function hasMagic(patterns: string | string[], options?: GlobOptions): string;
 }
 `
-      }
-    ];
+      });
+    }
+
+    return assets;
   });
 });
