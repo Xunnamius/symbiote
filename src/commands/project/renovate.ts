@@ -1603,7 +1603,7 @@ To create and recreate alias tags for existing release tags with more fidelity a
               projectAttributes[ProjectAttribute.Hybridrepo])
               ? `\n
 - The root package name being updated necessitates the deprecation of the old package with a message pointing users to install the new package:
-npm deprecate '${oldRootPackageName}'\` 'This package has been superseded by \`${updatedRootPackageName}\`'`
+npm deprecate '${oldRootPackageName}' 'This package has been superseded by \`${updatedRootPackageName}\`'`
               : '') +
             '\n'
         );
