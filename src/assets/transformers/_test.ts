@@ -14,11 +14,11 @@ export const { transformer } = makeTransformer(async function (context) {
     (await generateRootOnlyAssets(context, function () {
       return [
         {
-          path: toProjectAbsolutePath(directoryTestPackageBase, 'index.ts'),
+          path: toProjectAbsolutePath(directoryTestPackageBase, 'util.ts'),
           generate: () => /*js*/ `
 /**
  ** This file exports test utilities specific to this project and beyond what is
- ** exported by @-xun/test; these can be imported using the \`testverse\` alias.
+ ** exported by @-xun/test; these can be imported using the testversal aliases.
  */
 
 export * from '@-xun/test';`
