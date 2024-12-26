@@ -2004,22 +2004,6 @@ See the symbiote wiki documentation for more details on this command and all ava
         GlobalExecutionContext
       >(format, globalExecutionContext);
 
-      const promisedFormatter = formatHandler({
-        ...argv,
-        $0: 'format',
-        _: [],
-        scope: DefaultGlobalScope.Unlimited,
-        silent: true,
-        quiet: true,
-        hush: true,
-        renumberReferences: false,
-        skipIgnored: true,
-        skipUnknown: false,
-        onlyPackageJson: false,
-        onlyMarkdown: false,
-        onlyPrettier: false
-      });
-
       let threw = false;
 
       try {
@@ -2050,7 +2034,21 @@ See the symbiote wiki documentation for more details on this command and all ava
       } finally {
         log([LogTag.IF_NOT_HUSHED], 'Waiting for formatter sub-command to complete...');
 
-        await promisedFormatter.then(
+        await formatHandler({
+          ...argv,
+          $0: 'format',
+          _: [],
+          scope: DefaultGlobalScope.Unlimited,
+          silent: true,
+          quiet: true,
+          hush: true,
+          renumberReferences: false,
+          skipIgnored: true,
+          skipUnknown: false,
+          onlyPackageJson: false,
+          onlyMarkdown: false,
+          onlyPrettier: false
+        }).then(
           () =>
             log([LogTag.IF_NOT_HUSHED], 'Formatter sub-command completed successfully'),
           (error: unknown) => {
