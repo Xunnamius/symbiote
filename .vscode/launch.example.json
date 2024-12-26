@@ -38,6 +38,8 @@
         "<node_internals>/**",
         "**/node_modules/**",
 
+        "!**/node_modules/*jest*/**",
+
         "!**/node_modules/@-xun/**",
         "!**/node_modules/semantic-release/**",
         "!**/node_modules/@semantic-release/**"
