@@ -5,7 +5,7 @@ import assert from 'node:assert';
 import { fixupConfigRules } from '@eslint/compat';
 import eslintJs from '@eslint/js';
 import restrictedGlobals from 'confusing-browser-globals';
-import eslintPluginImport from 'eslint-plugin-import';
+import { flatConfigs as eslintPluginImportFlatConfigs } from 'eslint-plugin-import';
 import eslintPluginJest from 'eslint-plugin-jest';
 import eslintPluginNode from 'eslint-plugin-n';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
@@ -612,8 +612,8 @@ export function moduleExport({
       eslintTsConfigs.strictTypeChecked,
       eslintTsConfigs.stylisticTypeChecked,
       eslintTsConfigs.eslintRecommended,
-      eslintPluginImport.flatConfigs.recommended,
-      eslintPluginImport.flatConfigs.typescript,
+      eslintPluginImportFlatConfigs.recommended,
+      eslintPluginImportFlatConfigs.typescript,
       eslintPluginUnicornRecommended,
       {
         name: '@-xun/symbiote:base',
@@ -777,8 +777,6 @@ export const { transformer } = makeTransformer(function ({
       generate: () => /*js*/ `
 // @ts-check
 
-import { deepMergeConfig } from '@-xun/symbiote/assets';
-
 import {
   assertEnvironment,
   moduleExport
@@ -789,13 +787,17 @@ import {
 
 /*const debug = createDebugLogger({ namespace: '${globalDebuggerNamespace}:config:eslint' });*/
 
-const config = deepMergeConfig(
-  moduleExport({ derivedAliases: getEslintAliases(), ...await assertEnvironment() }),
+const config = moduleExport({
+  derivedAliases: getEslintAliases(),
+  ...(await assertEnvironment())
+});
+
+config.push(
   /**
    * @type {import('@-xun/symbiote/assets/${asset}').EslintConfig}
    */
   {
-    // Any custom configs here will be deep merged with moduleExport
+    /* Add custom config here, such as disabling certain rules */
   }
 );
 
@@ -821,9 +823,11 @@ export async function assertEnvironment(): Promise<
   const currentWorkingDirectory = getCurrentWorkingDirectory();
   const packageJsonPath = toPath(currentWorkingDirectory, 'package.json');
 
-  const packageJson = (await import(packageJsonPath, {
-    with: { type: 'json' }
-  })) as PackageJson;
+  const packageJson = (
+    await import(packageJsonPath, {
+      with: { type: 'json' }
+    })
+  ).default as PackageJson;
 
   const { node: packageJsonEnginesNode_ } = packageJson.engines || {};
 
