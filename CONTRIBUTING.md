@@ -30,8 +30,8 @@ The ideal contributor flow is as follows:
      more sense to use `npm install` feel free to use that instead.
      - **If you're getting an EINTEGRITY error from npm, you need to delete
        package-lock.json before running `npm install` (not `npm ci`).**
-   - If `.env.example` exists, consider copying it to `.env` and configuring
-     sensible defaults.
+   - If `.env.default` exists, consider copying it to `.env` for sensible
+     pre-configured defaults.
 3. Before making any changes, ensure all unit tests are passing with
    `npm run test`.
 4. _(optional but recommended)_ Create a new branch, usually off `main`.
