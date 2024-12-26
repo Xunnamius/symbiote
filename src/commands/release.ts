@@ -1208,7 +1208,11 @@ const protoPostreleaseTasks: ProtoPostreleaseTask[][] = [
 
           debug(`computed flag (before ${maxFlagSize}-character truncation): %O`, flag);
 
-          log([LogTag.IF_NOT_HUSHED], 'Running codecov executable...');
+          log(
+            [LogTag.IF_NOT_HUSHED],
+            'Running codecov executable with coverage flag: %O',
+            flag
+          );
 
           await attemptToRunCommand(
             codecovCommand,
