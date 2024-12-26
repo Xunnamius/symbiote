@@ -117,8 +117,8 @@ The ideal contributor flow is as follows:
      more sense to use \`npm install\` feel free to use that instead.
      - **If you're getting an EINTEGRITY error from npm, you need to delete
        package-lock.json before running \`npm install\` (not \`npm ci\`).**
-   - If \`.env.example\` exists, consider copying it to \`.env\` and configuring
-     sensible defaults.
+   - If \`.env.default\` exists, consider copying it to \`.env\` for sensible
+     pre-configured defaults.
 3. Before making any changes, ensure all unit tests are passing with
    \`npm run test\`.
 4. _(optional but recommended)_ Create a new branch, usually off \`main\`.
@@ -640,7 +640,6 @@ exports[`::gatherAssetsFromAllTransformers preset: basic generates expected asse
 [
   ".codecov.yml",
   ".editorconfig",
-  ".env.default",
   ".gitattributes",
   ".github/ISSUE_TEMPLATE/BUG_REPORT.md",
   ".github/ISSUE_TEMPLATE/config.yml",
@@ -879,7 +878,6 @@ exports[`::gatherAssetsFromAllTransformers preset: cli generates expected assets
   ".all-contributorsrc",
   ".codecov.yml",
   ".editorconfig",
-  ".env.default",
   ".gitattributes",
   ".github/ISSUE_TEMPLATE/BUG_REPORT.md",
   ".github/ISSUE_TEMPLATE/config.yml",
@@ -1135,7 +1133,6 @@ exports[`::gatherAssetsFromAllTransformers preset: default (no preset) generates
   ".browserslistrc",
   ".codecov.yml",
   ".editorconfig",
-  ".env.default",
   ".gitattributes",
   ".github/ISSUE_TEMPLATE/BUG_REPORT.md",
   ".github/ISSUE_TEMPLATE/config.yml",
@@ -1383,7 +1380,6 @@ exports[`::gatherAssetsFromAllTransformers preset: lib generates expected assets
   ".all-contributorsrc",
   ".codecov.yml",
   ".editorconfig",
-  ".env.default",
   ".gitattributes",
   ".github/ISSUE_TEMPLATE/BUG_REPORT.md",
   ".github/ISSUE_TEMPLATE/config.yml",
@@ -1626,7 +1622,6 @@ exports[`::gatherAssetsFromAllTransformers preset: lib-esm generates expected as
   ".all-contributorsrc",
   ".codecov.yml",
   ".editorconfig",
-  ".env.default",
   ".gitattributes",
   ".github/ISSUE_TEMPLATE/BUG_REPORT.md",
   ".github/ISSUE_TEMPLATE/config.yml",
@@ -1872,7 +1867,6 @@ exports[`::gatherAssetsFromAllTransformers preset: lib-web generates expected as
   ".browserslistrc",
   ".codecov.yml",
   ".editorconfig",
-  ".env.default",
   ".gitattributes",
   ".github/ISSUE_TEMPLATE/BUG_REPORT.md",
   ".github/ISSUE_TEMPLATE/config.yml",
@@ -2111,7 +2105,6 @@ exports[`::gatherAssetsFromAllTransformers preset: nextjs generates expected ass
   ".browserslistrc",
   ".codecov.yml",
   ".editorconfig",
-  ".env.default",
   ".gitattributes",
   ".github/ISSUE_TEMPLATE/BUG_REPORT.md",
   ".github/ISSUE_TEMPLATE/config.yml",
@@ -2345,7 +2338,6 @@ exports[`::gatherAssetsFromAllTransformers preset: react generates expected asse
   ".browserslistrc",
   ".codecov.yml",
   ".editorconfig",
-  ".env.default",
   ".gitattributes",
   ".github/ISSUE_TEMPLATE/BUG_REPORT.md",
   ".github/ISSUE_TEMPLATE/config.yml",
@@ -2397,6 +2389,307 @@ exports[`::gatherAssetsFromAllTransformers preset: react generates expected asse
   "types/global.ts",
   "types/_example-d.ts",
 ]
+`;
+
+exports[`::gatherAssetsFromTransformer <additional asset content tests> dotenv appends to current .env and .env.default only if force is used: .env=no,.end.default=no,force=no 1`] = `
+"CODECOV_TOKEN=
+GITHUB_TOKEN=
+NPM_TOKEN=
+GIT_AUTHOR_NAME=
+GIT_COMMITTER_NAME=
+GIT_AUTHOR_EMAIL=
+GIT_COMMITTER_EMAIL=
+GPG_PASSPHRASE=
+GPG_PRIVATE_KEY=
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <additional asset content tests> dotenv appends to current .env and .env.default only if force is used: .env=no,.end.default=no,force=no 2`] = `
+"# shellcheck disable=all
+
+# Codecov test analysis token
+#
+# The token used during CI/CD to analyze and upload build artifact code quality
+# data to Codecov.
+CODECOV_TOKEN=
+
+# GitHub deploy token (alias GH_TOKEN)
+#
+# The token used during CI/CD to interact with GitHub's API.
+GITHUB_TOKEN=
+
+# NPM deploy token
+#
+# The token used during CD to login to NPM. Not referenced during non-CI/CD
+# (i.e. local, manual) deployments.
+NPM_TOKEN=
+
+# Git push author name
+#
+# The token used during CD to set the author name of the git push.
+GIT_AUTHOR_NAME=
+
+# Git commit committer name
+#
+# The token used during CD to set the name attached to any git commits.
+GIT_COMMITTER_NAME=
+
+# Git push author email
+#
+# The token used during CD to set the author email of the git push.
+GIT_AUTHOR_EMAIL=
+
+# Git commit committer email
+#
+# The token used during CD to set the email attached to any git commits.
+GIT_COMMITTER_EMAIL=
+
+# GPG private key passphrase
+#
+# The passphrase used to unlock GPG_PRIVATE_KEY. Not referenced during non-CI/CD
+# (i.e. local, manual) deployments.
+GPG_PASSPHRASE=
+
+# GPG private key
+#
+# The GPG key used to sign all git commits and releases. Not referenced during
+# non-CI/CD (i.e. local, manual) deployments.
+GPG_PRIVATE_KEY=
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <additional asset content tests> dotenv appends to current .env and .env.default only if force is used: .env=no,.end.default=no,force=yes 1`] = `
+"CODECOV_TOKEN=
+GITHUB_TOKEN=
+NPM_TOKEN=
+GIT_AUTHOR_NAME=
+GIT_COMMITTER_NAME=
+GIT_AUTHOR_EMAIL=
+GIT_COMMITTER_EMAIL=
+GPG_PASSPHRASE=
+GPG_PRIVATE_KEY=
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <additional asset content tests> dotenv appends to current .env and .env.default only if force is used: .env=no,.end.default=no,force=yes 2`] = `
+"# shellcheck disable=all
+
+# Codecov test analysis token
+#
+# The token used during CI/CD to analyze and upload build artifact code quality
+# data to Codecov.
+CODECOV_TOKEN=
+
+# GitHub deploy token (alias GH_TOKEN)
+#
+# The token used during CI/CD to interact with GitHub's API.
+GITHUB_TOKEN=
+
+# NPM deploy token
+#
+# The token used during CD to login to NPM. Not referenced during non-CI/CD
+# (i.e. local, manual) deployments.
+NPM_TOKEN=
+
+# Git push author name
+#
+# The token used during CD to set the author name of the git push.
+GIT_AUTHOR_NAME=
+
+# Git commit committer name
+#
+# The token used during CD to set the name attached to any git commits.
+GIT_COMMITTER_NAME=
+
+# Git push author email
+#
+# The token used during CD to set the author email of the git push.
+GIT_AUTHOR_EMAIL=
+
+# Git commit committer email
+#
+# The token used during CD to set the email attached to any git commits.
+GIT_COMMITTER_EMAIL=
+
+# GPG private key passphrase
+#
+# The passphrase used to unlock GPG_PRIVATE_KEY. Not referenced during non-CI/CD
+# (i.e. local, manual) deployments.
+GPG_PASSPHRASE=
+
+# GPG private key
+#
+# The GPG key used to sign all git commits and releases. Not referenced during
+# non-CI/CD (i.e. local, manual) deployments.
+GPG_PRIVATE_KEY=
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <additional asset content tests> dotenv appends to current .env and .env.default only if force is used: .env=no,.end.default=yes,force=no 1`] = `
+"FAKE_SECRET=default_value
+FAKE_SECRET_2=default-string-thing
+NPM_TOKEN=default
+CODECOV_TOKEN=default
+SOMETHING=5-is-default
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <additional asset content tests> dotenv appends to current .env and .env.default only if force is used: .env=no,.end.default=yes,force=yes 1`] = `
+"FAKE_SECRET=default_value
+FAKE_SECRET_2=default-string-thing
+NPM_TOKEN=default
+CODECOV_TOKEN=default
+SOMETHING=5-is-default
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <additional asset content tests> dotenv appends to current .env and .env.default only if force is used: .env=no,.end.default=yes,force=yes 2`] = `
+"FAKE_SECRET=default_value
+FAKE_SECRET_2=default-string-thing
+NPM_TOKEN=default
+# Comment
+CODECOV_TOKEN=default
+
+SOMETHING=5-is-default
+#
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <additional asset content tests> dotenv appends to current .env and .env.default only if force is used: .env=yes,.end.default=no,force=no 1`] = `
+"# shellcheck disable=all
+
+# Codecov test analysis token
+#
+# The token used during CI/CD to analyze and upload build artifact code quality
+# data to Codecov.
+CODECOV_TOKEN=
+
+# GitHub deploy token (alias GH_TOKEN)
+#
+# The token used during CI/CD to interact with GitHub's API.
+GITHUB_TOKEN=
+
+# NPM deploy token
+#
+# The token used during CD to login to NPM. Not referenced during non-CI/CD
+# (i.e. local, manual) deployments.
+NPM_TOKEN=
+
+# Git push author name
+#
+# The token used during CD to set the author name of the git push.
+GIT_AUTHOR_NAME=
+
+# Git commit committer name
+#
+# The token used during CD to set the name attached to any git commits.
+GIT_COMMITTER_NAME=
+
+# Git push author email
+#
+# The token used during CD to set the author email of the git push.
+GIT_AUTHOR_EMAIL=
+
+# Git commit committer email
+#
+# The token used during CD to set the email attached to any git commits.
+GIT_COMMITTER_EMAIL=
+
+# GPG private key passphrase
+#
+# The passphrase used to unlock GPG_PRIVATE_KEY. Not referenced during non-CI/CD
+# (i.e. local, manual) deployments.
+GPG_PASSPHRASE=
+
+# GPG private key
+#
+# The GPG key used to sign all git commits and releases. Not referenced during
+# non-CI/CD (i.e. local, manual) deployments.
+GPG_PRIVATE_KEY=
+
+# TODO: document these
+FAKE_SECRET=
+FAKE_SECRET_2=
+SOMETHING=
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <additional asset content tests> dotenv appends to current .env and .env.default only if force is used: .env=yes,.end.default=no,force=yes 1`] = `
+"FAKE_SECRET=fake_value
+FAKE_SECRET_2=fake-string-thing
+NPM_TOKEN=fake
+# Comment
+CODECOV_TOKEN=fake
+
+SOMETHING=5
+#
+GITHUB_TOKEN=
+GIT_AUTHOR_NAME=
+GIT_COMMITTER_NAME=
+GIT_AUTHOR_EMAIL=
+GIT_COMMITTER_EMAIL=
+GPG_PASSPHRASE=
+GPG_PRIVATE_KEY=
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <additional asset content tests> dotenv appends to current .env and .env.default only if force is used: .env=yes,.end.default=no,force=yes 2`] = `
+"# shellcheck disable=all
+
+# Codecov test analysis token
+#
+# The token used during CI/CD to analyze and upload build artifact code quality
+# data to Codecov.
+CODECOV_TOKEN=
+
+# GitHub deploy token (alias GH_TOKEN)
+#
+# The token used during CI/CD to interact with GitHub's API.
+GITHUB_TOKEN=
+
+# NPM deploy token
+#
+# The token used during CD to login to NPM. Not referenced during non-CI/CD
+# (i.e. local, manual) deployments.
+NPM_TOKEN=
+
+# Git push author name
+#
+# The token used during CD to set the author name of the git push.
+GIT_AUTHOR_NAME=
+
+# Git commit committer name
+#
+# The token used during CD to set the name attached to any git commits.
+GIT_COMMITTER_NAME=
+
+# Git push author email
+#
+# The token used during CD to set the author email of the git push.
+GIT_AUTHOR_EMAIL=
+
+# Git commit committer email
+#
+# The token used during CD to set the email attached to any git commits.
+GIT_COMMITTER_EMAIL=
+
+# GPG private key passphrase
+#
+# The passphrase used to unlock GPG_PRIVATE_KEY. Not referenced during non-CI/CD
+# (i.e. local, manual) deployments.
+GPG_PASSPHRASE=
+
+# GPG private key
+#
+# The GPG key used to sign all git commits and releases. Not referenced during
+# non-CI/CD (i.e. local, manual) deployments.
+GPG_PRIVATE_KEY=
+
+# TODO: document these
+FAKE_SECRET=
+FAKE_SECRET_2=
+SOMETHING=
+"
 `;
 
 exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .all-contributorsrc generates expected assets at hybridrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/.all-contributorsrc 1`] = `
@@ -2584,8 +2877,8 @@ scope: unlimited
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .all-contributorsrc generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.all-contributorsrc 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.all-contributorsrc
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .all-contributorsrc generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.all-contributorsrc 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.all-contributorsrc
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
@@ -2621,8 +2914,8 @@ scope: unlimited
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .all-contributorsrc generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.all-contributorsrc 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.all-contributorsrc
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .all-contributorsrc generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.all-contributorsrc 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.all-contributorsrc
 scope: this-package
 ⏶⏷⏶⏷⏶
 {
@@ -2658,8 +2951,8 @@ scope: this-package
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .all-contributorsrc generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.all-contributorsrc 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.all-contributorsrc
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .all-contributorsrc generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.all-contributorsrc 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.all-contributorsrc
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
@@ -2790,8 +3083,8 @@ current node
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .browserslistrc generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.browserslistrc 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.browserslistrc
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .browserslistrc generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.browserslistrc 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.browserslistrc
 scope: unlimited
 ⏶⏷⏶⏷⏶
 [production]
@@ -2809,8 +3102,8 @@ current node
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .browserslistrc generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.browserslistrc 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.browserslistrc
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .browserslistrc generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.browserslistrc 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.browserslistrc
 scope: this-package
 ⏶⏷⏶⏷⏶
 [production]
@@ -2828,8 +3121,8 @@ current node
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .browserslistrc generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.browserslistrc 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.browserslistrc
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .browserslistrc generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.browserslistrc 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.browserslistrc
 scope: unlimited
 ⏶⏷⏶⏷⏶
 [production]
@@ -2982,8 +3275,8 @@ flag_management:
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .codecov.yml generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.codecov.yml 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.codecov.yml
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .codecov.yml generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.codecov.yml 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.codecov.yml
 scope: unlimited
 ⏶⏷⏶⏷⏶
 coverage:
@@ -3009,8 +3302,8 @@ flag_management:
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .codecov.yml generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.codecov.yml 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.codecov.yml
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .codecov.yml generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.codecov.yml 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.codecov.yml
 scope: this-package
 ⏶⏷⏶⏷⏶
 coverage:
@@ -3036,8 +3329,8 @@ flag_management:
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .codecov.yml generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.codecov.yml 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.codecov.yml
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .codecov.yml generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.codecov.yml 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.codecov.yml
 scope: unlimited
 ⏶⏷⏶⏷⏶
 coverage:
@@ -3143,8 +3436,8 @@ indent_size = 2
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .editorconfig generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.editorconfig 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.editorconfig
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .editorconfig generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.editorconfig 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.editorconfig
 scope: unlimited
 ⏶⏷⏶⏷⏶
 root = true
@@ -3159,8 +3452,8 @@ indent_size = 2
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .editorconfig generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.editorconfig 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.editorconfig
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .editorconfig generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.editorconfig 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.editorconfig
 scope: this-package
 ⏶⏷⏶⏷⏶
 root = true
@@ -3175,8 +3468,8 @@ indent_size = 2
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .editorconfig generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.editorconfig 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.editorconfig
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .editorconfig generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.editorconfig 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.editorconfig
 scope: unlimited
 ⏶⏷⏶⏷⏶
 root = true
@@ -3556,65 +3849,8 @@ GPG_PRIVATE_KEY=
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .env.default generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.env.default 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.env.default
-scope: unlimited
-⏶⏷⏶⏷⏶
-# shellcheck disable=all
-
-# Codecov test analysis token
-#
-# The token used during CI/CD to analyze and upload build artifact code quality
-# data to Codecov.
-CODECOV_TOKEN=
-
-# GitHub deploy token (alias GH_TOKEN)
-#
-# The token used during CI/CD to interact with GitHub's API.
-GITHUB_TOKEN=
-
-# NPM deploy token
-#
-# The token used during CD to login to NPM. Not referenced during non-CI/CD
-# (i.e. local, manual) deployments.
-NPM_TOKEN=
-
-# Git push author name
-#
-# The token used during CD to set the author name of the git push.
-GIT_AUTHOR_NAME=
-
-# Git commit committer name
-#
-# The token used during CD to set the name attached to any git commits.
-GIT_COMMITTER_NAME=
-
-# Git push author email
-#
-# The token used during CD to set the author email of the git push.
-GIT_AUTHOR_EMAIL=
-
-# Git commit committer email
-#
-# The token used during CD to set the email attached to any git commits.
-GIT_COMMITTER_EMAIL=
-
-# GPG private key passphrase
-#
-# The passphrase used to unlock GPG_PRIVATE_KEY. Not referenced during non-CI/CD
-# (i.e. local, manual) deployments.
-GPG_PASSPHRASE=
-
-# GPG private key
-#
-# The GPG key used to sign all git commits and releases. Not referenced during
-# non-CI/CD (i.e. local, manual) deployments.
-GPG_PRIVATE_KEY=
-"
-`;
-
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .env.default generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.env 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.env
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .env.default generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.env 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.env
 scope: this-package
 ⏶⏷⏶⏷⏶
 FAKE_SECRET=fake_value
@@ -3625,128 +3861,24 @@ CODECOV_TOKEN=fake
 
 SOMETHING=5
 #
-
-GITHUB_TOKEN=
-GIT_AUTHOR_NAME=
-GIT_COMMITTER_NAME=
-GIT_AUTHOR_EMAIL=
-GIT_COMMITTER_EMAIL=
-GPG_PASSPHRASE=
-GPG_PRIVATE_KEY=
+A_NEW_ONE=new-default-value
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .env.default generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.env.default 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.env.default
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .env.default generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.env.default 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.env.default
 scope: this-package
 ⏶⏷⏶⏷⏶
 # shellcheck disable=all
 
-# Codecov test analysis token
-#
-# The token used during CI/CD to analyze and upload build artifact code quality
-# data to Codecov.
-CODECOV_TOKEN=
+FAKE_SECRET=default_value
+FAKE_SECRET_2=default-string-thing
+SOMETHING=
+A_NEW_ONE=new-default-value
 
-# GitHub deploy token (alias GH_TOKEN)
-#
-# The token used during CI/CD to interact with GitHub's API.
-GITHUB_TOKEN=
-
-# NPM deploy token
-#
-# The token used during CD to login to NPM. Not referenced during non-CI/CD
-# (i.e. local, manual) deployments.
+# TODO: document these
 NPM_TOKEN=
-
-# Git push author name
-#
-# The token used during CD to set the author name of the git push.
-GIT_AUTHOR_NAME=
-
-# Git commit committer name
-#
-# The token used during CD to set the name attached to any git commits.
-GIT_COMMITTER_NAME=
-
-# Git push author email
-#
-# The token used during CD to set the author email of the git push.
-GIT_AUTHOR_EMAIL=
-
-# Git commit committer email
-#
-# The token used during CD to set the email attached to any git commits.
-GIT_COMMITTER_EMAIL=
-
-# GPG private key passphrase
-#
-# The passphrase used to unlock GPG_PRIVATE_KEY. Not referenced during non-CI/CD
-# (i.e. local, manual) deployments.
-GPG_PASSPHRASE=
-
-# GPG private key
-#
-# The GPG key used to sign all git commits and releases. Not referenced during
-# non-CI/CD (i.e. local, manual) deployments.
-GPG_PRIVATE_KEY=
-"
-`;
-
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .env.default generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.env.default 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.env.default
-scope: unlimited
-⏶⏷⏶⏷⏶
-# shellcheck disable=all
-
-# Codecov test analysis token
-#
-# The token used during CI/CD to analyze and upload build artifact code quality
-# data to Codecov.
 CODECOV_TOKEN=
-
-# GitHub deploy token (alias GH_TOKEN)
-#
-# The token used during CI/CD to interact with GitHub's API.
-GITHUB_TOKEN=
-
-# NPM deploy token
-#
-# The token used during CD to login to NPM. Not referenced during non-CI/CD
-# (i.e. local, manual) deployments.
-NPM_TOKEN=
-
-# Git push author name
-#
-# The token used during CD to set the author name of the git push.
-GIT_AUTHOR_NAME=
-
-# Git commit committer name
-#
-# The token used during CD to set the name attached to any git commits.
-GIT_COMMITTER_NAME=
-
-# Git push author email
-#
-# The token used during CD to set the author email of the git push.
-GIT_AUTHOR_EMAIL=
-
-# Git commit committer email
-#
-# The token used during CD to set the email attached to any git commits.
-GIT_COMMITTER_EMAIL=
-
-# GPG private key passphrase
-#
-# The passphrase used to unlock GPG_PRIVATE_KEY. Not referenced during non-CI/CD
-# (i.e. local, manual) deployments.
-GPG_PASSPHRASE=
-
-# GPG private key
-#
-# The GPG key used to sign all git commits and releases. Not referenced during
-# non-CI/CD (i.e. local, manual) deployments.
-GPG_PRIVATE_KEY=
 "
 `;
 
@@ -3790,24 +3922,24 @@ scope: unlimited
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .gitattributes generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.gitattributes 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.gitattributes
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .gitattributes generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.gitattributes 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.gitattributes
 scope: unlimited
 ⏶⏷⏶⏷⏶
 * text=auto eol=lf
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .gitattributes generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.gitattributes 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.gitattributes
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .gitattributes generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.gitattributes 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.gitattributes
 scope: this-package
 ⏶⏷⏶⏷⏶
 * text=auto eol=lf
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .gitattributes generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.gitattributes 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.gitattributes
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .gitattributes generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.gitattributes 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.gitattributes
 scope: unlimited
 ⏶⏷⏶⏷⏶
 * text=auto eol=lf
@@ -6014,8 +6146,8 @@ Details on pipeline design and operation can be found [here][1].
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/CODE_OF_CONDUCT.md 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/CODE_OF_CONDUCT.md
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/CODE_OF_CONDUCT.md 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/CODE_OF_CONDUCT.md
 scope: unlimited
 ⏶⏷⏶⏷⏶
 # Contributor Covenant Code of Conduct
@@ -6103,8 +6235,8 @@ For answers to common questions about this code of conduct, see
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/CODEOWNERS 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/CODEOWNERS
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/CODEOWNERS 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/CODEOWNERS
 scope: unlimited
 ⏶⏷⏶⏷⏶
 # See https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/about-code-owners
@@ -6113,8 +6245,8 @@ scope: unlimited
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/FUNDING.yml 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/FUNDING.yml
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/FUNDING.yml 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/FUNDING.yml
 scope: unlimited
 ⏶⏷⏶⏷⏶
 # These are supported funding model platforms
@@ -6133,8 +6265,8 @@ custom: # Replace with up to 4 custom sponsorship URLs e.g., ['link1', 'link2']
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/ISSUE_TEMPLATE/BUG_REPORT.md 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/ISSUE_TEMPLATE/BUG_REPORT.md
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/ISSUE_TEMPLATE/BUG_REPORT.md 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/ISSUE_TEMPLATE/BUG_REPORT.md
 scope: unlimited
 ⏶⏷⏶⏷⏶
 ---
@@ -6217,8 +6349,8 @@ Relevant log lines:
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/ISSUE_TEMPLATE/FEATURE_REQUEST.md 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/ISSUE_TEMPLATE/FEATURE_REQUEST.md
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/ISSUE_TEMPLATE/FEATURE_REQUEST.md 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/ISSUE_TEMPLATE/FEATURE_REQUEST.md
 scope: unlimited
 ⏶⏷⏶⏷⏶
 ---
@@ -6250,8 +6382,8 @@ temporary workarounds you've come up with.
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/ISSUE_TEMPLATE/config.yml 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/ISSUE_TEMPLATE/config.yml
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/ISSUE_TEMPLATE/config.yml 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/ISSUE_TEMPLATE/config.yml
 scope: unlimited
 ⏶⏷⏶⏷⏶
 blank_issues_enabled: true
@@ -6262,8 +6394,8 @@ contact_links:
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/PULL_REQUEST_TEMPLATE.md 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/PULL_REQUEST_TEMPLATE.md
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/PULL_REQUEST_TEMPLATE.md 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/PULL_REQUEST_TEMPLATE.md
 scope: unlimited
 ⏶⏷⏶⏷⏶
 <!-- Add a brief description of your PR here |-->
@@ -6284,8 +6416,8 @@ scope: unlimited
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/SUPPORT.md 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/SUPPORT.md
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/SUPPORT.md 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/SUPPORT.md
 scope: unlimited
 ⏶⏷⏶⏷⏶
 # Support [![Average issue resolution time][badge-issue-resolution]][link-issue-resolution] [![Issue open percentage][badge-issue-percentage]][open-issues]
@@ -6351,8 +6483,8 @@ you for contribution 🎉, your efforts are greatly appreciated! 🙌🏿
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/dependabot.yml 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/dependabot.yml
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/dependabot.yml 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/dependabot.yml
 scope: unlimited
 ⏶⏷⏶⏷⏶
 version: 2
@@ -6377,8 +6509,8 @@ updates:
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/pipeline.config.js 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/pipeline.config.js
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/pipeline.config.js 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/pipeline.config.js
 scope: unlimited
 ⏶⏷⏶⏷⏶
 /**
@@ -6444,8 +6576,8 @@ module.exports = {
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/workflows/README.md 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/workflows/README.md
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/workflows/README.md 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/workflows/README.md
 scope: unlimited
 ⏶⏷⏶⏷⏶
 Details on pipeline design and operation can be found [here][1].
@@ -6454,8 +6586,8 @@ Details on pipeline design and operation can be found [here][1].
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/CODE_OF_CONDUCT.md 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/CODE_OF_CONDUCT.md
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/CODE_OF_CONDUCT.md 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/CODE_OF_CONDUCT.md
 scope: this-package
 ⏶⏷⏶⏷⏶
 # Contributor Covenant Code of Conduct
@@ -6543,8 +6675,8 @@ For answers to common questions about this code of conduct, see
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/CODEOWNERS 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/CODEOWNERS
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/CODEOWNERS 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/CODEOWNERS
 scope: this-package
 ⏶⏷⏶⏷⏶
 # See https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/about-code-owners
@@ -6553,8 +6685,8 @@ scope: this-package
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/FUNDING.yml 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/FUNDING.yml
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/FUNDING.yml 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/FUNDING.yml
 scope: this-package
 ⏶⏷⏶⏷⏶
 # These are supported funding model platforms
@@ -6573,8 +6705,8 @@ custom: # Replace with up to 4 custom sponsorship URLs e.g., ['link1', 'link2']
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/ISSUE_TEMPLATE/BUG_REPORT.md 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/ISSUE_TEMPLATE/BUG_REPORT.md
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/ISSUE_TEMPLATE/BUG_REPORT.md 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/ISSUE_TEMPLATE/BUG_REPORT.md
 scope: this-package
 ⏶⏷⏶⏷⏶
 ---
@@ -6657,8 +6789,8 @@ Relevant log lines:
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/ISSUE_TEMPLATE/FEATURE_REQUEST.md 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/ISSUE_TEMPLATE/FEATURE_REQUEST.md
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/ISSUE_TEMPLATE/FEATURE_REQUEST.md 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/ISSUE_TEMPLATE/FEATURE_REQUEST.md
 scope: this-package
 ⏶⏷⏶⏷⏶
 ---
@@ -6690,8 +6822,8 @@ temporary workarounds you've come up with.
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/ISSUE_TEMPLATE/config.yml 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/ISSUE_TEMPLATE/config.yml
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/ISSUE_TEMPLATE/config.yml 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/ISSUE_TEMPLATE/config.yml
 scope: this-package
 ⏶⏷⏶⏷⏶
 blank_issues_enabled: true
@@ -6702,8 +6834,8 @@ contact_links:
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/PULL_REQUEST_TEMPLATE.md 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/PULL_REQUEST_TEMPLATE.md
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/PULL_REQUEST_TEMPLATE.md 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/PULL_REQUEST_TEMPLATE.md
 scope: this-package
 ⏶⏷⏶⏷⏶
 <!-- Add a brief description of your PR here |-->
@@ -6724,8 +6856,8 @@ scope: this-package
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/SUPPORT.md 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/SUPPORT.md
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/SUPPORT.md 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/SUPPORT.md
 scope: this-package
 ⏶⏷⏶⏷⏶
 # Support [![Average issue resolution time][badge-issue-resolution]][link-issue-resolution] [![Issue open percentage][badge-issue-percentage]][open-issues]
@@ -6791,8 +6923,8 @@ you for contribution 🎉, your efforts are greatly appreciated! 🙌🏿
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/dependabot.yml 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/dependabot.yml
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/dependabot.yml 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/dependabot.yml
 scope: this-package
 ⏶⏷⏶⏷⏶
 version: 2
@@ -6817,8 +6949,8 @@ updates:
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/pipeline.config.js 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/pipeline.config.js
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/pipeline.config.js 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/pipeline.config.js
 scope: this-package
 ⏶⏷⏶⏷⏶
 /**
@@ -6884,8 +7016,8 @@ module.exports = {
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/workflows/README.md 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/workflows/README.md
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/workflows/README.md 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/workflows/README.md
 scope: this-package
 ⏶⏷⏶⏷⏶
 Details on pipeline design and operation can be found [here][1].
@@ -6894,8 +7026,8 @@ Details on pipeline design and operation can be found [here][1].
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/CODE_OF_CONDUCT.md 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/CODE_OF_CONDUCT.md
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/CODE_OF_CONDUCT.md 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/CODE_OF_CONDUCT.md
 scope: unlimited
 ⏶⏷⏶⏷⏶
 # Contributor Covenant Code of Conduct
@@ -6983,8 +7115,8 @@ For answers to common questions about this code of conduct, see
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/CODEOWNERS 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/CODEOWNERS
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/CODEOWNERS 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/CODEOWNERS
 scope: unlimited
 ⏶⏷⏶⏷⏶
 # See https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/about-code-owners
@@ -6993,8 +7125,8 @@ scope: unlimited
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/FUNDING.yml 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/FUNDING.yml
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/FUNDING.yml 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/FUNDING.yml
 scope: unlimited
 ⏶⏷⏶⏷⏶
 # These are supported funding model platforms
@@ -7013,8 +7145,8 @@ custom: # Replace with up to 4 custom sponsorship URLs e.g., ['link1', 'link2']
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/ISSUE_TEMPLATE/BUG_REPORT.md 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/ISSUE_TEMPLATE/BUG_REPORT.md
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/ISSUE_TEMPLATE/BUG_REPORT.md 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/ISSUE_TEMPLATE/BUG_REPORT.md
 scope: unlimited
 ⏶⏷⏶⏷⏶
 ---
@@ -7097,8 +7229,8 @@ Relevant log lines:
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/ISSUE_TEMPLATE/FEATURE_REQUEST.md 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/ISSUE_TEMPLATE/FEATURE_REQUEST.md
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/ISSUE_TEMPLATE/FEATURE_REQUEST.md 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/ISSUE_TEMPLATE/FEATURE_REQUEST.md
 scope: unlimited
 ⏶⏷⏶⏷⏶
 ---
@@ -7130,8 +7262,8 @@ temporary workarounds you've come up with.
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/ISSUE_TEMPLATE/config.yml 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/ISSUE_TEMPLATE/config.yml
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/ISSUE_TEMPLATE/config.yml 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/ISSUE_TEMPLATE/config.yml
 scope: unlimited
 ⏶⏷⏶⏷⏶
 blank_issues_enabled: true
@@ -7142,8 +7274,8 @@ contact_links:
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/PULL_REQUEST_TEMPLATE.md 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/PULL_REQUEST_TEMPLATE.md
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/PULL_REQUEST_TEMPLATE.md 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/PULL_REQUEST_TEMPLATE.md
 scope: unlimited
 ⏶⏷⏶⏷⏶
 <!-- Add a brief description of your PR here |-->
@@ -7164,8 +7296,8 @@ scope: unlimited
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/SUPPORT.md 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/SUPPORT.md
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/SUPPORT.md 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/SUPPORT.md
 scope: unlimited
 ⏶⏷⏶⏷⏶
 # Support [![Average issue resolution time][badge-issue-resolution]][link-issue-resolution] [![Issue open percentage][badge-issue-percentage]][open-issues]
@@ -7231,8 +7363,8 @@ you for contribution 🎉, your efforts are greatly appreciated! 🙌🏿
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/dependabot.yml 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/dependabot.yml
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/dependabot.yml 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/dependabot.yml
 scope: unlimited
 ⏶⏷⏶⏷⏶
 version: 2
@@ -7257,8 +7389,8 @@ updates:
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/pipeline.config.js 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/pipeline.config.js
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/pipeline.config.js 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/pipeline.config.js
 scope: unlimited
 ⏶⏷⏶⏷⏶
 /**
@@ -7324,8 +7456,8 @@ module.exports = {
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/workflows/README.md 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.github/workflows/README.md
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .github generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/workflows/README.md 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.github/workflows/README.md
 scope: unlimited
 ⏶⏷⏶⏷⏶
 Details on pipeline design and operation can be found [here][1].
@@ -7904,8 +8036,8 @@ CertificateAuthorityCertificate.pem
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .gitignore generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.gitignore 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.gitignore
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .gitignore generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.gitignore 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.gitignore
 scope: unlimited
 ⏶⏷⏶⏷⏶
 # ! Note that any pattern with a / in the beginning OR MIDDLE (but not end) will
@@ -8018,8 +8150,8 @@ CertificateAuthorityCertificate.pem
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .gitignore generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.gitignore 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.gitignore
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .gitignore generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.gitignore 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.gitignore
 scope: this-package
 ⏶⏷⏶⏷⏶
 # ! Note that any pattern with a / in the beginning OR MIDDLE (but not end) will
@@ -8132,8 +8264,8 @@ CertificateAuthorityCertificate.pem
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .gitignore generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.gitignore 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.gitignore
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .gitignore generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.gitignore 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.gitignore
 scope: unlimited
 ⏶⏷⏶⏷⏶
 # ! Note that any pattern with a / in the beginning OR MIDDLE (but not end) will
@@ -8621,8 +8753,8 @@ fi
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.husky/commit-msg 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.husky/commit-msg
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.husky/commit-msg 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.husky/commit-msg
 scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
@@ -8643,8 +8775,8 @@ NODE_NO_WARNINGS=1 node spellcheck-commit.cjs
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.husky/pre-commit 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.husky/pre-commit
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.husky/pre-commit 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.husky/pre-commit
 scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
@@ -8663,8 +8795,8 @@ NODE_NO_WARNINGS=1 lint-staged --concurrent false
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.husky/pre-push 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.husky/pre-push
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.husky/pre-push 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.husky/pre-push
 scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
@@ -8696,8 +8828,8 @@ fi
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.husky/commit-msg 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.husky/commit-msg
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.husky/commit-msg 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.husky/commit-msg
 scope: this-package
 ⏶⏷⏶⏷⏶
 #!/bin/sh
@@ -8718,8 +8850,8 @@ NODE_NO_WARNINGS=1 node spellcheck-commit.cjs
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.husky/pre-commit 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.husky/pre-commit
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.husky/pre-commit 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.husky/pre-commit
 scope: this-package
 ⏶⏷⏶⏷⏶
 #!/bin/sh
@@ -8738,8 +8870,8 @@ NODE_NO_WARNINGS=1 lint-staged --concurrent false
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.husky/pre-push 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.husky/pre-push
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.husky/pre-push 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.husky/pre-push
 scope: this-package
 ⏶⏷⏶⏷⏶
 #!/bin/sh
@@ -8771,8 +8903,8 @@ fi
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.husky/commit-msg 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.husky/commit-msg
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.husky/commit-msg 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.husky/commit-msg
 scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
@@ -8793,8 +8925,8 @@ NODE_NO_WARNINGS=1 node spellcheck-commit.cjs
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.husky/pre-commit 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.husky/pre-commit
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.husky/pre-commit 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.husky/pre-commit
 scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
@@ -8813,8 +8945,8 @@ NODE_NO_WARNINGS=1 lint-staged --concurrent false
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.husky/pre-push 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.husky/pre-push
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.husky/pre-push 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.husky/pre-push
 scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
@@ -8971,8 +9103,8 @@ module.exports = {
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .ncurc.cjs generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.ncurc.cjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.ncurc.cjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .ncurc.cjs generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.ncurc.cjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.ncurc.cjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -8996,8 +9128,8 @@ module.exports = {
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .ncurc.cjs generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.ncurc.cjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.ncurc.cjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .ncurc.cjs generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.ncurc.cjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.ncurc.cjs
 scope: this-package
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -9021,8 +9153,8 @@ module.exports = {
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .ncurc.cjs generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.ncurc.cjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.ncurc.cjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .ncurc.cjs generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.ncurc.cjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.ncurc.cjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -9336,8 +9468,8 @@ fixtures
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .prettierignore generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.prettierignore 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.prettierignore
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .prettierignore generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.prettierignore 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.prettierignore
 scope: unlimited
 ⏶⏷⏶⏷⏶
 # * Paths below are ignored by prettier as well as remark and doctoc when called
@@ -9394,8 +9526,8 @@ fixtures
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .prettierignore generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.prettierignore 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.prettierignore
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .prettierignore generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.prettierignore 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.prettierignore
 scope: this-package
 ⏶⏷⏶⏷⏶
 # * Paths below are ignored by prettier as well as remark and doctoc when called
@@ -9452,8 +9584,8 @@ fixtures
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .prettierignore generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.prettierignore 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.prettierignore
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .prettierignore generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.prettierignore 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.prettierignore
 scope: unlimited
 ⏶⏷⏶⏷⏶
 # * Paths below are ignored by prettier as well as remark and doctoc when called
@@ -9660,8 +9792,8 @@ export default config;
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .remarkrc.mjs generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.remarkrc.mjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.remarkrc.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .remarkrc.mjs generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.remarkrc.mjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.remarkrc.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -9690,8 +9822,8 @@ export default config;
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .remarkrc.mjs generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.remarkrc.mjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.remarkrc.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .remarkrc.mjs generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.remarkrc.mjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.remarkrc.mjs
 scope: this-package
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -9720,8 +9852,8 @@ export default config;
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .remarkrc.mjs generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.remarkrc.mjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.remarkrc.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .remarkrc.mjs generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.remarkrc.mjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.remarkrc.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -9790,24 +9922,24 @@ scope: unlimited
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .spellcheckignore generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.spellcheckignore 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.spellcheckignore
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .spellcheckignore generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.spellcheckignore 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.spellcheckignore
 scope: unlimited
 ⏶⏷⏶⏷⏶
 
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .spellcheckignore generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.spellcheckignore 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.spellcheckignore
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .spellcheckignore generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.spellcheckignore 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.spellcheckignore
 scope: this-package
 ⏶⏷⏶⏷⏶
 
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .spellcheckignore generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.spellcheckignore 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.spellcheckignore
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .spellcheckignore generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.spellcheckignore 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.spellcheckignore
 scope: unlimited
 ⏶⏷⏶⏷⏶
 
@@ -10709,8 +10841,8 @@ scope: unlimited
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vscode generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.vscode/launch.example.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.vscode/launch.example.json
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vscode generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.vscode/launch.example.json 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.vscode/launch.example.json
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
@@ -10834,8 +10966,8 @@ scope: unlimited
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vscode generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.vscode/settings.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.vscode/settings.json
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vscode generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.vscode/settings.json 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.vscode/settings.json
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
@@ -10854,8 +10986,8 @@ scope: unlimited
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vscode generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.vscode/tasks.example.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.vscode/tasks.example.json
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vscode generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.vscode/tasks.example.json 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.vscode/tasks.example.json
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
@@ -10888,8 +11020,8 @@ scope: unlimited
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vscode generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.vscode/launch.example.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.vscode/launch.example.json
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vscode generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.vscode/launch.example.json 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.vscode/launch.example.json
 scope: this-package
 ⏶⏷⏶⏷⏶
 {
@@ -11013,8 +11145,8 @@ scope: this-package
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vscode generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.vscode/settings.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.vscode/settings.json
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vscode generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.vscode/settings.json 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.vscode/settings.json
 scope: this-package
 ⏶⏷⏶⏷⏶
 {
@@ -11033,8 +11165,8 @@ scope: this-package
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vscode generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.vscode/tasks.example.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.vscode/tasks.example.json
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vscode generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.vscode/tasks.example.json 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.vscode/tasks.example.json
 scope: this-package
 ⏶⏷⏶⏷⏶
 {
@@ -11067,8 +11199,8 @@ scope: this-package
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vscode generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.vscode/launch.example.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.vscode/launch.example.json
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vscode generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.vscode/launch.example.json 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.vscode/launch.example.json
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
@@ -11192,8 +11324,8 @@ scope: unlimited
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vscode generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.vscode/settings.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.vscode/settings.json
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vscode generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.vscode/settings.json 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.vscode/settings.json
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
@@ -11212,8 +11344,8 @@ scope: unlimited
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vscode generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.vscode/tasks.example.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/.vscode/tasks.example.json
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vscode generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.vscode/tasks.example.json 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.vscode/tasks.example.json
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
@@ -11391,8 +11523,8 @@ There are as of yet no notable deviations or additions. See the linked document
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> ARCHITECTURE.md generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/ARCHITECTURE.md 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/ARCHITECTURE.md
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> ARCHITECTURE.md generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/ARCHITECTURE.md 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/ARCHITECTURE.md
 scope: unlimited
 ⏶⏷⏶⏷⏶
 <!-- symbiote-template-region-start 1 -->
@@ -11420,8 +11552,8 @@ There are as of yet no notable deviations or additions. See the linked document
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> ARCHITECTURE.md generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/ARCHITECTURE.md 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/ARCHITECTURE.md
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> ARCHITECTURE.md generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/ARCHITECTURE.md 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/ARCHITECTURE.md
 scope: this-package
 ⏶⏷⏶⏷⏶
 <!-- symbiote-template-region-start 1 -->
@@ -11449,8 +11581,8 @@ There are as of yet no notable deviations or additions. See the linked document
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> ARCHITECTURE.md generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/ARCHITECTURE.md 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/ARCHITECTURE.md
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> ARCHITECTURE.md generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/ARCHITECTURE.md 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/ARCHITECTURE.md
 scope: unlimited
 ⏶⏷⏶⏷⏶
 <!-- symbiote-template-region-start 1 -->
@@ -11514,8 +11646,8 @@ The ideal contributor flow is as follows:
      more sense to use \`npm install\` feel free to use that instead.
      - **If you're getting an EINTEGRITY error from npm, you need to delete
        package-lock.json before running \`npm install\` (not \`npm ci\`).**
-   - If \`.env.example\` exists, consider copying it to \`.env\` and configuring
-     sensible defaults.
+   - If \`.env.default\` exists, consider copying it to \`.env\` for sensible
+     pre-configured defaults.
 3. Before making any changes, ensure all unit tests are passing with
    \`npm run test\`.
 4. _(optional but recommended)_ Create a new branch, usually off \`main\`.
@@ -11621,8 +11753,8 @@ The ideal contributor flow is as follows:
      more sense to use \`npm install\` feel free to use that instead.
      - **If you're getting an EINTEGRITY error from npm, you need to delete
        package-lock.json before running \`npm install\` (not \`npm ci\`).**
-   - If \`.env.example\` exists, consider copying it to \`.env\` and configuring
-     sensible defaults.
+   - If \`.env.default\` exists, consider copying it to \`.env\` for sensible
+     pre-configured defaults.
 3. Before making any changes, ensure all unit tests are passing with
    \`npm run test\`.
 4. _(optional but recommended)_ Create a new branch, usually off \`main\`.
@@ -11728,8 +11860,8 @@ The ideal contributor flow is as follows:
      more sense to use \`npm install\` feel free to use that instead.
      - **If you're getting an EINTEGRITY error from npm, you need to delete
        package-lock.json before running \`npm install\` (not \`npm ci\`).**
-   - If \`.env.example\` exists, consider copying it to \`.env\` and configuring
-     sensible defaults.
+   - If \`.env.default\` exists, consider copying it to \`.env\` for sensible
+     pre-configured defaults.
 3. Before making any changes, ensure all unit tests are passing with
    \`npm run test\`.
 4. _(optional but recommended)_ Create a new branch, usually off \`main\`.
@@ -11835,8 +11967,8 @@ The ideal contributor flow is as follows:
      more sense to use \`npm install\` feel free to use that instead.
      - **If you're getting an EINTEGRITY error from npm, you need to delete
        package-lock.json before running \`npm install\` (not \`npm ci\`).**
-   - If \`.env.example\` exists, consider copying it to \`.env\` and configuring
-     sensible defaults.
+   - If \`.env.default\` exists, consider copying it to \`.env\` for sensible
+     pre-configured defaults.
 3. Before making any changes, ensure all unit tests are passing with
    \`npm run test\`.
 4. _(optional but recommended)_ Create a new branch, usually off \`main\`.
@@ -11942,8 +12074,8 @@ The ideal contributor flow is as follows:
      more sense to use \`npm install\` feel free to use that instead.
      - **If you're getting an EINTEGRITY error from npm, you need to delete
        package-lock.json before running \`npm install\` (not \`npm ci\`).**
-   - If \`.env.example\` exists, consider copying it to \`.env\` and configuring
-     sensible defaults.
+   - If \`.env.default\` exists, consider copying it to \`.env\` for sensible
+     pre-configured defaults.
 3. Before making any changes, ensure all unit tests are passing with
    \`npm run test\`.
 4. _(optional but recommended)_ Create a new branch, usually off \`main\`.
@@ -12013,8 +12145,8 @@ At this point, you're ready to create your PR and ✨ contribute ✨!
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> CONTRIBUTING.md generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/CONTRIBUTING.md 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/CONTRIBUTING.md
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> CONTRIBUTING.md generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/CONTRIBUTING.md 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/CONTRIBUTING.md
 scope: unlimited
 ⏶⏷⏶⏷⏶
 # Contributing
@@ -12049,8 +12181,8 @@ The ideal contributor flow is as follows:
      more sense to use \`npm install\` feel free to use that instead.
      - **If you're getting an EINTEGRITY error from npm, you need to delete
        package-lock.json before running \`npm install\` (not \`npm ci\`).**
-   - If \`.env.example\` exists, consider copying it to \`.env\` and configuring
-     sensible defaults.
+   - If \`.env.default\` exists, consider copying it to \`.env\` for sensible
+     pre-configured defaults.
 3. Before making any changes, ensure all unit tests are passing with
    \`npm run test\`.
 4. _(optional but recommended)_ Create a new branch, usually off \`main\`.
@@ -12120,8 +12252,8 @@ At this point, you're ready to create your PR and ✨ contribute ✨!
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> CONTRIBUTING.md generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/CONTRIBUTING.md 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/CONTRIBUTING.md
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> CONTRIBUTING.md generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/CONTRIBUTING.md 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/CONTRIBUTING.md
 scope: this-package
 ⏶⏷⏶⏷⏶
 # Contributing
@@ -12156,8 +12288,8 @@ The ideal contributor flow is as follows:
      more sense to use \`npm install\` feel free to use that instead.
      - **If you're getting an EINTEGRITY error from npm, you need to delete
        package-lock.json before running \`npm install\` (not \`npm ci\`).**
-   - If \`.env.example\` exists, consider copying it to \`.env\` and configuring
-     sensible defaults.
+   - If \`.env.default\` exists, consider copying it to \`.env\` for sensible
+     pre-configured defaults.
 3. Before making any changes, ensure all unit tests are passing with
    \`npm run test\`.
 4. _(optional but recommended)_ Create a new branch, usually off \`main\`.
@@ -12227,8 +12359,8 @@ At this point, you're ready to create your PR and ✨ contribute ✨!
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> CONTRIBUTING.md generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/CONTRIBUTING.md 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/CONTRIBUTING.md
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> CONTRIBUTING.md generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/CONTRIBUTING.md 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/CONTRIBUTING.md
 scope: unlimited
 ⏶⏷⏶⏷⏶
 # Contributing
@@ -12263,8 +12395,8 @@ The ideal contributor flow is as follows:
      more sense to use \`npm install\` feel free to use that instead.
      - **If you're getting an EINTEGRITY error from npm, you need to delete
        package-lock.json before running \`npm install\` (not \`npm ci\`).**
-   - If \`.env.example\` exists, consider copying it to \`.env\` and configuring
-     sensible defaults.
+   - If \`.env.default\` exists, consider copying it to \`.env\` for sensible
+     pre-configured defaults.
 3. Before making any changes, ensure all unit tests are passing with
    \`npm run test\`.
 4. _(optional but recommended)_ Create a new branch, usually off \`main\`.
@@ -12838,8 +12970,8 @@ SOFTWARE.
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> LICENSE generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/LICENSE 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/LICENSE
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> LICENSE generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/LICENSE 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/LICENSE
 scope: unlimited
 ⏶⏷⏶⏷⏶
 MIT License
@@ -12866,8 +12998,8 @@ SOFTWARE.
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> LICENSE generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/LICENSE 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/LICENSE
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> LICENSE generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/LICENSE 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/LICENSE
 scope: this-package
 ⏶⏷⏶⏷⏶
 MIT License
@@ -12894,8 +13026,8 @@ SOFTWARE.
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> LICENSE generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/LICENSE 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/LICENSE
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> LICENSE generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/LICENSE 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/LICENSE
 scope: unlimited
 ⏶⏷⏶⏷⏶
 MIT License
@@ -14772,8 +14904,8 @@ Thank you so much for helping to maintain this project!
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> MAINTAINING.md generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/MAINTAINING.md 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/MAINTAINING.md
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> MAINTAINING.md generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/MAINTAINING.md 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/MAINTAINING.md
 scope: unlimited
 ⏶⏷⏶⏷⏶
 # Maintaining
@@ -15142,8 +15274,8 @@ Thank you so much for helping to maintain this project!
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> MAINTAINING.md generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/MAINTAINING.md 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/MAINTAINING.md
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> MAINTAINING.md generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/MAINTAINING.md 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/MAINTAINING.md
 scope: this-package
 ⏶⏷⏶⏷⏶
 # Maintaining
@@ -15512,8 +15644,8 @@ Thank you so much for helping to maintain this project!
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> MAINTAINING.md generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/MAINTAINING.md 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/MAINTAINING.md
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> MAINTAINING.md generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/MAINTAINING.md 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/MAINTAINING.md
 scope: unlimited
 ⏶⏷⏶⏷⏶
 # Maintaining
@@ -20154,8 +20286,8 @@ specification. Contributions of any kind welcome!
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> README.md generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/README.md 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/README.md
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> README.md generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/README.md 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/README.md
 scope: unlimited
 ⏶⏷⏶⏷⏶
 <!-- symbiote-template-region-start 1 -->
@@ -20420,8 +20552,8 @@ specification. Contributions of any kind welcome!
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> README.md generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/README.md 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/README.md
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> README.md generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/README.md 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/README.md
 scope: this-package
 ⏶⏷⏶⏷⏶
 <!-- symbiote-template-region-start 1 -->
@@ -20686,8 +20818,8 @@ specification. Contributions of any kind welcome!
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> README.md generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/README.md 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/README.md
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> README.md generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/README.md 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/README.md
 scope: unlimited
 ⏶⏷⏶⏷⏶
 <!-- symbiote-template-region-start 1 -->
@@ -21077,8 +21209,8 @@ Thank you for your contribution!
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> SECURITY.md generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/SECURITY.md 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/SECURITY.md
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> SECURITY.md generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/SECURITY.md 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/SECURITY.md
 scope: unlimited
 ⏶⏷⏶⏷⏶
 # Security ☠️ [![Known Vulnerabilities][2]][1]
@@ -21102,8 +21234,8 @@ Thank you for your contribution!
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> SECURITY.md generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/SECURITY.md 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/SECURITY.md
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> SECURITY.md generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/SECURITY.md 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/SECURITY.md
 scope: this-package
 ⏶⏷⏶⏷⏶
 # Security ☠️ [![Known Vulnerabilities][2]][1]
@@ -21127,8 +21259,8 @@ Thank you for your contribution!
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> SECURITY.md generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/SECURITY.md 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/SECURITY.md
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> SECURITY.md generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/SECURITY.md 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/SECURITY.md
 scope: unlimited
 ⏶⏷⏶⏷⏶
 # Security ☠️ [![Known Vulnerabilities][2]][1]
@@ -21502,8 +21634,8 @@ function getBabelAliases() {
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> babel.config.cjs generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/babel.config.cjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/babel.config.cjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> babel.config.cjs generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/babel.config.cjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/babel.config.cjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -21552,8 +21684,8 @@ function getBabelAliases() {
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> babel.config.cjs generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/babel.config.cjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/babel.config.cjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> babel.config.cjs generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/babel.config.cjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/babel.config.cjs
 scope: this-package
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -21602,8 +21734,8 @@ function getBabelAliases() {
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> babel.config.cjs generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/babel.config.cjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/babel.config.cjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> babel.config.cjs generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/babel.config.cjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/babel.config.cjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -21737,8 +21869,8 @@ export default [
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> changelog.patch.mjs generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/changelog.patch.mjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/changelog.patch.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> changelog.patch.mjs generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/changelog.patch.mjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/changelog.patch.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -21754,8 +21886,8 @@ export default [
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> changelog.patch.mjs generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/changelog.patch.mjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/changelog.patch.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> changelog.patch.mjs generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/changelog.patch.mjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/changelog.patch.mjs
 scope: this-package
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -21771,8 +21903,8 @@ export default [
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> changelog.patch.mjs generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/changelog.patch.mjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/changelog.patch.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> changelog.patch.mjs generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/changelog.patch.mjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/changelog.patch.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -21908,8 +22040,8 @@ export default config;
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> commitlint.config.mjs generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/commitlint.config.mjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/commitlint.config.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> commitlint.config.mjs generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/commitlint.config.mjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/commitlint.config.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -21932,8 +22064,8 @@ export default config;
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> commitlint.config.mjs generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/commitlint.config.mjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/commitlint.config.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> commitlint.config.mjs generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/commitlint.config.mjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/commitlint.config.mjs
 scope: this-package
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -21956,8 +22088,8 @@ export default config;
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> commitlint.config.mjs generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/commitlint.config.mjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/commitlint.config.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> commitlint.config.mjs generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/commitlint.config.mjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/commitlint.config.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -22130,8 +22262,8 @@ module.exports = moduleExport({
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> conventional.config.cjs generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/conventional.config.cjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/conventional.config.cjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> conventional.config.cjs generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/conventional.config.cjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/conventional.config.cjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -22160,8 +22292,8 @@ module.exports = moduleExport({
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> conventional.config.cjs generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/conventional.config.cjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/conventional.config.cjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> conventional.config.cjs generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/conventional.config.cjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/conventional.config.cjs
 scope: this-package
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -22190,8 +22322,8 @@ module.exports = moduleExport({
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> conventional.config.cjs generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/conventional.config.cjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/conventional.config.cjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> conventional.config.cjs generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/conventional.config.cjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/conventional.config.cjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -22628,8 +22760,8 @@ function getEslintAliases() {
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> eslint.config.mjs generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/eslint.config.mjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/eslint.config.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> eslint.config.mjs generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/eslint.config.mjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/eslint.config.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -22676,8 +22808,8 @@ function getEslintAliases() {
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> eslint.config.mjs generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/eslint.config.mjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/eslint.config.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> eslint.config.mjs generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/eslint.config.mjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/eslint.config.mjs
 scope: this-package
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -22724,8 +22856,8 @@ function getEslintAliases() {
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> eslint.config.mjs generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/eslint.config.mjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/eslint.config.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> eslint.config.mjs generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/eslint.config.mjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/eslint.config.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -22912,8 +23044,8 @@ export default config;
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> gac.config.mjs generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/gac.config.mjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/gac.config.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> gac.config.mjs generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/gac.config.mjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/gac.config.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -22940,8 +23072,8 @@ export default config;
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> gac.config.mjs generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/gac.config.mjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/gac.config.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> gac.config.mjs generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/gac.config.mjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/gac.config.mjs
 scope: this-package
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -22968,8 +23100,8 @@ export default config;
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> gac.config.mjs generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/gac.config.mjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/gac.config.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> gac.config.mjs generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/gac.config.mjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/gac.config.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -23321,8 +23453,8 @@ function getJestAliases() {
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> jest.config.mjs generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/jest.config.mjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/jest.config.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> jest.config.mjs generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/jest.config.mjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/jest.config.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -23366,8 +23498,8 @@ function getJestAliases() {
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> jest.config.mjs generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/jest.config.mjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/jest.config.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> jest.config.mjs generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/jest.config.mjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/jest.config.mjs
 scope: this-package
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -23411,8 +23543,8 @@ function getJestAliases() {
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> jest.config.mjs generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/jest.config.mjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/jest.config.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> jest.config.mjs generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/jest.config.mjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/jest.config.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -23576,8 +23708,8 @@ export default config;
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> lint-staged.config.mjs generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/lint-staged.config.mjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/lint-staged.config.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> lint-staged.config.mjs generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/lint-staged.config.mjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/lint-staged.config.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -23600,8 +23732,8 @@ export default config;
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> lint-staged.config.mjs generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/lint-staged.config.mjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/lint-staged.config.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> lint-staged.config.mjs generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/lint-staged.config.mjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/lint-staged.config.mjs
 scope: this-package
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -23624,8 +23756,8 @@ export default config;
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> lint-staged.config.mjs generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/lint-staged.config.mjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/lint-staged.config.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> lint-staged.config.mjs generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/lint-staged.config.mjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/lint-staged.config.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -23768,8 +23900,8 @@ export default config;
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> next.config.mjs generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/next.config.mjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/next.config.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> next.config.mjs generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/next.config.mjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/next.config.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -23792,8 +23924,8 @@ export default config;
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> next.config.mjs generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/next.config.mjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/next.config.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> next.config.mjs generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/next.config.mjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/next.config.mjs
 scope: this-package
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -23816,8 +23948,8 @@ export default config;
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> next.config.mjs generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/next.config.mjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/next.config.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> next.config.mjs generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/next.config.mjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/next.config.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -25312,8 +25444,8 @@ scope: unlimited
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> package.json generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/package.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/package.json
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> package.json generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/package.json 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/package.json
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
@@ -25391,8 +25523,8 @@ scope: unlimited
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> package.json generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/package.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/package.json
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> package.json generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/package.json 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/package.json
 scope: this-package
 ⏶⏷⏶⏷⏶
 {
@@ -25475,8 +25607,8 @@ scope: this-package
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> package.json generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/package.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/package.json
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> package.json generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/package.json 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/package.json
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
@@ -25674,8 +25806,8 @@ export default config;
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> postcss.config.mjs generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/postcss.config.mjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/postcss.config.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> postcss.config.mjs generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/postcss.config.mjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/postcss.config.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -25698,8 +25830,8 @@ export default config;
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> postcss.config.mjs generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/postcss.config.mjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/postcss.config.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> postcss.config.mjs generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/postcss.config.mjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/postcss.config.mjs
 scope: this-package
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -25722,8 +25854,8 @@ export default config;
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> postcss.config.mjs generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/postcss.config.mjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/postcss.config.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> postcss.config.mjs generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/postcss.config.mjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/postcss.config.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -25896,8 +26028,8 @@ export default config;
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> prettier.config.mjs generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/prettier.config.mjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/prettier.config.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> prettier.config.mjs generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/prettier.config.mjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/prettier.config.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -25926,8 +26058,8 @@ export default config;
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> prettier.config.mjs generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/prettier.config.mjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/prettier.config.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> prettier.config.mjs generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/prettier.config.mjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/prettier.config.mjs
 scope: this-package
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -25956,8 +26088,8 @@ export default config;
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> prettier.config.mjs generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/prettier.config.mjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/prettier.config.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> prettier.config.mjs generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/prettier.config.mjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/prettier.config.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -26151,8 +26283,8 @@ module.exports = deepMergeConfig(
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> release.config.cjs generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/release.config.cjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/release.config.cjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> release.config.cjs generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/release.config.cjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/release.config.cjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -26184,8 +26316,8 @@ module.exports = deepMergeConfig(
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> release.config.cjs generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/release.config.cjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/release.config.cjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> release.config.cjs generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/release.config.cjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/release.config.cjs
 scope: this-package
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -26217,8 +26349,8 @@ module.exports = deepMergeConfig(
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> release.config.cjs generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/release.config.cjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/release.config.cjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> release.config.cjs generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/release.config.cjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/release.config.cjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -26338,24 +26470,24 @@ export {};
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> src generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/src/index.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/src/index.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> src generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/src/index.ts 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/src/index.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
 export {};
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> src generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/src/index.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/src/index.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> src generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/src/index.ts 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/src/index.ts
 scope: this-package
 ⏶⏷⏶⏷⏶
 export {};
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> src generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/src/index.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/src/index.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> src generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/src/index.ts 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/src/index.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
 export {};
@@ -26482,8 +26614,8 @@ export default config;
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tailwind.config.mjs generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tailwind.config.mjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tailwind.config.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tailwind.config.mjs generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tailwind.config.mjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tailwind.config.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -26506,8 +26638,8 @@ export default config;
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tailwind.config.mjs generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tailwind.config.mjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tailwind.config.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tailwind.config.mjs generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tailwind.config.mjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tailwind.config.mjs
 scope: this-package
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -26530,8 +26662,8 @@ export default config;
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tailwind.config.mjs generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tailwind.config.mjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tailwind.config.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tailwind.config.mjs generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tailwind.config.mjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tailwind.config.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -27606,8 +27738,8 @@ import 'jest-extended/all';
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/test/index.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/test/index.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/index.ts 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/index.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
 /**
@@ -27619,8 +27751,8 @@ export * from '@-xun/test';
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/test/setup.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/test/setup.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/setup.ts 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/setup.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
 /**
@@ -27634,8 +27766,8 @@ import 'jest-extended/all';
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/test/end-to-end/.config.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/test/end-to-end/.config.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/end-to-end/.config.ts 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/end-to-end/.config.ts
 scope: this-package
 ⏶⏷⏶⏷⏶
 // * Configuration state and metadata shared among all end-to-end tests.
@@ -27644,8 +27776,8 @@ export {};
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/test/end-to-end/e2e-x.test.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/test/end-to-end/e2e-x.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/end-to-end/e2e-x.test.ts 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/end-to-end/e2e-x.test.ts
 scope: this-package
 ⏶⏷⏶⏷⏶
 // * These tests run through the entire process of acquiring this software,
@@ -27660,8 +27792,8 @@ test.todo('this');
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/test/index.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/test/index.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/index.ts 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/index.ts
 scope: this-package
 ⏶⏷⏶⏷⏶
 /**
@@ -27673,8 +27805,8 @@ export * from '@-xun/test';
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/test/integration/.config.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/test/integration/.config.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/integration/.config.ts 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/integration/.config.ts
 scope: this-package
 ⏶⏷⏶⏷⏶
 // * Configuration state and metadata shared among all integration tests.
@@ -27683,8 +27815,8 @@ export {};
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/test/integration/integration-client.test.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/test/integration/integration-client.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/integration/integration-client.test.ts 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/integration/integration-client.test.ts
 scope: this-package
 ⏶⏷⏶⏷⏶
 // * These tests verify that consumers of this software actually receive an API
@@ -27697,8 +27829,8 @@ test.todo('this');
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/test/integration/integration-node-smoke.test.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/test/integration/integration-node-smoke.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/integration/integration-node-smoke.test.ts 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/integration/integration-node-smoke.test.ts
 scope: this-package
 ⏶⏷⏶⏷⏶
 // * These are relatively-simple "smoke" tests to ensure this software is
@@ -27713,8 +27845,8 @@ test.todo('this');
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/test/setup.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/test/setup.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/setup.ts 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/setup.ts
 scope: this-package
 ⏶⏷⏶⏷⏶
 /**
@@ -27728,8 +27860,8 @@ import 'jest-extended/all';
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/test/unit-x.test.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/test/unit-x.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/unit-x.test.ts 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/unit-x.test.ts
 scope: this-package
 ⏶⏷⏶⏷⏶
 // * These tests ensure the exported interface under test functions as expected.
@@ -27738,8 +27870,8 @@ test.todo('this');
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/test/index.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/test/index.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/index.ts 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/index.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
 /**
@@ -27751,8 +27883,8 @@ export * from '@-xun/test';
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/test/setup.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/test/setup.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/setup.ts 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/setup.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
 /**
@@ -29971,8 +30103,8 @@ scope: unlimited
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tsconfig.json generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tsc.package.docs.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tsc.package.docs.json
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tsconfig.json generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tsc.package.docs.json 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tsc.package.docs.json
 scope: unlimited
 ⏶⏷⏶⏷⏶
 /**
@@ -30001,8 +30133,8 @@ scope: unlimited
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tsconfig.json generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tsc.package.lint.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tsc.package.lint.json
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tsconfig.json generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tsc.package.lint.json 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tsc.package.lint.json
 scope: unlimited
 ⏶⏷⏶⏷⏶
 /**
@@ -30031,8 +30163,8 @@ scope: unlimited
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tsconfig.json generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tsc.package.types.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tsc.package.types.json
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tsconfig.json generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tsc.package.types.json 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tsc.package.types.json
 scope: unlimited
 ⏶⏷⏶⏷⏶
 /**
@@ -30071,8 +30203,8 @@ scope: unlimited
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tsconfig.json generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tsc.project.lint.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tsc.project.lint.json
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tsconfig.json generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tsc.project.lint.json 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tsc.project.lint.json
 scope: unlimited
 ⏶⏷⏶⏷⏶
 /**
@@ -30100,8 +30232,8 @@ scope: unlimited
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tsconfig.json generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tsconfig.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tsconfig.json
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tsconfig.json generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tsconfig.json 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tsconfig.json
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
@@ -30172,8 +30304,8 @@ scope: unlimited
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tsconfig.json generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tsc.package.docs.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tsc.package.docs.json
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tsconfig.json generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tsc.package.docs.json 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tsc.package.docs.json
 scope: this-package
 ⏶⏷⏶⏷⏶
 /**
@@ -30202,8 +30334,8 @@ scope: this-package
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tsconfig.json generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tsc.package.lint.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tsc.package.lint.json
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tsconfig.json generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tsc.package.lint.json 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tsc.package.lint.json
 scope: this-package
 ⏶⏷⏶⏷⏶
 /**
@@ -30232,8 +30364,8 @@ scope: this-package
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tsconfig.json generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tsc.package.types.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tsc.package.types.json
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tsconfig.json generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tsc.package.types.json 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tsc.package.types.json
 scope: this-package
 ⏶⏷⏶⏷⏶
 /**
@@ -30272,8 +30404,8 @@ scope: this-package
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tsconfig.json generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tsc.project.lint.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tsc.project.lint.json
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tsconfig.json generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tsc.project.lint.json 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tsc.project.lint.json
 scope: this-package
 ⏶⏷⏶⏷⏶
 /**
@@ -30301,8 +30433,8 @@ scope: this-package
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tsconfig.json generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tsconfig.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tsconfig.json
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tsconfig.json generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tsconfig.json 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tsconfig.json
 scope: this-package
 ⏶⏷⏶⏷⏶
 {
@@ -30373,8 +30505,8 @@ scope: this-package
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tsconfig.json generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tsc.package.docs.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tsc.package.docs.json
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tsconfig.json generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tsc.package.docs.json 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tsc.package.docs.json
 scope: unlimited
 ⏶⏷⏶⏷⏶
 /**
@@ -30403,8 +30535,8 @@ scope: unlimited
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tsconfig.json generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tsc.package.lint.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tsc.package.lint.json
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tsconfig.json generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tsc.package.lint.json 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tsc.package.lint.json
 scope: unlimited
 ⏶⏷⏶⏷⏶
 /**
@@ -30433,8 +30565,8 @@ scope: unlimited
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tsconfig.json generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tsc.package.types.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tsc.package.types.json
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tsconfig.json generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tsc.package.types.json 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tsc.package.types.json
 scope: unlimited
 ⏶⏷⏶⏷⏶
 /**
@@ -30473,8 +30605,8 @@ scope: unlimited
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tsconfig.json generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tsc.project.lint.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tsc.project.lint.json
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tsconfig.json generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tsc.project.lint.json 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tsc.project.lint.json
 scope: unlimited
 ⏶⏷⏶⏷⏶
 /**
@@ -30502,8 +30634,8 @@ scope: unlimited
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tsconfig.json generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tsconfig.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tsconfig.json
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tsconfig.json generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tsconfig.json 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tsconfig.json
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
@@ -30644,8 +30776,8 @@ scope: unlimited
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tstyche.config.json generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tstyche.config.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tstyche.config.json
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tstyche.config.json generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tstyche.config.json 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tstyche.config.json
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
@@ -30658,8 +30790,8 @@ scope: unlimited
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tstyche.config.json generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tstyche.config.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tstyche.config.json
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tstyche.config.json generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tstyche.config.json 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tstyche.config.json
 scope: this-package
 ⏶⏷⏶⏷⏶
 {
@@ -30672,8 +30804,8 @@ scope: this-package
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tstyche.config.json generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tstyche.config.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/tstyche.config.json
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tstyche.config.json generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tstyche.config.json 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/tstyche.config.json
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
@@ -30726,24 +30858,24 @@ scope: unlimited
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> turbo.json generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/turbo.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/turbo.json
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> turbo.json generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/turbo.json 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/turbo.json
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {}
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> turbo.json generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/turbo.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/turbo.json
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> turbo.json generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/turbo.json 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/turbo.json
 scope: this-package
 ⏶⏷⏶⏷⏶
 {}
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> turbo.json generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/turbo.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/turbo.json
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> turbo.json generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/turbo.json 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/turbo.json
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {}
@@ -30950,8 +31082,8 @@ export type {};
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> types generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/types/_example-d.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/types/_example-d.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> types generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/types/_example-d.ts 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/types/_example-d.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
 declare module 'glob-gitignore' {
@@ -30982,16 +31114,16 @@ declare module 'glob-gitignore' {
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> types generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/types/global.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/types/global.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> types generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/types/global.ts 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/types/global.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
 export type {};
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> types generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/types/_example-d.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/types/_example-d.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> types generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/types/_example-d.ts 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/types/_example-d.ts
 scope: this-package
 ⏶⏷⏶⏷⏶
 declare module 'glob-gitignore' {
@@ -31022,16 +31154,16 @@ declare module 'glob-gitignore' {
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> types generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/types/global.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/types/global.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> types generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/types/global.ts 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/types/global.ts
 scope: this-package
 ⏶⏷⏶⏷⏶
 export type {};
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> types generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/types/_example-d.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/types/_example-d.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> types generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/types/_example-d.ts 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/types/_example-d.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
 declare module 'glob-gitignore' {
@@ -31062,8 +31194,8 @@ declare module 'glob-gitignore' {
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> types generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/types/global.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/types/global.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> types generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/types/global.ts 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/types/global.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
 export type {};
@@ -31110,24 +31242,24 @@ scope: unlimited
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> vercel.json generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/vercel.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/vercel.json
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> vercel.json generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/vercel.json 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/vercel.json
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {}
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> vercel.json generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/vercel.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/vercel.json
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> vercel.json generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/vercel.json 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/vercel.json
 scope: this-package
 ⏶⏷⏶⏷⏶
 {}
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> vercel.json generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/vercel.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/vercel.json
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> vercel.json generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/vercel.json 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/vercel.json
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {}
@@ -31254,8 +31386,8 @@ export default config;
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> webpack.config.mjs generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/webpack.config.mjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/webpack.config.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> webpack.config.mjs generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/webpack.config.mjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/webpack.config.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -31278,8 +31410,8 @@ export default config;
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> webpack.config.mjs generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/webpack.config.mjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/webpack.config.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> webpack.config.mjs generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/webpack.config.mjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/webpack.config.mjs
 scope: this-package
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -31302,8 +31434,8 @@ export default config;
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> webpack.config.mjs generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/webpack.config.mjs 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src/webpack.config.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> webpack.config.mjs generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/webpack.config.mjs 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/webpack.config.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // @ts-check
