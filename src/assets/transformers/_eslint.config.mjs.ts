@@ -792,14 +792,9 @@ const config = moduleExport({
   ...(await assertEnvironment())
 });
 
-config.push(
-  /**
-   * @type {import('@-xun/symbiote/assets/${asset}').EslintConfig}
-   */
-  {
-    /* Add custom config here, such as disabling certain rules */
-  }
-);
+config.push({
+  /* Add custom config here, such as disabling certain rules */
+});
 
 export default config;
 
