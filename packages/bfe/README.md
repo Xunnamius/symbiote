@@ -1410,130 +1410,42 @@ before that extended command's `handler` can be invoked.
 
 This can make it especially cumbersome to import an extended command from a file
 and then invoke its `handler`, which is dead simple for normal Black Flag
-commands.
+commands, and can introduce transitive tight-couplings between commands, which
+makes bugs more likely and harder to spot.
 
-For example, take the following extended command:
-
-```typescript
-// file: my-cli/commands/command-A.ts
-import { type CustomExecutionContext } from '../configure';
-
-export type CustomCliArguments = {
-  /* ... */
-};
-
-export default function command({ state }: CustomExecutionContext) {
-  const [builder, withHandlerExtensions] =
-    withBuilderExtensions<CustomCliArguments>({
-      // ...
-    });
-
-  return {
-    builder,
-    handler: withHandlerExtensions<CustomCliArguments>(
-      async function (/* ... */) {
-        // ...
-      }
-    )
-  };
-}
-```
-
-Were `command-A` a normal non-extended Black Flag command, we could simply
-import it into another command (`command-B`) and run it like so:
-
-```typescript
-// file: my-cli/commands/command-B.ts
-import { type CustomExecutionContext } from '../configure';
-
-export type CustomCliArguments = {
-  /* ... */
-};
-
-export default function command(context: CustomExecutionContext) {
-  const [builder, withHandlerExtensions] =
-    withBuilderExtensions<CustomCliArguments>({
-      // ...
-    });
-
-  return {
-    builder,
-    handler: withHandlerExtensions<CustomCliArguments>(async function (argv) {
-      const { handler } = (await import('./command-A.js')).default(context);
-      await handler({ ...argv, somethingElse: true });
-
-      // ...
-    })
-  };
-}
-```
-
-Instead, since `command-A` was created using Black Flag Extensions, we must go
-through the following rigamarole:
-
-```typescript
-// file: my-cli/commands/command-B.ts
-import { type CustomExecutionContext } from '../configure';
-
-export type CustomCliArguments = {
-  /* ... */
-};
-
-export default function command(context: CustomExecutionContext) {
-  const [builder, withHandlerExtensions] =
-    withBuilderExtensions<CustomCliArguments>({
-      // ...
-    });
-
-  return {
-    builder,
-    handler: withHandlerExtensions<CustomCliArguments>(async function (argv) {
-      const blackFlag = {
-        /* some kind of black hole mock or proxy */
-      };
-
-      const commandAArgv = {
-        ...argv,
-        somethingElse: true
-      };
-
-      const { builder, handler } = (await import('./command-A.js')).default(
-        context
-      );
-
-      builder(blackFlag, false, undefined);
-      builder(blackFlag, false, commandAArgv);
-
-      await handler(commandAArgv);
-
-      // ...
-    })
-  };
-}
-```
-
-Having to go through all that just to invoke one command within another quickly
-becomes verbose and tiresome. To say nothing of the fact that `command-A` might
-be changed down the road to export a configuration object or something other
-than a default function.
-
-Now we've got transitive tight-couplings between commands, which makes bugs more
-likely and harder to spot.
-
-Hence the purpose of `getInvocableExtendedHandler`. This function returns a
-version of the extended command's `handler` function that is ready to invoke
-immediately. It can be used with both BFE and normal Black Flag command exports.
+`getInvocableExtendedHandler` solves this by returning a version of the extended
+command's `handler` function that is ready to invoke immediately. Said `handler`
+expects a single `argv` parameter which is passed-through to your command's
+handler as-is.
 
 > [!NOTE]
 >
-> Command `builder` and `handler` exports invoked via
-> `getInvocableExtendedHandler` will receive an `argv` containing the
-> `$artificiallyInvoked` symbol. This allows handlers to avoid potentially
-> dangerous actions (such as altering global context state) when the command
-> isn't actually being invoked by Black Flag.
+> Command `handler` exports invoked via `getInvocableExtendedHandler` will
+> receive an `argv` containing the `$artificiallyInvoked` symbol. This allows
+> handlers to avoid potentially dangerous actions (such as altering global
+> context state) when the command isn't actually being invoked by Black Flag.
 >
 > However, to get intellisense/TypeScript support for the existence of
 > `$artificiallyInvoked` in `argv`, you must use `BfeStrictArguments`.
+
+> [!CAUTION]
+>
+> Command `handler` exports invoked via `getInvocableExtendedHandler` will
+> _never_ check the given `argv` for correctness or update any of its
+> keys/values (except for setting `$artificiallyInvoked`).
+>
+> By invoking a command's handler function outside of Black Flag, you're
+> essentially treating it like a normal function. And all handler functions
+> require a "reified argv" parameter, i.e. the object given to a command handler
+> after all BF/BFE checks have passed and all updates to argv have been applied.
+>
+> If you want to invoke a full Black Flag command programmatically, use
+> [`runProgram`][56]. If instead you want to call an individual command's
+> (relatively) lightweight handler function directly, use
+> `getInvocableExtendedHandler`.
+
+`getInvocableExtendedHandler` can be used with both BFE and normal Black Flag
+command exports.
 
 For example, in JavaScript:
 
@@ -2398,3 +2310,5 @@ specification. Contributions of any kind welcome!
 [53]: https://en.wikipedia.org/wiki/Vacuous_truth
 [54]: https://en.wikipedia.org/wiki/Consequent
 [55]: https://yargs.js.org/docs#api-reference-coercekey-fn
+[56]:
+  https://github.com/Xunnamius/black-flag/blob/main/docs/index/functions/runProgram.md
