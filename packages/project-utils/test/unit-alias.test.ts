@@ -30,6 +30,16 @@ const mockProjectRoot = '/path/to/root';
 const mockPolyrepoMappings = [
   [
     {
+      alias: 'rootverse',
+      prefix: 'exact',
+      suffix: 'open',
+      group: WellKnownImportAlias.Rootverse,
+      packageId: undefined
+    },
+    { path: '' as RelativePath, prefix: 'root', suffix: 'open', extensionless: true }
+  ],
+  [
+    {
       alias: 'universe',
       prefix: 'exact',
       suffix: 'open',
@@ -52,16 +62,6 @@ const mockPolyrepoMappings = [
       suffix: 'none',
       extensionless: false
     }
-  ],
-  [
-    {
-      alias: 'rootverse',
-      prefix: 'exact',
-      suffix: 'open',
-      group: WellKnownImportAlias.Rootverse,
-      packageId: undefined
-    },
-    { path: '' as RelativePath, prefix: 'root', suffix: 'open', extensionless: true }
   ],
   [
     {
@@ -93,6 +93,151 @@ const mockPolyrepoMappings = [
 const mockHybridrepoMappings = [
   [
     {
+      alias: 'multiverse+pkg-1',
+      prefix: 'exact',
+      suffix: 'open',
+      group: WellKnownImportAlias.Multiverse,
+      packageId: 'pkg-1'
+    },
+    {
+      path: 'path/to/packages/pkg-1/src' as RelativePath,
+      prefix: 'root',
+      suffix: 'open',
+      extensionless: true
+    }
+  ],
+  [
+    {
+      alias: 'multiverse+pkg-2',
+      prefix: 'exact',
+      suffix: 'open',
+      group: WellKnownImportAlias.Multiverse,
+      packageId: 'pkg-2'
+    },
+    {
+      path: 'path/to/packages/pkg-2/src' as RelativePath,
+      prefix: 'root',
+      suffix: 'open',
+      extensionless: true
+    }
+  ],
+  [
+    {
+      alias: 'multiverse+pkg-10',
+      prefix: 'exact',
+      suffix: 'open',
+      group: WellKnownImportAlias.Multiverse,
+      packageId: 'pkg-10'
+    },
+    {
+      path: 'path/to/packages/pkg-10/src' as RelativePath,
+      prefix: 'root',
+      suffix: 'open',
+      extensionless: true
+    }
+  ],
+  [
+    {
+      alias: 'multiverse+pkg-1',
+      prefix: 'exact',
+      suffix: 'exact',
+      group: WellKnownImportAlias.Multiverse,
+      packageId: 'pkg-1'
+    },
+    {
+      path: 'path/to/packages/pkg-1/src/index' as RelativePath,
+      prefix: 'root',
+      suffix: 'none',
+      extensionless: false
+    }
+  ],
+  [
+    {
+      alias: 'multiverse+pkg-2',
+      prefix: 'exact',
+      suffix: 'exact',
+      group: WellKnownImportAlias.Multiverse,
+      packageId: 'pkg-2'
+    },
+    {
+      path: 'path/to/packages/pkg-2/src/index' as RelativePath,
+      prefix: 'root',
+      suffix: 'none',
+      extensionless: false
+    }
+  ],
+  [
+    {
+      alias: 'multiverse+pkg-10',
+      prefix: 'exact',
+      suffix: 'exact',
+      group: WellKnownImportAlias.Multiverse,
+      packageId: 'pkg-10'
+    },
+    {
+      path: 'path/to/packages/pkg-10/src/index' as RelativePath,
+      prefix: 'root',
+      suffix: 'none',
+      extensionless: false
+    }
+  ],
+  [
+    {
+      alias: 'rootverse+pkg-1',
+      prefix: 'exact',
+      suffix: 'open',
+      group: WellKnownImportAlias.Rootverse,
+      packageId: 'pkg-1'
+    },
+    {
+      path: 'path/to/packages/pkg-1' as RelativePath,
+      prefix: 'root',
+      suffix: 'open',
+      extensionless: true
+    }
+  ],
+  [
+    {
+      alias: 'rootverse+pkg-2',
+      prefix: 'exact',
+      suffix: 'open',
+      group: WellKnownImportAlias.Rootverse,
+      packageId: 'pkg-2'
+    },
+    {
+      path: 'path/to/packages/pkg-2' as RelativePath,
+      prefix: 'root',
+      suffix: 'open',
+      extensionless: true
+    }
+  ],
+  [
+    {
+      alias: 'rootverse+pkg-10',
+      prefix: 'exact',
+      suffix: 'open',
+      group: WellKnownImportAlias.Rootverse,
+      packageId: 'pkg-10'
+    },
+    {
+      path: 'path/to/packages/pkg-10' as RelativePath,
+      prefix: 'root',
+      suffix: 'open',
+      extensionless: true
+    }
+  ],
+  [
+    {
+      alias: 'rootverse',
+      prefix: 'exact',
+      suffix: 'open',
+      group: WellKnownImportAlias.Rootverse,
+      packageId: undefined
+    },
+    { path: '' as RelativePath, prefix: 'root', suffix: 'open', extensionless: true }
+  ],
+  [
+    {
       alias: 'universe',
       prefix: 'exact',
       suffix: 'open',
@@ -118,103 +263,18 @@ const mockHybridrepoMappings = [
   ],
   [
     {
-      alias: 'multiverse+pkg-2',
+      alias: 'testverse+pkg-1',
       prefix: 'exact',
       suffix: 'open',
-      group: WellKnownImportAlias.Multiverse,
-      packageId: 'pkg-2'
-    },
-    {
-      path: 'path/to/packages/pkg-2/src' as RelativePath,
-      prefix: 'root',
-      suffix: 'open',
-      extensionless: true
-    }
-  ],
-  [
-    {
-      alias: 'multiverse+pkg-1',
-      prefix: 'exact',
-      suffix: 'open',
-      group: WellKnownImportAlias.Multiverse,
+      group: WellKnownImportAlias.Testverse,
       packageId: 'pkg-1'
     },
     {
-      path: 'path/to/packages/pkg-1/src' as RelativePath,
+      path: 'path/to/packages/pkg-1/test' as RelativePath,
       prefix: 'root',
       suffix: 'open',
       extensionless: true
     }
-  ],
-  [
-    {
-      alias: 'multiverse+pkg-2',
-      prefix: 'exact',
-      suffix: 'exact',
-      group: WellKnownImportAlias.Multiverse,
-      packageId: 'pkg-2'
-    },
-    {
-      path: 'path/to/packages/pkg-2/src/index' as RelativePath,
-      prefix: 'root',
-      suffix: 'none',
-      extensionless: false
-    }
-  ],
-  [
-    {
-      alias: 'multiverse+pkg-1',
-      prefix: 'exact',
-      suffix: 'exact',
-      group: WellKnownImportAlias.Multiverse,
-      packageId: 'pkg-1'
-    },
-    {
-      path: 'path/to/packages/pkg-1/src/index' as RelativePath,
-      prefix: 'root',
-      suffix: 'none',
-      extensionless: false
-    }
-  ],
-  [
-    {
-      alias: 'rootverse+pkg-2',
-      prefix: 'exact',
-      suffix: 'open',
-      group: WellKnownImportAlias.Rootverse,
-      packageId: 'pkg-2'
-    },
-    {
-      path: 'path/to/packages/pkg-2' as RelativePath,
-      prefix: 'root',
-      suffix: 'open',
-      extensionless: true
-    }
-  ],
-  [
-    {
-      alias: 'rootverse+pkg-1',
-      prefix: 'exact',
-      suffix: 'open',
-      group: WellKnownImportAlias.Rootverse,
-      packageId: 'pkg-1'
-    },
-    {
-      path: 'path/to/packages/pkg-1' as RelativePath,
-      prefix: 'root',
-      suffix: 'open',
-      extensionless: true
-    }
-  ],
-  [
-    {
-      alias: 'rootverse',
-      prefix: 'exact',
-      suffix: 'open',
-      group: WellKnownImportAlias.Rootverse,
-      packageId: undefined
-    },
-    { path: '' as RelativePath, prefix: 'root', suffix: 'open', extensionless: true }
   ],
   [
     {
@@ -233,14 +293,14 @@ const mockHybridrepoMappings = [
   ],
   [
     {
-      alias: 'testverse+pkg-1',
+      alias: 'testverse+pkg-10',
       prefix: 'exact',
       suffix: 'open',
       group: WellKnownImportAlias.Testverse,
-      packageId: 'pkg-1'
+      packageId: 'pkg-10'
     },
     {
-      path: 'path/to/packages/pkg-1/test' as RelativePath,
+      path: 'path/to/packages/pkg-10/test' as RelativePath,
       prefix: 'root',
       suffix: 'open',
       extensionless: true
@@ -590,6 +650,12 @@ describe('::generateRawAliasMap', () => {
               json: {},
               root: '/path/to/root/path/to/packages/pkg-2',
               relativeRoot: 'path/to/packages/pkg-2'
+            },
+            {
+              id: 'pkg-10',
+              json: {},
+              root: '/path/to/root/path/to/packages/pkg-10',
+              relativeRoot: 'path/to/packages/pkg-10'
             }
           ]
         }
@@ -641,58 +707,14 @@ describe('::generateRawAliasMap', () => {
     ).toStrictEqual([
       [
         {
-          alias: 'universe',
-          prefix: 'exact',
-          suffix: 'open',
-          group: WellKnownImportAlias.Universe,
-          regExp: /^universe:(.+)$/,
-          packageId: undefined
-        },
-        { path: 'src', prefix: 'root', suffix: 'open', extensionless: true }
-      ],
-      [
-        {
-          alias: 'universe',
-          prefix: 'exact',
-          suffix: 'exact',
-          group: WellKnownImportAlias.Universe,
-          regExp: /^universe$/,
-          packageId: undefined
-        },
-        { path: 'src/index', prefix: 'root', suffix: 'none', extensionless: false }
-      ],
-      [
-        {
-          alias: 'multiverse+b2',
+          alias: 'multiverse+a',
           prefix: 'exact',
           suffix: 'open',
           group: WellKnownImportAlias.Multiverse,
-          regExp: /^multiverse\+b2:(.+)$/,
-          packageId: 'b2'
+          regExp: /^multiverse\+a:(.+)$/,
+          packageId: 'a'
         },
-        { path: 'packages/b2/src', prefix: 'root', suffix: 'open', extensionless: true }
-      ],
-      [
-        {
-          alias: 'multiverse+aa',
-          prefix: 'exact',
-          suffix: 'open',
-          group: WellKnownImportAlias.Multiverse,
-          regExp: /^multiverse\+aa:(.+)$/,
-          packageId: 'aa'
-        },
-        { path: 'packages/aa/src', prefix: 'root', suffix: 'open', extensionless: true }
-      ],
-      [
-        {
-          alias: 'multiverse+a2',
-          prefix: 'exact',
-          suffix: 'open',
-          group: WellKnownImportAlias.Multiverse,
-          regExp: /^multiverse\+a2:(.+)$/,
-          packageId: 'a2'
-        },
-        { path: 'packages/a2/src', prefix: 'root', suffix: 'open', extensionless: true }
+        { path: 'packages/a/src', prefix: 'root', suffix: 'open', extensionless: true }
       ],
       [
         {
@@ -707,58 +729,48 @@ describe('::generateRawAliasMap', () => {
       ],
       [
         {
-          alias: 'multiverse+a',
+          alias: 'multiverse+a2',
           prefix: 'exact',
           suffix: 'open',
           group: WellKnownImportAlias.Multiverse,
-          regExp: /^multiverse\+a:(.+)$/,
-          packageId: 'a'
+          regExp: /^multiverse\+a2:(.+)$/,
+          packageId: 'a2'
         },
-        { path: 'packages/a/src', prefix: 'root', suffix: 'open', extensionless: true }
-      ],
-      [
-        {
-          alias: 'multiverse+b2',
-          prefix: 'exact',
-          suffix: 'exact',
-          group: WellKnownImportAlias.Multiverse,
-          regExp: /^multiverse\+b2$/,
-          packageId: 'b2'
-        },
-        {
-          path: 'packages/b2/src/index',
-          prefix: 'root',
-          suffix: 'none',
-          extensionless: false
-        }
+        { path: 'packages/a2/src', prefix: 'root', suffix: 'open', extensionless: true }
       ],
       [
         {
           alias: 'multiverse+aa',
           prefix: 'exact',
-          suffix: 'exact',
+          suffix: 'open',
           group: WellKnownImportAlias.Multiverse,
-          regExp: /^multiverse\+aa$/,
+          regExp: /^multiverse\+aa:(.+)$/,
           packageId: 'aa'
         },
-        {
-          path: 'packages/aa/src/index',
-          prefix: 'root',
-          suffix: 'none',
-          extensionless: false
-        }
+        { path: 'packages/aa/src', prefix: 'root', suffix: 'open', extensionless: true }
       ],
       [
         {
-          alias: 'multiverse+a2',
+          alias: 'multiverse+b2',
+          prefix: 'exact',
+          suffix: 'open',
+          group: WellKnownImportAlias.Multiverse,
+          regExp: /^multiverse\+b2:(.+)$/,
+          packageId: 'b2'
+        },
+        { path: 'packages/b2/src', prefix: 'root', suffix: 'open', extensionless: true }
+      ],
+      [
+        {
+          alias: 'multiverse+a',
           prefix: 'exact',
           suffix: 'exact',
           group: WellKnownImportAlias.Multiverse,
-          regExp: /^multiverse\+a2$/,
-          packageId: 'a2'
+          regExp: /^multiverse\+a$/,
+          packageId: 'a'
         },
         {
-          path: 'packages/a2/src/index',
+          path: 'packages/a/src/index',
           prefix: 'root',
           suffix: 'none',
           extensionless: false
@@ -782,15 +794,15 @@ describe('::generateRawAliasMap', () => {
       ],
       [
         {
-          alias: 'multiverse+a',
+          alias: 'multiverse+a2',
           prefix: 'exact',
           suffix: 'exact',
           group: WellKnownImportAlias.Multiverse,
-          regExp: /^multiverse\+a$/,
-          packageId: 'a'
+          regExp: /^multiverse\+a2$/,
+          packageId: 'a2'
         },
         {
-          path: 'packages/a/src/index',
+          path: 'packages/a2/src/index',
           prefix: 'root',
           suffix: 'none',
           extensionless: false
@@ -798,47 +810,35 @@ describe('::generateRawAliasMap', () => {
       ],
       [
         {
-          alias: 'rootverse+b2',
+          alias: 'multiverse+aa',
           prefix: 'exact',
-          suffix: 'open',
-          group: WellKnownImportAlias.Rootverse,
-          regExp: /^rootverse\+b2:(.+)$/,
-          packageId: 'b2'
-        },
-        { path: 'packages/b2', prefix: 'root', suffix: 'open', extensionless: true }
-      ],
-      [
-        {
-          alias: 'rootverse+aa',
-          prefix: 'exact',
-          suffix: 'open',
-          group: WellKnownImportAlias.Rootverse,
-          regExp: /^rootverse\+aa:(.+)$/,
+          suffix: 'exact',
+          group: WellKnownImportAlias.Multiverse,
+          regExp: /^multiverse\+aa$/,
           packageId: 'aa'
         },
-        { path: 'packages/aa', prefix: 'root', suffix: 'open', extensionless: true }
+        {
+          path: 'packages/aa/src/index',
+          prefix: 'root',
+          suffix: 'none',
+          extensionless: false
+        }
       ],
       [
         {
-          alias: 'rootverse+a2',
+          alias: 'multiverse+b2',
           prefix: 'exact',
-          suffix: 'open',
-          group: WellKnownImportAlias.Rootverse,
-          regExp: /^rootverse\+a2:(.+)$/,
-          packageId: 'a2'
+          suffix: 'exact',
+          group: WellKnownImportAlias.Multiverse,
+          regExp: /^multiverse\+b2$/,
+          packageId: 'b2'
         },
-        { path: 'packages/a2', prefix: 'root', suffix: 'open', extensionless: true }
-      ],
-      [
         {
-          alias: 'rootverse+a1',
-          prefix: 'exact',
-          suffix: 'open',
-          group: WellKnownImportAlias.Rootverse,
-          regExp: /^rootverse\+a1:(.+)$/,
-          packageId: 'a1'
-        },
-        { path: 'packages/a1', prefix: 'root', suffix: 'open', extensionless: true }
+          path: 'packages/b2/src/index',
+          prefix: 'root',
+          suffix: 'none',
+          extensionless: false
+        }
       ],
       [
         {
@@ -853,6 +853,50 @@ describe('::generateRawAliasMap', () => {
       ],
       [
         {
+          alias: 'rootverse+a1',
+          prefix: 'exact',
+          suffix: 'open',
+          group: WellKnownImportAlias.Rootverse,
+          regExp: /^rootverse\+a1:(.+)$/,
+          packageId: 'a1'
+        },
+        { path: 'packages/a1', prefix: 'root', suffix: 'open', extensionless: true }
+      ],
+      [
+        {
+          alias: 'rootverse+a2',
+          prefix: 'exact',
+          suffix: 'open',
+          group: WellKnownImportAlias.Rootverse,
+          regExp: /^rootverse\+a2:(.+)$/,
+          packageId: 'a2'
+        },
+        { path: 'packages/a2', prefix: 'root', suffix: 'open', extensionless: true }
+      ],
+      [
+        {
+          alias: 'rootverse+aa',
+          prefix: 'exact',
+          suffix: 'open',
+          group: WellKnownImportAlias.Rootverse,
+          regExp: /^rootverse\+aa:(.+)$/,
+          packageId: 'aa'
+        },
+        { path: 'packages/aa', prefix: 'root', suffix: 'open', extensionless: true }
+      ],
+      [
+        {
+          alias: 'rootverse+b2',
+          prefix: 'exact',
+          suffix: 'open',
+          group: WellKnownImportAlias.Rootverse,
+          regExp: /^rootverse\+b2:(.+)$/,
+          packageId: 'b2'
+        },
+        { path: 'packages/b2', prefix: 'root', suffix: 'open', extensionless: true }
+      ],
+      [
+        {
           alias: 'rootverse',
           prefix: 'exact',
           suffix: 'open',
@@ -864,36 +908,36 @@ describe('::generateRawAliasMap', () => {
       ],
       [
         {
-          alias: 'testverse+b2',
+          alias: 'universe',
           prefix: 'exact',
           suffix: 'open',
-          group: WellKnownImportAlias.Testverse,
-          regExp: /^testverse\+b2:(.+)$/,
-          packageId: 'b2'
+          group: WellKnownImportAlias.Universe,
+          regExp: /^universe:(.+)$/,
+          packageId: undefined
         },
-        { path: 'packages/b2/test', prefix: 'root', suffix: 'open', extensionless: true }
+        { path: 'src', prefix: 'root', suffix: 'open', extensionless: true }
       ],
       [
         {
-          alias: 'testverse+aa',
+          alias: 'universe',
           prefix: 'exact',
-          suffix: 'open',
-          group: WellKnownImportAlias.Testverse,
-          regExp: /^testverse\+aa:(.+)$/,
-          packageId: 'aa'
+          suffix: 'exact',
+          group: WellKnownImportAlias.Universe,
+          regExp: /^universe$/,
+          packageId: undefined
         },
-        { path: 'packages/aa/test', prefix: 'root', suffix: 'open', extensionless: true }
+        { path: 'src/index', prefix: 'root', suffix: 'none', extensionless: false }
       ],
       [
         {
-          alias: 'testverse+a2',
+          alias: 'testverse+a',
           prefix: 'exact',
           suffix: 'open',
           group: WellKnownImportAlias.Testverse,
-          regExp: /^testverse\+a2:(.+)$/,
-          packageId: 'a2'
+          regExp: /^testverse\+a:(.+)$/,
+          packageId: 'a'
         },
-        { path: 'packages/a2/test', prefix: 'root', suffix: 'open', extensionless: true }
+        { path: 'packages/a/test', prefix: 'root', suffix: 'open', extensionless: true }
       ],
       [
         {
@@ -908,14 +952,36 @@ describe('::generateRawAliasMap', () => {
       ],
       [
         {
-          alias: 'testverse+a',
+          alias: 'testverse+a2',
           prefix: 'exact',
           suffix: 'open',
           group: WellKnownImportAlias.Testverse,
-          regExp: /^testverse\+a:(.+)$/,
-          packageId: 'a'
+          regExp: /^testverse\+a2:(.+)$/,
+          packageId: 'a2'
         },
-        { path: 'packages/a/test', prefix: 'root', suffix: 'open', extensionless: true }
+        { path: 'packages/a2/test', prefix: 'root', suffix: 'open', extensionless: true }
+      ],
+      [
+        {
+          alias: 'testverse+aa',
+          prefix: 'exact',
+          suffix: 'open',
+          group: WellKnownImportAlias.Testverse,
+          regExp: /^testverse\+aa:(.+)$/,
+          packageId: 'aa'
+        },
+        { path: 'packages/aa/test', prefix: 'root', suffix: 'open', extensionless: true }
+      ],
+      [
+        {
+          alias: 'testverse+b2',
+          prefix: 'exact',
+          suffix: 'open',
+          group: WellKnownImportAlias.Testverse,
+          regExp: /^testverse\+b2:(.+)$/,
+          packageId: 'b2'
+        },
+        { path: 'packages/b2/test', prefix: 'root', suffix: 'open', extensionless: true }
       ],
       [
         {
@@ -948,17 +1014,21 @@ describe('::deriveAliasesForBabel', () => {
     expect.hasAssertions();
 
     expect(deriveAliasesForBabel(mockHybridrepoMappings)).toStrictEqual({
+      '^multiverse\\+pkg\\x2d1:(.+)$': './path/to/packages/pkg-1/src/$1',
+      '^multiverse\\+pkg\\x2d2:(.+)$': './path/to/packages/pkg-2/src/$1',
+      '^multiverse\\+pkg\\x2d10:(.+)$': './path/to/packages/pkg-10/src/$1',
+      '^multiverse\\+pkg\\x2d1$': './path/to/packages/pkg-1/src/index.js',
+      '^multiverse\\+pkg\\x2d2$': './path/to/packages/pkg-2/src/index.js',
+      '^multiverse\\+pkg\\x2d10$': './path/to/packages/pkg-10/src/index.js',
+      '^rootverse\\+pkg\\x2d1:(.+)$': './path/to/packages/pkg-1/$1',
+      '^rootverse\\+pkg\\x2d2:(.+)$': './path/to/packages/pkg-2/$1',
+      '^rootverse\\+pkg\\x2d10:(.+)$': './path/to/packages/pkg-10/$1',
+      '^rootverse:(.+)$': './$1',
       '^universe:(.+)$': './src/$1',
       '^universe$': './src/index.js',
-      '^multiverse\\+pkg\\x2d2:(.+)$': './path/to/packages/pkg-2/src/$1',
-      '^multiverse\\+pkg\\x2d1:(.+)$': './path/to/packages/pkg-1/src/$1',
-      '^multiverse\\+pkg\\x2d2$': './path/to/packages/pkg-2/src/index.js',
-      '^multiverse\\+pkg\\x2d1$': './path/to/packages/pkg-1/src/index.js',
-      '^rootverse\\+pkg\\x2d2:(.+)$': './path/to/packages/pkg-2/$1',
-      '^rootverse\\+pkg\\x2d1:(.+)$': './path/to/packages/pkg-1/$1',
-      '^rootverse:(.+)$': './$1',
-      '^testverse\\+pkg\\x2d2:(.+)$': './path/to/packages/pkg-2/test/$1',
       '^testverse\\+pkg\\x2d1:(.+)$': './path/to/packages/pkg-1/test/$1',
+      '^testverse\\+pkg\\x2d2:(.+)$': './path/to/packages/pkg-2/test/$1',
+      '^testverse\\+pkg\\x2d10:(.+)$': './path/to/packages/pkg-10/test/$1',
       '^testverse:(.+)$': './test/$1',
       '^typeverse:(.+)$': './types/$1'
     });
@@ -966,21 +1036,28 @@ describe('::deriveAliasesForBabel', () => {
 });
 
 describe('::deriveAliasesForEslint', () => {
-  it('returns expected aliases', async () => {
+  it('returns expected aliases in expected order', async () => {
     expect.hasAssertions();
 
     expect(deriveAliasesForEslint(mockHybridrepoMappings)).toStrictEqual([
-      ['universe:*', './src/*'],
-      ['universe', './src/index.ts'],
-      ['multiverse+pkg-2:*', './path/to/packages/pkg-2/src/*'],
       ['multiverse+pkg-1:*', './path/to/packages/pkg-1/src/*'],
-      ['multiverse+pkg-2', './path/to/packages/pkg-2/src/index.ts'],
+      ['multiverse+pkg-2:*', './path/to/packages/pkg-2/src/*'],
+      ['multiverse+pkg-10:*', './path/to/packages/pkg-10/src/*'],
       ['multiverse+pkg-1', './path/to/packages/pkg-1/src/index.ts'],
-      ['rootverse+pkg-2:*', './path/to/packages/pkg-2/*'],
+      ['multiverse+pkg-2', './path/to/packages/pkg-2/src/index.ts'],
+      ['multiverse+pkg-10', './path/to/packages/pkg-10/src/index.ts'],
       ['rootverse+pkg-1:*', './path/to/packages/pkg-1/*'],
+      ['rootverse+pkg-2:*', './path/to/packages/pkg-2/*'],
+      ['rootverse+pkg-10:*', './path/to/packages/pkg-10/*'],
+      // ! It's important aliases like this come AFTER more specific versions
       ['rootverse:*', './*'],
-      ['testverse+pkg-2:*', './path/to/packages/pkg-2/test/*'],
+      ['universe:*', './src/*'],
+      // ! It's important aliases like this come AFTER the open-ended version
+      ['universe', './src/index.ts'],
       ['testverse+pkg-1:*', './path/to/packages/pkg-1/test/*'],
+      ['testverse+pkg-2:*', './path/to/packages/pkg-2/test/*'],
+      ['testverse+pkg-10:*', './path/to/packages/pkg-10/test/*'],
+      // ! It's important aliases like this come AFTER more specific versions
       ['testverse:*', './test/*'],
       ['typeverse:*', './types/*']
     ]);
@@ -994,17 +1071,21 @@ describe('::deriveAliasesForWebpack', () => {
     expect(
       deriveAliasesForWebpack(mockHybridrepoMappings, mockProjectRoot)
     ).toStrictEqual({
+      'multiverse+pkg-1:': `${mockProjectRoot}/path/to/packages/pkg-1/src/`,
+      'multiverse+pkg-2:': `${mockProjectRoot}/path/to/packages/pkg-2/src/`,
+      'multiverse+pkg-10:': `${mockProjectRoot}/path/to/packages/pkg-10/src/`,
+      'multiverse+pkg-1': `${mockProjectRoot}/path/to/packages/pkg-1/src/index.ts`,
+      'multiverse+pkg-2': `${mockProjectRoot}/path/to/packages/pkg-2/src/index.ts`,
+      'multiverse+pkg-10': `${mockProjectRoot}/path/to/packages/pkg-10/src/index.ts`,
+      'rootverse+pkg-1:': `${mockProjectRoot}/path/to/packages/pkg-1/`,
+      'rootverse+pkg-2:': `${mockProjectRoot}/path/to/packages/pkg-2/`,
+      'rootverse+pkg-10:': `${mockProjectRoot}/path/to/packages/pkg-10/`,
+      'rootverse:': `${mockProjectRoot}/`,
       'universe:': `${mockProjectRoot}/src/`,
       universe: `${mockProjectRoot}/src/index.ts`,
-      'multiverse+pkg-2:': `${mockProjectRoot}/path/to/packages/pkg-2/src/`,
-      'multiverse+pkg-1:': `${mockProjectRoot}/path/to/packages/pkg-1/src/`,
-      'multiverse+pkg-2': `${mockProjectRoot}/path/to/packages/pkg-2/src/index.ts`,
-      'multiverse+pkg-1': `${mockProjectRoot}/path/to/packages/pkg-1/src/index.ts`,
-      'rootverse+pkg-2:': `${mockProjectRoot}/path/to/packages/pkg-2/`,
-      'rootverse+pkg-1:': `${mockProjectRoot}/path/to/packages/pkg-1/`,
-      'rootverse:': `${mockProjectRoot}/`,
-      'testverse+pkg-2:': `${mockProjectRoot}/path/to/packages/pkg-2/test/`,
       'testverse+pkg-1:': `${mockProjectRoot}/path/to/packages/pkg-1/test/`,
+      'testverse+pkg-2:': `${mockProjectRoot}/path/to/packages/pkg-2/test/`,
+      'testverse+pkg-10:': `${mockProjectRoot}/path/to/packages/pkg-10/test/`,
       'testverse:': `${mockProjectRoot}/test/`,
       'typeverse:': `${mockProjectRoot}/types/`
     });
@@ -1018,17 +1099,21 @@ describe('::deriveAliasesForNextJs', () => {
     expect(
       deriveAliasesForNextJs(mockHybridrepoMappings, mockProjectRoot)
     ).toStrictEqual({
+      'multiverse+pkg-1:': `${mockProjectRoot}/path/to/packages/pkg-1/src/`,
+      'multiverse+pkg-2:': `${mockProjectRoot}/path/to/packages/pkg-2/src/`,
+      'multiverse+pkg-10:': `${mockProjectRoot}/path/to/packages/pkg-10/src/`,
+      'multiverse+pkg-1': `${mockProjectRoot}/path/to/packages/pkg-1/src/index.ts`,
+      'multiverse+pkg-2': `${mockProjectRoot}/path/to/packages/pkg-2/src/index.ts`,
+      'multiverse+pkg-10': `${mockProjectRoot}/path/to/packages/pkg-10/src/index.ts`,
+      'rootverse+pkg-1:': `${mockProjectRoot}/path/to/packages/pkg-1/`,
+      'rootverse+pkg-2:': `${mockProjectRoot}/path/to/packages/pkg-2/`,
+      'rootverse+pkg-10:': `${mockProjectRoot}/path/to/packages/pkg-10/`,
+      'rootverse:': `${mockProjectRoot}/`,
       'universe:': `${mockProjectRoot}/src/`,
       universe: `${mockProjectRoot}/src/index.ts`,
-      'multiverse+pkg-2:': `${mockProjectRoot}/path/to/packages/pkg-2/src/`,
-      'multiverse+pkg-1:': `${mockProjectRoot}/path/to/packages/pkg-1/src/`,
-      'multiverse+pkg-2': `${mockProjectRoot}/path/to/packages/pkg-2/src/index.ts`,
-      'multiverse+pkg-1': `${mockProjectRoot}/path/to/packages/pkg-1/src/index.ts`,
-      'rootverse+pkg-2:': `${mockProjectRoot}/path/to/packages/pkg-2/`,
-      'rootverse+pkg-1:': `${mockProjectRoot}/path/to/packages/pkg-1/`,
-      'rootverse:': `${mockProjectRoot}/`,
-      'testverse+pkg-2:': `${mockProjectRoot}/path/to/packages/pkg-2/test/`,
       'testverse+pkg-1:': `${mockProjectRoot}/path/to/packages/pkg-1/test/`,
+      'testverse+pkg-2:': `${mockProjectRoot}/path/to/packages/pkg-2/test/`,
+      'testverse+pkg-10:': `${mockProjectRoot}/path/to/packages/pkg-10/test/`,
       'testverse:': `${mockProjectRoot}/test/`,
       'typeverse:': `${mockProjectRoot}/types/`
     });
@@ -1040,17 +1125,21 @@ describe('::deriveAliasesForJest', () => {
     expect.hasAssertions();
 
     expect(deriveAliasesForJest(mockHybridrepoMappings)).toStrictEqual({
+      '^multiverse\\+pkg\\x2d1:(.+)$': '<rootDir>/path/to/packages/pkg-1/src/$1',
+      '^multiverse\\+pkg\\x2d2:(.+)$': '<rootDir>/path/to/packages/pkg-2/src/$1',
+      '^multiverse\\+pkg\\x2d10:(.+)$': '<rootDir>/path/to/packages/pkg-10/src/$1',
+      '^multiverse\\+pkg\\x2d1$': '<rootDir>/path/to/packages/pkg-1/src/index.ts',
+      '^multiverse\\+pkg\\x2d2$': '<rootDir>/path/to/packages/pkg-2/src/index.ts',
+      '^multiverse\\+pkg\\x2d10$': '<rootDir>/path/to/packages/pkg-10/src/index.ts',
+      '^rootverse\\+pkg\\x2d1:(.+)$': '<rootDir>/path/to/packages/pkg-1/$1',
+      '^rootverse\\+pkg\\x2d2:(.+)$': '<rootDir>/path/to/packages/pkg-2/$1',
+      '^rootverse\\+pkg\\x2d10:(.+)$': '<rootDir>/path/to/packages/pkg-10/$1',
+      '^rootverse:(.+)$': '<rootDir>/$1',
       '^universe:(.+)$': '<rootDir>/src/$1',
       '^universe$': '<rootDir>/src/index.ts',
-      '^multiverse\\+pkg\\x2d2:(.+)$': '<rootDir>/path/to/packages/pkg-2/src/$1',
-      '^multiverse\\+pkg\\x2d1:(.+)$': '<rootDir>/path/to/packages/pkg-1/src/$1',
-      '^multiverse\\+pkg\\x2d2$': '<rootDir>/path/to/packages/pkg-2/src/index.ts',
-      '^multiverse\\+pkg\\x2d1$': '<rootDir>/path/to/packages/pkg-1/src/index.ts',
-      '^rootverse\\+pkg\\x2d2:(.+)$': '<rootDir>/path/to/packages/pkg-2/$1',
-      '^rootverse\\+pkg\\x2d1:(.+)$': '<rootDir>/path/to/packages/pkg-1/$1',
-      '^rootverse:(.+)$': '<rootDir>/$1',
-      '^testverse\\+pkg\\x2d2:(.+)$': '<rootDir>/path/to/packages/pkg-2/test/$1',
       '^testverse\\+pkg\\x2d1:(.+)$': '<rootDir>/path/to/packages/pkg-1/test/$1',
+      '^testverse\\+pkg\\x2d2:(.+)$': '<rootDir>/path/to/packages/pkg-2/test/$1',
+      '^testverse\\+pkg\\x2d10:(.+)$': '<rootDir>/path/to/packages/pkg-10/test/$1',
       '^testverse:(.+)$': '<rootDir>/test/$1',
       '^typeverse:(.+)$': '<rootDir>/types/$1'
     });
@@ -1062,17 +1151,21 @@ describe('::deriveAliasesForTypeScript', () => {
     expect.hasAssertions();
 
     expect(deriveAliasesForTypeScript(mockHybridrepoMappings)).toStrictEqual({
+      'multiverse+pkg-1:*': ['path/to/packages/pkg-1/src/*'],
+      'multiverse+pkg-2:*': ['path/to/packages/pkg-2/src/*'],
+      'multiverse+pkg-10:*': ['path/to/packages/pkg-10/src/*'],
+      'multiverse+pkg-1': ['path/to/packages/pkg-1/src/index.ts'],
+      'multiverse+pkg-2': ['path/to/packages/pkg-2/src/index.ts'],
+      'multiverse+pkg-10': ['path/to/packages/pkg-10/src/index.ts'],
+      'rootverse+pkg-1:*': ['path/to/packages/pkg-1/*'],
+      'rootverse+pkg-2:*': ['path/to/packages/pkg-2/*'],
+      'rootverse+pkg-10:*': ['path/to/packages/pkg-10/*'],
+      'rootverse:*': ['*'],
       'universe:*': ['src/*'],
       universe: ['src/index.ts'],
-      'multiverse+pkg-2:*': ['path/to/packages/pkg-2/src/*'],
-      'multiverse+pkg-1:*': ['path/to/packages/pkg-1/src/*'],
-      'multiverse+pkg-2': ['path/to/packages/pkg-2/src/index.ts'],
-      'multiverse+pkg-1': ['path/to/packages/pkg-1/src/index.ts'],
-      'rootverse+pkg-2:*': ['path/to/packages/pkg-2/*'],
-      'rootverse+pkg-1:*': ['path/to/packages/pkg-1/*'],
-      'rootverse:*': ['*'],
-      'testverse+pkg-2:*': ['path/to/packages/pkg-2/test/*'],
       'testverse+pkg-1:*': ['path/to/packages/pkg-1/test/*'],
+      'testverse+pkg-2:*': ['path/to/packages/pkg-2/test/*'],
+      'testverse+pkg-10:*': ['path/to/packages/pkg-10/test/*'],
       'testverse:*': ['test/*'],
       'typeverse:*': ['types/*']
     });
@@ -1096,40 +1189,68 @@ describe('::mapRawSpecifierToRawAliasMapping', () => {
     ).toBeUndefined();
   });
 
-  it('returns the precedence-order matching raw alias given a polyrepo specifier', async () => {
+  it('returns matching raw aliases wrt verse-specificity order given a polyrepo specifier', async () => {
     expect.hasAssertions();
 
     expect(
       mapRawSpecifierToRawAliasMapping(mockPolyrepoMappings, 'universe')
-    ).toStrictEqual(mockPolyrepoMappings[1]);
+    ).toStrictEqual(
+      mockPolyrepoMappings.find(
+        ([{ alias, suffix }]) => alias === 'universe' && suffix === 'exact'
+      )
+    );
 
     expect(
       mapRawSpecifierToRawAliasMapping(mockPolyrepoMappings, 'universe:something.ts')
-    ).toStrictEqual(mockPolyrepoMappings[0]);
+    ).toStrictEqual(
+      mockPolyrepoMappings.find(
+        ([{ alias, suffix }]) => alias === 'universe' && suffix !== 'exact'
+      )
+    );
 
     expect(
       mapRawSpecifierToRawAliasMapping(mockPolyrepoMappings, 'rootverse:something.ts')
-    ).toStrictEqual(mockPolyrepoMappings[2]);
+    ).toStrictEqual(
+      mockPolyrepoMappings.find(
+        ([{ alias, suffix }]) => alias === 'rootverse' && suffix !== 'exact'
+      )
+    );
 
     expect(
       mapRawSpecifierToRawAliasMapping(mockPolyrepoMappings, 'testverse:something.ts')
-    ).toStrictEqual(mockPolyrepoMappings[3]);
+    ).toStrictEqual(
+      mockPolyrepoMappings.find(
+        ([{ alias, suffix }]) => alias === 'testverse' && suffix !== 'exact'
+      )
+    );
 
     expect(
       mapRawSpecifierToRawAliasMapping(mockPolyrepoMappings, 'typeverse:global.ts')
-    ).toStrictEqual(mockPolyrepoMappings[4]);
+    ).toStrictEqual(
+      mockPolyrepoMappings.find(
+        ([{ alias, suffix }]) => alias === 'typeverse' && suffix !== 'exact'
+      )
+    );
   });
 
-  it('returns the precedence-order matching raw alias given a hybridrepo specifier', async () => {
+  it('returns matching raw alias wrt verse-specificity order given a hybridrepo specifier', async () => {
     expect.hasAssertions();
 
     expect(
       mapRawSpecifierToRawAliasMapping(mockHybridrepoMappings, 'universe')
-    ).toStrictEqual(mockHybridrepoMappings[1]);
+    ).toStrictEqual(
+      mockPolyrepoMappings.find(
+        ([{ alias, suffix }]) => alias.startsWith('universe') && suffix === 'exact'
+      )
+    );
 
     expect(
       mapRawSpecifierToRawAliasMapping(mockHybridrepoMappings, 'universe:something.ts')
-    ).toStrictEqual(mockHybridrepoMappings[0]);
+    ).toStrictEqual(
+      mockPolyrepoMappings.find(
+        ([{ alias, suffix }]) => alias.startsWith('universe') && suffix !== 'exact'
+      )
+    );
 
     expect(
       mapRawSpecifierToRawAliasMapping(mockHybridrepoMappings, 'multiverse')
@@ -1137,32 +1258,57 @@ describe('::mapRawSpecifierToRawAliasMapping', () => {
 
     expect(
       mapRawSpecifierToRawAliasMapping(mockHybridrepoMappings, 'multiverse+pkg-2')
-    ).toStrictEqual(mockHybridrepoMappings[4]);
+    ).toStrictEqual(
+      mockHybridrepoMappings.find(
+        ([{ alias, suffix, packageId }]) =>
+          alias.startsWith('multiverse') && suffix === 'exact' && packageId === 'pkg-2'
+      )
+    );
 
     expect(
       mapRawSpecifierToRawAliasMapping(
         mockHybridrepoMappings,
         'multiverse+pkg-2:something/else/over/there.ts'
       )
-    ).toStrictEqual(mockHybridrepoMappings[2]);
+    ).toStrictEqual(
+      mockHybridrepoMappings.find(
+        ([{ alias, suffix, packageId }]) =>
+          alias.startsWith('multiverse') && suffix !== 'exact' && packageId === 'pkg-2'
+      )
+    );
 
     expect(
       mapRawSpecifierToRawAliasMapping(mockHybridrepoMappings, 'multiverse+pkg-1')
-    ).toStrictEqual(mockHybridrepoMappings[5]);
+    ).toStrictEqual(
+      mockHybridrepoMappings.find(
+        ([{ alias, suffix, packageId }]) =>
+          alias.startsWith('multiverse') && suffix === 'exact' && packageId === 'pkg-1'
+      )
+    );
 
     expect(
       mapRawSpecifierToRawAliasMapping(
         mockHybridrepoMappings,
         'rootverse+pkg-1:stuff.ts'
       )
-    ).toStrictEqual(mockHybridrepoMappings[7]);
+    ).toStrictEqual(
+      mockHybridrepoMappings.find(
+        ([{ alias, suffix, packageId }]) =>
+          alias.startsWith('rootverse') && suffix !== 'exact' && packageId === 'pkg-1'
+      )
+    );
 
     expect(
       mapRawSpecifierToRawAliasMapping(
         mockHybridrepoMappings,
         'rootverse+pkg-2:my/stuff.ts'
       )
-    ).toStrictEqual(mockHybridrepoMappings[6]);
+    ).toStrictEqual(
+      mockHybridrepoMappings.find(
+        ([{ alias, suffix, packageId }]) =>
+          alias.startsWith('rootverse') && suffix !== 'exact' && packageId === 'pkg-2'
+      )
+    );
 
     expect(
       mapRawSpecifierToRawAliasMapping(mockHybridrepoMappings, 'rootverse')
@@ -1173,7 +1319,12 @@ describe('::mapRawSpecifierToRawAliasMapping', () => {
         mockHybridrepoMappings,
         'rootverse:stuff/lives/here.ts'
       )
-    ).toStrictEqual(mockHybridrepoMappings[8]);
+    ).toStrictEqual(
+      mockHybridrepoMappings.find(
+        ([{ alias, suffix, packageId }]) =>
+          alias.startsWith('rootverse') && suffix !== 'exact' && !packageId
+      )
+    );
 
     expect(
       mapRawSpecifierToRawAliasMapping(mockHybridrepoMappings, 'testverse')
@@ -1192,15 +1343,29 @@ describe('::mapRawSpecifierToRawAliasMapping', () => {
         mockHybridrepoMappings,
         'testverse+pkg-2:something.ts'
       )
-    ).toStrictEqual(mockHybridrepoMappings[9]);
+    ).toStrictEqual(
+      mockHybridrepoMappings.find(
+        ([{ alias, suffix, packageId }]) =>
+          alias.startsWith('testverse') && suffix !== 'exact' && packageId === 'pkg-2'
+      )
+    );
 
     expect(
       mapRawSpecifierToRawAliasMapping(mockHybridrepoMappings, 'testverse:setup.ts')
-    ).toStrictEqual(mockHybridrepoMappings[11]);
+    ).toStrictEqual(
+      mockHybridrepoMappings.find(
+        ([{ alias, suffix, packageId }]) =>
+          alias.startsWith('testverse') && suffix !== 'exact' && !packageId
+      )
+    );
 
     expect(
       mapRawSpecifierToRawAliasMapping(mockHybridrepoMappings, 'typeverse:global.ts')
-    ).toStrictEqual(mockHybridrepoMappings[12]);
+    ).toStrictEqual(
+      mockHybridrepoMappings.find(
+        ([{ alias, suffix }]) => alias.startsWith('typeverse') && suffix !== 'exact'
+      )
+    );
   });
 });
 

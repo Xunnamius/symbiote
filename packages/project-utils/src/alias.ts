@@ -275,6 +275,13 @@ export function makeRawAliasMapping(
  * said project. Filesystem paths will always be generated as relative paths
  * with respect to the project root.
  *
+ * Entries will be returned in standard verse order: multiverse > rootverse >
+ * universe > testverse > typeverse. Entries within the same verse are sorted in
+ * "specificity" order, meaning open-suffix aliases will have a chance to match
+ * before exact-suffix aliases, and more specific open-suffix aliases will have
+ * a chance to match before less-specific or catch-all open-suffix aliases.
+ * Entries of the same "specificity" will then be natural sorted.
+ *
  * Examples of supported aliases:
  * - `"universe"`                           (root ./index.ts)
  * - `"universe:some/path/index.ts"`        (root ./src/some/path/index.ts)
@@ -346,15 +353,15 @@ export function generateRawAliasMap(
   const rootverseAliases: RawAliasMapping[] = [];
 
   const collator = new Intl.Collator(undefined, { numeric: true });
-  const projectPackagesReversed = projectMetadata.subRootPackages?.all.toSorted(
+  const subRootPackagesSorted = projectMetadata.subRootPackages?.all.toSorted(
     ({ id: idA }, { id: idB }) => {
       // ? Natural sort using latest ES6/7 features!
-      return -1 * collator.compare(idA, idB);
+      return collator.compare(idA, idB);
     }
   );
 
-  if (projectPackagesReversed) {
-    projectPackagesReversed.forEach(function ({ id, relativeRoot }) {
+  if (subRootPackagesSorted) {
+    subRootPackagesSorted.forEach(function ({ id, relativeRoot }) {
       multiverseAliases.push(
         makeRawAliasMapping(
           {
@@ -389,9 +396,9 @@ export function generateRawAliasMap(
       );
     });
 
-    // ! Order matters here due to string matching. Hence, less-specific goes
-    // ! ahead of more-specific.
-    projectPackagesReversed.forEach(function ({ id, relativeRoot }) {
+    // ! Order matters here due to string matching. Hence, open-suffix (above)
+    // ! goes ahead of these exact-suffix.
+    subRootPackagesSorted.forEach(function ({ id, relativeRoot }) {
       multiverseAliases.push(
         makeRawAliasMapping(
           {
@@ -421,6 +428,8 @@ export function generateRawAliasMap(
     )
   );
 
+  // ! Order matters here due to string matching. Hence, more specific
+  // ! open-suffix (above) goes ahead of less specific open-suffix.
   rootverseAliases.push(
     makeRawAliasMapping(
       {
@@ -432,10 +441,11 @@ export function generateRawAliasMap(
     )
   );
 
+  // * Standard verse order:
   return [
-    universeAliases,
     multiverseAliases,
     rootverseAliases,
+    universeAliases,
     testverseAliases,
     typeverseAliases
   ].flat();
