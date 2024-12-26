@@ -242,19 +242,19 @@
     "supports-color": "^8.1.1",
     "text-extensions": "^3.1.0",
     "toss-expression": "^0.1.2",
-    "tstyche": "^3.1.1",
+    "tstyche": "^3.2.0",
     "turbo": "^2.3.3",
-    "type-fest": "^4.30.2",
-    "typedoc": "^0.27.5",
+    "type-fest": "^4.31.0",
+    "typedoc": "^0.27.6",
     "typedoc-plugin-markdown": "^4.3.3",
     "typescript": "^5.7.2",
-    "typescript-eslint": "8.18.0",
+    "typescript-eslint": "8.18.2",
     "unified-engine": "^11.2.2",
     "unique-filename": "^4.0.0",
     "validate-npm-package-name": "^6.0.0"
   },
   "devDependencies": {
-    "@-xun/scripts": "^1.0.0"
+    "@-xun/symbiote": "^2.0.1"
   },
   "engines": {
     "node": "18.20.0 || ^20.15.0 || >=22.5.0"
