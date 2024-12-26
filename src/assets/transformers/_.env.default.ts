@@ -118,7 +118,7 @@ export const { transformer } = makeTransformer(function (context) {
 
       assets.push({
         path: secretsFilePath,
-        generate: () => generateEmptyRealDotEnv()
+        generate: () => generateRealDotEnv()
       });
     }
 
@@ -175,9 +175,9 @@ export const { transformer } = makeTransformer(function (context) {
   }
 
   // ! NEVER log the return value of this function
-  async function generateEmptyRealDotEnv() {
+  async function generateRealDotEnv() {
     // ! CAREFUL not to log sensitive information!
-    debug('generating empty real dotenv file');
+    debug('generating real dotenv file');
 
     let __SENSITIVE__outputFileContents = await readInDotEnv(secretsFilePath);
 
@@ -188,8 +188,14 @@ export const { transformer } = makeTransformer(function (context) {
       actualDotEnvDefaultFileContents
     );
 
+    const defaultDotEnvVariablesWithValues = dotEnvFileToVariablesSet(
+      actualDotEnvDefaultFileContents,
+      { withValues: true }
+    );
+
     // ! CAREFUL not to log sensitive information!
     debug('defaultDotEnvVariables: %O', defaultDotEnvVariables);
+    debug('defaultDotEnvVariablesWithValues: %O', defaultDotEnvVariablesWithValues);
 
     if (__SENSITIVE__outputFileContents) {
       const currentDotEnvVariables = dotEnvFileToVariablesSet(
@@ -208,11 +214,26 @@ export const { transformer } = makeTransformer(function (context) {
         dotEnvVariablesInDefaultButNotCurrent
       );
 
+      const defaultDotEnvVariablesWithValuesArray = defaultDotEnvVariablesWithValues
+        .values()
+        .toArray();
+
       // ? We NEVER overwrite the current secrets file, we only append to it
       __SENSITIVE__outputFileContents +=
-        '\n' + variablesSetToDotEnvFile(dotEnvVariablesInDefaultButNotCurrent);
+        '\n' +
+        variablesSetToDotEnvFile(
+          new Set(
+            dotEnvVariablesInDefaultButNotCurrent.values().map((v) => {
+              return defaultDotEnvVariablesWithValuesArray.find((v_) =>
+                v_.startsWith(v + '=')
+              )!;
+            })
+          )
+        );
     } else {
-      __SENSITIVE__outputFileContents = variablesSetToDotEnvFile(defaultDotEnvVariables);
+      __SENSITIVE__outputFileContents = variablesSetToDotEnvFile(
+        defaultDotEnvVariablesWithValues
+      );
     }
 
     // ! CAREFUL not to log sensitive information!
@@ -233,19 +254,22 @@ export const { transformer } = makeTransformer(function (context) {
   }
 });
 
-function dotEnvFileToVariablesSet(contents: string) {
+function dotEnvFileToVariablesSet(
+  contents: string,
+  { withValues = false }: { withValues?: boolean } = {}
+) {
   return new Set(
     contents
       .split('\n')
       .filter((str) => startsWithAlphaNumeric.test(str) && str.includes('='))
-      .map((str) => str.split('=')[0])
+      .map((str) => (withValues ? str : str.split('=')[0]))
   );
 }
 
 function variablesSetToDotEnvFile(variables: Set<string>) {
   return variables
     .values()
-    .map((v) => v + '=')
+    .map((v) => (v.includes('=') ? v : v + '='))
     .toArray()
     .join('\n');
 }
