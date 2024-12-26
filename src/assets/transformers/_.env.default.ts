@@ -4,8 +4,7 @@ import {
   dotEnvConfigPackageBase,
   dotEnvDefaultConfigPackageBase,
   isAccessible,
-  toRelativePath,
-  type AbsolutePath
+  toRelativePath
 } from 'multiverse+project-utils:fs.ts';
 
 import { generateRootOnlyAssets, makeTransformer, type Asset } from 'universe:assets.ts';
@@ -15,102 +14,12 @@ import { readFile } from 'universe:util.ts';
 
 const startsWithAlphaNumeric = /^[a-z0-9]/i;
 
-export const { transformer } = makeTransformer(function (context) {
-  const { toProjectAbsolutePath, forceOverwritePotentiallyDestructive, log, debug } =
-    context;
-
-  // * Only the root package gets these files
-  return generateRootOnlyAssets(context, async function () {
-    const secretsFilePath = toProjectAbsolutePath(dotEnvConfigPackageBase);
-    const doesSecretsFileAlreadyExist = await isAccessible(secretsFilePath, {
-      useCached: true
-    });
-
-    const shouldOverwriteSecretsFile =
-      forceOverwritePotentiallyDestructive || !doesSecretsFileAlreadyExist;
-
-    const assets: Asset[] = [
-      {
-        path: toProjectAbsolutePath(dotEnvDefaultConfigPackageBase),
-        generate
-      }
-    ];
-
-    if (shouldOverwriteSecretsFile) {
-      if (doesSecretsFileAlreadyExist) {
-        log.warn(
-          [LogTag.IF_NOT_QUIETED],
-          'Potentially appending new secrets to sensitive file (current secrets preserved): %O',
-          toRelativePath(toProjectAbsolutePath(), secretsFilePath)
-        );
-      }
-
-      assets.push({
-        path: secretsFilePath,
-        generate: () => generateDummyDotEnv({ merge: secretsFilePath })
-      });
-    }
-
-    return assets;
-  });
-
-  // ! NEVER log the return value of this function
-  async function generateDummyDotEnv({ merge }: { merge: AbsolutePath }) {
-    debug('generating dummy dotenv file');
-
-    let __SENSITIVE__outputFileContents = '';
-    const dummyDotEnvVariables = generate()
-      .split('\n')
-      .filter((str) => startsWithAlphaNumeric.test(str));
-
-    if (merge) {
-      const __SENSITIVE__currentDotEnv = await readFile(merge).catch(
-        (error: unknown) => {
-          debug.message('unable to read in an existing .env file: %O', error);
-          return '';
-        }
-      );
-
-      if (__SENSITIVE__currentDotEnv) {
-        const currentDotEnvVariables = __SENSITIVE__currentDotEnv
-          .split('\n')
-          .filter((str) => startsWithAlphaNumeric.test(str) && str.includes('='))
-          .map((str) => str.split('=')[0] + '=');
-
-        // ! CAREFUL not to log sensitive information!
-        debug('default dotenv template variables: %O', dummyDotEnvVariables);
-
-        // ! CAREFUL not to log sensitive information!
-        debug('currentDotEnvVariables: %O', currentDotEnvVariables);
-
-        const variablesToAppend = dummyDotEnvVariables.filter((line) =>
-          currentDotEnvVariables.every((variable) => !line.startsWith(variable))
-        );
-
-        // ! CAREFUL not to log sensitive information!
-        debug('variablesToAppend: %O', variablesToAppend);
-
-        // ? We NEVER overwrite the current secrets file, we only append to it
-        __SENSITIVE__outputFileContents = [__SENSITIVE__currentDotEnv]
-          .concat(variablesToAppend)
-          .join('\n');
-      }
-    }
-
-    if (!__SENSITIVE__outputFileContents) {
-      // ! CAREFUL not to log sensitive information!
-      debug('default dotenv template variables: %O', dummyDotEnvVariables);
-      __SENSITIVE__outputFileContents = dummyDotEnvVariables.join('\n');
-    }
-
-    // ! CAREFUL not to log sensitive information!
-    debug('output file content size: ~%O bytes', __SENSITIVE__outputFileContents.length);
-    return __SENSITIVE__outputFileContents;
-  }
-});
-
-function generate() {
-  return `
+/**
+ * The example contents of a default dotenv file.
+ *
+ * ! Trimmed.
+ */
+const dotEnvDefaultFileContents = `
 # shellcheck disable=all
 
 # Codecov test analysis token
@@ -161,5 +70,182 @@ GPG_PASSPHRASE=
 # The GPG key used to sign all git commits and releases. Not referenced during
 # non-CI/CD (i.e. local, manual) deployments.
 GPG_PRIVATE_KEY=
-`;
+`.trim();
+
+export const { transformer } = makeTransformer(function (context) {
+  const { toProjectAbsolutePath, forceOverwritePotentiallyDestructive, log, debug } =
+    context;
+
+  const secretsFilePath = toProjectAbsolutePath(dotEnvConfigPackageBase);
+  const defaultsFilePath = toProjectAbsolutePath(dotEnvDefaultConfigPackageBase);
+
+  // ! CAREFUL not to log sensitive information!
+  debug('secretsFilePath: %O', secretsFilePath);
+  debug('defaultsFilePath: %O', defaultsFilePath);
+
+  // * Only the root package gets these files
+  return generateRootOnlyAssets(context, async function () {
+    const [doesDefaultsFileAlreadyExist, doesSecretsFileAlreadyExist] =
+      await Promise.all([
+        isAccessible(defaultsFilePath, { useCached: false }),
+        isAccessible(secretsFilePath, { useCached: false })
+      ]);
+
+    const shouldGenerateDefaultsFile =
+      forceOverwritePotentiallyDestructive || !doesDefaultsFileAlreadyExist;
+
+    const shouldGenerateSecretsFile =
+      forceOverwritePotentiallyDestructive || !doesSecretsFileAlreadyExist;
+
+    const assets: Asset[] = [];
+
+    if (shouldGenerateDefaultsFile) {
+      assets.push({
+        path: defaultsFilePath,
+        generate: () => generateDefaultDotEnv()
+      });
+    }
+
+    if (shouldGenerateSecretsFile) {
+      if (doesSecretsFileAlreadyExist) {
+        log.warn(
+          [LogTag.IF_NOT_QUIETED],
+          // ! CAREFUL not to log sensitive information!
+          'May append new secrets to a sensitive file (current secrets preserved): %O',
+          toRelativePath(toProjectAbsolutePath(), secretsFilePath)
+        );
+      }
+
+      assets.push({
+        path: secretsFilePath,
+        generate: () => generateEmptyRealDotEnv()
+      });
+    }
+
+    return assets;
+  });
+
+  async function generateDefaultDotEnv() {
+    // ! CAREFUL not to log sensitive information!
+    debug('generating default dotenv file');
+
+    const __SENSITIVE__currentDotEnv = await readInDotEnv(secretsFilePath);
+
+    let outputFileContents =
+      (await readInDotEnv(defaultsFilePath)) || dotEnvDefaultFileContents;
+
+    if (__SENSITIVE__currentDotEnv) {
+      const currentDotEnvVariables = dotEnvFileToVariablesSet(
+        __SENSITIVE__currentDotEnv
+      );
+
+      // ! CAREFUL not to log sensitive information!
+      debug('currentDotEnvVariables: %O', currentDotEnvVariables);
+
+      const defaultDotEnvVariables = dotEnvFileToVariablesSet(outputFileContents);
+
+      // ! CAREFUL not to log sensitive information!
+      debug('defaultDotEnvVariables: %O', defaultDotEnvVariables);
+
+      const dotEnvVariablesInCurrentButNotDefault =
+        currentDotEnvVariables.difference(defaultDotEnvVariables);
+
+      // ! CAREFUL not to log sensitive information!
+      debug(
+        'dotEnvVariablesInCurrentButNotDefault: %O',
+        dotEnvVariablesInCurrentButNotDefault
+      );
+
+      if (dotEnvVariablesInCurrentButNotDefault.size) {
+        // ! CAREFUL not to log sensitive information!
+        log.message(
+          [LogTag.IF_NOT_QUIETED],
+          'One or more variables already in %O but not in the generated %O were added to it',
+          secretsFilePath,
+          dotEnvDefaultConfigPackageBase
+        );
+
+        outputFileContents +=
+          '\n\n# TODO: document these\n' +
+          variablesSetToDotEnvFile(dotEnvVariablesInCurrentButNotDefault);
+      }
+    }
+
+    return outputFileContents;
+  }
+
+  // ! NEVER log the return value of this function
+  async function generateEmptyRealDotEnv() {
+    // ! CAREFUL not to log sensitive information!
+    debug('generating empty real dotenv file');
+
+    let __SENSITIVE__outputFileContents = await readInDotEnv(secretsFilePath);
+
+    const actualDotEnvDefaultFileContents =
+      (await readInDotEnv(defaultsFilePath)) || dotEnvDefaultFileContents;
+
+    const defaultDotEnvVariables = dotEnvFileToVariablesSet(
+      actualDotEnvDefaultFileContents
+    );
+
+    // ! CAREFUL not to log sensitive information!
+    debug('defaultDotEnvVariables: %O', defaultDotEnvVariables);
+
+    if (__SENSITIVE__outputFileContents) {
+      const currentDotEnvVariables = dotEnvFileToVariablesSet(
+        __SENSITIVE__outputFileContents
+      );
+
+      // ! CAREFUL not to log sensitive information!
+      debug('currentDotEnvVariables: %O', currentDotEnvVariables);
+
+      const dotEnvVariablesInDefaultButNotCurrent =
+        defaultDotEnvVariables.difference(currentDotEnvVariables);
+
+      // ! CAREFUL not to log sensitive information!
+      debug(
+        'dotEnvVariablesInDefaultButNotCurrent: %O',
+        dotEnvVariablesInDefaultButNotCurrent
+      );
+
+      // ? We NEVER overwrite the current secrets file, we only append to it
+      __SENSITIVE__outputFileContents +=
+        '\n' + variablesSetToDotEnvFile(dotEnvVariablesInDefaultButNotCurrent);
+    } else {
+      __SENSITIVE__outputFileContents = variablesSetToDotEnvFile(defaultDotEnvVariables);
+    }
+
+    // ! CAREFUL not to log sensitive information!
+    debug('output file content size: ~%O bytes', __SENSITIVE__outputFileContents.length);
+    return __SENSITIVE__outputFileContents;
+  }
+
+  async function readInDotEnv(path: string) {
+    return readFile(path).then(
+      (result) => result.trim(),
+      (error: unknown) => {
+        // ! CAREFUL not to log sensitive information!
+        debug.message(`unable to read in file: %O`, path);
+        debug(error);
+        return '';
+      }
+    );
+  }
+});
+
+function dotEnvFileToVariablesSet(contents: string) {
+  return new Set(
+    contents
+      .split('\n')
+      .filter((str) => startsWithAlphaNumeric.test(str) && str.includes('='))
+      .map((str) => str.split('=')[0])
+  );
+}
+
+function variablesSetToDotEnvFile(variables: Set<string>) {
+  return variables
+    .values()
+    .map((v) => v + '=')
+    .toArray()
+    .join('\n');
 }
