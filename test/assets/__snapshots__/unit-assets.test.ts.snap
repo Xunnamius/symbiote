@@ -519,7 +519,7 @@ exports[`::gatherAssetsFromAllTransformers preset: basic generates expected asse
   "prettier.config.mjs",
   "release.config.cjs",
   "packages/webpack/src/index.ts",
-  "test/index.ts",
+  "test/util.ts",
   "test/setup.ts",
   "packages/webpack/test/unit-x.test.ts",
   "packages/webpack/test/integration/.config.ts",
@@ -598,7 +598,7 @@ exports[`::gatherAssetsFromAllTransformers preset: basic generates expected asse
   "release.config.cjs",
   "packages/pkg-1/src/index.ts",
   "packages/pkg-import/src/index.ts",
-  "test/index.ts",
+  "test/util.ts",
   "test/setup.ts",
   "packages/pkg-1/test/unit-x.test.ts",
   "packages/pkg-1/test/integration/.config.ts",
@@ -677,7 +677,7 @@ exports[`::gatherAssetsFromAllTransformers preset: basic generates expected asse
   "prettier.config.mjs",
   "release.config.cjs",
   "src/index.ts",
-  "test/index.ts",
+  "test/util.ts",
   "test/setup.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
@@ -687,7 +687,6 @@ exports[`::gatherAssetsFromAllTransformers preset: basic generates expected asse
   "tstyche.config.json",
   "turbo.json",
   "types/global.ts",
-  "types/_example-d.ts",
 ]
 `;
 
@@ -748,7 +747,7 @@ exports[`::gatherAssetsFromAllTransformers preset: cli generates expected assets
   "prettier.config.mjs",
   "release.config.cjs",
   "packages/webpack/src/index.ts",
-  "test/index.ts",
+  "test/util.ts",
   "test/setup.ts",
   "packages/webpack/test/unit-x.test.ts",
   "packages/webpack/test/integration/.config.ts",
@@ -835,7 +834,7 @@ exports[`::gatherAssetsFromAllTransformers preset: cli generates expected assets
   "release.config.cjs",
   "packages/pkg-1/src/index.ts",
   "packages/pkg-import/src/index.ts",
-  "test/index.ts",
+  "test/util.ts",
   "test/setup.ts",
   "packages/pkg-1/test/unit-x.test.ts",
   "packages/pkg-1/test/integration/.config.ts",
@@ -919,7 +918,7 @@ exports[`::gatherAssetsFromAllTransformers preset: cli generates expected assets
   "prettier.config.mjs",
   "release.config.cjs",
   "src/index.ts",
-  "test/index.ts",
+  "test/util.ts",
   "test/setup.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
@@ -929,7 +928,6 @@ exports[`::gatherAssetsFromAllTransformers preset: cli generates expected assets
   "tstyche.config.json",
   "turbo.json",
   "types/global.ts",
-  "types/_example-d.ts",
 ]
 `;
 
@@ -994,7 +992,7 @@ exports[`::gatherAssetsFromAllTransformers preset: default (no preset) generates
   "release.config.cjs",
   "packages/webpack/src/index.ts",
   "tailwind.config.mjs",
-  "test/index.ts",
+  "test/util.ts",
   "test/setup.ts",
   "packages/webpack/test/unit-x.test.ts",
   "packages/webpack/test/integration/.config.ts",
@@ -1087,7 +1085,7 @@ exports[`::gatherAssetsFromAllTransformers preset: default (no preset) generates
   "packages/pkg-1/src/index.ts",
   "packages/pkg-import/src/index.ts",
   "tailwind.config.mjs",
-  "test/index.ts",
+  "test/util.ts",
   "test/setup.ts",
   "packages/pkg-1/test/unit-x.test.ts",
   "packages/pkg-1/test/integration/.config.ts",
@@ -1177,7 +1175,7 @@ exports[`::gatherAssetsFromAllTransformers preset: default (no preset) generates
   "release.config.cjs",
   "src/index.ts",
   "tailwind.config.mjs",
-  "test/index.ts",
+  "test/util.ts",
   "test/setup.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
@@ -1187,7 +1185,6 @@ exports[`::gatherAssetsFromAllTransformers preset: default (no preset) generates
   "tstyche.config.json",
   "turbo.json",
   "types/global.ts",
-  "types/_example-d.ts",
   "vercel.json",
   "webpack.config.mjs",
 ]
@@ -1250,7 +1247,7 @@ exports[`::gatherAssetsFromAllTransformers preset: lib generates expected assets
   "prettier.config.mjs",
   "release.config.cjs",
   "packages/webpack/src/index.ts",
-  "test/index.ts",
+  "test/util.ts",
   "test/setup.ts",
   "packages/webpack/test/unit-x.test.ts",
   "packages/webpack/test/integration/.config.ts",
@@ -1337,7 +1334,7 @@ exports[`::gatherAssetsFromAllTransformers preset: lib generates expected assets
   "release.config.cjs",
   "packages/pkg-1/src/index.ts",
   "packages/pkg-import/src/index.ts",
-  "test/index.ts",
+  "test/util.ts",
   "test/setup.ts",
   "packages/pkg-1/test/unit-x.test.ts",
   "packages/pkg-1/test/integration/.config.ts",
@@ -1421,7 +1418,7 @@ exports[`::gatherAssetsFromAllTransformers preset: lib generates expected assets
   "prettier.config.mjs",
   "release.config.cjs",
   "src/index.ts",
-  "test/index.ts",
+  "test/util.ts",
   "test/setup.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
@@ -1431,7 +1428,6 @@ exports[`::gatherAssetsFromAllTransformers preset: lib generates expected assets
   "tstyche.config.json",
   "turbo.json",
   "types/global.ts",
-  "types/_example-d.ts",
 ]
 `;
 
@@ -1492,7 +1488,7 @@ exports[`::gatherAssetsFromAllTransformers preset: lib-esm generates expected as
   "prettier.config.mjs",
   "release.config.cjs",
   "packages/webpack/src/index.ts",
-  "test/index.ts",
+  "test/util.ts",
   "test/setup.ts",
   "packages/webpack/test/unit-x.test.ts",
   "packages/webpack/test/integration/.config.ts",
@@ -1579,7 +1575,7 @@ exports[`::gatherAssetsFromAllTransformers preset: lib-esm generates expected as
   "release.config.cjs",
   "packages/pkg-1/src/index.ts",
   "packages/pkg-import/src/index.ts",
-  "test/index.ts",
+  "test/util.ts",
   "test/setup.ts",
   "packages/pkg-1/test/unit-x.test.ts",
   "packages/pkg-1/test/integration/.config.ts",
@@ -1663,7 +1659,7 @@ exports[`::gatherAssetsFromAllTransformers preset: lib-esm generates expected as
   "prettier.config.mjs",
   "release.config.cjs",
   "src/index.ts",
-  "test/index.ts",
+  "test/util.ts",
   "test/setup.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
@@ -1673,7 +1669,6 @@ exports[`::gatherAssetsFromAllTransformers preset: lib-esm generates expected as
   "tstyche.config.json",
   "turbo.json",
   "types/global.ts",
-  "types/_example-d.ts",
 ]
 `;
 
@@ -1735,7 +1730,7 @@ exports[`::gatherAssetsFromAllTransformers preset: lib-web generates expected as
   "prettier.config.mjs",
   "release.config.cjs",
   "packages/webpack/src/index.ts",
-  "test/index.ts",
+  "test/util.ts",
   "test/setup.ts",
   "packages/webpack/test/unit-x.test.ts",
   "packages/webpack/test/integration/.config.ts",
@@ -1823,7 +1818,7 @@ exports[`::gatherAssetsFromAllTransformers preset: lib-web generates expected as
   "release.config.cjs",
   "packages/pkg-1/src/index.ts",
   "packages/pkg-import/src/index.ts",
-  "test/index.ts",
+  "test/util.ts",
   "test/setup.ts",
   "packages/pkg-1/test/unit-x.test.ts",
   "packages/pkg-1/test/integration/.config.ts",
@@ -1908,7 +1903,7 @@ exports[`::gatherAssetsFromAllTransformers preset: lib-web generates expected as
   "prettier.config.mjs",
   "release.config.cjs",
   "src/index.ts",
-  "test/index.ts",
+  "test/util.ts",
   "test/setup.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
@@ -1918,7 +1913,6 @@ exports[`::gatherAssetsFromAllTransformers preset: lib-web generates expected as
   "tstyche.config.json",
   "turbo.json",
   "types/global.ts",
-  "types/_example-d.ts",
 ]
 `;
 
@@ -1975,7 +1969,7 @@ exports[`::gatherAssetsFromAllTransformers preset: nextjs generates expected ass
   "release.config.cjs",
   "packages/webpack/src/index.ts",
   "tailwind.config.mjs",
-  "test/index.ts",
+  "test/util.ts",
   "test/setup.ts",
   "packages/webpack/test/unit-x.test.ts",
   "packages/webpack/test/integration/.config.ts",
@@ -2060,7 +2054,7 @@ exports[`::gatherAssetsFromAllTransformers preset: nextjs generates expected ass
   "packages/pkg-1/src/index.ts",
   "packages/pkg-import/src/index.ts",
   "tailwind.config.mjs",
-  "test/index.ts",
+  "test/util.ts",
   "test/setup.ts",
   "packages/pkg-1/test/unit-x.test.ts",
   "packages/pkg-1/test/integration/.config.ts",
@@ -2145,7 +2139,7 @@ exports[`::gatherAssetsFromAllTransformers preset: nextjs generates expected ass
   "release.config.cjs",
   "src/index.ts",
   "tailwind.config.mjs",
-  "test/index.ts",
+  "test/util.ts",
   "test/setup.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
@@ -2155,7 +2149,6 @@ exports[`::gatherAssetsFromAllTransformers preset: nextjs generates expected ass
   "tstyche.config.json",
   "turbo.json",
   "types/global.ts",
-  "types/_example-d.ts",
   "vercel.json",
   "webpack.config.mjs",
 ]
@@ -2213,7 +2206,7 @@ exports[`::gatherAssetsFromAllTransformers preset: react generates expected asse
   "release.config.cjs",
   "packages/webpack/src/index.ts",
   "tailwind.config.mjs",
-  "test/index.ts",
+  "test/util.ts",
   "test/setup.ts",
   "packages/webpack/test/unit-x.test.ts",
   "packages/webpack/test/integration/.config.ts",
@@ -2295,7 +2288,7 @@ exports[`::gatherAssetsFromAllTransformers preset: react generates expected asse
   "packages/pkg-1/src/index.ts",
   "packages/pkg-import/src/index.ts",
   "tailwind.config.mjs",
-  "test/index.ts",
+  "test/util.ts",
   "test/setup.ts",
   "packages/pkg-1/test/unit-x.test.ts",
   "packages/pkg-1/test/integration/.config.ts",
@@ -2377,7 +2370,7 @@ exports[`::gatherAssetsFromAllTransformers preset: react generates expected asse
   "release.config.cjs",
   "src/index.ts",
   "tailwind.config.mjs",
-  "test/index.ts",
+  "test/util.ts",
   "test/setup.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
@@ -2387,7 +2380,6 @@ exports[`::gatherAssetsFromAllTransformers preset: react generates expected asse
   "tstyche.config.json",
   "turbo.json",
   "types/global.ts",
-  "types/_example-d.ts",
 ]
 `;
 
@@ -27163,19 +27155,6 @@ export default config;
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/test/index.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/test/index.ts
-scope: this-package
-⏶⏷⏶⏷⏶
-/**
- ** This file exports test utilities specific to this project and beyond what is
- ** exported by @-xun/test; these can be imported using the \`testverse\` alias.
- */
-
-export * from '@-xun/test';
-"
-`;
-
 exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/test/setup.ts 1`] = `
 "key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/test/setup.ts
 scope: this-package
@@ -27188,6 +27167,19 @@ scope: this-package
 // ? https://github.com/jest-community/jest-extended#typescript
 import 'jest-extended';
 import 'jest-extended/all';
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/test/util.ts 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/test/util.ts
+scope: this-package
+⏶⏷⏶⏷⏶
+/**
+ ** This file exports test utilities specific to this project and beyond what is
+ ** exported by @-xun/test; these can be imported using the testversal aliases.
+ */
+
+export * from '@-xun/test';
 "
 `;
 
@@ -27445,19 +27437,6 @@ test.todo('this');
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/test/index.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/test/index.ts
-scope: unlimited
-⏶⏷⏶⏷⏶
-/**
- ** This file exports test utilities specific to this project and beyond what is
- ** exported by @-xun/test; these can be imported using the \`testverse\` alias.
- */
-
-export * from '@-xun/test';
-"
-`;
-
 exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/test/integration/.config.ts 1`] = `
 "key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/test/integration/.config.ts
 scope: unlimited
@@ -27520,6 +27499,19 @@ scope: unlimited
 // * These tests ensure the exported interface under test functions as expected.
 
 test.todo('this');
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/test/util.ts 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/test/util.ts
+scope: unlimited
+⏶⏷⏶⏷⏶
+/**
+ ** This file exports test utilities specific to this project and beyond what is
+ ** exported by @-xun/test; these can be imported using the testversal aliases.
+ */
+
+export * from '@-xun/test';
 "
 `;
 
@@ -27599,19 +27591,6 @@ test.todo('this');
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/test/index.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/test/index.ts
-scope: unlimited
-⏶⏷⏶⏷⏶
-/**
- ** This file exports test utilities specific to this project and beyond what is
- ** exported by @-xun/test; these can be imported using the \`testverse\` alias.
- */
-
-export * from '@-xun/test';
-"
-`;
-
 exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/test/setup.ts 1`] = `
 "key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/test/setup.ts
 scope: unlimited
@@ -27624,6 +27603,19 @@ scope: unlimited
 // ? https://github.com/jest-community/jest-extended#typescript
 import 'jest-extended';
 import 'jest-extended/all';
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/test/util.ts 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/test/util.ts
+scope: unlimited
+⏶⏷⏶⏷⏶
+/**
+ ** This file exports test utilities specific to this project and beyond what is
+ ** exported by @-xun/test; these can be imported using the testversal aliases.
+ */
+
+export * from '@-xun/test';
 "
 `;
 
@@ -27931,19 +27923,6 @@ test.todo('this');
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-monorepo-no-src/test/index.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-monorepo-no-src/test/index.ts
-scope: unlimited
-⏶⏷⏶⏷⏶
-/**
- ** This file exports test utilities specific to this project and beyond what is
- ** exported by @-xun/test; these can be imported using the \`testverse\` alias.
- */
-
-export * from '@-xun/test';
-"
-`;
-
 exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-monorepo-no-src/test/setup.ts 1`] = `
 "key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-monorepo-no-src/test/setup.ts
 scope: unlimited
@@ -27956,6 +27935,19 @@ scope: unlimited
 // ? https://github.com/jest-community/jest-extended#typescript
 import 'jest-extended';
 import 'jest-extended/all';
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-monorepo-no-src/test/util.ts 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-monorepo-no-src/test/util.ts
+scope: unlimited
+⏶⏷⏶⏷⏶
+/**
+ ** This file exports test utilities specific to this project and beyond what is
+ ** exported by @-xun/test; these can be imported using the testversal aliases.
+ */
+
+export * from '@-xun/test';
 "
 `;
 
@@ -28187,19 +28179,6 @@ test.todo('this');
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-monorepo-no-src/test/index.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-monorepo-no-src/test/index.ts
-scope: unlimited
-⏶⏷⏶⏷⏶
-/**
- ** This file exports test utilities specific to this project and beyond what is
- ** exported by @-xun/test; these can be imported using the \`testverse\` alias.
- */
-
-export * from '@-xun/test';
-"
-`;
-
 exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-monorepo-no-src/test/setup.ts 1`] = `
 "key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-monorepo-no-src/test/setup.ts
 scope: unlimited
@@ -28215,13 +28194,13 @@ import 'jest-extended/all';
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/index.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/index.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-monorepo-no-src/test/util.ts 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-monorepo-no-src/test/util.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
 /**
  ** This file exports test utilities specific to this project and beyond what is
- ** exported by @-xun/test; these can be imported using the \`testverse\` alias.
+ ** exported by @-xun/test; these can be imported using the testversal aliases.
  */
 
 export * from '@-xun/test';
@@ -28240,6 +28219,19 @@ scope: unlimited
 // ? https://github.com/jest-community/jest-extended#typescript
 import 'jest-extended';
 import 'jest-extended/all';
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/util.ts 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/util.ts
+scope: unlimited
+⏶⏷⏶⏷⏶
+/**
+ ** This file exports test utilities specific to this project and beyond what is
+ ** exported by @-xun/test; these can be imported using the testversal aliases.
+ */
+
+export * from '@-xun/test';
 "
 `;
 
@@ -28266,19 +28258,6 @@ scope: this-package
 // * also be run locally.
 
 test.todo('this');
-"
-`;
-
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/index.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/index.ts
-scope: this-package
-⏶⏷⏶⏷⏶
-/**
- ** This file exports test utilities specific to this project and beyond what is
- ** exported by @-xun/test; these can be imported using the \`testverse\` alias.
- */
-
-export * from '@-xun/test';
 "
 `;
 
@@ -28347,13 +28326,13 @@ test.todo('this');
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/index.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/index.ts
-scope: unlimited
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/util.ts 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/util.ts
+scope: this-package
 ⏶⏷⏶⏷⏶
 /**
  ** This file exports test utilities specific to this project and beyond what is
- ** exported by @-xun/test; these can be imported using the \`testverse\` alias.
+ ** exported by @-xun/test; these can be imported using the testversal aliases.
  */
 
 export * from '@-xun/test';
@@ -28372,6 +28351,19 @@ scope: unlimited
 // ? https://github.com/jest-community/jest-extended#typescript
 import 'jest-extended';
 import 'jest-extended/all';
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/util.ts 1`] = `
+"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/util.ts
+scope: unlimited
+⏶⏷⏶⏷⏶
+/**
+ ** This file exports test utilities specific to this project and beyond what is
+ ** exported by @-xun/test; these can be imported using the testversal aliases.
+ */
+
+export * from '@-xun/test';
 "
 `;
 
@@ -31559,38 +31551,6 @@ export type {};
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> types generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/types/_example-d.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/types/_example-d.ts
-scope: unlimited
-⏶⏷⏶⏷⏶
-declare module 'glob-gitignore' {
-  import type { GlobOptions } from 'glob';
-
-  export type GlobGitignoreOptions = Omit<GlobOptions, 'ignore'> & {
-    /**
-     * A string or array of strings used to determine which globbed paths are
-     * ignored. Typically this is the result of parsing a .gitignore file (or file
-     * with compatible format) split by \`"
-"\`.
-     */
-    ignore?: string | string[];
-  };
-
-  export async function glob(
-    patterns: string | string[],
-    options: GlobGitignoreOptions
-  ): Promise<string[]>;
-
-  export function sync(
-    patterns: string | string[],
-    options: GlobGitignoreOptions
-  ): string[];
-
-  export function hasMagic(patterns: string | string[], options?: GlobOptions): string;
-}
-"
-`;
-
 exports[`::gatherAssetsFromTransformer <generated asset content snapshots> types generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/types/global.ts 1`] = `
 "key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/types/global.ts
 scope: unlimited
@@ -31599,75 +31559,11 @@ export type {};
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> types generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/types/_example-d.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/types/_example-d.ts
-scope: this-package
-⏶⏷⏶⏷⏶
-declare module 'glob-gitignore' {
-  import type { GlobOptions } from 'glob';
-
-  export type GlobGitignoreOptions = Omit<GlobOptions, 'ignore'> & {
-    /**
-     * A string or array of strings used to determine which globbed paths are
-     * ignored. Typically this is the result of parsing a .gitignore file (or file
-     * with compatible format) split by \`"
-"\`.
-     */
-    ignore?: string | string[];
-  };
-
-  export async function glob(
-    patterns: string | string[],
-    options: GlobGitignoreOptions
-  ): Promise<string[]>;
-
-  export function sync(
-    patterns: string | string[],
-    options: GlobGitignoreOptions
-  ): string[];
-
-  export function hasMagic(patterns: string | string[], options?: GlobOptions): string;
-}
-"
-`;
-
 exports[`::gatherAssetsFromTransformer <generated asset content snapshots> types generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/types/global.ts 1`] = `
 "key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/types/global.ts
 scope: this-package
 ⏶⏷⏶⏷⏶
 export type {};
-"
-`;
-
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> types generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/types/_example-d.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/types/_example-d.ts
-scope: unlimited
-⏶⏷⏶⏷⏶
-declare module 'glob-gitignore' {
-  import type { GlobOptions } from 'glob';
-
-  export type GlobGitignoreOptions = Omit<GlobOptions, 'ignore'> & {
-    /**
-     * A string or array of strings used to determine which globbed paths are
-     * ignored. Typically this is the result of parsing a .gitignore file (or file
-     * with compatible format) split by \`"
-"\`.
-     */
-    ignore?: string | string[];
-  };
-
-  export async function glob(
-    patterns: string | string[],
-    options: GlobGitignoreOptions
-  ): Promise<string[]>;
-
-  export function sync(
-    patterns: string | string[],
-    options: GlobGitignoreOptions
-  ): string[];
-
-  export function hasMagic(patterns: string | string[], options?: GlobOptions): string;
-}
 "
 `;
 
