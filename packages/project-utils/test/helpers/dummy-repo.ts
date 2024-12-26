@@ -127,7 +127,9 @@ export type FixtureName =
   | 'badMonorepoDuplicateIdNamed'
   | 'goodPolyrepo'
   | 'goodPolyrepoNextjsProject'
-  | 'goodPolyrepoNoSrc'
+  | 'goodPolyrepoNoEnv'
+  | 'goodPolyrepoNoSrcYesDefaultEnv'
+  | 'goodPolyrepoOnlyDefaultEnv'
   | 'repoThatDoesNotExist';
 
 /**
@@ -544,8 +546,20 @@ createFixture({
 });
 
 createFixture({
-  fixtureName: 'goodPolyrepoNoSrc',
-  prototypeRoot: 'good-polyrepo-no-src',
+  fixtureName: 'goodPolyrepoNoEnv',
+  prototypeRoot: 'good-polyrepo-no-env',
+  attributes: { cjs: true, polyrepo: true, vercel: true }
+});
+
+createFixture({
+  fixtureName: 'goodPolyrepoNoSrcYesDefaultEnv',
+  prototypeRoot: 'good-polyrepo-no-src-yes-default-env',
+  attributes: { cjs: true, polyrepo: true, vercel: true }
+});
+
+createFixture({
+  fixtureName: 'goodPolyrepoOnlyDefaultEnv',
+  prototypeRoot: 'good-polyrepo-only-default-env',
   attributes: { cjs: true, polyrepo: true, vercel: true }
 });
 
