@@ -974,266 +974,281 @@ export function withBuilderExtensions<
 
         debug('real argv: %O', realArgv);
 
-        const defaultedOptions = (
-          latestBfInstance as unknown as {
-            parsed?: { defaulted?: Record<string, true> };
-          }
-        ).parsed?.defaulted;
+        const { [$artificiallyInvoked]: wasInvokedArtificially } =
+          realArgv as BfeStrictArguments<CustomCliArguments, CustomExecutionContext>;
 
-        debug('defaultedOptions: %O', defaultedOptions);
-        assertHard(defaultedOptions, ErrorMessage.UnexpectedlyFalsyDetailedArguments());
+        debug('wasInvokedArtificially: %O', wasInvokedArtificially);
 
-        deleteDefaultedArguments({ argv: realArgv, defaultedOptions });
-        debug('real argv with defaults deleted: %O', realArgv);
-
-        // ? This is a map between canonical names and their value in realArgv
-        const canonicalArgv = new Map<string, unknown>();
-
-        Object.entries(optionsMetadata.optionNamesAsSeenInArgv).forEach(
-          ([maybeNameInRealArgv, canonicalName]) => {
-            const valueInRealArgv = realArgv[maybeNameInRealArgv];
-            if (valueInRealArgv !== undefined) {
-              canonicalArgv.set(canonicalName, valueInRealArgv);
+        if (wasInvokedArtificially) {
+          debug.warn('skipped bfe checks due to presence of $artificiallyInvoked');
+        } else {
+          const defaultedOptions = (
+            latestBfInstance as unknown as {
+              parsed?: { defaulted?: Record<string, true> };
             }
-          }
-        );
+          ).parsed?.defaulted;
 
-        debug('"canonical argv" used for checks: %O', canonicalArgv);
-
-        // * Run requires checks
-        optionsMetadata.required.forEach(({ [$genesis]: requirer, ...requireds }) => {
+          debug('defaultedOptions: %O', defaultedOptions);
           assertHard(
-            requirer !== undefined,
-            ErrorMessage.MetadataInvariantViolated('requires')
+            defaultedOptions,
+            ErrorMessage.UnexpectedlyFalsyDetailedArguments()
           );
 
-          if (canonicalArgv.has(requirer)) {
-            const missingRequiredKeyValues: Entries<typeof requireds> = [];
+          deleteDefaultedArguments({ argv: realArgv, defaultedOptions });
+          debug('real argv with defaults deleted: %O', realArgv);
 
-            Object.entries(requireds).forEach((required) => {
-              const [requiredKey, requiredValue] = required;
-              const givenValue = canonicalArgv.get(requiredKey);
-              const givenValueIsArray = Array.isArray(givenValue);
+          // ? This is a map between canonical names and their value in realArgv
+          const canonicalArgv = new Map<string, unknown>();
 
-              if (
-                !canonicalArgv.has(requiredKey) ||
-                (requiredValue !== $exists &&
-                  ((givenValueIsArray &&
-                    !givenValue.some((value) => isEqual(value, requiredValue))) ||
-                    (!givenValueIsArray && !isEqual(givenValue, requiredValue))))
-              ) {
-                missingRequiredKeyValues.push(required);
+          Object.entries(optionsMetadata.optionNamesAsSeenInArgv).forEach(
+            ([maybeNameInRealArgv, canonicalName]) => {
+              const valueInRealArgv = realArgv[maybeNameInRealArgv];
+              if (valueInRealArgv !== undefined) {
+                canonicalArgv.set(canonicalName, valueInRealArgv);
               }
-            });
+            }
+          );
 
-            assertSoft(
-              !missingRequiredKeyValues.length,
-              ErrorMessage.RequiresViolation(requirer, missingRequiredKeyValues)
-            );
-          }
-        });
+          debug('"canonical argv" used for checks: %O', canonicalArgv);
 
-        // * Run conflicts checks
-        optionsMetadata.conflicted.forEach(
-          ({ [$genesis]: conflicter, ...conflicteds }) => {
+          // * Run requires checks
+          optionsMetadata.required.forEach(({ [$genesis]: requirer, ...requireds }) => {
             assertHard(
-              conflicter !== undefined,
-              ErrorMessage.MetadataInvariantViolated('conflicts')
+              requirer !== undefined,
+              ErrorMessage.MetadataInvariantViolated('requires')
             );
 
-            if (canonicalArgv.has(conflicter)) {
-              const seenConflictingKeyValues: Entries<typeof conflicteds> = [];
+            if (canonicalArgv.has(requirer)) {
+              const missingRequiredKeyValues: Entries<typeof requireds> = [];
 
-              Object.entries(conflicteds).forEach((keyValue) => {
-                const [conflictedKey, conflictedValue] = keyValue;
-                const givenValue = canonicalArgv.get(conflictedKey);
+              Object.entries(requireds).forEach((required) => {
+                const [requiredKey, requiredValue] = required;
+                const givenValue = canonicalArgv.get(requiredKey);
                 const givenValueIsArray = Array.isArray(givenValue);
 
                 if (
-                  canonicalArgv.has(conflictedKey) &&
-                  (conflictedValue === $exists ||
-                    (givenValueIsArray &&
-                      givenValue.some((value) => isEqual(value, conflictedValue))) ||
-                    (!givenValueIsArray && isEqual(givenValue, conflictedValue)))
+                  !canonicalArgv.has(requiredKey) ||
+                  (requiredValue !== $exists &&
+                    ((givenValueIsArray &&
+                      !givenValue.some((value) => isEqual(value, requiredValue))) ||
+                      (!givenValueIsArray && !isEqual(givenValue, requiredValue))))
                 ) {
-                  seenConflictingKeyValues.push(keyValue);
+                  missingRequiredKeyValues.push(required);
                 }
               });
 
               assertSoft(
-                !seenConflictingKeyValues.length,
-                ErrorMessage.ConflictsViolation(conflicter, seenConflictingKeyValues)
+                !missingRequiredKeyValues.length,
+                ErrorMessage.RequiresViolation(requirer, missingRequiredKeyValues)
               );
             }
-          }
-        );
-
-        // * Run demandThisOptionIf checks
-        optionsMetadata.demandedIf.forEach(({ [$genesis]: demanded, ...demanders }) => {
-          assertHard(
-            demanded !== undefined,
-            ErrorMessage.MetadataInvariantViolated('demandThisOptionIf')
-          );
-
-          const sawDemanded = canonicalArgv.has(demanded);
-
-          Object.entries(demanders).forEach((demander) => {
-            const [demanderKey, demanderValue] = demander;
-            const givenValue = canonicalArgv.get(demanderKey);
-            const givenValueIsArray = Array.isArray(givenValue);
-
-            const sawADemander =
-              canonicalArgv.has(demanderKey) &&
-              (demanderValue === $exists ||
-                (givenValueIsArray &&
-                  givenValue.some((value) => isEqual(value, demanderValue))) ||
-                (!givenValueIsArray && isEqual(givenValue, demanderValue)));
-
-            assertSoft(
-              !sawADemander || sawDemanded,
-              ErrorMessage.DemandIfViolation(demanded, demander)
-            );
-          });
-        });
-
-        // * Run demandThisOptionOr checks
-        optionsMetadata.demandedAtLeastOne.forEach((group) => {
-          const groupEntries = Object.entries(group);
-          const sawAtLeastOne = groupEntries.some((keyValue) => {
-            const [key, value] = keyValue;
-            const givenValue = canonicalArgv.get(key);
-            const givenValueIsArray = Array.isArray(givenValue);
-
-            return (
-              canonicalArgv.has(key) &&
-              (value === $exists ||
-                (givenValueIsArray &&
-                  givenValue.some((value_) => isEqual(value_, value))) ||
-                (!givenValueIsArray && isEqual(givenValue, value)))
-            );
           });
 
-          assertSoft(sawAtLeastOne, ErrorMessage.DemandOrViolation(groupEntries));
-        });
+          // * Run conflicts checks
+          optionsMetadata.conflicted.forEach(
+            ({ [$genesis]: conflicter, ...conflicteds }) => {
+              assertHard(
+                conflicter !== undefined,
+                ErrorMessage.MetadataInvariantViolated('conflicts')
+              );
 
-        // * Run demandThisOptionXor checks
-        optionsMetadata.demandedMutuallyExclusive.forEach((group) => {
-          const groupEntries = Object.entries(group);
-          let sawAtLeastOne: KeyValueEntry | undefined = undefined;
+              if (canonicalArgv.has(conflicter)) {
+                const seenConflictingKeyValues: Entries<typeof conflicteds> = [];
 
-          groupEntries.forEach((keyValue) => {
-            const [key, value] = keyValue;
-            const givenValue = canonicalArgv.get(key);
-            const givenValueIsArray = Array.isArray(givenValue);
-
-            if (
-              canonicalArgv.has(key) &&
-              (value === $exists ||
-                (givenValueIsArray &&
-                  givenValue.some((value_) => isEqual(value_, value))) ||
-                (!givenValueIsArray && isEqual(givenValue, value)))
-            ) {
-              if (sawAtLeastOne !== undefined) {
-                assertSoft(
-                  false,
-                  ErrorMessage.DemandSpecificXorViolation(sawAtLeastOne, keyValue)
-                );
-              }
-
-              sawAtLeastOne = keyValue;
-            }
-          });
-
-          assertSoft(
-            sawAtLeastOne,
-            ErrorMessage.DemandGenericXorViolation(groupEntries)
-          );
-        });
-
-        // ? Take advantage of our loop through optionsMetadata.implied to
-        // ? keep track of this information for later
-        const impliedKeyValues: Record<string, unknown> = {};
-
-        // * Run implies checks
-        optionsMetadata.implied.forEach(
-          ({
-            [$genesis]: implier,
-            [$canonical]: canonicalImplications,
-            ...expandedImplications
-          }) => {
-            assertHard(
-              implier !== undefined,
-              ErrorMessage.MetadataInvariantViolated('implies')
-            );
-
-            if (
-              canonicalArgv.has(implier) &&
-              (optionsMetadata!.implyVacuously.includes(implier) ||
-                canonicalArgv.get(implier) !== false)
-            ) {
-              Object.assign(impliedKeyValues, expandedImplications);
-
-              if (!optionsMetadata!.implyLoosely.includes(implier)) {
-                const seenConflictingKeyValues: Entries<typeof canonicalImplications> =
-                  [];
-
-                Object.entries(canonicalImplications).forEach((keyValue) => {
-                  const [key, value] = keyValue;
+                Object.entries(conflicteds).forEach((keyValue) => {
+                  const [conflictedKey, conflictedValue] = keyValue;
+                  const givenValue = canonicalArgv.get(conflictedKey);
+                  const givenValueIsArray = Array.isArray(givenValue);
 
                   if (
-                    canonicalArgv.has(key) &&
-                    !isEqual(canonicalArgv.get(key), value)
+                    canonicalArgv.has(conflictedKey) &&
+                    (conflictedValue === $exists ||
+                      (givenValueIsArray &&
+                        givenValue.some((value) => isEqual(value, conflictedValue))) ||
+                      (!givenValueIsArray && isEqual(givenValue, conflictedValue)))
                   ) {
-                    seenConflictingKeyValues.push([key, canonicalArgv.get(key)]);
+                    seenConflictingKeyValues.push(keyValue);
                   }
                 });
 
                 assertSoft(
                   !seenConflictingKeyValues.length,
-                  ErrorMessage.ImpliesViolation(implier, seenConflictingKeyValues)
+                  ErrorMessage.ConflictsViolation(conflicter, seenConflictingKeyValues)
                 );
               }
             }
-          }
-        );
+          );
 
-        Object.assign(
-          realArgv,
-          // ? given overrides implied > overrides defaults > merged into argv
-          Object.assign({}, optionsMetadata.defaults, impliedKeyValues, realArgv)
-        );
+          // * Run demandThisOptionIf checks
+          optionsMetadata.demandedIf.forEach(
+            ({ [$genesis]: demanded, ...demanders }) => {
+              assertHard(
+                demanded !== undefined,
+                ErrorMessage.MetadataInvariantViolated('demandThisOptionIf')
+              );
 
-        debug('final argv (defaults and implies merged): %O', realArgv);
+              const sawDemanded = canonicalArgv.has(demanded);
 
-        // ? We want to run the check functions sequentially and in definition
-        // ? order since that's what the documentation promises
-        // * Run custom checks on final argv
-        for (const [currentArgument, checkFunctions_] of Object.entries(
-          optionsMetadata.checks
-        )) {
-          if (currentArgument in realArgv) {
-            const checkFunctions = [checkFunctions_].flat();
+              Object.entries(demanders).forEach((demander) => {
+                const [demanderKey, demanderValue] = demander;
+                const givenValue = canonicalArgv.get(demanderKey);
+                const givenValueIsArray = Array.isArray(givenValue);
 
-            // eslint-disable-next-line no-await-in-loop
-            await Promise.all(
-              checkFunctions.map(async (checkFn) => {
-                // ! check functions might return a promise, so WATCH OUT!
-                const result = await checkFn(realArgv[currentArgument], realArgv);
+                const sawADemander =
+                  canonicalArgv.has(demanderKey) &&
+                  (demanderValue === $exists ||
+                    (givenValueIsArray &&
+                      givenValue.some((value) => isEqual(value, demanderValue))) ||
+                    (!givenValueIsArray && isEqual(givenValue, demanderValue)));
 
-                if (!result || typeof result === 'string' || isNativeError(result)) {
-                  throw isCliError(result)
-                    ? result
-                    : new CliError(
-                        (result as string | Error | false) ||
-                          ErrorMessage.CheckFailed(currentArgument)
-                      );
+                assertSoft(
+                  !sawADemander || sawDemanded,
+                  ErrorMessage.DemandIfViolation(demanded, demander)
+                );
+              });
+            }
+          );
+
+          // * Run demandThisOptionOr checks
+          optionsMetadata.demandedAtLeastOne.forEach((group) => {
+            const groupEntries = Object.entries(group);
+            const sawAtLeastOne = groupEntries.some((keyValue) => {
+              const [key, value] = keyValue;
+              const givenValue = canonicalArgv.get(key);
+              const givenValueIsArray = Array.isArray(givenValue);
+
+              return (
+                canonicalArgv.has(key) &&
+                (value === $exists ||
+                  (givenValueIsArray &&
+                    givenValue.some((value_) => isEqual(value_, value))) ||
+                  (!givenValueIsArray && isEqual(givenValue, value)))
+              );
+            });
+
+            assertSoft(sawAtLeastOne, ErrorMessage.DemandOrViolation(groupEntries));
+          });
+
+          // * Run demandThisOptionXor checks
+          optionsMetadata.demandedMutuallyExclusive.forEach((group) => {
+            const groupEntries = Object.entries(group);
+            let sawAtLeastOne: KeyValueEntry | undefined = undefined;
+
+            groupEntries.forEach((keyValue) => {
+              const [key, value] = keyValue;
+              const givenValue = canonicalArgv.get(key);
+              const givenValueIsArray = Array.isArray(givenValue);
+
+              if (
+                canonicalArgv.has(key) &&
+                (value === $exists ||
+                  (givenValueIsArray &&
+                    givenValue.some((value_) => isEqual(value_, value))) ||
+                  (!givenValueIsArray && isEqual(givenValue, value)))
+              ) {
+                if (sawAtLeastOne !== undefined) {
+                  assertSoft(
+                    false,
+                    ErrorMessage.DemandSpecificXorViolation(sawAtLeastOne, keyValue)
+                  );
                 }
-              })
+
+                sawAtLeastOne = keyValue;
+              }
+            });
+
+            assertSoft(
+              sawAtLeastOne,
+              ErrorMessage.DemandGenericXorViolation(groupEntries)
             );
+          });
+
+          // ? Take advantage of our loop through optionsMetadata.implied to
+          // ? keep track of this information for later
+          const impliedKeyValues: Record<string, unknown> = {};
+
+          // * Run implies checks
+          optionsMetadata.implied.forEach(
+            ({
+              [$genesis]: implier,
+              [$canonical]: canonicalImplications,
+              ...expandedImplications
+            }) => {
+              assertHard(
+                implier !== undefined,
+                ErrorMessage.MetadataInvariantViolated('implies')
+              );
+
+              if (
+                canonicalArgv.has(implier) &&
+                (optionsMetadata!.implyVacuously.includes(implier) ||
+                  canonicalArgv.get(implier) !== false)
+              ) {
+                Object.assign(impliedKeyValues, expandedImplications);
+
+                if (!optionsMetadata!.implyLoosely.includes(implier)) {
+                  const seenConflictingKeyValues: Entries<typeof canonicalImplications> =
+                    [];
+
+                  Object.entries(canonicalImplications).forEach((keyValue) => {
+                    const [key, value] = keyValue;
+
+                    if (
+                      canonicalArgv.has(key) &&
+                      !isEqual(canonicalArgv.get(key), value)
+                    ) {
+                      seenConflictingKeyValues.push([key, canonicalArgv.get(key)]);
+                    }
+                  });
+
+                  assertSoft(
+                    !seenConflictingKeyValues.length,
+                    ErrorMessage.ImpliesViolation(implier, seenConflictingKeyValues)
+                  );
+                }
+              }
+            }
+          );
+
+          Object.assign(
+            realArgv,
+            // ? given overrides implied > overrides defaults > merged into argv
+            Object.assign({}, optionsMetadata.defaults, impliedKeyValues, realArgv)
+          );
+
+          debug('final argv (defaults and implies merged): %O', realArgv);
+
+          // ? We want to run the check functions sequentially and in definition
+          // ? order since that's what the documentation promises
+          // * Run custom checks on final argv
+          for (const [currentArgument, checkFunctions_] of Object.entries(
+            optionsMetadata.checks
+          )) {
+            if (currentArgument in realArgv) {
+              const checkFunctions = [checkFunctions_].flat();
+
+              // eslint-disable-next-line no-await-in-loop
+              await Promise.all(
+                checkFunctions.map(async (checkFn) => {
+                  // ! check functions might return a promise, so WATCH OUT!
+                  const result = await checkFn(realArgv[currentArgument], realArgv);
+
+                  if (!result || typeof result === 'string' || isNativeError(result)) {
+                    throw isCliError(result)
+                      ? result
+                      : new CliError(
+                          (result as string | Error | false) ||
+                            ErrorMessage.CheckFailed(currentArgument)
+                        );
+                  }
+                })
+              );
+            }
           }
         }
 
         debug('invoking customHandler (or defaultHandler if undefined)');
+
         await (customHandler ?? defaultHandler)(
           // ? customHandler is more strict from an intellisense perspective,
           // ? but it still meets the Black Flag handler's argv constraints even
@@ -1323,6 +1338,19 @@ export function withUsageExtensions(
  * This function returns a version of `maybeCommand`'s handler function that is
  * ready to invoke immediately. It can be used with both BFE and normal Black
  * Flag command exports.
+ *
+ * It returns a handler that expects to be passed a "reified argv," i.e. the
+ * object given to the command handler after all checks have passed and all
+ * updates to argv have been applied (including `subOptionOf` and BFE's
+ * `implies`).
+ *
+ * For this reason, invoking the returned handler will not run any BF or BFE
+ * builder configurations on the given argv object. **Whatever you pass the
+ * returned handler will be re-gifted to the command's handler as-is and without
+ * correctness checks.**
+ *
+ * Use `CustomCliArguments` (and `CustomExecutionContext`) to assert the
+ * expected shape of the "reified argv".
  *
  * See [the BFE
  * documentation](https://github.com/Xunnamius/black-flag-extensions?tab=readme-ov-file#getinvocableextendedhandler)

@@ -5656,7 +5656,12 @@ describe('::getInvocableExtendedHandler', () => {
     const mockContext = generateFakeExecutionContext();
 
     const handler = await getInvocableExtendedHandler<
-      { clickityClackity: boolean; rickityRackity: boolean },
+      {
+        clickityClackity?: boolean;
+        'clickity-clackity'?: boolean;
+        rickityRackity?: boolean;
+        'rickity-rackity'?: boolean;
+      },
       typeof mockContext
     >(function command(_: AsStrictExecutionContext<typeof mockContext>) {
       const [builder, withHandlerExtensions] = withBuilderExtensions({
@@ -5686,6 +5691,58 @@ describe('::getInvocableExtendedHandler', () => {
       [$executionContext]: mockContext
     });
 
+    expect(mockCustomHandler).toHaveBeenCalledTimes(1);
+
+    await handler({
+      $0: 'fake',
+      _: [],
+      'clickity-clackity': false,
+      'rickity-rackity': true,
+      [$executionContext]: mockContext
+    });
+
+    expect(mockCustomHandler).toHaveBeenCalledTimes(2);
+
+    await handler({
+      $0: 'fake',
+      _: [],
+      'clickity-clackity': true,
+      rickityRackity: true,
+      [$executionContext]: mockContext
+    });
+
+    expect(mockCustomHandler).toHaveBeenCalledTimes(3);
+  });
+
+  it('does not trigger checks in artificially-invoked extended handlers', async () => {
+    expect.hasAssertions();
+
+    const mockCustomHandler = jest.fn();
+    const mockContext = generateFakeExecutionContext();
+
+    const handler = await getInvocableExtendedHandler(function command(
+      _: AsStrictExecutionContext<typeof mockContext>
+    ) {
+      const [builder, withHandlerExtensions] = withBuilderExtensions({
+        'clickity-clackity': {
+          boolean: true,
+          default: false,
+          demandThisOptionOr: 'rickity-rackity'
+        },
+        'rickity-rackity': {
+          boolean: true,
+          default: false,
+          demandThisOptionOr: 'clickity-clackity'
+        }
+      });
+
+      return {
+        builder,
+        handler: withHandlerExtensions(mockCustomHandler)
+      };
+    }, mockContext);
+
+    await handler({ $0: 'fake', _: [], [$executionContext]: mockContext });
     expect(mockCustomHandler).toHaveBeenCalled();
   });
 
