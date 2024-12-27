@@ -18,6 +18,8 @@ import { ProjectError } from 'multiverse+project-utils:error.ts';
 
 import {
   packageJsonConfigPackageBase,
+  toRelativePath,
+  type AbsolutePath,
   type RelativePath
 } from 'multiverse+project-utils:fs.ts';
 
@@ -58,7 +60,7 @@ export function generateBaseXPackageJson(
     version: incomingPackageJson.version,
     description: incomingPackageJson.description,
     keywords: incomingPackageJson.keywords || [],
-    homepage: `${repoUrl}${packagePrefix}#readme`,
+    homepage: `${repoUrl}${packagePrefix ? `/tree/main${packagePrefix}` : ''}#readme`,
     bugs: {
       url: `${repoUrl}/issues`
     },
@@ -276,7 +278,7 @@ export const { transformer } = makeTransformer(function (context) {
     toProjectAbsolutePath,
     forceOverwritePotentiallyDestructive,
     projectMetadata: {
-      rootPackage: { attributes: projectAttributes }
+      rootPackage: { attributes: projectAttributes, root: projectRoot }
     },
     log
   } = context;
@@ -331,11 +333,13 @@ export const { transformer } = makeTransformer(function (context) {
       } satisfies Parameters<typeof generateBaseXPackageJson>[0];
 
       if (projectAttributes[ProjectAttribute.Polyrepo]) {
+        const path = toProjectAbsolutePath(packageJsonConfigPackageBase);
+
         return [
           {
-            path: toProjectAbsolutePath(packageJsonConfigPackageBase),
+            path,
             generate: function () {
-              maybeIssueBreakingChangeWarning();
+              maybeIssueBreakingChangeWarning(path);
 
               return stringify(
                 generatePolyrepoXPackageJson(
@@ -350,17 +354,15 @@ export const { transformer } = makeTransformer(function (context) {
         ];
       } else {
         const relativeRoot = 'relativeRoot' in package_ ? package_.relativeRoot : '';
+        const path = toProjectAbsolutePath(relativeRoot, packageJsonConfigPackageBase);
 
         if (isPackageTheRootPackage) {
           return projectAttributes[ProjectAttribute.Hybridrepo]
             ? [
                 {
-                  path: toProjectAbsolutePath(
-                    relativeRoot,
-                    packageJsonConfigPackageBase
-                  ),
+                  path,
                   generate: function () {
-                    maybeIssueBreakingChangeWarning();
+                    maybeIssueBreakingChangeWarning(path);
 
                     return stringify(
                       generateHybridrepoProjectXPackageJson(
@@ -375,12 +377,9 @@ export const { transformer } = makeTransformer(function (context) {
               ]
             : [
                 {
-                  path: toProjectAbsolutePath(
-                    relativeRoot,
-                    packageJsonConfigPackageBase
-                  ),
+                  path,
                   generate: function () {
-                    maybeIssueBreakingChangeWarning();
+                    maybeIssueBreakingChangeWarning(path);
 
                     return stringify(
                       generateNonHybridMonorepoProjectXPackageJson(
@@ -396,9 +395,9 @@ export const { transformer } = makeTransformer(function (context) {
         } else {
           return [
             {
-              path: toProjectAbsolutePath(relativeRoot, packageJsonConfigPackageBase),
+              path,
               generate: function () {
-                maybeIssueBreakingChangeWarning();
+                maybeIssueBreakingChangeWarning(path);
 
                 return stringify(
                   generateSubRootXPackageJson(
@@ -414,11 +413,12 @@ export const { transformer } = makeTransformer(function (context) {
         }
       }
 
-      function maybeIssueBreakingChangeWarning() {
+      function maybeIssueBreakingChangeWarning(packageJsonPath: AbsolutePath) {
         if (forceOverwritePotentiallyDestructive && packageJson.engines) {
           log.warn(
             [LogTag.IF_NOT_QUIETED],
-            'The "engines" field was overwritten in: %O\n💥 THIS IS LIKELY A BREAKING CHANGE! COMMIT OR UNDO ACCORDINGLY! 💥'
+            'An "engines" field was written out to: %O\n💥 THIS IS LIKELY A BREAKING CHANGE! COMMIT OR UNDO ACCORDINGLY! 💥',
+            toRelativePath(projectRoot, packageJsonPath)
           );
         }
       }
