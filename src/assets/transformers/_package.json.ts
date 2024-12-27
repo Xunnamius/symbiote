@@ -306,6 +306,7 @@ export const { transformer } = makeTransformer(function (context) {
           ? // * Always provisionally preserve some minimum "base" fields
             {
               ...(packageJson.private ? { private: true } : {}),
+              ...(packageJson.sideEffects ? { sideEffects: true } : {}),
               ...(packageJson.keywords ? { keywords: packageJson.keywords } : {}),
               ...(packageJson.dependencies
                 ? { dependencies: packageJson.dependencies }
