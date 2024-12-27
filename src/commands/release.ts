@@ -329,8 +329,7 @@ export default function command(
         },
         'dry-run': {
           boolean: true,
-          description:
-            "Go through the motions of cutting a release but don't actually do anything",
+          description: "Go through the motions of cutting a release but don't release",
           default: false
         },
         force: {
