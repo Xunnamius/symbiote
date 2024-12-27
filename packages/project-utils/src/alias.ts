@@ -179,7 +179,7 @@ export type RawPath = {
    * character. Must not start or end with the "/" character, or start with
    * "./".
    *
-   * The path should be thought of as relative to a root or sub-root.
+   * `path` is considered relative to the project root.
    */
   path: RelativePath;
   /**
