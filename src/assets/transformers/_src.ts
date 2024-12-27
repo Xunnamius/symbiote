@@ -11,9 +11,10 @@ export const { transformer } = makeTransformer(function (context) {
 
     // TODO: For cli projects, add black-flag boilerplate and also for
     // TODO: package.json (add BF, BFE, xcli packages to dependencies)
+    void force;
 
     // ? Only create this file if its parent directory does not already exist
-    if (force || !(await isAccessible(outputDir, { useCached: true }))) {
+    if (!(await isAccessible(outputDir, { useCached: true }))) {
       return [
         {
           path: toProjectAbsolutePath(outputDir, 'index.ts'),
