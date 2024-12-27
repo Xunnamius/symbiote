@@ -64,6 +64,14 @@ const debug = createDebugLogger({
   namespace: `${globalDebuggerNamespace}:asset:babel`
 });
 
+const dbgReplacerResult = debug.extend('replaced');
+const dbgCoreJs = debug.extend('check-core');
+const dbgModuleExport = debug.extend('export');
+const dbgMakeReplacer = debug.extend('make-replacer');
+const dbgMakePlugin = debug.extend('make-plugin');
+const dbgReplacer = debug.extend('replacing');
+const dbgResolver = debug.extend('resolving');
+
 const log = createGenericLogger({
   namespace: `${globalDebuggerNamespace}:asset:babel`
 });
@@ -124,6 +132,13 @@ export const extensionsAcceptedByBabel = [
   ...extensionsJavascript
 ] as const;
 
+debug('CORE_JS_LIBRARY_VERSION: %O', CORE_JS_LIBRARY_VERSION);
+debug('NODE_LTS: %O', NODE_LTS);
+debug('extensionsTypescript: %O', extensionsTypescript);
+debug('extensionTypescriptDefinition: %O', extensionTypescriptDefinition);
+debug('extensionsJavascript: %O', extensionsJavascript);
+debug('extensionsAcceptedByBabel: %O', extensionsAcceptedByBabel);
+
 /**
  * Returns `true` if `path` points to a file with an extension accepted by Babel
  * (except {@link extensionTypescriptDefinition}).
@@ -158,6 +173,8 @@ const dTsExtensionsToReplace = [
   // ? No .js
   ...extensionsJavascript.slice(1)
 ];
+
+debug('dTsExtensionsToReplace: %O', dTsExtensionsToReplace);
 
 const endsWithJsExtensionRegExp = new RegExp(
   escapeStringRegexp(extensionsJavascript[0]) + '$'
@@ -194,7 +211,7 @@ function makeTransformRewriteImportsSourceModuleResolver(
   packageRoot: AbsolutePath,
   projectRoot: AbsolutePath
 ) {
-  return [
+  const plugin = [
     // {@symbiote/notExtraneous babel-plugin-transform-rewrite-imports}
     'babel-plugin-transform-rewrite-imports',
     {
@@ -219,6 +236,9 @@ function makeTransformRewriteImportsSourceModuleResolver(
       }
     } satisfies TransformRewriteImportsOptions
   ] as const;
+
+  dbgMakePlugin('source module resolver plugin config: %O', plugin);
+  return plugin;
 }
 
 function makeTransformRewriteImportsDefinitionModuleResolver(
@@ -226,7 +246,7 @@ function makeTransformRewriteImportsDefinitionModuleResolver(
   packageRoot: AbsolutePath,
   projectRoot: AbsolutePath
 ) {
-  return [
+  const plugin = [
     // {@symbiote/notExtraneous babel-plugin-transform-rewrite-imports}
     'babel-plugin-transform-rewrite-imports',
     {
@@ -255,6 +275,9 @@ function makeTransformRewriteImportsDefinitionModuleResolver(
       }
     } satisfies TransformRewriteImportsOptions
   ] as const;
+
+  dbgMakePlugin('definition module resolver plugin config: %O', plugin);
+  return plugin;
 }
 
 export function moduleExport({
@@ -266,11 +289,11 @@ export function moduleExport({
   packageRoot: AbsolutePath;
   projectRoot: AbsolutePath;
 }): BabelConfig {
-  debug('derivedAliases: %O', derivedAliases);
-  debug('packageRoot: %O', packageRoot);
-  debug('projectRoot: %O', projectRoot);
+  dbgModuleExport('derivedAliases: %O', derivedAliases);
+  dbgModuleExport('packageRoot: %O', packageRoot);
+  dbgModuleExport('projectRoot: %O', projectRoot);
 
-  return {
+  const config: BabelConfig = {
     comments: false,
     parserOpts: { strictMode: true },
     generatorOpts: { importAttributesKeyword: 'with' },
@@ -355,6 +378,9 @@ export function moduleExport({
       }
     }
   };
+
+  dbgModuleExport('config: %O', config);
+  return config;
 }
 
 /**
@@ -454,11 +480,11 @@ function doCoreJsVersionChecksAndReturnHardcodedVersion({
 }: {
   packageRoot: AbsolutePath;
 }) {
-  debug('packageRoot: %O', packageRoot);
+  dbgCoreJs('packageRoot: %O', packageRoot);
 
   const coreJsLibraryVersion = semver.coerce(CORE_JS_LIBRARY_VERSION)?.version;
 
-  debug('coreJsLibraryVersion: %O', coreJsLibraryVersion);
+  dbgCoreJs('coreJsLibraryVersion: %O', coreJsLibraryVersion);
   assert(coreJsLibraryVersion, ErrorMessage.GuruMeditation());
 
   const {
@@ -469,21 +495,21 @@ function doCoreJsVersionChecksAndReturnHardcodedVersion({
   const cwdPackageCoreJsDependency =
     semver.validRange(cwdPackageCoreJsDependency_) || undefined;
 
-  debug('packageName (current package): %O', packageName);
-  debug('cwdPackageCoreJsDependency_: %O', cwdPackageCoreJsDependency_);
-  debug('cwdPackageCoreJsDependency: %O', cwdPackageCoreJsDependency);
+  dbgCoreJs('packageName (current package): %O', packageName);
+  dbgCoreJs('cwdPackageCoreJsDependency_: %O', cwdPackageCoreJsDependency_);
+  dbgCoreJs('cwdPackageCoreJsDependency: %O', cwdPackageCoreJsDependency);
 
   if (cwdPackageCoreJsDependency) {
     const { version: resolvedCoreJsVersion } = (() => {
       try {
         return require('core-js/package.json') as PackageJson;
       } catch (error) {
-        debug.error('attempt to read core-js package.json failed: %O', error);
+        dbgCoreJs.error('attempt to read core-js package.json failed: %O', error);
         return {};
       }
     })();
 
-    debug('resolvedCoreJsVersion: %O', resolvedCoreJsVersion);
+    dbgCoreJs('resolvedCoreJsVersion: %O', resolvedCoreJsVersion);
 
     if (resolvedCoreJsVersion) {
       // * At this point, any error conditions are catastrophic enough that the
@@ -568,8 +594,18 @@ function makeDistReplacerEntry(
 
   // ? A local cache mapping absolute paths (resolved from import specifiers)
   // ? to valid path-like entry points beginning with a package name in
-  // ? node_modules and potentially followed by a slash and a path
+  // ? node_modules and potentially followed by a slash and a path.
+  // ! Note that resolution failures are also cached
   const knownEntrypoints: Record<AbsolutePath, RelativePath | undefined> = {};
+
+  dbgMakeReplacer('packageRoot: %O', packageRoot);
+  dbgMakeReplacer('projectRoot: %O', projectRoot);
+  dbgMakeReplacer(
+    'created new %O dist replacer for specifier regexp %O => %O',
+    type,
+    specifierRegExp,
+    rawProjectRootRelativeReplacerPath
+  );
 
   return [
     specifierRegExp,
@@ -578,7 +614,7 @@ function makeDistReplacerEntry(
       const originalSpecifier = capturingGroups[0];
       const specifierTarget = capturingGroups.at(1);
       const specifierSubRootPrefix = (
-        isCwdPackageTheRootPackage ? '' : packageRoot.slice(projectRoot.length + 1)
+        isCwdPackageTheRootPackage ? '' : toRelativePath(projectRoot, packageRoot)
       ) as RelativePath;
 
       const transpilationOutputFilepath =
@@ -588,13 +624,16 @@ function makeDistReplacerEntry(
             toAbsolutePath(
               packageRoot,
               'dist',
-              inputFilepath.slice(projectRoot.length + 1)
+              toRelativePath(projectRoot, inputFilepath)
             )
           : inputFilepath;
 
       const importTargetProjectRootRelativeRealFilepath = projectRootRelativeReplacerPath
         // ? Ensure proper replacer syntax is used
-        .replace(String.raw`\1`, sliceOffPackageRootPrefix(specifierTarget));
+        .replace(
+          String.raw`\1`,
+          sliceOffPackageRootPrefix(specifierTarget)
+        ) as RelativePath;
 
       const isImportTargetUnderAPackageRootNodeModules = includesNodeModulesRegExp.test(
         importTargetProjectRootRelativeRealFilepath
@@ -609,6 +648,31 @@ function makeDistReplacerEntry(
         importTargetProjectRootRelativeRealFilepath ===
         toPath(specifierSubRootPrefix, 'package.json');
 
+      dbgReplacer.message(
+        'regexp %O matched a specifier: %O imported in file %O',
+        specifierRegExp,
+        Array.from(capturingGroups),
+        inputFilepath
+      );
+
+      dbgReplacer('originalSpecifier: %O', originalSpecifier);
+      dbgReplacer('specifierTarget: %O', specifierTarget);
+      dbgReplacer('specifierSubRootPrefix: %O', specifierSubRootPrefix);
+      dbgReplacer('transpilationOutputFilepath: %O', transpilationOutputFilepath);
+      dbgReplacer(
+        'importTargetProjectRootRelativeRealFilepath: %O',
+        importTargetProjectRootRelativeRealFilepath
+      );
+      dbgReplacer(
+        'isImportTargetUnderAPackageRootNodeModules: %O',
+        isImportTargetUnderAPackageRootNodeModules
+      );
+      dbgReplacer('isImportTargetAPackageJson: %O', isImportTargetAPackageJson);
+      dbgReplacer(
+        'isImportTargetThePackageRootPackageJson: %O',
+        isImportTargetThePackageRootPackageJson
+      );
+
       if (isImportTargetAPackageJson && !isImportTargetThePackageRootPackageJson) {
         log.warn(
           [LogTag.IF_NOT_QUIETED],
@@ -619,7 +683,7 @@ function makeDistReplacerEntry(
         );
       }
 
-      const importTargetIsValidlyOutsideDistDirectory =
+      const isImportTargetValidlyOutsideDistDirectory =
         // ? node_modules is always outside the ./dist directory
         isImportTargetUnderAPackageRootNodeModules ||
         // ? When cwd is not the root package, any package.json counts as
@@ -629,11 +693,16 @@ function makeDistReplacerEntry(
         // ? ill-advised, are not actually outside the ./dist directory
         (isCwdPackageTheRootPackage && isImportTargetThePackageRootPackageJson);
 
+      dbgReplacer(
+        'isImportTargetValidlyOutsideDistDirectory: %O',
+        isImportTargetValidlyOutsideDistDirectory
+      );
+
       const importTargetOutputFilepath = toAbsolutePath(
         packageRoot,
         // ? Importables sometimes live outside the package's root directory
         // ? (like package.json, or node_modules) so we should facilitate access
-        importTargetIsValidlyOutsideDistDirectory ? '' : 'dist',
+        isImportTargetValidlyOutsideDistDirectory ? '' : 'dist',
         isImportTargetUnderAPackageRootNodeModules ? 'node_modules' : '',
         isImportTargetThePackageRootPackageJson
           ? sliceOffPackageRootPrefix(importTargetProjectRootRelativeRealFilepath)
@@ -650,22 +719,35 @@ function makeDistReplacerEntry(
               )
       );
 
+      dbgReplacer('importTargetOutputFilepath: %O', importTargetOutputFilepath);
+
       // * Note how we purposely avoided adding missing extensions to the
       // * filepath above
 
       if (isImportTargetUnderAPackageRootNodeModules) {
+        dbgResolver(
+          'attempting to resolve precarious specifier into bare package entry point'
+        );
+
         // ? Attempt to resolve this precarious node_modules path into a bare
         // ? package specifier that is more resilient to hoisting
-        if (!knownEntrypoints[importTargetOutputFilepath]) {
+        if (knownEntrypoints[importTargetOutputFilepath] !== undefined) {
           const isDir = statSync(importTargetOutputFilepath).isDirectory();
-          const packageJsonFile = findUp.sync('package.json', {
+          const packageJsonPath = findUp.sync('package.json', {
             cwd: isDir
               ? importTargetOutputFilepath
               : toDirname(importTargetOutputFilepath)
           }) as AbsolutePath | undefined;
 
-          if (packageJsonFile) {
-            const packageDir = toDirname(packageJsonFile);
+          dbgResolver(
+            'entry point was not in knownEntrypoints; resolution will be attempted'
+          );
+          dbgResolver('isDir: %O', isDir);
+          dbgResolver('packageJsonPath: %O', packageJsonPath);
+
+          if (packageJsonPath) {
+            const packageDir = toDirname(packageJsonPath);
+            dbgResolver('packageDir: %O', packageDir);
 
             const {
               exports: packageExports,
@@ -675,9 +757,15 @@ function makeDistReplacerEntry(
               useCached: true
             });
 
+            dbgResolver('packageName: %O', packageName);
             assert(packageName);
 
+            dbgResolver('packageExports: %O', packageExports);
+            dbgResolver('packageTypes: %O', packageTypes);
+
             if (packageExports) {
+              dbgResolver('detected package exports: %O', 'yes');
+
               // ? For perf reasons, we only attempt resolutions in definition
               // ? files at the moment
               if (type === 'definition') {
@@ -692,7 +780,11 @@ function makeDistReplacerEntry(
                   conditions: ['types', 'require', 'import', 'node']
                 };
 
+                dbgResolver('resolver options: %O', options);
+
                 let entrypoints = resolveEntryPointsFromExportsTarget(options);
+
+                dbgResolver('resolved entrypoints (attempt #1): %O', entrypoints);
 
                 // ? I believe tsc also does shortest-path-wins
                 if (!entrypoints.length) {
@@ -700,6 +792,8 @@ function makeDistReplacerEntry(
                     ...options,
                     target: target + extensionTypescriptDefinition
                   });
+
+                  dbgResolver('resolved entrypoints (attempt #2): %O', entrypoints);
                 }
 
                 if (!entrypoints.length) {
@@ -710,13 +804,17 @@ function makeDistReplacerEntry(
                       extensionTypescriptDefinition
                     )
                   });
+
+                  dbgResolver('resolved entrypoints (attempt #3): %O', entrypoints);
                 }
 
                 if (!entrypoints.length) {
                   entrypoints = resolveEntryPointsFromExportsTarget({
                     ...options,
-                    target: target + '/index.d.ts'
+                    target: target + `/index${extensionTypescriptDefinition}`
                   });
+
+                  dbgResolver('resolved entrypoints (attempt #4): %O', entrypoints);
                 }
 
                 // ? Try fallbacks
@@ -726,13 +824,26 @@ function makeDistReplacerEntry(
                     ...options,
                     target: packageTypes
                   });
+
+                  dbgResolver('resolved entrypoints (attempt #5): %O', entrypoints);
                 }
 
                 knownEntrypoints[importTargetOutputFilepath] = entrypoints
                   .at(0)
                   ?.replace('.', packageName) as RelativePath;
+
+                dbgResolver(
+                  'final selected resolved entry point: %O',
+                  knownEntrypoints[importTargetOutputFilepath]
+                );
+              } else {
+                dbgResolver(
+                  'non-definition type specifiers are not currently resolved for performance reasons'
+                );
               }
             } else {
+              dbgResolver('detected package exports: %O', 'no');
+
               const result = importTargetOutputFilepath.split('node_modules/').at(-1) as
                 | RelativePath
                 | undefined;
@@ -740,21 +851,34 @@ function makeDistReplacerEntry(
               if (result) {
                 knownEntrypoints[importTargetOutputFilepath] = result;
               }
+
+              dbgResolver('final selected resolved entry point: %O', result);
             }
+          } else {
+            dbgResolver.warn(
+              'packageJsonPath is falsy (%O): resolution attempt skipped',
+              packageJsonPath
+            );
           }
         }
 
         if (knownEntrypoints[importTargetOutputFilepath]) {
+          dbgResolver('precarious specifier was resolved successfully');
           return knownEntrypoints[importTargetOutputFilepath];
+        } else {
+          dbgResolver.warn('failed to resolve precarious specifier');
         }
       }
 
-      const result = toRelativePath(
-        toDirname(transpilationOutputFilepath),
-        importTargetOutputFilepath
+      const resultantSpecifier = ensureStringStartsWithDotSlash(
+        toRelativePath(
+          toDirname(transpilationOutputFilepath),
+          importTargetOutputFilepath
+        )
       );
 
-      return ensureStringStartsWithDotSlash(result);
+      dbgReplacerResult('resultantSpecifier: %O', resultantSpecifier);
+      return resultantSpecifier;
 
       function sliceOffPackageRootPrefix(path: string | undefined) {
         return path?.startsWith(specifierSubRootPrefix)
