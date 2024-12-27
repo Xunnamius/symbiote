@@ -639,7 +639,7 @@ export function moduleExport({
           },
           globals
         },
-        linterOptions: { reportUnusedDisableDirectives: 'error' },
+        linterOptions: { reportUnusedDisableDirectives: 'warn' },
         // ? Shared settings used to configure many rules at once
         settings: {
           react: { version: 'detect' },
