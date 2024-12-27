@@ -5,10 +5,10 @@ import {
   ProjectAttribute,
   type Package,
   type XPackageJson,
-  type XPackageJsonHybridrepoProjectRoot,
-  type XPackageJsonMonorepoPackageRoot,
-  type XPackageJsonMonorepoProjectRoot,
-  type XPackageJsonPolyrepoRoot
+  type XPackageJsonHybridrepoRoot,
+  type XPackageJsonMonorepoRoot,
+  type XPackageJsonPolyrepoRoot,
+  type XPackageJsonSubRoot
 } from 'multiverse+project-utils:analyze/common.ts';
 
 import { generatePackageJsonEngineMaintainedNodeVersions } from 'multiverse+project-utils:analyze/generate-package-json-engine-maintained-node-versions.ts';
@@ -24,6 +24,7 @@ import {
   type TransformerContext
 } from 'universe:assets.ts';
 
+import { DefaultGlobalScope } from 'universe:configure.ts';
 import { ErrorMessage } from 'universe:error.ts';
 import { stringifyJson } from 'universe:util.ts';
 
@@ -75,7 +76,6 @@ export function generateBaseXPackageJson(
       '/README.md'
     ],
     scripts: {
-      ...incomingPackageJson.scripts,
       build: 'npm run build:dist --',
       'build:changelog': 'NODE_NO_WARNINGS=1 symbiote build changelog',
       'build:dist': 'NODE_NO_WARNINGS=1 symbiote build distributables',
@@ -85,21 +85,20 @@ export function generateBaseXPackageJson(
       info: 'NODE_NO_WARNINGS=1 symbiote project info',
       lint: 'npm run lint:package --',
       'lint:package': 'NODE_NO_WARNINGS=1 symbiote lint',
-      'lint:packages': 'NODE_NO_WARNINGS=1 symbiote lint --scope unlimited',
+      'lint:packages': `NODE_NO_WARNINGS=1 symbiote lint --scope ${DefaultGlobalScope.Unlimited}`,
       'lint:project': 'NODE_NO_WARNINGS=1 symbiote project lint',
-      'list-tasks': 'NODE_NO_WARNINGS=1 symbiote list-tasks',
+      'list-tasks': `NODE_NO_WARNINGS=1 symbiote list-tasks --scope ${DefaultGlobalScope.ThisPackage}`,
       prepare: 'NODE_NO_WARNINGS=1 symbiote project prepare',
       release: 'NODE_NO_WARNINGS=1 symbiote release',
-      renovate:
-        'NODE_NO_WARNINGS=1 symbiote project renovate --github-reconfigure-repo --regenerate-assets --assets-preset basic',
+      renovate: `NODE_NO_WARNINGS=1 symbiote project renovate --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'`,
       start: 'NODE_NO_WARNINGS=1 symbiote start --',
       test: 'npm run test:package:unit --',
       'test:package:all': 'NODE_NO_WARNINGS=1 symbiote test --coverage',
       'test:package:e2e': 'NODE_NO_WARNINGS=1 symbiote test --tests end-to-end',
       'test:package:integration': 'NODE_NO_WARNINGS=1 symbiote test --tests integration',
       'test:package:unit': 'NODE_NO_WARNINGS=1 symbiote test --tests unit',
-      'test:packages:all':
-        'NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage'
+      'test:packages:all': `NODE_NO_WARNINGS=1 symbiote test --scope ${DefaultGlobalScope.Unlimited} --coverage`,
+      ...incomingPackageJson.scripts
     },
     engines: incomingPackageJson.engines ?? {
       node: generatePackageJsonEngineMaintainedNodeVersions({ format: 'engines' })
@@ -112,7 +111,8 @@ export function generateBaseXPackageJson(
   } as const satisfies XPackageJson;
 }
 
-export function generateBasePolyrepoXPackageJson(
+// * For the ROOT PACKAGE in a polyrepo
+export function generatePolyrepoXPackageJson(
   ...[incomingPackageJson, repoUrl]: GeneratorParameters
 ) {
   return {
@@ -124,11 +124,37 @@ export function generateBasePolyrepoXPackageJson(
   } as const satisfies XPackageJsonPolyrepoRoot;
 }
 
-export function generateBaseMonorepoProjectRootXPackageJson(
+// * For the ROOT PACKAGE in a non-hybrid monorepo
+export function generateNonHybridMonorepoProjectXPackageJson(
   ...[incomingPackageJson, repoUrl]: GeneratorParameters
 ) {
+  // ? Filter out what's not allowed in non-hybrid monorepo root package.json
+  const {
+    scripts: {
+      build: _1,
+      'build:changelog': _2,
+      'build:dist': _3,
+      'build:docs': _4,
+      'lint:package': _6,
+      release: _12,
+      'test:package:all': _7,
+      'test:package:e2e': _8,
+      'test:package:integration': _9,
+      'test:package:unit': _10,
+      ...incomingBaseScripts
+    },
+    dependencies: _11,
+    ...incomingBaseJson
+  } = generateBaseXPackageJson(incomingPackageJson, repoUrl);
+
+  const scopeUnlimitedArg = ` --scope ${DefaultGlobalScope.Unlimited}`;
+  incomingBaseScripts.clean += scopeUnlimitedArg;
+  incomingBaseScripts.format += scopeUnlimitedArg;
+
   return {
-    ...generateBaseXPackageJson(incomingPackageJson, repoUrl),
+    devDependencies: {},
+    workspaces: incomingPackageJson.workspaces ?? ['packages/*', '!packages/*.ignore*'],
+    ...incomingBaseJson,
     name: incomingPackageJson.name.endsWith('-monorepo')
       ? incomingPackageJson.name
       : `${incomingPackageJson.name}-monorepo`,
@@ -136,27 +162,43 @@ export function generateBaseMonorepoProjectRootXPackageJson(
       ? incomingPackageJson.version
       : `${incomingPackageJson.version}-monorepo`,
     private: true,
-    devDependencies: incomingPackageJson.devDependencies ?? {},
-    workspaces: incomingPackageJson.workspaces ?? ['packages/*', '!packages/*.ignore*']
-  } as const satisfies XPackageJsonMonorepoProjectRoot;
+    scripts: {
+      ...incomingBaseScripts,
+      lint: 'npm run lint:packages --',
+      'list-tasks': `NODE_NO_WARNINGS=1 symbiote list-tasks${scopeUnlimitedArg}`,
+      test: 'npm run test:packages:all --'
+    }
+  } as const satisfies XPackageJsonMonorepoRoot;
 }
 
-export function generateBaseHybridrepoProjectRootXPackageJson(
+// * For the ROOT PACKAGE in a hybrid monorepo
+export function generateHybridrepoProjectXPackageJson(
   ...[incomingPackageJson, repoUrl]: GeneratorParameters
 ) {
+  const { private: _, ...incomingMonorepoJson } =
+    generateNonHybridMonorepoProjectXPackageJson(incomingPackageJson, repoUrl);
+
   return {
-    ...generateBaseMonorepoProjectRootXPackageJson(incomingPackageJson, repoUrl),
-    private: false,
-    ...generateBasePolyrepoXPackageJson(incomingPackageJson, repoUrl)
-  } as const satisfies XPackageJsonHybridrepoProjectRoot;
+    ...incomingMonorepoJson,
+    ...generatePolyrepoXPackageJson(incomingPackageJson, repoUrl)
+    // ? "private" is preserved from generatePolyrepoXPackageJson
+  } as const satisfies XPackageJsonHybridrepoRoot;
 }
 
-export function generateBaseMonorepoPackageRootXPackageJson(
+// * For non-root packages within a monorepo/hybridrepo
+export function generateSubRootXPackageJson(
   ...[incomingPackageJson, repoUrl]: GeneratorParameters
 ) {
+  // ? Filter out what's not allowed in sub-root package.json
+  const {
+    scripts: { prepare: _, ...incomingBaseScripts },
+    ...incomingBaseJson
+  } = generateBaseXPackageJson(incomingPackageJson, repoUrl);
+
   return {
-    ...generateBaseXPackageJson(incomingPackageJson, repoUrl)
-  } as const satisfies XPackageJsonMonorepoPackageRoot;
+    ...incomingBaseJson,
+    scripts: incomingBaseScripts
+  } as const satisfies XPackageJsonSubRoot;
 }
 
 /**
@@ -217,23 +259,32 @@ export const { transformer } = makeTransformer(function (context) {
     function ({ package_, contextWithCwdPackage }) {
       const { json: packageJson } = package_;
 
+      const isPackageTheRootPackage = isRootPackage(package_);
+
       const ownerAndRepo = parsePackageJsonRepositoryIntoOwnerAndRepo(packageJson);
       const repoUrl = deriveGitHubUrl(ownerAndRepo);
 
-      const isNonHybridMonorepo =
+      const isNonHybridMonorepoRootPackage =
+        isPackageTheRootPackage &&
         projectAttributes[ProjectAttribute.Monorepo] &&
         !projectAttributes[ProjectAttribute.Hybridrepo];
 
       const finalPackageJson = {
-        ...(forceOverwritePotentiallyDestructive ? {} : packageJson),
+        ...(forceOverwritePotentiallyDestructive
+          ? // * Always preserve the "private" field
+            packageJson.private
+            ? { private: true }
+            : {}
+          : packageJson),
         name: packageJson.name,
         version:
-          packageJson.version ?? (isNonHybridMonorepo ? '0.0.0-monorepo' : '1.0.0'),
+          packageJson.version ??
+          (isNonHybridMonorepoRootPackage ? '0.0.0-monorepo' : '1.0.0'),
         description:
           packageJson.description ??
-          (isNonHybridMonorepo
+          (isNonHybridMonorepoRootPackage
             ? 'Monorepo for the {{repoName}} project'
-            : 'TODO: project or package description here')
+            : 'TODO: set a description')
       } satisfies Parameters<typeof generateBaseXPackageJson>[0];
 
       if (projectAttributes[ProjectAttribute.Polyrepo]) {
@@ -242,13 +293,12 @@ export const { transformer } = makeTransformer(function (context) {
             path: toProjectAbsolutePath(packageJsonConfigPackageBase),
             generate: () =>
               stringify(
-                generateBasePolyrepoXPackageJson(finalPackageJson, repoUrl),
+                generatePolyrepoXPackageJson(finalPackageJson, repoUrl),
                 contextWithCwdPackage
               )
           }
         ];
       } else {
-        const isPackageTheRootPackage = isRootPackage(package_);
         const relativeRoot = 'relativeRoot' in package_ ? package_.relativeRoot : '';
 
         if (isPackageTheRootPackage) {
@@ -261,10 +311,7 @@ export const { transformer } = makeTransformer(function (context) {
                   ),
                   generate: () =>
                     stringify(
-                      generateBaseHybridrepoProjectRootXPackageJson(
-                        finalPackageJson,
-                        repoUrl
-                      ),
+                      generateHybridrepoProjectXPackageJson(finalPackageJson, repoUrl),
                       contextWithCwdPackage
                     )
                 }
@@ -277,7 +324,7 @@ export const { transformer } = makeTransformer(function (context) {
                   ),
                   generate: () =>
                     stringify(
-                      generateBaseMonorepoProjectRootXPackageJson(
+                      generateNonHybridMonorepoProjectXPackageJson(
                         finalPackageJson,
                         repoUrl
                       ),
@@ -291,7 +338,7 @@ export const { transformer } = makeTransformer(function (context) {
               path: toProjectAbsolutePath(relativeRoot, packageJsonConfigPackageBase),
               generate: () =>
                 stringify(
-                  generateBaseMonorepoPackageRootXPackageJson(finalPackageJson, repoUrl),
+                  generateSubRootXPackageJson(finalPackageJson, repoUrl),
                   contextWithCwdPackage
                 )
             }

@@ -96,10 +96,10 @@ export type Fixture = {
  */
 export type FixtureName =
   | 'badHybridrepoBadSpecifiers'
-  | 'goodHybridrepoSelfRef'
   | 'badMonorepo'
   | 'badMonorepoDuplicateIdUnnamed'
   | 'badMonorepoDuplicateName'
+  | 'badMonorepoDuplicateIdNamed'
   | 'badMonorepoEmptyMdFiles'
   | 'badMonorepoNextjsProject'
   | 'badMonorepoNonPackageDir'
@@ -112,7 +112,9 @@ export type FixtureName =
   | 'badPolyrepoNonPackageDir'
   | 'badPolyrepoTsbuildinfo'
   | 'goodHybridrepo'
+  | 'goodHybridrepoNotPrivate'
   | 'goodHybridrepoMultiversal'
+  | 'goodHybridrepoSelfRef'
   | 'goodMonorepo'
   | 'goodMonorepoNegatedPaths'
   | 'goodMonorepoNextjsProject'
@@ -124,7 +126,6 @@ export type FixtureName =
   | 'goodMonorepoWeirdYarn'
   | 'goodMonorepoWindows'
   | 'goodMonorepoNoSrc'
-  | 'badMonorepoDuplicateIdNamed'
   | 'goodPolyrepo'
   | 'goodPolyrepoNextjsProject'
   | 'goodPolyrepoNoEnv'
@@ -326,6 +327,44 @@ createFixture({
     hybridrepo: true,
     cli: true,
     private: true,
+    vercel: true,
+    webpack: true
+  },
+  namedPackageMapData: [
+    { name: 'cli', root: 'packages/cli', attributes: { cjs: true, cli: true } },
+    {
+      name: 'private',
+      root: 'packages/private',
+      attributes: { cjs: true, private: true }
+    },
+    {
+      name: 'webpack',
+      root: 'packages/webpack',
+      attributes: { cjs: true, webpack: true }
+    }
+  ],
+  unnamedPackageMapData: [
+    {
+      name: 'unnamed-cjs',
+      root: 'packages/unnamed-cjs',
+      attributes: { cjs: true, private: true }
+    },
+    {
+      name: 'unnamed-esm',
+      root: 'packages/unnamed-esm',
+      attributes: { esm: true }
+    }
+  ]
+});
+
+createFixture({
+  fixtureName: 'goodHybridrepoNotPrivate',
+  prototypeRoot: 'good-hybridrepo-not-private',
+  attributes: {
+    cjs: true,
+    monorepo: true,
+    hybridrepo: true,
+    cli: true,
     vercel: true,
     webpack: true
   },

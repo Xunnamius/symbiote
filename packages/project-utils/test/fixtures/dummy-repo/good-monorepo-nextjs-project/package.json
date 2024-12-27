@@ -1,5 +1,5 @@
 {
-  "name": "good-monorepo",
+  "name": "good-monorepo-nextjs-project",
   "version": "1.2.3",
   "type": "commonjs",
   "workspaces": [

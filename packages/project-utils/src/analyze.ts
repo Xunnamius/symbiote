@@ -28,9 +28,9 @@ export {
   type WorkspacePackageId,
   type WorkspacePackageName,
   type XPackageJson,
-  type XPackageJsonHybridrepoProjectRoot,
-  type XPackageJsonMonorepoPackageRoot,
-  type XPackageJsonMonorepoProjectRoot,
+  type XPackageJsonHybridrepoRoot,
+  type XPackageJsonMonorepoRoot,
   type XPackageJsonPolyrepoRoot,
-  type XPackageJsonScripts
+  type XPackageJsonScripts,
+  type XPackageJsonSubRoot
 } from 'rootverse+project-utils:src/analyze/common.ts';

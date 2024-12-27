@@ -824,6 +824,153 @@ describe('::gatherAssetsFromTransformer', () => {
           ).not.toMatchObject({ scripts });
         }
       });
+
+      it('maintains pre-existing "private" field in hybridrepos regardless of --force', async () => {
+        expect.hasAssertions();
+
+        {
+          // * Tests use a hybridrepo without a pre-existing "private" field
+
+          const projectMetadata = fixtureToProjectMetadata(
+            'goodHybridrepoNotPrivate',
+            'cli'
+          );
+
+          {
+            const transformerContext = {
+              ...dummyContext,
+              projectMetadata
+            } as IncomingTransformerContext;
+
+            const assets = await gatherAssetsFromTransformer({
+              transformerId: packageJsonConfigPackageBase,
+              transformerContext,
+              options: { transformerFiletype: 'ts' }
+            });
+
+            const dummyProjectJsonPath = dummyContext.toProjectAbsolutePath(
+              packageJsonConfigPackageBase
+            );
+
+            const dummyPackageJsonPath = dummyContext.toProjectAbsolutePath(
+              packageJsonConfigPackageBase
+            );
+
+            expect(
+              JSON.parse((await assets[dummyProjectJsonPath]()) as string)
+            ).not.toHaveProperty('private');
+
+            expect(
+              JSON.parse((await assets[dummyPackageJsonPath]()) as string)
+            ).not.toHaveProperty('private');
+          }
+
+          {
+            const transformerContext = {
+              ...dummyContext,
+              projectMetadata,
+              forceOverwritePotentiallyDestructive: true
+            } as IncomingTransformerContext;
+
+            const assets = await gatherAssetsFromTransformer({
+              transformerId: packageJsonConfigPackageBase,
+              transformerContext,
+              options: { transformerFiletype: 'ts' }
+            });
+
+            const dummyProjectJsonPath = dummyContext.toProjectAbsolutePath(
+              packageJsonConfigPackageBase
+            );
+
+            const dummyPackageJsonPath = dummyContext.toProjectAbsolutePath(
+              packageJsonConfigPackageBase
+            );
+
+            expect(
+              JSON.parse((await assets[dummyProjectJsonPath]()) as string)
+            ).not.toHaveProperty('private');
+
+            expect(
+              JSON.parse((await assets[dummyPackageJsonPath]()) as string)
+            ).not.toHaveProperty('private');
+          }
+        }
+
+        {
+          // * Tests use a hybridrepo WITH a pre-existing "private" field
+
+          const projectMetadata = fixtureToProjectMetadata('goodHybridrepo', 'cli');
+
+          projectMetadata.rootPackage.json = {
+            ...projectMetadata.rootPackage.json,
+            private: true
+          } as typeof projectMetadata.rootPackage.json;
+
+          projectMetadata.cwdPackage.json = {
+            ...projectMetadata.cwdPackage.json,
+            private: true
+          } as typeof projectMetadata.rootPackage.json;
+
+          {
+            const transformerContext = {
+              ...dummyContext,
+              projectMetadata
+            } as IncomingTransformerContext;
+
+            const assets = await gatherAssetsFromTransformer({
+              transformerId: packageJsonConfigPackageBase,
+              transformerContext,
+              options: { transformerFiletype: 'ts' }
+            });
+
+            const dummyProjectJsonPath = dummyContext.toProjectAbsolutePath(
+              packageJsonConfigPackageBase
+            );
+
+            const dummyPackageJsonPath = dummyContext.toProjectAbsolutePath(
+              packageJsonConfigPackageBase
+            );
+
+            expect(
+              JSON.parse((await assets[dummyProjectJsonPath]()) as string)
+            ).toHaveProperty('private', true);
+
+            expect(
+              JSON.parse((await assets[dummyPackageJsonPath]()) as string)
+            ).toHaveProperty('private', true);
+          }
+
+          {
+            const transformerContext = {
+              ...dummyContext,
+              projectMetadata,
+              forceOverwritePotentiallyDestructive: true
+            } as IncomingTransformerContext;
+
+            const assets = await gatherAssetsFromTransformer({
+              transformerId: packageJsonConfigPackageBase,
+              transformerContext,
+              options: { transformerFiletype: 'ts' }
+            });
+
+            const dummyProjectJsonPath = dummyContext.toProjectAbsolutePath(
+              packageJsonConfigPackageBase
+            );
+
+            const dummyPackageJsonPath = dummyContext.toProjectAbsolutePath(
+              packageJsonConfigPackageBase
+            );
+
+            expect(
+              JSON.parse((await assets[dummyProjectJsonPath]()) as string)
+            ).toHaveProperty('private', true);
+
+            expect(
+              JSON.parse((await assets[dummyPackageJsonPath]()) as string)
+            ).toHaveProperty('private', true);
+          }
+        }
+      });
     });
 
     it('additionalRawAliasMappings is respected in relevant transformers', async () => {

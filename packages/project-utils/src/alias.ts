@@ -669,7 +669,7 @@ export function mapRawSpecifierToPath(
 }
 
 /**
- * This function throws if the given specifier violates any general xscript
+ * This function throws if the given specifier violates any general symbiote
  * project invariants with respect to the given {@link RawAliasMapping}s.
  */
 export function ensureRawSpecifierOk(

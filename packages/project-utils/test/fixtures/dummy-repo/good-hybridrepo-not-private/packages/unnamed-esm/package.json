@@ -1,8 +1,6 @@
 {
-  "name": "good-polyrepo-no-env",
   "version": "1.0.0",
-  "type": "commonjs",
-  "repository": "https://github.com/polyrepo-owner/repo-name",
+  "type": "module",
   "exports": {
     ".": "./dist/index.js"
   },

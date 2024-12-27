@@ -188,7 +188,7 @@ export enum WorkspaceAttribute {
    * considered "global"; that is: as if they existed in the scopes of every
    * workspace in the project.
    *
-   * The existence of this attribute will modify the behavior of xscript
+   * The existence of this attribute will modify the behavior of symbiote
    * commands like "build changelog", and in "release" when analyzing commits to
    * determine the next release version.
    *
@@ -721,12 +721,13 @@ export type XPackageJsonScripts = {
  * certain additional properties and other properties that are guaranteed to
  * exist.
  */
-export type XPackageJson<Scripts extends Record<string, string> = XPackageJsonScripts> =
-  Omit<OmitIndexSignature<PackageJson>, 'bin' | 'name'> & {
-    scripts?: Scripts;
-    bin?: string | Record<string, string>;
-    name: NonNullable<PackageJson['name']>;
-  };
+export type XPackageJson<
+  Scripts extends Partial<Record<string, string>> = XPackageJsonScripts
+> = Omit<OmitIndexSignature<PackageJson>, 'bin' | 'name'> & {
+  scripts?: Scripts;
+  bin?: string | Record<string, string>;
+  name: NonNullable<PackageJson['name']>;
+};
 
 /**
  * A version of {@link XPackageJson} specifically for polyrepo roots.
@@ -736,26 +737,23 @@ export type XPackageJsonPolyrepoRoot = Omit<XPackageJson, 'workspaces'>;
 /**
  * A version of {@link XPackageJson} specifically for non-hybrid monorepo roots.
  */
-export type XPackageJsonMonorepoProjectRoot = Omit<XPackageJson, 'dependencies'> &
+export type XPackageJsonMonorepoRoot = Omit<XPackageJson, 'dependencies'> &
   NonNullable<Pick<XPackageJson, 'workspaces'>>;
 
 /**
  * A version of {@link XPackageJson} specifically for hybridrepo roots.
  */
-export type XPackageJsonHybridrepoProjectRoot = XPackageJson &
+export type XPackageJsonHybridrepoRoot = XPackageJson &
   NonNullable<Pick<XPackageJson, 'workspaces'>>;
 
 /**
  * A version of {@link XPackageJson} specifically for package subroots in a
  * monorepo.
  */
-export type XPackageJsonMonorepoPackageRoot = Omit<
-  XPackageJson,
-  'workspaces' | 'devDependencies'
->;
+export type XPackageJsonSubRoot = Omit<XPackageJson, 'workspaces' | 'devDependencies'>;
 
 /**
- * Represents any `package.json` file in the wild, including xscript-ready
+ * Represents any `package.json` file in the wild, including symbiote-ready
  * `package.json` files.
  */
 export type GenericPackageJson = PackageJson | XPackageJson;
