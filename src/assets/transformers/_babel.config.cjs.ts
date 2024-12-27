@@ -4,6 +4,7 @@
 import assert from 'node:assert';
 import { statSync } from 'node:fs';
 
+import escapeStringRegexp from 'escape-string-regexp~4';
 import findUp from 'find-up~5';
 import semver from 'semver';
 
@@ -20,6 +21,7 @@ import { ProjectError } from 'multiverse+project-utils:error.ts';
 import {
   babelConfigProjectBase,
   getCurrentWorkingDirectory,
+  packageJsonConfigPackageBase,
   readXPackageJsonAtRoot,
   toAbsolutePath,
   toDirname,
@@ -91,9 +93,16 @@ export const CORE_JS_LIBRARY_VERSION = '3.39';
 export const NODE_LTS = 'maintained node versions';
 
 /**
- * All known TypeScript file extensions supported by Babel (except `.d.ts`).
+ * All known TypeScript file extensions supported by Babel (except {@link extensionTypescriptDefinition}).
  */
 export const extensionsTypescript = ['.ts', '.cts', '.mts', '.tsx'] as const;
+
+/**
+ * The known file extension for TypeScript definition files.
+ *
+ * @see {@link extensionsTypescript}
+ */
+export const extensionTypescriptDefinition = '.d.ts';
 
 /**
  * All known JavaScript file extensions supported by Babel.
@@ -108,7 +117,7 @@ export const extensionsJavascript = [
 
 /**
  * All possible extensions accepted by Babel using standard symbiote configs
- * (except `.d.ts`).
+ * (except {@link extensionTypescriptDefinition}).
  */
 export const extensionsAcceptedByBabel = [
   ...extensionsTypescript,
@@ -117,7 +126,7 @@ export const extensionsAcceptedByBabel = [
 
 /**
  * Returns `true` if `path` points to a file with an extension accepted by Babel
- * (except `.d.ts`).
+ * (except {@link extensionTypescriptDefinition}).
  *
  * @see {@link extensionsAcceptedByBabel}
  */
@@ -145,12 +154,17 @@ export function hasJavascriptExtension(path: string) {
 }
 
 const dTsExtensionsToReplace = [
-  '.d.ts',
+  extensionTypescriptDefinition,
   // ? No .js
   ...extensionsJavascript.slice(1)
 ];
 
-const endsWithPackageJsonRegExp = /(^|\/)package\.json$/;
+const endsWithJsExtensionRegExp = new RegExp(
+  escapeStringRegexp(extensionsJavascript[0]) + '$'
+);
+const endsWithPackageJsonRegExp = new RegExp(
+  `(^|/)${escapeStringRegexp(packageJsonConfigPackageBase)}$`
+);
 const includesNodeModulesRegExp = /(^|\/)node_modules\//;
 const grabEverythingUpToAndIncludingNodeModulesRegExp = /^(.*\/)?node_modules\//;
 // ! Must end with a dollar sign
@@ -161,6 +175,20 @@ const dTsExtensionsToReplaceRegExp = new RegExp(
   `\\.(${dTsExtensionsToReplace.join('|').replaceAll('.', '')})$`
 );
 
+debug('endsWithJsExtensionRegExp: %O', endsWithJsExtensionRegExp);
+debug('endsWithPackageJsonRegExp: %O', endsWithPackageJsonRegExp);
+debug('includesNodeModulesRegExp: %O', includesNodeModulesRegExp);
+debug(
+  'grabEverythingUpToAndIncludingNodeModulesRegExp: %O',
+  grabEverythingUpToAndIncludingNodeModulesRegExp
+);
+debug('translateJsExtensionsToTsRegExp: %O', translateJsExtensionsToTsRegExp);
+debug(
+  'translateJsExtensionsToTsRegExpReplacer: %O',
+  translateJsExtensionsToTsRegExpReplacer
+);
+debug('dTsExtensionsToReplaceRegExp: %O', dTsExtensionsToReplaceRegExp);
+
 function makeTransformRewriteImportsSourceModuleResolver(
   derivedAliases: ReturnType<typeof deriveAliasesForBabel>,
   packageRoot: AbsolutePath,
@@ -170,8 +198,8 @@ function makeTransformRewriteImportsSourceModuleResolver(
     // {@symbiote/notExtraneous babel-plugin-transform-rewrite-imports}
     'babel-plugin-transform-rewrite-imports',
     {
-      appendExtension: '.js',
-      recognizedExtensions: ['.js', '.jsx', '.cjs', '.mjs', '.json'],
+      appendExtension: extensionsJavascript[0],
+      recognizedExtensions: [...extensionsJavascript, '.json'],
       injectDynamicRewriter: 'never',
       replaceExtensions: {
         // ? Replace any aliases with their reified filesystem path
@@ -205,8 +233,8 @@ function makeTransformRewriteImportsDefinitionModuleResolver(
       // ? Don't append extensions to imports in .d.ts files (tsc sometimes spits
       // ? out import specifiers that rely on cjs-style extensionless import
       // ? rules)
-      //appendExtension: '.js',
-      recognizedExtensions: ['.js'],
+      //appendExtension: extensionsJavascript[0],
+      recognizedExtensions: [extensionsJavascript[0]],
       injectDynamicRewriter: 'never',
       replaceExtensions: {
         // ? Replace any aliases with their reified filesystem path
@@ -222,7 +250,7 @@ function makeTransformRewriteImportsDefinitionModuleResolver(
         ),
         // ? Replace any JS/TS extensions with .js (recognized by/as .d.ts)
         ...Object.fromEntries(
-          dTsExtensionsToReplace.map((extension) => [extension, '.js'])
+          dTsExtensionsToReplace.map((extension) => [extension, extensionsJavascript[0]])
         )
       }
     } satisfies TransformRewriteImportsOptions
@@ -616,7 +644,9 @@ function makeDistReplacerEntry(
                 type === 'source'
                   ? translateJsExtensionsToTsRegExp
                   : dTsExtensionsToReplaceRegExp,
-                type === 'source' ? translateJsExtensionsToTsRegExpReplacer : '.js'
+                type === 'source'
+                  ? translateJsExtensionsToTsRegExpReplacer
+                  : extensionsJavascript[0]
               )
       );
 
@@ -668,14 +698,17 @@ function makeDistReplacerEntry(
                 if (!entrypoints.length) {
                   entrypoints = resolveEntryPointsFromExportsTarget({
                     ...options,
-                    target: target + '.d.ts'
+                    target: target + extensionTypescriptDefinition
                   });
                 }
 
                 if (!entrypoints.length) {
                   entrypoints = resolveEntryPointsFromExportsTarget({
                     ...options,
-                    target: target.replace(/\.js$/, '.d.ts')
+                    target: target.replace(
+                      endsWithJsExtensionRegExp,
+                      extensionTypescriptDefinition
+                    )
                   });
                 }
 
