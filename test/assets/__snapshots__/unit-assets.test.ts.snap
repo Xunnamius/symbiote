@@ -24490,7 +24490,7 @@ scope: this-package
     "registry": "https://registry.npmjs.org"
   },
   "devDependencies": {
-    "@-xun/symbiote": "^2.0.1"
+    "@-xun/symbiote": "^2.1.0"
   },
   "dependencies": {}
 }
@@ -24575,7 +24575,7 @@ scope: unlimited
   },
   "private": false,
   "devDependencies": {
-    "@-xun/symbiote": "^2.0.1"
+    "@-xun/symbiote": "^2.1.0"
   },
   "workspaces": [
     "packages/*",
@@ -24910,7 +24910,7 @@ scope: unlimited
     "registry": "https://registry.npmjs.org"
   },
   "devDependencies": {
-    "@-xun/symbiote": "^2.0.1"
+    "@-xun/symbiote": "^2.1.0"
   },
   "dependencies": {}
 }
@@ -25951,7 +25951,7 @@ scope: unlimited
   },
   "dependencies": {},
   "devDependencies": {
-    "@-xun/symbiote": "^2.0.1"
+    "@-xun/symbiote": "^2.1.0"
   }
 }
 "
@@ -26035,7 +26035,7 @@ scope: this-package
   },
   "dependencies": {},
   "devDependencies": {
-    "@-xun/symbiote": "^2.0.1"
+    "@-xun/symbiote": "^2.1.0"
   }
 }
 "
@@ -26114,7 +26114,7 @@ scope: unlimited
   },
   "dependencies": {},
   "devDependencies": {
-    "@-xun/symbiote": "^2.0.1"
+    "@-xun/symbiote": "^2.1.0"
   }
 }
 "
