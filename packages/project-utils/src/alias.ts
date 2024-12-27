@@ -51,7 +51,7 @@ export const invalidPathRegExp = /["*:<>?[\]|]+/i;
  * **This regular expression must never have the "global" flag**, meaning it is
  * safe to use with `.test()`.
  */
-export const isDotRelativePathRegExp = /^\.\.?(\/|$)/;
+export const isLocalLookingRegExp = /^\.\.?(\/|$)/;
 
 /**
  * A well-known import alias group, such as "universe" or "multiverse".
@@ -254,7 +254,7 @@ export function makeRawAliasMapping(
     rawPath.path.startsWith('\\') ||
     rawPath.path.endsWith('/') ||
     rawPath.path.endsWith('\\') ||
-    isDotRelativePathRegExp.test(rawPath.path)
+    isLocalLookingRegExp.test(rawPath.path)
   ) {
     throw new ProjectError(
       ErrorMessage.IllegalAliasValueInvalidSeparatorAdfix(rawAlias.alias, rawPath.path)
@@ -727,7 +727,7 @@ export function ensureRawSpecifierOk(
   }
 
   // ? Fail if it begins with ./ or ../ or / or is . or ..
-  if (specifier.startsWith('/') || isDotRelativePathRegExp.test(specifier)) {
+  if (specifier.startsWith('/') || isLocalLookingRegExp.test(specifier)) {
     throw new ProjectError(
       ErrorMessage.SpecifierNotOkRelativeNotRootverse(specifier, path)
     );

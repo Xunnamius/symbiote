@@ -44,7 +44,7 @@ import {
 import {
   ensureRawSpecifierOk,
   generateRawAliasMap,
-  isDotRelativePathRegExp,
+  isLocalLookingRegExp,
   mapRawSpecifierToPath,
   mapRawSpecifierToRawAliasMapping
 } from 'multiverse+project-utils:alias.ts';
@@ -1296,7 +1296,7 @@ distrib root: ${absoluteOutputDirPath}
                     distLocalImportsOutsideDist.push([filepath, specifier]);
                   }
                   // ? Is the specifier a relative import?
-                  else if (isDotRelativePathRegExp.test(specifier)) {
+                  else if (isLocalLookingRegExp.test(specifier)) {
                     const absoluteSpecifier = toAbsolutePath(
                       toDirname(filepath),
                       specifier
@@ -1400,7 +1400,7 @@ distrib root: ${absoluteOutputDirPath}
 
                   if (
                     isAbsolutePath(specifier) ||
-                    isDotRelativePathRegExp.test(specifier) ||
+                    isLocalLookingRegExp.test(specifier) ||
                     shouldSkipCheckForSpecifier(specifier, 'invalid')
                   ) {
                     dbg2.warn('ignored (skipped) specifier: %O', specifier);

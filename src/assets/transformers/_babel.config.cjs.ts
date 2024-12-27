@@ -13,7 +13,7 @@ import { LogTag } from 'multiverse+cli-utils:logging.ts';
 import {
   deriveAliasesForBabel,
   generateRawAliasMap,
-  isDotRelativePathRegExp
+  isLocalLookingRegExp
 } from 'multiverse+project-utils:alias.ts';
 
 import { ProjectError } from 'multiverse+project-utils:error.ts';
