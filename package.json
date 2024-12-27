@@ -86,7 +86,7 @@
     "lint:package": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js lint",
     "lint:packages": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js lint --scope unlimited",
     "lint:project": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js project lint",
-    "list-tasks": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js list-tasks",
+    "list-tasks": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js list-tasks --scope this-package",
     "prepare": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js project prepare",
     "release": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js release --no-parallel",
     "renovate": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js project renovate --github-reconfigure-repo --regenerate-assets --assets-preset cli",
@@ -255,7 +255,7 @@
     "@-xun/symbiote": "^2.1.0"
   },
   "engines": {
-    "node": "18.20.0 || ^20.15.0 || >=22.5.0"
+    "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
   },
   "publishConfig": {
     "access": "public",
