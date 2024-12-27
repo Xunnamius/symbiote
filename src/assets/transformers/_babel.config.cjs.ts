@@ -532,7 +532,7 @@ function makeDistReplacerEntry(
   packageRoot: AbsolutePath,
   projectRoot: AbsolutePath
 ): [typeof specifierRegExp, TransformRewriteImportsCallback<RelativePath>] {
-  // ? Are we at the root package of a hybridrepo/polyrepo?
+  // ? Are we at the root package?
   const isCwdPackageTheRootPackage = projectRoot === packageRoot;
 
   // ? Remove the leading ./ if it exists
@@ -549,9 +549,9 @@ function makeDistReplacerEntry(
       const inputFilepath = toAbsolutePath(inputFilepath_);
       const originalSpecifier = capturingGroups[0];
       const specifierTarget = capturingGroups.at(1);
-      const specifierSubRootPrefix = toRelativePath(
-        projectRoot === packageRoot ? '' : packageRoot.slice(projectRoot.length + 1)
-      );
+      const specifierSubRootPrefix = (
+        isCwdPackageTheRootPackage ? '' : packageRoot.slice(projectRoot.length + 1)
+      ) as RelativePath;
 
       const transpilationOutputFilepath =
         type === 'source'
@@ -652,8 +652,9 @@ function makeDistReplacerEntry(
               // ? files at the moment
               if (type === 'definition') {
                 const flatXports = flattenPackageJsonSubpathMap({ map: packageExports });
-                const target =
-                  './' + toRelativePath(packageDir, importTargetOutputFilepath);
+                const target = ensureStringStartsWithDotSlash(
+                  toRelativePath(packageDir, importTargetOutputFilepath)
+                );
 
                 const options = {
                   flattenedExports: flatXports,
@@ -728,10 +729,8 @@ function makeDistReplacerEntry(
           : path || '';
       }
 
-      function ensureStringStartsWithDotSlash(result: string) {
-        return toRelativePath(
-          (isDotRelativePathRegExp.test(result) ? '' : './') + result
-        );
+      function ensureStringStartsWithDotSlash<T extends string>(result: T): T {
+        return ((isDotRelativePathRegExp.test(result) ? '' : './') + result) as T;
       }
     }
   ];
