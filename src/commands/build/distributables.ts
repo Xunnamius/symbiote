@@ -81,7 +81,7 @@ import {
   resolveExportsTargetsFromEntryPoint
 } from 'multiverse+project-utils:resolver.ts';
 
-import { SHORT_TAB, TAB } from 'multiverse+rejoinder';
+import { SHORT_TAB } from 'multiverse+rejoinder';
 
 import {
   extensionsTypescript,
@@ -1129,21 +1129,21 @@ distrib root: ${absoluteOutputDirPath}
             } else {
               genericLogger(
                 [LogTag.IF_NOT_SILENCED],
-                `${TAB}@attw/cli test succeeded ✅`
+                `${SHORT_TAB}@attw/cli test succeeded ✅`
               );
             }
 
             if (bijectionResult.status === 'fulfilled') {
               genericLogger(
                 [LogTag.IF_NOT_SILENCED],
-                `${TAB}Dependency bijection tests succeeded ✅`
+                `${SHORT_TAB}Dependency bijection tests succeeded ✅`
               );
             }
 
             if (entryResult.status === 'fulfilled') {
               genericLogger(
                 [LogTag.IF_NOT_SILENCED],
-                `${TAB}package.json::exports entry point tests succeeded ✅`
+                `${SHORT_TAB}package.json::exports entry point tests succeeded ✅`
               );
             }
 

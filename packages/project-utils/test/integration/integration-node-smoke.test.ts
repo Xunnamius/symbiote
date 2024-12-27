@@ -81,8 +81,8 @@ test.todo('this');
 //       : `const { analyzeProjectStructure } = require('${packageName}/project-utils');`) +
 //     '\n' +
 //     (importAsEsm
-//       ? `import { getEslintAliases } from '${packageName}/import-aliases';`
-//       : `const { getEslintAliases } = require('${packageName}/import-aliases');`) +
+//       ? `import { getEslintAliases } from '${packageName}/???';`
+//       : `const { getEslintAliases } = require('${packageName}/???');`) +
 //     `
 //     console.log(analyzeProjectStructure().project.json.name === 'dummy-pkg');
 //     console.log(analyzeProjectStructure().project.packages.get('pkg-1').json.name === 'pkg-1');
