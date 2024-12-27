@@ -159,7 +159,7 @@ export const configureExecutionContext = async function (context) {
       projectRoot,
       'node_modules',
       '@-xun',
-      'scripts',
+      'symbiote',
       'tsconfig.json'
     );
 
