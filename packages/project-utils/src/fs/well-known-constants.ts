@@ -191,6 +191,12 @@ export const vercelConfigProjectBase = 'vercel.json';
 export const directoryTypesProjectBase = 'types';
 
 /**
+ * The basename of the well-known configuration file containing definitions for
+ * additional aliases (respected by the `symbiote project renovate` command).
+ */
+export const aliasMapConfigProjectBase = 'alias.config.mjs';
+
+/**
  * The basename of the well-known changelog patcher configuration file
  * (respected by the `symbiote build changelog` command).
  */
@@ -201,12 +207,6 @@ export const changelogPatchConfigProjectBase = 'changelog.patch.mjs';
  * (respected by the `symbiote build changelog` command).
  */
 export const changelogPatchConfigPackageBase = 'changelog.patch.mjs';
-
-/**
- * The basename of the well-known configuration file containing definitions for
- * additional aliases (respected by the `symbiote project renovate` command).
- */
-export const aliasMapConfigPackageBase = 'aliases.config.mjs';
 
 /**
  * The basename of the well-known script run after `npm install` (exactly as
