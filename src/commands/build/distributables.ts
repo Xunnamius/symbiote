@@ -257,7 +257,7 @@ export default async function command({
           string: true,
           array: true,
           default: [],
-          description: 'Only transpile source file paths matching a RegExp filter',
+          description: 'Only transpile absolute paths matching a RegExp filter',
           coerce(partials: string[]) {
             // ! These regular expressions can never use the global (g) flag
             return partials.map((str) => new RegExp(str, 'u'));
@@ -385,7 +385,7 @@ The only available scope is "${DistributablesBuilderScope.ThisPackage}"; hence, 
 
 When you need to access the intermediate babel transpilation result for non-production non-Next.js build outputs, which can be extremely useful when debugging strange problems in development and testing environments, see the --generate-intermediates-for option and the corresponding \`symbiote test --scope=${TesterScope.ThisPackageIntermediates}\` command.
 
-In scenarios where build times must be reduced (such as during rapid iteration or debugging), a combination of --no-generate-types (skip types) and --partial-filter (limit scope to only file paths that match one of the filters, which are regular expressions) allows you to skip the two most costly operations executed by this command: type generation and transpilation of the entire entire source dependency tree. Using either --no-generate-types or --partial-filter also disables this command's output validation post-build step, though note that --partial-filter by itself only filters build targets and has no effect on the output of type definition files.
+In scenarios where build times must be reduced (such as during rapid iteration or debugging), a combination of --no-generate-types (skip types) and --partial-filter (limit scope to only absolute file paths matched by at least one of the filters, which are regular expressions) allows you to skip the two most costly operations executed by this command: type generation and transpilation of the entire entire source dependency tree. Using either --no-generate-types or --partial-filter also disables this command's output validation post-build step, though note that --partial-filter by itself only filters build targets and has no effect on the output of type definition files.
 
 Finally, note that, when attempting to build a Next.js package, this command will defer entirely to \`next build\`. This means most of the options made available by this command are not available when building a Next.js package.`
     ),
@@ -413,6 +413,7 @@ Finally, note that, when attempting to build a Next.js package, this command wil
     }) {
       const genericLogger = log.extend(scriptBasename(scriptFullName));
       const debug = debug_.extend('handler');
+      const filterMatchLogger = log.extend('filtered');
 
       debug('entered handler');
 
@@ -607,15 +608,31 @@ Finally, note that, when attempting to build a Next.js package, this command wil
                 target
               );
             } else {
-              if (!partialFilters.length || partialFilters.some((f) => f.test(target))) {
+              if (
+                !partialFilters.length ||
+                partialFilters.some((filter) => {
+                  if (filter.test(target)) {
+                    debug('%O filter result: pass (matched %O)', target, filter);
+                    filterMatchLogger('matched: %O', target);
+                    return true;
+                  }
+                })
+              ) {
+                if (!partialFilters.length) {
+                  debug('%O filter result: pass (no filters)', target);
+                }
+
                 allBuildTargets.push(target);
 
                 if (hasTypescriptExtension(target)) {
                   allBuildSourceTargets.push(target);
+                  debug('added %O as: SOURCE', target);
                 } else {
                   allBuildAssetTargets.push(target);
+                  debug('added %O as: ASSET', target);
                 }
               } else {
+                debug('%O filter result: fail (matched no filters)', target);
                 filteredOutBuildTargets.push(target);
               }
             }
