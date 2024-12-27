@@ -107,7 +107,7 @@ export function generateBaseXPackageJson(
       'list-tasks': `NODE_NO_WARNINGS=1 symbiote list-tasks --scope ${DefaultGlobalScope.ThisPackage}`,
       prepare: 'NODE_NO_WARNINGS=1 symbiote project prepare',
       release: 'NODE_NO_WARNINGS=1 symbiote release',
-      renovate: `NODE_NO_WARNINGS=1 symbiote project renovate --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'`,
+      renovate: `NODE_NO_WARNINGS=1 symbiote project renovate --hush --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'`,
       start: 'NODE_NO_WARNINGS=1 symbiote start --',
       test: 'npm run test:package:unit --',
       'test:package:all': 'NODE_NO_WARNINGS=1 symbiote test --coverage',
