@@ -1,5 +1,7 @@
 import { type Jsonifiable } from 'type-fest';
 
+import { LogTag } from 'multiverse+cli-utils:logging.ts';
+
 import {
   isRootPackage,
   ProjectAttribute,
@@ -37,6 +39,7 @@ export type GeneratorParameters = [
     Required<Pick<Package['json'], 'name' | 'version' | 'description'>>,
   repoUrl: string,
   projectRelativePackageRoot: RelativePath | undefined
+  // TODO: scope
 ];
 
 // ! Can never use the global (g) flag
@@ -60,11 +63,14 @@ export function generateBaseXPackageJson(
       url: `${repoUrl}/issues`
     },
     repository: deriveJsonRepositoryValue(repoUrl),
+    // TODO: CLI scope gets a "bin" field with proper value (always an object)
     license: incomingPackageJson.license ?? 'MIT',
     author: incomingPackageJson.author ?? 'Xunnamius',
     sideEffects: incomingPackageJson.sideEffects ?? false,
     type: incomingPackageJson.type ?? 'commonjs',
     exports: incomingPackageJson.exports ?? {
+      // TODO: these get generated differently for different scopes (like CLI)
+
       '.': {
         types: `./dist${packagePrefix}/src/index.d.ts`,
         default: `./dist${packagePrefix}/src/index.js`
@@ -271,7 +277,8 @@ export const { transformer } = makeTransformer(function (context) {
     forceOverwritePotentiallyDestructive,
     projectMetadata: {
       rootPackage: { attributes: projectAttributes }
-    }
+    },
+    log
   } = context;
 
   // * Every package gets these files, including non-hybrid monorepo roots
@@ -326,15 +333,18 @@ export const { transformer } = makeTransformer(function (context) {
         return [
           {
             path: toProjectAbsolutePath(packageJsonConfigPackageBase),
-            generate: () =>
-              stringify(
+            generate: function () {
+              maybeIssueBreakingChangeWarning();
+
+              return stringify(
                 generatePolyrepoXPackageJson(
                   finalPackageJson,
                   repoUrl,
                   projectRelativePackageRoot
                 ),
                 contextWithCwdPackage
-              )
+              );
+            }
           }
         ];
       } else {
@@ -348,15 +358,18 @@ export const { transformer } = makeTransformer(function (context) {
                     relativeRoot,
                     packageJsonConfigPackageBase
                   ),
-                  generate: () =>
-                    stringify(
+                  generate: function () {
+                    maybeIssueBreakingChangeWarning();
+
+                    return stringify(
                       generateHybridrepoProjectXPackageJson(
                         finalPackageJson,
                         repoUrl,
                         projectRelativePackageRoot
                       ),
                       contextWithCwdPackage
-                    )
+                    );
+                  }
                 }
               ]
             : [
@@ -365,32 +378,47 @@ export const { transformer } = makeTransformer(function (context) {
                     relativeRoot,
                     packageJsonConfigPackageBase
                   ),
-                  generate: () =>
-                    stringify(
+                  generate: function () {
+                    maybeIssueBreakingChangeWarning();
+
+                    return stringify(
                       generateNonHybridMonorepoProjectXPackageJson(
                         finalPackageJson,
                         repoUrl,
                         projectRelativePackageRoot
                       ),
                       contextWithCwdPackage
-                    )
+                    );
+                  }
                 }
               ];
         } else {
           return [
             {
               path: toProjectAbsolutePath(relativeRoot, packageJsonConfigPackageBase),
-              generate: () =>
-                stringify(
+              generate: function () {
+                maybeIssueBreakingChangeWarning();
+
+                return stringify(
                   generateSubRootXPackageJson(
                     finalPackageJson,
                     repoUrl,
                     projectRelativePackageRoot
                   ),
                   contextWithCwdPackage
-                )
+                );
+              }
             }
           ];
+        }
+      }
+
+      function maybeIssueBreakingChangeWarning() {
+        if (forceOverwritePotentiallyDestructive && packageJson.engines) {
+          log.warn(
+            [LogTag.IF_NOT_QUIETED],
+            'The "engines" field was overwritten in: %O\n💥 THIS IS LIKELY A BREAKING CHANGE! COMMIT OR UNDO ACCORDINGLY! 💥'
+          );
         }
       }
     },
