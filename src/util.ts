@@ -896,7 +896,7 @@ export async function importAdditionalRawAliasMappings(
 
       debug('final mappings: %O', mappings);
       log.message(
-        `included %O additional alias mapping${mappings.length === 1 ? '' : 's'} from: %O`,
+        `Included %O additional alias mapping${mappings.length === 1 ? '' : 's'} from: %O`,
         mappings.length,
         aliasMapPath
       );
