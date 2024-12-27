@@ -2035,38 +2035,53 @@ See the symbiote wiki documentation for more details on this command and all ava
         threw = true;
         throw error;
       } finally {
-        log([LogTag.IF_NOT_HUSHED], 'Waiting for formatter sub-command to complete...');
+        if (force) {
+          log.message(
+            [LogTag.IF_NOT_HUSHED],
+            'Skipped running formatter due to --force'
+          );
+        } else {
+          log(
+            [LogTag.IF_NOT_HUSHED],
+            'Waiting for formatter sub-command to complete...'
+          );
 
-        await formatHandler({
-          ...argv,
-          $0: 'format',
-          _: [],
-          scope: DefaultGlobalScope.Unlimited,
-          silent: true,
-          quiet: true,
-          hush: true,
-          renumberReferences: false,
-          skipIgnored: true,
-          skipUnknown: false,
-          onlyPackageJson: false,
-          onlyMarkdown: false,
-          onlyPrettier: false
-        }).then(
-          () =>
-            log([LogTag.IF_NOT_HUSHED], 'Formatter sub-command completed successfully'),
-          (error: unknown) => {
-            debug.error('formatter sub-command failed:', error);
-            log.warn(
-              [LogTag.IF_NOT_SILENCED],
-              `Formatter sub-command experienced a fatal error${threw ? ' (that was ignored due to another error)' : ''}:`
-            );
-            log.warn([LogTag.IF_NOT_SILENCED], error);
+          // TODO: fix the "crosstalk" bug, then move this back up above error
+          // TODO: output code and await it here (save time)
+          await formatHandler({
+            ...argv,
+            $0: 'format',
+            _: [],
+            scope: DefaultGlobalScope.Unlimited,
+            silent: true,
+            quiet: true,
+            hush: true,
+            renumberReferences: false,
+            skipIgnored: true,
+            skipUnknown: false,
+            onlyPackageJson: false,
+            onlyMarkdown: false,
+            onlyPrettier: false
+          }).then(
+            () =>
+              log(
+                [LogTag.IF_NOT_HUSHED],
+                'Formatter sub-command completed successfully'
+              ),
+            (error: unknown) => {
+              debug.error('formatter sub-command failed:', error);
+              log.warn(
+                [LogTag.IF_NOT_SILENCED],
+                `Formatter sub-command experienced a fatal error${threw ? ' (that was ignored due to another error)' : ''}:`
+              );
+              log.warn([LogTag.IF_NOT_SILENCED], error);
 
-            if (!threw) {
-              throw error;
+              if (!threw) {
+                throw error;
+              }
             }
-          }
-        );
+          );
+        }
       }
 
       // ? Typescript wants this here because of our "as const" for some reason
