@@ -176,12 +176,12 @@ export function hasJavascriptExtension(path: string) {
 }
 
 const dTsExtensionsToReplace = [
+  // ! Multi-dot extensions (like .d.ts) must go before single-dot extensions
   extensionTypescriptDefinition,
+  ...extensionsTypescript,
   // ? No .js
   ...extensionsJavascript.slice(1)
 ];
-
-debug('dTsExtensionsToReplace: %O', dTsExtensionsToReplace);
 
 const endsWithJsExtensionRegExp = new RegExp(
   escapeStringRegexp(extensionsJavascript[0]) + '$'
@@ -214,6 +214,8 @@ debug(
   'translateJsExtensionsToTsRegExpReplacer: %O',
   translateJsExtensionsToTsRegExpReplacer
 );
+
+debug('dTsExtensionsToReplace: %O', dTsExtensionsToReplace);
 debug('dTsExtensionsToReplaceRegExp: %O', dTsExtensionsToReplaceRegExp);
 
 function makeTransformRewriteImportsSourceModuleResolver(
@@ -634,7 +636,7 @@ function makeDistReplacerEntry(
             toAbsolutePath(packageRoot, 'dist', toRelativePath(projectRoot, inputPath))
           : inputPath;
 
-      const specifierTargetProjectRootRelativeRealPathWithOldExtension =
+      const specifierTargetProjectRootRelativeSourcePath =
         projectRootRelativeReplacerPath
           // ? Ensure proper replacer syntax is used
           .replace(
@@ -643,21 +645,20 @@ function makeDistReplacerEntry(
           ) as RelativePath;
 
       const isSpecifierTargetUnderAPackageRootNodeModules =
-        includesNodeModulesRegExp.test(
-          specifierTargetProjectRootRelativeRealPathWithOldExtension
-        );
+        includesNodeModulesRegExp.test(specifierTargetProjectRootRelativeSourcePath);
 
       // ? We're assuming all package.json files being imported belong to a root
       const isSpecifierTargetAPackageJson = endsWithPackageJsonRegExp.test(
-        specifierTargetProjectRootRelativeRealPathWithOldExtension
+        specifierTargetProjectRootRelativeSourcePath
       );
 
       const isSpecifierTargetThePackageRootPackageJson =
-        specifierTargetProjectRootRelativeRealPathWithOldExtension ===
+        specifierTargetProjectRootRelativeSourcePath ===
         toPath(specifierSubRootPrefix, 'package.json');
 
       dbgReplacer.message(
-        'regexp %O matched a specifier: %O imported from input file %O',
+        'type %O regexp %O matched a specifier: %O imported from input file %O',
+        type,
         specifierRegExp,
         Array.from(capturingGroups),
         inputPath
@@ -674,8 +675,8 @@ function makeDistReplacerEntry(
         inputFileOutputPathWithOldExtension
       );
       dbgReplacer(
-        'specifierTargetProjectRootRelativeRealPathWithOldExtension: %O',
-        specifierTargetProjectRootRelativeRealPathWithOldExtension
+        'specifierTargetProjectRootRelativeSourcePath: %O',
+        specifierTargetProjectRootRelativeSourcePath
       );
       dbgReplacer(
         'isSpecifierTargetUnderAPackageRootNodeModules: %O',
@@ -719,10 +720,8 @@ function makeDistReplacerEntry(
         isSpecifierTargetValidlyOutsideDistDirectory ? '' : 'dist',
         isSpecifierTargetUnderAPackageRootNodeModules ? 'node_modules' : '',
         isSpecifierTargetThePackageRootPackageJson
-          ? sliceOffPackageRootPrefix(
-              specifierTargetProjectRootRelativeRealPathWithOldExtension
-            )
-          : specifierTargetProjectRootRelativeRealPathWithOldExtension
+          ? sliceOffPackageRootPrefix(specifierTargetProjectRootRelativeSourcePath)
+          : specifierTargetProjectRootRelativeSourcePath
               .replace(grabEverythingUpToAndIncludingNodeModulesRegExp, '')
               // ? Ensure proper extension is used
               .replace(
@@ -741,23 +740,20 @@ function makeDistReplacerEntry(
       // * path above. Also note that the outputFile
 
       if (isSpecifierTargetUnderAPackageRootNodeModules) {
-        dbgResolver(
-          'attempting to resolve precarious specifier into bare package entry point'
-        );
+        dbgResolver('checking cache for: %O', specifierTargetOutputPath);
 
         // ? Attempt to resolve this precarious node_modules path into a bare
         // ? package specifier that is more resilient to hoisting
-        if (knownEntrypoints[specifierTargetOutputPath] !== undefined) {
+        if (!(specifierTargetOutputPath in knownEntrypoints)) {
+          dbgResolver('cache miss; resolution to package entry point will be attempted');
+
           const isDir = statSync(specifierTargetOutputPath).isDirectory();
           const packageJsonPath = findUp.sync('package.json', {
             cwd: isDir ? specifierTargetOutputPath : toDirname(specifierTargetOutputPath)
           }) as AbsolutePath | undefined;
 
-          dbgResolver(
-            'entry point was not in knownEntrypoints; resolution will be attempted'
-          );
           dbgResolver('isDir: %O', isDir);
-          dbgResolver('packageJsonPath: %O', packageJsonPath);
+          dbgResolver('packageJsonPath (via find-up): %O', packageJsonPath);
 
           if (packageJsonPath) {
             const packageDir = toDirname(packageJsonPath);
@@ -798,52 +794,77 @@ function makeDistReplacerEntry(
 
                 let entrypoints = resolveEntryPointsFromExportsTarget(options);
 
-                dbgResolver('resolved entrypoints (attempt #1): %O', entrypoints);
+                dbgResolver('resolved entrypoints attempt: %O', entrypoints);
+
+                let updatedTarget = target + extensionTypescriptDefinition;
 
                 // ? I believe tsc also does shortest-path-wins
                 if (!entrypoints.length) {
                   entrypoints = resolveEntryPointsFromExportsTarget({
                     ...options,
-                    target: target + extensionTypescriptDefinition
+                    target: updatedTarget
                   });
 
-                  dbgResolver('resolved entrypoints (attempt #2): %O', entrypoints);
+                  dbgResolver(
+                    'resolved entrypoints attempt (updated target: %O): %O',
+                    updatedTarget,
+                    entrypoints
+                  );
                 }
 
                 if (!entrypoints.length) {
+                  updatedTarget = target.replace(
+                    endsWithJsExtensionRegExp,
+                    extensionTypescriptDefinition
+                  );
+
                   entrypoints = resolveEntryPointsFromExportsTarget({
                     ...options,
-                    target: target.replace(
-                      endsWithJsExtensionRegExp,
-                      extensionTypescriptDefinition
-                    )
+                    target: updatedTarget
                   });
 
-                  dbgResolver('resolved entrypoints (attempt #3): %O', entrypoints);
+                  dbgResolver(
+                    'resolved entrypoints attempt (updated target: %O): %O',
+                    updatedTarget,
+                    entrypoints
+                  );
                 }
 
                 if (!entrypoints.length) {
+                  updatedTarget = target + `/index${extensionTypescriptDefinition}`;
+
                   entrypoints = resolveEntryPointsFromExportsTarget({
                     ...options,
-                    target: target + `/index${extensionTypescriptDefinition}`
+                    target: updatedTarget
                   });
 
-                  dbgResolver('resolved entrypoints (attempt #4): %O', entrypoints);
+                  dbgResolver(
+                    'resolved entrypoints attempt (updated target: %O): %O',
+                    updatedTarget,
+                    entrypoints
+                  );
                 }
 
                 // ? Try fallbacks
 
                 if (!entrypoints.length && packageTypes) {
+                  updatedTarget = packageTypes;
+
                   entrypoints = resolveEntryPointsFromExportsTarget({
                     ...options,
-                    target: packageTypes
+                    target: updatedTarget
                   });
 
-                  dbgResolver('resolved entrypoints (attempt #5): %O', entrypoints);
+                  dbgResolver(
+                    'resolved entrypoints attempt (updated target: %O): %O',
+                    updatedTarget,
+                    entrypoints
+                  );
                 }
 
                 knownEntrypoints[specifierTargetOutputPath] = entrypoints
                   .at(0)
+                  // ? Replace first dot with the package's node_modules name
                   ?.replace('.', packageName) as RelativePath;
 
                 dbgResolver(
@@ -876,11 +897,25 @@ function makeDistReplacerEntry(
           }
         }
 
+        // ? Negative results are also cached
+        knownEntrypoints[specifierTargetOutputPath] ||= undefined;
+
+        dbgResolver.message(
+          'resolved entry point: %O',
+          knownEntrypoints[specifierTargetOutputPath]
+        );
+
         if (knownEntrypoints[specifierTargetOutputPath]) {
-          dbgResolver('precarious specifier was resolved successfully');
+          dbgReplacerResult(
+            'final replacement specifier: %O',
+            knownEntrypoints[specifierTargetOutputPath]
+          );
+
           return knownEntrypoints[specifierTargetOutputPath];
         } else {
-          dbgResolver.warn('failed to resolve precarious specifier');
+          dbgResolver.warn(
+            'failed to resolve precarious specifier real path to package entry point'
+          );
         }
       }
 
@@ -891,7 +926,7 @@ function makeDistReplacerEntry(
         )
       );
 
-      dbgReplacerResult('fully-resolved replacement specifier: %O', resultantSpecifier);
+      dbgReplacerResult('final replacement specifier: %O', resultantSpecifier);
       return resultantSpecifier;
 
       function sliceOffPackageRootPrefix(path: string | undefined) {
