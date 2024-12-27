@@ -255,7 +255,7 @@
     "validate-npm-package-name": "^6.0.0"
   },
   "devDependencies": {
-    "@-xun/symbiote": "^2.0.1"
+    "@-xun/symbiote": "^2.1.0"
   },
   "engines": {
     "node": "18.20.0 || ^20.15.0 || >=22.5.0"
