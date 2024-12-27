@@ -780,9 +780,11 @@ function makeDistReplacerEntry(
               // ? files at the moment
               if (type === 'definition') {
                 const flatXports = flattenPackageJsonSubpathMap({ map: packageExports });
-                const target = ensureStringStartsWithDotSlash(
+                const target = ensureRelativePathLooksLocal(
                   toRelativePath(packageDir, specifierTargetOutputPath)
                 );
+
+                const isTargetThePackageIndex = target !== '.' && target !== '..';
 
                 const options = {
                   flattenedExports: flatXports,
@@ -796,10 +798,12 @@ function makeDistReplacerEntry(
 
                 dbgResolver('resolved entrypoints attempt: %O', entrypoints);
 
-                let updatedTarget = target + extensionTypescriptDefinition;
+                let updatedTarget = '';
 
                 // ? I believe tsc also does shortest-path-wins
-                if (!entrypoints.length) {
+                if (!entrypoints.length && !isTargetThePackageIndex) {
+                  updatedTarget = target + extensionTypescriptDefinition;
+
                   entrypoints = resolveEntryPointsFromExportsTarget({
                     ...options,
                     target: updatedTarget
@@ -812,8 +816,9 @@ function makeDistReplacerEntry(
                   );
                 }
 
-                if (!entrypoints.length) {
+                if (!entrypoints.length && !isTargetThePackageIndex) {
                   updatedTarget = target.replace(
+                    // ? We probably won't encounter any TS files, only JS
                     endsWithJsExtensionRegExp,
                     extensionTypescriptDefinition
                   );
@@ -848,7 +853,9 @@ function makeDistReplacerEntry(
                 // ? Try fallbacks
 
                 if (!entrypoints.length && packageTypes) {
-                  updatedTarget = packageTypes;
+                  updatedTarget = ensureRelativePathLooksLocal(
+                    packageTypes as RelativePath
+                  );
 
                   entrypoints = resolveEntryPointsFromExportsTarget({
                     ...options,
@@ -919,7 +926,7 @@ function makeDistReplacerEntry(
         }
       }
 
-      const resultantSpecifier = ensureStringStartsWithDotSlash(
+      const resultantSpecifier = ensureRelativePathLooksLocal(
         toRelativePath(
           toDirname(inputFileOutputPathWithOldExtension),
           specifierTargetOutputPath
@@ -935,8 +942,18 @@ function makeDistReplacerEntry(
           : path || '';
       }
 
-      function ensureStringStartsWithDotSlash<T extends string>(result: T): T {
-        return ((isDotRelativePathRegExp.test(result) ? '' : './') + result) as T;
+      /**
+       *  In node land, specifiers that don't start with a ./ are treated as
+       * bare package imports instead of local imports. We want our paths to be
+       * recognized as local, so they need to be either `.`, `..`, or start with
+       * `./`; i.e. they need to "look local".
+       *
+       * This function, when passed an empty string `path`, will return `'.'`.
+       */
+      function ensureRelativePathLooksLocal(path: RelativePath): RelativePath {
+        return (
+          path ? (isLocalLookingRegExp.test(path) ? path : './' + path) : '.'
+        ) as RelativePath;
       }
     }
   ];
