@@ -596,6 +596,8 @@ Finally, note that, when attempting to build a Next.js package, this command wil
 
           debug.message('cwdPackageJsonRelativePath: %O', cwdPackageJsonRelativePath);
 
+          let outputNewlineAlready = false;
+
           for (const target of _allBuildTargets) {
             // ? The current package's package.json file should never be
             // ? included in assets, even if it's explicitly imported
@@ -611,9 +613,18 @@ Finally, note that, when attempting to build a Next.js package, this command wil
               if (
                 !partialFilters.length ||
                 partialFilters.some((filter) => {
-                  if (filter.test(target)) {
+                  const absoluteTarget = toAbsolutePath(projectRoot, target);
+                  debug('absoluteTarget: %O', absoluteTarget);
+
+                  if (filter.test(absoluteTarget)) {
+                    if (!outputNewlineAlready) {
+                      filterMatchLogger.newline([LogTag.IF_NOT_HUSHED]);
+                    }
+
                     debug('%O filter result: pass (matched %O)', target, filter);
-                    filterMatchLogger('matched: %O', target);
+                    filterMatchLogger([LogTag.IF_NOT_HUSHED], 'matched: %O', target);
+
+                    outputNewlineAlready = true;
                     return true;
                   }
                 })
