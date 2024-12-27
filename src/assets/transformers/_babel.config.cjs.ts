@@ -784,7 +784,7 @@ function makeDistReplacerEntry(
                   toRelativePath(packageDir, specifierTargetOutputPath)
                 );
 
-                const isTargetSingleOrDoubleDot = target === '.' || target === '..';
+                const isTargetDoubleDot = target === '..';
 
                 const options = {
                   flattenedExports: flatXports,
@@ -794,60 +794,68 @@ function makeDistReplacerEntry(
 
                 dbgResolver('resolver options: %O', options);
 
-                let entrypoints = resolveEntryPointsFromExportsTarget(options);
-
-                dbgResolver('resolved entrypoints attempt: %O', entrypoints);
-
                 let updatedTarget = '';
+                let entrypoints = [];
 
-                // ? I believe tsc also does shortest-path-wins
-                if (!entrypoints.length && !isTargetSingleOrDoubleDot) {
-                  updatedTarget = target + extensionTypescriptDefinition;
+                if (target === '.') {
+                  // * In this special case, the bare package name is used as
+                  // * the import specifier. We don't have to go looking for
+                  // * a subpath; we can just push "." (which is replaced by
+                  // * the package name in a later block)
+                  entrypoints = [target];
+                } else {
+                  entrypoints = resolveEntryPointsFromExportsTarget(options);
+                  dbgResolver('resolved entrypoints attempt: %O', entrypoints);
 
-                  entrypoints = resolveEntryPointsFromExportsTarget({
-                    ...options,
-                    target: updatedTarget
-                  });
+                  // ? I believe tsc also does shortest-path-wins
+                  if (!entrypoints.length && !isTargetDoubleDot) {
+                    updatedTarget = target + extensionTypescriptDefinition;
 
-                  dbgResolver(
-                    'resolved entrypoints attempt (updated target: %O): %O',
-                    updatedTarget,
-                    entrypoints
-                  );
-                }
+                    entrypoints = resolveEntryPointsFromExportsTarget({
+                      ...options,
+                      target: updatedTarget
+                    });
 
-                if (!entrypoints.length && !isTargetSingleOrDoubleDot) {
-                  updatedTarget = target.replace(
-                    // ? We probably won't encounter any TS files, only JS
-                    endsWithJsExtensionRegExp,
-                    extensionTypescriptDefinition
-                  );
+                    dbgResolver(
+                      'resolved entrypoints attempt (updated target: %O): %O',
+                      updatedTarget,
+                      entrypoints
+                    );
+                  }
 
-                  entrypoints = resolveEntryPointsFromExportsTarget({
-                    ...options,
-                    target: updatedTarget
-                  });
+                  if (!entrypoints.length && !isTargetDoubleDot) {
+                    updatedTarget = target.replace(
+                      // ? We probably won't encounter any TS files, only JS
+                      endsWithJsExtensionRegExp,
+                      extensionTypescriptDefinition
+                    );
 
-                  dbgResolver(
-                    'resolved entrypoints attempt (updated target: %O): %O',
-                    updatedTarget,
-                    entrypoints
-                  );
-                }
+                    entrypoints = resolveEntryPointsFromExportsTarget({
+                      ...options,
+                      target: updatedTarget
+                    });
 
-                if (!entrypoints.length) {
-                  updatedTarget = target + `/index${extensionTypescriptDefinition}`;
+                    dbgResolver(
+                      'resolved entrypoints attempt (updated target: %O): %O',
+                      updatedTarget,
+                      entrypoints
+                    );
+                  }
 
-                  entrypoints = resolveEntryPointsFromExportsTarget({
-                    ...options,
-                    target: updatedTarget
-                  });
+                  if (!entrypoints.length) {
+                    updatedTarget = target + `/index${extensionTypescriptDefinition}`;
 
-                  dbgResolver(
-                    'resolved entrypoints attempt (updated target: %O): %O',
-                    updatedTarget,
-                    entrypoints
-                  );
+                    entrypoints = resolveEntryPointsFromExportsTarget({
+                      ...options,
+                      target: updatedTarget
+                    });
+
+                    dbgResolver(
+                      'resolved entrypoints attempt (updated target: %O): %O',
+                      updatedTarget,
+                      entrypoints
+                    );
+                  }
                 }
 
                 // ? Try fallbacks
@@ -875,7 +883,7 @@ function makeDistReplacerEntry(
                   ?.replace('.', packageName) as RelativePath;
 
                 dbgResolver(
-                  'final selected resolved entry point: %O',
+                  'final resolved entry point: %O',
                   knownEntrypoints[specifierTargetOutputPath]
                 );
               } else {
@@ -886,15 +894,13 @@ function makeDistReplacerEntry(
             } else {
               dbgResolver('detected package exports: %O', 'no');
 
-              const result = specifierTargetOutputPath.split('node_modules/').at(-1) as
-                | RelativePath
-                | undefined;
+              const result = specifierTargetOutputPath
+                .split('node_modules/')
+                // ? Guaranteed to be defined due to a parent conditional
+                .at(-1) as RelativePath;
 
-              if (result) {
-                knownEntrypoints[specifierTargetOutputPath] = result;
-              }
-
-              dbgResolver('final selected resolved entry point: %O', result);
+              knownEntrypoints[specifierTargetOutputPath] = result;
+              dbgResolver('final resolved entry point: %O', result);
             }
           } else {
             dbgResolver.warn(
