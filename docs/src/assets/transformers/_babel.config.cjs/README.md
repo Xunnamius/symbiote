@@ -18,6 +18,7 @@
 - [extensionsAcceptedByBabel](variables/extensionsAcceptedByBabel.md)
 - [extensionsJavascript](variables/extensionsJavascript.md)
 - [extensionsTypescript](variables/extensionsTypescript.md)
+- [extensionTypescriptDefinition](variables/extensionTypescriptDefinition.md)
 - [NODE\_LTS](variables/NODE_LTS.md)
 - [wellKnownNodeEnvValues](variables/wellKnownNodeEnvValues.md)
 

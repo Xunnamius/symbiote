@@ -14,4 +14,4 @@ Represents the result of importing an `aliases.config.mjs` file.
 
 ## Defined in
 
-[src/util.ts:119](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/util.ts#L119)
+[src/util.ts:119](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/src/util.ts#L119)

@@ -29,7 +29,7 @@ See the symbiote wiki for details.
 
 #### Defined in
 
-[src/assets.ts:84](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/assets.ts#L84)
+[src/assets.ts:84](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/src/assets.ts#L84)
 
 ***
 
@@ -45,7 +45,7 @@ See the symbiote wiki for details.
 
 #### Defined in
 
-[src/assets.ts:92](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/assets.ts#L92)
+[src/assets.ts:92](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/src/assets.ts#L92)
 
 ***
 
@@ -62,7 +62,7 @@ See the symbiote wiki for details.
 
 #### Defined in
 
-[src/assets.ts:101](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/assets.ts#L101)
+[src/assets.ts:101](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/src/assets.ts#L101)
 
 ***
 
@@ -78,7 +78,7 @@ See the symbiote wiki for details.
 
 #### Defined in
 
-[src/assets.ts:109](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/assets.ts#L109)
+[src/assets.ts:109](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/src/assets.ts#L109)
 
 ***
 
@@ -94,7 +94,7 @@ See the symbiote wiki for details.
 
 #### Defined in
 
-[src/assets.ts:117](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/assets.ts#L117)
+[src/assets.ts:117](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/src/assets.ts#L117)
 
 ***
 
@@ -109,7 +109,7 @@ See the symbiote wiki for details.
 
 #### Defined in
 
-[src/assets.ts:130](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/assets.ts#L130)
+[src/assets.ts:130](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/src/assets.ts#L130)
 
 ***
 
@@ -123,4 +123,4 @@ See the symbiote wiki for details.
 
 #### Defined in
 
-[src/assets.ts:123](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/assets.ts#L123)
+[src/assets.ts:123](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/src/assets.ts#L123)

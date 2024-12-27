@@ -339,7 +339,7 @@ node\_modules/prettier/index.d.ts:363
 
 ### plugins?
 
-> `optional` **plugins**: (`string` \| `Plugin`\<`any`\>)[]
+> `optional` **plugins**: (`string` \| `Plugin`)[]
 
 Provide ability to support new languages to prettier.
 

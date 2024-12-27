@@ -20,7 +20,7 @@ Does not include code coverage results by default.
 
 #### Defined in
 
-[src/commands/test.ts:95](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/commands/test.ts#L95)
+[src/commands/test.ts:95](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/src/commands/test.ts#L95)
 
 ***
 
@@ -35,7 +35,7 @@ Will also include code coverage results by default.
 
 #### Defined in
 
-[src/commands/test.ts:102](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/commands/test.ts#L102)
+[src/commands/test.ts:102](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/src/commands/test.ts#L102)
 
 ***
 
@@ -49,7 +49,7 @@ Does not include code coverage results by default.
 
 #### Defined in
 
-[src/commands/test.ts:89](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/commands/test.ts#L89)
+[src/commands/test.ts:89](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/src/commands/test.ts#L89)
 
 ***
 
@@ -63,7 +63,7 @@ Does not include code coverage results by default.
 
 #### Defined in
 
-[src/commands/test.ts:83](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/commands/test.ts#L83)
+[src/commands/test.ts:83](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/src/commands/test.ts#L83)
 
 ***
 
@@ -77,7 +77,7 @@ Does not include code coverage results by default.
 
 #### Defined in
 
-[src/commands/test.ts:71](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/commands/test.ts#L71)
+[src/commands/test.ts:71](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/src/commands/test.ts#L71)
 
 ***
 
@@ -91,4 +91,4 @@ Does not include code coverage results by default.
 
 #### Defined in
 
-[src/commands/test.ts:77](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/commands/test.ts#L77)
+[src/commands/test.ts:77](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/src/commands/test.ts#L77)

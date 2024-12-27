@@ -34,7 +34,7 @@ An `Error` class where the first letter of the message is capitalized.
 
 #### Defined in
 
-[packages/cli-utils/src/error.ts:11](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/packages/cli-utils/src/error.ts#L11)
+[packages/cli-utils/src/error.ts:11](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/packages/cli-utils/src/error.ts#L11)
 
 ## Properties
 

@@ -12,4 +12,4 @@ The `MergeWithCustomizer` type from lodash's mergeWith.
 
 ## Defined in
 
-[src/assets.ts:567](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/assets.ts#L567)
+[src/assets.ts:567](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/src/assets.ts#L567)

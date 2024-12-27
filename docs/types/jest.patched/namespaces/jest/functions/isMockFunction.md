@@ -6,7 +6,7 @@
 
 # Function: isMockFunction()
 
-> **isMockFunction**(`fn`): `fn is Mock<any, any, any>`
+> **isMockFunction**(`fn`): `fn is Mock`
 
 Returns whether the given function is a mock function.
 
@@ -18,7 +18,7 @@ Returns whether the given function is a mock function.
 
 ## Returns
 
-`fn is Mock<any, any, any>`
+`fn is Mock`
 
 ## Defined in
 

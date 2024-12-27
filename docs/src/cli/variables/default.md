@@ -12,4 +12,4 @@ This is the simple CLI entry point executed directly by node.
 
 ## Defined in
 
-[src/cli.ts:10](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/cli.ts#L10)
+[src/cli.ts:10](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/src/cli.ts#L10)

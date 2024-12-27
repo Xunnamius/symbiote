@@ -26,4 +26,4 @@ Whether the generated asset contents should be trimmed and how.
 
 ## Defined in
 
-[src/assets.ts:284](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/assets.ts#L284)
+[src/assets.ts:284](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/src/assets.ts#L284)

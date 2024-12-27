@@ -22,4 +22,4 @@ Type guard for ProjectError.
 
 ## Defined in
 
-[src/error.ts:30](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/error.ts#L30)
+[src/error.ts:30](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/src/error.ts#L30)

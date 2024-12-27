@@ -10,4 +10,4 @@
 
 ### Variables
 
-- [default](variables/default.md)
+- [flatConfigs](variables/flatConfigs.md)

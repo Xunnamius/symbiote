@@ -30,4 +30,4 @@
 
 ## Defined in
 
-[src/assets/transformers/\_babel.config.cjs.ts:232](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/src/assets/transformers/_babel.config.cjs.ts#L232)
+[src/assets/transformers/\_babel.config.cjs.ts:295](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/src/assets/transformers/_babel.config.cjs.ts#L295)

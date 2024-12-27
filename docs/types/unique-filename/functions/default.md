@@ -28,4 +28,4 @@
 
 ## Defined in
 
-[types/unique-filename.d.ts:2](https://github.com/Xunnamius/symbiote/blob/26e756362a16f050e03cef2c4c582d94e29614cd/types/unique-filename.d.ts#L2)
+[types/unique-filename.d.ts:2](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/types/unique-filename.d.ts#L2)
