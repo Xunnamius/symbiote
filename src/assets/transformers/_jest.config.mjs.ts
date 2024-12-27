@@ -129,11 +129,19 @@ export function moduleExport({
 }
 
 export const { transformer } = makeTransformer(function (context) {
-  const { asset, shouldDeriveAliases, projectMetadata, toProjectAbsolutePath } = context;
+  const {
+    asset,
+    shouldDeriveAliases,
+    additionalRawAliasMappings,
+    projectMetadata,
+    toProjectAbsolutePath
+  } = context;
 
   const derivedAliasesSourceSnippet = shouldDeriveAliases
     ? `return ${stringifyJson(
-        deriveAliasesForJest(generateRawAliasMap(projectMetadata)),
+        deriveAliasesForJest(
+          additionalRawAliasMappings.concat(generateRawAliasMap(projectMetadata))
+        ),
         4
       ).replace(/^}/m, '  }')}`
     : 'return {}';

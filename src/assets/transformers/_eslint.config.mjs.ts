@@ -757,11 +757,14 @@ export const { transformer } = makeTransformer(function ({
   asset,
   shouldDeriveAliases,
   toProjectAbsolutePath,
+  additionalRawAliasMappings,
   projectMetadata
 }) {
   const derivedAliasesSourceSnippet = shouldDeriveAliases
     ? `return ${stringifyJson(
-        deriveAliasesForEslint(generateRawAliasMap(projectMetadata)),
+        deriveAliasesForEslint(
+          additionalRawAliasMappings.concat(generateRawAliasMap(projectMetadata))
+        ),
         4
       )
         // ? Make it a bit prettier

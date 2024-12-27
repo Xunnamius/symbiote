@@ -182,10 +182,20 @@ ${makeGeneratedAliasesWarningComment(4)}
 };
 
 export const { transformer } = makeTransformer(async function (context) {
-  const { shouldDeriveAliases, projectMetadata, toProjectAbsolutePath } = context;
+  const {
+    shouldDeriveAliases,
+    additionalRawAliasMappings,
+    projectMetadata,
+    toProjectAbsolutePath
+  } = context;
 
   const derivedAliasesSourceSnippet = shouldDeriveAliases
-    ? stringifyJson(deriveAliasesForTypeScript(generateRawAliasMap(projectMetadata)), 6)
+    ? stringifyJson(
+        deriveAliasesForTypeScript(
+          additionalRawAliasMappings.concat(generateRawAliasMap(projectMetadata))
+        ),
+        6
+      )
         // ? Make it a bit prettier
         .replaceAll(/\[\s+"/g, '["')
         .replaceAll(/"\s+\]/g, '"]')

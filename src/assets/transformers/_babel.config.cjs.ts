@@ -399,10 +399,19 @@ export function moduleExport({
  * @see {@link assertEnvironment}
  */
 export const { transformer } = makeTransformer(function (context) {
-  const { asset, shouldDeriveAliases, projectMetadata, toProjectAbsolutePath } = context;
+  const {
+    asset,
+    shouldDeriveAliases,
+    additionalRawAliasMappings,
+    projectMetadata,
+    toProjectAbsolutePath
+  } = context;
+
   const derivedAliasesSourceSnippet = shouldDeriveAliases
     ? `return ${stringifyJson(
-        deriveAliasesForBabel(generateRawAliasMap(projectMetadata)),
+        deriveAliasesForBabel(
+          additionalRawAliasMappings.concat(generateRawAliasMap(projectMetadata))
+        ),
         4
       ).replace(/^}/m, '  }')}`
     : 'return {}';

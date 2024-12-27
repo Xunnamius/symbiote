@@ -2,17 +2,17 @@
 
 import { readdirSync } from 'node:fs';
 
-import { type Merge } from 'type-fest';
-
-import { type ProjectMetadata } from 'multiverse+project-utils:analyze.ts';
-
 import {
   allContributorsConfigProjectBase,
+  babelConfigProjectBase,
   dotEnvConfigProjectBase,
   dotEnvDefaultConfigProjectBase,
+  eslintConfigProjectBase,
+  jestConfigProjectBase,
   packageJsonConfigPackageBase,
   toAbsolutePath,
   toPath,
+  Tsconfig,
   type AbsolutePath,
   type RelativePath
 } from 'multiverse+project-utils:fs.ts';
@@ -44,6 +44,10 @@ import { DefaultGlobalScope } from 'universe:configure.ts';
 import { ErrorMessage } from 'universe:error.ts';
 
 import { fixtureToProjectMetadata } from 'testverse+project-utils:helpers/dummy-repo.ts';
+
+import type { Merge } from 'type-fest';
+import type { RawAlias } from 'multiverse+project-utils:alias.ts';
+import type { ProjectMetadata } from 'multiverse+project-utils:analyze.ts';
 
 const dummyContext: IncomingTransformerContext = {
   log: createGenericLogger({ namespace: 'unit-assets-dummy-context' }),
@@ -820,6 +824,95 @@ describe('::gatherAssetsFromTransformer', () => {
           ).not.toMatchObject({ scripts });
         }
       });
+    });
+
+    it('additionalRawAliasMappings is respected in relevant transformers', async () => {
+      expect.hasAssertions();
+
+      const transformerContext = {
+        ...dummyContext,
+        projectMetadata: fixtureToProjectMetadata('goodPolyrepo'),
+        additionalRawAliasMappings: [
+          [
+            {
+              alias: 'finalverse',
+              prefix: 'exact',
+              suffix: 'exact',
+              group: 'finalverse',
+              regExp: /^finalverse$/,
+              packageId: undefined
+            } as unknown as RawAlias,
+            {
+              path: 'the/final/verse',
+              prefix: 'root',
+              suffix: 'none',
+              extensionless: true
+            }
+          ]
+        ]
+      } as IncomingTransformerContext;
+
+      {
+        const assets = await gatherAssetsFromTransformer({
+          transformerId: babelConfigProjectBase,
+          transformerContext,
+          options: { transformerFiletype: 'ts' }
+        });
+
+        const dummyAbsolutePath =
+          dummyContext.toProjectAbsolutePath(babelConfigProjectBase);
+
+        await expect(assets[dummyAbsolutePath]()).resolves.toInclude(
+          '"^finalverse$": "./the/final/verse"'
+        );
+      }
+
+      {
+        const assets = await gatherAssetsFromTransformer({
+          transformerId: eslintConfigProjectBase,
+          transformerContext,
+          options: { transformerFiletype: 'ts' }
+        });
+
+        const dummyAbsolutePath = dummyContext.toProjectAbsolutePath(
+          eslintConfigProjectBase
+        );
+
+        await expect(assets[dummyAbsolutePath]()).resolves.toInclude(
+          '["finalverse", "./the/final/verse"]'
+        );
+      }
+
+      {
+        const assets = await gatherAssetsFromTransformer({
+          transformerId: jestConfigProjectBase,
+          transformerContext,
+          options: { transformerFiletype: 'ts' }
+        });
+
+        const dummyAbsolutePath =
+          dummyContext.toProjectAbsolutePath(jestConfigProjectBase);
+
+        await expect(assets[dummyAbsolutePath]()).resolves.toInclude(
+          '"^finalverse$": "<rootDir>/the/final/verse"'
+        );
+      }
+
+      {
+        const assets = await gatherAssetsFromTransformer({
+          transformerId: Tsconfig.ProjectBase,
+          transformerContext,
+          options: { transformerFiletype: 'ts' }
+        });
+
+        const dummyAbsolutePath = dummyContext.toProjectAbsolutePath(
+          Tsconfig.ProjectBase
+        );
+
+        await expect(assets[dummyAbsolutePath]()).resolves.toInclude(
+          '"finalverse": ["the/final/verse"]'
+        );
+      }
     });
   });
 });
