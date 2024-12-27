@@ -36,7 +36,7 @@ import {
 } from 'multiverse+project-utils:analyze/common.ts';
 
 import {
-  aliasMapConfigPackageBase,
+  aliasMapConfigProjectBase,
   directoryDocumentationPackageBase,
   directorySrcPackageBase,
   directoryTestPackageBase,
@@ -70,7 +70,13 @@ import { globalDebuggerNamespace } from 'universe:constant.ts';
 import { ErrorMessage } from 'universe:error.ts';
 
 import type { Jsonifiable, LiteralUnion, Merge } from 'type-fest';
-import type { RawAliasMapping } from 'multiverse+project-utils:alias.ts';
+
+import type {
+  RawAlias,
+  RawAliasMapping,
+  RawPath
+} from 'multiverse+project-utils:alias.ts';
+
 import type { TransformerContext } from 'universe:assets.ts';
 
 /**
@@ -103,20 +109,52 @@ const beginsWithAlphaRegExp = /^[a-z]/i;
  * A function that receives the current {@link ProjectMetadata} and must return
  * an array of {@link RawAliasMapping}s.
  *
- * `aliases.config.mjs` can export via default either `RawAliasMapperFunction`
- * or an array of {@link RawAliasMapping}s.
+ * Note that import map files can export via default either
+ * `RawAliasMapperFunction` or a {@link RawAliasMapperArray}.
+ *
+ * @see {@link ImportedAliasMap}
  */
 export type RawAliasMapperFunction = (
   projectMetadata: ProjectMetadata,
   outputFunctions: { log: ExtendedLogger; debug: ExtendedDebugger }
-) => RawAliasMapping[];
+) => RawAliasMapperArray;
 
 /**
- * Represents the result of importing an `aliases.config.mjs` file.
- * `aliases.config.mjs` can export via default either
- * {@link RawAliasMapperFunction} or an array of {@link RawAliasMapping}s.
+ * An array of {@link RawAliasMapping}s.
+ *
+ * Note that import map files can export via default either
+ * `RawAliasMapperArray` or a {@link RawAliasMapperFunction}.
+ *
+ * @see {@link ImportedAliasMap}
  */
-export type ImportedAliasMap = RawAliasMapping[] | RawAliasMapperFunction;
+export type RawAliasMapperArray = [
+  Merge<
+    RawAlias,
+    {
+      /**
+       * @see {@link RawAlias.group}
+       */
+      group: string;
+    }
+  >,
+  Merge<
+    RawPath,
+    {
+      /**
+       * @see {@link RawPath.path}
+       */
+      path: string;
+    }
+  >
+][];
+
+/**
+ * Represents the result of importing an import map file.
+ *
+ * Note that import map files can export via default either
+ * {@link RawAliasMapperFunction} or a {@link RawAliasMapperArray}.
+ */
+export type ImportedAliasMap = RawAliasMapperArray | RawAliasMapperFunction;
 
 /**
  * Magic string used to denote the beginning of a replacer region in Markdown
@@ -817,18 +855,18 @@ export function loadDotEnv(
 
 /**
  * Used by renovate and init project-level commands to load additional raw
- * aliases from `aliases.config.mjs`.
+ * aliases from import map files.
  */
 export async function importAdditionalRawAliasMappings(
   projectMetadata: ProjectMetadata,
   outputFunctions: { log: ExtendedLogger; debug: ExtendedDebugger }
 ) {
-  const { debug } = outputFunctions;
+  const { debug, log } = outputFunctions;
   const {
     rootPackage: { root: projectRoot }
   } = projectMetadata;
 
-  const aliasMapPath = toPath(projectRoot, aliasMapConfigPackageBase);
+  const aliasMapPath = toPath(projectRoot, aliasMapConfigProjectBase);
 
   debug(`aliasMapPath: %O`, aliasMapPath);
 
@@ -844,16 +882,26 @@ export async function importAdditionalRawAliasMappings(
 
     if (aliasMap) {
       debug('aliasMap: %O', aliasMap);
+      let mappings: RawAliasMapping[] = [];
 
       if (typeof aliasMap === 'function') {
         debug('invoking aliases import as a function from %O', aliasMapPath);
-        return aliasMap(projectMetadata, outputFunctions);
+        mappings = aliasMap(projectMetadata, outputFunctions) as RawAliasMapping[];
       } else if (Array.isArray(aliasMap)) {
         debug('returning aliases import as an array from %O', aliasMapPath);
-        return aliasMap;
+        mappings = aliasMap as RawAliasMapping[];
       } else {
         assert.fail(ErrorMessage.BadMjsImport(aliasMapPath));
       }
+
+      debug('final mappings: %O', mappings);
+      log.message(
+        'included %O additional alias mappings from: %O',
+        mappings.length,
+        aliasMapPath
+      );
+
+      return mappings;
     } else {
       throw new Error(ErrorMessage.DefaultImportFalsy());
     }
