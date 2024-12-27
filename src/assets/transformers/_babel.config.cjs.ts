@@ -784,12 +784,12 @@ function makeDistReplacerEntry(
                   toRelativePath(packageDir, specifierTargetOutputPath)
                 );
 
-                const isTargetThePackageIndex = target !== '.' && target !== '..';
+                const isTargetSingleOrDoubleDot = target === '.' || target === '..';
 
                 const options = {
                   flattenedExports: flatXports,
                   target,
-                  conditions: ['types', 'require', 'import', 'node']
+                  conditions: ['types', 'require', 'node']
                 };
 
                 dbgResolver('resolver options: %O', options);
@@ -801,7 +801,7 @@ function makeDistReplacerEntry(
                 let updatedTarget = '';
 
                 // ? I believe tsc also does shortest-path-wins
-                if (!entrypoints.length && !isTargetThePackageIndex) {
+                if (!entrypoints.length && !isTargetSingleOrDoubleDot) {
                   updatedTarget = target + extensionTypescriptDefinition;
 
                   entrypoints = resolveEntryPointsFromExportsTarget({
@@ -816,7 +816,7 @@ function makeDistReplacerEntry(
                   );
                 }
 
-                if (!entrypoints.length && !isTargetThePackageIndex) {
+                if (!entrypoints.length && !isTargetSingleOrDoubleDot) {
                   updatedTarget = target.replace(
                     // ? We probably won't encounter any TS files, only JS
                     endsWithJsExtensionRegExp,
