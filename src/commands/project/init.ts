@@ -22,6 +22,8 @@ import {
   withGlobalUsage
 } from 'universe:util.ts';
 
+export type { RawAliasMapperArray, RawAliasMapperFunction } from 'universe:util.ts';
+
 /**
  * @see {@link ProjectInitScope}
  */

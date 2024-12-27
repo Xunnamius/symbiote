@@ -29,6 +29,7 @@ import { scriptBasename } from 'multiverse+cli-utils:util.ts';
 import { ProjectAttribute, type Package } from 'multiverse+project-utils:analyze.ts';
 
 import {
+  aliasMapConfigProjectBase,
   getCurrentWorkingDirectory,
   isAccessible,
   packageJsonConfigPackageBase,
@@ -158,6 +159,8 @@ const canaryProtectRuleset: NewRuleset = {
 };
 
 const whitespaceRegExp = /\s/;
+
+export type { RawAliasMapperArray, RawAliasMapperFunction } from 'universe:util.ts';
 
 /**
  * @see {@link ProjectRenovateScope}
@@ -1839,7 +1842,7 @@ Provide --assets-preset (required) to specify which assets to regenerate. The pa
 
 Use --skip-asset-paths to further narrow which files are regenerated. The parameter accepts regular expressions that are matched against the paths to be written out. Any paths matching one of the aforesaid regular expressions will have their contents discarded instead of written out.
 
-This renovation attempts to import the "import-aliases.mjs" file if it exists at the root of the project. Use this file to provide additional \`RawAliasMapping[]\`s to include when regenerating files defining the project's import aliases. See the symbiote wiki documentation for further details.
+This renovation attempts to import the "${aliasMapConfigProjectBase}" file if it exists at the root of the project. Use this file to provide additional \`RawAliasMapping[]\`s to include when regenerating files defining the project's import aliases. See the symbiote wiki documentation for further details.
 
 When renovating Markdown files with templates divided into replacer regions via the magic comments "${magicStringReplacerRegionStart}" and "${magicStringReplacerRegionEnd}", this command will perform so-called "regional replacements" where only the content between the "start" and "end" comments will be modified. Regions without matching ids are ignored.
 
