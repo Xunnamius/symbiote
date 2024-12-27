@@ -1,12 +1,16 @@
 // @ts-check
 'use strict';
 
-const { deepMergeConfig } = require('@-xun/symbiote/assets');
-
 const {
   assertEnvironment,
   moduleExport
-} = require('@-xun/symbiote/assets/babel.config.cjs');
+  // ? This needs to be this way only for this project since it builds itself
+  // eslint-disable-next-line n/no-restricted-require
+} = require('./node_modules/@-xun/symbiote/dist/src/assets/transformers/_babel.config.cjs.js');
+
+// ? This needs to be this way only for this project since it builds itself
+// eslint-disable-next-line n/no-restricted-require
+const { deepMergeConfig } = require('./node_modules/@-xun/symbiote/dist/src/assets.js');
 
 // TODO: publish latest rejoinder package first, then update configs to use it
 //const { createDebugLogger } = require('rejoinder');
