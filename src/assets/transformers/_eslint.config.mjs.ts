@@ -577,6 +577,7 @@ export function moduleExport({
     reifiedGenericRules['no-warning-comments'] = 'warn';
   } else {
     debug('warning comments ARE allowed (will NOT generate any warnings)');
+    reifiedGenericRules['no-warning-comments'] = 'off';
   }
 
   const reifiedRestrictedImportRules = shouldAllowWarningComments
