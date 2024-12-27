@@ -1964,7 +1964,7 @@ See the symbiote wiki documentation for more details on this command and all ava
               'skipped asset due to --skip-asset-paths exclusion: %O',
               absoluteOutputPath
             );
-            log(`🟧 ${relativeOutputPath}`);
+            log([LogTag.IF_NOT_QUIETED], `🟧 ${relativeOutputPath}`);
             return;
           }
 
@@ -1977,11 +1977,11 @@ See the symbiote wiki documentation for more details on this command and all ava
                 absoluteOutputPath
               );
               await rm(absoluteOutputPath, { force: true });
-              log(`🗑️ ${relativeOutputPath}`);
+              log([LogTag.IF_NOT_HUSHED], `🗑️ ${relativeOutputPath}`);
             } else {
               await mkdir(absoluteOutputParentPath, { mode: 0o775, recursive: true });
               await writeFile(absoluteOutputPath, content);
-              log(`✅ ${relativeOutputPath}`);
+              log([LogTag.IF_NOT_HUSHED], `✅ ${relativeOutputPath}`);
             }
           } catch (error) {
             debug.error('content generation failure: %O', error);
@@ -2037,12 +2037,12 @@ See the symbiote wiki documentation for more details on this command and all ava
       } finally {
         if (force) {
           log.message(
-            [LogTag.IF_NOT_HUSHED],
+            [LogTag.IF_NOT_QUIETED],
             'Skipped running formatter due to --force'
           );
         } else {
           log(
-            [LogTag.IF_NOT_HUSHED],
+            [LogTag.IF_NOT_QUIETED],
             'Waiting for formatter sub-command to complete...'
           );
 
@@ -2065,7 +2065,7 @@ See the symbiote wiki documentation for more details on this command and all ava
           }).then(
             () =>
               log(
-                [LogTag.IF_NOT_HUSHED],
+                [LogTag.IF_NOT_QUIETED],
                 'Formatter sub-command completed successfully'
               ),
             (error: unknown) => {
