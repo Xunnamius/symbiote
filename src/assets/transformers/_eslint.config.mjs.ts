@@ -71,7 +71,8 @@ const $scheme = Symbol('scheme');
 const extensionsTsAndJs = [...extensionsTypescript, ...extensionsJavascript];
 
 const sharedRestrictedImportRules = [
-  // ! This must always be the first restrict import configuration object
+  // ! This must always be the first restrict import configuration object since
+  // ! it is an "IDE-only" linting error (only appears in the IDE)
   {
     name: '+(.|..)/node_modules/@-xun/**/*',
     message:
@@ -490,16 +491,16 @@ export function moduleExport({
   cwdTsconfigFile,
   derivedAliases,
   packageJsonEnginesNode,
-  shouldAllowWarningComments
+  shouldAllowTodoComments
 }: {
   packageJsonEnginesNode: string;
   cwdTsconfigFile: AbsolutePath;
-  shouldAllowWarningComments: boolean;
+  shouldAllowTodoComments: boolean;
   derivedAliases: ReturnType<typeof deriveAliasesForEslint>;
 }): EslintConfig[] {
   debug('cwdTsconfigFile: %O', cwdTsconfigFile);
   debug('packageJsonEnginesNode: %O', packageJsonEnginesNode);
-  debug('shouldAllowWarningComments: %O', shouldAllowWarningComments);
+  debug('shouldAllowTodoComments: %O', shouldAllowTodoComments);
 
   const eslintPluginUnicornRecommended =
     eslintPluginUnicorn.configs?.['flat/recommended'];
@@ -573,16 +574,17 @@ export function moduleExport({
 
   const reifiedGenericRules = genericRules(pathGroups, pathGroupOverrides);
 
-  if (!shouldAllowWarningComments) {
-    debug('no warning comments allowed (will generate warning)');
-    reifiedGenericRules['no-warning-comments'] = 'warn';
-  } else {
-    debug('warning comments ARE allowed (will NOT generate any warnings)');
+  if (shouldAllowTodoComments) {
+    debug('todo-style code comments ARE allowed (will NOT generate any warnings)');
     reifiedGenericRules['no-warning-comments'] = 'off';
+  } else {
+    debug('NO todo-style code comments allowed (will generate warning)');
+    reifiedGenericRules['no-warning-comments'] = 'warn';
   }
 
-  const reifiedRestrictedImportRules = shouldAllowWarningComments
-    ? sharedRestrictedImportRules.slice(1)
+  const reifiedRestrictedImportRules = shouldAllowTodoComments
+    ? // ? Remove IDE-only warnings too
+      sharedRestrictedImportRules.slice(1)
     : sharedRestrictedImportRules;
 
   return makeTsEslintConfig(
@@ -850,10 +852,10 @@ export async function assertEnvironment(): Promise<
       ? projectBasePath
       : toss(new ProjectError(ErrorMessage.CannotImportTsconfig()));
 
-  const shouldAllowWarningComments =
+  const shouldAllowTodoComments =
     process.env.SYMBIOTE_LINT_ALLOW_WARNING_COMMENTS === 'true';
 
-  return { packageJsonEnginesNode, cwdTsconfigFile, shouldAllowWarningComments };
+  return { packageJsonEnginesNode, cwdTsconfigFile, shouldAllowTodoComments };
 }
 
 /**
