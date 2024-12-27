@@ -191,7 +191,7 @@ export function generateSubRootXPackageJson(
 ) {
   // ? Filter out what's not allowed in sub-root package.json
   const {
-    scripts: { prepare: _, ...incomingBaseScripts },
+    scripts: { prepare: _, renovate: __, ...incomingBaseScripts },
     ...incomingBaseJson
   } = generateBaseXPackageJson(incomingPackageJson, repoUrl);
 
