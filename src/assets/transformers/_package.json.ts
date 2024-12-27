@@ -16,7 +16,6 @@ import { ProjectError } from 'multiverse+project-utils:error.ts';
 
 import {
   packageJsonConfigPackageBase,
-  toRelativePath,
   type RelativePath
 } from 'multiverse+project-utils:fs.ts';
 
