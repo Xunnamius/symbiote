@@ -42,6 +42,7 @@ import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 
 import {
   globalDebuggerNamespace,
+  globalLoggerNamespace,
   makeGeneratedAliasesWarningComment
 } from 'universe:constant.ts';
 
@@ -73,7 +74,7 @@ const dbgReplacer = debug.extend('replacing');
 const dbgResolver = debug.extend('resolving');
 
 const log = createGenericLogger({
-  namespace: `${globalDebuggerNamespace}:asset:babel`
+  namespace: `${globalLoggerNamespace}:asset:babel`
 });
 
 /**

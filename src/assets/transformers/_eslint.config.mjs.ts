@@ -45,6 +45,7 @@ import { makeTransformer } from 'universe:assets.ts';
 
 import {
   globalDebuggerNamespace,
+  globalLoggerNamespace,
   makeGeneratedAliasesWarningComment
 } from 'universe:constant.ts';
 
@@ -59,7 +60,11 @@ import {
 import type { PackageJson } from 'type-fest';
 
 const debug = createDebugLogger({
-  namespace: `${globalDebuggerNamespace}:asset:conventional`
+  namespace: `${globalDebuggerNamespace}:asset:eslint`
+});
+
+const log = createGenericLogger({
+  namespace: `${globalLoggerNamespace}:asset:eslint`
 });
 
 const $scheme = Symbol('scheme');
@@ -73,10 +78,6 @@ const sharedRestrictedImportRules = [
       'This warning is a reminder that the import needs to be removed once the corresponding package is published.'
   } as const
 ];
-
-const log = createGenericLogger({
-  namespace: `${globalDebuggerNamespace}:asset:eslint`
-});
 
 export type EslintConfig = Extract<Config, unknown[]>[number];
 
