@@ -196,7 +196,10 @@ const translateJsExtensionsToTsRegExp = /(.+)\.(c|m)?ts(x)?$/;
 const translateJsExtensionsToTsRegExpReplacer = '$1.$2js$3';
 
 const dTsExtensionsToReplaceRegExp = new RegExp(
-  `\\.(${dTsExtensionsToReplace.join('|').replaceAll('.', '')})$`
+  `\\.(${dTsExtensionsToReplace
+    // ? Replace only the first dot in multi-dot extensions (like .d.ts)
+    .map((x) => x.replace('.', '').replaceAll('.', String.raw`\.`))
+    .join('|')})$`
 );
 
 debug('endsWithJsExtensionRegExp: %O', endsWithJsExtensionRegExp);
