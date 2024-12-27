@@ -1,11 +1,8 @@
 {
   "name": "@-xun/symbiote",
   "version": "2.1.0",
-  "private": false,
   "description": "The scripts and assets powering Xunnamius's NPM-based projects",
-  "keywords": [
-    "Xunnamius"
-  ],
+  "keywords": [],
   "homepage": "https://github.com/Xunnamius/symbiote#readme",
   "bugs": {
     "url": "https://github.com/Xunnamius/symbiote/issues"
