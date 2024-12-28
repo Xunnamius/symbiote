@@ -17040,7 +17040,7 @@ scope: unlimited
 
 <br />
 
-# repo-name (cli)
+# cli
 
 <!-- symbiote-template-region-end -->
 
@@ -17306,7 +17306,7 @@ scope: unlimited
 
 <br />
 
-# repo-name (private)
+# private
 
 <!-- symbiote-template-region-end -->
 
@@ -17572,7 +17572,7 @@ scope: unlimited
 
 <br />
 
-# repo-name (webpack)
+# webpack
 
 <!-- symbiote-template-region-end -->
 
@@ -18104,7 +18104,7 @@ scope: unlimited
 
 <br />
 
-# repo-name (cli)
+# cli
 
 <!-- symbiote-template-region-end -->
 
@@ -18370,7 +18370,7 @@ scope: unlimited
 
 <br />
 
-# repo-name (private)
+# private
 
 <!-- symbiote-template-region-end -->
 
@@ -18636,7 +18636,7 @@ scope: unlimited
 
 <br />
 
-# repo-name (webpack)
+# webpack
 
 <!-- symbiote-template-region-end -->
 
@@ -18902,7 +18902,7 @@ scope: this-package
 
 <br />
 
-# repo-name (pkg-1)
+# pkg-1
 
 <!-- symbiote-template-region-end -->
 
@@ -19176,7 +19176,7 @@ scope: unlimited
 
 <br />
 
-# repo-name (pkg-1)
+# pkg-1
 
 <!-- symbiote-template-region-end -->
 
@@ -19442,7 +19442,7 @@ scope: unlimited
 
 <br />
 
-# repo-name (@namespaced/pkg)
+# pkg (@namespaced/pkg)
 
 <!-- symbiote-template-region-end -->
 
@@ -19708,7 +19708,7 @@ scope: unlimited
 
 <br />
 
-# repo-name (@namespaced/importer)
+# importer (@namespaced/importer)
 
 <!-- symbiote-template-region-end -->
 
@@ -19982,7 +19982,7 @@ scope: unlimited
 
 <br />
 
-# repo-name (pkg-1)
+# pkg-1
 
 <!-- symbiote-template-region-end -->
 
@@ -20248,7 +20248,7 @@ scope: unlimited
 
 <br />
 
-# repo-name (@namespaced/pkg)
+# pkg (@namespaced/pkg)
 
 <!-- symbiote-template-region-end -->
 
@@ -20514,7 +20514,7 @@ scope: unlimited
 
 <br />
 
-# repo-name (@namespaced/importer)
+# importer (@namespaced/importer)
 
 <!-- symbiote-template-region-end -->
 
@@ -24482,7 +24482,7 @@ scope: this-package
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
     "prepare": "NODE_NO_WARNINGS=1 symbiote project prepare",
     "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'",
+    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --hush --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "npm run test:package:unit --",
     "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
@@ -24571,7 +24571,7 @@ scope: unlimited
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
     "prepare": "NODE_NO_WARNINGS=1 symbiote project prepare",
     "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'",
+    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --hush --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "npm run test:package:unit --",
     "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
@@ -24595,7 +24595,7 @@ scope: unlimited
   "version": "1.0.0",
   "description": "TODO: set a description",
   "keywords": [],
-  "homepage": "https://github.com/hybridrepo-owner/repo-name#readme",
+  "homepage": "https://github.com/hybridrepo-owner/repo-name/tree/main/packages/cli#readme",
   "bugs": {
     "url": "https://github.com/hybridrepo-owner/repo-name/issues"
   },
@@ -24609,8 +24609,8 @@ scope: unlimited
   "type": "commonjs",
   "exports": {
     ".": {
-      "types": "./dist/src/index.d.ts",
-      "default": "./dist/src/index.js"
+      "types": "./dist/packages/cli/src/index.d.ts",
+      "default": "./dist/packages/cli/src/index.js"
     },
     "./package": "./package.json",
     "./package.json": "./package.json"
@@ -24618,7 +24618,7 @@ scope: unlimited
   "typesVersions": {
     "*": {
       "index": [
-        "dist/src/index.d.ts"
+        "dist/packages/cli/src/index.d.ts"
       ],
       "package": [
         "package.json"
@@ -24652,7 +24652,6 @@ scope: unlimited
     "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
     "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "npm run test:package:unit --",
     "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
@@ -24675,7 +24674,7 @@ scope: unlimited
   "version": "1.0.0",
   "description": "TODO: set a description",
   "keywords": [],
-  "homepage": "https://github.com/hybridrepo-owner/repo-name#readme",
+  "homepage": "https://github.com/hybridrepo-owner/repo-name/tree/main/packages/private#readme",
   "bugs": {
     "url": "https://github.com/hybridrepo-owner/repo-name/issues"
   },
@@ -24689,8 +24688,8 @@ scope: unlimited
   "type": "commonjs",
   "exports": {
     ".": {
-      "types": "./dist/src/index.d.ts",
-      "default": "./dist/src/index.js"
+      "types": "./dist/packages/private/src/index.d.ts",
+      "default": "./dist/packages/private/src/index.js"
     },
     "./package": "./package.json",
     "./package.json": "./package.json"
@@ -24698,7 +24697,7 @@ scope: unlimited
   "typesVersions": {
     "*": {
       "index": [
-        "dist/src/index.d.ts"
+        "dist/packages/private/src/index.d.ts"
       ],
       "package": [
         "package.json"
@@ -24732,7 +24731,6 @@ scope: unlimited
     "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
     "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "npm run test:package:unit --",
     "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
@@ -24750,11 +24748,14 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> packa
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
+  "dependencies": {
+    "@namespaced/pkg": "^1.0.0"
+  },
   "name": "webpack",
   "version": "1.0.0",
   "description": "TODO: set a description",
   "keywords": [],
-  "homepage": "https://github.com/hybridrepo-owner/repo-name#readme",
+  "homepage": "https://github.com/hybridrepo-owner/repo-name/tree/main/packages/webpack#readme",
   "bugs": {
     "url": "https://github.com/hybridrepo-owner/repo-name/issues"
   },
@@ -24768,8 +24769,8 @@ scope: unlimited
   "type": "commonjs",
   "exports": {
     ".": {
-      "types": "./dist/src/index.d.ts",
-      "default": "./dist/src/index.js"
+      "types": "./dist/packages/webpack/src/index.d.ts",
+      "default": "./dist/packages/webpack/src/index.js"
     },
     "./package": "./package.json",
     "./package.json": "./package.json"
@@ -24777,7 +24778,7 @@ scope: unlimited
   "typesVersions": {
     "*": {
       "index": [
-        "dist/src/index.d.ts"
+        "dist/packages/webpack/src/index.d.ts"
       ],
       "package": [
         "package.json"
@@ -24811,7 +24812,6 @@ scope: unlimited
     "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
     "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "npm run test:package:unit --",
     "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
@@ -24900,7 +24900,7 @@ scope: unlimited
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
     "prepare": "NODE_NO_WARNINGS=1 symbiote project prepare",
     "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'",
+    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --hush --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "npm run test:package:unit --",
     "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
@@ -24938,7 +24938,7 @@ scope: unlimited
   },
   "description": "TODO: set a description",
   "keywords": [],
-  "homepage": "https://github.com/hybridrepo-owner/repo-name#readme",
+  "homepage": "https://github.com/hybridrepo-owner/repo-name/tree/main/packages/cli#readme",
   "bugs": {
     "url": "https://github.com/hybridrepo-owner/repo-name/issues"
   },
@@ -24947,8 +24947,8 @@ scope: unlimited
   "sideEffects": false,
   "exports": {
     ".": {
-      "types": "./dist/src/index.d.ts",
-      "default": "./dist/src/index.js"
+      "types": "./dist/packages/cli/src/index.d.ts",
+      "default": "./dist/packages/cli/src/index.js"
     },
     "./package": "./package.json",
     "./package.json": "./package.json"
@@ -24956,7 +24956,7 @@ scope: unlimited
   "typesVersions": {
     "*": {
       "index": [
-        "dist/src/index.d.ts"
+        "dist/packages/cli/src/index.d.ts"
       ],
       "package": [
         "package.json"
@@ -24984,7 +24984,6 @@ scope: unlimited
     "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
     "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "echo 'it works!'",
     "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
@@ -25015,7 +25014,7 @@ scope: unlimited
   },
   "description": "TODO: set a description",
   "keywords": [],
-  "homepage": "https://github.com/hybridrepo-owner/repo-name#readme",
+  "homepage": "https://github.com/hybridrepo-owner/repo-name/tree/main/packages/private#readme",
   "bugs": {
     "url": "https://github.com/hybridrepo-owner/repo-name/issues"
   },
@@ -25025,7 +25024,7 @@ scope: unlimited
   "typesVersions": {
     "*": {
       "index": [
-        "dist/src/index.d.ts"
+        "dist/packages/private/src/index.d.ts"
       ],
       "package": [
         "package.json"
@@ -25059,7 +25058,6 @@ scope: unlimited
     "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
     "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "echo 'it works!'",
     "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
@@ -25098,7 +25096,7 @@ scope: unlimited
   },
   "description": "TODO: set a description",
   "keywords": [],
-  "homepage": "https://github.com/hybridrepo-owner/repo-name#readme",
+  "homepage": "https://github.com/hybridrepo-owner/repo-name/tree/main/packages/webpack#readme",
   "bugs": {
     "url": "https://github.com/hybridrepo-owner/repo-name/issues"
   },
@@ -25108,7 +25106,7 @@ scope: unlimited
   "typesVersions": {
     "*": {
       "index": [
-        "dist/src/index.d.ts"
+        "dist/packages/webpack/src/index.d.ts"
       ],
       "package": [
         "package.json"
@@ -25136,7 +25134,6 @@ scope: unlimited
     "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
     "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "echo 'it works!'",
     "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
@@ -25167,7 +25164,7 @@ scope: this-package
   },
   "description": "TODO: set a description",
   "keywords": [],
-  "homepage": "https://github.com/repo-owner/repo-name#readme",
+  "homepage": "https://github.com/repo-owner/repo-name/tree/main/packages/pkg-1#readme",
   "bugs": {
     "url": "https://github.com/repo-owner/repo-name/issues"
   },
@@ -25177,7 +25174,7 @@ scope: this-package
   "typesVersions": {
     "*": {
       "index": [
-        "dist/src/index.d.ts"
+        "dist/packages/pkg-1/src/index.d.ts"
       ],
       "package": [
         "package.json"
@@ -25211,7 +25208,6 @@ scope: this-package
     "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
     "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "echo 'it works!'",
     "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
@@ -25291,7 +25287,7 @@ scope: unlimited
     "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope unlimited",
     "prepare": "NODE_NO_WARNINGS=1 symbiote project prepare",
-    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'",
+    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --hush --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "npm run test:packages:all --",
     "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage"
@@ -25309,7 +25305,7 @@ scope: unlimited
   "version": "1.0.0",
   "description": "TODO: set a description",
   "keywords": [],
-  "homepage": "https://github.com/repo-owner/repo-name#readme",
+  "homepage": "https://github.com/repo-owner/repo-name/tree/main/packages/pkg-1#readme",
   "bugs": {
     "url": "https://github.com/repo-owner/repo-name/issues"
   },
@@ -25323,8 +25319,8 @@ scope: unlimited
   "type": "commonjs",
   "exports": {
     ".": {
-      "types": "./dist/src/index.d.ts",
-      "default": "./dist/src/index.js"
+      "types": "./dist/packages/pkg-1/src/index.d.ts",
+      "default": "./dist/packages/pkg-1/src/index.js"
     },
     "./package": "./package.json",
     "./package.json": "./package.json"
@@ -25332,7 +25328,7 @@ scope: unlimited
   "typesVersions": {
     "*": {
       "index": [
-        "dist/src/index.d.ts"
+        "dist/packages/pkg-1/src/index.d.ts"
       ],
       "package": [
         "package.json"
@@ -25366,7 +25362,6 @@ scope: unlimited
     "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
     "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "npm run test:package:unit --",
     "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
@@ -25388,7 +25383,7 @@ scope: unlimited
   "version": "1.0.0",
   "description": "TODO: set a description",
   "keywords": [],
-  "homepage": "https://github.com/repo-owner/repo-name#readme",
+  "homepage": "https://github.com/repo-owner/repo-name/tree/main/packages/pkg-2#readme",
   "bugs": {
     "url": "https://github.com/repo-owner/repo-name/issues"
   },
@@ -25402,8 +25397,8 @@ scope: unlimited
   "type": "commonjs",
   "exports": {
     ".": {
-      "types": "./dist/src/index.d.ts",
-      "default": "./dist/src/index.js"
+      "types": "./dist/packages/pkg-2/src/index.d.ts",
+      "default": "./dist/packages/pkg-2/src/index.js"
     },
     "./package": "./package.json",
     "./package.json": "./package.json"
@@ -25411,7 +25406,7 @@ scope: unlimited
   "typesVersions": {
     "*": {
       "index": [
-        "dist/src/index.d.ts"
+        "dist/packages/pkg-2/src/index.d.ts"
       ],
       "package": [
         "package.json"
@@ -25445,7 +25440,6 @@ scope: unlimited
     "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
     "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "npm run test:package:unit --",
     "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
@@ -25463,11 +25457,14 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> packa
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
+  "dependencies": {
+    "@namespaced/pkg": "^1.0.0"
+  },
   "name": "@namespaced/importer",
   "version": "1.0.0",
   "description": "TODO: set a description",
   "keywords": [],
-  "homepage": "https://github.com/repo-owner/repo-name#readme",
+  "homepage": "https://github.com/repo-owner/repo-name/tree/main/packages/pkg-import#readme",
   "bugs": {
     "url": "https://github.com/repo-owner/repo-name/issues"
   },
@@ -25481,8 +25478,8 @@ scope: unlimited
   "type": "commonjs",
   "exports": {
     ".": {
-      "types": "./dist/src/index.d.ts",
-      "default": "./dist/src/index.js"
+      "types": "./dist/packages/pkg-import/src/index.d.ts",
+      "default": "./dist/packages/pkg-import/src/index.js"
     },
     "./package": "./package.json",
     "./package.json": "./package.json"
@@ -25490,7 +25487,7 @@ scope: unlimited
   "typesVersions": {
     "*": {
       "index": [
-        "dist/src/index.d.ts"
+        "dist/packages/pkg-import/src/index.d.ts"
       ],
       "package": [
         "package.json"
@@ -25524,7 +25521,6 @@ scope: unlimited
     "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
     "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "npm run test:package:unit --",
     "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
@@ -25603,7 +25599,7 @@ scope: unlimited
     "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope unlimited",
     "prepare": "NODE_NO_WARNINGS=1 symbiote project prepare",
-    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'",
+    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --hush --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "npm run test:packages:all --",
     "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage"
@@ -25630,7 +25626,7 @@ scope: unlimited
   },
   "description": "TODO: set a description",
   "keywords": [],
-  "homepage": "https://github.com/repo-owner/repo-name#readme",
+  "homepage": "https://github.com/repo-owner/repo-name/tree/main/packages/pkg-1#readme",
   "bugs": {
     "url": "https://github.com/repo-owner/repo-name/issues"
   },
@@ -25640,7 +25636,7 @@ scope: unlimited
   "typesVersions": {
     "*": {
       "index": [
-        "dist/src/index.d.ts"
+        "dist/packages/pkg-1/src/index.d.ts"
       ],
       "package": [
         "package.json"
@@ -25674,7 +25670,6 @@ scope: unlimited
     "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
     "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "echo 'it works!'",
     "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
@@ -25709,7 +25704,7 @@ scope: unlimited
   },
   "description": "TODO: set a description",
   "keywords": [],
-  "homepage": "https://github.com/repo-owner/repo-name#readme",
+  "homepage": "https://github.com/repo-owner/repo-name/tree/main/packages/pkg-2#readme",
   "bugs": {
     "url": "https://github.com/repo-owner/repo-name/issues"
   },
@@ -25719,7 +25714,7 @@ scope: unlimited
   "typesVersions": {
     "*": {
       "index": [
-        "dist/src/index.d.ts"
+        "dist/packages/pkg-2/src/index.d.ts"
       ],
       "package": [
         "package.json"
@@ -25753,7 +25748,6 @@ scope: unlimited
     "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
     "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "echo 'it works!'",
     "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
@@ -25786,7 +25780,7 @@ scope: unlimited
   },
   "description": "TODO: set a description",
   "keywords": [],
-  "homepage": "https://github.com/repo-owner/repo-name#readme",
+  "homepage": "https://github.com/repo-owner/repo-name/tree/main/packages/pkg-import#readme",
   "bugs": {
     "url": "https://github.com/repo-owner/repo-name/issues"
   },
@@ -25796,7 +25790,7 @@ scope: unlimited
   "typesVersions": {
     "*": {
       "index": [
-        "dist/src/index.d.ts"
+        "dist/packages/pkg-import/src/index.d.ts"
       ],
       "package": [
         "package.json"
@@ -25830,7 +25824,6 @@ scope: unlimited
     "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
     "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "echo 'it works!'",
     "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
@@ -25873,7 +25866,7 @@ scope: unlimited
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
     "prepare": "NODE_NO_WARNINGS=1 symbiote project prepare",
     "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'",
+    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --hush --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "echo 'it works!'",
     "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
@@ -25982,7 +25975,7 @@ scope: this-package
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
     "prepare": "NODE_NO_WARNINGS=1 symbiote project prepare",
     "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'",
+    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --hush --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "npm run test:package:unit --",
     "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
@@ -26036,7 +26029,7 @@ scope: unlimited
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
     "prepare": "NODE_NO_WARNINGS=1 symbiote project prepare",
     "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'",
+    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --hush --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "echo 'it works!'",
     "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
@@ -26781,32 +26774,8 @@ module.exports = deepMergeConfig(
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> src generates expected assets at hybridrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/packages/cli/src/index.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/packages/cli/src/index.ts
-scope: unlimited
-⏶⏷⏶⏷⏶
-export {};
-"
-`;
-
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> src generates expected assets at hybridrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/packages/private/src/index.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/packages/private/src/index.ts
-scope: unlimited
-⏶⏷⏶⏷⏶
-export {};
-"
-`;
-
 exports[`::gatherAssetsFromTransformer <generated asset content snapshots> src generates expected assets at hybridrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/packages/webpack/src/index.ts 1`] = `
 "key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/packages/webpack/src/index.ts
-scope: unlimited
-⏶⏷⏶⏷⏶
-export {};
-"
-`;
-
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> src generates expected assets at hybridrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/src/index.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/src/index.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
 export {};
@@ -26831,14 +26800,6 @@ export {};
 
 exports[`::gatherAssetsFromTransformer <generated asset content snapshots> src generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-monorepo-no-src/packages/pkg-1/src/index.ts 1`] = `
 "key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-monorepo-no-src/packages/pkg-1/src/index.ts
-scope: unlimited
-⏶⏷⏶⏷⏶
-export {};
-"
-`;
-
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> src generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-monorepo-no-src/packages/pkg-2/src/index.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-monorepo-no-src/packages/pkg-2/src/index.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
 export {};

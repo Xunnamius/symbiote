@@ -762,7 +762,7 @@ describe('::gatherAssetsFromTransformer', () => {
 
           expect(
             JSON.parse((await assets[dummyAbsolutePath]()) as string)
-          ).not.toMatchObject(dependencies);
+          ).toMatchObject(dependencies);
         }
       });
 
