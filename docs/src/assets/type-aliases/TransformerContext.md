@@ -40,6 +40,32 @@ the asset path.
 A relevant [AssetPreset](../enumerations/AssetPreset.md) or `undefined` when generic versions of
 assets should be generated.
 
+This is the preset that was passed in from a wider context, such as a
+renovation or initialization command. Therefore, it only applies to the
+current package and should be relied upon with caution when generating
+per-package assets. It is usually best to and assume a library-like preset
+(e.g. "lib-cjs") and rely on each package's attributes (i.e.
+`WorkspaceAttribute`).
+
+### chooserBlockEnd
+
+> **chooserBlockEnd**: `string`
+
+The standard markdown text denoting the end of a "chooser block".
+
+### chooserBlockSplit
+
+> **chooserBlockSplit**: `string`
+
+The standard markdown text denoting the beginning of a new choice in a
+"chooser block".
+
+### chooserBlockStart
+
+> **chooserBlockStart**: `string`
+
+The standard markdown text denoting the start of a "chooser block".
+
 ### debug
 
 > **debug**: `ExtendedDebugger`
@@ -137,4 +163,4 @@ The year as shown in various generated documents like `LICENSE.md`.
 
 ## Defined in
 
-[src/assets.ts:205](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/src/assets.ts#L205)
+[src/assets.ts:205](https://github.com/Xunnamius/symbiote/blob/c062d7c5dc980668c9246eeeaf1aa96da42e4471/src/assets.ts#L205)

@@ -13,10 +13,14 @@
 - [ImportedAliasMap](type-aliases/ImportedAliasMap.md)
 - [LoadDotEnvSettings](type-aliases/LoadDotEnvSettings.md)
 - [LoadDotEnvSimplifiedSettings](type-aliases/LoadDotEnvSimplifiedSettings.md)
+- [RawAliasMapperArray](type-aliases/RawAliasMapperArray.md)
 - [RawAliasMapperFunction](type-aliases/RawAliasMapperFunction.md)
 
 ### Variables
 
+- [magicStringChooserBlockEnd](variables/magicStringChooserBlockEnd.md)
+- [magicStringChooserBlockSplit](variables/magicStringChooserBlockSplit.md)
+- [magicStringChooserBlockStart](variables/magicStringChooserBlockStart.md)
 - [magicStringReplacerRegionEnd](variables/magicStringReplacerRegionEnd.md)
 - [magicStringReplacerRegionStart](variables/magicStringReplacerRegionStart.md)
 - [noSpecialInitialCommitIndicator](variables/noSpecialInitialCommitIndicator.md)
@@ -39,6 +43,8 @@
 - [isNonEmptyString](functions/isNonEmptyString.md)
 - [loadDotEnv](functions/loadDotEnv.md)
 - [makeDirectory](functions/makeDirectory.md)
+- [makeMagicStringReplacerRegionStartWithId](functions/makeMagicStringReplacerRegionStartWithId.md)
+- [makeReplacerRegionIdMatcherRegExp](functions/makeReplacerRegionIdMatcherRegExp.md)
 - [readFile](functions/readFile.md)
 - [replaceRegionsRespectively](functions/replaceRegionsRespectively.md)
 - [runGlobalPreChecks](functions/runGlobalPreChecks.md)

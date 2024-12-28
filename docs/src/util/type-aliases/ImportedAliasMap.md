@@ -6,12 +6,13 @@
 
 # Type Alias: ImportedAliasMap
 
-> **ImportedAliasMap**: `RawAliasMapping`[] \| [`RawAliasMapperFunction`](RawAliasMapperFunction.md)
+> **ImportedAliasMap**: [`RawAliasMapperArray`](RawAliasMapperArray.md) \| [`RawAliasMapperFunction`](RawAliasMapperFunction.md)
 
-Represents the result of importing an `aliases.config.mjs` file.
-`aliases.config.mjs` can export via default either
-[RawAliasMapperFunction](RawAliasMapperFunction.md) or an array of RawAliasMappings.
+Represents the result of importing an import map file.
+
+Note that import map files can export via default either
+[RawAliasMapperFunction](RawAliasMapperFunction.md) or a [RawAliasMapperArray](RawAliasMapperArray.md).
 
 ## Defined in
 
-[src/util.ts:119](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/src/util.ts#L119)
+[src/util.ts:157](https://github.com/Xunnamius/symbiote/blob/c062d7c5dc980668c9246eeeaf1aa96da42e4471/src/util.ts#L157)

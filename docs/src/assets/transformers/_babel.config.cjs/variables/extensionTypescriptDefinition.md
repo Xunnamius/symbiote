@@ -16,4 +16,4 @@ The known file extension for TypeScript definition files.
 
 ## Defined in
 
-[src/assets/transformers/\_babel.config.cjs.ts:120](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/src/assets/transformers/_babel.config.cjs.ts#L120)
+[src/assets/transformers/\_babel.config.cjs.ts:121](https://github.com/Xunnamius/symbiote/blob/c062d7c5dc980668c9246eeeaf1aa96da42e4471/src/assets/transformers/_babel.config.cjs.ts#L121)

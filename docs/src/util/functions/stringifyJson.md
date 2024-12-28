@@ -27,4 +27,4 @@ of proper formatting. Also appends a newline.
 
 ## Defined in
 
-[src/util.ts:873](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/src/util.ts#L873)
+[src/util.ts:941](https://github.com/Xunnamius/symbiote/blob/c062d7c5dc980668c9246eeeaf1aa96da42e4471/src/util.ts#L941)

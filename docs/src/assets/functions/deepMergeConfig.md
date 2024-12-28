@@ -35,4 +35,4 @@ A thin wrapper around lodash's mergeWith that does not mutate
 
 ## Defined in
 
-[src/assets.ts:573](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/src/assets.ts#L573)
+[src/assets.ts:593](https://github.com/Xunnamius/symbiote/blob/c062d7c5dc980668c9246eeeaf1aa96da42e4471/src/assets.ts#L593)

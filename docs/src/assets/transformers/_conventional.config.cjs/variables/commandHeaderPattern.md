@@ -85,4 +85,4 @@ x: some-other-command, yet-another-command, a-5th-command
 
 ## Defined in
 
-[src/assets/transformers/\_conventional.config.cjs.ts:204](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/src/assets/transformers/_conventional.config.cjs.ts#L204)
+[src/assets/transformers/\_conventional.config.cjs.ts:204](https://github.com/Xunnamius/symbiote/blob/c062d7c5dc980668c9246eeeaf1aa96da42e4471/src/assets/transformers/_conventional.config.cjs.ts#L204)

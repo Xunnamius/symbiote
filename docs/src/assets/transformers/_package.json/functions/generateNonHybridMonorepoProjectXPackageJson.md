@@ -2,11 +2,11 @@
 
 ***
 
-[@-xun/symbiote](../../../../../README.md) / [src/assets/transformers/\_package.json](../README.md) / generateBaseMonorepoProjectRootXPackageJson
+[@-xun/symbiote](../../../../../README.md) / [src/assets/transformers/\_package.json](../README.md) / generateNonHybridMonorepoProjectXPackageJson
 
-# Function: generateBaseMonorepoProjectRootXPackageJson()
+# Function: generateNonHybridMonorepoProjectXPackageJson()
 
-> **generateBaseMonorepoProjectRootXPackageJson**(...`__namedParameters`): `object`
+> **generateNonHybridMonorepoProjectXPackageJson**(...`__namedParameters`): `object`
 
 ## Parameters
 
@@ -70,19 +70,15 @@ A list of people who contributed to the package.
 
 CPU architectures the module runs on.
 
-### dependencies?
-
-> `readonly` `optional` **dependencies**: `Partial`\<`Record`\<`string`, `string`\>\>
-
-The dependencies of the package.
-
 ### description
 
 > `readonly` **description**: `string` = `incomingPackageJson.description`
 
 ### devDependencies
 
-> `readonly` **devDependencies**: `Partial`\<`Record`\<`string`, `string`\>\>
+> `readonly` **devDependencies**: `Partial`\<`Record`\<`string`, `string`\>\> = `{}`
+
+Additional tooling dependencies that are not required for the package to work. Usually test, build, or documentation tooling.
 
 ### directories?
 
@@ -112,7 +108,7 @@ A module ID with untranspiled code that is the primary entry point to the progra
 
 ### exports
 
-> `readonly` **exports**: `string` \| (`string` \| `ExportConditions`)[] \| `ExportConditions` \| \{ `.`: \{ `default`: `string`; `types`: `string`; \}; `./package`: `string`; `./package.json`: `string`; \}
+> `readonly` **exports**: `string` \| (`string` \| `ExportConditions`)[] \| `ExportConditions` \| \{ `.`: \{ `default`: `string`; `types`: `string`; \}; `./commands/*`: \{ `default`: `string`; `types`: `string`; \}; `./configure`: \{ `default`: `string`; `types`: `string`; \}; `./package`: `string`; `./package.json`: `string`; \} \| \{ `.`: \{ `default`: `string`; `types`: `string`; \}; `./package`: `string`; `./package.json`: `string`; \}
 
 ### files
 
@@ -142,7 +138,7 @@ Describes and notifies consumers of a package's monetary support information.
 
 ### homepage
 
-> `readonly` **homepage**: \`$\{string\}#readme\`
+> `readonly` **homepage**: \`$\{string\}$\{string\}#readme\`
 
 ### imports?
 
@@ -300,25 +296,18 @@ Selective version resolutions. Allows the definition of custom package versions 
 
 > `readonly` **scripts**: `object`
 
-#### scripts.build
-
-> `readonly` **build**: `"npm run build:dist --"` = `'npm run build:dist --'`
-
-#### scripts.build:changelog
-
-> `readonly` **build:changelog**: `"NODE_NO_WARNINGS=1 symbiote build changelog"` = `'NODE_NO_WARNINGS=1 symbiote build changelog'`
-
-#### scripts.build:dist
-
-> `readonly` **build:dist**: `"NODE_NO_WARNINGS=1 symbiote build distributables"` = `'NODE_NO_WARNINGS=1 symbiote build distributables'`
-
-#### scripts.build:docs
-
-> `readonly` **build:docs**: `"NODE_NO_WARNINGS=1 symbiote build docs"` = `'NODE_NO_WARNINGS=1 symbiote build docs'`
-
 #### scripts.clean
 
-> `readonly` **clean**: `"NODE_NO_WARNINGS=1 symbiote clean"` = `'NODE_NO_WARNINGS=1 symbiote clean'`
+> `readonly` **clean**: `string` = `'NODE_NO_WARNINGS=1 symbiote clean'`
+
+Run by users, symbiote, and related tooling when removing files from the
+project or package that are ignored by git (with exceptions).
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote clean`
+```
 
 #### scripts.deploy?
 
@@ -342,11 +331,29 @@ local development environment.
 
 #### scripts.format
 
-> `readonly` **format**: `"NODE_NO_WARNINGS=1 symbiote format --hush"` = `'NODE_NO_WARNINGS=1 symbiote format --hush'`
+> `readonly` **format**: `string` = `'NODE_NO_WARNINGS=1 symbiote format --hush'`
+
+Run by users, symbiote, and related tooling when formatting the project
+or package.
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote format --hush`
+```
 
 #### scripts.info
 
-> `readonly` **info**: `"NODE_NO_WARNINGS=1 symbiote project info"` = `'NODE_NO_WARNINGS=1 symbiote project info'`
+> `readonly` **info**: `string` = `'NODE_NO_WARNINGS=1 symbiote project info'`
+
+Run by users, symbiote, and related tooling when printing information
+about the current project or package.
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote project info`
+```
 
 #### scripts.install?
 
@@ -356,23 +363,37 @@ Run **after** the package is installed.
 
 #### scripts.lint
 
-> `readonly` **lint**: `"npm run lint:package --"` = `'npm run lint:package --'`
-
-#### scripts.lint:package
-
-> `readonly` **lint:package**: `"NODE_NO_WARNINGS=1 symbiote lint"` = `'NODE_NO_WARNINGS=1 symbiote lint'`
+> `readonly` **lint**: `"npm run lint:packages --"` = `'npm run lint:packages --'`
 
 #### scripts.lint:packages
 
-> `readonly` **lint:packages**: `"NODE_NO_WARNINGS=1 symbiote lint --scope unlimited"` = `'NODE_NO_WARNINGS=1 symbiote lint --scope unlimited'`
+> `readonly` **lint:packages**: `string`
+
+Run by users, symbiote, and related tooling when linting all lintable
+files in the entire project.
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote lint --scope unlimited`
+```
 
 #### scripts.lint:project
 
-> `readonly` **lint:project**: `"NODE_NO_WARNINGS=1 symbiote project lint"` = `'NODE_NO_WARNINGS=1 symbiote project lint'`
+> `readonly` **lint:project**: `string` = `'NODE_NO_WARNINGS=1 symbiote project lint'`
+
+Run by users, symbiote, and related tooling when linting a project's
+metadata, such as its file structure and configuration settings.
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote project lint`
+```
 
 #### scripts.list-tasks
 
-> `readonly` **list-tasks**: `"NODE_NO_WARNINGS=1 symbiote list-tasks"` = `'NODE_NO_WARNINGS=1 symbiote list-tasks'`
+> `readonly` **list-tasks**: `"NODE_NO_WARNINGS=1 symbiote list-tasks --scope unlimited"`
 
 #### scripts.postinstall?
 
@@ -442,7 +463,9 @@ Run **before** a tarball is packed (on `npm pack`, `npm publish`, and when insta
 
 #### scripts.prepare
 
-> `readonly` **prepare**: `"NODE_NO_WARNINGS=1 symbiote project prepare"` = `'NODE_NO_WARNINGS=1 symbiote project prepare'`
+> `readonly` **prepare**: `string` = `'NODE_NO_WARNINGS=1 symbiote project prepare'`
+
+Run both **before** the package is packed and published, and on local `npm install` without any arguments. This is run **after** `prepublish`, but **before** `prepublishOnly`.
 
 #### scripts.prepublish?
 
@@ -498,13 +521,20 @@ Run **before** bump the package version and before `version`.
 
 Run **after** the package is published.
 
-#### scripts.release
-
-> `readonly` **release**: `"NODE_NO_WARNINGS=1 symbiote release"` = `'NODE_NO_WARNINGS=1 symbiote release'`
-
 #### scripts.renovate
 
-> `readonly` **renovate**: `"NODE_NO_WARNINGS=1 symbiote project renovate --github-reconfigure-repo --regenerate-assets --assets-preset basic"` = `'NODE_NO_WARNINGS=1 symbiote project renovate --github-reconfigure-repo --regenerate-assets --assets-preset basic'`
+> `readonly` **renovate**: `string`
+
+Run by users, symbiote, and related tooling when manipulating a project's
+_metadata_, such as its file structure and configuration settings, with the
+goal of bringing the project up to date with latest best practices.
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote project renovate
+--github-reconfigure-repo --regenerate-assets --assets-preset basic`
+```
 
 #### scripts.restart?
 
@@ -514,7 +544,9 @@ Run with the `npm restart` command. Note: `npm restart` will run the `stop` and 
 
 #### scripts.start
 
-> `readonly` **start**: `"NODE_NO_WARNINGS=1 symbiote start --"` = `'NODE_NO_WARNINGS=1 symbiote start --'`
+> `readonly` **start**: `string` = `'NODE_NO_WARNINGS=1 symbiote start --'`
+
+Run with the `npm start` command.
 
 #### scripts.stop?
 
@@ -524,27 +556,20 @@ Run with the `npm stop` command.
 
 #### scripts.test
 
-> `readonly` **test**: `"npm run test:package:unit --"` = `'npm run test:package:unit --'`
-
-#### scripts.test:package:all
-
-> `readonly` **test:package:all**: `"NODE_NO_WARNINGS=1 symbiote test --coverage"` = `'NODE_NO_WARNINGS=1 symbiote test --coverage'`
-
-#### scripts.test:package:e2e
-
-> `readonly` **test:package:e2e**: `"NODE_NO_WARNINGS=1 symbiote test --tests end-to-end"` = `'NODE_NO_WARNINGS=1 symbiote test --tests end-to-end'`
-
-#### scripts.test:package:integration
-
-> `readonly` **test:package:integration**: `"NODE_NO_WARNINGS=1 symbiote test --tests integration"` = `'NODE_NO_WARNINGS=1 symbiote test --tests integration'`
-
-#### scripts.test:package:unit
-
-> `readonly` **test:package:unit**: `"NODE_NO_WARNINGS=1 symbiote test --tests unit"` = `'NODE_NO_WARNINGS=1 symbiote test --tests unit'`
+> `readonly` **test**: `"npm run test:packages:all --"` = `'npm run test:packages:all --'`
 
 #### scripts.test:packages:all
 
-> `readonly` **test:packages:all**: `"NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage"` = `'NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage'`
+> `readonly` **test:packages:all**: `string`
+
+Run by users, symbiote, and related tooling when executing all possible
+tests across the entire project.
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage`
+```
 
 #### scripts.uninstall?
 
@@ -590,6 +615,12 @@ Location of the bundled TypeScript declaration file. Alias of `types`.
 
 > `readonly` **workspaces**: `string`[] \| `WorkspaceConfig`
 
+Used to configure [npm workspaces](https://docs.npmjs.com/cli/using-npm/workspaces) / [Yarn workspaces](https://classic.yarnpkg.com/docs/workspaces/).
+
+Workspaces allow you to manage multiple packages within the same repository in such a way that you only need to run your install command once in order to install all of them in a single pass.
+
+Please note that the top-level `private` property of `package.json` **must** be set to `true` in order to use workspaces.
+
 ## Defined in
 
-[src/assets/transformers/\_package.json.ts:127](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/src/assets/transformers/_package.json.ts#L127)
+[src/assets/transformers/\_package.json.ts:200](https://github.com/Xunnamius/symbiote/blob/c062d7c5dc980668c9246eeeaf1aa96da42e4471/src/assets/transformers/_package.json.ts#L200)

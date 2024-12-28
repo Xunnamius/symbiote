@@ -114,7 +114,7 @@ A module ID with untranspiled code that is the primary entry point to the progra
 
 ### exports
 
-> `readonly` **exports**: `string` \| (`string` \| `ExportConditions`)[] \| `ExportConditions` \| \{ `.`: \{ `default`: `string`; `types`: `string`; \}; `./package`: `string`; `./package.json`: `string`; \}
+> `readonly` **exports**: `string` \| (`string` \| `ExportConditions`)[] \| `ExportConditions` \| \{ `.`: \{ `default`: `string`; `types`: `string`; \}; `./commands/*`: \{ `default`: `string`; `types`: `string`; \}; `./configure`: \{ `default`: `string`; `types`: `string`; \}; `./package`: `string`; `./package.json`: `string`; \} \| \{ `.`: \{ `default`: `string`; `types`: `string`; \}; `./package`: `string`; `./package.json`: `string`; \}
 
 ### files
 
@@ -144,7 +144,7 @@ Describes and notifies consumers of a package's monetary support information.
 
 ### homepage
 
-> `readonly` **homepage**: \`$\{string\}#readme\`
+> `readonly` **homepage**: \`$\{string\}$\{string\}#readme\`
 
 ### imports?
 
@@ -306,23 +306,70 @@ Selective version resolutions. Allows the definition of custom package versions 
 
 #### scripts.build
 
-> `readonly` **build**: `"npm run build:dist --"` = `'npm run build:dist --'`
+> **build**: `string` = `'npm run build:dist --'`
+
+Run by users, symbiote, and related tooling when building the current
+package's production-ready distributables.
+
+This script is usually a reference to `npm run build:dist`.
+
+##### Example
+
+```ts
+`npm run build:dist --`
+```
 
 #### scripts.build:changelog
 
-> `readonly` **build:changelog**: `"NODE_NO_WARNINGS=1 symbiote build changelog"` = `'NODE_NO_WARNINGS=1 symbiote build changelog'`
+> **build:changelog**: `string` = `'NODE_NO_WARNINGS=1 symbiote build changelog'`
+
+Run by users, symbiote, and related tooling when building the current
+package's `CHANGELOG.md` file.
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote build changelog`
+```
 
 #### scripts.build:dist
 
-> `readonly` **build:dist**: `"NODE_NO_WARNINGS=1 symbiote build distributables"` = `'NODE_NO_WARNINGS=1 symbiote build distributables'`
+> **build:dist**: `string` = `'NODE_NO_WARNINGS=1 symbiote build distributables'`
+
+Run by users, symbiote, and related tooling when building the current
+package's production-ready distributables.
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote build distributables`
+```
 
 #### scripts.build:docs
 
-> `readonly` **build:docs**: `"NODE_NO_WARNINGS=1 symbiote build docs"` = `'NODE_NO_WARNINGS=1 symbiote build docs'`
+> **build:docs**: `string` = `'NODE_NO_WARNINGS=1 symbiote build docs'`
+
+Run by users, symbiote, and related tooling when building the current
+package's documentation (typically found under `docs/`).
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote build docs`
+```
 
 #### scripts.clean
 
-> `readonly` **clean**: `"NODE_NO_WARNINGS=1 symbiote clean"` = `'NODE_NO_WARNINGS=1 symbiote clean'`
+> **clean**: `string` = `'NODE_NO_WARNINGS=1 symbiote clean'`
+
+Run by users, symbiote, and related tooling when removing files from the
+project or package that are ignored by git (with exceptions).
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote clean`
+```
 
 #### scripts.deploy?
 
@@ -346,11 +393,29 @@ local development environment.
 
 #### scripts.format
 
-> `readonly` **format**: `"NODE_NO_WARNINGS=1 symbiote format --hush"` = `'NODE_NO_WARNINGS=1 symbiote format --hush'`
+> **format**: `string` = `'NODE_NO_WARNINGS=1 symbiote format --hush'`
+
+Run by users, symbiote, and related tooling when formatting the project
+or package.
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote format --hush`
+```
 
 #### scripts.info
 
-> `readonly` **info**: `"NODE_NO_WARNINGS=1 symbiote project info"` = `'NODE_NO_WARNINGS=1 symbiote project info'`
+> **info**: `string` = `'NODE_NO_WARNINGS=1 symbiote project info'`
+
+Run by users, symbiote, and related tooling when printing information
+about the current project or package.
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote project info`
+```
 
 #### scripts.install?
 
@@ -360,23 +425,72 @@ Run **after** the package is installed.
 
 #### scripts.lint
 
-> `readonly` **lint**: `"npm run lint:package --"` = `'npm run lint:package --'`
+> **lint**: `string` = `'npm run lint:package --'`
+
+Run by users, symbiote, and related tooling when linting the current
+package's files.
+
+This script is usually a reference to `npm run lint:package`.
+
+##### Example
+
+```ts
+`npm run lint:package --`
+```
 
 #### scripts.lint:package
 
-> `readonly` **lint:package**: `"NODE_NO_WARNINGS=1 symbiote lint"` = `'NODE_NO_WARNINGS=1 symbiote lint'`
+> **lint:package**: `string` = `'NODE_NO_WARNINGS=1 symbiote lint'`
+
+Run by users, symbiote, and related tooling when linting all of the
+lintable files under the current package's root along with any other
+source files that comprise this package's build targets (see
+gatherPackageBuildTargets).
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote lint --scope this-package`
+```
 
 #### scripts.lint:packages
 
-> `readonly` **lint:packages**: `"NODE_NO_WARNINGS=1 symbiote lint --scope unlimited"` = `'NODE_NO_WARNINGS=1 symbiote lint --scope unlimited'`
+> **lint:packages**: `string`
+
+Run by users, symbiote, and related tooling when linting all lintable
+files in the entire project.
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote lint --scope unlimited`
+```
 
 #### scripts.lint:project
 
-> `readonly` **lint:project**: `"NODE_NO_WARNINGS=1 symbiote project lint"` = `'NODE_NO_WARNINGS=1 symbiote project lint'`
+> **lint:project**: `string` = `'NODE_NO_WARNINGS=1 symbiote project lint'`
+
+Run by users, symbiote, and related tooling when linting a project's
+metadata, such as its file structure and configuration settings.
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote project lint`
+```
 
 #### scripts.list-tasks
 
-> `readonly` **list-tasks**: `"NODE_NO_WARNINGS=1 symbiote list-tasks"` = `'NODE_NO_WARNINGS=1 symbiote list-tasks'`
+> **list-tasks**: `string`
+
+Run by users, symbiote, and related tooling when printing information
+about available scripts in `package.json`.
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote list-tasks`
+```
 
 #### scripts.postinstall?
 
@@ -446,7 +560,9 @@ Run **before** a tarball is packed (on `npm pack`, `npm publish`, and when insta
 
 #### scripts.prepare
 
-> `readonly` **prepare**: `"NODE_NO_WARNINGS=1 symbiote project prepare"` = `'NODE_NO_WARNINGS=1 symbiote project prepare'`
+> **prepare**: `string` = `'NODE_NO_WARNINGS=1 symbiote project prepare'`
+
+Run both **before** the package is packed and published, and on local `npm install` without any arguments. This is run **after** `prepublish`, but **before** `prepublishOnly`.
 
 #### scripts.prepublish?
 
@@ -504,11 +620,31 @@ Run **after** the package is published.
 
 #### scripts.release
 
-> `readonly` **release**: `"NODE_NO_WARNINGS=1 symbiote release"` = `'NODE_NO_WARNINGS=1 symbiote release'`
+> **release**: `string` = `'NODE_NO_WARNINGS=1 symbiote release'`
+
+Run by users, symbiote, and related tooling when potentially releasing
+the next version of a package.
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote release`
+```
 
 #### scripts.renovate
 
-> `readonly` **renovate**: `"NODE_NO_WARNINGS=1 symbiote project renovate --github-reconfigure-repo --regenerate-assets --assets-preset basic"` = `'NODE_NO_WARNINGS=1 symbiote project renovate --github-reconfigure-repo --regenerate-assets --assets-preset basic'`
+> **renovate**: `string`
+
+Run by users, symbiote, and related tooling when manipulating a project's
+_metadata_, such as its file structure and configuration settings, with the
+goal of bringing the project up to date with latest best practices.
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote project renovate
+--github-reconfigure-repo --regenerate-assets --assets-preset basic`
+```
 
 #### scripts.restart?
 
@@ -518,7 +654,9 @@ Run with the `npm restart` command. Note: `npm restart` will run the `stop` and 
 
 #### scripts.start
 
-> `readonly` **start**: `"NODE_NO_WARNINGS=1 symbiote start --"` = `'NODE_NO_WARNINGS=1 symbiote start --'`
+> **start**: `string` = `'NODE_NO_WARNINGS=1 symbiote start --'`
+
+Run with the `npm start` command.
 
 #### scripts.stop?
 
@@ -528,27 +666,82 @@ Run with the `npm stop` command.
 
 #### scripts.test
 
-> `readonly` **test**: `"npm run test:package:unit --"` = `'npm run test:package:unit --'`
+> **test**: `string` = `'npm run test:package:unit --'`
+
+Run with the `npm test` command.
 
 #### scripts.test:package:all
 
-> `readonly` **test:package:all**: `"NODE_NO_WARNINGS=1 symbiote test --coverage"` = `'NODE_NO_WARNINGS=1 symbiote test --coverage'`
+> **test:package:all**: `string` = `'NODE_NO_WARNINGS=1 symbiote test --coverage'`
+
+Run by users, symbiote, and related tooling when executing all possible
+tests against the current package. In a monorepo context, this script
+will also run the tests of any package that this package depends on
+(including transitive dependencies).
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote test --scope this-package --coverage`
+```
 
 #### scripts.test:package:e2e
 
-> `readonly` **test:package:e2e**: `"NODE_NO_WARNINGS=1 symbiote test --tests end-to-end"` = `'NODE_NO_WARNINGS=1 symbiote test --tests end-to-end'`
+> **test:package:e2e**: `string` = `'NODE_NO_WARNINGS=1 symbiote test --tests end-to-end'`
+
+Run by users, symbiote, and related tooling when executing end-to-end
+tests against the current package. In a monorepo context, this script
+will also run the tests of any package that this package depends on
+(including transitive dependencies).
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote test --scope this-package --tests end-to-end`
+```
 
 #### scripts.test:package:integration
 
-> `readonly` **test:package:integration**: `"NODE_NO_WARNINGS=1 symbiote test --tests integration"` = `'NODE_NO_WARNINGS=1 symbiote test --tests integration'`
+> **test:package:integration**: `string` = `'NODE_NO_WARNINGS=1 symbiote test --tests integration'`
+
+Run by users, symbiote, and related tooling when executing integration
+tests against the current package. In a monorepo context, this script
+will also run the tests of any package that this package depends on
+(including transitive dependencies).
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote test --scope this-package --tests integration`
+```
 
 #### scripts.test:package:unit
 
-> `readonly` **test:package:unit**: `"NODE_NO_WARNINGS=1 symbiote test --tests unit"` = `'NODE_NO_WARNINGS=1 symbiote test --tests unit'`
+> **test:package:unit**: `string` = `'NODE_NO_WARNINGS=1 symbiote test --tests unit'`
+
+Run by users, symbiote, and related tooling when executing unit tests
+against the current package. In a monorepo context, this script
+will also run the tests of any package that this package depends on
+(including transitive dependencies).
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote test --scope this-package --tests unit`
+```
 
 #### scripts.test:packages:all
 
-> `readonly` **test:packages:all**: `"NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage"` = `'NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage'`
+> **test:packages:all**: `string`
+
+Run by users, symbiote, and related tooling when executing all possible
+tests across the entire project.
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage`
+```
 
 #### scripts.uninstall?
 
@@ -602,4 +795,4 @@ Please note that the top-level `private` property of `package.json` **must** be 
 
 ## Defined in
 
-[src/assets/transformers/\_package.json.ts:39](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/src/assets/transformers/_package.json.ts#L39)
+[src/assets/transformers/\_package.json.ts:52](https://github.com/Xunnamius/symbiote/blob/c062d7c5dc980668c9246eeeaf1aa96da42e4471/src/assets/transformers/_package.json.ts#L52)

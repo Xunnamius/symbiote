@@ -2,11 +2,11 @@
 
 ***
 
-[@-xun/symbiote](../../../../../README.md) / [src/assets/transformers/\_package.json](../README.md) / generateBasePolyrepoXPackageJson
+[@-xun/symbiote](../../../../../README.md) / [src/assets/transformers/\_package.json](../README.md) / generateHybridrepoProjectXPackageJson
 
-# Function: generateBasePolyrepoXPackageJson()
+# Function: generateHybridrepoProjectXPackageJson()
 
-> **generateBasePolyrepoXPackageJson**(...`__namedParameters`): `object`
+> **generateHybridrepoProjectXPackageJson**(...`__namedParameters`): `object`
 
 ## Parameters
 
@@ -24,11 +24,11 @@
 
 ### bin?
 
-> `readonly` `optional` **bin**: `string` \| `Record`\<`string`, `string`\>
+> `optional` **bin**: `string` \| `Record`\<`string`, `string`\>
 
 ### browser?
 
-> `readonly` `optional` **browser**: `string` \| `Partial`\<`Record`\<`string`, `string` \| `false`\>\>
+> `optional` **browser**: `string` \| `Partial`\<`Record`\<`string`, `string` \| `false`\>\>
 
 A hint to JavaScript bundlers or component tools when packaging modules for client side use.
 
@@ -42,31 +42,31 @@ A hint to JavaScript bundlers or component tools when packaging modules for clie
 
 ### bundledDependencies?
 
-> `readonly` `optional` **bundledDependencies**: `string`[]
+> `optional` **bundledDependencies**: `string`[]
 
 Package names that are bundled when the package is published.
 
 ### bundleDependencies?
 
-> `readonly` `optional` **bundleDependencies**: `string`[]
+> `optional` **bundleDependencies**: `string`[]
 
 Alias of `bundledDependencies`.
 
 ### config?
 
-> `readonly` `optional` **config**: `JsonObject`
+> `optional` **config**: `JsonObject`
 
 Is used to set configuration parameters used in package scripts that persist across upgrades.
 
 ### contributors?
 
-> `readonly` `optional` **contributors**: `Person`[]
+> `optional` **contributors**: `Person`[]
 
 A list of people who contributed to the package.
 
 ### cpu?
 
-> `readonly` `optional` **cpu**: `LiteralUnion`\<`"arm"` \| `"arm64"` \| `"ia32"` \| `"mips"` \| `"mipsel"` \| `"ppc"` \| `"ppc64"` \| `"s390"` \| `"s390x"` \| `"x32"` \| `"x64"` \| `"!arm"` \| `"!arm64"` \| `"!ia32"` \| `"!mips"` \| `"!mipsel"` \| `"!ppc"` \| `"!ppc64"` \| `"!s390"` \| `"!s390x"` \| `"!x32"` \| `"!x64"`, `string`\>[]
+> `optional` **cpu**: `LiteralUnion`\<`"arm"` \| `"arm64"` \| `"ia32"` \| `"mips"` \| `"mipsel"` \| `"ppc"` \| `"ppc64"` \| `"s390"` \| `"s390x"` \| `"x32"` \| `"x64"` \| `"!arm"` \| `"!arm64"` \| `"!ia32"` \| `"!mips"` \| `"!mipsel"` \| `"!ppc"` \| `"!ppc64"` \| `"!s390"` \| `"!s390x"` \| `"!x32"` \| `"!x64"`, `string`\>[]
 
 CPU architectures the module runs on.
 
@@ -84,7 +84,7 @@ CPU architectures the module runs on.
 
 ### directories?
 
-> `readonly` `optional` **directories**: `DirectoryLocations`
+> `optional` **directories**: `DirectoryLocations`
 
 Indicates the structure of the package.
 
@@ -98,19 +98,19 @@ Indicates the structure of the package.
 
 ### ~~engineStrict?~~
 
-> `readonly` `optional` **engineStrict**: `boolean`
+> `optional` **engineStrict**: `boolean`
 
 #### Deprecated
 
 ### esnext?
 
-> `readonly` `optional` **esnext**: `string` \| \{ `[moduleName: string]`: `undefined` \| `string`;  `browser`: `string`; `main`: `string`; \}
+> `optional` **esnext**: `string` \| \{ `[moduleName: string]`: `undefined` \| `string`;  `browser`: `string`; `main`: `string`; \}
 
 A module ID with untranspiled code that is the primary entry point to the program.
 
 ### exports
 
-> `readonly` **exports**: `string` \| (`string` \| `ExportConditions`)[] \| `ExportConditions` \| \{ `.`: \{ `default`: `string`; `types`: `string`; \}; `./package`: `string`; `./package.json`: `string`; \}
+> `readonly` **exports**: `string` \| (`string` \| `ExportConditions`)[] \| `ExportConditions` \| \{ `.`: \{ `default`: `string`; `types`: `string`; \}; `./commands/*`: \{ `default`: `string`; `types`: `string`; \}; `./configure`: \{ `default`: `string`; `types`: `string`; \}; `./package`: `string`; `./package.json`: `string`; \} \| \{ `.`: \{ `default`: `string`; `types`: `string`; \}; `./package`: `string`; `./package.json`: `string`; \}
 
 ### files
 
@@ -118,7 +118,7 @@ A module ID with untranspiled code that is the primary entry point to the progra
 
 ### flat?
 
-> `readonly` `optional` **flat**: `boolean`
+> `optional` **flat**: `boolean`
 
 If your package only allows one version of a given dependency, and you’d like to enforce the same behavior as `yarn install --flat` on the command-line, set this to `true`.
 
@@ -126,7 +126,7 @@ Note that if your `package.json` contains `"flat": true` and other packages depe
 
 ### funding?
 
-> `readonly` `optional` **funding**: `string` \| \{ `type`: `LiteralUnion`\<`"github"` \| `"opencollective"` \| `"patreon"` \| `"individual"` \| `"foundation"` \| `"corporation"`, `string`\>; `url`: `string`; \}
+> `optional` **funding**: `string` \| \{ `type`: `LiteralUnion`\<`"github"` \| `"opencollective"` \| `"patreon"` \| `"individual"` \| `"foundation"` \| `"corporation"`, `string`\>; `url`: `string`; \}
 
 Describes and notifies consumers of a package's monetary support information.
 
@@ -140,11 +140,11 @@ Describes and notifies consumers of a package's monetary support information.
 
 ### homepage
 
-> `readonly` **homepage**: \`$\{string\}#readme\`
+> `readonly` **homepage**: \`$\{string\}$\{string\}#readme\`
 
 ### imports?
 
-> `readonly` `optional` **imports**: `Imports`
+> `optional` **imports**: `Imports`
 
 Subpath imports to define internal package import maps that only apply to import specifiers from within the package itself.
 
@@ -152,7 +152,7 @@ Subpath imports to define internal package import maps that only apply to import
 
 ### jspm?
 
-> `readonly` `optional` **jspm**: `PackageJson`
+> `optional` **jspm**: `PackageJson`
 
 JSPM configuration.
 
@@ -166,31 +166,31 @@ JSPM configuration.
 
 ### licenses?
 
-> `readonly` `optional` **licenses**: `object`[]
+> `optional` **licenses**: `object`[]
 
 The licenses for the package.
 
 ### main?
 
-> `readonly` `optional` **main**: `string`
+> `optional` **main**: `string`
 
 The module ID that is the primary entry point to the program.
 
 ### maintainers?
 
-> `readonly` `optional` **maintainers**: `Person`[]
+> `optional` **maintainers**: `Person`[]
 
 A list of people who maintain the package.
 
 ### man?
 
-> `readonly` `optional` **man**: `string` \| `string`[]
+> `optional` **man**: `string` \| `string`[]
 
 Filenames to put in place for the `man` program to find.
 
 ### module?
 
-> `readonly` `optional` **module**: `string`
+> `optional` **module**: `string`
 
 An ECMAScript module ID that is the primary entry point to the program.
 
@@ -200,19 +200,19 @@ An ECMAScript module ID that is the primary entry point to the program.
 
 ### optionalDependencies?
 
-> `readonly` `optional` **optionalDependencies**: `Partial`\<`Record`\<`string`, `string`\>\>
+> `optional` **optionalDependencies**: `Partial`\<`Record`\<`string`, `string`\>\>
 
 Dependencies that are skipped if they fail to install.
 
 ### os?
 
-> `readonly` `optional` **os**: `LiteralUnion`\<`"aix"` \| `"darwin"` \| `"freebsd"` \| `"linux"` \| `"openbsd"` \| `"sunos"` \| `"win32"` \| `"!aix"` \| `"!darwin"` \| `"!freebsd"` \| `"!linux"` \| `"!openbsd"` \| `"!sunos"` \| `"!win32"`, `string`\>[]
+> `optional` **os**: `LiteralUnion`\<`"aix"` \| `"darwin"` \| `"freebsd"` \| `"linux"` \| `"openbsd"` \| `"sunos"` \| `"win32"` \| `"!aix"` \| `"!darwin"` \| `"!freebsd"` \| `"!linux"` \| `"!openbsd"` \| `"!sunos"` \| `"!win32"`, `string`\>[]
 
 Operating systems the module runs on.
 
 ### packageManager?
 
-> `readonly` `optional` **packageManager**: `string`
+> `optional` **packageManager**: `string`
 
 Defines which package manager is expected to be used when working on the current project. It can set to any of the [supported package managers](https://nodejs.org/api/corepack.html#supported-package-managers), and will ensure that your teams use the exact same package manager versions without having to install anything else than Node.js.
 
@@ -228,19 +228,19 @@ __This field is currently experimental and needs to be opted-in; check the [Core
 
 ### peerDependencies?
 
-> `readonly` `optional` **peerDependencies**: `Partial`\<`Record`\<`string`, `string`\>\>
+> `optional` **peerDependencies**: `Partial`\<`Record`\<`string`, `string`\>\>
 
 Dependencies that will usually be required by the package user directly or via another dependency.
 
 ### peerDependenciesMeta?
 
-> `readonly` `optional` **peerDependenciesMeta**: `Partial`\<`Record`\<`string`, \{ `optional`: `true`; \}\>\>
+> `optional` **peerDependenciesMeta**: `Partial`\<`Record`\<`string`, \{ `optional`: `true`; \}\>\>
 
 Indicate peer dependencies that are optional.
 
 ### ~~preferGlobal?~~
 
-> `readonly` `optional` **preferGlobal**: `boolean`
+> `optional` **preferGlobal**: `boolean`
 
 If set to `true`, a warning will be shown if package is installed locally. Useful if the package is primarily a command-line application that should be installed globally.
 
@@ -292,7 +292,7 @@ Default: `'latest'`
 
 ### resolutions?
 
-> `readonly` `optional` **resolutions**: `Partial`\<`Record`\<`string`, `string`\>\>
+> `optional` **resolutions**: `Partial`\<`Record`\<`string`, `string`\>\>
 
 Selective version resolutions. Allows the definition of custom package versions inside dependencies without manual edits in the `yarn.lock` file.
 
@@ -302,23 +302,70 @@ Selective version resolutions. Allows the definition of custom package versions 
 
 #### scripts.build
 
-> `readonly` **build**: `"npm run build:dist --"` = `'npm run build:dist --'`
+> **build**: `string` = `'npm run build:dist --'`
+
+Run by users, symbiote, and related tooling when building the current
+package's production-ready distributables.
+
+This script is usually a reference to `npm run build:dist`.
+
+##### Example
+
+```ts
+`npm run build:dist --`
+```
 
 #### scripts.build:changelog
 
-> `readonly` **build:changelog**: `"NODE_NO_WARNINGS=1 symbiote build changelog"` = `'NODE_NO_WARNINGS=1 symbiote build changelog'`
+> **build:changelog**: `string` = `'NODE_NO_WARNINGS=1 symbiote build changelog'`
+
+Run by users, symbiote, and related tooling when building the current
+package's `CHANGELOG.md` file.
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote build changelog`
+```
 
 #### scripts.build:dist
 
-> `readonly` **build:dist**: `"NODE_NO_WARNINGS=1 symbiote build distributables"` = `'NODE_NO_WARNINGS=1 symbiote build distributables'`
+> **build:dist**: `string` = `'NODE_NO_WARNINGS=1 symbiote build distributables'`
+
+Run by users, symbiote, and related tooling when building the current
+package's production-ready distributables.
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote build distributables`
+```
 
 #### scripts.build:docs
 
-> `readonly` **build:docs**: `"NODE_NO_WARNINGS=1 symbiote build docs"` = `'NODE_NO_WARNINGS=1 symbiote build docs'`
+> **build:docs**: `string` = `'NODE_NO_WARNINGS=1 symbiote build docs'`
+
+Run by users, symbiote, and related tooling when building the current
+package's documentation (typically found under `docs/`).
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote build docs`
+```
 
 #### scripts.clean
 
-> `readonly` **clean**: `"NODE_NO_WARNINGS=1 symbiote clean"` = `'NODE_NO_WARNINGS=1 symbiote clean'`
+> **clean**: `string` = `'NODE_NO_WARNINGS=1 symbiote clean'`
+
+Run by users, symbiote, and related tooling when removing files from the
+project or package that are ignored by git (with exceptions).
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote clean`
+```
 
 #### scripts.deploy?
 
@@ -342,11 +389,29 @@ local development environment.
 
 #### scripts.format
 
-> `readonly` **format**: `"NODE_NO_WARNINGS=1 symbiote format --hush"` = `'NODE_NO_WARNINGS=1 symbiote format --hush'`
+> **format**: `string` = `'NODE_NO_WARNINGS=1 symbiote format --hush'`
+
+Run by users, symbiote, and related tooling when formatting the project
+or package.
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote format --hush`
+```
 
 #### scripts.info
 
-> `readonly` **info**: `"NODE_NO_WARNINGS=1 symbiote project info"` = `'NODE_NO_WARNINGS=1 symbiote project info'`
+> **info**: `string` = `'NODE_NO_WARNINGS=1 symbiote project info'`
+
+Run by users, symbiote, and related tooling when printing information
+about the current project or package.
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote project info`
+```
 
 #### scripts.install?
 
@@ -356,23 +421,72 @@ Run **after** the package is installed.
 
 #### scripts.lint
 
-> `readonly` **lint**: `"npm run lint:package --"` = `'npm run lint:package --'`
+> **lint**: `string` = `'npm run lint:package --'`
+
+Run by users, symbiote, and related tooling when linting the current
+package's files.
+
+This script is usually a reference to `npm run lint:package`.
+
+##### Example
+
+```ts
+`npm run lint:package --`
+```
 
 #### scripts.lint:package
 
-> `readonly` **lint:package**: `"NODE_NO_WARNINGS=1 symbiote lint"` = `'NODE_NO_WARNINGS=1 symbiote lint'`
+> **lint:package**: `string` = `'NODE_NO_WARNINGS=1 symbiote lint'`
+
+Run by users, symbiote, and related tooling when linting all of the
+lintable files under the current package's root along with any other
+source files that comprise this package's build targets (see
+gatherPackageBuildTargets).
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote lint --scope this-package`
+```
 
 #### scripts.lint:packages
 
-> `readonly` **lint:packages**: `"NODE_NO_WARNINGS=1 symbiote lint --scope unlimited"` = `'NODE_NO_WARNINGS=1 symbiote lint --scope unlimited'`
+> **lint:packages**: `string`
+
+Run by users, symbiote, and related tooling when linting all lintable
+files in the entire project.
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote lint --scope unlimited`
+```
 
 #### scripts.lint:project
 
-> `readonly` **lint:project**: `"NODE_NO_WARNINGS=1 symbiote project lint"` = `'NODE_NO_WARNINGS=1 symbiote project lint'`
+> **lint:project**: `string` = `'NODE_NO_WARNINGS=1 symbiote project lint'`
+
+Run by users, symbiote, and related tooling when linting a project's
+metadata, such as its file structure and configuration settings.
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote project lint`
+```
 
 #### scripts.list-tasks
 
-> `readonly` **list-tasks**: `"NODE_NO_WARNINGS=1 symbiote list-tasks"` = `'NODE_NO_WARNINGS=1 symbiote list-tasks'`
+> **list-tasks**: `string`
+
+Run by users, symbiote, and related tooling when printing information
+about available scripts in `package.json`.
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote list-tasks`
+```
 
 #### scripts.postinstall?
 
@@ -442,7 +556,9 @@ Run **before** a tarball is packed (on `npm pack`, `npm publish`, and when insta
 
 #### scripts.prepare
 
-> `readonly` **prepare**: `"NODE_NO_WARNINGS=1 symbiote project prepare"` = `'NODE_NO_WARNINGS=1 symbiote project prepare'`
+> **prepare**: `string` = `'NODE_NO_WARNINGS=1 symbiote project prepare'`
+
+Run both **before** the package is packed and published, and on local `npm install` without any arguments. This is run **after** `prepublish`, but **before** `prepublishOnly`.
 
 #### scripts.prepublish?
 
@@ -500,11 +616,31 @@ Run **after** the package is published.
 
 #### scripts.release
 
-> `readonly` **release**: `"NODE_NO_WARNINGS=1 symbiote release"` = `'NODE_NO_WARNINGS=1 symbiote release'`
+> **release**: `string` = `'NODE_NO_WARNINGS=1 symbiote release'`
+
+Run by users, symbiote, and related tooling when potentially releasing
+the next version of a package.
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote release`
+```
 
 #### scripts.renovate
 
-> `readonly` **renovate**: `"NODE_NO_WARNINGS=1 symbiote project renovate --github-reconfigure-repo --regenerate-assets --assets-preset basic"` = `'NODE_NO_WARNINGS=1 symbiote project renovate --github-reconfigure-repo --regenerate-assets --assets-preset basic'`
+> **renovate**: `string`
+
+Run by users, symbiote, and related tooling when manipulating a project's
+_metadata_, such as its file structure and configuration settings, with the
+goal of bringing the project up to date with latest best practices.
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote project renovate
+--github-reconfigure-repo --regenerate-assets --assets-preset basic`
+```
 
 #### scripts.restart?
 
@@ -514,7 +650,9 @@ Run with the `npm restart` command. Note: `npm restart` will run the `stop` and 
 
 #### scripts.start
 
-> `readonly` **start**: `"NODE_NO_WARNINGS=1 symbiote start --"` = `'NODE_NO_WARNINGS=1 symbiote start --'`
+> **start**: `string` = `'NODE_NO_WARNINGS=1 symbiote start --'`
+
+Run with the `npm start` command.
 
 #### scripts.stop?
 
@@ -524,27 +662,82 @@ Run with the `npm stop` command.
 
 #### scripts.test
 
-> `readonly` **test**: `"npm run test:package:unit --"` = `'npm run test:package:unit --'`
+> **test**: `string` = `'npm run test:package:unit --'`
+
+Run with the `npm test` command.
 
 #### scripts.test:package:all
 
-> `readonly` **test:package:all**: `"NODE_NO_WARNINGS=1 symbiote test --coverage"` = `'NODE_NO_WARNINGS=1 symbiote test --coverage'`
+> **test:package:all**: `string` = `'NODE_NO_WARNINGS=1 symbiote test --coverage'`
+
+Run by users, symbiote, and related tooling when executing all possible
+tests against the current package. In a monorepo context, this script
+will also run the tests of any package that this package depends on
+(including transitive dependencies).
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote test --scope this-package --coverage`
+```
 
 #### scripts.test:package:e2e
 
-> `readonly` **test:package:e2e**: `"NODE_NO_WARNINGS=1 symbiote test --tests end-to-end"` = `'NODE_NO_WARNINGS=1 symbiote test --tests end-to-end'`
+> **test:package:e2e**: `string` = `'NODE_NO_WARNINGS=1 symbiote test --tests end-to-end'`
+
+Run by users, symbiote, and related tooling when executing end-to-end
+tests against the current package. In a monorepo context, this script
+will also run the tests of any package that this package depends on
+(including transitive dependencies).
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote test --scope this-package --tests end-to-end`
+```
 
 #### scripts.test:package:integration
 
-> `readonly` **test:package:integration**: `"NODE_NO_WARNINGS=1 symbiote test --tests integration"` = `'NODE_NO_WARNINGS=1 symbiote test --tests integration'`
+> **test:package:integration**: `string` = `'NODE_NO_WARNINGS=1 symbiote test --tests integration'`
+
+Run by users, symbiote, and related tooling when executing integration
+tests against the current package. In a monorepo context, this script
+will also run the tests of any package that this package depends on
+(including transitive dependencies).
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote test --scope this-package --tests integration`
+```
 
 #### scripts.test:package:unit
 
-> `readonly` **test:package:unit**: `"NODE_NO_WARNINGS=1 symbiote test --tests unit"` = `'NODE_NO_WARNINGS=1 symbiote test --tests unit'`
+> **test:package:unit**: `string` = `'NODE_NO_WARNINGS=1 symbiote test --tests unit'`
+
+Run by users, symbiote, and related tooling when executing unit tests
+against the current package. In a monorepo context, this script
+will also run the tests of any package that this package depends on
+(including transitive dependencies).
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote test --scope this-package --tests unit`
+```
 
 #### scripts.test:packages:all
 
-> `readonly` **test:packages:all**: `"NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage"` = `'NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage'`
+> **test:packages:all**: `string`
+
+Run by users, symbiote, and related tooling when executing all possible
+tests across the entire project.
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage`
+```
 
 #### scripts.uninstall?
 
@@ -568,7 +761,7 @@ Run **before** bump the package version.
 
 ### types?
 
-> `readonly` `optional` **types**: `string`
+> `optional` **types**: `string`
 
 Location of the bundled TypeScript declaration file.
 
@@ -578,7 +771,7 @@ Location of the bundled TypeScript declaration file.
 
 ### typings?
 
-> `readonly` `optional` **typings**: `string`
+> `optional` **typings**: `string`
 
 Location of the bundled TypeScript declaration file. Alias of `types`.
 
@@ -586,9 +779,9 @@ Location of the bundled TypeScript declaration file. Alias of `types`.
 
 > `readonly` **version**: `string` = `incomingPackageJson.version`
 
-### workspaces?
+### workspaces
 
-> `readonly` `optional` **workspaces**: `string`[] \| `WorkspaceConfig`
+> **workspaces**: `string`[] \| `WorkspaceConfig`
 
 Used to configure [npm workspaces](https://docs.npmjs.com/cli/using-npm/workspaces) / [Yarn workspaces](https://classic.yarnpkg.com/docs/workspaces/).
 
@@ -598,4 +791,4 @@ Please note that the top-level `private` property of `package.json` **must** be 
 
 ## Defined in
 
-[src/assets/transformers/\_package.json.ts:115](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/src/assets/transformers/_package.json.ts#L115)
+[src/assets/transformers/\_package.json.ts:257](https://github.com/Xunnamius/symbiote/blob/c062d7c5dc980668c9246eeeaf1aa96da42e4471/src/assets/transformers/_package.json.ts#L257)

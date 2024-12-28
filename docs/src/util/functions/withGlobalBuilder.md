@@ -11,13 +11,9 @@
 A version of withStandardBuilder that expects `CustomCliArguments` to
 extend [GlobalCliArguments](../../configure/type-aliases/GlobalCliArguments.md).
 
-When providing a `customBuilder` function or object, any key in the returned
-object that is also a key in [globalCliArguments](../../configure/variables/globalCliArguments.md) will have its value
-merged with the value in [globalCliArguments](../../configure/variables/globalCliArguments.md) _instead_ of fully
-overwriting it. This means you can pass minimal configuration values for the
-keys that are also in [globalCliArguments](../../configure/variables/globalCliArguments.md) and those values will be
-merged over the corresponding default configuration value in
-[globalCliArguments](../../configure/variables/globalCliArguments.md).
+[globalCliArguments](../../configure/variables/globalCliArguments.md) is included in `additionalCommonOptions`
+automatically. See withStandardBuilder for more details on how this
+function semi-deep merges various common option configurations.
 
 ## Type Parameters
 
@@ -35,4 +31,4 @@ merged over the corresponding default configuration value in
 
 ## Defined in
 
-[src/util.ts:161](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/src/util.ts#L161)
+[src/util.ts:251](https://github.com/Xunnamius/symbiote/blob/c062d7c5dc980668c9246eeeaf1aa96da42e4471/src/util.ts#L251)

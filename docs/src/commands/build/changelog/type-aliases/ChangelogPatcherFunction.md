@@ -36,4 +36,4 @@ accepts a `changelog` string and `patches`, which is an array of
 
 ## Defined in
 
-[src/commands/build/changelog.ts:98](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/src/commands/build/changelog.ts#L98)
+[src/commands/build/changelog.ts:98](https://github.com/Xunnamius/symbiote/blob/c062d7c5dc980668c9246eeeaf1aa96da42e4471/src/commands/build/changelog.ts#L98)

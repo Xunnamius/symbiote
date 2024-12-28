@@ -30,4 +30,4 @@ A partial release task with loose typings for quickly authoring new tasks.
 
 ## Defined in
 
-[src/commands/release.ts:156](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/src/commands/release.ts#L156)
+[src/commands/release.ts:156](https://github.com/Xunnamius/symbiote/blob/c062d7c5dc980668c9246eeeaf1aa96da42e4471/src/commands/release.ts#L156)

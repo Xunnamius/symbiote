@@ -6,13 +6,13 @@
 
 # Type Alias: RawAliasMapperFunction()
 
-> **RawAliasMapperFunction**: (`projectMetadata`, `outputFunctions`) => `RawAliasMapping`[]
+> **RawAliasMapperFunction**: (`projectMetadata`, `outputFunctions`) => [`RawAliasMapperArray`](RawAliasMapperArray.md)
 
 A function that receives the current ProjectMetadata and must return
 an array of RawAliasMappings.
 
-`aliases.config.mjs` can export via default either `RawAliasMapperFunction`
-or an array of RawAliasMappings.
+Note that import map files can export via default either
+`RawAliasMapperFunction` or a [RawAliasMapperArray](RawAliasMapperArray.md).
 
 ## Parameters
 
@@ -32,8 +32,12 @@ or an array of RawAliasMappings.
 
 ## Returns
 
-`RawAliasMapping`[]
+[`RawAliasMapperArray`](RawAliasMapperArray.md)
+
+## See
+
+[ImportedAliasMap](ImportedAliasMap.md)
 
 ## Defined in
 
-[src/util.ts:109](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/src/util.ts#L109)
+[src/util.ts:117](https://github.com/Xunnamius/symbiote/blob/c062d7c5dc980668c9246eeeaf1aa96da42e4471/src/util.ts#L117)

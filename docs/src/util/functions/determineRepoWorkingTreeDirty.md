@@ -18,4 +18,4 @@ the current working tree is dirty. This can be checked quickly via the
 
 ## Defined in
 
-[src/util.ts:282](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/src/util.ts#L282)
+[src/util.ts:340](https://github.com/Xunnamius/symbiote/blob/c062d7c5dc980668c9246eeeaf1aa96da42e4471/src/util.ts#L340)

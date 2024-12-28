@@ -26,4 +26,4 @@ The context passed to each individual task.
 
 ## Defined in
 
-[src/commands/project/renovate.ts:173](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/src/commands/project/renovate.ts#L173)
+[src/commands/project/renovate.ts:179](https://github.com/Xunnamius/symbiote/blob/c062d7c5dc980668c9246eeeaf1aa96da42e4471/src/commands/project/renovate.ts#L179)

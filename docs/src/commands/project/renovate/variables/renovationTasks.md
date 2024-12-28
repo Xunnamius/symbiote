@@ -1908,7 +1908,7 @@ Provide --assets-preset (required) to specify which assets to regenerate. The pa
 
 Use --skip-asset-paths to further narrow which files are regenerated. The parameter accepts regular expressions that are matched against the paths to be written out. Any paths matching one of the aforesaid regular expressions will have their contents discarded instead of written out.
 
-This renovation attempts to import the "import-aliases.mjs" file if it exists at the root of the project. Use this file to provide additional \`RawAliasMapping\[\]\`s to include when regenerating files defining the project's import aliases. See the symbiote wiki documentation for further details.
+This renovation attempts to import the "alias.config.mjs" file if it exists at the root of the project. Use this file to provide additional \`RawAliasMapping\[\]\`s to include when regenerating files defining the project's import aliases. See the symbiote wiki documentation for further details.
 
 When renovating Markdown files with templates divided into replacer regions via the magic comments "$\{string\}" and "\<!-- symbiote-template-region-end --\>", this command will perform so-called "regional replacements" where only the content between the "start" and "end" comments will be modified. Regions without matching ids are ignored.
 
@@ -2531,4 +2531,4 @@ RenovationTask
 
 ## Defined in
 
-[src/commands/project/renovate.ts:716](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/src/commands/project/renovate.ts#L716)
+[src/commands/project/renovate.ts:723](https://github.com/Xunnamius/symbiote/blob/c062d7c5dc980668c9246eeeaf1aa96da42e4471/src/commands/project/renovate.ts#L723)

@@ -11,13 +11,9 @@
 Magic string used to denote the beginning of a replacer region in Markdown
 files processed by symbiote.
 
-This is the photogenic version of
-magicStringReplacerRegionStartWithId, which is the actual variable
-used in computations.
-
-Note that this string is actually a regular expression that can be used to
+Note that this string describes a regular expression that can be used to
 match region start comments containing an ID parameter.
 
 ## Defined in
 
-[src/util.ts:132](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/src/util.ts#L132)
+[src/util.ts:166](https://github.com/Xunnamius/symbiote/blob/c062d7c5dc980668c9246eeeaf1aa96da42e4471/src/util.ts#L166)

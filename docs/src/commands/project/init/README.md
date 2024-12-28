@@ -19,3 +19,15 @@
 ### Functions
 
 - [default](functions/default.md)
+
+## References
+
+### RawAliasMapperArray
+
+Re-exports [RawAliasMapperArray](../../../util/type-aliases/RawAliasMapperArray.md)
+
+***
+
+### RawAliasMapperFunction
+
+Re-exports [RawAliasMapperFunction](../../../util/type-aliases/RawAliasMapperFunction.md)

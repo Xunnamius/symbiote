@@ -13,6 +13,10 @@ of [Asset](../type-aliases/Asset.md)s generated per each package in ProjectMetad
 including the root package in hybridrepos and polyrepos (but not in
 non-hybrid monorepos).
 
+**WARNING: be wary relying on an external [TransformerContext](../type-aliases/TransformerContext.md) when
+using this function. When context access is required, use the
+`contextWithCwdPackage` parameter provided to each adder function.**
+
 ## Parameters
 
 ### transformerContext
@@ -50,4 +54,4 @@ false
 
 ## Defined in
 
-[src/assets.ts:624](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/src/assets.ts#L624)
+[src/assets.ts:648](https://github.com/Xunnamius/symbiote/blob/c062d7c5dc980668c9246eeeaf1aa96da42e4471/src/assets.ts#L648)

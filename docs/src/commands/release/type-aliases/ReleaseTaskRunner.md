@@ -26,4 +26,4 @@ A reified [ProtoReleaseTaskRunner](ProtoReleaseTaskRunner.md). Generated automat
 
 ## Defined in
 
-[src/commands/release.ts:143](https://github.com/Xunnamius/symbiote/blob/6888363ae81ec0a004cfcb164e5a634c45aca6a9/src/commands/release.ts#L143)
+[src/commands/release.ts:143](https://github.com/Xunnamius/symbiote/blob/c062d7c5dc980668c9246eeeaf1aa96da42e4471/src/commands/release.ts#L143)
