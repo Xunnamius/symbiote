@@ -126,10 +126,14 @@ async function replaceStandardStrings(
   returnValue = returnValue.replace(
     isPackageTheRootPackage
       ? // ? Drop "workspace-package-only" replacer region contents if in root
-        makeReplacerRegionIdMatcherRegExp('workspace-package-only')
+        makeReplacerRegionIdMatcherRegExp('workspace-package-only', {
+          includeMagic: false
+        })
       : // ? Drop "root-package-only" replacer region contents if in a sub-root
-        makeReplacerRegionIdMatcherRegExp('root-package-only'),
-    '<!-- This section was elided -->'
+        makeReplacerRegionIdMatcherRegExp('root-package-only', {
+          includeMagic: false
+        }),
+    '\n<!-- (section elided by symbiote) -->\n'
   );
 
   return returnValue;

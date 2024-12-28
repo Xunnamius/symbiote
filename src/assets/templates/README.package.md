@@ -6,7 +6,7 @@
 
 <p align="center" width="100%">
 <!-- symbiote-template-region-end -->
-{{projectMetadata.cwdPackage.json.description|<!-- TODO: a brief description/blurb -->}}
+{{projectMetadata.cwdPackage.json.description|TODO <!-- TODO: a brief description/blurb -->}}
 <!-- symbiote-template-region-start 2 -->
 </p>
 
@@ -31,7 +31,7 @@
 
 <!-- symbiote-template-region-end -->
 
-{{projectMetadata.cwdPackage.json.description|<!-- TODO -->}}
+{{projectMetadata.cwdPackage.json.description|TODO <!-- TODO -->}}
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -108,7 +108,7 @@ browser-like environments. For TypeScript users, this package supports both
 {{chooserBlockEnd}}
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
+<!-- TODO: optional additional details here -->
 <!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
@@ -160,7 +160,7 @@ also that [`package.json`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
+<!-- TODO: optional additional details here -->
 <!-- symbiote-template-region-start 8 -->
 
 </details>
@@ -171,7 +171,7 @@ optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 See [LICENSE][x-repo-license].
 
-<!-- TODO: other custom details here -->
+<!-- TODO: optional additional details here -->
 <!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
@@ -185,7 +185,7 @@ See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom sections here -->
+<!-- TODO: optional additional sections here -->
 <!-- symbiote-template-region-start 10 -->
 
 ### Contributors

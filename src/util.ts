@@ -195,9 +195,26 @@ export const replacerRegionMatcherRegExp = makeReplacerRegionIdMatcherRegExp(
  *
  * Note that `id` is NOT escaped.
  */
-export function makeReplacerRegionIdMatcherRegExp(id: string) {
+export function makeReplacerRegionIdMatcherRegExp(
+  id: string,
+  {
+    includeMagic = true
+  }: {
+    /**
+     * If `true`, the start and end comments that denote the beginning and the
+     * end of the region will be included in the match (and therefore subject to
+     * replacement). If `false`, they will not be included in the match;
+     * however, their newlines will be, so take that into account when
+     * generating replacement content.
+     * @default true
+     */
+    includeMagic?: boolean;
+  } = {}
+) {
   return new RegExp(
-    `^${makeMagicStringReplacerRegionStartWithId(id)}$(.*?)^${magicStringReplacerRegionEnd}$`,
+    includeMagic
+      ? `^${makeMagicStringReplacerRegionStartWithId(id)}$(.*?)^${magicStringReplacerRegionEnd}$`
+      : `(?<=^${makeMagicStringReplacerRegionStartWithId(id)}$)(.*?)(?=^${magicStringReplacerRegionEnd}$)`,
     'gism'
   );
 }
