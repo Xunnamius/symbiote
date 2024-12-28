@@ -5,6 +5,7 @@ import { LogTag } from 'multiverse+cli-utils:logging.ts';
 import {
   isRootPackage,
   ProjectAttribute,
+  WorkspaceAttribute,
   type Package,
   type XPackageJson,
   type XPackageJsonHybridrepoRoot,
@@ -358,14 +359,17 @@ export const { transformer } = makeTransformer(function (context) {
       rootPackage: { attributes: projectAttributes, root: projectRoot }
     },
     log,
-    assetPreset
+    scope,
+    // ! We use our own assetPreset in addition to this one
+    assetPreset: incomingAssetPreset,
+    debug
   } = context;
 
   // * Every package gets these files, including non-hybrid monorepo roots
   return generatePerPackageAssets(
     context,
     function ({ package_, contextWithCwdPackage }) {
-      const { json: packageJson } = package_;
+      const { json: packageJson, attributes: packageAttributes } = package_;
 
       const isPackageTheRootPackage = isRootPackage(package_);
 
@@ -377,9 +381,23 @@ export const { transformer } = makeTransformer(function (context) {
         projectAttributes[ProjectAttribute.Monorepo] &&
         !projectAttributes[ProjectAttribute.Hybridrepo];
 
+      const assetPreset =
+        scope === DefaultGlobalScope.ThisPackage || isPackageTheRootPackage
+          ? incomingAssetPreset
+          : // ? Sub-roots default to a lib-type package.json in unlimited scope
+            packageAttributes[WorkspaceAttribute.Cli]
+            ? AssetPreset.Cli
+            : packageAttributes[WorkspaceAttribute.Esm]
+              ? AssetPreset.LibEsm
+              : AssetPreset.Lib;
+
       const projectRelativePackageRoot = isPackageTheRootPackage
         ? undefined
         : package_.relativeRoot;
+
+      debug('isNonHybridMonorepoRootPackage: %O', isNonHybridMonorepoRootPackage);
+      debug('guessed assetPreset: %O', assetPreset);
+      debug('projectRelativePackageRoot: %O', assetPreset);
 
       const finalPackageJson = {
         ...(forceOverwritePotentiallyDestructive
