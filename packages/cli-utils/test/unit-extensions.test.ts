@@ -81,6 +81,85 @@ describe('::withStandardBuilder', () => {
     ]);
   });
 
+  it('accepts BfeBuilderObjects in additionalCommonOptions', async () => {
+    expect.hasAssertions();
+
+    const group = jest.fn();
+    const [blackFlag, argv] = makeMocks({ group });
+    const [builder, withHandlerExtensions] = withStandardBuilder(
+      {
+        'uncommon-something': { boolean: true, description: 'hi', default: false },
+        'another-common-something': { boolean: true, description: 'hi (common)' }
+      },
+      {
+        additionalCommonOptions: [
+          { 'short-common': { number: true } },
+          'another-common-something',
+          {
+            'common-something': {
+              string: true,
+              description: 'hello there',
+              default: 'commonality'
+            }
+          },
+          'version'
+        ]
+      }
+    );
+
+    const firstPass = builder(blackFlag, false, undefined);
+    const secondPass = builder(blackFlag, false, argv);
+
+    expect(firstPass).toStrictEqual({
+      ...expectedStandardCommonCliArguments,
+      'short-common': { number: true },
+      'common-something': {
+        string: true,
+        description: 'hello there',
+        default: 'commonality'
+      },
+      'uncommon-something': { boolean: true, description: 'hi', default: false },
+      'another-common-something': { boolean: true, description: 'hi (common)' }
+    });
+
+    expect(firstPass).toStrictEqual(secondPass);
+
+    expect(group.mock.calls).toStrictEqual([
+      [['uncommon-something'], 'Optional Options:'],
+      [
+        [
+          'help',
+          'version',
+          'hush',
+          'quiet',
+          'silent',
+          'short-common',
+          'another-common-something',
+          'common-something'
+        ],
+        'Common Options:'
+      ],
+      [['uncommon-something'], 'Optional Options:'],
+      [
+        [
+          'help',
+          'version',
+          'hush',
+          'quiet',
+          'silent',
+          'short-common',
+          'another-common-something',
+          'common-something'
+        ],
+        'Common Options:'
+      ]
+    ]);
+
+    await expect(withHandlerExtensions()(argv)).rejects.toSatisfy(
+      isCommandNotImplementedError
+    );
+  });
+
   it('disableAutomaticGrouping is passed through', async () => {
     expect.hasAssertions();
 
@@ -168,6 +247,31 @@ describe('::withStandardBuilder', () => {
         }
       )(argv);
     }
+  });
+
+  it('allows end users to manipulate the standard options via semi-deep merge', async () => {
+    expect.hasAssertions();
+
+    const group = jest.fn();
+    const [blackFlag, argv] = makeMocks({ group });
+    const [builder] = withStandardBuilder(
+      { hush: { default: true } },
+      { additionalCommonOptions: ['one', 'version', 'two', 'three'] }
+    );
+
+    builder(blackFlag, false, undefined);
+    builder(blackFlag, false, argv);
+
+    expect(group.mock.calls).toStrictEqual([
+      [
+        ['help', 'version', 'hush', 'quiet', 'silent', 'one', 'two', 'three'],
+        'Common Options:'
+      ],
+      [
+        ['help', 'version', 'hush', 'quiet', 'silent', 'one', 'two', 'three'],
+        'Common Options:'
+      ]
+    ]);
   });
 });
 

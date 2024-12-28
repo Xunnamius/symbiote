@@ -30,6 +30,8 @@ import { type makeStandardConfigureExecutionContext } from 'rootverse+cli-utils:
 import { globalDebuggerNamespace } from 'rootverse+cli-utils:src/constant.ts';
 import { LogTag } from 'rootverse+cli-utils:src/logging.ts';
 
+import type { Entries } from 'type-fest';
+
 export { withUsageExtensions as withStandardUsage } from 'multiverse+bfe';
 
 /**
@@ -155,6 +157,13 @@ export const standardCommonCliArgumentsKeys = Object.keys(
  * and
  * [`strip-aliased`](https://github.com/yargs/yargs-parser?tab=readme-ov-file#strip-aliased)
  * in yargs-parser.
+ *
+ * When providing a `customBuilder` function or object, any key in the returned
+ * object that is also a key in {@link standardCommonCliArguments} will have its
+ * value merged with the value in {@link standardCommonCliArguments} _instead_
+ * of fully overwriting it. This means you can pass minimal configuration values
+ * for the keys that are also in {@link standardCommonCliArguments} and those
+ * values will be shallowly merged.
  */
 export function withStandardBuilder<
   CustomCliArguments extends StandardCommonCliArguments,
@@ -168,18 +177,32 @@ export function withStandardBuilder<
     disableAutomaticGrouping
   }: Omit<WithBuilderExtensionsConfig<CustomCliArguments>, 'commonOptions'> & {
     /**
-     * An array of zero or more string keys of `CustomCliArguments`, with the
-     * optional addition of `'version'` (`'help'` is always included), that
-     * should be grouped under _"Common Options"_ when [automatic grouping of
-     * related
+     * An array of zero or more options that should be grouped under _"Common
+     * Options"_ when [automatic grouping of related
      * options](https://github.com/Xunnamius/black-flag-extensions?tab=readme-ov-file#automatic-grouping-of-related-options)
      * is enabled.
+     *
+     * Target options can be specified in one of two forms:
+     *
+     * - As a string key of `CustomCliArguments`, or the string `'version'`.
+     *   Note that `'help'` is always implicitly included and need not be
+     *   specified.
+     *
+     * - A {@link BfeBuilderObject} instance defining additional "standard
+     *   common arguments," which will be shallowly merged into
+     *   {@link standardCommonCliArguments}. Its string keys will then be
+     *   considered like with the first form.
      *
      * This setting is ignored if `disableAutomaticGrouping === true`.
      *
      * @default []
      */
-    additionalCommonOptions?: WithBuilderExtensionsConfig<CustomCliArguments>['commonOptions'];
+    additionalCommonOptions?: (
+      | NonNullable<
+          WithBuilderExtensionsConfig<CustomCliArguments>['commonOptions']
+        >[number]
+      | BfeBuilderObject<CustomCliArguments, CustomExecutionContext>
+    )[];
   } = {}
 ): WithBuilderExtensionsReturnType<CustomCliArguments, CustomExecutionContext> {
   const debug_ = createDebugLogger({
@@ -188,14 +211,49 @@ export function withStandardBuilder<
 
   debug_('entered withStandardBuilder function');
 
-  const commonOptions = [
-    'help',
-    ...(additionalCommonOptions.includes('version') ? ['version'] : []),
-    ...standardCommonCliArgumentsKeys,
-    ...additionalCommonOptions.filter((opt) => opt !== 'version')
-  ];
+  const extraOptionConfigurations = Object.fromEntries(
+    additionalCommonOptions
+      // ? Theses are handled specially by Black Flag and BFE
+      .filter((opt) => opt !== 'version' && opt !== 'help')
+      .flatMap((opt) => {
+        return (
+          ['string', 'number', 'symbol'].includes(typeof opt)
+            ? // ? Include name-only common options as empty BfeBuilderObjects
+              [[opt, {}]]
+            : Object.entries(opt)
+        ) as Entries<BfeBuilderObject<CustomCliArguments, CustomExecutionContext>>;
+      })
+  );
 
-  debug_('commonOptions: %O', commonOptions);
+  debug_('extraOptionConfigurations: %O', extraOptionConfigurations);
+
+  const allCommonCliArguments: Partial<
+    BfeBuilderObject<CustomCliArguments, CustomExecutionContext>
+  > = {
+    ...standardCommonCliArguments
+  };
+
+  // ? Merge incoming extra common options over standard common options
+  for (const [option, argumentConfig] of Object.entries(extraOptionConfigurations)) {
+    allCommonCliArguments[option] = Object.assign(
+      {},
+      allCommonCliArguments[option] || {},
+      argumentConfig
+    );
+  }
+
+  // ! Order is important
+  const allCommonOptionNames = Array.from(
+    new Set([
+      'help',
+      ...(additionalCommonOptions.includes('version') ? ['version'] : []),
+      ...standardCommonCliArgumentsKeys,
+      ...Object.keys(extraOptionConfigurations)
+    ])
+  );
+
+  debug_('allCommonOptionNames: %O', allCommonOptionNames);
+  debug_('allCommonCliArguments: %O', allCommonCliArguments);
 
   const [builder, withHandlerExtensions] = withBuilderExtensions<
     CustomCliArguments,
@@ -210,14 +268,31 @@ export function withStandardBuilder<
           ? customBuilder(blackFlag, helpOrVersionSet, argv)
           : customBuilder) || {};
 
-      debug_('exited withStandardBuilder::builder wrapper function');
+      debug_('exited customBuilder (if a function) with builder object');
+      debug_('customCliArguments (pre-merge): %O', customCliArguments);
+
+      // ? Merge incoming custom cli arguments over all computed common options
+      for (const [option, argumentConfig] of Object.entries(customCliArguments)) {
+        if (option in allCommonCliArguments) {
+          customCliArguments[option] = Object.assign(
+            {},
+            allCommonCliArguments[option] || {},
+            argumentConfig
+          );
+        }
+      }
+
+      debug_(
+        'final customCliArguments (will be merged onto allCommonCliArguments): %O',
+        customCliArguments
+      );
 
       return {
-        ...standardCommonCliArguments,
+        ...allCommonCliArguments,
         ...customCliArguments
-      };
+      } as BfeBuilderObject<CustomCliArguments, CustomExecutionContext>;
     },
-    { commonOptions, disableAutomaticGrouping }
+    { commonOptions: allCommonOptionNames, disableAutomaticGrouping }
   );
 
   debug_('exited withStandardBuilder function');
