@@ -318,6 +318,19 @@ export const { transformer } = makeTransformer(function (context) {
                 : {}),
               ...(packageJson.peerDependencies
                 ? { peerDependencies: packageJson.peerDependencies }
+                : {}),
+              ...(packageJson.peerDependenciesMeta
+                ? { peerDependenciesMeta: packageJson.peerDependenciesMeta }
+                : {}),
+              ...(packageJson.bundleDependencies || packageJson.bundledDependencies
+                ? {
+                    bundledDependencies: (packageJson.bundleDependencies || []).concat(
+                      packageJson.bundledDependencies || []
+                    )
+                  }
+                : {}),
+              ...(packageJson.optionalDependencies
+                ? { optionalDependencies: packageJson.optionalDependencies }
                 : {})
             }
           : packageJson),
