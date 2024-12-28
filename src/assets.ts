@@ -283,6 +283,19 @@ export type TransformerContext = {
    * The year as shown in various generated documents like `LICENSE.md`.
    */
   year: string;
+  /**
+   * The standard markdown text denoting the start of a "chooser block".
+   */
+  chooserBlockStart: string;
+  /**
+   * The standard markdown text denoting the beginning of a new choice in a
+   * "chooser block".
+   */
+  chooserBlockSplit: string;
+  /**
+   * The standard markdown text denoting the end of a "chooser block".
+   */
+  chooserBlockEnd: string;
 };
 
 /**

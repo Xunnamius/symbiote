@@ -18,7 +18,10 @@ import {
   type TransformerContext
 } from 'universe:assets.ts';
 
-import { replaceRegionsRespectively } from 'universe:util.ts';
+import {
+  makeReplacerRegionIdMatcherRegExp,
+  replaceRegionsRespectively
+} from 'universe:util.ts';
 
 export const { transformer } = makeTransformer(async function (context) {
   const {
@@ -106,17 +109,28 @@ async function replaceStandardStrings(
       useCached: true
     }));
 
-  const returnValue = content.replace(
+  let returnValue = content.replace(
     // ? Replace H1 with proper string
     /^# <!-- .+$/m,
     isPackageTheRootPackage ? `# ${repoName} (${packageName})` : `# ${packageName}`
   );
 
-  return willHaveGeneratedLicense
-    ? returnValue
-    : // ? Drop license section if no license
-      returnValue.replace(
-        'See [LICENSE][x-repo-license].',
-        'This project does not have a license.'
-      );
+  if (!willHaveGeneratedLicense) {
+    // ? Drop license section if no license
+    returnValue = returnValue.replace(
+      'See [LICENSE][x-repo-license].',
+      'This project does not have a license.'
+    );
+  }
+
+  returnValue = content.replace(
+    isPackageTheRootPackage
+      ? // ? Drop "workspace-package-only" replacer region contents if in root
+        makeReplacerRegionIdMatcherRegExp('workspace-package-only')
+      : // ? Drop "root-package-only" replacer region contents if in a sub-root
+        makeReplacerRegionIdMatcherRegExp('root-package-only'),
+    '<!-- This section was elided -->'
+  );
+
+  return returnValue;
 }

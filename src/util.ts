@@ -203,6 +203,27 @@ export function makeReplacerRegionIdMatcherRegExp(id: string) {
 }
 
 /**
+ * Magic string used to denote the beginning of a chooser block in Markdown
+ * files processed by symbiote.
+ */
+export const magicStringChooserBlockStart =
+  '<!-- TODO: choose one of the following and --✄--delete--✄-- the others: -->';
+
+/**
+ * Magic string used to denote the end of one choice and the start of another in
+ * Markdown files processed by symbiote.
+ */
+export const magicStringChooserBlockSplit =
+  '✄------------✄-----------⏶-⏷-----------✄------------✄';
+
+/**
+ * Magic string used to denote the end of a chooser block in Markdown
+ * files processed by symbiote.
+ */
+export const magicStringChooserBlockEnd =
+  '<!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->';
+
+/**
  * A version of {@link withStandardBuilder} that expects `CustomCliArguments` to
  * extend {@link GlobalCliArguments}.
  *

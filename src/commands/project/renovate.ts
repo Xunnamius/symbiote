@@ -82,6 +82,9 @@ import {
   getRelevantDotEnvFilePaths,
   importAdditionalRawAliasMappings,
   loadDotEnv,
+  magicStringChooserBlockEnd,
+  magicStringChooserBlockSplit,
+  magicStringChooserBlockStart,
   magicStringReplacerRegionEnd,
   magicStringReplacerRegionStart,
   runGlobalPreChecks,
@@ -1934,7 +1937,11 @@ See the symbiote wiki documentation for more details on this command and all ava
 
         repoOwner,
         repoName,
-        year: new Date().getFullYear().toString()
+        year: new Date().getFullYear().toString(),
+
+        chooserBlockStart: magicStringChooserBlockStart,
+        chooserBlockSplit: magicStringChooserBlockSplit,
+        chooserBlockEnd: magicStringChooserBlockEnd
       };
 
       debug('preset: %O', preset);

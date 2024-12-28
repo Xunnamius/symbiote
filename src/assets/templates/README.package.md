@@ -78,37 +78,42 @@ TODO
 
 ## Appendix
 
+<!-- symbiote-template-region-end -->
+
 Further documentation can be found under [`docs/`][x-repo-docs].
+
+<!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
 
-<!-- TODO: choose one of the following and --✄--delete--✄-- the others: -->
+{{chooserBlockStart}}
 
 This is a [CJS2 package][x-pkg-cjs-mojito] with statically-analyzable exports
 built by Babel for use in Node.js versions that are not end-of-life. For
 TypeScript users, this package supports both `"Node10"` and `"Node16"` module
 resolution strategies.
 
-\------------✄-----------⏶-⏷-----------✄------------
+{{chooserBlockSplit}}
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in Node.js
 versions that are not end-of-life. For TypeScript users, this package supports
 both `"Node10"` and `"Node16"` module resolution strategies.
 
-\------------✄-----------⏶-⏷-----------✄------------
+{{chooserBlockSplit}}
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in
 browser-like environments. For TypeScript users, this package supports both
 `"Node10"` and `"Node16"` module resolution strategies.
 
-<!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
+{{chooserBlockEnd}}
+
 <!-- symbiote-template-region-end -->
 <!-- TODO: custom details here -->
-<!-- symbiote-template-region-start 6 -->
+<!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
 
-<!-- TODO: choose one of the following and --✄--delete--✄-- the others: -->
+{{chooserBlockStart}}
 
 That means both CJS2 (via `require(...)`) and ESM (via `import { ... } from ...`
 or `await import(...)`) source will load this package from the same entry points
@@ -118,7 +123,7 @@ hazard][x-pkg-dual-package-hazard] entirely, distributables are not
 packed/bundled/uglified, a drastically less complex build process, and CJS
 consumers aren't shafted.
 
-\------------✄-----------⏶-⏷-----------✄------------
+{{chooserBlockSplit}}
 
 That means ESM source will load this package via `import { ... } from ...` or
 `await import(...)` and CJS source will load this package via dynamic
@@ -132,7 +137,7 @@ cannot `require()` this package and can only use `import()` in an asynchronous
 context. This means, in effect, CJS consumers may not be able to use this
 package at all.
 
-<!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
+{{chooserBlockEnd}}
 
 Each entry point (i.e. `ENTRY`) in [`package.json`'s
 `exports[ENTRY]`][x-repo-package-json] object includes one or more [export
@@ -156,12 +161,18 @@ optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
 <!-- TODO: custom details here -->
+<!-- symbiote-template-region-start 8 -->
 
 </details>
 
 ### License
 
+<!-- symbiote-template-region-end -->
+
 See [LICENSE][x-repo-license].
+
+<!-- TODO: other custom details here -->
+<!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
 
@@ -173,8 +184,14 @@ me a beer][x-repo-sponsor], I'd appreciate it. Thank you!
 See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
+<!-- symbiote-template-region-end -->
+<!-- TODO: custom sections here -->
+<!-- symbiote-template-region-start 10 -->
+
 ### Contributors
 
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start root-package-only -->
 <!-- remark-ignore-start -->
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 
@@ -200,6 +217,13 @@ key][x-repo-all-contributors-emojis]):
 
 This project follows the [all-contributors][x-repo-all-contributors]
 specification. Contributions of any kind welcome!
+
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start workspace-package-only -->
+
+See the [table of contributors][x-repo-contributors].
+
+<!-- symbiote-template-region-end -->
 
 [x-badge-blm-image]: https://xunn.at/badge-blm 'Join the movement!'
 [x-badge-blm-link]: https://xunn.at/donate-blm
@@ -251,6 +275,7 @@ specification. Contributions of any kind welcome!
 [x-repo-choose-new-issue]:
   https://github.com/{{repoOwner}}/{{repoName}}/issues/new/choose
 [x-repo-contributing]: /CONTRIBUTING.md
+[x-repo-contributors]: /README.md#contributors
 [x-repo-docs]: docs
 [x-repo-license]: ./LICENSE
 [x-repo-package-json]: package.json

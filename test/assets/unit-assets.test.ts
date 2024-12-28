@@ -19,6 +19,12 @@ import {
 
 import { createDebugLogger, createGenericLogger } from 'multiverse+rejoinder';
 
+import {
+  magicStringChooserBlockEnd,
+  magicStringChooserBlockSplit,
+  magicStringChooserBlockStart
+} from 'rootverse:src/util.ts';
+
 import { parsePackageJsonRepositoryIntoOwnerAndRepo } from 'universe:assets/transformers/_package.json.ts';
 
 import {
@@ -68,7 +74,11 @@ const dummyContext: IncomingTransformerContext = {
 
   repoOwner: 'repo-owner',
   repoName: 'repo-name',
-  year: '1776'
+  year: '1776',
+
+  chooserBlockStart: magicStringChooserBlockStart,
+  chooserBlockSplit: magicStringChooserBlockSplit,
+  chooserBlockEnd: magicStringChooserBlockEnd
 };
 
 beforeEach(() => {
