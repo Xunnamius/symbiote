@@ -1,7 +1,7 @@
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./{{repoName}}.png">
+  <img width="300" src="./logo.png">
 </p>
 
 <p align="center" width="100%">
@@ -62,7 +62,7 @@
 
 <!-- symbiote-template-region-end -->
 
-To install {{repoName}}:
+To install:
 
 ```shell
 npm install {{projectMetadata.cwdPackage.json.name}}
