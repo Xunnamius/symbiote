@@ -160,14 +160,20 @@ export type ImportedAliasMap = RawAliasMapperArray | RawAliasMapperFunction;
  * Magic string used to denote the beginning of a replacer region in Markdown
  * files processed by symbiote.
  *
- * This is the photogenic version of
- * {@link magicStringReplacerRegionStartWithId}, which is the actual variable
- * used in computations.
- *
- * Note that this string is actually a regular expression that can be used to
+ * Note that this string describes a regular expression that can be used to
  * match region start comments containing an ID parameter.
  */
-export const magicStringReplacerRegionStart = String.raw`<!-- symbiote-template-region-start (\S+) -->`;
+export const magicStringReplacerRegionStart = makeMagicStringReplacerRegionStartWithId(
+  String.raw`(\S+)`
+);
+
+/**
+ * Create a magic string that denotes the beginning of a replacer region in
+ * Markdown files processed by symbiote. Note that `id` is NOT escaped.
+ */
+export function makeMagicStringReplacerRegionStartWithId(id: string) {
+  return `<!-- symbiote-template-region-start ${id} -->`;
+}
 
 /**
  * Magic string used to denote the beginning of a replacer region in Markdown
@@ -179,10 +185,22 @@ export const magicStringReplacerRegionEnd = '<!-- symbiote-template-region-end -
  * A regular expression that will match a replacer region in a string. Contains
  * two unnamed matching groups: `id` and `contents`.
  */
-export const replacerRegionMatcherRegExp = new RegExp(
-  `^${magicStringReplacerRegionStart}$(.*?)^${magicStringReplacerRegionEnd}$`,
-  'gism'
+export const replacerRegionMatcherRegExp = makeReplacerRegionIdMatcherRegExp(
+  String.raw`(\S+)`
 );
+
+/**
+ * Create a regular expression that will match a specific replacer region in a
+ * string. Contains one unnamed matching group by default: `contents`.
+ *
+ * Note that `id` is NOT escaped.
+ */
+export function makeReplacerRegionIdMatcherRegExp(id: string) {
+  return new RegExp(
+    `^${makeMagicStringReplacerRegionStartWithId(id)}$(.*?)^${magicStringReplacerRegionEnd}$`,
+    'gism'
+  );
+}
 
 /**
  * A version of {@link withStandardBuilder} that expects `CustomCliArguments` to
