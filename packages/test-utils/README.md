@@ -6,7 +6,7 @@
 
 <p align="center" width="100%">
 <!-- symbiote-template-region-end -->
-Powerful utilities for analyzing the structure of NPM packages and their projects
+Various utilities built for a variety of testing scenarios across several environments
 <!-- symbiote-template-region-start 2 -->
 </p>
 
@@ -27,21 +27,11 @@ Powerful utilities for analyzing the structure of NPM packages and their project
 
 <br />
 
-# project-utils (@-xun/project)
+# @-xun/test
 
 <!-- symbiote-template-region-end -->
 
-Everything exported by this library exposes both synchronous and asynchronous
-interfaces.
-
-Also, this terminology that needs to be listed somewhere:
-
-- [`subpath`][1]: the keys of the `package.json` `exports` object defining entry
-  points for the library, or of the `package.json` `imports` object defining
-  custom import aliases.
-- `entry point`: a string used to import a package or a part of a package.
-- `target`: the string to which an entry point is mapped, or the from which an
-  entry point is reverse-mapped.
+TODO <!-- TODO -->
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -75,7 +65,7 @@ Also, this terminology that needs to be listed somewhere:
 To install:
 
 ```shell
-npm install @-xun/project
+npm install @-xun/test
 ```
 
 ## Usage
@@ -179,19 +169,19 @@ See the [table of contributors][x-repo-contributors].
   'Is this package well-tested?'
 [x-badge-codecov-link]: https://codecov.io/gh/Xunnamius/symbiote
 [x-badge-downloads-image]:
-  https://img.shields.io/npm/dm/@-xun/project?style=flat-square
+  https://img.shields.io/npm/dm/@-xun/test?style=flat-square
   'Number of times this package has been downloaded per month'
 [x-badge-lastcommit-image]:
   https://img.shields.io/github/last-commit/Xunnamius/symbiote?style=flat-square
   'Latest commit timestamp'
 [x-badge-license-image]:
-  https://img.shields.io/npm/l/@-xun/project?style=flat-square
+  https://img.shields.io/npm/l/@-xun/test?style=flat-square
   "This package's source license"
 [x-badge-license-link]: https://github.com/Xunnamius/symbiote/blob/main/LICENSE
 [x-badge-npm-image]:
-  https://xunn.at/npm-pkg-version/@-xun/project
+  https://xunn.at/npm-pkg-version/@-xun/test
   'Install this package using npm or yarn!'
-[x-badge-npm-link]: https://npmtrends.com/@-xun/project
+[x-badge-npm-link]: https://npmtrends.com/@-xun/test
 [x-badge-repo-link]: https://github.com/Xunnamius/symbiote
 [x-badge-semanticrelease-image]:
   https://xunn.at/badge-semantic-release
@@ -225,4 +215,3 @@ See the [table of contributors][x-repo-contributors].
 [x-repo-pr-compare]: https://github.com/Xunnamius/symbiote/compare
 [x-repo-sponsor]: https://github.com/sponsors/Xunnamius
 [x-repo-support]: /.github/SUPPORT.md
-[1]: https://nodejs.org/api/packages.html#subpath-exports

@@ -260,7 +260,9 @@ This project follows the [all-contributors][x-repo-all-contributors]
 specification. Contributions of any kind welcome!
 
 <!-- symbiote-template-region-end -->
-<!-- This section was elided -->
+<!-- symbiote-template-region-start workspace-package-only -->
+<!-- (section elided by symbiote) -->
+<!-- symbiote-template-region-end -->
 
 [x-badge-blm-image]: https://xunn.at/badge-blm 'Join the movement!'
 [x-badge-blm-link]: https://xunn.at/donate-blm

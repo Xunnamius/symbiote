@@ -31,8 +31,7 @@ A babel plugin that collects and returns metadata from input files
 
 <!-- symbiote-template-region-end -->
 
-Technically a fork of
-[https://www.npmjs.com/package/babel-plugin-list-imports][1].
+Technically a fork of [babel-plugin-list-imports][1].
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -79,7 +78,11 @@ TODO
 
 ## Appendix
 
+<!-- symbiote-template-region-end -->
+
 Further documentation can be found under [`docs/`][x-repo-docs].
+
+<!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
 
@@ -89,8 +92,7 @@ TypeScript users, this package supports both `"Node10"` and `"Node16"` module
 resolution strategies.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
-<!-- symbiote-template-region-start 6 -->
+<!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
 
@@ -123,13 +125,17 @@ also that [`package.json`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
+<!-- symbiote-template-region-start 8 -->
 
 </details>
 
 ### License
 
+<!-- symbiote-template-region-end -->
+
 See [LICENSE][x-repo-license].
+
+<!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
 
@@ -141,33 +147,20 @@ me a beer][x-repo-sponsor], I'd appreciate it. Thank you!
 See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start 10 -->
+
 ### Contributors
 
-<!-- remark-ignore-start -->
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start root-package-only -->
+<!-- (section elided by symbiote) -->
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start workspace-package-only -->
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+See the [table of contributors][x-repo-contributors].
 
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-<!-- remark-ignore-end -->
-
-Thanks goes to these wonderful people ([emoji
-key][x-repo-all-contributors-emojis]):
-
-<!-- remark-ignore-start -->
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-
-<table></table>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-<!-- remark-ignore-end -->
-
-This project follows the [all-contributors][x-repo-all-contributors]
-specification. Contributions of any kind welcome!
+<!-- symbiote-template-region-end -->
 
 [x-badge-blm-image]: https://xunn.at/badge-blm 'Join the movement!'
 [x-badge-blm-link]: https://xunn.at/donate-blm
@@ -211,11 +204,10 @@ specification. Contributions of any kind welcome!
 [x-pkg-tree-shaking]: https://webpack.js.org/guides/tree-shaking
 [x-pkg-type]:
   https://github.com/nodejs/node/blob/8d8e06a345043bec787e904edc9a2f5c5e9c275f/doc/api/packages.md#type
-[x-repo-all-contributors]: https://github.com/all-contributors/all-contributors
-[x-repo-all-contributors-emojis]: https://allcontributors.org/docs/en/emoji-key
 [x-repo-choose-new-issue]:
   https://github.com/Xunnamius/symbiote/issues/new/choose
 [x-repo-contributing]: /CONTRIBUTING.md
+[x-repo-contributors]: /README.md#contributors
 [x-repo-docs]: docs
 [x-repo-license]: ./LICENSE
 [x-repo-package-json]: package.json
