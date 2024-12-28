@@ -2,6 +2,8 @@
 import { isRootPackage, ProjectAttribute } from 'multiverse+project-utils:analyze.ts';
 
 import {
+  isAccessible,
+  markdownLicensePackageBase,
   markdownReadmePackageBase,
   toRelativePath,
   type RelativePath
@@ -45,7 +47,7 @@ export const { transformer } = makeTransformer(async function (context) {
           generate: async () => {
             return replaceRegionsRespectively({
               outputPath: path,
-              templateContent: replaceStandardStrings(
+              templateContent: await replaceStandardStrings(
                 await compileTemplate(toRelativePath('README.monorepo.md'), context),
                 context
               ),
@@ -68,7 +70,7 @@ export const { transformer } = makeTransformer(async function (context) {
             generate: async () => {
               return replaceRegionsRespectively({
                 outputPath: path,
-                templateContent: replaceStandardStrings(
+                templateContent: await replaceStandardStrings(
                   await compileTemplate(
                     'README.package.md' as RelativePath,
                     contextWithCwdPackage
@@ -85,15 +87,24 @@ export const { transformer } = makeTransformer(async function (context) {
   ];
 });
 
-function replaceStandardStrings(
+async function replaceStandardStrings(
   content: string,
-  { repoName, assetPreset, projectMetadata: { cwdPackage } }: TransformerContext
+  {
+    repoName,
+    assetPreset,
+    projectMetadata: { cwdPackage },
+    toPackageAbsolutePath
+  }: TransformerContext
 ) {
   const {
     json: { name: packageName }
   } = cwdPackage;
   const isPackageTheRootPackage = isRootPackage(cwdPackage);
-  const willHaveGeneratedLicense = libAssetPresets.includes(assetPreset);
+  const willHaveGeneratedLicense =
+    libAssetPresets.includes(assetPreset) ||
+    (await isAccessible(toPackageAbsolutePath(markdownLicensePackageBase), {
+      useCached: true
+    }));
 
   const packageShortName = packageName.split('/').at(-1)!;
   const packageNameIsShortName = packageName === packageShortName;
@@ -113,6 +124,6 @@ function replaceStandardStrings(
     : // ? Drop license section if no license
       returnValue.replace(
         'See [LICENSE][x-repo-license].',
-        'This project is not licensed for public use. All rights are reserved.'
+        'This project does not have a license.'
       );
 }
