@@ -208,7 +208,7 @@ Thank you for your contribution!
   "package/README.md": "<!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./repo-name.png">
+  <img width="300" src="./logo.png">
 </p>
 
 <p align="center" width="100%">
@@ -269,7 +269,7 @@ good-hybridrepo-description
 
 <!-- symbiote-template-region-end -->
 
-To install repo-name:
+To install:
 
 \`\`\`shell
 npm install good-hybridrepo
@@ -285,7 +285,11 @@ TODO
 
 ## Appendix
 
+<!-- symbiote-template-region-end -->
+
 Further documentation can be found under [\`docs/\`][x-repo-docs].
+
+<!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
 
@@ -296,22 +300,23 @@ built by Babel for use in Node.js versions that are not end-of-life. For
 TypeScript users, this package supports both \`"Node10"\` and \`"Node16"\` module
 resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in Node.js
 versions that are not end-of-life. For TypeScript users, this package supports
 both \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in
 browser-like environments. For TypeScript users, this package supports both
 \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
+
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
-<!-- symbiote-template-region-start 6 -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
 
@@ -325,7 +330,7 @@ hazard][x-pkg-dual-package-hazard] entirely, distributables are not
 packed/bundled/uglified, a drastically less complex build process, and CJS
 consumers aren't shafted.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 That means ESM source will load this package via \`import { ... } from ...\` or
 \`await import(...)\` and CJS source will load this package via dynamic
@@ -362,13 +367,19 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 8 -->
 
 </details>
 
 ### License
 
+<!-- symbiote-template-region-end -->
+
 See [LICENSE][x-repo-license].
+
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
 
@@ -380,8 +391,14 @@ me a beer][x-repo-sponsor], I'd appreciate it. Thank you!
 See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
+<!-- symbiote-template-region-end -->
+<!-- TODO: optional additional sections here -->
+<!-- symbiote-template-region-start 10 -->
+
 ### Contributors
 
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start root-package-only -->
 <!-- remark-ignore-start -->
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 
@@ -407,6 +424,13 @@ key][x-repo-all-contributors-emojis]):
 
 This project follows the [all-contributors][x-repo-all-contributors]
 specification. Contributions of any kind welcome!
+
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start workspace-package-only -->
+
+See the [table of contributors][x-repo-contributors].
+
+<!-- symbiote-template-region-end -->
 
 [x-badge-blm-image]: https://xunn.at/badge-blm 'Join the movement!'
 [x-badge-blm-link]: https://xunn.at/donate-blm
@@ -458,6 +482,7 @@ specification. Contributions of any kind welcome!
 [x-repo-choose-new-issue]:
   https://github.com/repo-owner/repo-name/issues/new/choose
 [x-repo-contributing]: /CONTRIBUTING.md
+[x-repo-contributors]: /README.md#contributors
 [x-repo-docs]: docs
 [x-repo-license]: ./LICENSE
 [x-repo-package-json]: package.json
@@ -16482,7 +16507,7 @@ scope: this-package
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./repo-name.png">
+  <img width="300" src="./logo.png">
 </p>
 
 <p align="center" width="100%">
@@ -16543,7 +16568,7 @@ good-hybridrepo-description
 
 <!-- symbiote-template-region-end -->
 
-To install repo-name:
+To install:
 
 \`\`\`shell
 npm install good-hybridrepo
@@ -16559,7 +16584,11 @@ TODO
 
 ## Appendix
 
+<!-- symbiote-template-region-end -->
+
 Further documentation can be found under [\`docs/\`][x-repo-docs].
+
+<!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
 
@@ -16570,22 +16599,23 @@ built by Babel for use in Node.js versions that are not end-of-life. For
 TypeScript users, this package supports both \`"Node10"\` and \`"Node16"\` module
 resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in Node.js
 versions that are not end-of-life. For TypeScript users, this package supports
 both \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in
 browser-like environments. For TypeScript users, this package supports both
 \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
+
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
-<!-- symbiote-template-region-start 6 -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
 
@@ -16599,7 +16629,7 @@ hazard][x-pkg-dual-package-hazard] entirely, distributables are not
 packed/bundled/uglified, a drastically less complex build process, and CJS
 consumers aren't shafted.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 That means ESM source will load this package via \`import { ... } from ...\` or
 \`await import(...)\` and CJS source will load this package via dynamic
@@ -16636,13 +16666,19 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 8 -->
 
 </details>
 
 ### License
 
+<!-- symbiote-template-region-end -->
+
 See [LICENSE][x-repo-license].
+
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
 
@@ -16654,8 +16690,14 @@ me a beer][x-repo-sponsor], I'd appreciate it. Thank you!
 See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
+<!-- symbiote-template-region-end -->
+<!-- TODO: optional additional sections here -->
+<!-- symbiote-template-region-start 10 -->
+
 ### Contributors
 
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start root-package-only -->
 <!-- remark-ignore-start -->
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 
@@ -16681,6 +16723,11 @@ key][x-repo-all-contributors-emojis]):
 
 This project follows the [all-contributors][x-repo-all-contributors]
 specification. Contributions of any kind welcome!
+
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start workspace-package-only -->
+<!-- (section elided by symbiote) -->
+<!-- symbiote-template-region-end -->
 
 [x-badge-blm-image]: https://xunn.at/badge-blm 'Join the movement!'
 [x-badge-blm-link]: https://xunn.at/donate-blm
@@ -16732,6 +16779,7 @@ specification. Contributions of any kind welcome!
 [x-repo-choose-new-issue]:
   https://github.com/repo-owner/repo-name/issues/new/choose
 [x-repo-contributing]: /CONTRIBUTING.md
+[x-repo-contributors]: /README.md#contributors
 [x-repo-docs]: docs
 [x-repo-license]: ./LICENSE
 [x-repo-package-json]: package.json
@@ -16748,7 +16796,7 @@ scope: unlimited
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./repo-name.png">
+  <img width="300" src="./logo.png">
 </p>
 
 <p align="center" width="100%">
@@ -16809,7 +16857,7 @@ good-hybridrepo-description
 
 <!-- symbiote-template-region-end -->
 
-To install repo-name:
+To install:
 
 \`\`\`shell
 npm install good-hybridrepo
@@ -16825,7 +16873,11 @@ TODO
 
 ## Appendix
 
+<!-- symbiote-template-region-end -->
+
 Further documentation can be found under [\`docs/\`][x-repo-docs].
+
+<!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
 
@@ -16836,22 +16888,23 @@ built by Babel for use in Node.js versions that are not end-of-life. For
 TypeScript users, this package supports both \`"Node10"\` and \`"Node16"\` module
 resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in Node.js
 versions that are not end-of-life. For TypeScript users, this package supports
 both \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in
 browser-like environments. For TypeScript users, this package supports both
 \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
+
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
-<!-- symbiote-template-region-start 6 -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
 
@@ -16865,7 +16918,7 @@ hazard][x-pkg-dual-package-hazard] entirely, distributables are not
 packed/bundled/uglified, a drastically less complex build process, and CJS
 consumers aren't shafted.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 That means ESM source will load this package via \`import { ... } from ...\` or
 \`await import(...)\` and CJS source will load this package via dynamic
@@ -16902,13 +16955,19 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 8 -->
 
 </details>
 
 ### License
 
+<!-- symbiote-template-region-end -->
+
 See [LICENSE][x-repo-license].
+
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
 
@@ -16920,8 +16979,14 @@ me a beer][x-repo-sponsor], I'd appreciate it. Thank you!
 See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
+<!-- symbiote-template-region-end -->
+<!-- TODO: optional additional sections here -->
+<!-- symbiote-template-region-start 10 -->
+
 ### Contributors
 
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start root-package-only -->
 <!-- remark-ignore-start -->
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 
@@ -16947,6 +17012,11 @@ key][x-repo-all-contributors-emojis]):
 
 This project follows the [all-contributors][x-repo-all-contributors]
 specification. Contributions of any kind welcome!
+
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start workspace-package-only -->
+<!-- (section elided by symbiote) -->
+<!-- symbiote-template-region-end -->
 
 [x-badge-blm-image]: https://xunn.at/badge-blm 'Join the movement!'
 [x-badge-blm-link]: https://xunn.at/donate-blm
@@ -16998,6 +17068,7 @@ specification. Contributions of any kind welcome!
 [x-repo-choose-new-issue]:
   https://github.com/repo-owner/repo-name/issues/new/choose
 [x-repo-contributing]: /CONTRIBUTING.md
+[x-repo-contributors]: /README.md#contributors
 [x-repo-docs]: docs
 [x-repo-license]: ./LICENSE
 [x-repo-package-json]: package.json
@@ -17014,12 +17085,12 @@ scope: unlimited
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./repo-name.png">
+  <img width="300" src="./logo.png">
 </p>
 
 <p align="center" width="100%">
 <!-- symbiote-template-region-end -->
-<!-- TODO: a brief description/blurb -->
+TODO <!-- TODO: a brief description/blurb -->
 <!-- symbiote-template-region-start 2 -->
 </p>
 
@@ -17044,7 +17115,7 @@ scope: unlimited
 
 <!-- symbiote-template-region-end -->
 
-<!-- TODO -->
+TODO <!-- TODO -->
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -17075,7 +17146,7 @@ scope: unlimited
 
 <!-- symbiote-template-region-end -->
 
-To install repo-name:
+To install:
 
 \`\`\`shell
 npm install cli
@@ -17091,7 +17162,11 @@ TODO
 
 ## Appendix
 
+<!-- symbiote-template-region-end -->
+
 Further documentation can be found under [\`docs/\`][x-repo-docs].
+
+<!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
 
@@ -17102,22 +17177,23 @@ built by Babel for use in Node.js versions that are not end-of-life. For
 TypeScript users, this package supports both \`"Node10"\` and \`"Node16"\` module
 resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in Node.js
 versions that are not end-of-life. For TypeScript users, this package supports
 both \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in
 browser-like environments. For TypeScript users, this package supports both
 \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
+
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
-<!-- symbiote-template-region-start 6 -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
 
@@ -17131,7 +17207,7 @@ hazard][x-pkg-dual-package-hazard] entirely, distributables are not
 packed/bundled/uglified, a drastically less complex build process, and CJS
 consumers aren't shafted.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 That means ESM source will load this package via \`import { ... } from ...\` or
 \`await import(...)\` and CJS source will load this package via dynamic
@@ -17168,13 +17244,19 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 8 -->
 
 </details>
 
 ### License
 
+<!-- symbiote-template-region-end -->
+
 See [LICENSE][x-repo-license].
+
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
 
@@ -17186,33 +17268,21 @@ me a beer][x-repo-sponsor], I'd appreciate it. Thank you!
 See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
+<!-- symbiote-template-region-end -->
+<!-- TODO: optional additional sections here -->
+<!-- symbiote-template-region-start 10 -->
+
 ### Contributors
 
-<!-- remark-ignore-start -->
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start root-package-only -->
+<!-- (section elided by symbiote) -->
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start workspace-package-only -->
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+See the [table of contributors][x-repo-contributors].
 
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-<!-- remark-ignore-end -->
-
-Thanks goes to these wonderful people ([emoji
-key][x-repo-all-contributors-emojis]):
-
-<!-- remark-ignore-start -->
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-
-<table></table>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-<!-- remark-ignore-end -->
-
-This project follows the [all-contributors][x-repo-all-contributors]
-specification. Contributions of any kind welcome!
+<!-- symbiote-template-region-end -->
 
 [x-badge-blm-image]: https://xunn.at/badge-blm 'Join the movement!'
 [x-badge-blm-link]: https://xunn.at/donate-blm
@@ -17264,6 +17334,7 @@ specification. Contributions of any kind welcome!
 [x-repo-choose-new-issue]:
   https://github.com/repo-owner/repo-name/issues/new/choose
 [x-repo-contributing]: /CONTRIBUTING.md
+[x-repo-contributors]: /README.md#contributors
 [x-repo-docs]: docs
 [x-repo-license]: ./LICENSE
 [x-repo-package-json]: package.json
@@ -17280,12 +17351,12 @@ scope: unlimited
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./repo-name.png">
+  <img width="300" src="./logo.png">
 </p>
 
 <p align="center" width="100%">
 <!-- symbiote-template-region-end -->
-<!-- TODO: a brief description/blurb -->
+TODO <!-- TODO: a brief description/blurb -->
 <!-- symbiote-template-region-start 2 -->
 </p>
 
@@ -17310,7 +17381,7 @@ scope: unlimited
 
 <!-- symbiote-template-region-end -->
 
-<!-- TODO -->
+TODO <!-- TODO -->
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -17341,7 +17412,7 @@ scope: unlimited
 
 <!-- symbiote-template-region-end -->
 
-To install repo-name:
+To install:
 
 \`\`\`shell
 npm install private
@@ -17357,7 +17428,11 @@ TODO
 
 ## Appendix
 
+<!-- symbiote-template-region-end -->
+
 Further documentation can be found under [\`docs/\`][x-repo-docs].
+
+<!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
 
@@ -17368,22 +17443,23 @@ built by Babel for use in Node.js versions that are not end-of-life. For
 TypeScript users, this package supports both \`"Node10"\` and \`"Node16"\` module
 resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in Node.js
 versions that are not end-of-life. For TypeScript users, this package supports
 both \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in
 browser-like environments. For TypeScript users, this package supports both
 \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
+
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
-<!-- symbiote-template-region-start 6 -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
 
@@ -17397,7 +17473,7 @@ hazard][x-pkg-dual-package-hazard] entirely, distributables are not
 packed/bundled/uglified, a drastically less complex build process, and CJS
 consumers aren't shafted.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 That means ESM source will load this package via \`import { ... } from ...\` or
 \`await import(...)\` and CJS source will load this package via dynamic
@@ -17434,13 +17510,19 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 8 -->
 
 </details>
 
 ### License
 
+<!-- symbiote-template-region-end -->
+
 See [LICENSE][x-repo-license].
+
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
 
@@ -17452,33 +17534,21 @@ me a beer][x-repo-sponsor], I'd appreciate it. Thank you!
 See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
+<!-- symbiote-template-region-end -->
+<!-- TODO: optional additional sections here -->
+<!-- symbiote-template-region-start 10 -->
+
 ### Contributors
 
-<!-- remark-ignore-start -->
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start root-package-only -->
+<!-- (section elided by symbiote) -->
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start workspace-package-only -->
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+See the [table of contributors][x-repo-contributors].
 
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-<!-- remark-ignore-end -->
-
-Thanks goes to these wonderful people ([emoji
-key][x-repo-all-contributors-emojis]):
-
-<!-- remark-ignore-start -->
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-
-<table></table>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-<!-- remark-ignore-end -->
-
-This project follows the [all-contributors][x-repo-all-contributors]
-specification. Contributions of any kind welcome!
+<!-- symbiote-template-region-end -->
 
 [x-badge-blm-image]: https://xunn.at/badge-blm 'Join the movement!'
 [x-badge-blm-link]: https://xunn.at/donate-blm
@@ -17530,6 +17600,7 @@ specification. Contributions of any kind welcome!
 [x-repo-choose-new-issue]:
   https://github.com/repo-owner/repo-name/issues/new/choose
 [x-repo-contributing]: /CONTRIBUTING.md
+[x-repo-contributors]: /README.md#contributors
 [x-repo-docs]: docs
 [x-repo-license]: ./LICENSE
 [x-repo-package-json]: package.json
@@ -17546,12 +17617,12 @@ scope: unlimited
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./repo-name.png">
+  <img width="300" src="./logo.png">
 </p>
 
 <p align="center" width="100%">
 <!-- symbiote-template-region-end -->
-<!-- TODO: a brief description/blurb -->
+TODO <!-- TODO: a brief description/blurb -->
 <!-- symbiote-template-region-start 2 -->
 </p>
 
@@ -17576,7 +17647,7 @@ scope: unlimited
 
 <!-- symbiote-template-region-end -->
 
-<!-- TODO -->
+TODO <!-- TODO -->
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -17607,7 +17678,7 @@ scope: unlimited
 
 <!-- symbiote-template-region-end -->
 
-To install repo-name:
+To install:
 
 \`\`\`shell
 npm install webpack
@@ -17623,7 +17694,11 @@ TODO
 
 ## Appendix
 
+<!-- symbiote-template-region-end -->
+
 Further documentation can be found under [\`docs/\`][x-repo-docs].
+
+<!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
 
@@ -17634,22 +17709,23 @@ built by Babel for use in Node.js versions that are not end-of-life. For
 TypeScript users, this package supports both \`"Node10"\` and \`"Node16"\` module
 resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in Node.js
 versions that are not end-of-life. For TypeScript users, this package supports
 both \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in
 browser-like environments. For TypeScript users, this package supports both
 \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
+
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
-<!-- symbiote-template-region-start 6 -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
 
@@ -17663,7 +17739,7 @@ hazard][x-pkg-dual-package-hazard] entirely, distributables are not
 packed/bundled/uglified, a drastically less complex build process, and CJS
 consumers aren't shafted.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 That means ESM source will load this package via \`import { ... } from ...\` or
 \`await import(...)\` and CJS source will load this package via dynamic
@@ -17700,13 +17776,19 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 8 -->
 
 </details>
 
 ### License
 
+<!-- symbiote-template-region-end -->
+
 See [LICENSE][x-repo-license].
+
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
 
@@ -17718,33 +17800,21 @@ me a beer][x-repo-sponsor], I'd appreciate it. Thank you!
 See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
+<!-- symbiote-template-region-end -->
+<!-- TODO: optional additional sections here -->
+<!-- symbiote-template-region-start 10 -->
+
 ### Contributors
 
-<!-- remark-ignore-start -->
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start root-package-only -->
+<!-- (section elided by symbiote) -->
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start workspace-package-only -->
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+See the [table of contributors][x-repo-contributors].
 
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-<!-- remark-ignore-end -->
-
-Thanks goes to these wonderful people ([emoji
-key][x-repo-all-contributors-emojis]):
-
-<!-- remark-ignore-start -->
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-
-<table></table>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-<!-- remark-ignore-end -->
-
-This project follows the [all-contributors][x-repo-all-contributors]
-specification. Contributions of any kind welcome!
+<!-- symbiote-template-region-end -->
 
 [x-badge-blm-image]: https://xunn.at/badge-blm 'Join the movement!'
 [x-badge-blm-link]: https://xunn.at/donate-blm
@@ -17796,6 +17866,7 @@ specification. Contributions of any kind welcome!
 [x-repo-choose-new-issue]:
   https://github.com/repo-owner/repo-name/issues/new/choose
 [x-repo-contributing]: /CONTRIBUTING.md
+[x-repo-contributors]: /README.md#contributors
 [x-repo-docs]: docs
 [x-repo-license]: ./LICENSE
 [x-repo-package-json]: package.json
@@ -17812,7 +17883,7 @@ scope: unlimited
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./repo-name.png">
+  <img width="300" src="./logo.png">
 </p>
 
 <p align="center" width="100%">
@@ -17873,7 +17944,7 @@ good-hybridrepo-description
 
 <!-- symbiote-template-region-end -->
 
-To install repo-name:
+To install:
 
 \`\`\`shell
 npm install good-hybridrepo
@@ -17889,7 +17960,11 @@ TODO
 
 ## Appendix
 
+<!-- symbiote-template-region-end -->
+
 Further documentation can be found under [\`docs/\`][x-repo-docs].
+
+<!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
 
@@ -17900,22 +17975,23 @@ built by Babel for use in Node.js versions that are not end-of-life. For
 TypeScript users, this package supports both \`"Node10"\` and \`"Node16"\` module
 resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in Node.js
 versions that are not end-of-life. For TypeScript users, this package supports
 both \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in
 browser-like environments. For TypeScript users, this package supports both
 \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
+
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
-<!-- symbiote-template-region-start 6 -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
 
@@ -17929,7 +18005,7 @@ hazard][x-pkg-dual-package-hazard] entirely, distributables are not
 packed/bundled/uglified, a drastically less complex build process, and CJS
 consumers aren't shafted.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 That means ESM source will load this package via \`import { ... } from ...\` or
 \`await import(...)\` and CJS source will load this package via dynamic
@@ -17966,13 +18042,19 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 8 -->
 
 </details>
 
 ### License
 
+<!-- symbiote-template-region-end -->
+
 See [LICENSE][x-repo-license].
+
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
 
@@ -17984,8 +18066,14 @@ me a beer][x-repo-sponsor], I'd appreciate it. Thank you!
 See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
+<!-- symbiote-template-region-end -->
+<!-- TODO: optional additional sections here -->
+<!-- symbiote-template-region-start 10 -->
+
 ### Contributors
 
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start root-package-only -->
 <!-- remark-ignore-start -->
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 
@@ -18011,6 +18099,11 @@ key][x-repo-all-contributors-emojis]):
 
 This project follows the [all-contributors][x-repo-all-contributors]
 specification. Contributions of any kind welcome!
+
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start workspace-package-only -->
+<!-- (section elided by symbiote) -->
+<!-- symbiote-template-region-end -->
 
 [x-badge-blm-image]: https://xunn.at/badge-blm 'Join the movement!'
 [x-badge-blm-link]: https://xunn.at/donate-blm
@@ -18062,6 +18155,7 @@ specification. Contributions of any kind welcome!
 [x-repo-choose-new-issue]:
   https://github.com/repo-owner/repo-name/issues/new/choose
 [x-repo-contributing]: /CONTRIBUTING.md
+[x-repo-contributors]: /README.md#contributors
 [x-repo-docs]: docs
 [x-repo-license]: ./LICENSE
 [x-repo-package-json]: package.json
@@ -18078,12 +18172,12 @@ scope: unlimited
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./repo-name.png">
+  <img width="300" src="./logo.png">
 </p>
 
 <p align="center" width="100%">
 <!-- symbiote-template-region-end -->
-<!-- TODO: a brief description/blurb -->
+TODO <!-- TODO: a brief description/blurb -->
 <!-- symbiote-template-region-start 2 -->
 </p>
 
@@ -18108,7 +18202,7 @@ scope: unlimited
 
 <!-- symbiote-template-region-end -->
 
-<!-- TODO -->
+TODO <!-- TODO -->
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -18139,7 +18233,7 @@ scope: unlimited
 
 <!-- symbiote-template-region-end -->
 
-To install repo-name:
+To install:
 
 \`\`\`shell
 npm install cli
@@ -18155,7 +18249,11 @@ TODO
 
 ## Appendix
 
+<!-- symbiote-template-region-end -->
+
 Further documentation can be found under [\`docs/\`][x-repo-docs].
+
+<!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
 
@@ -18166,22 +18264,23 @@ built by Babel for use in Node.js versions that are not end-of-life. For
 TypeScript users, this package supports both \`"Node10"\` and \`"Node16"\` module
 resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in Node.js
 versions that are not end-of-life. For TypeScript users, this package supports
 both \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in
 browser-like environments. For TypeScript users, this package supports both
 \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
+
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
-<!-- symbiote-template-region-start 6 -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
 
@@ -18195,7 +18294,7 @@ hazard][x-pkg-dual-package-hazard] entirely, distributables are not
 packed/bundled/uglified, a drastically less complex build process, and CJS
 consumers aren't shafted.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 That means ESM source will load this package via \`import { ... } from ...\` or
 \`await import(...)\` and CJS source will load this package via dynamic
@@ -18232,13 +18331,19 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 8 -->
 
 </details>
 
 ### License
 
+<!-- symbiote-template-region-end -->
+
 See [LICENSE][x-repo-license].
+
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
 
@@ -18250,33 +18355,21 @@ me a beer][x-repo-sponsor], I'd appreciate it. Thank you!
 See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
+<!-- symbiote-template-region-end -->
+<!-- TODO: optional additional sections here -->
+<!-- symbiote-template-region-start 10 -->
+
 ### Contributors
 
-<!-- remark-ignore-start -->
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start root-package-only -->
+<!-- (section elided by symbiote) -->
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start workspace-package-only -->
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+See the [table of contributors][x-repo-contributors].
 
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-<!-- remark-ignore-end -->
-
-Thanks goes to these wonderful people ([emoji
-key][x-repo-all-contributors-emojis]):
-
-<!-- remark-ignore-start -->
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-
-<table></table>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-<!-- remark-ignore-end -->
-
-This project follows the [all-contributors][x-repo-all-contributors]
-specification. Contributions of any kind welcome!
+<!-- symbiote-template-region-end -->
 
 [x-badge-blm-image]: https://xunn.at/badge-blm 'Join the movement!'
 [x-badge-blm-link]: https://xunn.at/donate-blm
@@ -18328,6 +18421,7 @@ specification. Contributions of any kind welcome!
 [x-repo-choose-new-issue]:
   https://github.com/repo-owner/repo-name/issues/new/choose
 [x-repo-contributing]: /CONTRIBUTING.md
+[x-repo-contributors]: /README.md#contributors
 [x-repo-docs]: docs
 [x-repo-license]: ./LICENSE
 [x-repo-package-json]: package.json
@@ -18344,12 +18438,12 @@ scope: unlimited
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./repo-name.png">
+  <img width="300" src="./logo.png">
 </p>
 
 <p align="center" width="100%">
 <!-- symbiote-template-region-end -->
-<!-- TODO: a brief description/blurb -->
+TODO <!-- TODO: a brief description/blurb -->
 <!-- symbiote-template-region-start 2 -->
 </p>
 
@@ -18374,7 +18468,7 @@ scope: unlimited
 
 <!-- symbiote-template-region-end -->
 
-<!-- TODO -->
+TODO <!-- TODO -->
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -18405,7 +18499,7 @@ scope: unlimited
 
 <!-- symbiote-template-region-end -->
 
-To install repo-name:
+To install:
 
 \`\`\`shell
 npm install private
@@ -18421,7 +18515,11 @@ TODO
 
 ## Appendix
 
+<!-- symbiote-template-region-end -->
+
 Further documentation can be found under [\`docs/\`][x-repo-docs].
+
+<!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
 
@@ -18432,22 +18530,23 @@ built by Babel for use in Node.js versions that are not end-of-life. For
 TypeScript users, this package supports both \`"Node10"\` and \`"Node16"\` module
 resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in Node.js
 versions that are not end-of-life. For TypeScript users, this package supports
 both \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in
 browser-like environments. For TypeScript users, this package supports both
 \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
+
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
-<!-- symbiote-template-region-start 6 -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
 
@@ -18461,7 +18560,7 @@ hazard][x-pkg-dual-package-hazard] entirely, distributables are not
 packed/bundled/uglified, a drastically less complex build process, and CJS
 consumers aren't shafted.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 That means ESM source will load this package via \`import { ... } from ...\` or
 \`await import(...)\` and CJS source will load this package via dynamic
@@ -18498,13 +18597,19 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 8 -->
 
 </details>
 
 ### License
 
+<!-- symbiote-template-region-end -->
+
 See [LICENSE][x-repo-license].
+
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
 
@@ -18516,33 +18621,21 @@ me a beer][x-repo-sponsor], I'd appreciate it. Thank you!
 See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
+<!-- symbiote-template-region-end -->
+<!-- TODO: optional additional sections here -->
+<!-- symbiote-template-region-start 10 -->
+
 ### Contributors
 
-<!-- remark-ignore-start -->
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start root-package-only -->
+<!-- (section elided by symbiote) -->
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start workspace-package-only -->
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+See the [table of contributors][x-repo-contributors].
 
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-<!-- remark-ignore-end -->
-
-Thanks goes to these wonderful people ([emoji
-key][x-repo-all-contributors-emojis]):
-
-<!-- remark-ignore-start -->
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-
-<table></table>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-<!-- remark-ignore-end -->
-
-This project follows the [all-contributors][x-repo-all-contributors]
-specification. Contributions of any kind welcome!
+<!-- symbiote-template-region-end -->
 
 [x-badge-blm-image]: https://xunn.at/badge-blm 'Join the movement!'
 [x-badge-blm-link]: https://xunn.at/donate-blm
@@ -18594,6 +18687,7 @@ specification. Contributions of any kind welcome!
 [x-repo-choose-new-issue]:
   https://github.com/repo-owner/repo-name/issues/new/choose
 [x-repo-contributing]: /CONTRIBUTING.md
+[x-repo-contributors]: /README.md#contributors
 [x-repo-docs]: docs
 [x-repo-license]: ./LICENSE
 [x-repo-package-json]: package.json
@@ -18610,12 +18704,12 @@ scope: unlimited
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./repo-name.png">
+  <img width="300" src="./logo.png">
 </p>
 
 <p align="center" width="100%">
 <!-- symbiote-template-region-end -->
-<!-- TODO: a brief description/blurb -->
+TODO <!-- TODO: a brief description/blurb -->
 <!-- symbiote-template-region-start 2 -->
 </p>
 
@@ -18640,7 +18734,7 @@ scope: unlimited
 
 <!-- symbiote-template-region-end -->
 
-<!-- TODO -->
+TODO <!-- TODO -->
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -18671,7 +18765,7 @@ scope: unlimited
 
 <!-- symbiote-template-region-end -->
 
-To install repo-name:
+To install:
 
 \`\`\`shell
 npm install webpack
@@ -18687,7 +18781,11 @@ TODO
 
 ## Appendix
 
+<!-- symbiote-template-region-end -->
+
 Further documentation can be found under [\`docs/\`][x-repo-docs].
+
+<!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
 
@@ -18698,22 +18796,23 @@ built by Babel for use in Node.js versions that are not end-of-life. For
 TypeScript users, this package supports both \`"Node10"\` and \`"Node16"\` module
 resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in Node.js
 versions that are not end-of-life. For TypeScript users, this package supports
 both \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in
 browser-like environments. For TypeScript users, this package supports both
 \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
+
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
-<!-- symbiote-template-region-start 6 -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
 
@@ -18727,7 +18826,7 @@ hazard][x-pkg-dual-package-hazard] entirely, distributables are not
 packed/bundled/uglified, a drastically less complex build process, and CJS
 consumers aren't shafted.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 That means ESM source will load this package via \`import { ... } from ...\` or
 \`await import(...)\` and CJS source will load this package via dynamic
@@ -18764,13 +18863,19 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 8 -->
 
 </details>
 
 ### License
 
+<!-- symbiote-template-region-end -->
+
 See [LICENSE][x-repo-license].
+
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
 
@@ -18782,33 +18887,21 @@ me a beer][x-repo-sponsor], I'd appreciate it. Thank you!
 See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
+<!-- symbiote-template-region-end -->
+<!-- TODO: optional additional sections here -->
+<!-- symbiote-template-region-start 10 -->
+
 ### Contributors
 
-<!-- remark-ignore-start -->
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start root-package-only -->
+<!-- (section elided by symbiote) -->
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start workspace-package-only -->
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+See the [table of contributors][x-repo-contributors].
 
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-<!-- remark-ignore-end -->
-
-Thanks goes to these wonderful people ([emoji
-key][x-repo-all-contributors-emojis]):
-
-<!-- remark-ignore-start -->
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-
-<table></table>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-<!-- remark-ignore-end -->
-
-This project follows the [all-contributors][x-repo-all-contributors]
-specification. Contributions of any kind welcome!
+<!-- symbiote-template-region-end -->
 
 [x-badge-blm-image]: https://xunn.at/badge-blm 'Join the movement!'
 [x-badge-blm-link]: https://xunn.at/donate-blm
@@ -18860,6 +18953,7 @@ specification. Contributions of any kind welcome!
 [x-repo-choose-new-issue]:
   https://github.com/repo-owner/repo-name/issues/new/choose
 [x-repo-contributing]: /CONTRIBUTING.md
+[x-repo-contributors]: /README.md#contributors
 [x-repo-docs]: docs
 [x-repo-license]: ./LICENSE
 [x-repo-package-json]: package.json
@@ -18876,12 +18970,12 @@ scope: this-package
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./repo-name.png">
+  <img width="300" src="./logo.png">
 </p>
 
 <p align="center" width="100%">
 <!-- symbiote-template-region-end -->
-<!-- TODO: a brief description/blurb -->
+TODO <!-- TODO: a brief description/blurb -->
 <!-- symbiote-template-region-start 2 -->
 </p>
 
@@ -18906,7 +19000,7 @@ scope: this-package
 
 <!-- symbiote-template-region-end -->
 
-<!-- TODO -->
+TODO <!-- TODO -->
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -18937,7 +19031,7 @@ scope: this-package
 
 <!-- symbiote-template-region-end -->
 
-To install repo-name:
+To install:
 
 \`\`\`shell
 npm install pkg-1
@@ -18953,7 +19047,11 @@ TODO
 
 ## Appendix
 
+<!-- symbiote-template-region-end -->
+
 Further documentation can be found under [\`docs/\`][x-repo-docs].
+
+<!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
 
@@ -18964,22 +19062,23 @@ built by Babel for use in Node.js versions that are not end-of-life. For
 TypeScript users, this package supports both \`"Node10"\` and \`"Node16"\` module
 resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in Node.js
 versions that are not end-of-life. For TypeScript users, this package supports
 both \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in
 browser-like environments. For TypeScript users, this package supports both
 \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
+
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
-<!-- symbiote-template-region-start 6 -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
 
@@ -18993,7 +19092,7 @@ hazard][x-pkg-dual-package-hazard] entirely, distributables are not
 packed/bundled/uglified, a drastically less complex build process, and CJS
 consumers aren't shafted.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 That means ESM source will load this package via \`import { ... } from ...\` or
 \`await import(...)\` and CJS source will load this package via dynamic
@@ -19030,13 +19129,19 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 8 -->
 
 </details>
 
 ### License
 
+<!-- symbiote-template-region-end -->
+
 See [LICENSE][x-repo-license].
+
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
 
@@ -19048,33 +19153,21 @@ me a beer][x-repo-sponsor], I'd appreciate it. Thank you!
 See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
+<!-- symbiote-template-region-end -->
+<!-- TODO: optional additional sections here -->
+<!-- symbiote-template-region-start 10 -->
+
 ### Contributors
 
-<!-- remark-ignore-start -->
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start root-package-only -->
+<!-- (section elided by symbiote) -->
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start workspace-package-only -->
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+See the [table of contributors][x-repo-contributors].
 
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-<!-- remark-ignore-end -->
-
-Thanks goes to these wonderful people ([emoji
-key][x-repo-all-contributors-emojis]):
-
-<!-- remark-ignore-start -->
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-
-<table></table>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-<!-- remark-ignore-end -->
-
-This project follows the [all-contributors][x-repo-all-contributors]
-specification. Contributions of any kind welcome!
+<!-- symbiote-template-region-end -->
 
 [x-badge-blm-image]: https://xunn.at/badge-blm 'Join the movement!'
 [x-badge-blm-link]: https://xunn.at/donate-blm
@@ -19126,6 +19219,7 @@ specification. Contributions of any kind welcome!
 [x-repo-choose-new-issue]:
   https://github.com/repo-owner/repo-name/issues/new/choose
 [x-repo-contributing]: /CONTRIBUTING.md
+[x-repo-contributors]: /README.md#contributors
 [x-repo-docs]: docs
 [x-repo-license]: ./LICENSE
 [x-repo-package-json]: package.json
@@ -19150,12 +19244,12 @@ scope: unlimited
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./repo-name.png">
+  <img width="300" src="./logo.png">
 </p>
 
 <p align="center" width="100%">
 <!-- symbiote-template-region-end -->
-<!-- TODO: a brief description/blurb -->
+TODO <!-- TODO: a brief description/blurb -->
 <!-- symbiote-template-region-start 2 -->
 </p>
 
@@ -19180,7 +19274,7 @@ scope: unlimited
 
 <!-- symbiote-template-region-end -->
 
-<!-- TODO -->
+TODO <!-- TODO -->
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -19211,7 +19305,7 @@ scope: unlimited
 
 <!-- symbiote-template-region-end -->
 
-To install repo-name:
+To install:
 
 \`\`\`shell
 npm install pkg-1
@@ -19227,7 +19321,11 @@ TODO
 
 ## Appendix
 
+<!-- symbiote-template-region-end -->
+
 Further documentation can be found under [\`docs/\`][x-repo-docs].
+
+<!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
 
@@ -19238,22 +19336,23 @@ built by Babel for use in Node.js versions that are not end-of-life. For
 TypeScript users, this package supports both \`"Node10"\` and \`"Node16"\` module
 resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in Node.js
 versions that are not end-of-life. For TypeScript users, this package supports
 both \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in
 browser-like environments. For TypeScript users, this package supports both
 \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
+
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
-<!-- symbiote-template-region-start 6 -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
 
@@ -19267,7 +19366,7 @@ hazard][x-pkg-dual-package-hazard] entirely, distributables are not
 packed/bundled/uglified, a drastically less complex build process, and CJS
 consumers aren't shafted.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 That means ESM source will load this package via \`import { ... } from ...\` or
 \`await import(...)\` and CJS source will load this package via dynamic
@@ -19304,13 +19403,19 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 8 -->
 
 </details>
 
 ### License
 
+<!-- symbiote-template-region-end -->
+
 See [LICENSE][x-repo-license].
+
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
 
@@ -19322,33 +19427,21 @@ me a beer][x-repo-sponsor], I'd appreciate it. Thank you!
 See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
+<!-- symbiote-template-region-end -->
+<!-- TODO: optional additional sections here -->
+<!-- symbiote-template-region-start 10 -->
+
 ### Contributors
 
-<!-- remark-ignore-start -->
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start root-package-only -->
+<!-- (section elided by symbiote) -->
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start workspace-package-only -->
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+See the [table of contributors][x-repo-contributors].
 
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-<!-- remark-ignore-end -->
-
-Thanks goes to these wonderful people ([emoji
-key][x-repo-all-contributors-emojis]):
-
-<!-- remark-ignore-start -->
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-
-<table></table>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-<!-- remark-ignore-end -->
-
-This project follows the [all-contributors][x-repo-all-contributors]
-specification. Contributions of any kind welcome!
+<!-- symbiote-template-region-end -->
 
 [x-badge-blm-image]: https://xunn.at/badge-blm 'Join the movement!'
 [x-badge-blm-link]: https://xunn.at/donate-blm
@@ -19400,6 +19493,7 @@ specification. Contributions of any kind welcome!
 [x-repo-choose-new-issue]:
   https://github.com/repo-owner/repo-name/issues/new/choose
 [x-repo-contributing]: /CONTRIBUTING.md
+[x-repo-contributors]: /README.md#contributors
 [x-repo-docs]: docs
 [x-repo-license]: ./LICENSE
 [x-repo-package-json]: package.json
@@ -19416,12 +19510,12 @@ scope: unlimited
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./repo-name.png">
+  <img width="300" src="./logo.png">
 </p>
 
 <p align="center" width="100%">
 <!-- symbiote-template-region-end -->
-<!-- TODO: a brief description/blurb -->
+TODO <!-- TODO: a brief description/blurb -->
 <!-- symbiote-template-region-start 2 -->
 </p>
 
@@ -19442,11 +19536,11 @@ scope: unlimited
 
 <br />
 
-# pkg (@namespaced/pkg)
+# @namespaced/pkg
 
 <!-- symbiote-template-region-end -->
 
-<!-- TODO -->
+TODO <!-- TODO -->
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -19477,7 +19571,7 @@ scope: unlimited
 
 <!-- symbiote-template-region-end -->
 
-To install repo-name:
+To install:
 
 \`\`\`shell
 npm install @namespaced/pkg
@@ -19493,7 +19587,11 @@ TODO
 
 ## Appendix
 
+<!-- symbiote-template-region-end -->
+
 Further documentation can be found under [\`docs/\`][x-repo-docs].
+
+<!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
 
@@ -19504,22 +19602,23 @@ built by Babel for use in Node.js versions that are not end-of-life. For
 TypeScript users, this package supports both \`"Node10"\` and \`"Node16"\` module
 resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in Node.js
 versions that are not end-of-life. For TypeScript users, this package supports
 both \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in
 browser-like environments. For TypeScript users, this package supports both
 \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
+
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
-<!-- symbiote-template-region-start 6 -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
 
@@ -19533,7 +19632,7 @@ hazard][x-pkg-dual-package-hazard] entirely, distributables are not
 packed/bundled/uglified, a drastically less complex build process, and CJS
 consumers aren't shafted.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 That means ESM source will load this package via \`import { ... } from ...\` or
 \`await import(...)\` and CJS source will load this package via dynamic
@@ -19570,13 +19669,19 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 8 -->
 
 </details>
 
 ### License
 
+<!-- symbiote-template-region-end -->
+
 See [LICENSE][x-repo-license].
+
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
 
@@ -19588,33 +19693,21 @@ me a beer][x-repo-sponsor], I'd appreciate it. Thank you!
 See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
+<!-- symbiote-template-region-end -->
+<!-- TODO: optional additional sections here -->
+<!-- symbiote-template-region-start 10 -->
+
 ### Contributors
 
-<!-- remark-ignore-start -->
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start root-package-only -->
+<!-- (section elided by symbiote) -->
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start workspace-package-only -->
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+See the [table of contributors][x-repo-contributors].
 
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-<!-- remark-ignore-end -->
-
-Thanks goes to these wonderful people ([emoji
-key][x-repo-all-contributors-emojis]):
-
-<!-- remark-ignore-start -->
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-
-<table></table>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-<!-- remark-ignore-end -->
-
-This project follows the [all-contributors][x-repo-all-contributors]
-specification. Contributions of any kind welcome!
+<!-- symbiote-template-region-end -->
 
 [x-badge-blm-image]: https://xunn.at/badge-blm 'Join the movement!'
 [x-badge-blm-link]: https://xunn.at/donate-blm
@@ -19666,6 +19759,7 @@ specification. Contributions of any kind welcome!
 [x-repo-choose-new-issue]:
   https://github.com/repo-owner/repo-name/issues/new/choose
 [x-repo-contributing]: /CONTRIBUTING.md
+[x-repo-contributors]: /README.md#contributors
 [x-repo-docs]: docs
 [x-repo-license]: ./LICENSE
 [x-repo-package-json]: package.json
@@ -19682,12 +19776,12 @@ scope: unlimited
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./repo-name.png">
+  <img width="300" src="./logo.png">
 </p>
 
 <p align="center" width="100%">
 <!-- symbiote-template-region-end -->
-<!-- TODO: a brief description/blurb -->
+TODO <!-- TODO: a brief description/blurb -->
 <!-- symbiote-template-region-start 2 -->
 </p>
 
@@ -19708,11 +19802,11 @@ scope: unlimited
 
 <br />
 
-# importer (@namespaced/importer)
+# @namespaced/importer
 
 <!-- symbiote-template-region-end -->
 
-<!-- TODO -->
+TODO <!-- TODO -->
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -19743,7 +19837,7 @@ scope: unlimited
 
 <!-- symbiote-template-region-end -->
 
-To install repo-name:
+To install:
 
 \`\`\`shell
 npm install @namespaced/importer
@@ -19759,7 +19853,11 @@ TODO
 
 ## Appendix
 
+<!-- symbiote-template-region-end -->
+
 Further documentation can be found under [\`docs/\`][x-repo-docs].
+
+<!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
 
@@ -19770,22 +19868,23 @@ built by Babel for use in Node.js versions that are not end-of-life. For
 TypeScript users, this package supports both \`"Node10"\` and \`"Node16"\` module
 resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in Node.js
 versions that are not end-of-life. For TypeScript users, this package supports
 both \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in
 browser-like environments. For TypeScript users, this package supports both
 \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
+
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
-<!-- symbiote-template-region-start 6 -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
 
@@ -19799,7 +19898,7 @@ hazard][x-pkg-dual-package-hazard] entirely, distributables are not
 packed/bundled/uglified, a drastically less complex build process, and CJS
 consumers aren't shafted.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 That means ESM source will load this package via \`import { ... } from ...\` or
 \`await import(...)\` and CJS source will load this package via dynamic
@@ -19836,13 +19935,19 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 8 -->
 
 </details>
 
 ### License
 
+<!-- symbiote-template-region-end -->
+
 See [LICENSE][x-repo-license].
+
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
 
@@ -19854,33 +19959,21 @@ me a beer][x-repo-sponsor], I'd appreciate it. Thank you!
 See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
+<!-- symbiote-template-region-end -->
+<!-- TODO: optional additional sections here -->
+<!-- symbiote-template-region-start 10 -->
+
 ### Contributors
 
-<!-- remark-ignore-start -->
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start root-package-only -->
+<!-- (section elided by symbiote) -->
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start workspace-package-only -->
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+See the [table of contributors][x-repo-contributors].
 
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-<!-- remark-ignore-end -->
-
-Thanks goes to these wonderful people ([emoji
-key][x-repo-all-contributors-emojis]):
-
-<!-- remark-ignore-start -->
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-
-<table></table>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-<!-- remark-ignore-end -->
-
-This project follows the [all-contributors][x-repo-all-contributors]
-specification. Contributions of any kind welcome!
+<!-- symbiote-template-region-end -->
 
 [x-badge-blm-image]: https://xunn.at/badge-blm 'Join the movement!'
 [x-badge-blm-link]: https://xunn.at/donate-blm
@@ -19932,6 +20025,7 @@ specification. Contributions of any kind welcome!
 [x-repo-choose-new-issue]:
   https://github.com/repo-owner/repo-name/issues/new/choose
 [x-repo-contributing]: /CONTRIBUTING.md
+[x-repo-contributors]: /README.md#contributors
 [x-repo-docs]: docs
 [x-repo-license]: ./LICENSE
 [x-repo-package-json]: package.json
@@ -19956,12 +20050,12 @@ scope: unlimited
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./repo-name.png">
+  <img width="300" src="./logo.png">
 </p>
 
 <p align="center" width="100%">
 <!-- symbiote-template-region-end -->
-<!-- TODO: a brief description/blurb -->
+TODO <!-- TODO: a brief description/blurb -->
 <!-- symbiote-template-region-start 2 -->
 </p>
 
@@ -19986,7 +20080,7 @@ scope: unlimited
 
 <!-- symbiote-template-region-end -->
 
-<!-- TODO -->
+TODO <!-- TODO -->
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -20017,7 +20111,7 @@ scope: unlimited
 
 <!-- symbiote-template-region-end -->
 
-To install repo-name:
+To install:
 
 \`\`\`shell
 npm install pkg-1
@@ -20033,7 +20127,11 @@ TODO
 
 ## Appendix
 
+<!-- symbiote-template-region-end -->
+
 Further documentation can be found under [\`docs/\`][x-repo-docs].
+
+<!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
 
@@ -20044,22 +20142,23 @@ built by Babel for use in Node.js versions that are not end-of-life. For
 TypeScript users, this package supports both \`"Node10"\` and \`"Node16"\` module
 resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in Node.js
 versions that are not end-of-life. For TypeScript users, this package supports
 both \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in
 browser-like environments. For TypeScript users, this package supports both
 \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
+
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
-<!-- symbiote-template-region-start 6 -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
 
@@ -20073,7 +20172,7 @@ hazard][x-pkg-dual-package-hazard] entirely, distributables are not
 packed/bundled/uglified, a drastically less complex build process, and CJS
 consumers aren't shafted.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 That means ESM source will load this package via \`import { ... } from ...\` or
 \`await import(...)\` and CJS source will load this package via dynamic
@@ -20110,13 +20209,19 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 8 -->
 
 </details>
 
 ### License
 
+<!-- symbiote-template-region-end -->
+
 See [LICENSE][x-repo-license].
+
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
 
@@ -20128,33 +20233,21 @@ me a beer][x-repo-sponsor], I'd appreciate it. Thank you!
 See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
+<!-- symbiote-template-region-end -->
+<!-- TODO: optional additional sections here -->
+<!-- symbiote-template-region-start 10 -->
+
 ### Contributors
 
-<!-- remark-ignore-start -->
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start root-package-only -->
+<!-- (section elided by symbiote) -->
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start workspace-package-only -->
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+See the [table of contributors][x-repo-contributors].
 
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-<!-- remark-ignore-end -->
-
-Thanks goes to these wonderful people ([emoji
-key][x-repo-all-contributors-emojis]):
-
-<!-- remark-ignore-start -->
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-
-<table></table>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-<!-- remark-ignore-end -->
-
-This project follows the [all-contributors][x-repo-all-contributors]
-specification. Contributions of any kind welcome!
+<!-- symbiote-template-region-end -->
 
 [x-badge-blm-image]: https://xunn.at/badge-blm 'Join the movement!'
 [x-badge-blm-link]: https://xunn.at/donate-blm
@@ -20206,6 +20299,7 @@ specification. Contributions of any kind welcome!
 [x-repo-choose-new-issue]:
   https://github.com/repo-owner/repo-name/issues/new/choose
 [x-repo-contributing]: /CONTRIBUTING.md
+[x-repo-contributors]: /README.md#contributors
 [x-repo-docs]: docs
 [x-repo-license]: ./LICENSE
 [x-repo-package-json]: package.json
@@ -20222,12 +20316,12 @@ scope: unlimited
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./repo-name.png">
+  <img width="300" src="./logo.png">
 </p>
 
 <p align="center" width="100%">
 <!-- symbiote-template-region-end -->
-<!-- TODO: a brief description/blurb -->
+TODO <!-- TODO: a brief description/blurb -->
 <!-- symbiote-template-region-start 2 -->
 </p>
 
@@ -20248,11 +20342,11 @@ scope: unlimited
 
 <br />
 
-# pkg (@namespaced/pkg)
+# @namespaced/pkg
 
 <!-- symbiote-template-region-end -->
 
-<!-- TODO -->
+TODO <!-- TODO -->
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -20283,7 +20377,7 @@ scope: unlimited
 
 <!-- symbiote-template-region-end -->
 
-To install repo-name:
+To install:
 
 \`\`\`shell
 npm install @namespaced/pkg
@@ -20299,7 +20393,11 @@ TODO
 
 ## Appendix
 
+<!-- symbiote-template-region-end -->
+
 Further documentation can be found under [\`docs/\`][x-repo-docs].
+
+<!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
 
@@ -20310,22 +20408,23 @@ built by Babel for use in Node.js versions that are not end-of-life. For
 TypeScript users, this package supports both \`"Node10"\` and \`"Node16"\` module
 resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in Node.js
 versions that are not end-of-life. For TypeScript users, this package supports
 both \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in
 browser-like environments. For TypeScript users, this package supports both
 \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
+
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
-<!-- symbiote-template-region-start 6 -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
 
@@ -20339,7 +20438,7 @@ hazard][x-pkg-dual-package-hazard] entirely, distributables are not
 packed/bundled/uglified, a drastically less complex build process, and CJS
 consumers aren't shafted.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 That means ESM source will load this package via \`import { ... } from ...\` or
 \`await import(...)\` and CJS source will load this package via dynamic
@@ -20376,13 +20475,19 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 8 -->
 
 </details>
 
 ### License
 
+<!-- symbiote-template-region-end -->
+
 See [LICENSE][x-repo-license].
+
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
 
@@ -20394,33 +20499,21 @@ me a beer][x-repo-sponsor], I'd appreciate it. Thank you!
 See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
+<!-- symbiote-template-region-end -->
+<!-- TODO: optional additional sections here -->
+<!-- symbiote-template-region-start 10 -->
+
 ### Contributors
 
-<!-- remark-ignore-start -->
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start root-package-only -->
+<!-- (section elided by symbiote) -->
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start workspace-package-only -->
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+See the [table of contributors][x-repo-contributors].
 
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-<!-- remark-ignore-end -->
-
-Thanks goes to these wonderful people ([emoji
-key][x-repo-all-contributors-emojis]):
-
-<!-- remark-ignore-start -->
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-
-<table></table>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-<!-- remark-ignore-end -->
-
-This project follows the [all-contributors][x-repo-all-contributors]
-specification. Contributions of any kind welcome!
+<!-- symbiote-template-region-end -->
 
 [x-badge-blm-image]: https://xunn.at/badge-blm 'Join the movement!'
 [x-badge-blm-link]: https://xunn.at/donate-blm
@@ -20472,6 +20565,7 @@ specification. Contributions of any kind welcome!
 [x-repo-choose-new-issue]:
   https://github.com/repo-owner/repo-name/issues/new/choose
 [x-repo-contributing]: /CONTRIBUTING.md
+[x-repo-contributors]: /README.md#contributors
 [x-repo-docs]: docs
 [x-repo-license]: ./LICENSE
 [x-repo-package-json]: package.json
@@ -20488,12 +20582,12 @@ scope: unlimited
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./repo-name.png">
+  <img width="300" src="./logo.png">
 </p>
 
 <p align="center" width="100%">
 <!-- symbiote-template-region-end -->
-<!-- TODO: a brief description/blurb -->
+TODO <!-- TODO: a brief description/blurb -->
 <!-- symbiote-template-region-start 2 -->
 </p>
 
@@ -20514,11 +20608,11 @@ scope: unlimited
 
 <br />
 
-# importer (@namespaced/importer)
+# @namespaced/importer
 
 <!-- symbiote-template-region-end -->
 
-<!-- TODO -->
+TODO <!-- TODO -->
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -20549,7 +20643,7 @@ scope: unlimited
 
 <!-- symbiote-template-region-end -->
 
-To install repo-name:
+To install:
 
 \`\`\`shell
 npm install @namespaced/importer
@@ -20565,7 +20659,11 @@ TODO
 
 ## Appendix
 
+<!-- symbiote-template-region-end -->
+
 Further documentation can be found under [\`docs/\`][x-repo-docs].
+
+<!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
 
@@ -20576,22 +20674,23 @@ built by Babel for use in Node.js versions that are not end-of-life. For
 TypeScript users, this package supports both \`"Node10"\` and \`"Node16"\` module
 resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in Node.js
 versions that are not end-of-life. For TypeScript users, this package supports
 both \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in
 browser-like environments. For TypeScript users, this package supports both
 \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
+
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
-<!-- symbiote-template-region-start 6 -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
 
@@ -20605,7 +20704,7 @@ hazard][x-pkg-dual-package-hazard] entirely, distributables are not
 packed/bundled/uglified, a drastically less complex build process, and CJS
 consumers aren't shafted.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 That means ESM source will load this package via \`import { ... } from ...\` or
 \`await import(...)\` and CJS source will load this package via dynamic
@@ -20642,13 +20741,19 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 8 -->
 
 </details>
 
 ### License
 
+<!-- symbiote-template-region-end -->
+
 See [LICENSE][x-repo-license].
+
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
 
@@ -20660,33 +20765,21 @@ me a beer][x-repo-sponsor], I'd appreciate it. Thank you!
 See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
+<!-- symbiote-template-region-end -->
+<!-- TODO: optional additional sections here -->
+<!-- symbiote-template-region-start 10 -->
+
 ### Contributors
 
-<!-- remark-ignore-start -->
-<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start root-package-only -->
+<!-- (section elided by symbiote) -->
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start workspace-package-only -->
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg?style=flat-square)](#contributors-)
+See the [table of contributors][x-repo-contributors].
 
-<!-- ALL-CONTRIBUTORS-BADGE:END -->
-<!-- remark-ignore-end -->
-
-Thanks goes to these wonderful people ([emoji
-key][x-repo-all-contributors-emojis]):
-
-<!-- remark-ignore-start -->
-<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
-<!-- prettier-ignore-start -->
-<!-- markdownlint-disable -->
-
-<table></table>
-
-<!-- markdownlint-restore -->
-<!-- prettier-ignore-end -->
-<!-- ALL-CONTRIBUTORS-LIST:END -->
-<!-- remark-ignore-end -->
-
-This project follows the [all-contributors][x-repo-all-contributors]
-specification. Contributions of any kind welcome!
+<!-- symbiote-template-region-end -->
 
 [x-badge-blm-image]: https://xunn.at/badge-blm 'Join the movement!'
 [x-badge-blm-link]: https://xunn.at/donate-blm
@@ -20738,6 +20831,7 @@ specification. Contributions of any kind welcome!
 [x-repo-choose-new-issue]:
   https://github.com/repo-owner/repo-name/issues/new/choose
 [x-repo-contributing]: /CONTRIBUTING.md
+[x-repo-contributors]: /README.md#contributors
 [x-repo-docs]: docs
 [x-repo-license]: ./LICENSE
 [x-repo-package-json]: package.json
@@ -20754,12 +20848,12 @@ scope: unlimited
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./repo-name.png">
+  <img width="300" src="./logo.png">
 </p>
 
 <p align="center" width="100%">
 <!-- symbiote-template-region-end -->
-<!-- TODO: a brief description/blurb -->
+TODO <!-- TODO: a brief description/blurb -->
 <!-- symbiote-template-region-start 2 -->
 </p>
 
@@ -20784,7 +20878,7 @@ scope: unlimited
 
 <!-- symbiote-template-region-end -->
 
-<!-- TODO -->
+TODO <!-- TODO -->
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -20815,7 +20909,7 @@ scope: unlimited
 
 <!-- symbiote-template-region-end -->
 
-To install repo-name:
+To install:
 
 \`\`\`shell
 npm install good-polyrepo-no-src
@@ -20831,7 +20925,11 @@ TODO
 
 ## Appendix
 
+<!-- symbiote-template-region-end -->
+
 Further documentation can be found under [\`docs/\`][x-repo-docs].
+
+<!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
 
@@ -20842,22 +20940,23 @@ built by Babel for use in Node.js versions that are not end-of-life. For
 TypeScript users, this package supports both \`"Node10"\` and \`"Node16"\` module
 resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in Node.js
 versions that are not end-of-life. For TypeScript users, this package supports
 both \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in
 browser-like environments. For TypeScript users, this package supports both
 \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
+
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
-<!-- symbiote-template-region-start 6 -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
 
@@ -20871,7 +20970,7 @@ hazard][x-pkg-dual-package-hazard] entirely, distributables are not
 packed/bundled/uglified, a drastically less complex build process, and CJS
 consumers aren't shafted.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 That means ESM source will load this package via \`import { ... } from ...\` or
 \`await import(...)\` and CJS source will load this package via dynamic
@@ -20908,13 +21007,19 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 8 -->
 
 </details>
 
 ### License
 
+<!-- symbiote-template-region-end -->
+
 See [LICENSE][x-repo-license].
+
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
 
@@ -20926,8 +21031,14 @@ me a beer][x-repo-sponsor], I'd appreciate it. Thank you!
 See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
+<!-- symbiote-template-region-end -->
+<!-- TODO: optional additional sections here -->
+<!-- symbiote-template-region-start 10 -->
+
 ### Contributors
 
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start root-package-only -->
 <!-- remark-ignore-start -->
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 
@@ -20953,6 +21064,11 @@ key][x-repo-all-contributors-emojis]):
 
 This project follows the [all-contributors][x-repo-all-contributors]
 specification. Contributions of any kind welcome!
+
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start workspace-package-only -->
+<!-- (section elided by symbiote) -->
+<!-- symbiote-template-region-end -->
 
 [x-badge-blm-image]: https://xunn.at/badge-blm 'Join the movement!'
 [x-badge-blm-link]: https://xunn.at/donate-blm
@@ -21004,6 +21120,7 @@ specification. Contributions of any kind welcome!
 [x-repo-choose-new-issue]:
   https://github.com/repo-owner/repo-name/issues/new/choose
 [x-repo-contributing]: /CONTRIBUTING.md
+[x-repo-contributors]: /README.md#contributors
 [x-repo-docs]: docs
 [x-repo-license]: ./LICENSE
 [x-repo-package-json]: package.json
@@ -21020,12 +21137,12 @@ scope: this-package
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./repo-name.png">
+  <img width="300" src="./logo.png">
 </p>
 
 <p align="center" width="100%">
 <!-- symbiote-template-region-end -->
-<!-- TODO: a brief description/blurb -->
+TODO <!-- TODO: a brief description/blurb -->
 <!-- symbiote-template-region-start 2 -->
 </p>
 
@@ -21050,7 +21167,7 @@ scope: this-package
 
 <!-- symbiote-template-region-end -->
 
-<!-- TODO -->
+TODO <!-- TODO -->
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -21081,7 +21198,7 @@ scope: this-package
 
 <!-- symbiote-template-region-end -->
 
-To install repo-name:
+To install:
 
 \`\`\`shell
 npm install good-polyrepo-no-src
@@ -21097,7 +21214,11 @@ TODO
 
 ## Appendix
 
+<!-- symbiote-template-region-end -->
+
 Further documentation can be found under [\`docs/\`][x-repo-docs].
+
+<!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
 
@@ -21108,22 +21229,23 @@ built by Babel for use in Node.js versions that are not end-of-life. For
 TypeScript users, this package supports both \`"Node10"\` and \`"Node16"\` module
 resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in Node.js
 versions that are not end-of-life. For TypeScript users, this package supports
 both \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in
 browser-like environments. For TypeScript users, this package supports both
 \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
+
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
-<!-- symbiote-template-region-start 6 -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
 
@@ -21137,7 +21259,7 @@ hazard][x-pkg-dual-package-hazard] entirely, distributables are not
 packed/bundled/uglified, a drastically less complex build process, and CJS
 consumers aren't shafted.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 That means ESM source will load this package via \`import { ... } from ...\` or
 \`await import(...)\` and CJS source will load this package via dynamic
@@ -21174,13 +21296,19 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 8 -->
 
 </details>
 
 ### License
 
+<!-- symbiote-template-region-end -->
+
 See [LICENSE][x-repo-license].
+
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
 
@@ -21192,8 +21320,14 @@ me a beer][x-repo-sponsor], I'd appreciate it. Thank you!
 See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
+<!-- symbiote-template-region-end -->
+<!-- TODO: optional additional sections here -->
+<!-- symbiote-template-region-start 10 -->
+
 ### Contributors
 
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start root-package-only -->
 <!-- remark-ignore-start -->
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 
@@ -21219,6 +21353,11 @@ key][x-repo-all-contributors-emojis]):
 
 This project follows the [all-contributors][x-repo-all-contributors]
 specification. Contributions of any kind welcome!
+
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start workspace-package-only -->
+<!-- (section elided by symbiote) -->
+<!-- symbiote-template-region-end -->
 
 [x-badge-blm-image]: https://xunn.at/badge-blm 'Join the movement!'
 [x-badge-blm-link]: https://xunn.at/donate-blm
@@ -21270,6 +21409,7 @@ specification. Contributions of any kind welcome!
 [x-repo-choose-new-issue]:
   https://github.com/repo-owner/repo-name/issues/new/choose
 [x-repo-contributing]: /CONTRIBUTING.md
+[x-repo-contributors]: /README.md#contributors
 [x-repo-docs]: docs
 [x-repo-license]: ./LICENSE
 [x-repo-package-json]: package.json
@@ -21286,12 +21426,12 @@ scope: unlimited
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./repo-name.png">
+  <img width="300" src="./logo.png">
 </p>
 
 <p align="center" width="100%">
 <!-- symbiote-template-region-end -->
-<!-- TODO: a brief description/blurb -->
+TODO <!-- TODO: a brief description/blurb -->
 <!-- symbiote-template-region-start 2 -->
 </p>
 
@@ -21316,7 +21456,7 @@ scope: unlimited
 
 <!-- symbiote-template-region-end -->
 
-<!-- TODO -->
+TODO <!-- TODO -->
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -21347,7 +21487,7 @@ scope: unlimited
 
 <!-- symbiote-template-region-end -->
 
-To install repo-name:
+To install:
 
 \`\`\`shell
 npm install good-polyrepo-no-src
@@ -21363,7 +21503,11 @@ TODO
 
 ## Appendix
 
+<!-- symbiote-template-region-end -->
+
 Further documentation can be found under [\`docs/\`][x-repo-docs].
+
+<!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
 
@@ -21374,22 +21518,23 @@ built by Babel for use in Node.js versions that are not end-of-life. For
 TypeScript users, this package supports both \`"Node10"\` and \`"Node16"\` module
 resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in Node.js
 versions that are not end-of-life. For TypeScript users, this package supports
 both \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 This is an [ESM-only package][x-pkg-esm-wine] built by Babel for use in
 browser-like environments. For TypeScript users, this package supports both
 \`"Node10"\` and \`"Node16"\` module resolution strategies.
 
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
+
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
-<!-- symbiote-template-region-start 6 -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
 
@@ -21403,7 +21548,7 @@ hazard][x-pkg-dual-package-hazard] entirely, distributables are not
 packed/bundled/uglified, a drastically less complex build process, and CJS
 consumers aren't shafted.
 
-\\------------✄-----------⏶-⏷-----------✄------------
+✄------------✄-----------⏶-⏷-----------✄------------✄
 
 That means ESM source will load this package via \`import { ... } from ...\` or
 \`await import(...)\` and CJS source will load this package via dynamic
@@ -21440,13 +21585,19 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: custom details here -->
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 8 -->
 
 </details>
 
 ### License
 
+<!-- symbiote-template-region-end -->
+
 See [LICENSE][x-repo-license].
+
+<!-- TODO: optional additional details here -->
+<!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
 
@@ -21458,8 +21609,14 @@ me a beer][x-repo-sponsor], I'd appreciate it. Thank you!
 See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
+<!-- symbiote-template-region-end -->
+<!-- TODO: optional additional sections here -->
+<!-- symbiote-template-region-start 10 -->
+
 ### Contributors
 
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start root-package-only -->
 <!-- remark-ignore-start -->
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 
@@ -21485,6 +21642,11 @@ key][x-repo-all-contributors-emojis]):
 
 This project follows the [all-contributors][x-repo-all-contributors]
 specification. Contributions of any kind welcome!
+
+<!-- symbiote-template-region-end -->
+<!-- symbiote-template-region-start workspace-package-only -->
+<!-- (section elided by symbiote) -->
+<!-- symbiote-template-region-end -->
 
 [x-badge-blm-image]: https://xunn.at/badge-blm 'Join the movement!'
 [x-badge-blm-link]: https://xunn.at/donate-blm
@@ -21536,6 +21698,7 @@ specification. Contributions of any kind welcome!
 [x-repo-choose-new-issue]:
   https://github.com/repo-owner/repo-name/issues/new/choose
 [x-repo-contributing]: /CONTRIBUTING.md
+[x-repo-contributors]: /README.md#contributors
 [x-repo-docs]: docs
 [x-repo-license]: ./LICENSE
 [x-repo-package-json]: package.json
@@ -24609,8 +24772,16 @@ scope: unlimited
   "type": "commonjs",
   "exports": {
     ".": {
-      "types": "./dist/packages/cli/src/index.d.ts",
-      "default": "./dist/packages/cli/src/index.js"
+      "types": "./dist/packages/cli/src/cli.d.ts",
+      "default": "./dist/packages/cli/src/cli.js"
+    },
+    "./commands/*": {
+      "types": "./dist/packages/cli/src/commands/*.d.ts",
+      "default": "./dist/packages/cli/src/commands/*.js"
+    },
+    "./configure": {
+      "types": "./dist/packages/cli/src/configure.d.ts",
+      "default": "./dist/packages/cli/src/configure.js"
     },
     "./package": "./package.json",
     "./package.json": "./package.json"
@@ -24618,12 +24789,21 @@ scope: unlimited
   "typesVersions": {
     "*": {
       "index": [
-        "dist/packages/cli/src/index.d.ts"
+        "dist/packages/cli/src/cli.d.ts"
+      ],
+      "commands/*": [
+        "dist/packages/cli/src/commands/*.d.ts"
+      ],
+      "configure": [
+        "dist/packages/cli/src/configure.d.ts"
       ],
       "package": [
         "package.json"
       ]
     }
+  },
+  "bin": {
+    "cli": "./dist/packages/cli/src/cli.js"
   },
   "files": [
     "/dist",
@@ -24924,6 +25104,7 @@ scope: unlimited
   "version": "1.0.0",
   "type": "commonjs",
   "bin": {
+    "cli": "./dist/packages/cli/src/cli.js",
     "executable": "./dist/index.js"
   },
   "files": [
@@ -24947,8 +25128,16 @@ scope: unlimited
   "sideEffects": false,
   "exports": {
     ".": {
-      "types": "./dist/packages/cli/src/index.d.ts",
-      "default": "./dist/packages/cli/src/index.js"
+      "types": "./dist/packages/cli/src/cli.d.ts",
+      "default": "./dist/packages/cli/src/cli.js"
+    },
+    "./commands/*": {
+      "types": "./dist/packages/cli/src/commands/*.d.ts",
+      "default": "./dist/packages/cli/src/commands/*.js"
+    },
+    "./configure": {
+      "types": "./dist/packages/cli/src/configure.d.ts",
+      "default": "./dist/packages/cli/src/configure.js"
     },
     "./package": "./package.json",
     "./package.json": "./package.json"
@@ -24956,7 +25145,13 @@ scope: unlimited
   "typesVersions": {
     "*": {
       "index": [
-        "dist/packages/cli/src/index.d.ts"
+        "dist/packages/cli/src/cli.d.ts"
+      ],
+      "commands/*": [
+        "dist/packages/cli/src/commands/*.d.ts"
+      ],
+      "configure": [
+        "dist/packages/cli/src/configure.d.ts"
       ],
       "package": [
         "package.json"
@@ -25319,8 +25514,16 @@ scope: unlimited
   "type": "commonjs",
   "exports": {
     ".": {
-      "types": "./dist/packages/pkg-1/src/index.d.ts",
-      "default": "./dist/packages/pkg-1/src/index.js"
+      "types": "./dist/packages/pkg-1/src/cli.d.ts",
+      "default": "./dist/packages/pkg-1/src/cli.js"
+    },
+    "./commands/*": {
+      "types": "./dist/packages/pkg-1/src/commands/*.d.ts",
+      "default": "./dist/packages/pkg-1/src/commands/*.js"
+    },
+    "./configure": {
+      "types": "./dist/packages/pkg-1/src/configure.d.ts",
+      "default": "./dist/packages/pkg-1/src/configure.js"
     },
     "./package": "./package.json",
     "./package.json": "./package.json"
@@ -25328,12 +25531,21 @@ scope: unlimited
   "typesVersions": {
     "*": {
       "index": [
-        "dist/packages/pkg-1/src/index.d.ts"
+        "dist/packages/pkg-1/src/cli.d.ts"
+      ],
+      "commands/*": [
+        "dist/packages/pkg-1/src/commands/*.d.ts"
+      ],
+      "configure": [
+        "dist/packages/pkg-1/src/configure.d.ts"
       ],
       "package": [
         "package.json"
       ]
     }
+  },
+  "bin": {
+    "pkg-1": "./dist/packages/pkg-1/src/cli.js"
   },
   "files": [
     "/dist",
@@ -25397,8 +25609,16 @@ scope: unlimited
   "type": "commonjs",
   "exports": {
     ".": {
-      "types": "./dist/packages/pkg-2/src/index.d.ts",
-      "default": "./dist/packages/pkg-2/src/index.js"
+      "types": "./dist/packages/pkg-2/src/cli.d.ts",
+      "default": "./dist/packages/pkg-2/src/cli.js"
+    },
+    "./commands/*": {
+      "types": "./dist/packages/pkg-2/src/commands/*.d.ts",
+      "default": "./dist/packages/pkg-2/src/commands/*.js"
+    },
+    "./configure": {
+      "types": "./dist/packages/pkg-2/src/configure.d.ts",
+      "default": "./dist/packages/pkg-2/src/configure.js"
     },
     "./package": "./package.json",
     "./package.json": "./package.json"
@@ -25406,12 +25626,21 @@ scope: unlimited
   "typesVersions": {
     "*": {
       "index": [
-        "dist/packages/pkg-2/src/index.d.ts"
+        "dist/packages/pkg-2/src/cli.d.ts"
+      ],
+      "commands/*": [
+        "dist/packages/pkg-2/src/commands/*.d.ts"
+      ],
+      "configure": [
+        "dist/packages/pkg-2/src/configure.d.ts"
       ],
       "package": [
         "package.json"
       ]
     }
+  },
+  "bin": {
+    "pkg": "./dist/packages/pkg-2/src/cli.js"
   },
   "files": [
     "/dist",
@@ -25620,7 +25849,9 @@ scope: unlimited
     "type": "git",
     "url": "git+https://github.com/repo-owner/repo-name.git"
   },
-  "bin": "./dist/index.js",
+  "bin": {
+    "pkg-1": "./dist/index.js"
+  },
   "exports": {
     ".": "./dist/index.js"
   },
@@ -25636,7 +25867,13 @@ scope: unlimited
   "typesVersions": {
     "*": {
       "index": [
-        "dist/packages/pkg-1/src/index.d.ts"
+        "dist/packages/pkg-1/src/cli.d.ts"
+      ],
+      "commands/*": [
+        "dist/packages/pkg-1/src/commands/*.d.ts"
+      ],
+      "configure": [
+        "dist/packages/pkg-1/src/configure.d.ts"
       ],
       "package": [
         "package.json"
@@ -25695,6 +25932,7 @@ scope: unlimited
     "url": "git+https://github.com/repo-owner/repo-name.git"
   },
   "bin": {
+    "pkg": "./dist/packages/pkg-2/src/cli.js",
     "x": "./dist/x.js",
     "y": "./dist/y.js",
     "z": "./dist/z.js"
@@ -25714,7 +25952,13 @@ scope: unlimited
   "typesVersions": {
     "*": {
       "index": [
-        "dist/packages/pkg-2/src/index.d.ts"
+        "dist/packages/pkg-2/src/cli.d.ts"
+      ],
+      "commands/*": [
+        "dist/packages/pkg-2/src/commands/*.d.ts"
+      ],
+      "configure": [
+        "dist/packages/pkg-2/src/configure.d.ts"
       ],
       "package": [
         "package.json"
@@ -28493,14 +28737,12 @@ scope: unlimited
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
-  "include": ["types/**/*", "src/**/*", "test/**/*"],
+  "extends": "../../tsconfig.json",
+  "include": ["../../types/**/*", "src/**/*", "test/**/*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -28523,14 +28765,12 @@ scope: unlimited
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
-  "include": ["**/*", "**/.*/**/*", "**/.*"],
+  "extends": "../../tsconfig.json",
+  "include": ["../../types/**/*", "**/*", "**/.*/**/*", "**/.*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -28553,7 +28793,7 @@ scope: unlimited
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "allowJs": false,
     "checkJs": false,
@@ -28562,15 +28802,13 @@ scope: unlimited
     "isolatedModules": false,
     "noEmit": false,
     "outDir": "dist",
-    "rootDir": "./"
+    "rootDir": "../../"
   },
-  "include": ["types/**/*", "src/**/*"],
+  "include": ["../../types/**/*", "src/**/*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -28593,14 +28831,12 @@ scope: unlimited
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
-  "include": ["types/**/*", "src/**/*", "test/**/*"],
+  "extends": "../../tsconfig.json",
+  "include": ["../../types/**/*", "src/**/*", "test/**/*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -28623,14 +28859,12 @@ scope: unlimited
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
-  "include": ["**/*", "**/.*/**/*", "**/.*"],
+  "extends": "../../tsconfig.json",
+  "include": ["../../types/**/*", "**/*", "**/.*/**/*", "**/.*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -28653,7 +28887,7 @@ scope: unlimited
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "allowJs": false,
     "checkJs": false,
@@ -28662,15 +28896,13 @@ scope: unlimited
     "isolatedModules": false,
     "noEmit": false,
     "outDir": "dist",
-    "rootDir": "./"
+    "rootDir": "../../"
   },
-  "include": ["types/**/*", "src/**/*"],
+  "include": ["../../types/**/*", "src/**/*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -28693,14 +28925,12 @@ scope: unlimited
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
-  "include": ["types/**/*", "src/**/*", "test/**/*"],
+  "extends": "../../tsconfig.json",
+  "include": ["../../types/**/*", "src/**/*", "test/**/*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -28723,14 +28953,12 @@ scope: unlimited
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
-  "include": ["**/*", "**/.*/**/*", "**/.*"],
+  "extends": "../../tsconfig.json",
+  "include": ["../../types/**/*", "**/*", "**/.*/**/*", "**/.*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -28753,7 +28981,7 @@ scope: unlimited
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "allowJs": false,
     "checkJs": false,
@@ -28762,15 +28990,13 @@ scope: unlimited
     "isolatedModules": false,
     "noEmit": false,
     "outDir": "dist",
-    "rootDir": "./"
+    "rootDir": "../../"
   },
-  "include": ["types/**/*", "src/**/*"],
+  "include": ["../../types/**/*", "src/**/*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -29014,14 +29240,12 @@ scope: unlimited
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
-  "include": ["types/**/*", "src/**/*", "test/**/*"],
+  "extends": "../../tsconfig.json",
+  "include": ["../../types/**/*", "src/**/*", "test/**/*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -29044,14 +29268,12 @@ scope: unlimited
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
-  "include": ["**/*", "**/.*/**/*", "**/.*"],
+  "extends": "../../tsconfig.json",
+  "include": ["../../types/**/*", "**/*", "**/.*/**/*", "**/.*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -29074,7 +29296,7 @@ scope: unlimited
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "allowJs": false,
     "checkJs": false,
@@ -29083,15 +29305,13 @@ scope: unlimited
     "isolatedModules": false,
     "noEmit": false,
     "outDir": "dist",
-    "rootDir": "./"
+    "rootDir": "../../"
   },
-  "include": ["types/**/*", "src/**/*"],
+  "include": ["../../types/**/*", "src/**/*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -29114,14 +29334,12 @@ scope: unlimited
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
-  "include": ["types/**/*", "src/**/*", "test/**/*"],
+  "extends": "../../tsconfig.json",
+  "include": ["../../types/**/*", "src/**/*", "test/**/*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -29144,14 +29362,12 @@ scope: unlimited
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
-  "include": ["**/*", "**/.*/**/*", "**/.*"],
+  "extends": "../../tsconfig.json",
+  "include": ["../../types/**/*", "**/*", "**/.*/**/*", "**/.*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -29174,7 +29390,7 @@ scope: unlimited
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "allowJs": false,
     "checkJs": false,
@@ -29183,15 +29399,13 @@ scope: unlimited
     "isolatedModules": false,
     "noEmit": false,
     "outDir": "dist",
-    "rootDir": "./"
+    "rootDir": "../../"
   },
-  "include": ["types/**/*", "src/**/*"],
+  "include": ["../../types/**/*", "src/**/*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -29214,14 +29428,12 @@ scope: unlimited
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
-  "include": ["types/**/*", "src/**/*", "test/**/*"],
+  "extends": "../../tsconfig.json",
+  "include": ["../../types/**/*", "src/**/*", "test/**/*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -29244,14 +29456,12 @@ scope: unlimited
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
-  "include": ["**/*", "**/.*/**/*", "**/.*"],
+  "extends": "../../tsconfig.json",
+  "include": ["../../types/**/*", "**/*", "**/.*/**/*", "**/.*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -29274,7 +29484,7 @@ scope: unlimited
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "allowJs": false,
     "checkJs": false,
@@ -29283,15 +29493,13 @@ scope: unlimited
     "isolatedModules": false,
     "noEmit": false,
     "outDir": "dist",
-    "rootDir": "./"
+    "rootDir": "../../"
   },
-  "include": ["types/**/*", "src/**/*"],
+  "include": ["../../types/**/*", "src/**/*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -29535,14 +29743,12 @@ scope: this-package
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
-  "include": ["types/**/*", "src/**/*", "test/**/*"],
+  "extends": "../../tsconfig.json",
+  "include": ["../../types/**/*", "src/**/*", "test/**/*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -29565,14 +29771,12 @@ scope: this-package
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
-  "include": ["**/*", "**/.*/**/*", "**/.*"],
+  "extends": "../../tsconfig.json",
+  "include": ["../../types/**/*", "**/*", "**/.*/**/*", "**/.*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -29595,7 +29799,7 @@ scope: this-package
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "allowJs": false,
     "checkJs": false,
@@ -29604,15 +29808,13 @@ scope: this-package
     "isolatedModules": false,
     "noEmit": false,
     "outDir": "dist",
-    "rootDir": "./"
+    "rootDir": "../../"
   },
-  "include": ["types/**/*", "src/**/*"],
+  "include": ["../../types/**/*", "src/**/*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -29635,14 +29837,12 @@ scope: unlimited
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
-  "include": ["types/**/*", "src/**/*", "test/**/*"],
+  "extends": "../../tsconfig.json",
+  "include": ["../../types/**/*", "src/**/*", "test/**/*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -29665,14 +29865,12 @@ scope: unlimited
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
-  "include": ["**/*", "**/.*/**/*", "**/.*"],
+  "extends": "../../tsconfig.json",
+  "include": ["../../types/**/*", "**/*", "**/.*/**/*", "**/.*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -29695,7 +29893,7 @@ scope: unlimited
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "allowJs": false,
     "checkJs": false,
@@ -29704,15 +29902,13 @@ scope: unlimited
     "isolatedModules": false,
     "noEmit": false,
     "outDir": "dist",
-    "rootDir": "./"
+    "rootDir": "../../"
   },
-  "include": ["types/**/*", "src/**/*"],
+  "include": ["../../types/**/*", "src/**/*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -29735,14 +29931,12 @@ scope: unlimited
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
-  "include": ["types/**/*", "src/**/*", "test/**/*"],
+  "extends": "../../tsconfig.json",
+  "include": ["../../types/**/*", "src/**/*", "test/**/*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -29765,14 +29959,12 @@ scope: unlimited
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
-  "include": ["**/*", "**/.*/**/*", "**/.*"],
+  "extends": "../../tsconfig.json",
+  "include": ["../../types/**/*", "**/*", "**/.*/**/*", "**/.*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -29795,7 +29987,7 @@ scope: unlimited
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "allowJs": false,
     "checkJs": false,
@@ -29804,15 +29996,13 @@ scope: unlimited
     "isolatedModules": false,
     "noEmit": false,
     "outDir": "dist",
-    "rootDir": "./"
+    "rootDir": "../../"
   },
-  "include": ["types/**/*", "src/**/*"],
+  "include": ["../../types/**/*", "src/**/*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -29835,14 +30025,12 @@ scope: unlimited
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
-  "include": ["types/**/*", "src/**/*", "test/**/*"],
+  "extends": "../../tsconfig.json",
+  "include": ["../../types/**/*", "src/**/*", "test/**/*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -29865,14 +30053,12 @@ scope: unlimited
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
-  "include": ["**/*", "**/.*/**/*", "**/.*"],
+  "extends": "../../tsconfig.json",
+  "include": ["../../types/**/*", "**/*", "**/.*/**/*", "**/.*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -29895,7 +30081,7 @@ scope: unlimited
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "allowJs": false,
     "checkJs": false,
@@ -29904,15 +30090,13 @@ scope: unlimited
     "isolatedModules": false,
     "noEmit": false,
     "outDir": "dist",
-    "rootDir": "./"
+    "rootDir": "../../"
   },
-  "include": ["types/**/*", "src/**/*"],
+  "include": ["../../types/**/*", "src/**/*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -30056,14 +30240,12 @@ scope: unlimited
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
-  "include": ["types/**/*", "src/**/*", "test/**/*"],
+  "extends": "../../tsconfig.json",
+  "include": ["../../types/**/*", "src/**/*", "test/**/*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -30086,14 +30268,12 @@ scope: unlimited
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
-  "include": ["**/*", "**/.*/**/*", "**/.*"],
+  "extends": "../../tsconfig.json",
+  "include": ["../../types/**/*", "**/*", "**/.*/**/*", "**/.*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -30116,7 +30296,7 @@ scope: unlimited
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "allowJs": false,
     "checkJs": false,
@@ -30125,15 +30305,13 @@ scope: unlimited
     "isolatedModules": false,
     "noEmit": false,
     "outDir": "dist",
-    "rootDir": "./"
+    "rootDir": "../../"
   },
-  "include": ["types/**/*", "src/**/*"],
+  "include": ["../../types/**/*", "src/**/*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -30156,14 +30334,12 @@ scope: unlimited
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
-  "include": ["types/**/*", "src/**/*", "test/**/*"],
+  "extends": "../../tsconfig.json",
+  "include": ["../../types/**/*", "src/**/*", "test/**/*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -30186,14 +30362,12 @@ scope: unlimited
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
-  "include": ["**/*", "**/.*/**/*", "**/.*"],
+  "extends": "../../tsconfig.json",
+  "include": ["../../types/**/*", "**/*", "**/.*/**/*", "**/.*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -30216,7 +30390,7 @@ scope: unlimited
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "allowJs": false,
     "checkJs": false,
@@ -30225,15 +30399,13 @@ scope: unlimited
     "isolatedModules": false,
     "noEmit": false,
     "outDir": "dist",
-    "rootDir": "./"
+    "rootDir": "../../"
   },
-  "include": ["types/**/*", "src/**/*"],
+  "include": ["../../types/**/*", "src/**/*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -30256,14 +30428,12 @@ scope: unlimited
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
-  "include": ["types/**/*", "src/**/*", "test/**/*"],
+  "extends": "../../tsconfig.json",
+  "include": ["../../types/**/*", "src/**/*", "test/**/*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -30286,14 +30456,12 @@ scope: unlimited
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
-  "include": ["**/*", "**/.*/**/*", "**/.*"],
+  "extends": "../../tsconfig.json",
+  "include": ["../../types/**/*", "**/*", "**/.*/**/*", "**/.*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -30316,7 +30484,7 @@ scope: unlimited
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
+  "extends": "../../tsconfig.json",
   "compilerOptions": {
     "allowJs": false,
     "checkJs": false,
@@ -30325,15 +30493,13 @@ scope: unlimited
     "isolatedModules": false,
     "noEmit": false,
     "outDir": "dist",
-    "rootDir": "./"
+    "rootDir": "../../"
   },
-  "include": ["types/**/*", "src/**/*"],
+  "include": ["../../types/**/*", "src/**/*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
