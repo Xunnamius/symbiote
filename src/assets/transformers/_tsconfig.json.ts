@@ -3,6 +3,7 @@ import {
   generateRawAliasMap
 } from 'multiverse+project-utils:alias.ts';
 
+import { isRootPackage } from 'multiverse+project-utils:analyze.ts';
 import { Tsconfig } from 'multiverse+project-utils:fs.ts';
 
 import {
@@ -97,7 +98,104 @@ ${makeGeneratedAliasesWarningComment(4)}
     "**/ignore.*"
   ]
 }`,
-  [Tsconfig.PackageTypes]: `
+  [Tsconfig.PackageLint]: {
+    hybrid: `
+/**
+ ** This file extends the project root tsconfig.json file for use with linting
+ ** all files at the package level. Only tsc gets its paths from this file.
+ **
+ ** Use this file to exert some control over which files are considered
+ ** part of the current package and which will be ignored.
+ */
+
+{
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+  "extends": "./tsconfig.json",
+  "include": ["**/*", "**/.*/**/*", "**/.*"],
+  "exclude": [
+    "**/dist/**/*",
+    "**/test/fixtures/**/*",
+    "**/node_modules/**/*",
+    "packages/**/*",
+    "packages/**/.*",
+    "**/*.ignore",
+    "**/*.ignore.*/**/*",
+    "**/ignore.*"
+  ]
+}`,
+    subroot: `
+/**
+ ** This file extends the project root tsconfig.json file for use with linting
+ ** all files at the package level. Only tsc gets its paths from this file.
+ **
+ ** Use this file to exert some control over which files are considered
+ ** part of the current package and which will be ignored.
+ */
+
+{
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+  "extends": "../../tsconfig.json",
+  "include": ["../../types/**/*", "**/*", "**/.*/**/*", "**/.*"],
+  "exclude": [
+    "**/dist/**/*",
+    "**/test/fixtures/**/*",
+    "**/node_modules/**/*",
+    "**/*.ignore",
+    "**/*.ignore.*/**/*",
+    "**/ignore.*"
+  ]
+}`
+  },
+  [Tsconfig.PackageDocumentation]: {
+    hybrid: `
+/**
+ ** This file extends the project root tsconfig.json file for use with
+ ** typedoc at the package level.
+ **
+ ** Use this file to exert some control over how typedoc generates
+ ** package-specific documentation.
+ */
+
+{
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+  "extends": "./tsconfig.json",
+  "include": ["types/**/*", "src/**/*", "test/**/*"],
+  "exclude": [
+    "**/dist/**/*",
+    "**/test/fixtures/**/*",
+    "**/node_modules/**/*",
+    "packages/**/*",
+    "packages/**/.*",
+    "**/*.ignore",
+    "**/*.ignore.*/**/*",
+    "**/ignore.*"
+  ]
+}`,
+    subroot: `
+/**
+ ** This file extends the project root tsconfig.json file for use with
+ ** typedoc at the package level.
+ **
+ ** Use this file to exert some control over how typedoc generates
+ ** package-specific documentation.
+ */
+
+{
+  "$schema": "https://json.schemastore.org/tsconfig.json",
+  "extends": "../../tsconfig.json",
+  "include": ["../../types/**/*", "src/**/*", "test/**/*"],
+  "exclude": [
+    "**/dist/**/*",
+    "**/test/fixtures/**/*",
+    "**/node_modules/**/*",
+    "**/*.ignore",
+    "**/*.ignore.*/**/*",
+    "**/ignore.*"
+  ]
+}`
+  },
+  [Tsconfig.PackageTypes]: {
+    hybrid: `
 /**
 ** This file extends the project root tsconfig.json file for use with tsc at
 ** the package level.
@@ -131,54 +229,39 @@ ${makeGeneratedAliasesWarningComment(4)}
     "**/ignore.*"
   ]
 }`,
-  [Tsconfig.PackageLint]: `
+    subroot: `
 /**
- ** This file extends the project root tsconfig.json file for use with linting
- ** all files at the package level. Only tsc gets its paths from this file.
- **
- ** Use this file to exert some control over which files are considered
- ** part of the current package and which will be ignored.
- */
+** This file extends the project root tsconfig.json file for use with tsc at
+** the package level.
+**
+** Use this file to exert some control over how tsc generates package-specific
+** definition files.
+*/
 
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
-  "include": ["**/*", "**/.*/**/*", "**/.*"],
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "allowJs": false,
+    "checkJs": false,
+    "declaration": true,
+    "emitDeclarationOnly": true,
+    "isolatedModules": false,
+    "noEmit": false,
+    "outDir": "dist",
+    "rootDir": "../../"
+  },
+  "include": ["../../types/**/*", "src/**/*"],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
-    "**/*.ignore",
-    "**/*.ignore.*/**/*",
-    "**/ignore.*"
-  ]
-}`,
-  [Tsconfig.PackageDocumentation]: `
-/**
- ** This file extends the project root tsconfig.json file for use with
- ** typedoc at the package level.
- **
- ** Use this file to exert some control over how typedoc generates
- ** package-specific documentation.
- */
-
-{
-  "$schema": "https://json.schemastore.org/tsconfig.json",
-  "extends": "./tsconfig.json",
-  "include": ["types/**/*", "src/**/*", "test/**/*"],
-  "exclude": [
-    "**/dist/**/*",
-    "**/test/fixtures/**/*",
-    "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
   ]
 }`
+  }
 };
 
 export const { transformer } = makeTransformer(async function (context) {
@@ -222,23 +305,27 @@ export const { transformer } = makeTransformer(async function (context) {
     })),
 
     ...// * Every package gets these files except non-hybrid monorepo roots
-    (await generatePerPackageAssets(context, async function ({ toPackageAbsolutePath }) {
-      // TODO: don't these need to be tweaked more for monorepo packages?
-      // TODO: if so, use contextWithCwdPackage
-      return [
-        {
-          path: toPackageAbsolutePath(Tsconfig.PackageTypes),
-          generate: () => tsconfigFiles[Tsconfig.PackageTypes]
-        },
-        {
-          path: toPackageAbsolutePath(Tsconfig.PackageLint),
-          generate: () => tsconfigFiles[Tsconfig.PackageLint]
-        },
-        {
-          path: toPackageAbsolutePath(Tsconfig.PackageDocumentation),
-          generate: () => tsconfigFiles[Tsconfig.PackageDocumentation]
-        }
-      ];
-    }))
+    (await generatePerPackageAssets(
+      context,
+      async function ({ package_, toPackageAbsolutePath }) {
+        const isPackageTheRootPackage = isRootPackage(package_);
+        const selector = isPackageTheRootPackage ? 'hybrid' : 'subroot';
+
+        return [
+          {
+            path: toPackageAbsolutePath(Tsconfig.PackageTypes),
+            generate: () => tsconfigFiles[Tsconfig.PackageTypes][selector]
+          },
+          {
+            path: toPackageAbsolutePath(Tsconfig.PackageLint),
+            generate: () => tsconfigFiles[Tsconfig.PackageLint][selector]
+          },
+          {
+            path: toPackageAbsolutePath(Tsconfig.PackageDocumentation),
+            generate: () => tsconfigFiles[Tsconfig.PackageDocumentation][selector]
+          }
+        ];
+      }
+    ))
   ];
 });
