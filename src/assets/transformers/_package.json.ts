@@ -78,13 +78,13 @@ export function generateBaseXPackageJson(
     sideEffects: incomingPackageJson.sideEffects ?? false,
     type: incomingPackageJson.type ?? 'commonjs',
     exports: incomingPackageJson.exports ?? {
-      '.': {
-        types: `./dist${packagePrefix}/src/index.d.ts`,
-        default: `./dist${packagePrefix}/src/index.js`
-      },
       // ? CLI scope has its own exports entries
       ...(preset === AssetPreset.Cli
         ? {
+            '.': {
+              types: `./dist${packagePrefix}/src/cli.d.ts`,
+              default: `./dist${packagePrefix}/src/cli.js`
+            },
             './commands/*': {
               types: `./dist${packagePrefix}/src/commands/*.d.ts`,
               default: `./dist${packagePrefix}/src/commands/*.js`
@@ -94,20 +94,25 @@ export function generateBaseXPackageJson(
               default: `./dist${packagePrefix}/src/configure.js`
             }
           }
-        : {}),
+        : {
+            '.': {
+              types: `./dist${packagePrefix}/src/index.d.ts`,
+              default: `./dist${packagePrefix}/src/index.js`
+            }
+          }),
       './package': './package.json',
       './package.json': './package.json'
     },
     typesVersions: incomingPackageJson.typesVersions ?? {
       '*': {
-        index: [`dist${packagePrefix}/src/index.d.ts`],
         // ? CLI scope has its own typesVersions entries
         ...(preset === AssetPreset.Cli
           ? {
+              index: [`dist${packagePrefix}/src/cli.d.ts`],
               'commands/*': [`dist${packagePrefix}/src/commands/*.d.ts`],
               configure: [`dist${packagePrefix}/src/configure.d.ts`]
             }
-          : {}),
+          : { index: [`dist${packagePrefix}/src/index.d.ts`] }),
         package: ['package.json']
       }
     },
