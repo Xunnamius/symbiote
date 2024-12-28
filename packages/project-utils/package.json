@@ -30,6 +30,5 @@
     },
     "./package": "./package.json",
     "./package.json": "./package.json"
-  },
-  "// TODO": "we need to make sure babel is an OPTIONAL peer dependency"
+  }
 }
