@@ -10,7 +10,6 @@ import { type ExtendedDebugger } from 'multiverse+debug';
 import {
   isRootPackage,
   ProjectAttribute,
-  WorkspaceAttribute,
   type Package,
   type ProjectMetadata
 } from 'multiverse+project-utils';
