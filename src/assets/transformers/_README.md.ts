@@ -1,5 +1,5 @@
 /* eslint-disable unicorn/filename-case */
-import { ProjectAttribute } from 'multiverse+project-utils:analyze.ts';
+import { isRootPackage, ProjectAttribute } from 'multiverse+project-utils:analyze.ts';
 
 import {
   markdownReadmePackageBase,
@@ -87,22 +87,25 @@ export const { transformer } = makeTransformer(async function (context) {
 
 function replaceStandardStrings(
   content: string,
-  {
-    repoName,
-    assetPreset,
-    projectMetadata: {
-      cwdPackage: {
-        json: { name: packageName }
-      }
-    }
-  }: TransformerContext
+  { repoName, assetPreset, projectMetadata: { cwdPackage } }: TransformerContext
 ) {
+  const {
+    json: { name: packageName }
+  } = cwdPackage;
+  const isPackageTheRootPackage = isRootPackage(cwdPackage);
   const willHaveGeneratedLicense = libAssetPresets.includes(assetPreset);
+
+  const packageShortName = packageName.split('/').at(-1)!;
+  const packageNameIsShortName = packageName === packageShortName;
 
   const returnValue = content.replace(
     // ? Replace H1 with proper string
     /^# <!-- .+$/m,
-    `# ${repoName} (${packageName})`
+    isPackageTheRootPackage
+      ? `# ${repoName} (${packageName})`
+      : packageNameIsShortName
+        ? `# ${packageName}`
+        : `# ${packageShortName} (${packageName})`
   );
 
   return willHaveGeneratedLicense
