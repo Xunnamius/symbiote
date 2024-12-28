@@ -106,17 +106,10 @@ async function replaceStandardStrings(
       useCached: true
     }));
 
-  const packageShortName = packageName.split('/').at(-1)!;
-  const packageNameIsShortName = packageName === packageShortName;
-
   const returnValue = content.replace(
     // ? Replace H1 with proper string
     /^# <!-- .+$/m,
-    isPackageTheRootPackage
-      ? `# ${repoName} (${packageName})`
-      : packageNameIsShortName
-        ? `# ${packageName}`
-        : `# ${packageShortName} (${packageName})`
+    isPackageTheRootPackage ? `# ${repoName} (${packageName})` : `# ${packageName}`
   );
 
   return willHaveGeneratedLicense
