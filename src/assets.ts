@@ -10,6 +10,7 @@ import { type ExtendedDebugger } from 'multiverse+debug';
 import {
   isRootPackage,
   ProjectAttribute,
+  WorkspaceAttribute,
   type Package,
   type ProjectMetadata
 } from 'multiverse+project-utils';
@@ -248,6 +249,13 @@ export type TransformerContext = {
   /**
    * A relevant {@link AssetPreset} or `undefined` when generic versions of
    * assets should be generated.
+   *
+   * This is the preset that was passed in from a wider context, such as a
+   * renovation or initialization command. Therefore, it only applies to the
+   * current package and should be relied upon with caution when generating
+   * per-package assets. It is usually best to and assume a library-like preset
+   * (e.g. "lib-cjs") and rely on each package's attributes (i.e.
+   * `WorkspaceAttribute`).
    */
   assetPreset: AssetPreset | undefined;
   /**
@@ -620,6 +628,10 @@ async function invokeTransformerAndReifyAssets({
  * of {@link Asset}s generated per each package in {@link ProjectMetadata},
  * including the root package in hybridrepos and polyrepos (but not in
  * non-hybrid monorepos).
+ *
+ * **WARNING: be wary relying on an external {@link TransformerContext} when
+ * using this function. When context access is required, use the
+ * `contextWithCwdPackage` parameter provided to each adder function.**
  */
 export async function generatePerPackageAssets(
   transformerContext: TransformerContext,

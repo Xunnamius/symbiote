@@ -45,7 +45,7 @@ import {
   nextjsConfigProjectBase,
   packageJsonConfigPackageBase,
   readXPackageJsonAtRoot,
-  sharedConfigPackageBase,
+  sharedAttributeFileBase,
   toAbsolutePath,
   toDirname,
   toPath,
@@ -940,7 +940,7 @@ function getWorkspaceAttributes(
     if (
       isAccessibleFromRoot(
         true,
-        toRelativePath(sharedConfigPackageBase),
+        toRelativePath(sharedAttributeFileBase),
         root,
         useCached
       )
@@ -965,7 +965,7 @@ function getWorkspaceAttributes(
       if (
         await isAccessibleFromRoot(
           false,
-          toRelativePath(sharedConfigPackageBase),
+          toRelativePath(sharedAttributeFileBase),
           root,
           useCached
         )

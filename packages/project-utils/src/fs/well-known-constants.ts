@@ -246,16 +246,6 @@ export const dotEnvConfigPackageBase = '.env';
 export const dotEnvDefaultConfigPackageBase = '.env.default';
 
 /**
- * The basename of the well-known "shared package file". The presence of this
- * file at a package root signifies that commits scoped to said package will be
- * included by other packages in the project.
- *
- * By default, commits scoped to individual packages are ignored by other
- * packages.
- */
-export const sharedConfigPackageBase = '.shared';
-
-/**
  * The basename of the well-known distributables output or "dist" directory.
  */
 export const directoryDistPackageBase = 'dist';
@@ -284,3 +274,13 @@ export const directoryTestPackageBase = 'test';
  * The basename of the well-known generated documentation output directory.
  */
 export const directoryDocumentationPackageBase = 'docs';
+
+/**
+ * The basename of the well-known "shared attribute file". The presence of this
+ * file at a workspace sub-root signifies that commits scoped to said package
+ * will be included by other packages in the project.
+ *
+ * By default, commits scoped to individual packages are ignored by other
+ * packages.
+ */
+export const sharedAttributeFileBase = '.shared';

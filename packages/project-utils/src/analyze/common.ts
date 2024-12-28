@@ -12,13 +12,18 @@ import type { OmitIndexSignature, PackageJson } from 'type-fest';
 
 // @ts-expect-error: used in documentation
 import type {
-  // ? Used in documentation eslint-disable-next-line
+  // ? Used in documentation
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   nextjsConfigProjectBase,
-  // ? Used in documentation eslint-disable-next-line
+  // ? Used in documentation
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   webpackConfigProjectBase
 } from 'rootverse+project-utils:src/fs/well-known-constants.ts';
+
+// ? Used in documentation
+// @ts-expect-error: used in documentation
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+import type { sharedAttributeFileBase } from 'rootverse+project-utils:src/fs.ts';
 
 export const debug = createDebugLogger({
   namespace: `${globalDebuggerNamespace}:analyze`
@@ -183,7 +188,7 @@ export enum WorkspaceAttribute {
    */
   Webpack = 'webpack',
   /**
-   * The workspace root contains the file {@link sharedConfigPackageBase},
+   * The workspace root contains the file {@link sharedAttributeFileBase},
    * signifying that paths and commits scoped to this workspace will be
    * considered "global"; that is: as if they existed in the scopes of every
    * workspace in the project.
