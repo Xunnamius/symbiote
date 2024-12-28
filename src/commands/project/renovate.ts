@@ -279,6 +279,7 @@ export default function command(
   const { log, debug_, state, projectMetadata: projectMetadata_ } = executionContext;
 
   const [builder, withGlobalHandler] = withGlobalBuilder<CustomCliArguments>({
+    hush: { default: true },
     scope: {
       choices: projectRenovateScopes,
       default: ProjectRenovateScope.Unlimited,
