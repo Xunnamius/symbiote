@@ -123,7 +123,7 @@ async function replaceStandardStrings(
     );
   }
 
-  returnValue = content.replace(
+  returnValue = returnValue.replace(
     isPackageTheRootPackage
       ? // ? Drop "workspace-package-only" replacer region contents if in root
         makeReplacerRegionIdMatcherRegExp('workspace-package-only')
