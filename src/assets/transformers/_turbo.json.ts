@@ -1,7 +1,13 @@
-import { turboConfigProjectBase } from 'multiverse+project-utils:fs.ts';
+import {
+  turboConfigProjectBase,
+  type RelativePath
+} from 'multiverse+project-utils:fs.ts';
 
-import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
-import { stringifyJson } from 'universe:util.ts';
+import {
+  compileTemplate,
+  generateRootOnlyAssets,
+  makeTransformer
+} from 'universe:assets.ts';
 
 // {@symbiote/notExtraneous turbo}
 
@@ -13,7 +19,7 @@ export const { transformer } = makeTransformer(function (context) {
     return [
       {
         path: toProjectAbsolutePath(turboConfigProjectBase),
-        generate: () => stringifyJson({})
+        generate: () => compileTemplate(turboConfigProjectBase as RelativePath, context)
       }
     ];
   });
