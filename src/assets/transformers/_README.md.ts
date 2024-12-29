@@ -5,7 +5,6 @@ import {
   isAccessible,
   markdownLicensePackageBase,
   markdownReadmePackageBase,
-  toRelativePath,
   type RelativePath
 } from 'multiverse+project-utils:fs.ts';
 
