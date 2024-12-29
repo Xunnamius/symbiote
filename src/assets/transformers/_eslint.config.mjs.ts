@@ -5,6 +5,7 @@ import assert from 'node:assert';
 import { fixupConfigRules } from '@eslint/compat';
 import eslintJs from '@eslint/js';
 import restrictedGlobals from 'confusing-browser-globals';
+import eslintConfigTurbo from 'eslint-config-turbo/flat';
 import { flatConfigs as eslintPluginImportFlatConfigs } from 'eslint-plugin-import';
 import eslintPluginJest from 'eslint-plugin-jest';
 import eslintPluginNode from 'eslint-plugin-n';
@@ -33,6 +34,7 @@ import {
   eslintConfigProjectBase,
   getCurrentWorkingDirectory,
   isAccessible,
+  packageJsonConfigPackageBase,
   toAbsolutePath,
   toPath,
   Tsconfig,
@@ -622,7 +624,7 @@ export function moduleExport({
       eslintPluginImportFlatConfigs.typescript,
       eslintPluginUnicornRecommended,
       {
-        name: '@-xun/symbiote:base',
+        name: '@-xun/symbiote:js-and-ts',
         rules: reifiedGenericRules,
         languageOptions: {
           ecmaVersion: 'latest',
@@ -684,7 +686,7 @@ export function moduleExport({
     // * Early configs, likely overridden applying only to ANY JavaScript file
     // ? These do not apply to TypeScript files, and likely get overridden later
     {
-      name: '@-xun/symbiote:any-js-no-ts',
+      name: '@-xun/symbiote:js-no-ts',
       files: [`**/*.{${toCommaSeparatedExtensionList(extensionsJavascript)}}`],
       rules: earlyJsOnlyRules()
     },
@@ -731,7 +733,7 @@ export function moduleExport({
 
     // * Rules applying only to TypeScript files
     {
-      name: 'node/custom:typescript-only',
+      name: 'node/custom:ts-only',
       files: [`**/*.{${toCommaSeparatedExtensionList(extensionsTypescript)}}`],
       plugins: eslintPluginNodeRecommendedExtMjs.plugins,
       rules: {
@@ -751,6 +753,26 @@ export function moduleExport({
       rules: {
         ...eslintPluginJestAll.rules,
         ...jestRules()
+      }
+    },
+
+    // * Configurations applying to Turbo configuration files (turbo.json)
+    ...eslintConfigTurbo.map((config, index) => ({
+      ...config,
+      name: config.name || `turbo/recommended-${index}`
+    })),
+    {
+      name: '@-xun/symbiote:turbo',
+      // * https://www.npmjs.com/package/eslint-config-turbo
+      rules: {
+        'turbo/no-undeclared-env-vars': [
+          'error',
+          {
+            allowList: [
+              /*'^ENV_[A-Z]+$'*/
+            ]
+          }
+        ]
       }
     }
   );
@@ -825,7 +847,7 @@ export async function assertEnvironment(): Promise<
   Omit<Parameters<typeof moduleExport>[0], 'derivedAliases'>
 > {
   const currentWorkingDirectory = getCurrentWorkingDirectory();
-  const packageJsonPath = toPath(currentWorkingDirectory, 'package.json');
+  const packageJsonPath = toPath(currentWorkingDirectory, packageJsonConfigPackageBase);
 
   const packageJson = (
     await import(packageJsonPath, {
