@@ -720,11 +720,12 @@ export type XPackageJsonScripts = {
    */
   'test:packages:all'?: string;
   /**
-   * Run exclusively by Turbo tasks as a pre-execution step to rebuild the
-   * project's turbo.json file when necessary. It is therefore important that
-   * this command completes as fast as possible.
+   * Run exclusively by Turbo tasks in non-hybrid monorepos as a pre-execution
+   * step to rebuild the project's turbo.json files when necessary. It is
+   * therefore important that this command completes as fast as possible!
    *
-   * @example `NODE_NO_WARNINGS=1 symbiote project renovate --regenerate-assets --preset turbo-only`
+   * @example `NODE_NO_WARNINGS=1 symbiote project renovate --regenerate-assets
+   * --preset turbo-only`
    */
   'turbo:init'?: string;
 };

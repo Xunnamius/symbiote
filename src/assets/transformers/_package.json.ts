@@ -43,6 +43,7 @@ import { stringifyJson } from 'universe:util.ts';
 export type GeneratorParameters = [
   json: Package['json'] &
     Required<Pick<Package['json'], 'name' | 'version' | 'description'>>,
+  isHybridrepo: boolean,
   repoUrl: string,
   projectRelativePackageRoot: RelativePath | undefined,
   preset: AssetPreset | undefined
@@ -54,6 +55,7 @@ export const githubUrlRegExp = /github.com\/([^/]+)\/([^/]+?)(?:\.git)?$/;
 export function generateBaseXPackageJson(
   ...[
     incomingPackageJson,
+    _,
     repoUrl,
     projectRelativePackageRoot,
     preset
@@ -162,7 +164,6 @@ export function generateBaseXPackageJson(
       'test:package:integration': 'NODE_NO_WARNINGS=1 symbiote test --tests integration',
       'test:package:unit': 'NODE_NO_WARNINGS=1 symbiote test --tests unit',
       'test:packages:all': `NODE_NO_WARNINGS=1 symbiote test --scope ${DefaultGlobalScope.Unlimited} --coverage`,
-      'turbo:init': `NODE_NO_WARNINGS=1 symbiote project renovate --hush --regenerate-assets --assets-preset '${AssetPreset.TurboOnly}'`,
       ...incomingPackageJson.scripts
     },
     engines: incomingPackageJson.engines ?? {
@@ -180,6 +181,7 @@ export function generateBaseXPackageJson(
 export function generatePolyrepoXPackageJson(
   ...[
     incomingPackageJson,
+    isHybridrepo,
     repoUrl,
     projectRelativePackageRoot,
     preset
@@ -188,6 +190,7 @@ export function generatePolyrepoXPackageJson(
   return {
     ...generateBaseXPackageJson(
       incomingPackageJson,
+      isHybridrepo,
       repoUrl,
       projectRelativePackageRoot,
       preset
@@ -203,6 +206,7 @@ export function generatePolyrepoXPackageJson(
 export function generateNonHybridMonorepoProjectXPackageJson(
   ...[
     incomingPackageJson,
+    isHybridrepo,
     repoUrl,
     projectRelativePackageRoot,
     preset
@@ -210,13 +214,18 @@ export function generateNonHybridMonorepoProjectXPackageJson(
 ) {
   // ? Filter out what's not allowed in non-hybrid monorepo root package.json
   const {
+    // ? Can't have a bare lint/build/test/release script because Turbo will try
+    // ? to run it, which we don't want in a non-hybrid monorepo context.
     scripts: {
       build: _1,
       'build:changelog': _2,
       'build:dist': _3,
       'build:docs': _4,
+      lint: _13,
       'lint:package': _6,
+      // 'list-tasks': is overwritten below
       release: _12,
+      test: _14,
       'test:package:all': _7,
       'test:package:e2e': _8,
       'test:package:integration': _9,
@@ -227,6 +236,7 @@ export function generateNonHybridMonorepoProjectXPackageJson(
     ...incomingBaseJson
   } = generateBaseXPackageJson(
     incomingPackageJson,
+    isHybridrepo,
     repoUrl,
     projectRelativePackageRoot,
     preset
@@ -249,9 +259,8 @@ export function generateNonHybridMonorepoProjectXPackageJson(
     private: true,
     scripts: {
       ...incomingBaseScripts,
-      lint: 'npm run lint:packages --',
       'list-tasks': `NODE_NO_WARNINGS=1 symbiote list-tasks${scopeUnlimitedArg}`,
-      test: 'npm run test:packages:all --'
+      'turbo:init': `NODE_NO_WARNINGS=1 symbiote project renovate --hush --regenerate-assets --assets-preset '${AssetPreset.TurboOnly}'`
     }
   } as const satisfies XPackageJsonMonorepoRoot;
 }
@@ -260,6 +269,7 @@ export function generateNonHybridMonorepoProjectXPackageJson(
 export function generateHybridrepoProjectXPackageJson(
   ...[
     incomingPackageJson,
+    isHybridrepo,
     repoUrl,
     projectRelativePackageRoot,
     preset
@@ -268,6 +278,7 @@ export function generateHybridrepoProjectXPackageJson(
   const { private: _, ...incomingMonorepoJson } =
     generateNonHybridMonorepoProjectXPackageJson(
       incomingPackageJson,
+      isHybridrepo,
       repoUrl,
       projectRelativePackageRoot,
       preset
@@ -277,6 +288,7 @@ export function generateHybridrepoProjectXPackageJson(
     ...incomingMonorepoJson,
     ...generatePolyrepoXPackageJson(
       incomingPackageJson,
+      isHybridrepo,
       repoUrl,
       projectRelativePackageRoot,
       preset
@@ -289,6 +301,7 @@ export function generateHybridrepoProjectXPackageJson(
 export function generateSubRootXPackageJson(
   ...[
     incomingPackageJson,
+    isHybridrepo,
     repoUrl,
     projectRelativePackageRoot,
     preset
@@ -296,10 +309,11 @@ export function generateSubRootXPackageJson(
 ) {
   // ? Filter out what's not allowed in sub-root package.json
   const {
-    scripts: { prepare: _1, renovate: _2, 'turbo:init': _3, ...incomingBaseScripts },
+    scripts: { prepare: _1, renovate: _2, release, build, ...incomingBaseScripts },
     ...incomingBaseJson
   } = generateBaseXPackageJson(
     incomingPackageJson,
+    isHybridrepo,
     repoUrl,
     projectRelativePackageRoot,
     preset
@@ -307,7 +321,11 @@ export function generateSubRootXPackageJson(
 
   return {
     ...incomingBaseJson,
-    scripts: incomingBaseScripts
+    // ? Hybridrepo non-root packages should not be built, released, or marked
+    // ? non-private since they're temporary and meant to be moved into their
+    // ? own repos eventually. But they still retain "build:dist" just in case
+    scripts: { ...incomingBaseScripts, ...(!isHybridrepo ? { build, release } : {}) },
+    ...(isHybridrepo ? { private: true } : {})
   } as const satisfies XPackageJsonSubRoot;
 }
 
@@ -384,10 +402,11 @@ export const { transformer } = makeTransformer(function (context) {
       const ownerAndRepo = parsePackageJsonRepositoryIntoOwnerAndRepo(packageJson);
       const repoUrl = deriveGitHubUrl(ownerAndRepo);
 
+      const isHybridrepo = !!projectAttributes[ProjectAttribute.Hybridrepo];
       const isNonHybridMonorepoRootPackage =
         isPackageTheRootPackage &&
         projectAttributes[ProjectAttribute.Monorepo] &&
-        !projectAttributes[ProjectAttribute.Hybridrepo];
+        !isHybridrepo;
 
       const assetPreset =
         scope === DefaultGlobalScope.ThisPackage || isPackageTheRootPackage
@@ -461,6 +480,7 @@ export const { transformer } = makeTransformer(function (context) {
               return stringify(
                 generatePolyrepoXPackageJson(
                   finalPackageJson,
+                  isHybridrepo,
                   repoUrl,
                   projectRelativePackageRoot,
                   assetPreset
@@ -475,7 +495,7 @@ export const { transformer } = makeTransformer(function (context) {
         const path = toProjectAbsolutePath(relativeRoot, packageJsonConfigPackageBase);
 
         if (isPackageTheRootPackage) {
-          return projectAttributes[ProjectAttribute.Hybridrepo]
+          return isHybridrepo
             ? [
                 {
                   path,
@@ -485,6 +505,7 @@ export const { transformer } = makeTransformer(function (context) {
                     return stringify(
                       generateHybridrepoProjectXPackageJson(
                         finalPackageJson,
+                        isHybridrepo,
                         repoUrl,
                         projectRelativePackageRoot,
                         assetPreset
@@ -503,6 +524,7 @@ export const { transformer } = makeTransformer(function (context) {
                     return stringify(
                       generateNonHybridMonorepoProjectXPackageJson(
                         finalPackageJson,
+                        isHybridrepo,
                         repoUrl,
                         projectRelativePackageRoot,
                         assetPreset
@@ -522,6 +544,7 @@ export const { transformer } = makeTransformer(function (context) {
                 return stringify(
                   generateSubRootXPackageJson(
                     finalPackageJson,
+                    isHybridrepo,
                     repoUrl,
                     projectRelativePackageRoot,
                     assetPreset
