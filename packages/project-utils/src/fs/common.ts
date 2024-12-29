@@ -82,9 +82,6 @@ export function toRelativePath(from: string, to: string): RelativePath;
  * as-is without any modifications. Otherwise, a {@link RelativePath} from
  * `process.cwd()` to `to` will be returned.
  *
- * Note that the returned path will never start with `./` (this prefix is
- * elided), but may start with `../`.
- *
  * @see {@link resolve}
  */
 export function toRelativePath(to: string): RelativePath;
