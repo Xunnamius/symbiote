@@ -28,6 +28,7 @@ import { version as symbioteVersion } from 'rootverse:package.json';
 
 import {
   AssetPreset,
+  assetPresets,
   compileTemplateInMemory,
   definedNonBasicAssetPresets,
   generatePerPackageAssets,
@@ -153,7 +154,7 @@ export function generateBaseXPackageJson(
       'list-tasks': `NODE_NO_WARNINGS=1 symbiote list-tasks --scope ${DefaultGlobalScope.ThisPackage}`,
       prepare: 'NODE_NO_WARNINGS=1 symbiote project prepare',
       release: 'NODE_NO_WARNINGS=1 symbiote release',
-      renovate: `NODE_NO_WARNINGS=1 symbiote project renovate --hush --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'`,
+      renovate: `NODE_NO_WARNINGS=1 symbiote project renovate --hush --github-reconfigure-repo --regenerate-assets --assets-preset '${assetPresets.join(' ')}'`,
       start: 'NODE_NO_WARNINGS=1 symbiote start --',
       test: 'npm run test:package:unit --',
       'test:package:all': 'NODE_NO_WARNINGS=1 symbiote test --coverage',
@@ -161,6 +162,7 @@ export function generateBaseXPackageJson(
       'test:package:integration': 'NODE_NO_WARNINGS=1 symbiote test --tests integration',
       'test:package:unit': 'NODE_NO_WARNINGS=1 symbiote test --tests unit',
       'test:packages:all': `NODE_NO_WARNINGS=1 symbiote test --scope ${DefaultGlobalScope.Unlimited} --coverage`,
+      'turbo:init': `NODE_NO_WARNINGS=1 symbiote project renovate --hush --regenerate-assets --assets-preset '${AssetPreset.TurboOnly}'`,
       ...incomingPackageJson.scripts
     },
     engines: incomingPackageJson.engines ?? {
@@ -294,7 +296,7 @@ export function generateSubRootXPackageJson(
 ) {
   // ? Filter out what's not allowed in sub-root package.json
   const {
-    scripts: { prepare: _1, renovate: _2, ...incomingBaseScripts },
+    scripts: { prepare: _1, renovate: _2, 'turbo:init': _3, ...incomingBaseScripts },
     ...incomingBaseJson
   } = generateBaseXPackageJson(
     incomingPackageJson,
