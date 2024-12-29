@@ -24,7 +24,8 @@ export const { transformer } = makeTransformer(function (context) {
     return [
       {
         path: toProjectAbsolutePath(markdownContributingProjectBase),
-        generate: () => compileTemplate('CONTRIBUTING.md' as RelativePath, context)
+        generate: () =>
+          compileTemplate(markdownContributingProjectBase as RelativePath, context)
       }
     ];
   });

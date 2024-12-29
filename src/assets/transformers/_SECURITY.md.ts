@@ -18,7 +18,8 @@ export const { transformer } = makeTransformer(function (context) {
     return [
       {
         path: toProjectAbsolutePath(markdownSecurityProjectBase),
-        generate: () => compileTemplate('SECURITY.md' as RelativePath, context)
+        generate: () =>
+          compileTemplate(markdownSecurityProjectBase as RelativePath, context)
       }
     ];
   });

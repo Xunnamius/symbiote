@@ -28,7 +28,10 @@ export const { transformer } = makeTransformer(function (context) {
         {
           path: toPackageAbsolutePath(markdownLicensePackageBase),
           generate: () =>
-            compileTemplate('LICENSE' as RelativePath, contextWithCwdPackage)
+            compileTemplate(
+              markdownLicensePackageBase as RelativePath,
+              contextWithCwdPackage
+            )
         }
       ];
     },
