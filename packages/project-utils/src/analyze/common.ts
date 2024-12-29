@@ -719,6 +719,14 @@ export type XPackageJsonScripts = {
    * @example `NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage`
    */
   'test:packages:all'?: string;
+  /**
+   * Run exclusively by Turbo tasks as a pre-execution step to rebuild the
+   * project's turbo.json file when necessary. It is therefore important that
+   * this command completes as fast as possible.
+   *
+   * @example `NODE_NO_WARNINGS=1 symbiote project renovate --regenerate-assets --preset turbo-only`
+   */
+  'turbo:init'?: string;
 };
 
 /**
