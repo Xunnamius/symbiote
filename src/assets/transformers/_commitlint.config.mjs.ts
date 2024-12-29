@@ -1,7 +1,11 @@
 import { commitlintConfigProjectBase } from 'multiverse+project-utils:fs.ts';
 
 import { wellKnownCommitTypes } from 'universe:assets/transformers/_conventional.config.cjs.ts';
-import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
+import {
+  definedNonBasicAssetPresets,
+  generateRootOnlyAssets,
+  makeTransformer
+} from 'universe:assets.ts';
 import { globalDebuggerNamespace } from 'universe:constant.ts';
 
 // {@symbiote/notExtraneous @commitlint/cli @commitlint/config-conventional}
@@ -43,7 +47,12 @@ export function moduleExport() {
 }
 
 export const { transformer } = makeTransformer(function (context) {
-  const { asset, toProjectAbsolutePath } = context;
+  const { asset, toProjectAbsolutePath, assetPreset } = context;
+
+  // * Do not generate any files when using the "wrong" preset
+  if (definedNonBasicAssetPresets.includes(assetPreset)) {
+    return [];
+  }
 
   // * Only the root package gets these files
   return generateRootOnlyAssets(context, async function () {

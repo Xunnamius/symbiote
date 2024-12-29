@@ -11,6 +11,7 @@ import {
 
 import {
   compileTemplate,
+  definedNonBasicAssetPresets,
   generatePerPackageAssets,
   generateRootOnlyAssets,
   libAssetPresets,
@@ -29,8 +30,14 @@ export const { transformer } = makeTransformer(async function (context) {
     projectMetadata: {
       type,
       rootPackage: { attributes: projectAttributes }
-    }
+    },
+    assetPreset
   } = context;
+
+  // * Do not generate any files when using the "wrong" preset
+  if (definedNonBasicAssetPresets.includes(assetPreset)) {
+    return [];
+  }
 
   return [
     ...// * Only the root package of a non-hybrid monorepo gets these files
@@ -51,7 +58,7 @@ export const { transformer } = makeTransformer(async function (context) {
             return replaceRegionsRespectively({
               outputPath: path,
               templateContent: await replaceStandardStrings(
-                await compileTemplate(toRelativePath('README.monorepo.md'), context),
+                await compileTemplate('README.monorepo.md' as RelativePath, context),
                 context
               ),
               context

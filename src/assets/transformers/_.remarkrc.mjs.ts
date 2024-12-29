@@ -10,7 +10,11 @@ import { ProjectError } from 'multiverse+project-utils:error.ts';
 import { remarkConfigProjectBase } from 'multiverse+project-utils:fs.ts';
 import { createDebugLogger } from 'multiverse+rejoinder';
 
-import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
+import {
+  definedNonBasicAssetPresets,
+  generateRootOnlyAssets,
+  makeTransformer
+} from 'universe:assets.ts';
 import { globalDebuggerNamespace } from 'universe:constant.ts';
 import { ErrorMessage } from 'universe:error.ts';
 
@@ -300,7 +304,12 @@ export async function assertEnvironment(): Promise<Parameters<typeof moduleExpor
 }
 
 export const { transformer } = makeTransformer(function (context) {
-  const { asset, toProjectAbsolutePath } = context;
+  const { asset, toProjectAbsolutePath, assetPreset } = context;
+
+  // * Do not generate any files when using the "wrong" preset
+  if (definedNonBasicAssetPresets.includes(assetPreset)) {
+    return [];
+  }
 
   // * Only the root package gets these files
   return generateRootOnlyAssets(context, async function () {

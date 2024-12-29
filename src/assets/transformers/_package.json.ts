@@ -29,6 +29,7 @@ import { version as symbioteVersion } from 'rootverse:package.json';
 import {
   AssetPreset,
   compileTemplateInMemory,
+  definedNonBasicAssetPresets,
   generatePerPackageAssets,
   makeTransformer,
   type TransformerContext
@@ -364,6 +365,11 @@ export const { transformer } = makeTransformer(function (context) {
     assetPreset: incomingAssetPreset,
     debug
   } = context;
+
+  // * Do not generate any files when using the "wrong" preset
+  if (definedNonBasicAssetPresets.includes(incomingAssetPreset)) {
+    return [];
+  }
 
   // * Every package gets these files, including non-hybrid monorepo roots
   return generatePerPackageAssets(

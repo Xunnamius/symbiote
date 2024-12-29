@@ -1,9 +1,22 @@
 import { directorySrcPackageBase, isAccessible } from 'multiverse+project-utils:fs.ts';
 
-import { generatePerPackageAssets, makeTransformer } from 'universe:assets.ts';
+import {
+  definedNonBasicAssetPresets,
+  generatePerPackageAssets,
+  makeTransformer
+} from 'universe:assets.ts';
 
 export const { transformer } = makeTransformer(function (context) {
-  const { toProjectAbsolutePath, forceOverwritePotentiallyDestructive: force } = context;
+  const {
+    toProjectAbsolutePath,
+    forceOverwritePotentiallyDestructive: force,
+    assetPreset
+  } = context;
+
+  // * Do not generate any files when using the "wrong" preset
+  if (definedNonBasicAssetPresets.includes(assetPreset)) {
+    return [];
+  }
 
   // * Every package gets these files except non-hybrid monorepo roots
   return generatePerPackageAssets(context, async function ({ toPackageAbsolutePath }) {

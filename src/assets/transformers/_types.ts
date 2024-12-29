@@ -1,9 +1,19 @@
 import { directoryTypesProjectBase, isAccessible } from 'multiverse+project-utils:fs.ts';
 
-import { generateRootOnlyAssets, makeTransformer, type Asset } from 'universe:assets.ts';
+import {
+  definedNonBasicAssetPresets,
+  generateRootOnlyAssets,
+  makeTransformer,
+  type Asset
+} from 'universe:assets.ts';
 
 export const { transformer } = makeTransformer(function (context) {
-  const { toProjectAbsolutePath } = context;
+  const { toProjectAbsolutePath, assetPreset } = context;
+
+  // * Do not generate any files when using the "wrong" preset
+  if (definedNonBasicAssetPresets.includes(assetPreset)) {
+    return [];
+  }
 
   // * Only the root package gets these files
   return generateRootOnlyAssets(context, async function () {

@@ -1,12 +1,22 @@
 import { ncuConfigProjectBase } from 'multiverse+project-utils:fs.ts';
 
-import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
+import {
+  definedNonBasicAssetPresets,
+  generateRootOnlyAssets,
+  makeTransformer
+} from 'universe:assets.ts';
+
 import { globalDebuggerNamespace } from 'universe:constant.ts';
 
 // {@symbiote/notExtraneous npm-check-updates}
 
 export const { transformer } = makeTransformer(function (context) {
-  const { toProjectAbsolutePath } = context;
+  const { toProjectAbsolutePath, assetPreset } = context;
+
+  // * Do not generate any files when using the "wrong" preset
+  if (definedNonBasicAssetPresets.includes(assetPreset)) {
+    return [];
+  }
 
   // * Only the root package gets these files
   return generateRootOnlyAssets(context, async function () {
