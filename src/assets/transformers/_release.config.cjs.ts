@@ -141,6 +141,7 @@ export function moduleExport({
       // * Prepare
 
       [
+        // This comes bundled with semantic-release
         '@semantic-release/commit-analyzer',
         {
           parserOpts,
