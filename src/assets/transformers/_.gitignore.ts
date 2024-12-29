@@ -54,6 +54,7 @@ bower_components
 build/Release
 .vercel
 .next
+.turbo
 next-env.d.ts
 
 # Ignore cloned GitHub wiki (do not regard it as a so-called "submodule")
