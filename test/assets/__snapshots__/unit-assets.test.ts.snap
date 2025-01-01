@@ -242,8 +242,6 @@ good-hybridrepo-description
 
 <!-- symbiote-template-region-start 3 -->
 
-<br />
-
 ---
 
 <!-- remark-ignore-start -->
@@ -2396,6 +2394,27 @@ exports[`::gatherAssetsFromAllTransformers preset: react generates expected asse
   "tsc.package.lint.json",
   "tsc.package.docs.json",
   "tstyche.config.json",
+  "turbo.json",
+]
+`;
+
+exports[`::gatherAssetsFromAllTransformers preset: turbo-only generates expected assets at hybridrepo 1`] = `
+[
+  "eslint.config.mjs",
+  "turbo.json",
+]
+`;
+
+exports[`::gatherAssetsFromAllTransformers preset: turbo-only generates expected assets at non-hybrid monorepo 1`] = `
+[
+  "eslint.config.mjs",
+  "turbo.json",
+]
+`;
+
+exports[`::gatherAssetsFromAllTransformers preset: turbo-only generates expected assets for polyrepo 1`] = `
+[
+  "eslint.config.mjs",
   "turbo.json",
 ]
 `;
@@ -7522,6 +7541,7 @@ bower_components
 build/Release
 .vercel
 .next
+.turbo
 next-env.d.ts
 
 # Ignore cloned GitHub wiki (do not regard it as a so-called "submodule")
@@ -7586,6 +7606,8 @@ $RECYCLE.BIN
 *.lnk
 _book
 CertificateAuthorityCertificate.pem
+
+# Custom
 "
 `;
 
@@ -7636,6 +7658,7 @@ bower_components
 build/Release
 .vercel
 .next
+.turbo
 next-env.d.ts
 
 # Ignore cloned GitHub wiki (do not regard it as a so-called "submodule")
@@ -7700,6 +7723,8 @@ $RECYCLE.BIN
 *.lnk
 _book
 CertificateAuthorityCertificate.pem
+
+# Custom
 "
 `;
 
@@ -7750,6 +7775,7 @@ bower_components
 build/Release
 .vercel
 .next
+.turbo
 next-env.d.ts
 
 # Ignore cloned GitHub wiki (do not regard it as a so-called "submodule")
@@ -7814,6 +7840,8 @@ $RECYCLE.BIN
 *.lnk
 _book
 CertificateAuthorityCertificate.pem
+
+# Custom
 "
 `;
 
@@ -7864,6 +7892,7 @@ bower_components
 build/Release
 .vercel
 .next
+.turbo
 next-env.d.ts
 
 # Ignore cloned GitHub wiki (do not regard it as a so-called "submodule")
@@ -7928,6 +7957,8 @@ $RECYCLE.BIN
 *.lnk
 _book
 CertificateAuthorityCertificate.pem
+
+# Custom
 "
 `;
 
@@ -7978,6 +8009,7 @@ bower_components
 build/Release
 .vercel
 .next
+.turbo
 next-env.d.ts
 
 # Ignore cloned GitHub wiki (do not regard it as a so-called "submodule")
@@ -8042,6 +8074,8 @@ $RECYCLE.BIN
 *.lnk
 _book
 CertificateAuthorityCertificate.pem
+
+# Custom
 "
 `;
 
@@ -8092,6 +8126,7 @@ bower_components
 build/Release
 .vercel
 .next
+.turbo
 next-env.d.ts
 
 # Ignore cloned GitHub wiki (do not regard it as a so-called "submodule")
@@ -8156,6 +8191,8 @@ $RECYCLE.BIN
 *.lnk
 _book
 CertificateAuthorityCertificate.pem
+
+# Custom
 "
 `;
 
@@ -8206,6 +8243,7 @@ bower_components
 build/Release
 .vercel
 .next
+.turbo
 next-env.d.ts
 
 # Ignore cloned GitHub wiki (do not regard it as a so-called "submodule")
@@ -8270,6 +8308,8 @@ $RECYCLE.BIN
 *.lnk
 _book
 CertificateAuthorityCertificate.pem
+
+# Custom
 "
 `;
 
@@ -8320,6 +8360,7 @@ bower_components
 build/Release
 .vercel
 .next
+.turbo
 next-env.d.ts
 
 # Ignore cloned GitHub wiki (do not regard it as a so-called "submodule")
@@ -8384,6 +8425,8 @@ $RECYCLE.BIN
 *.lnk
 _book
 CertificateAuthorityCertificate.pem
+
+# Custom
 "
 `;
 
@@ -9242,6 +9285,8 @@ fixtures
 
 # Ignore random nothingness in any subdir
 .DS_Store
+
+# Custom
 "
 `;
 
@@ -9300,6 +9345,8 @@ fixtures
 
 # Ignore random nothingness in any subdir
 .DS_Store
+
+# Custom
 "
 `;
 
@@ -9358,6 +9405,8 @@ fixtures
 
 # Ignore random nothingness in any subdir
 .DS_Store
+
+# Custom
 "
 `;
 
@@ -9416,6 +9465,8 @@ fixtures
 
 # Ignore random nothingness in any subdir
 .DS_Store
+
+# Custom
 "
 `;
 
@@ -9474,6 +9525,8 @@ fixtures
 
 # Ignore random nothingness in any subdir
 .DS_Store
+
+# Custom
 "
 `;
 
@@ -9532,6 +9585,8 @@ fixtures
 
 # Ignore random nothingness in any subdir
 .DS_Store
+
+# Custom
 "
 `;
 
@@ -9590,6 +9645,8 @@ fixtures
 
 # Ignore random nothingness in any subdir
 .DS_Store
+
+# Custom
 "
 `;
 
@@ -9648,6 +9705,8 @@ fixtures
 
 # Ignore random nothingness in any subdir
 .DS_Store
+
+# Custom
 "
 `;
 
@@ -16541,8 +16600,6 @@ good-hybridrepo-description
 
 <!-- symbiote-template-region-start 3 -->
 
-<br />
-
 ---
 
 <!-- remark-ignore-start -->
@@ -16829,8 +16886,6 @@ good-hybridrepo-description
 good-hybridrepo-description
 
 <!-- symbiote-template-region-start 3 -->
-
-<br />
 
 ---
 
@@ -17119,8 +17174,6 @@ TODO <!-- TODO -->
 
 <!-- symbiote-template-region-start 3 -->
 
-<br />
-
 ---
 
 <!-- remark-ignore-start -->
@@ -17384,8 +17437,6 @@ TODO <!-- TODO: a brief description/blurb -->
 TODO <!-- TODO -->
 
 <!-- symbiote-template-region-start 3 -->
-
-<br />
 
 ---
 
@@ -17651,8 +17702,6 @@ TODO <!-- TODO -->
 
 <!-- symbiote-template-region-start 3 -->
 
-<br />
-
 ---
 
 <!-- remark-ignore-start -->
@@ -17916,8 +17965,6 @@ good-hybridrepo-description
 good-hybridrepo-description
 
 <!-- symbiote-template-region-start 3 -->
-
-<br />
 
 ---
 
@@ -18206,8 +18253,6 @@ TODO <!-- TODO -->
 
 <!-- symbiote-template-region-start 3 -->
 
-<br />
-
 ---
 
 <!-- remark-ignore-start -->
@@ -18471,8 +18516,6 @@ TODO <!-- TODO: a brief description/blurb -->
 TODO <!-- TODO -->
 
 <!-- symbiote-template-region-start 3 -->
-
-<br />
 
 ---
 
@@ -18738,8 +18781,6 @@ TODO <!-- TODO -->
 
 <!-- symbiote-template-region-start 3 -->
 
-<br />
-
 ---
 
 <!-- remark-ignore-start -->
@@ -19003,8 +19044,6 @@ TODO <!-- TODO: a brief description/blurb -->
 TODO <!-- TODO -->
 
 <!-- symbiote-template-region-start 3 -->
-
-<br />
 
 ---
 
@@ -19278,8 +19317,6 @@ TODO <!-- TODO -->
 
 <!-- symbiote-template-region-start 3 -->
 
-<br />
-
 ---
 
 <!-- remark-ignore-start -->
@@ -19544,8 +19581,6 @@ TODO <!-- TODO -->
 
 <!-- symbiote-template-region-start 3 -->
 
-<br />
-
 ---
 
 <!-- remark-ignore-start -->
@@ -19809,8 +19844,6 @@ TODO <!-- TODO: a brief description/blurb -->
 TODO <!-- TODO -->
 
 <!-- symbiote-template-region-start 3 -->
-
-<br />
 
 ---
 
@@ -20084,8 +20117,6 @@ TODO <!-- TODO -->
 
 <!-- symbiote-template-region-start 3 -->
 
-<br />
-
 ---
 
 <!-- remark-ignore-start -->
@@ -20349,8 +20380,6 @@ TODO <!-- TODO: a brief description/blurb -->
 TODO <!-- TODO -->
 
 <!-- symbiote-template-region-start 3 -->
-
-<br />
 
 ---
 
@@ -20616,8 +20645,6 @@ TODO <!-- TODO -->
 
 <!-- symbiote-template-region-start 3 -->
 
-<br />
-
 ---
 
 <!-- remark-ignore-start -->
@@ -20881,8 +20908,6 @@ TODO <!-- TODO: a brief description/blurb -->
 TODO <!-- TODO -->
 
 <!-- symbiote-template-region-start 3 -->
-
-<br />
 
 ---
 
@@ -21171,8 +21196,6 @@ TODO <!-- TODO -->
 
 <!-- symbiote-template-region-start 3 -->
 
-<br />
-
 ---
 
 <!-- remark-ignore-start -->
@@ -21459,8 +21482,6 @@ TODO <!-- TODO: a brief description/blurb -->
 TODO <!-- TODO -->
 
 <!-- symbiote-template-region-start 3 -->
-
-<br />
 
 ---
 
@@ -24575,7 +24596,7 @@ scope: this-package
 ⏶⏷⏶⏷⏶
 {
   "devDependencies": {
-    "@-xun/symbiote": "^2.1.0"
+    "@-xun/symbiote": "^2.2.0"
   },
   "workspaces": [
     "packages/*"
@@ -24645,7 +24666,7 @@ scope: this-package
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
     "prepare": "NODE_NO_WARNINGS=1 symbiote project prepare",
     "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --hush --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'",
+    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs turbo-only'",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "npm run test:package:unit --",
     "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
@@ -24666,7 +24687,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 {
   "devDependencies": {
-    "@-xun/symbiote": "^2.1.0"
+    "@-xun/symbiote": "^2.2.0"
   },
   "workspaces": [
     "packages/*",
@@ -24734,7 +24755,7 @@ scope: unlimited
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
     "prepare": "NODE_NO_WARNINGS=1 symbiote project prepare",
     "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --hush --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'",
+    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs turbo-only'",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "npm run test:package:unit --",
     "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
@@ -24819,7 +24840,6 @@ scope: unlimited
     "registry": "https://registry.npmjs.org"
   },
   "scripts": {
-    "build": "npm run build:dist --",
     "build:changelog": "NODE_NO_WARNINGS=1 symbiote build changelog",
     "build:dist": "NODE_NO_WARNINGS=1 symbiote build distributables",
     "build:docs": "NODE_NO_WARNINGS=1 symbiote build docs",
@@ -24831,7 +24851,6 @@ scope: unlimited
     "lint:packages": "NODE_NO_WARNINGS=1 symbiote lint --scope unlimited",
     "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
-    "release": "NODE_NO_WARNINGS=1 symbiote release",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "npm run test:package:unit --",
     "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
@@ -24839,7 +24858,8 @@ scope: unlimited
     "test:package:integration": "NODE_NO_WARNINGS=1 symbiote test --tests integration",
     "test:package:unit": "NODE_NO_WARNINGS=1 symbiote test --tests unit",
     "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage"
-  }
+  },
+  "private": true
 }
 "
 `;
@@ -24898,7 +24918,6 @@ scope: unlimited
     "registry": "https://registry.npmjs.org"
   },
   "scripts": {
-    "build": "npm run build:dist --",
     "build:changelog": "NODE_NO_WARNINGS=1 symbiote build changelog",
     "build:dist": "NODE_NO_WARNINGS=1 symbiote build distributables",
     "build:docs": "NODE_NO_WARNINGS=1 symbiote build docs",
@@ -24910,7 +24929,6 @@ scope: unlimited
     "lint:packages": "NODE_NO_WARNINGS=1 symbiote lint --scope unlimited",
     "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
-    "release": "NODE_NO_WARNINGS=1 symbiote release",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "npm run test:package:unit --",
     "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
@@ -24979,7 +24997,6 @@ scope: unlimited
     "registry": "https://registry.npmjs.org"
   },
   "scripts": {
-    "build": "npm run build:dist --",
     "build:changelog": "NODE_NO_WARNINGS=1 symbiote build changelog",
     "build:dist": "NODE_NO_WARNINGS=1 symbiote build distributables",
     "build:docs": "NODE_NO_WARNINGS=1 symbiote build docs",
@@ -24991,7 +25008,6 @@ scope: unlimited
     "lint:packages": "NODE_NO_WARNINGS=1 symbiote lint --scope unlimited",
     "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
-    "release": "NODE_NO_WARNINGS=1 symbiote release",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "npm run test:package:unit --",
     "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
@@ -24999,7 +25015,8 @@ scope: unlimited
     "test:package:integration": "NODE_NO_WARNINGS=1 symbiote test --tests integration",
     "test:package:unit": "NODE_NO_WARNINGS=1 symbiote test --tests unit",
     "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage"
-  }
+  },
+  "private": true
 }
 "
 `;
@@ -25010,7 +25027,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 {
   "devDependencies": {
-    "@-xun/symbiote": "^2.1.0"
+    "@-xun/symbiote": "^2.2.0"
   },
   "workspaces": [
     "packages/*"
@@ -25080,7 +25097,7 @@ scope: unlimited
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
     "prepare": "NODE_NO_WARNINGS=1 symbiote project prepare",
     "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --hush --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'",
+    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs turbo-only'",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "npm run test:package:unit --",
     "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
@@ -25166,7 +25183,6 @@ scope: unlimited
     "registry": "https://registry.npmjs.org"
   },
   "scripts": {
-    "build": "npm run build:dist --",
     "build:changelog": "NODE_NO_WARNINGS=1 symbiote build changelog",
     "build:dist": "NODE_NO_WARNINGS=1 symbiote build distributables",
     "build:docs": "NODE_NO_WARNINGS=1 symbiote build docs",
@@ -25178,7 +25194,6 @@ scope: unlimited
     "lint:packages": "NODE_NO_WARNINGS=1 symbiote lint --scope unlimited",
     "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
-    "release": "NODE_NO_WARNINGS=1 symbiote release",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "echo 'it works!'",
     "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
@@ -25186,7 +25201,8 @@ scope: unlimited
     "test:package:integration": "NODE_NO_WARNINGS=1 symbiote test --tests integration",
     "test:package:unit": "NODE_NO_WARNINGS=1 symbiote test --tests unit",
     "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage"
-  }
+  },
+  "private": true
 }
 "
 `;
@@ -25240,7 +25256,6 @@ scope: unlimited
     "registry": "https://registry.npmjs.org"
   },
   "scripts": {
-    "build": "npm run build:dist --",
     "build:changelog": "NODE_NO_WARNINGS=1 symbiote build changelog",
     "build:dist": "NODE_NO_WARNINGS=1 symbiote build distributables",
     "build:docs": "NODE_NO_WARNINGS=1 symbiote build docs",
@@ -25252,7 +25267,6 @@ scope: unlimited
     "lint:packages": "NODE_NO_WARNINGS=1 symbiote lint --scope unlimited",
     "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
-    "release": "NODE_NO_WARNINGS=1 symbiote release",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "echo 'it works!'",
     "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
@@ -25316,7 +25330,6 @@ scope: unlimited
     "registry": "https://registry.npmjs.org"
   },
   "scripts": {
-    "build": "npm run build:dist --",
     "build:changelog": "NODE_NO_WARNINGS=1 symbiote build changelog",
     "build:dist": "NODE_NO_WARNINGS=1 symbiote build distributables",
     "build:docs": "NODE_NO_WARNINGS=1 symbiote build docs",
@@ -25328,7 +25341,6 @@ scope: unlimited
     "lint:packages": "NODE_NO_WARNINGS=1 symbiote lint --scope unlimited",
     "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
-    "release": "NODE_NO_WARNINGS=1 symbiote release",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "echo 'it works!'",
     "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
@@ -25336,7 +25348,8 @@ scope: unlimited
     "test:package:integration": "NODE_NO_WARNINGS=1 symbiote test --tests integration",
     "test:package:unit": "NODE_NO_WARNINGS=1 symbiote test --tests unit",
     "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage"
-  }
+  },
+  "private": true
 }
 "
 `;
@@ -25390,7 +25403,6 @@ scope: this-package
     "registry": "https://registry.npmjs.org"
   },
   "scripts": {
-    "build": "npm run build:dist --",
     "build:changelog": "NODE_NO_WARNINGS=1 symbiote build changelog",
     "build:dist": "NODE_NO_WARNINGS=1 symbiote build distributables",
     "build:docs": "NODE_NO_WARNINGS=1 symbiote build docs",
@@ -25402,14 +25414,15 @@ scope: this-package
     "lint:packages": "NODE_NO_WARNINGS=1 symbiote lint --scope unlimited",
     "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
-    "release": "NODE_NO_WARNINGS=1 symbiote release",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "echo 'it works!'",
     "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
     "test:package:e2e": "NODE_NO_WARNINGS=1 symbiote test --tests end-to-end",
     "test:package:integration": "NODE_NO_WARNINGS=1 symbiote test --tests integration",
     "test:package:unit": "NODE_NO_WARNINGS=1 symbiote test --tests unit",
-    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage"
+    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage",
+    "build": "npm run build:dist --",
+    "release": "NODE_NO_WARNINGS=1 symbiote release"
   }
 }
 "
@@ -25477,15 +25490,14 @@ scope: unlimited
     "clean": "NODE_NO_WARNINGS=1 symbiote clean --scope unlimited",
     "format": "NODE_NO_WARNINGS=1 symbiote format --hush --scope unlimited",
     "info": "NODE_NO_WARNINGS=1 symbiote project info",
-    "lint": "npm run lint:packages --",
     "lint:packages": "NODE_NO_WARNINGS=1 symbiote lint --scope unlimited",
     "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope unlimited",
     "prepare": "NODE_NO_WARNINGS=1 symbiote project prepare",
-    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --hush --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'",
+    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs turbo-only'",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
-    "test": "npm run test:packages:all --",
-    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage"
+    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage",
+    "turbo:init": "NODE_NO_WARNINGS=1 symbiote project renovate --hush --regenerate-assets --assets-preset 'turbo-only'"
   }
 }
 "
@@ -25561,7 +25573,6 @@ scope: unlimited
     "registry": "https://registry.npmjs.org"
   },
   "scripts": {
-    "build": "npm run build:dist --",
     "build:changelog": "NODE_NO_WARNINGS=1 symbiote build changelog",
     "build:dist": "NODE_NO_WARNINGS=1 symbiote build distributables",
     "build:docs": "NODE_NO_WARNINGS=1 symbiote build docs",
@@ -25573,14 +25584,15 @@ scope: unlimited
     "lint:packages": "NODE_NO_WARNINGS=1 symbiote lint --scope unlimited",
     "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
-    "release": "NODE_NO_WARNINGS=1 symbiote release",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "npm run test:package:unit --",
     "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
     "test:package:e2e": "NODE_NO_WARNINGS=1 symbiote test --tests end-to-end",
     "test:package:integration": "NODE_NO_WARNINGS=1 symbiote test --tests integration",
     "test:package:unit": "NODE_NO_WARNINGS=1 symbiote test --tests unit",
-    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage"
+    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage",
+    "build": "npm run build:dist --",
+    "release": "NODE_NO_WARNINGS=1 symbiote release"
   }
 }
 "
@@ -25656,7 +25668,6 @@ scope: unlimited
     "registry": "https://registry.npmjs.org"
   },
   "scripts": {
-    "build": "npm run build:dist --",
     "build:changelog": "NODE_NO_WARNINGS=1 symbiote build changelog",
     "build:dist": "NODE_NO_WARNINGS=1 symbiote build distributables",
     "build:docs": "NODE_NO_WARNINGS=1 symbiote build docs",
@@ -25668,14 +25679,15 @@ scope: unlimited
     "lint:packages": "NODE_NO_WARNINGS=1 symbiote lint --scope unlimited",
     "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
-    "release": "NODE_NO_WARNINGS=1 symbiote release",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "npm run test:package:unit --",
     "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
     "test:package:e2e": "NODE_NO_WARNINGS=1 symbiote test --tests end-to-end",
     "test:package:integration": "NODE_NO_WARNINGS=1 symbiote test --tests integration",
     "test:package:unit": "NODE_NO_WARNINGS=1 symbiote test --tests unit",
-    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage"
+    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage",
+    "build": "npm run build:dist --",
+    "release": "NODE_NO_WARNINGS=1 symbiote release"
   }
 }
 "
@@ -25737,7 +25749,6 @@ scope: unlimited
     "registry": "https://registry.npmjs.org"
   },
   "scripts": {
-    "build": "npm run build:dist --",
     "build:changelog": "NODE_NO_WARNINGS=1 symbiote build changelog",
     "build:dist": "NODE_NO_WARNINGS=1 symbiote build distributables",
     "build:docs": "NODE_NO_WARNINGS=1 symbiote build docs",
@@ -25749,14 +25760,15 @@ scope: unlimited
     "lint:packages": "NODE_NO_WARNINGS=1 symbiote lint --scope unlimited",
     "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
-    "release": "NODE_NO_WARNINGS=1 symbiote release",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "npm run test:package:unit --",
     "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
     "test:package:e2e": "NODE_NO_WARNINGS=1 symbiote test --tests end-to-end",
     "test:package:integration": "NODE_NO_WARNINGS=1 symbiote test --tests integration",
     "test:package:unit": "NODE_NO_WARNINGS=1 symbiote test --tests unit",
-    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage"
+    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage",
+    "build": "npm run build:dist --",
+    "release": "NODE_NO_WARNINGS=1 symbiote release"
   }
 }
 "
@@ -25823,15 +25835,14 @@ scope: unlimited
     "clean": "NODE_NO_WARNINGS=1 symbiote clean --scope unlimited",
     "format": "NODE_NO_WARNINGS=1 symbiote format --hush --scope unlimited",
     "info": "NODE_NO_WARNINGS=1 symbiote project info",
-    "lint": "npm run lint:packages --",
     "lint:packages": "NODE_NO_WARNINGS=1 symbiote lint --scope unlimited",
     "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope unlimited",
     "prepare": "NODE_NO_WARNINGS=1 symbiote project prepare",
-    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --hush --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'",
+    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs turbo-only'",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
-    "test": "npm run test:packages:all --",
-    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage"
+    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage",
+    "turbo:init": "NODE_NO_WARNINGS=1 symbiote project renovate --hush --regenerate-assets --assets-preset 'turbo-only'"
   }
 }
 "
@@ -25894,7 +25905,6 @@ scope: unlimited
     "registry": "https://registry.npmjs.org"
   },
   "scripts": {
-    "build": "npm run build:dist --",
     "build:changelog": "NODE_NO_WARNINGS=1 symbiote build changelog",
     "build:dist": "NODE_NO_WARNINGS=1 symbiote build distributables",
     "build:docs": "NODE_NO_WARNINGS=1 symbiote build docs",
@@ -25906,14 +25916,15 @@ scope: unlimited
     "lint:packages": "NODE_NO_WARNINGS=1 symbiote lint --scope unlimited",
     "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
-    "release": "NODE_NO_WARNINGS=1 symbiote release",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "echo 'it works!'",
     "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
     "test:package:e2e": "NODE_NO_WARNINGS=1 symbiote test --tests end-to-end",
     "test:package:integration": "NODE_NO_WARNINGS=1 symbiote test --tests integration",
     "test:package:unit": "NODE_NO_WARNINGS=1 symbiote test --tests unit",
-    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage"
+    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage",
+    "build": "npm run build:dist --",
+    "release": "NODE_NO_WARNINGS=1 symbiote release"
   }
 }
 "
@@ -25979,7 +25990,6 @@ scope: unlimited
     "registry": "https://registry.npmjs.org"
   },
   "scripts": {
-    "build": "npm run build:dist --",
     "build:changelog": "NODE_NO_WARNINGS=1 symbiote build changelog",
     "build:dist": "NODE_NO_WARNINGS=1 symbiote build distributables",
     "build:docs": "NODE_NO_WARNINGS=1 symbiote build docs",
@@ -25991,14 +26001,15 @@ scope: unlimited
     "lint:packages": "NODE_NO_WARNINGS=1 symbiote lint --scope unlimited",
     "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
-    "release": "NODE_NO_WARNINGS=1 symbiote release",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "echo 'it works!'",
     "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
     "test:package:e2e": "NODE_NO_WARNINGS=1 symbiote test --tests end-to-end",
     "test:package:integration": "NODE_NO_WARNINGS=1 symbiote test --tests integration",
     "test:package:unit": "NODE_NO_WARNINGS=1 symbiote test --tests unit",
-    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage"
+    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage",
+    "build": "npm run build:dist --",
+    "release": "NODE_NO_WARNINGS=1 symbiote release"
   }
 }
 "
@@ -26055,7 +26066,6 @@ scope: unlimited
     "registry": "https://registry.npmjs.org"
   },
   "scripts": {
-    "build": "npm run build:dist --",
     "build:changelog": "NODE_NO_WARNINGS=1 symbiote build changelog",
     "build:dist": "NODE_NO_WARNINGS=1 symbiote build distributables",
     "build:docs": "NODE_NO_WARNINGS=1 symbiote build docs",
@@ -26067,14 +26077,15 @@ scope: unlimited
     "lint:packages": "NODE_NO_WARNINGS=1 symbiote lint --scope unlimited",
     "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
-    "release": "NODE_NO_WARNINGS=1 symbiote release",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "echo 'it works!'",
     "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
     "test:package:e2e": "NODE_NO_WARNINGS=1 symbiote test --tests end-to-end",
     "test:package:integration": "NODE_NO_WARNINGS=1 symbiote test --tests integration",
     "test:package:unit": "NODE_NO_WARNINGS=1 symbiote test --tests unit",
-    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage"
+    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage",
+    "build": "npm run build:dist --",
+    "release": "NODE_NO_WARNINGS=1 symbiote release"
   }
 }
 "
@@ -26110,7 +26121,7 @@ scope: unlimited
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
     "prepare": "NODE_NO_WARNINGS=1 symbiote project prepare",
     "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --hush --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'",
+    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs turbo-only'",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "echo 'it works!'",
     "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
@@ -26153,7 +26164,7 @@ scope: unlimited
   },
   "dependencies": {},
   "devDependencies": {
-    "@-xun/symbiote": "^2.1.0"
+    "@-xun/symbiote": "^2.2.0"
   }
 }
 "
@@ -26219,7 +26230,7 @@ scope: this-package
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
     "prepare": "NODE_NO_WARNINGS=1 symbiote project prepare",
     "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --hush --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'",
+    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs turbo-only'",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "npm run test:package:unit --",
     "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
@@ -26237,7 +26248,7 @@ scope: this-package
   },
   "dependencies": {},
   "devDependencies": {
-    "@-xun/symbiote": "^2.1.0"
+    "@-xun/symbiote": "^2.2.0"
   }
 }
 "
@@ -26273,7 +26284,7 @@ scope: unlimited
     "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
     "prepare": "NODE_NO_WARNINGS=1 symbiote project prepare",
     "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --hush --github-reconfigure-repo --regenerate-assets --assets-preset '<you must set a preset in the package.json script>'",
+    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs turbo-only'",
     "start": "NODE_NO_WARNINGS=1 symbiote start --",
     "test": "echo 'it works!'",
     "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
@@ -26316,7 +26327,7 @@ scope: unlimited
   },
   "dependencies": {},
   "devDependencies": {
-    "@-xun/symbiote": "^2.1.0"
+    "@-xun/symbiote": "^2.2.0"
   }
 }
 "
@@ -31341,70 +31352,6 @@ scope: unlimited
     "**/type-*.test.tsx"
   ]
 }
-"
-`;
-
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> turbo.json generates expected assets at hybridrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/turbo.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/turbo.json
-scope: this-package
-⏶⏷⏶⏷⏶
-{}
-"
-`;
-
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> turbo.json generates expected assets at hybridrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/turbo.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/turbo.json
-scope: unlimited
-⏶⏷⏶⏷⏶
-{}
-"
-`;
-
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> turbo.json generates expected assets at hybridrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/turbo.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/turbo.json
-scope: unlimited
-⏶⏷⏶⏷⏶
-{}
-"
-`;
-
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> turbo.json generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-monorepo-no-src/turbo.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-monorepo-no-src/turbo.json
-scope: unlimited
-⏶⏷⏶⏷⏶
-{}
-"
-`;
-
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> turbo.json generates expected assets at non-hybrid monorepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-monorepo-no-src/turbo.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-monorepo-no-src/turbo.json
-scope: unlimited
-⏶⏷⏶⏷⏶
-{}
-"
-`;
-
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> turbo.json generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/turbo.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/turbo.json
-scope: unlimited
-⏶⏷⏶⏷⏶
-{}
-"
-`;
-
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> turbo.json generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/turbo.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/turbo.json
-scope: this-package
-⏶⏷⏶⏷⏶
-{}
-"
-`;
-
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> turbo.json generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/turbo.json 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/turbo.json
-scope: unlimited
-⏶⏷⏶⏷⏶
-{}
 "
 `;
 
