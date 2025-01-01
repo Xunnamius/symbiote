@@ -8,7 +8,7 @@
 
 > **PluginConfig**: `object`
 
-Defined in: [src/assets/transformers/\_release.config.cjs.ts:81](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/assets/transformers/_release.config.cjs.ts#L81)
+Defined in: [src/assets/transformers/\_release.config.cjs.ts:81](https://github.com/Xunnamius/symbiote/blob/ff6ce22d3a3433c07460af5758ce7920a1d9aa5a/src/assets/transformers/_release.config.cjs.ts#L81)
 
 The custom configuration object expected by the custom semantic-release
 plugin steps defined below.

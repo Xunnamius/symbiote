@@ -6,7 +6,7 @@
 
 # Class: TaskError
 
-Defined in: [packages/cli-utils/src/error.ts:10](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/packages/cli-utils/src/error.ts#L10)
+Defined in: [packages/cli-utils/src/error.ts:10](https://github.com/Xunnamius/symbiote/blob/ff6ce22d3a3433c07460af5758ce7920a1d9aa5a/packages/cli-utils/src/error.ts#L10)
 
 An `Error` class where the first letter of the message is capitalized.
 
@@ -20,7 +20,7 @@ An `Error` class where the first letter of the message is capitalized.
 
 > **new TaskError**(...`args`): [`TaskError`](TaskError.md)
 
-Defined in: [packages/cli-utils/src/error.ts:11](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/packages/cli-utils/src/error.ts#L11)
+Defined in: [packages/cli-utils/src/error.ts:11](https://github.com/Xunnamius/symbiote/blob/ff6ce22d3a3433c07460af5758ce7920a1d9aa5a/packages/cli-utils/src/error.ts#L11)
 
 #### Parameters
 
