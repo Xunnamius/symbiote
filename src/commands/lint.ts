@@ -194,9 +194,11 @@ By default, this command constructs an execution plan (i.e. the computed argumen
 
 Alternatively, you can provide --baseline when you want to construct your own custom execution plan but still wish to make use of the runtime environment provided by this tool. When --baseline is provided, only one linter can be run at a time.
 
-Note that the tsc linter always chooses its paths using the relevant tsconfig file regardless of execution plan (i.e. the first of: "${Tsconfig.PackageLint}" at the current package root, or "${Tsconfig.ProjectLint}" or "${Tsconfig.ProjectBase}" at the project root).
+Use eslint.config.js "ignores" blocks, .prettierignore, and .remarkignore to control which files are linted and when.
 
-Also note that the remark linter is configured to respect .remarkignore files only when run by "symbiote lint"; when executing "symbiote format", .remarkignore files are always disregarded. This means you can use .remarkignore files to prevent certain paths from being linted by "symbiote lint" without preventing them from being formatted by "symbiote format".
+Note that the tsc linter always chooses its paths using the relevant tsconfig file (i.e. the first of: ${Tsconfig.PackageLint} at the current package root, or ${Tsconfig.ProjectLint} or ${Tsconfig.ProjectBase} at the project root) regardless of execution plan.
+
+Also note that the remark linter is configured to respect .remarkignore files only when run by "symbiote lint" (this command); when executing "symbiote format", .remarkignore files are always disregarded. This means you can use .remarkignore files to prevent certain paths from being linted by this command without preventing them from being formatted by "symbiote format".
 
 Provide --allow-warning-comments to set the SYMBIOTE_LINT_ALLOW_WARNING_COMMENTS environment variable in the runtime environment. This will be picked up by linters, causing them to ignore any warning comments. This includes warnings about relative imports of @-xun/* packages from /node_modules/.`
     ),

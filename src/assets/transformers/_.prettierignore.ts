@@ -20,8 +20,11 @@ export const { transformer } = makeTransformer(function (context) {
       {
         path: toProjectAbsolutePath(prettierIgnoreConfigProjectBase),
         generate: () => `
-# * Paths below are ignored by prettier as well as remark and doctoc when called
-# * with \`symbiote format\`.
+# * Paths below are ignored by prettier, remark, doctoc when called
+# * with \`symbiote format\` and \`symbiote lint\`. To have eslint ignore
+# * certain files, add them to an "ignores" block in eslint.config.js. To have
+# * tsc ignore certain files, exclude them from the appropriate tsc.*.json file.
+# * See symbiote's help text for more details.
 
 # ! Note that any pattern with a / in the beginning OR MIDDLE (but not end) will
 # ! be considered relative to this file ONLY. Matching subdirs will NOT match!
