@@ -201,6 +201,8 @@ function formatConfig(
             .concat(rootPackage)
             .map(({ json: { name } }) => (name ? escapeStringRegExp(name) : undefined))
             .filter(Boolean)
+            // ? And don't capitalize other titles
+            .concat('PR')
         }
       ],
       // {@symbiote/notExtraneous remark-remove-unused-definitions}
