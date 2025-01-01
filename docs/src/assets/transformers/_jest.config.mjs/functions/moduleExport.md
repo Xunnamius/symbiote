@@ -91,4 +91,4 @@ as `1` while entirely skipping tests from files with names containing
 
 ## Defined in
 
-[src/assets/transformers/\_jest.config.mjs.ts:104](https://github.com/Xunnamius/symbiote/blob/c062d7c5dc980668c9246eeeaf1aa96da42e4471/src/assets/transformers/_jest.config.mjs.ts#L104)
+[src/assets/transformers/\_jest.config.mjs.ts:108](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/assets/transformers/_jest.config.mjs.ts#L108)

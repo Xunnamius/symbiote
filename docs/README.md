@@ -77,6 +77,7 @@
 - [src/util](src/util/README.md)
 - [test/integration/test-config](test/integration/test-config/README.md)
 - [test/setup](test/setup/README.md)
+- [types/eslint-config-turbo](types/eslint-config-turbo/README.md)
 - [types/eslint-plugin-import](types/eslint-plugin-import/README.md)
 - [types/eslint-plugin-jest](types/eslint-plugin-jest/README.md)
 - [types/eslint-plugin-unicorn](types/eslint-plugin-unicorn/README.md)

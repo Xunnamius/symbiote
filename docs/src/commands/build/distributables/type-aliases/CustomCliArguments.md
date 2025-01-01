@@ -50,6 +50,10 @@
 
 > `optional` **prependShebang**: `boolean`
 
+### skipOutputBijectionCheckFor?
+
+> `optional` **skipOutputBijectionCheckFor**: (`string` \| `RegExp`)[]
+
 ### skipOutputChecks?
 
 > `optional` **skipOutputChecks**: `boolean`
@@ -64,4 +68,4 @@
 
 ## Defined in
 
-[src/commands/build/distributables.ts:154](https://github.com/Xunnamius/symbiote/blob/c062d7c5dc980668c9246eeeaf1aa96da42e4471/src/commands/build/distributables.ts#L154)
+[src/commands/build/distributables.ts:154](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/commands/build/distributables.ts#L154)

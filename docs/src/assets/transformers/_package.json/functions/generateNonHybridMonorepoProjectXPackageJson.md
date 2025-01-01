@@ -361,10 +361,6 @@ about the current project or package.
 
 Run **after** the package is installed.
 
-#### scripts.lint
-
-> `readonly` **lint**: `"npm run lint:packages --"` = `'npm run lint:packages --'`
-
 #### scripts.lint:packages
 
 > `readonly` **lint:packages**: `string`
@@ -554,10 +550,6 @@ Run with the `npm start` command.
 
 Run with the `npm stop` command.
 
-#### scripts.test
-
-> `readonly` **test**: `"npm run test:packages:all --"` = `'npm run test:packages:all --'`
-
 #### scripts.test:packages:all
 
 > `readonly` **test:packages:all**: `string`
@@ -570,6 +562,10 @@ tests across the entire project.
 ```ts
 `NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage`
 ```
+
+#### scripts.turbo:init
+
+> `readonly` **turbo:init**: `"NODE_NO_WARNINGS=1 symbiote project renovate --hush --regenerate-assets --assets-preset 'turbo-only'"`
 
 #### scripts.uninstall?
 
@@ -623,4 +619,4 @@ Please note that the top-level `private` property of `package.json` **must** be 
 
 ## Defined in
 
-[src/assets/transformers/\_package.json.ts:200](https://github.com/Xunnamius/symbiote/blob/c062d7c5dc980668c9246eeeaf1aa96da42e4471/src/assets/transformers/_package.json.ts#L200)
+[src/assets/transformers/\_package.json.ts:206](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/assets/transformers/_package.json.ts#L206)

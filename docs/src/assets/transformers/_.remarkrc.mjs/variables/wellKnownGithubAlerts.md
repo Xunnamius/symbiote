@@ -18,4 +18,4 @@ https://github.com/orgs/community/discussions/16925
 
 ## Defined in
 
-[src/assets/transformers/\_.remarkrc.mjs.ts:41](https://github.com/Xunnamius/symbiote/blob/c062d7c5dc980668c9246eeeaf1aa96da42e4471/src/assets/transformers/_.remarkrc.mjs.ts#L41)
+[src/assets/transformers/\_.remarkrc.mjs.ts:46](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/assets/transformers/_.remarkrc.mjs.ts#L46)

@@ -14,4 +14,4 @@
 
 ## Defined in
 
-[src/commands/dev.ts:29](https://github.com/Xunnamius/symbiote/blob/c062d7c5dc980668c9246eeeaf1aa96da42e4471/src/commands/dev.ts#L29)
+[src/commands/dev.ts:29](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/commands/dev.ts#L29)

@@ -47,7 +47,7 @@ invocation of `reconfigureJestGlobalsToSkipTestsInThisFileIfRequested`.
 
 #### Defined in
 
-[types/jest.patched.d.ts:7](https://github.com/Xunnamius/symbiote/blob/c062d7c5dc980668c9246eeeaf1aa96da42e4471/types/jest.patched.d.ts#L7)
+[types/jest.patched.d.ts:7](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/types/jest.patched.d.ts#L7)
 
 ***
 

@@ -32,7 +32,7 @@ files, meaning they'll only be read once.**
 
 ### Defined in
 
-[src/util.ts:731](https://github.com/Xunnamius/symbiote/blob/c062d7c5dc980668c9246eeeaf1aa96da42e4471/src/util.ts#L731)
+[src/util.ts:731](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/util.ts#L731)
 
 ## Call Signature
 
@@ -60,7 +60,7 @@ files, meaning they'll only be read once.**
 
 ### Defined in
 
-[src/util.ts:745](https://github.com/Xunnamius/symbiote/blob/c062d7c5dc980668c9246eeeaf1aa96da42e4471/src/util.ts#L745)
+[src/util.ts:745](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/util.ts#L745)
 
 ## Call Signature
 
@@ -95,7 +95,7 @@ files, meaning they'll only be read once.**
 
 ### Defined in
 
-[src/util.ts:762](https://github.com/Xunnamius/symbiote/blob/c062d7c5dc980668c9246eeeaf1aa96da42e4471/src/util.ts#L762)
+[src/util.ts:762](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/util.ts#L762)
 
 ## Call Signature
 
@@ -130,4 +130,4 @@ files, meaning they'll only be read once.**
 
 ### Defined in
 
-[src/util.ts:780](https://github.com/Xunnamius/symbiote/blob/c062d7c5dc980668c9246eeeaf1aa96da42e4471/src/util.ts#L780)
+[src/util.ts:780](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/util.ts#L780)

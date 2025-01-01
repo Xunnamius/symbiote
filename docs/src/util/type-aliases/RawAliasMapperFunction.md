@@ -40,4 +40,4 @@ Note that import map files can export via default either
 
 ## Defined in
 
-[src/util.ts:117](https://github.com/Xunnamius/symbiote/blob/c062d7c5dc980668c9246eeeaf1aa96da42e4471/src/util.ts#L117)
+[src/util.ts:117](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/util.ts#L117)

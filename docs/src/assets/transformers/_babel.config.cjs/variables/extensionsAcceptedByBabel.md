@@ -13,4 +13,4 @@ All possible extensions accepted by Babel using standard symbiote configs
 
 ## Defined in
 
-[src/assets/transformers/\_babel.config.cjs.ts:138](https://github.com/Xunnamius/symbiote/blob/c062d7c5dc980668c9246eeeaf1aa96da42e4471/src/assets/transformers/_babel.config.cjs.ts#L138)
+[src/assets/transformers/\_babel.config.cjs.ts:142](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/assets/transformers/_babel.config.cjs.ts#L142)

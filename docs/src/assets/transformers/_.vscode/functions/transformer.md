@@ -28,4 +28,4 @@
 
 ## Defined in
 
-[src/assets/transformers/\_.vscode.ts:17](https://github.com/Xunnamius/symbiote/blob/c062d7c5dc980668c9246eeeaf1aa96da42e4471/src/assets/transformers/_.vscode.ts#L17)
+[src/assets/transformers/\_.vscode.ts:18](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/assets/transformers/_.vscode.ts#L18)

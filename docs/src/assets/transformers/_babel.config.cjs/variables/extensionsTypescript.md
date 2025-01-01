@@ -12,4 +12,4 @@ All known TypeScript file extensions supported by Babel (except [extensionTypesc
 
 ## Defined in
 
-[src/assets/transformers/\_babel.config.cjs.ts:114](https://github.com/Xunnamius/symbiote/blob/c062d7c5dc980668c9246eeeaf1aa96da42e4471/src/assets/transformers/_babel.config.cjs.ts#L114)
+[src/assets/transformers/\_babel.config.cjs.ts:118](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/assets/transformers/_babel.config.cjs.ts#L118)

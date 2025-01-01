@@ -29,6 +29,7 @@
 
 - [$delete](variables/$delete.md)
 - [assetPresets](variables/assetPresets.md)
+- [definedNonBasicAssetPresets](variables/definedNonBasicAssetPresets.md)
 - [directoryAssetTemplates](variables/directoryAssetTemplates.md)
 - [directoryAssetTransformers](variables/directoryAssetTransformers.md)
 - [libAssetPresets](variables/libAssetPresets.md)

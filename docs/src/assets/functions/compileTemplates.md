@@ -29,4 +29,4 @@ instance with values that lazily invoke [compileTemplate](compileTemplate.md).
 
 ## Defined in
 
-[src/assets.ts:488](https://github.com/Xunnamius/symbiote/blob/c062d7c5dc980668c9246eeeaf1aa96da42e4471/src/assets.ts#L488)
+[src/assets.ts:506](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/assets.ts#L506)

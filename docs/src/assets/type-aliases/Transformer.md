@@ -31,4 +31,4 @@ A function that accepts a [TransformerContext](TransformerContext.md) and return
 
 ## Defined in
 
-[src/assets.ts:182](https://github.com/Xunnamius/symbiote/blob/c062d7c5dc980668c9246eeeaf1aa96da42e4471/src/assets.ts#L182)
+[src/assets.ts:200](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/assets.ts#L200)

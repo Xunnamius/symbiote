@@ -12,4 +12,4 @@ The preamble prefixed to any generated the changelog file.
 
 ## Defined in
 
-[src/assets/transformers/\_conventional.config.cjs.ts:120](https://github.com/Xunnamius/symbiote/blob/c062d7c5dc980668c9246eeeaf1aa96da42e4471/src/assets/transformers/_conventional.config.cjs.ts#L120)
+[src/assets/transformers/\_conventional.config.cjs.ts:125](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/assets/transformers/_conventional.config.cjs.ts#L125)
