@@ -118,7 +118,9 @@ async function replaceStandardStrings(
   let returnValue = content.replace(
     // ? Replace H1 with proper string
     /^# <!-- .+$/m,
-    isPackageTheRootPackage ? `# ${repoName} (${packageName})` : `# ${packageName}`
+    isPackageTheRootPackage && repoName !== packageName
+      ? `# ${repoName} (${packageName})`
+      : `# ${packageName}`
   );
 
   if (!willHaveGeneratedLicense) {
