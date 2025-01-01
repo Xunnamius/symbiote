@@ -17,6 +17,7 @@ tmp
 
 # Ignore transpiled source in any subdir (used for advanced debugging)
 .transpiled
+.turbo
 
 # Ignore packaged files that probably shouldn't be committed
 *.tgz
@@ -105,3 +106,5 @@ $RECYCLE.BIN
 *.lnk
 _book
 CertificateAuthorityCertificate.pem
+
+# Custom

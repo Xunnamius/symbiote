@@ -128,6 +128,8 @@ $RECYCLE.BIN
 *.lnk
 _book
 CertificateAuthorityCertificate.pem
+
+# Custom
 `
       }
     ];
