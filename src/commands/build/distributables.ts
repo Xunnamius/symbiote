@@ -166,6 +166,7 @@ export type CustomCliArguments = GlobalCliArguments<DistributablesBuilderScope> 
   skipOutputChecks?: boolean;
   skipOutputValidityCheckFor?: (string | RegExp)[];
   skipOutputExtraneityCheckFor?: (string | RegExp)[];
+  skipOutputBijectionCheckFor?: (string | RegExp)[];
 };
 
 export default async function command({
@@ -308,7 +309,7 @@ export default async function command({
           string: true,
           array: true,
           description:
-            'Do not warn when a matching package/dependency fails a build output validity check',
+            'Do not warn when a matching (via RegExp) package/dependency fails a build output validity check',
           default: [],
           implies: { 'skip-output-checks': false, 'generate-types': true },
           coerce(strings: string[]) {
@@ -322,7 +323,21 @@ export default async function command({
           string: true,
           array: true,
           description:
-            'Do not warn when a matching package/dependency fails a build output extraneity check',
+            'Do not warn when a matching (via RegExp) package/dependency fails a build output extraneity check',
+          default: [],
+          implies: { 'skip-output-checks': false, 'generate-types': true },
+          coerce(strings: string[]) {
+            return strings.map((str) => {
+              return str.startsWith('^') || str.endsWith('$') ? new RegExp(str) : str;
+            });
+          }
+        },
+        'skip-output-bijection-checks-for': {
+          alias: ['skip-output-bijection-check-for', 'skip-bijective'],
+          string: true,
+          array: true,
+          description:
+            'Do not attempt to scan matching (via RegExp) imports for bijective correctness',
           default: [],
           implies: { 'skip-output-checks': false, 'generate-types': true },
           coerce(strings: string[]) {
@@ -359,7 +374,7 @@ export default async function command({
 
 ${isCwdANextJsPackage ? "Note that the current working directory points to a Next.js package! When attempting to build such a package, this command will defer entirely to `next build`, which disables several of this command's options.\n\n" : ''}This command also performs lightweight validation of import specifiers and package entry points where appropriate to ensure baseline consistency, integrity, and well-formedness of build output.
 
-This validation can be tweaked with --skip-output-validity-checks-for and  --skip-output-extraneity-checks-for, which suppresses errors and warnings for matching import specifiers and/or package names when performing final build output checks. Both parameters accept strings _and regular expressions_, the latter being strings that start with "^" or end with "$". Note that some specifiers are always skipped during extraneity checks, such as Node builtins. Also note that it is unnecessary to escape forward slashes (/) in regular expressions provided via these parameters.
+This validation can be tweaked with --skip-output-validity-checks-for, --skip-output-extraneity-checks-for, and --skip-output-bijection-checks-for. These flags suppresses errors and warnings for matching files, import specifiers, and/or package names when performing final build output checks. Each parameter accepts strings _and regular expressions_, the latter being strings that start with "^" or end with "$". Note that some specifiers are always skipped during extraneity checks, such as Node builtins. Also note that it is unnecessary to escape forward slashes (/) in regular expressions provided via these parameters.
 
 All package build targets are classified as either "source" ("sources," "source files") or "asset" ("assets," "asset files"). "Source" targets describe all the files to be transpiled while "assets" describe the remaining targets that are copied-through to the output directory without any modification. Currently, only TypeScript files (specifically, files ending in one of: ${extensionsTypescript.join(', ')}) are considered source files. Every other file is considered an asset.
 
@@ -409,6 +424,7 @@ Finally, note that, when attempting to build a Next.js package, this command wil
       skipOutputChecks: skipOutputChecks_,
       skipOutputValidityCheckFor: skipOutputValidityCheckFor_,
       skipOutputExtraneityCheckFor: skipOutputExtraneityCheckFor_,
+      skipOutputBijectionCheckFor: skipOutputBijectionCheckFor_,
       partialFilter: partialFilter_
     }) {
       const genericLogger = log.extend(scriptBasename(scriptFullName));
@@ -464,6 +480,10 @@ Finally, note that, when attempting to build a Next.js package, this command wil
             'skipOutputExtraneityCheckFor (original): %O',
             skipOutputExtraneityCheckFor_
           );
+          debug(
+            'skipOutputBijectionCheckFor (original): %O',
+            skipOutputBijectionCheckFor_
+          );
           debug('partialFilter: %O', partialFilter_);
 
           if (generateIntermediatesFor) {
@@ -487,6 +507,7 @@ Finally, note that, when attempting to build a Next.js package, this command wil
           const skipOutputChecks = skipOutputChecks_;
           const skipOutputValidityCheckFor = new Set(skipOutputValidityCheckFor_);
           const skipOutputExtraneityCheckFor = new Set(skipOutputExtraneityCheckFor_);
+          const skipOutputBijectionCheckFor = new Set(skipOutputBijectionCheckFor_);
           const partialFilters = partialFilter_;
 
           hardAssert(includeExternalFiles !== undefined, ErrorMessage.GuruMeditation());
@@ -547,6 +568,8 @@ Finally, note that, when attempting to build a Next.js package, this command wil
             'skipOutputExtraneityCheckFor (intermediate): %O',
             skipOutputExtraneityCheckFor
           );
+
+          debug('skipOutputBijectionCheckFor (final): %O', skipOutputBijectionCheckFor);
 
           const { targets: buildTargets, metadata: buildMetadata } =
             await gatherPackageBuildTargets(cwdPackage, {
@@ -1092,7 +1115,7 @@ distrib root: ${absoluteOutputDirPath}
 
             // ! Note that skipOutputValidityCheckFor and
             // ! skipOutputExtraneityCheckFor are incomplete and are only
-            // ! finalized in the body of checkImportsDependenciesValidBijection()
+            // ! finalized in the body of checkImportsDependenciesValidBijection
 
             // ? This code block should only be reached when generateTypes is true
             // ? due to our Black Flag checks
@@ -1194,7 +1217,7 @@ distrib root: ${absoluteOutputDirPath}
              * TODO: move some or most of this to project lint command later
              */
             async function checkImportsDependenciesValidBijection() {
-              const dbg = debug.extend('checkDistRequiredPaths');
+              const dbg = debug.extend('checkValidBijection');
 
               const {
                 dist: distFiles,
@@ -1206,10 +1229,27 @@ distrib root: ${absoluteOutputDirPath}
                 useCached: false
               });
 
-              const allOtherFiles = otherFiles.concat(srcFiles, testFiles);
-              const allOtherFilesPlusBuildTargets = Array.from(
+              const allRelevantFiles = otherFiles
+                .concat(srcFiles, testFiles)
+                .filter(function (path) {
+                  const shouldSkipPath = skipOutputBijectionCheckFor
+                    .values()
+                    .some((matcher) =>
+                      typeof matcher === 'string'
+                        ? matcher === path
+                        : !!path.match(matcher)
+                    );
+
+                  if (shouldSkipPath) {
+                    dbg.warn('ignored (skipped) entire file: %O', path);
+                  }
+
+                  return !shouldSkipPath;
+                });
+
+              const allRelevantFilesPlusBuildTargets = Array.from(
                 new Set(
-                  allOtherFiles.concat(
+                  allRelevantFiles.concat(
                     allBuildTargets.map((target) => toPath(projectRoot, target))
                   )
                 )
@@ -1218,10 +1258,13 @@ distrib root: ${absoluteOutputDirPath}
               const [distImportEntries, otherImportEntries, pseudodecoratorEntries] =
                 await Promise.all([
                   gatherImportEntriesFromFiles(distFiles, { useCached: true }),
-                  gatherImportEntriesFromFiles(allOtherFiles, { useCached: true }),
-                  gatherPseudodecoratorEntriesFromFiles(allOtherFilesPlusBuildTargets, {
-                    useCached: true
-                  })
+                  gatherImportEntriesFromFiles(allRelevantFiles, { useCached: true }),
+                  gatherPseudodecoratorEntriesFromFiles(
+                    allRelevantFilesPlusBuildTargets,
+                    {
+                      useCached: true
+                    }
+                  )
                 ]);
 
               for (const [, pseudodecorators] of pseudodecoratorEntries) {
@@ -1237,12 +1280,9 @@ distrib root: ${absoluteOutputDirPath}
                 }
               }
 
-              debug(
-                'skipOutputValidityCheckFor (final): %O',
-                skipOutputValidityCheckFor
-              );
+              dbg('skipOutputValidityCheckFor (final): %O', skipOutputValidityCheckFor);
 
-              debug(
+              dbg(
                 'skipOutputExtraneityCheckFor (final): %O',
                 skipOutputExtraneityCheckFor
               );
@@ -1581,7 +1621,7 @@ distrib root: ${absoluteOutputDirPath}
              * existence.
              */
             async function checkDistEntryPoints() {
-              const dbg = debug.extend('checkDistEntryPoints');
+              const dbg = debug.extend('checkEntryPoints');
 
               const {
                 json: { exports: cwdPackageExports }
@@ -1657,10 +1697,10 @@ distrib root: ${absoluteOutputDirPath}
             }
 
             /**
-             * **Note that `skipOutputValidityCheckFor` and
-             * `skipOutputExtraneityCheckFor` (on which this function relies) are
-             * incomplete and are only finalized in the body of
-             * `checkImportsDependenciesValidBijection`!**
+             *! **Note that `skipOutputValidityCheckFor` and
+             *! `skipOutputExtraneityCheckFor` (on which this function relies)
+             *! are incomplete and are only finalized in the body of
+             *! `checkImportsDependenciesValidBijection`!**
              */
             function shouldSkipCheckForSpecifier(
               specifier: string,
