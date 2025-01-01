@@ -5,7 +5,7 @@ import assert from 'node:assert';
 import { fixupConfigRules } from '@eslint/compat';
 import eslintJs from '@eslint/js';
 import restrictedGlobals from 'confusing-browser-globals';
-import eslintConfigTurbo from 'eslint-config-turbo/flat';
+//TODO: import eslintConfigTurbo from 'eslint-config-turbo/flat';
 import { flatConfigs as eslintPluginImportFlatConfigs } from 'eslint-plugin-import';
 import eslintPluginJest from 'eslint-plugin-jest';
 import eslintPluginNode from 'eslint-plugin-n';
@@ -754,27 +754,29 @@ export function moduleExport({
         ...eslintPluginJestAll.rules,
         ...jestRules()
       }
-    },
-
-    // * Configurations applying to Turbo configuration files (turbo.json)
-    ...eslintConfigTurbo.map((config, index) => ({
-      ...config,
-      name: config.name || `turbo/recommended-${index}`
-    })),
-    {
-      name: '@-xun/symbiote:turbo',
-      // * https://www.npmjs.com/package/eslint-config-turbo
-      rules: {
-        'turbo/no-undeclared-env-vars': [
-          'error',
-          {
-            allowList: [
-              /*'^ENV_[A-Z]+$'*/
-            ]
-          }
-        ]
-      }
     }
+
+    // TODO: delete the next line and uncomment the rest
+    // {@symbiote/notExtraneous eslint-config-turbo}
+    // * Configurations applying to Turbo configuration files (turbo.json)
+    // ...eslintConfigTurbo.map((config, index) => ({
+    //   ...config,
+    //   name: config.name || `turbo/recommended-${index}`
+    // })),
+    // {
+    //   name: '@-xun/symbiote:turbo',
+    //   // * https://www.npmjs.com/package/eslint-config-turbo
+    //   rules: {
+    //     'turbo/no-undeclared-env-vars': [
+    //       'error',
+    //       {
+    //         allowList: [
+    //           /*'^ENV_[A-Z]+$'*/
+    //         ]
+    //       }
+    //     ]
+    //   }
+    // }
   );
 }
 
