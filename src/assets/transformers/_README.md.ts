@@ -129,14 +129,14 @@ async function replaceStandardStrings(
     );
   }
 
-  returnValue = returnValue.replace(
+  returnValue = returnValue.replaceAll(
     isPackageTheRootPackage
       ? // ? Drop "workspace-package-only" replacer region contents if in root
-        makeReplacerRegionIdMatcherRegExp('workspace-package-only', {
+        makeReplacerRegionIdMatcherRegExp(String.raw`workspace-package-only(?:-\d+)?`, {
           includeMagic: false
         })
       : // ? Drop "root-package-only" replacer region contents if in a sub-root
-        makeReplacerRegionIdMatcherRegExp('root-package-only', {
+        makeReplacerRegionIdMatcherRegExp(String.raw`root-package-only(?:-\d+)?`, {
           includeMagic: false
         }),
     '\n<!-- (section elided by symbiote) -->\n'
