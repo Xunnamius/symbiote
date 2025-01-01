@@ -1152,7 +1152,7 @@ distrib root: ${absoluteOutputDirPath}
             } else {
               genericLogger(
                 [LogTag.IF_NOT_SILENCED],
-                `${SHORT_TAB}@attw/cli test succeeded ✅`
+                `${SHORT_TAB}@arethetypeswrong/cli test succeeded ✅`
               );
             }
 

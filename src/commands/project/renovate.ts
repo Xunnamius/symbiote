@@ -479,6 +479,17 @@ ${printRenovationTasks()}`,
         genericLogger.newline([LogTag.IF_NOT_QUIETED]);
       }
 
+      genericLogger.message(
+        [LogTag.IF_NOT_QUIETED],
+        'To prevent structural issues in package-lock.json and node_modules, you should rebuild them now:'
+      );
+
+      genericLogger.message(
+        [LogTag.IF_NOT_QUIETED],
+        `${SHORT_TAB}rm -rf node_modules package-lock.json && npm install`
+      );
+
+      genericLogger.newline([LogTag.IF_NOT_QUIETED]);
       genericLogger([LogTag.IF_NOT_QUIETED], standardSuccessMessage);
     })
   } satisfies ChildConfiguration<CustomCliArguments, GlobalExecutionContext>;
