@@ -68,6 +68,7 @@ package-lock.json
 
 # Ignore test fixtures in any subdir (which may depend on remaining as they are)
 fixtures
+__*__
 
 # Ignore things that prettier isn't good at in any subdir
 *.hbs

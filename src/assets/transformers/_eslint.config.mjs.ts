@@ -606,7 +606,8 @@ export function moduleExport({
         '**/coverage/**/*',
         '**/bin/**/*',
         '**/.transpiled/**/*',
-        // TODO: delete this after we rename build => dist for Next.js projects
+        '**/__*__/**',
+        // TODO: delete these after we rename build => .next for Next.js repos
         '**/build/**/*',
         '!**/src/**/*'
       ]
