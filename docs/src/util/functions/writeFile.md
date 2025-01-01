@@ -8,6 +8,8 @@
 
 > **writeFile**(`path`, `contents`): `Promise`\<`void`\>
 
+Defined in: [src/util.ts:958](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/util.ts#L958)
+
 ## Parameters
 
 ### path
@@ -21,7 +23,3 @@
 ## Returns
 
 `Promise`\<`void`\>
-
-## Defined in
-
-[src/util.ts:958](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/util.ts#L958)

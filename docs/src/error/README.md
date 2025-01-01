@@ -6,18 +6,16 @@
 
 # src/error
 
-## Index
-
-### Classes
+## Classes
 
 - [BuildOutputCheckError](classes/BuildOutputCheckError.md)
 - [TaskError](classes/TaskError.md)
 
-### Variables
+## Variables
 
 - [$type\_BuildOutputCheckError](variables/$type_BuildOutputCheckError.md)
 - [ErrorMessage](variables/ErrorMessage.md)
 
-### Functions
+## Functions
 
 - [isBuildOutputCheckError](functions/isBuildOutputCheckError.md)

@@ -6,8 +6,6 @@
 
 # src/assets/transformers/\_.husky
 
-## Index
-
-### Functions
+## Functions
 
 - [transformer](functions/transformer.md)

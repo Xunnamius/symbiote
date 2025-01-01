@@ -6,8 +6,6 @@
 
 # src/cli
 
-## Index
-
-### Variables
+## Variables
 
 - [default](variables/default.md)

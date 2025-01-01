@@ -6,13 +6,11 @@
 
 # src/assets/transformers/\_prettier.config.mjs
 
-## Index
-
-### Interfaces
+## Interfaces
 
 - [PrettierConfig](interfaces/PrettierConfig.md)
 
-### Functions
+## Functions
 
 - [moduleExport](functions/moduleExport.md)
 - [transformer](functions/transformer.md)

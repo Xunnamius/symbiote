@@ -8,6 +8,8 @@
 
 > **moduleExport**(`__namedParameters`): `object`
 
+Defined in: [src/assets/transformers/\_jest.config.mjs.ts:108](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/assets/transformers/_jest.config.mjs.ts#L108)
+
 ## Parameters
 
 ### \_\_namedParameters
@@ -47,11 +49,11 @@ as `1` while entirely skipping tests from files with names containing
 
 #### Index Signature
 
- \[`k`: `string`\]: `string`
+\[`k`: `string`\]: `string`
 
 ### modulePathIgnorePatterns
 
-> **modulePathIgnorePatterns**: [`"/test/fixtures/"`, `"/.transpiled/"`, `string`]
+> **modulePathIgnorePatterns**: \[`"/test/fixtures/"`, `"/.transpiled/"`, `string`\]
 
 ### resetMocks
 
@@ -63,7 +65,7 @@ as `1` while entirely skipping tests from files with names containing
 
 ### setupFilesAfterEnv
 
-> **setupFilesAfterEnv**: [`"./test/setup.ts"`]
+> **setupFilesAfterEnv**: \[`"./test/setup.ts"`\]
 
 ### testEnvironment
 
@@ -71,7 +73,7 @@ as `1` while entirely skipping tests from files with names containing
 
 ### testPathIgnorePatterns
 
-> **testPathIgnorePatterns**: [`"/node_modules/"`, `"/dist/"`, `"/src/"`, `"/.transpiled/"`, `string`, `string`]
+> **testPathIgnorePatterns**: \[`"/node_modules/"`, `"/dist/"`, `"/src/"`, `"/.transpiled/"`, `string`, `string`\]
 
 ### testRunner
 
@@ -88,7 +90,3 @@ as `1` while entirely skipping tests from files with names containing
 ## See
 
 [assertEnvironment](assertEnvironment.md)
-
-## Defined in
-
-[src/assets/transformers/\_jest.config.mjs.ts:108](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/assets/transformers/_jest.config.mjs.ts#L108)

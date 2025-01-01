@@ -8,6 +8,8 @@
 
 > **GlobalCliArguments**\<`Scope`\>: `StandardCommonCliArguments` & `object`
 
+Defined in: [src/configure.ts:107](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/configure.ts#L107)
+
 These properties will be available in the `argv` object of any command that
 uses [withGlobalBuilder](../../util/functions/withGlobalBuilder.md) to construct its `builder`.
 
@@ -27,7 +29,3 @@ keys may differ slightly (e.g. hyphens may be elided in favor of camelCase).
 ## See
 
 StandardCommonCliArguments
-
-## Defined in
-
-[src/configure.ts:107](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/configure.ts#L107)

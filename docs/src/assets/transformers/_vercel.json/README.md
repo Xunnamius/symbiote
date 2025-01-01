@@ -6,8 +6,6 @@
 
 # src/assets/transformers/\_vercel.json
 
-## Index
-
-### Functions
+## Functions
 
 - [transformer](functions/transformer.md)

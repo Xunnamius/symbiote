@@ -6,8 +6,6 @@
 
 # src/assets/transformers/\_.github
 
-## Index
-
-### Functions
+## Functions
 
 - [transformer](functions/transformer.md)

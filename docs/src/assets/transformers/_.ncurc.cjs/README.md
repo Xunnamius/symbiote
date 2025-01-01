@@ -6,8 +6,6 @@
 
 # src/assets/transformers/\_.ncurc.cjs
 
-## Index
-
-### Functions
+## Functions
 
 - [transformer](functions/transformer.md)

@@ -6,7 +6,11 @@
 
 # Interface: DoneCallback()
 
+Defined in: node\_modules/@types/jest/index.d.ts:494
+
 > **DoneCallback**(...`args`): `any`
+
+Defined in: node\_modules/@types/jest/index.d.ts:495
 
 ## Parameters
 
@@ -18,15 +22,13 @@
 
 `any`
 
-## Defined in
-
-node\_modules/@types/jest/index.d.ts:495
-
 ## Methods
 
 ### fail()
 
 > **fail**(`error`?): `any`
+
+Defined in: node\_modules/@types/jest/index.d.ts:496
 
 #### Parameters
 
@@ -37,7 +39,3 @@ node\_modules/@types/jest/index.d.ts:495
 #### Returns
 
 `any`
-
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:496

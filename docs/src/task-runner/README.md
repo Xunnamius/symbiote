@@ -6,8 +6,6 @@
 
 # src/task-runner
 
-## Index
-
-### Functions
+## Functions
 
 - [attemptToRunCommand](functions/attemptToRunCommand.md)

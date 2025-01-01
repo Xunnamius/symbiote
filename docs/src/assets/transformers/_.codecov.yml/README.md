@@ -6,8 +6,6 @@
 
 # src/assets/transformers/\_.codecov.yml
 
-## Index
-
-### Functions
+## Functions
 
 - [transformer](functions/transformer.md)

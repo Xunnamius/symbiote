@@ -6,16 +6,14 @@
 
 # src/commands/release
 
-## Index
-
-### Interfaces
+## Interfaces
 
 - [BaseProtoTask](interfaces/BaseProtoTask.md)
 - [ProtoCoreReleaseTask](interfaces/ProtoCoreReleaseTask.md)
 - [ProtoPostreleaseTask](interfaces/ProtoPostreleaseTask.md)
 - [ProtoPrereleaseTask](interfaces/ProtoPrereleaseTask.md)
 
-### Type Aliases
+## Type Aliases
 
 - [CustomCliArguments](type-aliases/CustomCliArguments.md)
 - [ExecutionContextWithProjectMetadata](type-aliases/ExecutionContextWithProjectMetadata.md)
@@ -24,7 +22,7 @@
 - [ReleaseTaskContext](type-aliases/ReleaseTaskContext.md)
 - [ReleaseTaskRunner](type-aliases/ReleaseTaskRunner.md)
 
-### Variables
+## Variables
 
 - [allManualPrereleaseTasks](variables/allManualPrereleaseTasks.md)
 - [allPostReleaseTasks](variables/allPostReleaseTasks.md)
@@ -33,6 +31,6 @@
 - [expectedEnvVariables](variables/expectedEnvVariables.md)
 - [releaseScopes](variables/releaseScopes.md)
 
-### Functions
+## Functions
 
 - [default](functions/default.md)

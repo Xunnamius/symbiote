@@ -8,12 +8,10 @@
 
 > **disableAutomock**(): *typeof* [`jest`](../README.md)
 
+Defined in: node\_modules/@types/jest/index.d.ts:194
+
 Disables automatic mocking in the module loader.
 
 ## Returns
 
 *typeof* [`jest`](../README.md)
-
-## Defined in
-
-node\_modules/@types/jest/index.d.ts:194

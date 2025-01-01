@@ -8,6 +8,8 @@
 
 > `const` **renovationTasks**: `object`
 
+Defined in: [src/commands/project/renovate.ts:723](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/commands/project/renovate.ts#L723)
+
 ## Type declaration
 
 ### full-deprecate
@@ -24,7 +26,7 @@
 
 ##### Index Signature
 
- \[`key`: `string`\]: `boolean`
+\[`key`: `string`\]: `boolean`
 
 #### full-deprecate.emoji
 
@@ -48,11 +50,11 @@
 
 #### full-deprecate.supportedScopes
 
-> `readonly` **supportedScopes**: [[`ThisPackage`](../../../../configure/enumerations/DefaultGlobalScope.md#thispackage)]
+> `readonly` **supportedScopes**: \[[`ThisPackage`](../../../../configure/enumerations/DefaultGlobalScope.md#thispackage)\]
 
 #### full-deprecate.taskAliases
 
-> `readonly` **taskAliases**: [] = `[]`
+> `readonly` **taskAliases**: \[\] = `[]`
 
 #### full-deprecate.run()
 
@@ -84,7 +86,7 @@
 
 ##### Index Signature
 
- \[`key`: `string`\]: `boolean`
+\[`key`: `string`\]: `boolean`
 
 #### full-undeprecate.emoji
 
@@ -108,11 +110,11 @@
 
 #### full-undeprecate.supportedScopes
 
-> `readonly` **supportedScopes**: [[`ThisPackage`](../../../../configure/enumerations/DefaultGlobalScope.md#thispackage)]
+> `readonly` **supportedScopes**: \[[`ThisPackage`](../../../../configure/enumerations/DefaultGlobalScope.md#thispackage)\]
 
 #### full-undeprecate.taskAliases
 
-> `readonly` **taskAliases**: [] = `[]`
+> `readonly` **taskAliases**: \[\] = `[]`
 
 #### full-undeprecate.run()
 
@@ -144,7 +146,7 @@
 
 ##### Index Signature
 
- \[`key`: `string`\]: `boolean`
+\[`key`: `string`\]: `boolean`
 
 #### generate-scoped-tags.emoji
 
@@ -610,11 +612,11 @@ BfeBuilderObjectValueExtensions.implies
 
 #### generate-scoped-tags.supportedScopes
 
-> `readonly` **supportedScopes**: [[`Unlimited`](../../../../configure/enumerations/DefaultGlobalScope.md#unlimited)]
+> `readonly` **supportedScopes**: \[[`Unlimited`](../../../../configure/enumerations/DefaultGlobalScope.md#unlimited)\]
 
 #### generate-scoped-tags.taskAliases
 
-> `readonly` **taskAliases**: [] = `[]`
+> `readonly` **taskAliases**: \[\] = `[]`
 
 #### generate-scoped-tags.run()
 
@@ -646,7 +648,7 @@ BfeBuilderObjectValueExtensions.implies
 
 ##### Index Signature
 
- \[`key`: `string`\]: `boolean`
+\[`key`: `string`\]: `boolean`
 
 #### github-clone-remote-wiki.emoji
 
@@ -670,11 +672,11 @@ BfeBuilderObjectValueExtensions.implies
 
 #### github-clone-remote-wiki.supportedScopes
 
-> `readonly` **supportedScopes**: [[`Unlimited`](../../../../configure/enumerations/DefaultGlobalScope.md#unlimited)]
+> `readonly` **supportedScopes**: \[[`Unlimited`](../../../../configure/enumerations/DefaultGlobalScope.md#unlimited)\]
 
 #### github-clone-remote-wiki.taskAliases
 
-> `readonly` **taskAliases**: [] = `[]`
+> `readonly` **taskAliases**: \[\] = `[]`
 
 #### github-clone-remote-wiki.run()
 
@@ -706,7 +708,7 @@ BfeBuilderObjectValueExtensions.implies
 
 ##### Index Signature
 
- \[`key`: `string`\]: `boolean`
+\[`key`: `string`\]: `boolean`
 
 #### github-delete-all-releases.emoji
 
@@ -734,7 +736,7 @@ BfeBuilderObjectValueExtensions.implies
 
 #### github-delete-all-releases.taskAliases
 
-> `readonly` **taskAliases**: [] = `[]`
+> `readonly` **taskAliases**: \[\] = `[]`
 
 #### github-delete-all-releases.run()
 
@@ -766,7 +768,7 @@ BfeBuilderObjectValueExtensions.implies
 
 ##### Index Signature
 
- \[`key`: `string`\]: `boolean`
+\[`key`: `string`\]: `boolean`
 
 #### github-kill-master.emoji
 
@@ -790,11 +792,11 @@ BfeBuilderObjectValueExtensions.implies
 
 #### github-kill-master.supportedScopes
 
-> `readonly` **supportedScopes**: [[`Unlimited`](../../../../configure/enumerations/DefaultGlobalScope.md#unlimited)]
+> `readonly` **supportedScopes**: \[[`Unlimited`](../../../../configure/enumerations/DefaultGlobalScope.md#unlimited)\]
 
 #### github-kill-master.taskAliases
 
-> `readonly` **taskAliases**: [] = `[]`
+> `readonly` **taskAliases**: \[\] = `[]`
 
 #### github-kill-master.run()
 
@@ -826,7 +828,7 @@ BfeBuilderObjectValueExtensions.implies
 
 ##### Index Signature
 
- \[`key`: `string`\]: `boolean`
+\[`key`: `string`\]: `boolean`
 
 #### github-pause-rulesets.emoji
 
@@ -850,11 +852,11 @@ BfeBuilderObjectValueExtensions.implies
 
 #### github-pause-rulesets.supportedScopes
 
-> `readonly` **supportedScopes**: [[`Unlimited`](../../../../configure/enumerations/DefaultGlobalScope.md#unlimited)]
+> `readonly` **supportedScopes**: \[[`Unlimited`](../../../../configure/enumerations/DefaultGlobalScope.md#unlimited)\]
 
 #### github-pause-rulesets.taskAliases
 
-> `readonly` **taskAliases**: [] = `[]`
+> `readonly` **taskAliases**: \[\] = `[]`
 
 #### github-pause-rulesets.run()
 
@@ -886,7 +888,7 @@ BfeBuilderObjectValueExtensions.implies
 
 ##### Index Signature
 
- \[`key`: `string`\]: `boolean`
+\[`key`: `string`\]: `boolean`
 
 #### github-reconfigure-repo.emoji
 
@@ -894,46 +896,46 @@ BfeBuilderObjectValueExtensions.implies
 
 #### github-reconfigure-repo.longHelpDescription
 
-> `readonly` **longHelpDescription**: \`This renovation will apply a standard configuration preset to the origin repository. Specifically, this renovation will:
+> `readonly` **longHelpDescription**: `` `This renovation will apply a standard configuration preset to the origin repository. Specifically, this renovation will:
 
 - Update the repository's metadata
-$\{string\} - Set description to package.json::description only if not already set
-$\{string\}$\{string\} - With default emoji prefix: ⚡
-$\{string\} - Set homepage to "https://npm.im/pkg-name" only if not already set
-$\{string\} - Enable ambient repository-wide secret scanning
-$\{string\} - Enable scanning pushes for secrets
-$\{string\} - Enable issues
-$\{string\} - Enable projects
-$\{string\} - Enable squash merging for pull requests
-$\{string\} - Disable normal merging for pull requests
-$\{string\} - Enable rebase merging for pull requests
-$\{string\} - Disable branch deletion on successful pull request merge
-$\{string\} - Enable suggesting forced-synchronization of pull request branches
-$\{string\} - Set topics to lowercased package.json::keywords
+${string} - Set description to package.json::description only if not already set
+${string}${string} - With default emoji prefix: ⚡
+${string} - Set homepage to "https://npm.im/pkg-name" only if not already set
+${string} - Enable ambient repository-wide secret scanning
+${string} - Enable scanning pushes for secrets
+${string} - Enable issues
+${string} - Enable projects
+${string} - Enable squash merging for pull requests
+${string} - Disable normal merging for pull requests
+${string} - Enable rebase merging for pull requests
+${string} - Disable branch deletion on successful pull request merge
+${string} - Enable suggesting forced-synchronization of pull request branches
+${string} - Set topics to lowercased package.json::keywords
 - Set the repository to "starred" by the current user
 - Set the repository to "watched" (via "all activity") by the current user
 - Create/enable the "standard-protect" and "canary-protect" rulesets
-$\{string\} - If the rulesets already exist and --force was given, they're deleted, recreated, then enabled
-$\{string\} - If the rulesets already exist and --force wasn't given, they're enabled
-$\{string\} - A warning is issued if any other ruleset is encountered
-$\{string\} - A warning is issued if a legacy "classic branch protection" setting is encountered for well-known branches
+${string} - If the rulesets already exist and --force was given, they're deleted, recreated, then enabled
+${string} - If the rulesets already exist and --force wasn't given, they're enabled
+${string} - A warning is issued if any other ruleset is encountered
+${string} - A warning is issued if a legacy "classic branch protection" setting is encountered for well-known branches
 - Upload missing GitHub Actions environment secrets (encrypted)
-$\{string\} - Only secrets that do not already exist will be uploaded
-$\{string\} - If --force was given, all existing secrets will be deleted before the upload
-$\{string\} - Secrets will be sourced from the package and project .env files
-$\{string\}$\{string\} - Empty/unset variables in .env files will be ignored
+${string} - Only secrets that do not already exist will be uploaded
+${string} - If --force was given, all existing secrets will be deleted before the upload
+${string} - Secrets will be sourced from the package and project .env files
+${string}${string} - Empty/unset variables in .env files will be ignored
 
 Due to the current limitations of GitHub's REST API, the following renovations are not able to be automated and should be configured manually:
 
-\* Include "Releases" and remove "Packages" and "Deployments" sidebar sections
-\* Enable sponsorships
-\* Enable repository preservation (arctic code vault)
-\* Enable discussions
+* Include "Releases" and remove "Packages" and "Deployments" sidebar sections
+* Enable sponsorships
+* Enable repository preservation (arctic code vault)
+* Enable discussions
 - Enable "private vulnerability reporting"
 - Enable "dependency graph"
 - Enable "dependabot" (i.e. "dependabot alerts" and "dependabot security updates")
 
-By default, this command will preserve the origin repository's pre-existing configuration. Run this command with --force to overwrite any pre-existing configuration EXCEPT the origin repository's description and homepage, which can never be overwritten by this renovation.\`
+By default, this command will preserve the origin repository's pre-existing configuration. Run this command with --force to overwrite any pre-existing configuration EXCEPT the origin repository's description and homepage, which can never be overwritten by this renovation.` ``
 
 #### github-reconfigure-repo.requiresForce
 
@@ -949,11 +951,11 @@ By default, this command will preserve the origin repository's pre-existing conf
 
 #### github-reconfigure-repo.supportedScopes
 
-> `readonly` **supportedScopes**: [[`Unlimited`](../../../../configure/enumerations/DefaultGlobalScope.md#unlimited)]
+> `readonly` **supportedScopes**: \[[`Unlimited`](../../../../configure/enumerations/DefaultGlobalScope.md#unlimited)\]
 
 #### github-reconfigure-repo.taskAliases
 
-> `readonly` **taskAliases**: [] = `[]`
+> `readonly` **taskAliases**: \[\] = `[]`
 
 #### github-reconfigure-repo.run()
 
@@ -985,7 +987,7 @@ By default, this command will preserve the origin repository's pre-existing conf
 
 ##### Index Signature
 
- \[`key`: `string`\]: `boolean`
+\[`key`: `string`\]: `boolean`
 
 #### github-rename-root.emoji
 
@@ -1861,11 +1863,11 @@ BfeBuilderObjectValueExtensions.implies
 
 #### github-rename-root.supportedScopes
 
-> `readonly` **supportedScopes**: [[`Unlimited`](../../../../configure/enumerations/DefaultGlobalScope.md#unlimited)]
+> `readonly` **supportedScopes**: \[[`Unlimited`](../../../../configure/enumerations/DefaultGlobalScope.md#unlimited)\]
 
 #### github-rename-root.taskAliases
 
-> `readonly` **taskAliases**: [] = `[]`
+> `readonly` **taskAliases**: \[\] = `[]`
 
 #### github-rename-root.run()
 
@@ -1893,7 +1895,7 @@ BfeBuilderObjectValueExtensions.implies
 
 #### regenerate-assets.conflicts
 
-> `readonly` **conflicts**: [`"synchronize-interdependencies"`, `"full-deprecate"`, `"full-undeprecate"`, `"github-rename-root"`, `"github-clone-remote-wiki"`]
+> `readonly` **conflicts**: \[`"synchronize-interdependencies"`, `"full-deprecate"`, `"full-undeprecate"`, `"github-rename-root"`, `"github-clone-remote-wiki"`\]
 
 #### regenerate-assets.emoji
 
@@ -1901,16 +1903,16 @@ BfeBuilderObjectValueExtensions.implies
 
 #### regenerate-assets.longHelpDescription
 
-> `readonly` **longHelpDescription**: \`
+> `readonly` **longHelpDescription**: `` `
 This renovation will regenerate one or more files in the project, each represented by an "asset". An asset is a collection mapping output paths to generated content. When writing out content to an output path, existing files are overwritten, missing files are created, and obsolete files are deleted.
 
-Provide --assets-preset (required) to specify which assets to regenerate. The parameter accepts one of the following presets: $\{string\}. The paths of assets included in the preset will be targeted for renovation except those paths matched by --skip-asset-paths.
+Provide --assets-preset (required) to specify which assets to regenerate. The parameter accepts one of the following presets: ${string}. The paths of assets included in the preset will be targeted for renovation except those paths matched by --skip-asset-paths.
 
 Use --skip-asset-paths to further narrow which files are regenerated. The parameter accepts regular expressions that are matched against the paths to be written out. Any paths matching one of the aforesaid regular expressions will have their contents discarded instead of written out.
 
-This renovation attempts to import the "alias.config.mjs" file if it exists at the root of the project. Use this file to provide additional \`RawAliasMapping\[\]\`s to include when regenerating files defining the project's import aliases. See the symbiote wiki documentation for further details.
+This renovation attempts to import the "alias.config.mjs" file if it exists at the root of the project. Use this file to provide additional `RawAliasMapping[]`s to include when regenerating files defining the project's import aliases. See the symbiote wiki documentation for further details.
 
-When renovating Markdown files with templates divided into replacer regions via the magic comments "$\{string\}" and "\<!-- symbiote-template-region-end --\>", this command will perform so-called "regional replacements" where only the content between the "start" and "end" comments will be modified. Regions without matching ids are ignored.
+When renovating Markdown files with templates divided into replacer regions via the magic comments "${string}" and "<!-- symbiote-template-region-end -->", this command will perform so-called "regional replacements" where only the content between the "start" and "end" comments will be modified. Regions without matching ids are ignored.
 
 When regional replacements are performed, matching non-numeric reference definitions will be overwritten respectively, and new definitions will be appended. However, when attempting to renovate a Markdown file and either (1) it does not have replacer regions when its corresponding template contains replacer regions or (2) --force is used, the entire file will be overwritten instead.
 
@@ -1921,7 +1923,7 @@ After invoking this renovation, you should use your IDE's diff tools to compare 
 This renovation should be re-run each time a package is added to, or removed from, a symbiote-compliant monorepo but should NEVER be run in a CI environment or anywhere logs can be viewed publicly.
 
 See the symbiote wiki documentation for more details on this command and all available assets.
-\`
+` ``
 
 #### regenerate-assets.requiresForce
 
@@ -2379,7 +2381,7 @@ BfeBuilderObjectValueExtensions.implies
 
 #### regenerate-assets.subOptions.skip-asset-paths.default
 
-> `readonly` **default**: readonly [] = `[]`
+> `readonly` **default**: readonly \[\] = `[]`
 
 #### regenerate-assets.subOptions.skip-asset-paths.description
 
@@ -2391,11 +2393,11 @@ BfeBuilderObjectValueExtensions.implies
 
 #### regenerate-assets.supportedScopes
 
-> `readonly` **supportedScopes**: [[`Unlimited`](../../../../configure/enumerations/DefaultGlobalScope.md#unlimited)]
+> `readonly` **supportedScopes**: \[[`Unlimited`](../../../../configure/enumerations/DefaultGlobalScope.md#unlimited)\]
 
 #### regenerate-assets.taskAliases
 
-> `readonly` **taskAliases**: [] = `[]`
+> `readonly` **taskAliases**: \[\] = `[]`
 
 #### regenerate-assets.run()
 
@@ -2423,7 +2425,7 @@ BfeBuilderObjectValueExtensions.implies
 
 #### synchronize-interdependencies.conflicts
 
-> `readonly` **conflicts**: [`"full-deprecate"`, `"full-undeprecate"`, `"github-rename-root"`]
+> `readonly` **conflicts**: \[`"full-deprecate"`, `"full-undeprecate"`, `"github-rename-root"`\]
 
 #### synchronize-interdependencies.emoji
 
@@ -2451,7 +2453,7 @@ BfeBuilderObjectValueExtensions.implies
 
 #### synchronize-interdependencies.taskAliases
 
-> `readonly` **taskAliases**: [`"sync-deps"`]
+> `readonly` **taskAliases**: \[`"sync-deps"`\]
 
 #### synchronize-interdependencies.run()
 
@@ -2507,7 +2509,7 @@ BfeBuilderObjectValueExtensions.implies
 
 #### update-dependencies.taskAliases
 
-> `readonly` **taskAliases**: [] = `[]`
+> `readonly` **taskAliases**: \[\] = `[]`
 
 #### update-dependencies.run()
 
@@ -2528,7 +2530,3 @@ BfeBuilderObjectValueExtensions.implies
 ## See
 
 RenovationTask
-
-## Defined in
-
-[src/commands/project/renovate.ts:723](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/commands/project/renovate.ts#L723)

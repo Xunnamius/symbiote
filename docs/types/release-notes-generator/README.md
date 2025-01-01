@@ -6,8 +6,6 @@
 
 # types/release-notes-generator
 
-## Index
-
-### Functions
+## Functions
 
 - [generateNotes](functions/generateNotes.md)

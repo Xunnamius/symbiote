@@ -8,6 +8,4 @@
 
 > **MatcherContext**: [`MatcherUtils`](MatcherUtils.md) & `Readonly`\<[`MatcherState`](MatcherState.md)\>
 
-## Defined in
-
-node\_modules/@types/jest/index.d.ts:628
+Defined in: node\_modules/@types/jest/index.d.ts:628

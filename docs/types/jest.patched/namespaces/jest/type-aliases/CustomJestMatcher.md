@@ -8,6 +8,8 @@
 
 > **CustomJestMatcher**\<`TMatcher`, `TMatcherReturn`\>: (...`args`) => `TMatcherReturn`
 
+Defined in: node\_modules/@types/jest/index.d.ts:1170
+
 ## Type Parameters
 
 • **TMatcher** *extends* (...`args`) => `any`
@@ -23,7 +25,3 @@
 ## Returns
 
 `TMatcherReturn`
-
-## Defined in
-
-node\_modules/@types/jest/index.d.ts:1170

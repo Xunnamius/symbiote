@@ -6,8 +6,6 @@
 
 # types/jest.patched
 
-## Index
-
-### Namespaces
+## Namespaces
 
 - [jest](namespaces/jest/README.md)

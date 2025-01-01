@@ -8,6 +8,8 @@
 
 > **doMock**\<`T`\>(`moduleName`, `factory`?, `options`?): *typeof* [`jest`](../README.md)
 
+Defined in: node\_modules/@types/jest/index.d.ts:199
+
 Mocks a module with an auto-mocked version when it is being required.
 
 ## Type Parameters
@@ -31,7 +33,3 @@ Mocks a module with an auto-mocked version when it is being required.
 ## Returns
 
 *typeof* [`jest`](../README.md)
-
-## Defined in
-
-node\_modules/@types/jest/index.d.ts:199

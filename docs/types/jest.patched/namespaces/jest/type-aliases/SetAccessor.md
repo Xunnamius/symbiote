@@ -8,6 +8,4 @@
 
 > **SetAccessor**: `"set"`
 
-## Defined in
-
-node\_modules/@types/jest/index.d.ts:479
+Defined in: node\_modules/@types/jest/index.d.ts:479

@@ -8,10 +8,8 @@
 
 > **PromiseMatchers**\<`T`\>: `Omit`\<`T`\[`"resolves"`\], `"not"`\>
 
+Defined in: node\_modules/@types/jest/index.d.ts:1202
+
 ## Type Parameters
 
 • **T** *extends* [`JestMatchersShape`](JestMatchersShape.md)
-
-## Defined in
-
-node\_modules/@types/jest/index.d.ts:1202

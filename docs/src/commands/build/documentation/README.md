@@ -6,16 +6,14 @@
 
 # src/commands/build/documentation
 
-## Index
-
-### Type Aliases
+## Type Aliases
 
 - [CustomCliArguments](type-aliases/CustomCliArguments.md)
 
-### Variables
+## Variables
 
 - [documentationBuilderScopes](variables/documentationBuilderScopes.md)
 
-### Functions
+## Functions
 
 - [default](functions/default.md)

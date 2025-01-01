@@ -6,8 +6,6 @@
 
 # src/assets/transformers/\_MAINTAINING.md
 
-## Index
-
-### Functions
+## Functions
 
 - [transformer](functions/transformer.md)

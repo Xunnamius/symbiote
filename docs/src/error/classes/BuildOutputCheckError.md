@@ -6,6 +6,8 @@
 
 # Class: BuildOutputCheckError
 
+Defined in: [src/error.ts:41](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/error.ts#L41)
+
 Represents encountering a project that is not a git repository.
 
 ## Extends
@@ -18,6 +20,8 @@ Represents encountering a project that is not a git repository.
 
 > **new BuildOutputCheckError**(): [`BuildOutputCheckError`](BuildOutputCheckError.md)
 
+Defined in: [src/error.ts:47](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/error.ts#L47)
+
 Represents encountering a project that is not a git repository.
 
 #### Returns
@@ -28,13 +32,11 @@ Represents encountering a project that is not a git repository.
 
 `ProjectError.constructor`
 
-#### Defined in
-
-[src/error.ts:47](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/error.ts#L47)
-
 ### new BuildOutputCheckError()
 
 > **new BuildOutputCheckError**(`message`): [`BuildOutputCheckError`](BuildOutputCheckError.md)
+
+Defined in: [src/error.ts:52](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/error.ts#L52)
 
 This constructor syntax is used by subclasses when calling this constructor
 via `super`.
@@ -53,23 +55,17 @@ via `super`.
 
 `ProjectError.constructor`
 
-#### Defined in
-
-[src/error.ts:52](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/error.ts#L52)
-
 ## Properties
 
 ### \[$type\]
 
 > **\[$type\]**: `symbol`[]
 
+Defined in: [src/error.ts:43](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/error.ts#L43)
+
 #### Overrides
 
 `ProjectError.[$type]`
-
-#### Defined in
-
-[src/error.ts:43](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/error.ts#L43)
 
 ***
 
@@ -77,13 +73,11 @@ via `super`.
 
 > `optional` **cause**: `unknown`
 
+Defined in: node\_modules/typescript/lib/lib.es2022.error.d.ts:26
+
 #### Inherited from
 
 `ProjectError.cause`
-
-#### Defined in
-
-node\_modules/typescript/lib/lib.es2022.error.d.ts:26
 
 ***
 
@@ -91,13 +85,11 @@ node\_modules/typescript/lib/lib.es2022.error.d.ts:26
 
 > **message**: `string`
 
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1077
+
 #### Inherited from
 
 `ProjectError.message`
-
-#### Defined in
-
-node\_modules/typescript/lib/lib.es5.d.ts:1077
 
 ***
 
@@ -105,13 +97,11 @@ node\_modules/typescript/lib/lib.es5.d.ts:1077
 
 > **name**: `string`
 
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1076
+
 #### Inherited from
 
 `ProjectError.name`
-
-#### Defined in
-
-node\_modules/typescript/lib/lib.es5.d.ts:1076
 
 ***
 
@@ -119,19 +109,19 @@ node\_modules/typescript/lib/lib.es5.d.ts:1076
 
 > `optional` **stack**: `string`
 
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:1078
+
 #### Inherited from
 
 `ProjectError.stack`
-
-#### Defined in
-
-node\_modules/typescript/lib/lib.es5.d.ts:1078
 
 ***
 
 ### prepareStackTrace()?
 
 > `static` `optional` **prepareStackTrace**: (`err`, `stackTraces`) => `any`
+
+Defined in: node\_modules/@types/node/globals.d.ts:143
 
 Optional override for formatting stack traces
 
@@ -157,29 +147,25 @@ https://v8.dev/docs/stack-trace-api#customizing-stack-traces
 
 `ProjectError.prepareStackTrace`
 
-#### Defined in
-
-node\_modules/@types/node/globals.d.ts:143
-
 ***
 
 ### stackTraceLimit
 
 > `static` **stackTraceLimit**: `number`
 
+Defined in: node\_modules/@types/node/globals.d.ts:145
+
 #### Inherited from
 
 `ProjectError.stackTraceLimit`
-
-#### Defined in
-
-node\_modules/@types/node/globals.d.ts:145
 
 ## Methods
 
 ### captureStackTrace()
 
 > `static` **captureStackTrace**(`targetObject`, `constructorOpt`?): `void`
+
+Defined in: node\_modules/@types/node/globals.d.ts:136
 
 Create .stack property on a target object
 
@@ -200,7 +186,3 @@ Create .stack property on a target object
 #### Inherited from
 
 `ProjectError.captureStackTrace`
-
-#### Defined in
-
-node\_modules/@types/node/globals.d.ts:136

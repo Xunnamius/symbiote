@@ -6,19 +6,17 @@
 
 # src/commands/project/renovate
 
-## Index
-
-### Type Aliases
+## Type Aliases
 
 - [CustomCliArguments](type-aliases/CustomCliArguments.md)
 - [RenovationTaskContext](type-aliases/RenovationTaskContext.md)
 
-### Variables
+## Variables
 
 - [projectRenovateScopes](variables/projectRenovateScopes.md)
 - [renovationTasks](variables/renovationTasks.md)
 
-### Functions
+## Functions
 
 - [default](functions/default.md)
 

@@ -8,6 +8,8 @@
 
 > **createMockFromModule**\<`T`\>(`moduleName`): `T`
 
+Defined in: node\_modules/@types/jest/index.d.ts:132
+
 Use the automatic mocking system to generate a mocked version of the given module.
 
 ## Type Parameters
@@ -23,7 +25,3 @@ Use the automatic mocking system to generate a mocked version of the given modul
 ## Returns
 
 `T`
-
-## Defined in
-
-node\_modules/@types/jest/index.d.ts:132

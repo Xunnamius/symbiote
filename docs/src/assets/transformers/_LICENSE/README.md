@@ -6,8 +6,6 @@
 
 # src/assets/transformers/\_LICENSE
 
-## Index
-
-### Functions
+## Functions
 
 - [transformer](functions/transformer.md)

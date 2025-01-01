@@ -6,9 +6,7 @@
 
 # src/commands/build
 
-## Index
-
-### Functions
+## Functions
 
 - [default](functions/default.md)
 

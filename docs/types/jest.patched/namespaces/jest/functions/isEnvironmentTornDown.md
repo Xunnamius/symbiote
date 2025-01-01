@@ -8,6 +8,8 @@
 
 > **isEnvironmentTornDown**(): `boolean`
 
+Defined in: node\_modules/@types/jest/index.d.ts:233
+
 Returns `true` if test environment has been torn down.
 
 ## Returns
@@ -22,7 +24,3 @@ if (jest.isEnvironmentTornDown()) {
   return;
 }
 ```
-
-## Defined in
-
-node\_modules/@types/jest/index.d.ts:233

@@ -8,6 +8,8 @@
 
 > `const` **ErrorMessage**: `object`
 
+Defined in: [src/error.ts:63](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/error.ts#L63)
+
 A collection of possible error and warning messages.
 
 ## Type declaration
@@ -105,7 +107,7 @@ punctuation and capitalization rules as the other error messages.
 
 ###### packagesMeta
 
-[`string`, `string`][]
+\[`string`, `string`\][]
 
 ##### Returns
 
@@ -117,7 +119,7 @@ punctuation and capitalization rules as the other error messages.
 
 ###### packageSpecifiers
 
-[`AbsolutePath`, `string`, `string`][]
+\[`AbsolutePath`, `string`, `string`\][]
 
 ##### Returns
 
@@ -153,7 +155,7 @@ punctuation and capitalization rules as the other error messages.
 
 ###### subpaths
 
-[`string`, `string`][]
+\[`string`, `string`\][]
 
 ##### Returns
 
@@ -165,7 +167,7 @@ punctuation and capitalization rules as the other error messages.
 
 ###### packageSpecifiers
 
-[`AbsolutePath`, `string`, `string`][]
+\[`AbsolutePath`, `string`, `string`\][]
 
 ##### Returns
 
@@ -1002,7 +1004,3 @@ readonly `string`[]
 #### Returns
 
 `string`
-
-## Defined in
-
-[src/error.ts:63](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/error.ts#L63)

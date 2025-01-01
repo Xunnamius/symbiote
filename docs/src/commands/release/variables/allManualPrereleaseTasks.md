@@ -8,13 +8,11 @@
 
 > `const` **allManualPrereleaseTasks**: `"manual"` = `'manual'`
 
+Defined in: [src/commands/release.ts:126](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/commands/release.ts#L126)
+
 A string that can be passed to --skip-tasks representing all prerelease tasks
 that should be skipped when following "Manual Release Method 2" in
 `MAINTAINING.md`.
 
 The skipped tasks are those manageable by an outside scheduler, making this
 mode useful when integrating with tools like Turbo.
-
-## Defined in
-
-[src/commands/release.ts:126](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/commands/release.ts#L126)

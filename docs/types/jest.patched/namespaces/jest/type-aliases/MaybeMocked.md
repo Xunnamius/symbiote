@@ -8,10 +8,8 @@
 
 > **MaybeMocked**\<`T`\>: `T` *extends* [`MockableFunction`](MockableFunction.md) ? [`MockedFn`](MockedFn.md)\<`T`\> : `T` *extends* `object` ? [`MockedObject`](MockedObject.md)\<`T`\> : `T`
 
+Defined in: node\_modules/@types/jest/index.d.ts:468
+
 ## Type Parameters
 
 • **T**
-
-## Defined in
-
-node\_modules/@types/jest/index.d.ts:468

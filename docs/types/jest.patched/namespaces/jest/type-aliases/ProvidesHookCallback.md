@@ -8,6 +8,4 @@
 
 > **ProvidesHookCallback**: () => `any` \| [`ProvidesCallback`](ProvidesCallback.md)
 
-## Defined in
-
-node\_modules/@types/jest/index.d.ts:501
+Defined in: node\_modules/@types/jest/index.d.ts:501

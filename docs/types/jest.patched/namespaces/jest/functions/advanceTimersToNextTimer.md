@@ -8,6 +8,8 @@
 
 > **advanceTimersToNextTimer**(`step`?): `void`
 
+Defined in: node\_modules/@types/jest/index.d.ts:348
+
 Advances all timers by the needed milliseconds so that only the next timeouts/intervals will run.
 Optionally, you can provide steps, so it will run steps amount of next timeouts/intervals.
 
@@ -20,7 +22,3 @@ Optionally, you can provide steps, so it will run steps amount of next timeouts/
 ## Returns
 
 `void`
-
-## Defined in
-
-node\_modules/@types/jest/index.d.ts:348

@@ -6,8 +6,6 @@
 
 # src/assets/transformers/\_.env.default
 
-## Index
-
-### Functions
+## Functions
 
 - [transformer](functions/transformer.md)

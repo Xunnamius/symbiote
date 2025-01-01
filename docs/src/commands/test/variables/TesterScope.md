@@ -8,6 +8,8 @@
 
 > **TesterScope**: `object`
 
+Defined in: [src/commands/test.ts:116](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/commands/test.ts#L116)
+
 The context in which to search for test files.
 
 ## Type declaration
@@ -38,7 +40,3 @@ Do not limit or exclude any files by default when running the command.
 
 This is useful, for instance, when attempting to manually lint an entire
 monorepo at once; e.g. `npx symbiote lint --scope=unlimited`.
-
-## Defined in
-
-[src/commands/test.ts:116](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/commands/test.ts#L116)

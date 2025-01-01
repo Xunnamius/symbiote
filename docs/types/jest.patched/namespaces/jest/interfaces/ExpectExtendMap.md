@@ -6,6 +6,8 @@
 
 # Interface: ExpectExtendMap
 
+Defined in: node\_modules/@types/jest/index.d.ts:624
+
 ## Indexable
 
- \[`key`: `string`\]: [`CustomMatcher`](../type-aliases/CustomMatcher.md)
+\[`key`: `string`\]: [`CustomMatcher`](../type-aliases/CustomMatcher.md)

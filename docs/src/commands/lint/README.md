@@ -6,21 +6,19 @@
 
 # src/commands/lint
 
-## Index
-
-### Enumerations
+## Enumerations
 
 - [Linter](enumerations/Linter.md)
 
-### Type Aliases
+## Type Aliases
 
 - [CustomCliArguments](type-aliases/CustomCliArguments.md)
 
-### Variables
+## Variables
 
 - [linters](variables/linters.md)
 - [linterScopes](variables/linterScopes.md)
 
-### Functions
+## Functions
 
 - [default](functions/default.md)

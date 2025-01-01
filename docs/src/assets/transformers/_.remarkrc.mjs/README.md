@@ -6,20 +6,18 @@
 
 # src/assets/transformers/\_.remarkrc.mjs
 
-## Index
-
-### Type Aliases
+## Type Aliases
 
 - [PluggableListSupportingSpecifiers](type-aliases/PluggableListSupportingSpecifiers.md)
 - [RemarkConfig](type-aliases/RemarkConfig.md)
 
-### Variables
+## Variables
 
 - [noUndefinedReferencesPlugin](variables/noUndefinedReferencesPlugin.md)
 - [wellKnownGithubAlerts](variables/wellKnownGithubAlerts.md)
 - [wellKnownNodeEnvValues](variables/wellKnownNodeEnvValues.md)
 
-### Functions
+## Functions
 
 - [assertEnvironment](functions/assertEnvironment.md)
 - [moduleExport](functions/moduleExport.md)

@@ -6,9 +6,7 @@
 
 # src/commands/project
 
-## Index
-
-### Functions
+## Functions
 
 - [default](functions/default.md)
 

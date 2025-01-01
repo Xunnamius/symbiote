@@ -8,7 +8,9 @@
 
 ## Call Signature
 
-> **spyOn**\<`T`, `Key`, `A`, `Value`\>(`object`, `method`, `accessType`): `A` *extends* [`SetAccessor`](../type-aliases/SetAccessor.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`void`, [`Value`]\> : `A` *extends* [`GetAccessor`](../type-aliases/GetAccessor.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`Value`, []\> : `Value` *extends* [`Constructor`](../type-aliases/Constructor.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`InstanceType`\<`Value`\>, [`ConstructorArgsType`](../type-aliases/ConstructorArgsType.md)\<`Value`\>\> : `Value` *extends* [`Func`](../type-aliases/Func.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`ReturnType`\<`Value`\>, [`ArgsType`](../type-aliases/ArgsType.md)\<`Value`\>\> : `never`
+> **spyOn**\<`T`, `Key`, `A`, `Value`\>(`object`, `method`, `accessType`): `A` *extends* [`SetAccessor`](../type-aliases/SetAccessor.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`void`, \[`Value`\]\> : `A` *extends* [`GetAccessor`](../type-aliases/GetAccessor.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`Value`, \[\]\> : `Value` *extends* [`Constructor`](../type-aliases/Constructor.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`InstanceType`\<`Value`\>, [`ConstructorArgsType`](../type-aliases/ConstructorArgsType.md)\<`Value`\>\> : `Value` *extends* [`Func`](../type-aliases/Func.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`ReturnType`\<`Value`\>, [`ArgsType`](../type-aliases/ArgsType.md)\<`Value`\>\> : `never`
+
+Defined in: node\_modules/@types/jest/index.d.ts:389
 
 Creates a mock function similar to jest.fn but also tracks calls to `object[methodName]`
 
@@ -41,7 +43,7 @@ other test libraries.
 
 ### Returns
 
-`A` *extends* [`SetAccessor`](../type-aliases/SetAccessor.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`void`, [`Value`]\> : `A` *extends* [`GetAccessor`](../type-aliases/GetAccessor.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`Value`, []\> : `Value` *extends* [`Constructor`](../type-aliases/Constructor.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`InstanceType`\<`Value`\>, [`ConstructorArgsType`](../type-aliases/ConstructorArgsType.md)\<`Value`\>\> : `Value` *extends* [`Func`](../type-aliases/Func.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`ReturnType`\<`Value`\>, [`ArgsType`](../type-aliases/ArgsType.md)\<`Value`\>\> : `never`
+`A` *extends* [`SetAccessor`](../type-aliases/SetAccessor.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`void`, \[`Value`\]\> : `A` *extends* [`GetAccessor`](../type-aliases/GetAccessor.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`Value`, \[\]\> : `Value` *extends* [`Constructor`](../type-aliases/Constructor.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`InstanceType`\<`Value`\>, [`ConstructorArgsType`](../type-aliases/ConstructorArgsType.md)\<`Value`\>\> : `Value` *extends* [`Func`](../type-aliases/Func.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`ReturnType`\<`Value`\>, [`ArgsType`](../type-aliases/ArgsType.md)\<`Value`\>\> : `never`
 
 ### Example
 
@@ -60,13 +62,11 @@ test('plays video', () => {
 });
 ```
 
-### Defined in
-
-node\_modules/@types/jest/index.d.ts:389
-
 ## Call Signature
 
 > **spyOn**\<`T`, `M`\>(`object`, `method`): [`ConstructorProperties`](../type-aliases/ConstructorProperties.md)\<`Required`\<`T`\>\>\[`M`\] *extends* (...`args`) => `any` ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`InstanceType`\<[`ConstructorProperties`](../type-aliases/ConstructorProperties.md)\<`Required`\<`T`\>\>\[`M`\]\>, [`ConstructorArgsType`](../type-aliases/ConstructorArgsType.md)\<[`ConstructorProperties`](../type-aliases/ConstructorProperties.md)\<`Required`\<`T`\>\>\[`M`\]\>\> : `never`
+
+Defined in: node\_modules/@types/jest/index.d.ts:403
 
 Creates a mock function similar to jest.fn but also tracks calls to `object[methodName]`
 
@@ -110,13 +110,11 @@ test('plays video', () => {
 });
 ```
 
-### Defined in
-
-node\_modules/@types/jest/index.d.ts:403
-
 ## Call Signature
 
 > **spyOn**\<`T`, `M`\>(`object`, `method`): [`FunctionProperties`](../type-aliases/FunctionProperties.md)\<`Required`\<`T`\>\>\[`M`\] *extends* [`Func`](../type-aliases/Func.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`ReturnType`\<[`FunctionProperties`](../type-aliases/FunctionProperties.md)\<`Required`\<`T`\>\>\[`M`\]\>, [`ArgsType`](../type-aliases/ArgsType.md)\<[`FunctionProperties`](../type-aliases/FunctionProperties.md)\<`Required`\<`T`\>\>\[`M`\]\>\> : `never`
+
+Defined in: node\_modules/@types/jest/index.d.ts:411
 
 Creates a mock function similar to jest.fn but also tracks calls to `object[methodName]`
 
@@ -159,7 +157,3 @@ test('plays video', () => {
   spy.mockRestore();
 });
 ```
-
-### Defined in
-
-node\_modules/@types/jest/index.d.ts:411

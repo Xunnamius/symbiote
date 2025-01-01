@@ -8,13 +8,15 @@
 
 > **moduleExport**(): `object`
 
+Defined in: [src/assets/transformers/\_commitlint.config.mjs.ts:32](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/assets/transformers/_commitlint.config.mjs.ts#L32)
+
 ## Returns
 
 `object`
 
 ### extends
 
-> `readonly` **extends**: readonly [`"@commitlint/config-conventional"`]
+> `readonly` **extends**: readonly \[`"@commitlint/config-conventional"`\]
 
 ### rules
 
@@ -22,32 +24,28 @@
 
 #### rules.body-case
 
-> `readonly` **body-case**: readonly [[`Warn`](../enumerations/ErrorLevel.md#warn), [`FailIfEncountered`](../enumerations/Applicable.md#failifencountered), `"sentence-case"`]
+> `readonly` **body-case**: readonly \[[`Warn`](../enumerations/ErrorLevel.md#warn), [`FailIfEncountered`](../enumerations/Applicable.md#failifencountered), `"sentence-case"`\]
 
 #### rules.body-full-stop
 
-> `readonly` **body-full-stop**: readonly [[`Warn`](../enumerations/ErrorLevel.md#warn), [`FailIfEncountered`](../enumerations/Applicable.md#failifencountered)]
+> `readonly` **body-full-stop**: readonly \[[`Warn`](../enumerations/ErrorLevel.md#warn), [`FailIfEncountered`](../enumerations/Applicable.md#failifencountered)\]
 
 #### rules.body-leading-blank
 
-> `readonly` **body-leading-blank**: readonly [[`Error`](../enumerations/ErrorLevel.md#error), [`FailIfEncountered`](../enumerations/Applicable.md#failifencountered)]
+> `readonly` **body-leading-blank**: readonly \[[`Error`](../enumerations/ErrorLevel.md#error), [`FailIfEncountered`](../enumerations/Applicable.md#failifencountered)\]
 
 #### rules.footer-leading-blank
 
-> `readonly` **footer-leading-blank**: readonly [[`Error`](../enumerations/ErrorLevel.md#error), [`FailIfEncountered`](../enumerations/Applicable.md#failifencountered)]
+> `readonly` **footer-leading-blank**: readonly \[[`Error`](../enumerations/ErrorLevel.md#error), [`FailIfEncountered`](../enumerations/Applicable.md#failifencountered)\]
 
 #### rules.header-max-length
 
-> `readonly` **header-max-length**: readonly [[`Warn`](../enumerations/ErrorLevel.md#warn), [`FailIfEncountered`](../enumerations/Applicable.md#failifencountered), `100`]
+> `readonly` **header-max-length**: readonly \[[`Warn`](../enumerations/ErrorLevel.md#warn), [`FailIfEncountered`](../enumerations/Applicable.md#failifencountered), `100`\]
 
 #### rules.header-trim
 
-> `readonly` **header-trim**: readonly [[`Warn`](../enumerations/ErrorLevel.md#warn), [`FailIfEncountered`](../enumerations/Applicable.md#failifencountered)]
+> `readonly` **header-trim**: readonly \[[`Warn`](../enumerations/ErrorLevel.md#warn), [`FailIfEncountered`](../enumerations/Applicable.md#failifencountered)\]
 
 #### rules.type-enum
 
-> `readonly` **type-enum**: readonly [[`Error`](../enumerations/ErrorLevel.md#error), [`FailIfEncountered`](../enumerations/Applicable.md#failifencountered), `string`[]]
-
-## Defined in
-
-[src/assets/transformers/\_commitlint.config.mjs.ts:32](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/assets/transformers/_commitlint.config.mjs.ts#L32)
+> `readonly` **type-enum**: readonly \[[`Error`](../enumerations/ErrorLevel.md#error), [`FailIfEncountered`](../enumerations/Applicable.md#failifencountered), `string`[]\]

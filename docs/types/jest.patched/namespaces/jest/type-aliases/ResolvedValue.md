@@ -8,10 +8,8 @@
 
 > **ResolvedValue**\<`T`\>: `T` *extends* `PromiseLike`\<infer U\> ? `U` \| `T` : `never`
 
+Defined in: node\_modules/@types/jest/index.d.ts:475
+
 ## Type Parameters
 
 • **T**
-
-## Defined in
-
-node\_modules/@types/jest/index.d.ts:475

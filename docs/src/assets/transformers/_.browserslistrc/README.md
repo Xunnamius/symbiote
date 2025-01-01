@@ -6,8 +6,6 @@
 
 # src/assets/transformers/\_.browserslistrc
 
-## Index
-
-### Functions
+## Functions
 
 - [transformer](functions/transformer.md)

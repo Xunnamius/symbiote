@@ -8,6 +8,8 @@
 
 > **CustomCliArguments**: [`GlobalCliArguments`](../../../configure/type-aliases/GlobalCliArguments.md) & `object`
 
+Defined in: [src/commands/format.ts:47](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/commands/format.ts#L47)
+
 ## Type declaration
 
 ### files?
@@ -37,7 +39,3 @@
 ### skipUnknown
 
 > **skipUnknown**: `boolean`
-
-## Defined in
-
-[src/commands/format.ts:47](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/commands/format.ts#L47)

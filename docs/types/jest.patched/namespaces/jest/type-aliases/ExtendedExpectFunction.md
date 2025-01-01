@@ -8,6 +8,8 @@
 
 > **ExtendedExpectFunction**\<`TMatchers`\>: \<`TActual`\>(`actual`) => [`JestExtendedMatchers`](JestExtendedMatchers.md)\<`TMatchers`, `TActual`\>
 
+Defined in: node\_modules/@types/jest/index.d.ts:1192
+
 ## Type Parameters
 
 • **TMatchers** *extends* [`ExpectExtendMap`](../interfaces/ExpectExtendMap.md)
@@ -25,7 +27,3 @@
 ## Returns
 
 [`JestExtendedMatchers`](JestExtendedMatchers.md)\<`TMatchers`, `TActual`\>
-
-## Defined in
-
-node\_modules/@types/jest/index.d.ts:1192

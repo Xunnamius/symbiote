@@ -6,6 +6,8 @@
 
 # Interface: Matchers\<R, T\>
 
+Defined in: node\_modules/jest-extended/types/index.d.ts:431
+
 ## Type Parameters
 
 • **R**
@@ -17,6 +19,8 @@
 ### fail()
 
 > **fail**(`message`): `never`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:446
 
 Note: Currently unimplemented
 Failing assertion
@@ -31,15 +35,13 @@ Failing assertion
 
 `never`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:446
-
 ***
 
 ### ~~lastCalledWith()~~
 
 > **lastCalledWith**\<`E`\>(...`args`): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:811
 
 Ensures the last call to a mock function was provided specific args.
 
@@ -64,15 +66,13 @@ Note that the type must be either an array or a tuple.
 
 in favor of `toHaveBeenLastCalledWith`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:811
-
 ***
 
 ### ~~lastReturnedWith()~~
 
 > **lastReturnedWith**\<`E`\>(`expected`?): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:821
 
 Ensure that the last call to a mock function has returned a specified value.
 
@@ -97,15 +97,13 @@ This is particularly useful for ensuring expected objects have the right structu
 
 in favor of `toHaveLastReturnedWith`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:821
-
 ***
 
 ### ~~nthCalledWith()~~
 
 > **nthCalledWith**\<`E`\>(`nthCall`, ...`params`): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:831
 
 Ensure that a mock function is called with specific arguments on an Nth call.
 
@@ -134,15 +132,13 @@ Note that the type must be either an array or a tuple.
 
 in favor of `toHaveBeenNthCalledWith`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:831
-
 ***
 
 ### ~~nthReturnedWith()~~
 
 > **nthReturnedWith**\<`E`\>(`n`, `expected`?): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:841
 
 Ensure that the nth call to a mock function has returned a specified value.
 
@@ -171,15 +167,13 @@ This is particularly useful for ensuring expected objects have the right structu
 
 in favor of `toHaveNthReturnedWith`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:841
-
 ***
 
 ### pass()
 
 > **pass**(`message`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:438
 
 Note: Currently unimplemented
 Passing assertion
@@ -194,15 +188,13 @@ Passing assertion
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:438
-
 ***
 
 ### toBe()
 
 > **toBe**\<`E`\>(`expected`): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:850
 
 Checks that a value is what you expect. It uses `Object.is` to check strict equality.
 Don't use `toBe` with floating-point numbers.
@@ -224,15 +216,13 @@ This is particularly useful for ensuring expected objects have the right structu
 
 `R`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:850
-
 ***
 
 ### toBeAfter()
 
 > **toBeAfter**(`date`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:485
 
 Use `.toBeAfter` when checking if a date occurs after `date`.
 
@@ -246,15 +236,13 @@ Use `.toBeAfter` when checking if a date occurs after `date`.
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:485
-
 ***
 
 ### toBeAfterOrEqualTo()
 
 > **toBeAfterOrEqualTo**(`date`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:864
 
 Use `.toBeAfterOrEqualTo` when checking if a date equals to or occurs after `date`.
 
@@ -268,15 +256,13 @@ Use `.toBeAfterOrEqualTo` when checking if a date equals to or occurs after `dat
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:864
-
 ***
 
 ### toBeArray()
 
 > **toBeArray**(): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:473
 
 Use `.toBeArray` when checking if a value is an `Array`.
 
@@ -284,15 +270,13 @@ Use `.toBeArray` when checking if a value is an `Array`.
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:473
-
 ***
 
 ### toBeArrayOfSize()
 
 > **toBeArrayOfSize**(`x`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:479
 
 Use `.toBeArrayOfSize` when checking if a value is an `Array` of size x.
 
@@ -306,15 +290,13 @@ Use `.toBeArrayOfSize` when checking if a value is an `Array` of size x.
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:479
-
 ***
 
 ### toBeBefore()
 
 > **toBeBefore**(`date`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:491
 
 Use `.toBeBefore` when checking if a date occurs before `date`.
 
@@ -328,15 +310,13 @@ Use `.toBeBefore` when checking if a date occurs before `date`.
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:491
-
 ***
 
 ### toBeBeforeOrEqualTo()
 
 > **toBeBeforeOrEqualTo**(`date`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:858
 
 Use `.toBeBeforeOrEqualTo` when checking if a date equals to or occurs before `date`.
 
@@ -350,15 +330,13 @@ Use `.toBeBeforeOrEqualTo` when checking if a date equals to or occurs before `d
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:858
-
 ***
 
 ### toBeBetween()
 
 > **toBeBetween**(`startDate`, `endDate`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:852
 
 Use `.toBeBetween` when checking if a date occurs between `startDate` and `endDate`.
 
@@ -376,15 +354,13 @@ Use `.toBeBetween` when checking if a date occurs between `startDate` and `endDa
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:852
-
 ***
 
 ### toBeBoolean()
 
 > **toBeBoolean**(): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:538
 
 Use `.toBeBoolean` when checking if a value is a `Boolean`.
 
@@ -392,15 +368,13 @@ Use `.toBeBoolean` when checking if a value is a `Boolean`.
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:538
-
 ***
 
 ### ~~toBeCalled()~~
 
 > **toBeCalled**(): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:856
 
 Ensures that a mock function is called.
 
@@ -412,15 +386,13 @@ Ensures that a mock function is called.
 
 in favor of `toHaveBeenCalled`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:856
-
 ***
 
 ### ~~toBeCalledTimes()~~
 
 > **toBeCalledTimes**(`expected`): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:862
 
 Ensures that a mock function is called an exact number of times.
 
@@ -438,15 +410,13 @@ Ensures that a mock function is called an exact number of times.
 
 in favor of `toHaveBeenCalledTimes`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:862
-
 ***
 
 ### ~~toBeCalledWith()~~
 
 > **toBeCalledWith**\<`E`\>(...`args`): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:872
 
 Ensure that a mock function is called with specific arguments.
 
@@ -471,15 +441,13 @@ Note that the type must be either an array or a tuple.
 
 in favor of `toHaveBeenCalledWith`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:872
-
 ***
 
 ### toBeCloseTo()
 
 > **toBeCloseTo**(`expected`, `numDigits`?): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:878
 
 Using exact equality with floating point numbers is a bad idea.
 Rounding means that intuitive things fail.
@@ -499,15 +467,13 @@ The default for numDigits is 2.
 
 `R`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:878
-
 ***
 
 ### toBeDate()
 
 > **toBeDate**(): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:553
 
 Use `.toBeDate` when checking if a value is a `Date`.
 
@@ -515,15 +481,13 @@ Use `.toBeDate` when checking if a value is a `Date`.
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:553
-
 ***
 
 ### toBeDateString()
 
 > **toBeDateString**(): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:568
 
 Use `.toBeDateString` when checking if a value is a valid date string.
 
@@ -531,15 +495,13 @@ Use `.toBeDateString` when checking if a value is a valid date string.
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:568
-
 ***
 
 ### toBeDefined()
 
 > **toBeDefined**(): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:882
 
 Ensure that a variable is not undefined.
 
@@ -547,15 +509,13 @@ Ensure that a variable is not undefined.
 
 `R`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:882
-
 ***
 
 ### toBeEmpty()
 
 > **toBeEmpty**(): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:451
 
 Use .toBeEmpty when checking if a String '', Array [], Object {} or Iterable (i.e. Map, Set) is empty.
 
@@ -563,15 +523,13 @@ Use .toBeEmpty when checking if a String '', Array [], Object {} or Iterable (i.
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:451
-
 ***
 
 ### toBeEmptyObject()
 
 > **toBeEmptyObject**(): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:840
 
 Use `.toBeEmptyObject` when checking if a value is an empty `Object`.
 
@@ -579,15 +537,13 @@ Use `.toBeEmptyObject` when checking if a value is an empty `Object`.
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:840
-
 ***
 
 ### toBeEven()
 
 > **toBeEven**(): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:633
 
 Use `.toBeEven` when checking if a value is an even `Number`.
 
@@ -595,15 +551,13 @@ Use `.toBeEven` when checking if a value is an even `Number`.
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:633
-
 ***
 
 ### toBeExtensible()
 
 > **toBeExtensible**(): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:753
 
 Use `.toBeExtensible` when checking if an object is extensible.
 
@@ -611,15 +565,13 @@ Use `.toBeExtensible` when checking if an object is extensible.
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:753
-
 ***
 
 ### toBeFalse()
 
 > **toBeFalse**(): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:548
 
 Use `.toBeFalse` when checking a value is equal (===) to `false`.
 
@@ -627,15 +579,13 @@ Use `.toBeFalse` when checking a value is equal (===) to `false`.
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:548
-
 ***
 
 ### toBeFalsy()
 
 > **toBeFalsy**(): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:887
 
 When you don't care what a value is, you just want to
 ensure a value is false in a boolean context.
@@ -644,15 +594,13 @@ ensure a value is false in a boolean context.
 
 `R`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:887
-
 ***
 
 ### toBeFinite()
 
 > **toBeFinite**(): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:618
 
 Use `.toBeFinite` when checking if a value is a `Number`, not `NaN` or `Infinity`.
 
@@ -660,15 +608,13 @@ Use `.toBeFinite` when checking if a value is a `Number`, not `NaN` or `Infinity
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:618
-
 ***
 
 ### toBeFrozen()
 
 > **toBeFrozen**(): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:758
 
 Use `.toBeFrozen` when checking if an object is frozen.
 
@@ -676,15 +622,13 @@ Use `.toBeFrozen` when checking if an object is frozen.
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:758
-
 ***
 
 ### toBeFunction()
 
 > **toBeFunction**(): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:563
 
 Use `.toBeFunction` when checking if a value is a `Function`.
 
@@ -692,15 +636,13 @@ Use `.toBeFunction` when checking if a value is a `Function`.
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:563
-
 ***
 
 ### toBeGreaterThan()
 
 > **toBeGreaterThan**(`expected`): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:891
 
 For comparing floating point or big integer numbers.
 
@@ -713,10 +655,6 @@ For comparing floating point or big integer numbers.
 #### Returns
 
 `R`
-
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:891
 
 ***
 
@@ -724,6 +662,8 @@ node\_modules/@types/jest/index.d.ts:891
 
 > **toBeGreaterThanOrEqual**(`expected`): `R`
 
+Defined in: node\_modules/@types/jest/index.d.ts:895
+
 For comparing floating point or big integer numbers.
 
 #### Parameters
@@ -736,15 +676,13 @@ For comparing floating point or big integer numbers.
 
 `R`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:895
-
 ***
 
 ### toBeHexadecimal()
 
 > **toBeHexadecimal**(): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:573
 
 Use `.toBeHexadecimal` when checking if a value is a valid HTML hex color.
 
@@ -752,15 +690,13 @@ Use `.toBeHexadecimal` when checking if a value is a valid HTML hex color.
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:573
-
 ***
 
 ### toBeInRange()
 
 > **toBeInRange**(`min`, `max`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:654
 
 Use `.toBeInRange` when checking if an array has elements in range min (inclusive) and max (inclusive).
 
@@ -778,15 +714,13 @@ Use `.toBeInRange` when checking if an array has elements in range min (inclusiv
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:654
-
 ***
 
 ### toBeInstanceOf()
 
 > **toBeInstanceOf**\<`E`\>(`expected`): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:904
 
 Ensure that an object is an instance of a class.
 This matcher uses `instanceof` underneath.
@@ -808,15 +742,13 @@ This is particularly useful for ensuring expected objects have the right structu
 
 `R`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:904
-
 ***
 
 ### toBeInteger()
 
 > **toBeInteger**(): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:659
 
 Use `.toBeInteger` when checking if a value is an integer.
 
@@ -824,15 +756,13 @@ Use `.toBeInteger` when checking if a value is an integer.
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:659
-
 ***
 
 ### toBeLessThan()
 
 > **toBeLessThan**(`expected`): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:908
 
 For comparing floating point or big integer numbers.
 
@@ -845,10 +775,6 @@ For comparing floating point or big integer numbers.
 #### Returns
 
 `R`
-
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:908
 
 ***
 
@@ -856,6 +782,8 @@ node\_modules/@types/jest/index.d.ts:908
 
 > **toBeLessThanOrEqual**(`expected`): `R`
 
+Defined in: node\_modules/@types/jest/index.d.ts:912
+
 For comparing floating point or big integer numbers.
 
 #### Parameters
@@ -867,10 +795,6 @@ For comparing floating point or big integer numbers.
 #### Returns
 
 `R`
-
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:912
 
 ***
 
@@ -880,19 +804,19 @@ node\_modules/@types/jest/index.d.ts:912
 
 > **toBeNaN**(): `R`
 
+Defined in: node\_modules/jest-extended/types/index.d.ts:613
+
 Use `.toBeNaN` when checking a value is `NaN`.
 
 ##### Returns
 
 `R`
 
-##### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:613
-
 #### Call Signature
 
 > **toBeNaN**(): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:931
 
 Used to check that a variable is NaN.
 
@@ -900,15 +824,13 @@ Used to check that a variable is NaN.
 
 `R`
 
-##### Defined in
-
-node\_modules/@types/jest/index.d.ts:931
-
 ***
 
 ### toBeNegative()
 
 > **toBeNegative**(): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:628
 
 Use `.toBeNegative` when checking if a value is a negative `Number`.
 
@@ -916,15 +838,13 @@ Use `.toBeNegative` when checking if a value is a negative `Number`.
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:628
-
 ***
 
 ### toBeNil()
 
 > **toBeNil**(): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:462
 
 Use `.toBeNil` when checking a value is `null` or `undefined`.
 
@@ -932,15 +852,13 @@ Use `.toBeNil` when checking a value is `null` or `undefined`.
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:462
-
 ***
 
 ### toBeNull()
 
 > **toBeNull**(): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:917
 
 This is the same as `.toBe(null)` but the error messages are a bit nicer.
 So use `.toBeNull()` when you want to check that something is null.
@@ -949,15 +867,13 @@ So use `.toBeNull()` when you want to check that something is null.
 
 `R`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:917
-
 ***
 
 ### toBeNumber()
 
 > **toBeNumber**(): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:608
 
 Use `.toBeNumber` when checking if a value is a `Number`.
 
@@ -965,15 +881,13 @@ Use `.toBeNumber` when checking if a value is a `Number`.
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:608
-
 ***
 
 ### toBeObject()
 
 > **toBeObject**(): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:664
 
 Use `.toBeObject` when checking if a value is an `Object`.
 
@@ -981,15 +895,13 @@ Use `.toBeObject` when checking if a value is an `Object`.
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:664
-
 ***
 
 ### toBeOdd()
 
 > **toBeOdd**(): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:638
 
 Use `.toBeOdd` when checking if a value is an odd `Number`.
 
@@ -997,15 +909,13 @@ Use `.toBeOdd` when checking if a value is an odd `Number`.
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:638
-
 ***
 
 ### toBeOneOf()
 
 > **toBeOneOf**\<`E`\>(`members`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:457
 
 Use .toBeOneOf when checking if a value is a member of a given Array.
 
@@ -1023,15 +933,13 @@ readonly `E`[]
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:457
-
 ***
 
 ### toBePositive()
 
 > **toBePositive**(): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:623
 
 Use `.toBePositive` when checking if a value is a positive `Number`.
 
@@ -1039,15 +947,13 @@ Use `.toBePositive` when checking if a value is a positive `Number`.
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:623
-
 ***
 
 ### toBeSealed()
 
 > **toBeSealed**(): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:763
 
 Use `.toBeSealed` when checking if an object is sealed.
 
@@ -1055,15 +961,13 @@ Use `.toBeSealed` when checking if an object is sealed.
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:763
-
 ***
 
 ### toBeString()
 
 > **toBeString**(): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:778
 
 Use `.toBeString` when checking if a value is a `String`.
 
@@ -1071,15 +975,13 @@ Use `.toBeString` when checking if a value is a `String`.
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:778
-
 ***
 
 ### toBeSymbol()
 
 > **toBeSymbol**(): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:845
 
 Use `.toBeSymbol` when checking if a value is a `Symbol`.
 
@@ -1087,15 +989,13 @@ Use `.toBeSymbol` when checking if a value is a `Symbol`.
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:845
-
 ***
 
 ### toBeTrue()
 
 > **toBeTrue**(): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:543
 
 Use `.toBeTrue` when checking a value is equal (===) to `true`.
 
@@ -1103,15 +1003,13 @@ Use `.toBeTrue` when checking a value is equal (===) to `true`.
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:543
-
 ***
 
 ### toBeTruthy()
 
 > **toBeTruthy**(): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:923
 
 Use when you don't care what a value is, you just want to ensure a value
 is true in a boolean context. In JavaScript, there are six falsy values:
@@ -1121,15 +1019,13 @@ is true in a boolean context. In JavaScript, there are six falsy values:
 
 `R`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:923
-
 ***
 
 ### toBeUndefined()
 
 > **toBeUndefined**(): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:927
 
 Used to check that a variable is undefined.
 
@@ -1137,15 +1033,13 @@ Used to check that a variable is undefined.
 
 `R`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:927
-
 ***
 
 ### toBeValidDate()
 
 > **toBeValidDate**(): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:558
 
 Use `.toBeValidDate` when checking if a value is a `valid Date`.
 
@@ -1153,15 +1047,13 @@ Use `.toBeValidDate` when checking if a value is a `valid Date`.
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:558
-
 ***
 
 ### toBeWithin()
 
 > **toBeWithin**(`start`, `end`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:646
 
 Use `.toBeWithin` when checking if a number is in between the given bounds of: start (inclusive) and end (exclusive).
 
@@ -1179,15 +1071,13 @@ Use `.toBeWithin` when checking if a number is in between the given bounds of: s
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:646
-
 ***
 
 ### toContain()
 
 > **toContain**\<`E`\>(`expected`): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:941
 
 Used when you want to check that an item is in a list.
 For testing the items in the list, this uses `===`, a strict equality check.
@@ -1210,15 +1100,13 @@ This is particularly useful for ensuring expected objects have the right structu
 
 `R`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:941
-
 ***
 
 ### toContainAllEntries()
 
 > **toContainAllEntries**\<`E`\>(`entries`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:741
 
 Use `.toContainAllEntries` when checking if an object only contains all of the provided entries.
 
@@ -1230,21 +1118,19 @@ Use `.toContainAllEntries` when checking if an object only contains all of the p
 
 ##### entries
 
-readonly readonly [keyof `E`, `E`\[keyof `E`\]][]
+readonly readonly \[keyof `E`, `E`\[keyof `E`\]\][]
 
 #### Returns
 
 `R`
-
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:741
 
 ***
 
 ### toContainAllKeys()
 
 > **toContainAllKeys**\<`E`\>(`keys`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:685
 
 Use `.toContainAllKeys` when checking if an object only contains all of the provided keys.
 
@@ -1262,15 +1148,13 @@ readonly (`string` \| keyof `E`)[]
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:685
-
 ***
 
 ### toContainAllValues()
 
 > **toContainAllValues**\<`E`\>(`values`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:713
 
 Use `.toContainAllValues` when checking if an object only contains all of the provided values.
 
@@ -1288,15 +1172,13 @@ readonly `E`[]
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:713
-
 ***
 
 ### toContainAnyEntries()
 
 > **toContainAnyEntries**\<`E`\>(`entries`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:748
 
 Use `.toContainAnyEntries` when checking if an object contains at least one of the provided entries.
 
@@ -1308,21 +1190,19 @@ Use `.toContainAnyEntries` when checking if an object contains at least one of t
 
 ##### entries
 
-readonly readonly [keyof `E`, `E`\[keyof `E`\]][]
+readonly readonly \[keyof `E`, `E`\[keyof `E`\]\][]
 
 #### Returns
 
 `R`
-
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:748
 
 ***
 
 ### toContainAnyKeys()
 
 > **toContainAnyKeys**\<`E`\>(`keys`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:692
 
 Use `.toContainAnyKeys` when checking if an object contains at least one of the provided keys.
 
@@ -1340,15 +1220,13 @@ readonly (`string` \| keyof `E`)[]
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:692
-
 ***
 
 ### toContainAnyValues()
 
 > **toContainAnyValues**\<`E`\>(`values`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:720
 
 Use `.toContainAnyValues` when checking if an object contains at least one of the provided values.
 
@@ -1366,15 +1244,13 @@ readonly `E`[]
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:720
-
 ***
 
 ### toContainEntries()
 
 > **toContainEntries**\<`E`\>(`entries`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:734
 
 Use `.toContainEntries` when checking if an object contains all of the provided entries.
 
@@ -1386,21 +1262,19 @@ Use `.toContainEntries` when checking if an object contains all of the provided 
 
 ##### entries
 
-readonly readonly [keyof `E`, `E`\[keyof `E`\]][]
+readonly readonly \[keyof `E`, `E`\[keyof `E`\]\][]
 
 #### Returns
 
 `R`
-
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:734
 
 ***
 
 ### toContainEntry()
 
 > **toContainEntry**\<`E`\>(`entry`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:727
 
 Use `.toContainEntry` when checking if an object contains the provided entry.
 
@@ -1412,21 +1286,19 @@ Use `.toContainEntry` when checking if an object contains the provided entry.
 
 ##### entry
 
-readonly [keyof `E`, `E`\[keyof `E`\]]
+readonly \[keyof `E`, `E`\[keyof `E`\]\]
 
 #### Returns
 
 `R`
-
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:727
 
 ***
 
 ### toContainEqual()
 
 > **toContainEqual**\<`E`\>(`expected`): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:951
 
 Used when you want to check that an item is in a list.
 For testing the items in the list, this matcher recursively checks the
@@ -1449,15 +1321,13 @@ This is particularly useful for ensuring expected objects have the right structu
 
 `R`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:951
-
 ***
 
 ### toContainKey()
 
 > **toContainKey**\<`E`\>(`key`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:671
 
 Use `.toContainKey` when checking if an object contains the provided key.
 
@@ -1475,15 +1345,13 @@ Use `.toContainKey` when checking if an object contains the provided key.
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:671
-
 ***
 
 ### toContainKeys()
 
 > **toContainKeys**\<`E`\>(`keys`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:678
 
 Use `.toContainKeys` when checking if an object has all of the provided keys.
 
@@ -1501,15 +1369,13 @@ readonly (`string` \| keyof `E`)[]
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:678
-
 ***
 
 ### toContainValue()
 
 > **toContainValue**\<`E`\>(`value`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:699
 
 Use `.toContainValue` when checking if an object contains the provided value.
 
@@ -1527,15 +1393,13 @@ Use `.toContainValue` when checking if an object contains the provided value.
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:699
-
 ***
 
 ### toContainValues()
 
 > **toContainValues**\<`E`\>(`values`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:706
 
 Use `.toContainValues` when checking if an object contains all of the provided values.
 
@@ -1553,15 +1417,13 @@ readonly `E`[]
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:706
-
 ***
 
 ### toEndWith()
 
 > **toEndWith**(`suffix`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:799
 
 Use `.toEndWith` when checking if a `String` ends with a given `String` suffix.
 
@@ -1575,15 +1437,13 @@ Use `.toEndWith` when checking if a `String` ends with a given `String` suffix.
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:799
-
 ***
 
 ### toEqual()
 
 > **toEqual**\<`E`\>(`expected`): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:960
 
 Used when you want to check that two objects have the same value.
 This matcher recursively checks the equality of all fields, rather than checking for object identity.
@@ -1605,15 +1465,13 @@ This is particularly useful for ensuring expected objects have the right structu
 
 `R`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:960
-
 ***
 
 ### toEqualCaseInsensitive()
 
 > **toEqualCaseInsensitive**(`string`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:785
 
 Use `.toEqualCaseInsensitive` when checking if a string is equal (===) to another ignoring the casing of both strings.
 
@@ -1627,15 +1485,13 @@ Use `.toEqualCaseInsensitive` when checking if a string is equal (===) to anothe
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:785
-
 ***
 
 ### toEqualIgnoringWhitespace()
 
 > **toEqualIgnoringWhitespace**(`string`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:871
 
 Use `.toEqualIgnoringWhitespace` when checking if a `String` is equal (===) to given `String` ignoring white-space.
 
@@ -1649,15 +1505,13 @@ Use `.toEqualIgnoringWhitespace` when checking if a `String` is equal (===) to g
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:871
-
 ***
 
 ### toHaveBeenCalled()
 
 > **toHaveBeenCalled**(): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:964
 
 Ensures that a mock function is called.
 
@@ -1665,15 +1519,13 @@ Ensures that a mock function is called.
 
 `R`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:964
-
 ***
 
 ### toHaveBeenCalledAfter()
 
 > **toHaveBeenCalledAfter**(`mock`, `failIfNoFirstInvocation`?): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:593
 
 Use `.toHaveBeenCalledAfter` when checking if a `Mock` was called after another `Mock`.
 
@@ -1693,15 +1545,13 @@ Note: Required Jest version >=23
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:593
-
 ***
 
 ### toHaveBeenCalledBefore()
 
 > **toHaveBeenCalledBefore**(`mock`, `failIfNoSecondInvocation`?): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:583
 
 Use `.toHaveBeenCalledBefore` when checking if a `Mock` was called before another `Mock`.
 
@@ -1721,15 +1571,13 @@ Note: Required Jest version >=23
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:583
-
 ***
 
 ### toHaveBeenCalledExactlyOnceWith()
 
 > **toHaveBeenCalledExactlyOnceWith**(...`args`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:603
 
 Use `.toHaveBeenCalledExactlyOnceWith` to check if a `Mock` was called exactly one time with the expected value.
 
@@ -1743,15 +1591,13 @@ Use `.toHaveBeenCalledExactlyOnceWith` to check if a `Mock` was called exactly o
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:603
-
 ***
 
 ### toHaveBeenCalledOnce()
 
 > **toHaveBeenCalledOnce**(): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:598
 
 Use `.toHaveBeenCalledOnce` to check if a `Mock` was called exactly one time.
 
@@ -1759,15 +1605,13 @@ Use `.toHaveBeenCalledOnce` to check if a `Mock` was called exactly one time.
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:598
-
 ***
 
 ### toHaveBeenCalledTimes()
 
 > **toHaveBeenCalledTimes**(`expected`): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:968
 
 Ensures that a mock function is called an exact number of times.
 
@@ -1781,15 +1625,13 @@ Ensures that a mock function is called an exact number of times.
 
 `R`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:968
-
 ***
 
 ### toHaveBeenCalledWith()
 
 > **toHaveBeenCalledWith**\<`E`\>(...`params`): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:976
 
 Ensure that a mock function is called with specific arguments.
 
@@ -1810,15 +1652,13 @@ Note that the type must be either an array or a tuple.
 
 `R`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:976
-
 ***
 
 ### toHaveBeenLastCalledWith()
 
 > **toHaveBeenLastCalledWith**\<`E`\>(...`params`): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:993
 
 If you have a mock function, you can use `.toHaveBeenLastCalledWith`
 to test what arguments it was last called with.
@@ -1840,15 +1680,13 @@ Note that the type must be either an array or a tuple.
 
 `R`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:993
-
 ***
 
 ### toHaveBeenNthCalledWith()
 
 > **toHaveBeenNthCalledWith**\<`E`\>(`nthCall`, ...`params`): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:984
 
 Ensure that a mock function is called with specific arguments on an Nth call.
 
@@ -1873,15 +1711,13 @@ Note that the type must be either an array or a tuple.
 
 `R`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:984
-
 ***
 
 ### toHaveLastReturnedWith()
 
 > **toHaveLastReturnedWith**\<`E`\>(`expected`?): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:1003
 
 Use to test the specific value that a mock function last returned.
 If the last call to the mock function threw an error, then this matcher will fail
@@ -1904,15 +1740,13 @@ This is particularly useful for ensuring expected objects have the right structu
 
 `R`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:1003
-
 ***
 
 ### toHaveLength()
 
 > **toHaveLength**(`expected`): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:1008
 
 Used to check that an object has a `.length` property
 and it is set to a certain numeric value.
@@ -1927,15 +1761,13 @@ and it is set to a certain numeric value.
 
 `R`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:1008
-
 ***
 
 ### toHaveNthReturnedWith()
 
 > **toHaveNthReturnedWith**\<`E`\>(`nthCall`, `expected`?): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:1018
 
 Use to test the specific value that a mock function returned for the nth call.
 If the nth call to the mock function threw an error, then this matcher will fail
@@ -1962,15 +1794,13 @@ This is particularly useful for ensuring expected objects have the right structu
 
 `R`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:1018
-
 ***
 
 ### toHaveProperty()
 
 > **toHaveProperty**\<`E`\>(`propertyPath`, `value`?): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:1033
 
 Use to check if property at provided reference keyPath exists for an object.
 For checking deeply nested properties in an object you may use dot notation or an array containing
@@ -2004,15 +1834,13 @@ the equality of all fields.
 expect(houseForSale).toHaveProperty('kitchen.area', 20);
 ```
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:1033
-
 ***
 
 ### toHaveReturned()
 
 > **toHaveReturned**(): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:1037
 
 Use to test that the mock function successfully returned (i.e., did not throw an error) at least one time
 
@@ -2020,15 +1848,13 @@ Use to test that the mock function successfully returned (i.e., did not throw an
 
 `R`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:1037
-
 ***
 
 ### toHaveReturnedTimes()
 
 > **toHaveReturnedTimes**(`expected`): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:1042
 
 Use to ensure that a mock function returned successfully (i.e., did not throw an error) an exact number of times.
 Any calls to the mock function that throw an error are not counted toward the number of times the function returned.
@@ -2043,15 +1869,13 @@ Any calls to the mock function that throw an error are not counted toward the nu
 
 `R`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:1042
-
 ***
 
 ### toHaveReturnedWith()
 
 > **toHaveReturnedWith**\<`E`\>(`expected`?): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:1050
 
 Use to ensure that a mock function returned a specific value.
 
@@ -2072,15 +1896,13 @@ This is particularly useful for ensuring expected objects have the right structu
 
 `R`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:1050
-
 ***
 
 ### toInclude()
 
 > **toInclude**(`substring`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:806
 
 Use `.toInclude` when checking if a `String` includes the given `String` substring.
 
@@ -2094,15 +1916,13 @@ Use `.toInclude` when checking if a `String` includes the given `String` substri
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:806
-
 ***
 
 ### toIncludeAllMembers()
 
 > **toIncludeAllMembers**\<`E`\>(`members`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:497
 
 Use `.toIncludeAllMembers` when checking if an `Array` contains all of the same members of a given set.
 
@@ -2120,15 +1940,13 @@ readonly `E`[]
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:497
-
 ***
 
 ### toIncludeAllPartialMembers()
 
 > **toIncludeAllPartialMembers**\<`E`\>(`members`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:503
 
 Use `.toIncludeAllPartialMembers` when checking if an `Array` contains all of the same partial members of a given set.
 
@@ -2146,15 +1964,13 @@ readonly `E`[]
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:503
-
 ***
 
 ### toIncludeAnyMembers()
 
 > **toIncludeAnyMembers**\<`E`\>(`members`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:509
 
 Use `.toIncludeAnyMembers` when checking if an `Array` contains any of the members of a given set.
 
@@ -2172,15 +1988,13 @@ readonly `E`[]
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:509
-
 ***
 
 ### toIncludeMultiple()
 
 > **toIncludeMultiple**(`substring`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:821
 
 Use `.toIncludeMultiple` when checking if a `String` includes all of the given substrings.
 
@@ -2194,15 +2008,13 @@ readonly `string`[]
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:821
-
 ***
 
 ### toIncludeRepeated()
 
 > **toIncludeRepeated**(`substring`, `times`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:814
 
 Use `.toIncludeRepeated` when checking if a `String` includes the given `String` substring the correct number of times.
 
@@ -2220,15 +2032,13 @@ Use `.toIncludeRepeated` when checking if a `String` includes the given `String`
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:814
-
 ***
 
 ### toIncludeSameMembers()
 
 > **toIncludeSameMembers**\<`E`\>(`members`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:515
 
 Use `.toIncludeSameMembers` when checking if two arrays contain equal values, in any order.
 
@@ -2246,15 +2056,13 @@ readonly `E`[]
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:515
-
 ***
 
 ### toMatch()
 
 > **toMatch**(`expected`): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:1054
 
 Check that a string matches a regular expression.
 
@@ -2268,10 +2076,6 @@ Check that a string matches a regular expression.
 
 `R`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:1054
-
 ***
 
 ### toMatchInlineSnapshot()
@@ -2279,6 +2083,8 @@ node\_modules/@types/jest/index.d.ts:1054
 #### Call Signature
 
 > **toMatchInlineSnapshot**\<`U`\>(`propertyMatchers`, `snapshot`?): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:1094
 
 This ensures that a value matches the most recent snapshot with property matchers.
 Instead of writing the snapshot value to a .snap file, it will be written into the source code automatically.
@@ -2302,13 +2108,11 @@ Check out [the Snapshot Testing guide](http://facebook.github.io/jest/docs/snaps
 
 `R`
 
-##### Defined in
-
-node\_modules/@types/jest/index.d.ts:1094
-
 #### Call Signature
 
 > **toMatchInlineSnapshot**(`snapshot`?): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:1100
 
 This ensures that a value matches the most recent snapshot with property matchers.
 Instead of writing the snapshot value to a .snap file, it will be written into the source code automatically.
@@ -2324,15 +2128,13 @@ Check out [the Snapshot Testing guide](http://facebook.github.io/jest/docs/snaps
 
 `R`
 
-##### Defined in
-
-node\_modules/@types/jest/index.d.ts:1100
-
 ***
 
 ### toMatchObject()
 
 > **toMatchObject**\<`E`\>(`expected`): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:1076
 
 Used to check that a JavaScript object matches a subset of the properties of an object
 
@@ -2369,10 +2171,6 @@ type House = {
 expect(desiredHouse).toMatchObject<House>({...standardHouse, kitchen: {area: 20}}) // wherein standardHouse is some base object of type House
 ```
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:1076
-
 ***
 
 ### toMatchSnapshot()
@@ -2380,6 +2178,8 @@ node\_modules/@types/jest/index.d.ts:1076
 #### Call Signature
 
 > **toMatchSnapshot**\<`U`\>(`propertyMatchers`, `snapshotName`?): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:1082
 
 This ensures that a value matches the most recent snapshot with property matchers.
 Check out [the Snapshot Testing guide](http://facebook.github.io/jest/docs/snapshot-testing.html) for more information.
@@ -2402,13 +2202,11 @@ Check out [the Snapshot Testing guide](http://facebook.github.io/jest/docs/snaps
 
 `R`
 
-##### Defined in
-
-node\_modules/@types/jest/index.d.ts:1082
-
 #### Call Signature
 
 > **toMatchSnapshot**(`snapshotName`?): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:1087
 
 This ensures that a value matches the most recent snapshot.
 Check out [the Snapshot Testing guide](http://facebook.github.io/jest/docs/snapshot-testing.html) for more information.
@@ -2423,15 +2221,13 @@ Check out [the Snapshot Testing guide](http://facebook.github.io/jest/docs/snaps
 
 `R`
 
-##### Defined in
-
-node\_modules/@types/jest/index.d.ts:1087
-
 ***
 
 ### toPartiallyContain()
 
 > **toPartiallyContain**\<`E`\>(`member`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:521
 
 Use `.toPartiallyContain` when checking if any array value matches the partial member.
 
@@ -2449,15 +2245,13 @@ Use `.toPartiallyContain` when checking if any array value matches the partial m
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:521
-
 ***
 
 ### toReject()
 
 > **toReject**(): `Promise`\<`R`\>
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:773
 
 Use `.toReject` when checking if a promise rejects.
 
@@ -2465,15 +2259,13 @@ Use `.toReject` when checking if a promise rejects.
 
 `Promise`\<`R`\>
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:773
-
 ***
 
 ### toResolve()
 
 > **toResolve**(): `Promise`\<`R`\>
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:768
 
 Use `.toResolve` when checking if a promise resolves.
 
@@ -2481,15 +2273,13 @@ Use `.toResolve` when checking if a promise resolves.
 
 `Promise`\<`R`\>
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:768
-
 ***
 
 ### ~~toReturn()~~
 
 > **toReturn**(): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:1106
 
 Ensure that a mock function has returned (as opposed to thrown) at least once.
 
@@ -2501,15 +2291,13 @@ Ensure that a mock function has returned (as opposed to thrown) at least once.
 
 in favor of `toHaveReturned`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:1106
-
 ***
 
 ### ~~toReturnTimes()~~
 
 > **toReturnTimes**(`count`): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:1112
 
 Ensure that a mock function has returned (as opposed to thrown) a specified number of times.
 
@@ -2527,15 +2315,13 @@ Ensure that a mock function has returned (as opposed to thrown) a specified numb
 
 in favor of `toHaveReturnedTimes`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:1112
-
 ***
 
 ### ~~toReturnWith()~~
 
 > **toReturnWith**\<`E`\>(`value`?): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:1122
 
 Ensure that a mock function has returned a specified value at least once.
 
@@ -2560,15 +2346,13 @@ This is particularly useful for ensuring expected objects have the right structu
 
 in favor of `toHaveReturnedWith`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:1122
-
 ***
 
 ### toSatisfy()
 
 > **toSatisfy**\<`E`\>(`predicate`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:468
 
 Use `.toSatisfy` when you want to use a custom matcher by supplying a predicate function that returns a `Boolean`.
 
@@ -2586,15 +2370,13 @@ Use `.toSatisfy` when you want to use a custom matcher by supplying a predicate 
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:468
-
 ***
 
 ### toSatisfyAll()
 
 > **toSatisfyAll**\<`E`\>(`predicate`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:527
 
 Use `.toSatisfyAll` when you want to use a custom matcher by supplying a predicate function that returns a `Boolean` for all values in an array.
 
@@ -2612,15 +2394,13 @@ Use `.toSatisfyAll` when you want to use a custom matcher by supplying a predica
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:527
-
 ***
 
 ### toSatisfyAny()
 
 > **toSatisfyAny**(`predicate`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:533
 
 Use `.toSatisfyAny` when you want to use a custom matcher by supplying a predicate function that returns `true` for any matching value in an array.
 
@@ -2634,15 +2414,13 @@ Use `.toSatisfyAny` when you want to use a custom matcher by supplying a predica
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:533
-
 ***
 
 ### toStartWith()
 
 > **toStartWith**(`prefix`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:792
 
 Use `.toStartWith` when checking if a `String` starts with a given `String` prefix.
 
@@ -2656,15 +2434,13 @@ Use `.toStartWith` when checking if a `String` starts with a given `String` pref
 
 `R`
 
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:792
-
 ***
 
 ### toStrictEqual()
 
 > **toStrictEqual**\<`E`\>(`expected`): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:1130
 
 Use to test that objects have the same types as well as structure.
 
@@ -2685,15 +2461,13 @@ This is particularly useful for ensuring expected objects have the right structu
 
 `R`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:1130
-
 ***
 
 ### toThrow()
 
 > **toThrow**(`error`?): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:1134
 
 Used to test that a function throws when it is called.
 
@@ -2707,15 +2481,13 @@ Used to test that a function throws when it is called.
 
 `R`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:1134
-
 ***
 
 ### ~~toThrowError()~~
 
 > **toThrowError**(`error`?): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:1140
 
 If you want to test that a specific error is thrown inside a function.
 
@@ -2733,15 +2505,13 @@ If you want to test that a specific error is thrown inside a function.
 
 in favor of `toThrow`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:1140
-
 ***
 
 ### toThrowErrorMatchingInlineSnapshot()
 
 > **toThrowErrorMatchingInlineSnapshot**(`snapshot`?): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:1149
 
 Used to test that a function throws a error matching the most recent snapshot when it is called.
 Instead of writing the snapshot value to a .snap file, it will be written into the source code automatically.
@@ -2756,15 +2526,13 @@ Instead of writing the snapshot value to a .snap file, it will be written into t
 
 `R`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:1149
-
 ***
 
 ### toThrowErrorMatchingSnapshot()
 
 > **toThrowErrorMatchingSnapshot**(`snapshotName`?): `R`
+
+Defined in: node\_modules/@types/jest/index.d.ts:1144
 
 Used to test that a function throws a error matching the most recent snapshot when it is called.
 
@@ -2778,15 +2546,13 @@ Used to test that a function throws a error matching the most recent snapshot wh
 
 `R`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:1144
-
 ***
 
 ### toThrowWithMessage()
 
 > **toThrowWithMessage**(`type`, `message`): `R`
+
+Defined in: node\_modules/jest-extended/types/index.d.ts:829
 
 Use `.toThrowWithMessage` when checking if a callback function throws an error of a given type with a given error message.
 
@@ -2803,7 +2569,3 @@ Use `.toThrowWithMessage` when checking if a callback function throws an error o
 #### Returns
 
 `R`
-
-#### Defined in
-
-node\_modules/jest-extended/types/index.d.ts:829

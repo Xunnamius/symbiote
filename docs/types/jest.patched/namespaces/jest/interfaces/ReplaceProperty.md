@@ -6,6 +6,8 @@
 
 # Interface: ReplaceProperty\<K\>
 
+Defined in: node\_modules/@types/jest/index.d.ts:1543
+
 ## Type Parameters
 
 • **K**
@@ -15,6 +17,8 @@
 ### replaceValue()
 
 > **replaceValue**(`value`): `this`
+
+Defined in: node\_modules/@types/jest/index.d.ts:1551
 
 Change the value of the property.
 
@@ -28,22 +32,16 @@ Change the value of the property.
 
 `this`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:1551
-
 ***
 
 ### restore()
 
 > **restore**(): `void`
 
+Defined in: node\_modules/@types/jest/index.d.ts:1547
+
 Restore property to its original value known at the time of mocking.
 
 #### Returns
 
 `void`
-
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:1547

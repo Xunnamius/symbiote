@@ -6,13 +6,11 @@
 
 # src/assets
 
-## Index
-
-### Enumerations
+## Enumerations
 
 - [AssetPreset](enumerations/AssetPreset.md)
 
-### Type Aliases
+## Type Aliases
 
 - [Asset](type-aliases/Asset.md)
 - [GatherAssetsFromTransformerOptions](type-aliases/GatherAssetsFromTransformerOptions.md)
@@ -25,7 +23,7 @@
 - [TransformerContainer](type-aliases/TransformerContainer.md)
 - [TransformerContext](type-aliases/TransformerContext.md)
 
-### Variables
+## Variables
 
 - [$delete](variables/$delete.md)
 - [assetPresets](variables/assetPresets.md)
@@ -35,7 +33,7 @@
 - [libAssetPresets](variables/libAssetPresets.md)
 - [reactAssetPresets](variables/reactAssetPresets.md)
 
-### Functions
+## Functions
 
 - [compileTemplate](functions/compileTemplate.md)
 - [compileTemplateInMemory](functions/compileTemplateInMemory.md)

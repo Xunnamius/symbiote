@@ -8,6 +8,8 @@
 
 > **setSystemTime**(`now`?): `void`
 
+Defined in: node\_modules/@types/jest/index.d.ts:167
+
 Set the current system time used by fake timers. Simulates a user
 changing the system clock while your program is running. It affects the
 current time but it does not in itself cause e.g. timers to fire; they
@@ -26,7 +28,3 @@ jest.setSystemTime().
 ## Returns
 
 `void`
-
-## Defined in
-
-node\_modules/@types/jest/index.d.ts:167

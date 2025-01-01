@@ -8,6 +8,8 @@
 
 > **moduleExport**(): `object`
 
+Defined in: [src/assets/transformers/\_prettier.config.mjs.ts:15](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/assets/transformers/_prettier.config.mjs.ts#L15)
+
 ## Returns
 
 `object`
@@ -18,7 +20,7 @@
 
 ### overrides
 
-> `readonly` **overrides**: [`object`]
+> `readonly` **overrides**: \[\{ `files`: "\*\*/\*.?(@(c\|m))@(ts\|js)?(x)"; `options`: \{ `parser`: `"babel-ts"`; `printWidth`: `89`; \}; \}\]
 
 ### printWidth
 
@@ -43,7 +45,3 @@
 ### trailingComma
 
 > `readonly` **trailingComma**: `"none"` = `'none'`
-
-## Defined in
-
-[src/assets/transformers/\_prettier.config.mjs.ts:15](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/assets/transformers/_prettier.config.mjs.ts#L15)

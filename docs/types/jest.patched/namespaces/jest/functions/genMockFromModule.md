@@ -8,6 +8,8 @@
 
 > **genMockFromModule**\<`T`\>(`moduleName`): `T`
 
+Defined in: node\_modules/@types/jest/index.d.ts:222
+
 (renamed to `createMockFromModule` in Jest 26.0.0+)
 Use the automatic mocking system to generate a mocked version of the given module.
 
@@ -24,7 +26,3 @@ Use the automatic mocking system to generate a mocked version of the given modul
 ## Returns
 
 `T`
-
-## Defined in
-
-node\_modules/@types/jest/index.d.ts:222

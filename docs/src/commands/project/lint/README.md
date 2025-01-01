@@ -6,16 +6,14 @@
 
 # src/commands/project/lint
 
-## Index
-
-### Type Aliases
+## Type Aliases
 
 - [CustomCliArguments](type-aliases/CustomCliArguments.md)
 
-### Variables
+## Variables
 
 - [projectLinterScopes](variables/projectLinterScopes.md)
 
-### Functions
+## Functions
 
 - [default](functions/default.md)

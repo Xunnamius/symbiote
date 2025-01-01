@@ -6,17 +6,15 @@
 
 # src/assets/transformers/\_package.json
 
-## Index
-
-### Type Aliases
+## Type Aliases
 
 - [GeneratorParameters](type-aliases/GeneratorParameters.md)
 
-### Variables
+## Variables
 
 - [githubUrlRegExp](variables/githubUrlRegExp.md)
 
-### Functions
+## Functions
 
 - [deriveGitHubUrl](functions/deriveGitHubUrl.md)
 - [deriveJsonRepositoryValue](functions/deriveJsonRepositoryValue.md)

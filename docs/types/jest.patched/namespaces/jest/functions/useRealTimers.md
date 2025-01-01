@@ -8,12 +8,10 @@
 
 > **useRealTimers**(): *typeof* [`jest`](../README.md)
 
+Defined in: node\_modules/@types/jest/index.d.ts:429
+
 Instructs Jest to use the real versions of the standard timer functions.
 
 ## Returns
 
 *typeof* [`jest`](../README.md)
-
-## Defined in
-
-node\_modules/@types/jest/index.d.ts:429

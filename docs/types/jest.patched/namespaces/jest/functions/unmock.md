@@ -8,6 +8,8 @@
 
 > **unmock**(`moduleName`): *typeof* [`jest`](../README.md)
 
+Defined in: node\_modules/@types/jest/index.d.ts:421
+
 Indicates that the module system should never return a mocked version of
 the specified module from require() (e.g. that it should always return the real module).
 
@@ -20,7 +22,3 @@ the specified module from require() (e.g. that it should always return the real 
 ## Returns
 
 *typeof* [`jest`](../README.md)
-
-## Defined in
-
-node\_modules/@types/jest/index.d.ts:421

@@ -6,8 +6,6 @@
 
 # types/eslint-config-turbo
 
-## Index
-
-### Variables
+## Variables
 
 - [default](variables/default.md)

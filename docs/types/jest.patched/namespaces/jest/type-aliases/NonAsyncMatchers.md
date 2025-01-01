@@ -8,10 +8,8 @@
 
 > **NonAsyncMatchers**\<`TMatchers`\>: `{ [K in keyof TMatchers]: ReturnType<TMatchers[K]> extends Promise<CustomMatcherResult> ? never : K }`\[keyof `TMatchers`\]
 
+Defined in: node\_modules/@types/jest/index.d.ts:1159
+
 ## Type Parameters
 
 • **TMatchers** *extends* [`ExpectExtendMap`](../interfaces/ExpectExtendMap.md)
-
-## Defined in
-
-node\_modules/@types/jest/index.d.ts:1159

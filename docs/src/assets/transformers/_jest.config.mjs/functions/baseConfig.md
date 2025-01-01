@@ -8,6 +8,8 @@
 
 > **baseConfig**(`__namedParameters`): `object`
 
+Defined in: [src/assets/transformers/\_jest.config.mjs.ts:54](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/assets/transformers/_jest.config.mjs.ts#L54)
+
 Return a partial configuration that must be initialized further.
 
 ## Parameters
@@ -38,7 +40,7 @@ false
 
 ### modulePathIgnorePatterns
 
-> `readonly` **modulePathIgnorePatterns**: [`"/test/fixtures/"`, `"/.transpiled/"`, `string`]
+> `readonly` **modulePathIgnorePatterns**: \[`"/test/fixtures/"`, `"/.transpiled/"`, `string`\]
 
 ### resetMocks
 
@@ -50,7 +52,7 @@ false
 
 ### setupFilesAfterEnv
 
-> `readonly` **setupFilesAfterEnv**: [`"./test/setup.ts"`]
+> `readonly` **setupFilesAfterEnv**: \[`"./test/setup.ts"`\]
 
 ### testEnvironment
 
@@ -58,7 +60,7 @@ false
 
 ### testPathIgnorePatterns
 
-> `readonly` **testPathIgnorePatterns**: [`"/node_modules/"`, `"/dist/"`, `"/src/"`, `"/.transpiled/"`, `string`, `string`]
+> `readonly` **testPathIgnorePatterns**: \[`"/node_modules/"`, `"/dist/"`, `"/src/"`, `"/.transpiled/"`, `string`, `string`\]
 
 ### testRunner
 
@@ -71,7 +73,3 @@ false
 ### verbose
 
 > `readonly` **verbose**: `false` = `false`
-
-## Defined in
-
-[src/assets/transformers/\_jest.config.mjs.ts:54](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/assets/transformers/_jest.config.mjs.ts#L54)

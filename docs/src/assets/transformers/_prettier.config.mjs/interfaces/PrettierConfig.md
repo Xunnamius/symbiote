@@ -6,6 +6,8 @@
 
 # Interface: PrettierConfig
 
+Defined in: node\_modules/prettier/index.d.ts:308
+
 For use in `.prettierrc.js`, `.prettierrc.cjs`, `prettierrc.mjs`, `prettier.config.js`, `prettier.config.cjs`, `prettier.config.mjs`
 
 ## Extends
@@ -14,7 +16,7 @@ For use in `.prettierrc.js`, `.prettierrc.cjs`, `prettierrc.mjs`, `prettier.conf
 
 ## Indexable
 
- \[`key`: `string`\]: `unknown`
+\[`key`: `string`\]: `unknown`
 
 ## Properties
 
@@ -22,19 +24,19 @@ For use in `.prettierrc.js`, `.prettierrc.cjs`, `prettierrc.mjs`, `prettier.conf
 
 > `optional` **\_\_embeddedInHtml**: `boolean`
 
+Defined in: node\_modules/prettier/doc.d.ts:226
+
 #### Inherited from
 
 `Options.__embeddedInHtml`
-
-#### Defined in
-
-node\_modules/prettier/doc.d.ts:226
 
 ***
 
 ### arrowParens?
 
 > `optional` **arrowParens**: `"always"` \| `"avoid"`
+
+Defined in: node\_modules/prettier/index.d.ts:392
 
 Include parentheses around a sole arrow function parameter.
 
@@ -48,15 +50,13 @@ Include parentheses around a sole arrow function parameter.
 
 `Options.arrowParens`
 
-#### Defined in
-
-node\_modules/prettier/index.d.ts:392
-
 ***
 
 ### bracketSameLine?
 
 > `optional` **bracketSameLine**: `boolean`
+
+Defined in: node\_modules/prettier/index.d.ts:349
 
 Put the `>` of a multi-line HTML (HTML, JSX, Vue, Angular) element at the end of the last line instead of being
 alone on the next line (does not apply to self closing elements).
@@ -71,15 +71,13 @@ false
 
 `Options.bracketSameLine`
 
-#### Defined in
-
-node\_modules/prettier/index.d.ts:349
-
 ***
 
 ### bracketSpacing?
 
 > `optional` **bracketSpacing**: `boolean`
+
+Defined in: node\_modules/prettier/index.d.ts:343
 
 Print spaces between brackets in object literals.
 
@@ -93,15 +91,13 @@ true
 
 `Options.bracketSpacing`
 
-#### Defined in
-
-node\_modules/prettier/index.d.ts:343
-
 ***
 
 ### embeddedLanguageFormatting?
 
 > `optional` **embeddedLanguageFormatting**: `"off"` \| `"auto"`
+
+Defined in: node\_modules/prettier/index.d.ts:421
 
 Control whether Prettier formats quoted code embedded in the file.
 
@@ -115,15 +111,13 @@ Control whether Prettier formats quoted code embedded in the file.
 
 `Options.embeddedLanguageFormatting`
 
-#### Defined in
-
-node\_modules/prettier/index.d.ts:421
-
 ***
 
 ### endOfLine?
 
 > `optional` **endOfLine**: `"lf"` \| `"auto"` \| `"crlf"` \| `"cr"`
+
+Defined in: node\_modules/prettier/index.d.ts:406
 
 Which end of line characters to apply.
 
@@ -137,15 +131,13 @@ Which end of line characters to apply.
 
 `Options.endOfLine`
 
-#### Defined in
-
-node\_modules/prettier/index.d.ts:406
-
 ***
 
 ### experimentalTernaries?
 
 > `optional` **experimentalTernaries**: `boolean`
+
+Defined in: node\_modules/prettier/index.d.ts:432
 
 Use curious ternaries, with the question mark after the condition, instead
 of on the same line as the consequent.
@@ -160,15 +152,13 @@ false
 
 `Options.experimentalTernaries`
 
-#### Defined in
-
-node\_modules/prettier/index.d.ts:432
-
 ***
 
 ### filepath?
 
 > `optional` **filepath**: `string`
+
+Defined in: node\_modules/prettier/index.d.ts:367
 
 Specify the input filepath. This will be used to do parser inference.
 
@@ -176,15 +166,13 @@ Specify the input filepath. This will be used to do parser inference.
 
 `Options.filepath`
 
-#### Defined in
-
-node\_modules/prettier/index.d.ts:367
-
 ***
 
 ### htmlWhitespaceSensitivity?
 
 > `optional` **htmlWhitespaceSensitivity**: `"ignore"` \| `"strict"` \| `"css"`
+
+Defined in: node\_modules/prettier/index.d.ts:401
 
 How to handle whitespaces in HTML.
 
@@ -198,15 +186,13 @@ How to handle whitespaces in HTML.
 
 `Options.htmlWhitespaceSensitivity`
 
-#### Defined in
-
-node\_modules/prettier/index.d.ts:401
-
 ***
 
 ### insertPragma?
 
 > `optional` **insertPragma**: `boolean`
+
+Defined in: node\_modules/prettier/index.d.ts:381
 
 Prettier can insert a special
 
@@ -231,15 +217,13 @@ false
 
 `Options.insertPragma`
 
-#### Defined in
-
-node\_modules/prettier/index.d.ts:381
-
 ***
 
 ### ~~jsxBracketSameLine?~~
 
 > `optional` **jsxBracketSameLine**: `boolean`
+
+Defined in: node\_modules/prettier/index.d.ts:438
 
 Put the `>` of a multi-line JSX element at the end of the last line instead of being alone on the next line.
 
@@ -257,15 +241,13 @@ use bracketSameLine instead
 
 `Options.jsxBracketSameLine`
 
-#### Defined in
-
-node\_modules/prettier/index.d.ts:438
-
 ***
 
 ### jsxSingleQuote?
 
 > `optional` **jsxSingleQuote**: `boolean`
+
+Defined in: node\_modules/prettier/index.d.ts:333
 
 Use single quotes in JSX.
 
@@ -279,15 +261,13 @@ false
 
 `Options.jsxSingleQuote`
 
-#### Defined in
-
-node\_modules/prettier/index.d.ts:333
-
 ***
 
 ### overrides?
 
 > `optional` **overrides**: `object`[]
+
+Defined in: node\_modules/prettier/index.d.ts:309
 
 #### excludeFiles?
 
@@ -301,23 +281,17 @@ node\_modules/prettier/index.d.ts:333
 
 > `optional` **options**: `Options`
 
-#### Defined in
-
-node\_modules/prettier/index.d.ts:309
-
 ***
 
 ### parentParser?
 
 > `optional` **parentParser**: `string`
 
+Defined in: node\_modules/prettier/doc.d.ts:225
+
 #### Inherited from
 
 `Options.parentParser`
-
-#### Defined in
-
-node\_modules/prettier/doc.d.ts:225
 
 ***
 
@@ -325,15 +299,13 @@ node\_modules/prettier/doc.d.ts:225
 
 > `optional` **parser**: `LiteralUnion`\<`BuiltInParserName`, `string`\>
 
+Defined in: node\_modules/prettier/index.d.ts:363
+
 Specify which parser to use.
 
 #### Inherited from
 
 `Options.parser`
-
-#### Defined in
-
-node\_modules/prettier/index.d.ts:363
 
 ***
 
@@ -341,21 +313,21 @@ node\_modules/prettier/index.d.ts:363
 
 > `optional` **plugins**: (`string` \| `Plugin`)[]
 
+Defined in: node\_modules/prettier/index.d.ts:396
+
 Provide ability to support new languages to prettier.
 
 #### Inherited from
 
 `Options.plugins`
 
-#### Defined in
-
-node\_modules/prettier/index.d.ts:396
-
 ***
 
 ### printWidth?
 
 > `optional` **printWidth**: `number`
+
+Defined in: node\_modules/prettier/doc.d.ts:214
 
 Specify the line length that the printer will wrap on.
 
@@ -369,15 +341,13 @@ Specify the line length that the printer will wrap on.
 
 `Options.printWidth`
 
-#### Defined in
-
-node\_modules/prettier/doc.d.ts:214
-
 ***
 
 ### proseWrap?
 
 > `optional` **proseWrap**: `"always"` \| `"never"` \| `"preserve"`
+
+Defined in: node\_modules/prettier/index.d.ts:387
 
 By default, Prettier will wrap markdown text as-is since some services use a linebreak-sensitive renderer.
 In some cases you may want to rely on editor/viewer soft wrapping instead, so this option allows you to opt out.
@@ -392,15 +362,13 @@ In some cases you may want to rely on editor/viewer soft wrapping instead, so th
 
 `Options.proseWrap`
 
-#### Defined in
-
-node\_modules/prettier/index.d.ts:387
-
 ***
 
 ### quoteProps?
 
 > `optional` **quoteProps**: `"preserve"` \| `"as-needed"` \| `"consistent"`
+
+Defined in: node\_modules/prettier/index.d.ts:411
 
 Change when properties in objects are quoted.
 
@@ -414,15 +382,13 @@ Change when properties in objects are quoted.
 
 `Options.quoteProps`
 
-#### Defined in
-
-node\_modules/prettier/index.d.ts:411
-
 ***
 
 ### rangeEnd?
 
 > `optional` **rangeEnd**: `number`
+
+Defined in: node\_modules/prettier/index.d.ts:359
 
 Format only a segment of a file.
 
@@ -436,15 +402,13 @@ Number.POSITIVE_INFINITY
 
 `Options.rangeEnd`
 
-#### Defined in
-
-node\_modules/prettier/index.d.ts:359
-
 ***
 
 ### rangeStart?
 
 > `optional` **rangeStart**: `number`
+
+Defined in: node\_modules/prettier/index.d.ts:354
 
 Format only a segment of a file.
 
@@ -458,15 +422,13 @@ Format only a segment of a file.
 
 `Options.rangeStart`
 
-#### Defined in
-
-node\_modules/prettier/index.d.ts:354
-
 ***
 
 ### requirePragma?
 
 > `optional` **requirePragma**: `boolean`
+
+Defined in: node\_modules/prettier/index.d.ts:373
 
 Prettier can restrict itself to only format files that contain a special comment, called a pragma, at the top of the file.
 This is very useful when gradually transitioning large, unformatted codebases to prettier.
@@ -481,15 +443,13 @@ false
 
 `Options.requirePragma`
 
-#### Defined in
-
-node\_modules/prettier/index.d.ts:373
-
 ***
 
 ### semi?
 
 > `optional` **semi**: `boolean`
+
+Defined in: node\_modules/prettier/index.d.ts:323
 
 Print semicolons at the ends of statements.
 
@@ -503,15 +463,13 @@ true
 
 `Options.semi`
 
-#### Defined in
-
-node\_modules/prettier/index.d.ts:323
-
 ***
 
 ### singleAttributePerLine?
 
 > `optional` **singleAttributePerLine**: `boolean`
+
+Defined in: node\_modules/prettier/index.d.ts:426
 
 Enforce single attribute per line in HTML, Vue and JSX.
 
@@ -525,15 +483,13 @@ false
 
 `Options.singleAttributePerLine`
 
-#### Defined in
-
-node\_modules/prettier/index.d.ts:426
-
 ***
 
 ### singleQuote?
 
 > `optional` **singleQuote**: `boolean`
+
+Defined in: node\_modules/prettier/index.d.ts:328
 
 Use single quotes instead of double quotes.
 
@@ -547,15 +503,13 @@ false
 
 `Options.singleQuote`
 
-#### Defined in
-
-node\_modules/prettier/index.d.ts:328
-
 ***
 
 ### tabWidth?
 
 > `optional` **tabWidth**: `number`
+
+Defined in: node\_modules/prettier/doc.d.ts:219
 
 Specify the number of spaces per indentation-level.
 
@@ -569,15 +523,13 @@ Specify the number of spaces per indentation-level.
 
 `Options.tabWidth`
 
-#### Defined in
-
-node\_modules/prettier/doc.d.ts:219
-
 ***
 
 ### trailingComma?
 
 > `optional` **trailingComma**: `"all"` \| `"none"` \| `"es5"`
+
+Defined in: node\_modules/prettier/index.d.ts:338
 
 Print trailing commas wherever possible.
 
@@ -591,15 +543,13 @@ Print trailing commas wherever possible.
 
 `Options.trailingComma`
 
-#### Defined in
-
-node\_modules/prettier/index.d.ts:338
-
 ***
 
 ### useTabs?
 
 > `optional` **useTabs**: `boolean`
+
+Defined in: node\_modules/prettier/doc.d.ts:224
 
 Indent lines with tabs instead of spaces
 
@@ -613,15 +563,13 @@ false
 
 `Options.useTabs`
 
-#### Defined in
-
-node\_modules/prettier/doc.d.ts:224
-
 ***
 
 ### vueIndentScriptAndStyle?
 
 > `optional` **vueIndentScriptAndStyle**: `boolean`
+
+Defined in: node\_modules/prettier/index.d.ts:416
 
 Whether or not to indent the code inside <script> and <style> tags in Vue files.
 
@@ -634,7 +582,3 @@ false
 #### Inherited from
 
 `Options.vueIndentScriptAndStyle`
-
-#### Defined in
-
-node\_modules/prettier/index.d.ts:416

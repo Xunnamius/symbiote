@@ -6,8 +6,6 @@
 
 # types/eslint-plugin-jest
 
-## Index
-
-### Variables
+## Variables
 
 - [default](variables/default.md)

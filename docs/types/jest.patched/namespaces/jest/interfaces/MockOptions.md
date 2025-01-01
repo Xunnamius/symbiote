@@ -6,12 +6,12 @@
 
 # Interface: MockOptions
 
+Defined in: node\_modules/@types/jest/index.d.ts:431
+
 ## Properties
 
 ### virtual?
 
 > `optional` **virtual**: `boolean`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:432
+Defined in: node\_modules/@types/jest/index.d.ts:432

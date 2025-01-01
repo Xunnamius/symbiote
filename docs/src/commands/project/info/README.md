@@ -6,16 +6,14 @@
 
 # src/commands/project/info
 
-## Index
-
-### Type Aliases
+## Type Aliases
 
 - [CustomCliArguments](type-aliases/CustomCliArguments.md)
 
-### Variables
+## Variables
 
 - [projectInfoScopes](variables/projectInfoScopes.md)
 
-### Functions
+## Functions
 
 - [default](functions/default.md)

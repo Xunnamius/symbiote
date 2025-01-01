@@ -8,6 +8,8 @@
 
 > **EqualityTester**: (`a`, `b`) => `boolean` \| `undefined`
 
+Defined in: node\_modules/@types/jest/index.d.ts:620
+
 ## Parameters
 
 ### a
@@ -21,7 +23,3 @@
 ## Returns
 
 `boolean` \| `undefined`
-
-## Defined in
-
-node\_modules/@types/jest/index.d.ts:620

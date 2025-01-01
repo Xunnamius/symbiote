@@ -8,10 +8,8 @@
 
 > `const` **CORE\_JS\_LIBRARY\_VERSION**: `"3.39"` = `'3.39'`
 
+Defined in: [src/assets/transformers/\_babel.config.cjs.ts:110](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/assets/transformers/_babel.config.cjs.ts#L110)
+
 Should be bumped manually and with caution.
 
 ! MUST ALWAYS FOLLOW THE SYNTAX X.X -OR- X.X.X (WHERE "X" ARE NUMERIC CHARS)
-
-## Defined in
-
-[src/assets/transformers/\_babel.config.cjs.ts:110](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/assets/transformers/_babel.config.cjs.ts#L110)

@@ -6,13 +6,11 @@
 
 # src/commands/build/changelog
 
-## Index
-
-### Enumerations
+## Enumerations
 
 - [OutputOrder](enumerations/OutputOrder.md)
 
-### Type Aliases
+## Type Aliases
 
 - [ChangelogPatch](type-aliases/ChangelogPatch.md)
 - [ChangelogPatcherFunction](type-aliases/ChangelogPatcherFunction.md)
@@ -20,11 +18,11 @@
 - [CustomCliArguments](type-aliases/CustomCliArguments.md)
 - [ImportedChangelogPatcher](type-aliases/ImportedChangelogPatcher.md)
 
-### Variables
+## Variables
 
 - [availableOutputOrders](variables/availableOutputOrders.md)
 - [changelogBuilderScopes](variables/changelogBuilderScopes.md)
 
-### Functions
+## Functions
 
 - [default](functions/default.md)

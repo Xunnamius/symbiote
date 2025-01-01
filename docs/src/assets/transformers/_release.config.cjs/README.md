@@ -6,17 +6,15 @@
 
 # src/assets/transformers/\_release.config.cjs
 
-## Index
-
-### Interfaces
+## Interfaces
 
 - [ReleaseConfig](interfaces/ReleaseConfig.md)
 
-### Type Aliases
+## Type Aliases
 
 - [PluginConfig](type-aliases/PluginConfig.md)
 
-### Functions
+## Functions
 
 - [assertEnvironment](functions/assertEnvironment.md)
 - [generateNotes](functions/generateNotes.md)

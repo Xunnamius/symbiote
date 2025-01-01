@@ -8,6 +8,8 @@
 
 > **generateSubRootXPackageJson**(...`__namedParameters`): `object`
 
+Defined in: [src/assets/transformers/\_package.json.ts:301](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/assets/transformers/_package.json.ts#L301)
+
 ## Parameters
 
 ### \_\_namedParameters
@@ -38,7 +40,7 @@ A hint to JavaScript bundlers or component tools when packaging modules for clie
 
 #### bugs.url
 
-> `readonly` **url**: \`$\{string\}/issues\`
+> `readonly` **url**: `` `${string}/issues` ``
 
 ### bundledDependencies?
 
@@ -98,7 +100,7 @@ Indicates the structure of the package.
 
 #### Index Signature
 
- \[`key`: `string`\]: `undefined` \| `string`
+\[`key`: `string`\]: `undefined` \| `string`
 
 ### ~~engineStrict?~~
 
@@ -144,7 +146,7 @@ Describes and notifies consumers of a package's monetary support information.
 
 ### homepage
 
-> `readonly` **homepage**: \`$\{string\}$\{string\}#readme\`
+> `readonly` **homepage**: `` `${string}${string}#readme` ``
 
 ### imports?
 
@@ -766,7 +768,3 @@ Used to configure [npm workspaces](https://docs.npmjs.com/cli/using-npm/workspac
 Workspaces allow you to manage multiple packages within the same repository in such a way that you only need to run your install command once in order to install all of them in a single pass.
 
 Please note that the top-level `private` property of `package.json` **must** be set to `true` in order to use workspaces.
-
-## Defined in
-
-[src/assets/transformers/\_package.json.ts:301](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/assets/transformers/_package.json.ts#L301)

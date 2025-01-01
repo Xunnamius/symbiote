@@ -6,9 +6,7 @@
 
 # src/assets/transformers/\_conventional.config.cjs
 
-## Index
-
-### Variables
+## Variables
 
 - [commandHeaderPattern](variables/commandHeaderPattern.md)
 - [defaultChangelogTopmatter](variables/defaultChangelogTopmatter.md)
@@ -18,7 +16,7 @@
 - [noteTitleForBreakingChange](variables/noteTitleForBreakingChange.md)
 - [wellKnownCommitTypes](variables/wellKnownCommitTypes.md)
 
-### Functions
+## Functions
 
 - [assertEnvironment](functions/assertEnvironment.md)
 - [moduleExport](functions/moduleExport.md)

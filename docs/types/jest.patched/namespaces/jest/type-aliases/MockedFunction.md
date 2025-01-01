@@ -8,6 +8,8 @@
 
 > **MockedFunction**\<`T`\>: [`MockInstance`](../interfaces/MockInstance.md)\<`ReturnType`\<`T`\>, [`ArgsType`](ArgsType.md)\<`T`\>, `T` *extends* (`this`, ...`args`) => `any` ? `C` : `never`\> & `T`
 
+Defined in: node\_modules/@types/jest/index.d.ts:1264
+
 Wrap a function with mock definitions
 
 ## Type Parameters
@@ -23,7 +25,3 @@ import { myFunction } from "./library";
  const mockMyFunction = myFunction as jest.MockedFunction<typeof myFunction>;
  expect(mockMyFunction.mock.calls[0][0]).toBe(42);
 ```
-
-## Defined in
-
-node\_modules/@types/jest/index.d.ts:1264

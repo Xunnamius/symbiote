@@ -8,6 +8,8 @@
 
 > **generatePerPackageAssets**(`transformerContext`, `adder`, `__namedParameters`): `Promise`\<[`Asset`](../type-aliases/Asset.md)[]\>
 
+Defined in: [src/assets.ts:666](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/assets.ts#L666)
+
 Takes a [TransformerContext](../type-aliases/TransformerContext.md) and an adder function and returns an array
 of [Asset](../type-aliases/Asset.md)s generated per each package in ProjectMetadata,
 including the root package in hybridrepos and polyrepos (but not in
@@ -51,7 +53,3 @@ false
 ## Returns
 
 `Promise`\<[`Asset`](../type-aliases/Asset.md)[]\>
-
-## Defined in
-
-[src/assets.ts:666](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/assets.ts#L666)

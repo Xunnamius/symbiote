@@ -6,7 +6,9 @@
 
 # Type Alias: RawAliasMapperArray
 
-> **RawAliasMapperArray**: [`Merge`\<`RawAlias`, \{ `group`: `string`; \}\>, `Merge`\<`RawPath`, \{ `path`: `string`; \}\>][]
+> **RawAliasMapperArray**: \[`Merge`\<`RawAlias`, \{ `group`: `string`; \}\>, `Merge`\<`RawPath`, \{ `path`: `string`; \}\>\][]
+
+Defined in: [src/util.ts:130](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/util.ts#L130)
 
 An array of RawAliasMappings.
 
@@ -16,7 +18,3 @@ Note that import map files can export via default either
 ## See
 
 [ImportedAliasMap](ImportedAliasMap.md)
-
-## Defined in
-
-[src/util.ts:130](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/util.ts#L130)

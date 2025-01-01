@@ -6,11 +6,15 @@
 
 # Interface: AsymmetricMatcher
 
+Defined in: node\_modules/@types/jest/index.d.ts:1156
+
 ## Methods
 
 ### asymmetricMatch()
 
 > **asymmetricMatch**(`other`): `boolean`
+
+Defined in: node\_modules/@types/jest/index.d.ts:1157
 
 #### Parameters
 
@@ -21,7 +25,3 @@
 #### Returns
 
 `boolean`
-
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:1157

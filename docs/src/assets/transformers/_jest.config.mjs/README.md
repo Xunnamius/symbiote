@@ -6,17 +6,15 @@
 
 # src/assets/transformers/\_jest.config.mjs
 
-## Index
-
-### Type Aliases
+## Type Aliases
 
 - [JestConfig](type-aliases/JestConfig.md)
 
-### Variables
+## Variables
 
 - [wellKnownNodeEnvValues](variables/wellKnownNodeEnvValues.md)
 
-### Functions
+## Functions
 
 - [assertEnvironment](functions/assertEnvironment.md)
 - [baseConfig](functions/baseConfig.md)

@@ -8,6 +8,8 @@
 
 > **makeTransformer**(`transform`): [`TransformerContainer`](../type-aliases/TransformerContainer.md)
 
+Defined in: [src/assets.ts:458](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/assets.ts#L458)
+
 Accepts a [Transform](../type-aliases/Transform.md) function and returns a
 [TransformerContainer](../type-aliases/TransformerContainer.md) containing a single [Transformer](../type-aliases/Transformer.md).
 
@@ -23,7 +25,3 @@ Accepts a [Transform](../type-aliases/Transform.md) function and returns a
 ## Returns
 
 [`TransformerContainer`](../type-aliases/TransformerContainer.md)
-
-## Defined in
-
-[src/assets.ts:458](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/assets.ts#L458)

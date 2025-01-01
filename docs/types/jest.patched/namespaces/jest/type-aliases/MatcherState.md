@@ -8,6 +8,4 @@
 
 > **MatcherState**: `MatcherState`
 
-## Defined in
-
-node\_modules/@types/jest/index.d.ts:678
+Defined in: node\_modules/@types/jest/index.d.ts:678

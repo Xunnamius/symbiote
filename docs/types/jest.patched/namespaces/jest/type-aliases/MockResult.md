@@ -8,10 +8,8 @@
 
 > **MockResult**\<`T`\>: [`MockResultReturn`](../interfaces/MockResultReturn.md)\<`T`\> \| [`MockResultThrow`](../interfaces/MockResultThrow.md) \| [`MockResultIncomplete`](../interfaces/MockResultIncomplete.md)
 
+Defined in: node\_modules/@types/jest/index.d.ts:1512
+
 ## Type Parameters
 
 • **T**
-
-## Defined in
-
-node\_modules/@types/jest/index.d.ts:1512

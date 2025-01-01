@@ -8,6 +8,8 @@
 
 > **replaceProperty**\<`T`, `K`\>(`obj`, `key`, `value`): [`ReplaceProperty`](../interfaces/ReplaceProperty.md)\<`T`\[`K`\]\>
 
+Defined in: node\_modules/@types/jest/index.d.ts:291
+
 Replaces property on an object with another value.
 
 ## Type Parameters
@@ -37,7 +39,3 @@ Replaces property on an object with another value.
 ## Remarks
 
 For mocking functions, and 'get' or 'set' accessors, use `jest.spyOn()` instead.
-
-## Defined in
-
-node\_modules/@types/jest/index.d.ts:291

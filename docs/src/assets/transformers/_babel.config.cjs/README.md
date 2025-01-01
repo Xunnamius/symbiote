@@ -6,13 +6,11 @@
 
 # src/assets/transformers/\_babel.config.cjs
 
-## Index
-
-### Interfaces
+## Interfaces
 
 - [BabelConfig](interfaces/BabelConfig.md)
 
-### Variables
+## Variables
 
 - [CORE\_JS\_LIBRARY\_VERSION](variables/CORE_JS_LIBRARY_VERSION.md)
 - [extensionsAcceptedByBabel](variables/extensionsAcceptedByBabel.md)
@@ -22,7 +20,7 @@
 - [NODE\_LTS](variables/NODE_LTS.md)
 - [wellKnownNodeEnvValues](variables/wellKnownNodeEnvValues.md)
 
-### Functions
+## Functions
 
 - [assertEnvironment](functions/assertEnvironment.md)
 - [hasExtensionAcceptedByBabel](functions/hasExtensionAcceptedByBabel.md)

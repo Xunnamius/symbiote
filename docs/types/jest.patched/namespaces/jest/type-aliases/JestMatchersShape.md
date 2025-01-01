@@ -8,6 +8,8 @@
 
 > **JestMatchersShape**\<`TNonPromise`, `TPromise`\>: `object` & [`AndNot`](AndNot.md)\<`TNonPromise`\>
 
+Defined in: node\_modules/@types/jest/index.d.ts:784
+
 ## Type declaration
 
 ### rejects
@@ -29,7 +31,3 @@ matcher can be chained. If the promise is rejected the assertion fails.
 • **TNonPromise** *extends* `object` = \{\}
 
 • **TPromise** *extends* `object` = \{\}
-
-## Defined in
-
-node\_modules/@types/jest/index.d.ts:784

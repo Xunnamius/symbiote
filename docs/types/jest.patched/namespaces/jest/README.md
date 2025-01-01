@@ -6,9 +6,7 @@
 
 # jest
 
-## Index
-
-### Interfaces
+## Interfaces
 
 - [AsymmetricMatcher](interfaces/AsymmetricMatcher.md)
 - [Constructable](interfaces/Constructable.md)
@@ -33,7 +31,7 @@
 - [ReplaceProperty](interfaces/ReplaceProperty.md)
 - [SpyInstance](interfaces/SpyInstance.md)
 
-### Type Aliases
+## Type Aliases
 
 - [AndNot](type-aliases/AndNot.md)
 - [ArgsType](type-aliases/ArgsType.md)
@@ -98,7 +96,7 @@
 - [SpiedGetter](type-aliases/SpiedGetter.md)
 - [SpiedSetter](type-aliases/SpiedSetter.md)
 
-### Functions
+## Functions
 
 - [advanceTimersByTime](functions/advanceTimersByTime.md)
 - [advanceTimersByTimeAsync](functions/advanceTimersByTimeAsync.md)

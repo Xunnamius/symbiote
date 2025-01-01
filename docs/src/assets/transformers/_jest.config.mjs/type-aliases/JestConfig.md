@@ -8,6 +8,4 @@
 
 > **JestConfig**: `Config_2.InitialOptions`
 
-## Defined in
-
-node\_modules/jest/build/index.d.ts:17
+Defined in: node\_modules/jest/build/index.d.ts:17

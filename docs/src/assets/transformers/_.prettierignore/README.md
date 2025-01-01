@@ -6,8 +6,6 @@
 
 # src/assets/transformers/\_.prettierignore
 
-## Index
-
-### Functions
+## Functions
 
 - [transformer](functions/transformer.md)

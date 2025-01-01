@@ -6,9 +6,7 @@
 
 # src/assets/transformers/\_postcss.config.mjs
 
-## Index
-
-### Functions
+## Functions
 
 - [moduleExport](functions/moduleExport.md)
 - [transformer](functions/transformer.md)

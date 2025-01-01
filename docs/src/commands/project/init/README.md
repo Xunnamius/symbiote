@@ -6,17 +6,15 @@
 
 # src/commands/project/init
 
-## Index
-
-### Type Aliases
+## Type Aliases
 
 - [CustomCliArguments](type-aliases/CustomCliArguments.md)
 
-### Variables
+## Variables
 
 - [projectInitScopes](variables/projectInitScopes.md)
 
-### Functions
+## Functions
 
 - [default](functions/default.md)
 

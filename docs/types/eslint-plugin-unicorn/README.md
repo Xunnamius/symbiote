@@ -6,8 +6,6 @@
 
 # types/eslint-plugin-unicorn
 
-## Index
-
-### Variables
+## Variables
 
 - [default](variables/default.md)

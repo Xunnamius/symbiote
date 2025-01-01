@@ -8,6 +8,8 @@
 
 > **MockedClass**\<`T`\>: [`MockInstance`](../interfaces/MockInstance.md)\<`InstanceType`\<`T`\>, `T` *extends* (...`args`) => `any` ? `P` : `never`, `T` *extends* (...`args`) => infer C ? `C` : `never`\> & `object` & `T`
 
+Defined in: node\_modules/@types/jest/index.d.ts:1286
+
 Wrap a class with mock definitions
 
 ## Type declaration
@@ -31,7 +33,3 @@ import { MyClass } from "./library";
  expect(mockedMyClass.mock.calls[0][0]).toBe(42); // Constructor calls
  expect(mockedMyClass.prototype.myMethod.mock.calls[0][0]).toBe(42); // Method calls
 ```
-
-## Defined in
-
-node\_modules/@types/jest/index.d.ts:1286

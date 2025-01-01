@@ -6,8 +6,6 @@
 
 # src/assets/transformers/\_types
 
-## Index
-
-### Functions
+## Functions
 
 - [transformer](functions/transformer.md)

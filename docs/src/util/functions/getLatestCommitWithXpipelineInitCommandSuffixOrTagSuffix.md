@@ -8,6 +8,8 @@
 
 > **getLatestCommitWithXpipelineInitCommandSuffixOrTagSuffix**(`tagPrefix`): `Promise`\<`string`\>
 
+Defined in: [src/util.ts:1072](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/util.ts#L1072)
+
 Return the commit-ish (SHA hash) of the most recent commit containing the
 Xpipeline command suffix `[INIT]`, or being pointed to by a
 `package-name@0.0.0-init` version tag. If no such commit could be found,
@@ -26,7 +28,3 @@ Xpipeline command suffix `[INIT]`, or being pointed to by a
 ## See
 
 XchangelogConfig
-
-## Defined in
-
-[src/util.ts:1072](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/util.ts#L1072)

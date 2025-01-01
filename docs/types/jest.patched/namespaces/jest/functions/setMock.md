@@ -8,6 +8,8 @@
 
 > **setMock**\<`T`\>(`moduleName`, `moduleExports`): *typeof* [`jest`](../README.md)
 
+Defined in: node\_modules/@types/jest/index.d.ts:362
+
 Explicitly supplies the mock object that the module system should return
 for the specified module.
 
@@ -28,7 +30,3 @@ for the specified module.
 ## Returns
 
 *typeof* [`jest`](../README.md)
-
-## Defined in
-
-node\_modules/@types/jest/index.d.ts:362

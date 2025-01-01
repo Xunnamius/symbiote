@@ -6,8 +6,6 @@
 
 # src/assets/transformers/\_.editorconfig
 
-## Index
-
-### Functions
+## Functions
 
 - [transformer](functions/transformer.md)

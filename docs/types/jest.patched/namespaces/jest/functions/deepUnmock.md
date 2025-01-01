@@ -8,6 +8,8 @@
 
 > **deepUnmock**(`moduleName`): *typeof* [`jest`](../README.md)
 
+Defined in: node\_modules/@types/jest/index.d.ts:190
+
 Indicates that the module system should never return a mocked version
 of the specified module, including all of the specified module's dependencies.
 
@@ -20,7 +22,3 @@ of the specified module, including all of the specified module's dependencies.
 ## Returns
 
 *typeof* [`jest`](../README.md)
-
-## Defined in
-
-node\_modules/@types/jest/index.d.ts:190

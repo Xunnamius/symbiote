@@ -6,21 +6,19 @@
 
 # src/commands/deploy
 
-## Index
-
-### Enumerations
+## Enumerations
 
 - [DeployTarget](enumerations/DeployTarget.md)
 
-### Type Aliases
+## Type Aliases
 
 - [CustomCliArguments](type-aliases/CustomCliArguments.md)
 
-### Variables
+## Variables
 
 - [deployScopes](variables/deployScopes.md)
 - [deployTargets](variables/deployTargets.md)
 
-### Functions
+## Functions
 
 - [default](functions/default.md)

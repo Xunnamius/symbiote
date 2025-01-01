@@ -6,8 +6,6 @@
 
 # src/assets/transformers/\_README.md
 
-## Index
-
-### Functions
+## Functions
 
 - [transformer](functions/transformer.md)

@@ -8,6 +8,8 @@
 
 > `const` **commandHeaderPattern**: `RegExp`
 
+Defined in: [src/assets/transformers/\_conventional.config.cjs.ts:209](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/assets/transformers/_conventional.config.cjs.ts#L209)
+
 This regular expression matches well-known xpipeline command strings that may
 appear as commands in commit headers and is used to remove said commands so
 they do not appear in the changelog.
@@ -82,7 +84,3 @@ xpipeline: skip ci
 xpipe: skip cd
 x: some-other-command, yet-another-command, a-5th-command
 ```
-
-## Defined in
-
-[src/assets/transformers/\_conventional.config.cjs.ts:209](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/assets/transformers/_conventional.config.cjs.ts#L209)

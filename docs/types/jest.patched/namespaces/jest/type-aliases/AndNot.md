@@ -8,6 +8,8 @@
 
 > **AndNot**\<`T`\>: `T` & `object`
 
+Defined in: node\_modules/@types/jest/index.d.ts:796
+
 ## Type declaration
 
 ### not
@@ -17,7 +19,3 @@
 ## Type Parameters
 
 • **T**
-
-## Defined in
-
-node\_modules/@types/jest/index.d.ts:796

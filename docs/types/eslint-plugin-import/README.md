@@ -6,8 +6,6 @@
 
 # types/eslint-plugin-import
 
-## Index
-
-### Variables
+## Variables
 
 - [flatConfigs](variables/flatConfigs.md)

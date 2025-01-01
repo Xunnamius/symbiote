@@ -6,14 +6,12 @@
 
 # src/assets/transformers/\_commitlint.config.mjs
 
-## Index
-
-### Enumerations
+## Enumerations
 
 - [Applicable](enumerations/Applicable.md)
 - [ErrorLevel](enumerations/ErrorLevel.md)
 
-### Functions
+## Functions
 
 - [moduleExport](functions/moduleExport.md)
 - [transformer](functions/transformer.md)

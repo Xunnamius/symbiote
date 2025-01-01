@@ -6,16 +6,14 @@
 
 # src/commands/clean
 
-## Index
-
-### Type Aliases
+## Type Aliases
 
 - [CustomCliArguments](type-aliases/CustomCliArguments.md)
 
-### Variables
+## Variables
 
 - [defaultCleanExcludedPaths](variables/defaultCleanExcludedPaths.md)
 
-### Functions
+## Functions
 
 - [default](functions/default.md)

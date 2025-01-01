@@ -6,12 +6,10 @@
 
 # src/commands/format
 
-## Index
-
-### Type Aliases
+## Type Aliases
 
 - [CustomCliArguments](type-aliases/CustomCliArguments.md)
 
-### Functions
+## Functions
 
 - [default](functions/default.md)

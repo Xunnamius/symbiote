@@ -8,6 +8,8 @@
 
 > **GlobGitignoreOptions**: `Omit`\<`GlobOptions`, `"ignore"`\> & `object`
 
+Defined in: [types/glob-gitignore.d.ts:4](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/types/glob-gitignore.d.ts#L4)
+
 ## Type declaration
 
 ### ignore?
@@ -17,7 +19,3 @@
 A string or array of strings used to determine which globbed paths are
 ignored. Typically this is the result of parsing a .gitignore file (or file
 with compatible format) split by `"\n"`.
-
-## Defined in
-
-[types/glob-gitignore.d.ts:4](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/types/glob-gitignore.d.ts#L4)

@@ -6,8 +6,6 @@
 
 # src/assets/transformers/\_.all-contributorsrc
 
-## Index
-
-### Functions
+## Functions
 
 - [transformer](functions/transformer.md)

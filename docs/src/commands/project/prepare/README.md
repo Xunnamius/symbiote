@@ -6,16 +6,14 @@
 
 # src/commands/project/prepare
 
-## Index
-
-### Type Aliases
+## Type Aliases
 
 - [CustomCliArguments](type-aliases/CustomCliArguments.md)
 
-### Variables
+## Variables
 
 - [preparationScopes](variables/preparationScopes.md)
 
-### Functions
+## Functions
 
 - [default](functions/default.md)

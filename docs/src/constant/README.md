@@ -6,14 +6,12 @@
 
 # src/constant
 
-## Index
-
-### Variables
+## Variables
 
 - [globalCliName](variables/globalCliName.md)
 - [globalDebuggerNamespace](variables/globalDebuggerNamespace.md)
 - [globalLoggerNamespace](variables/globalLoggerNamespace.md)
 
-### Functions
+## Functions
 
 - [makeGeneratedAliasesWarningComment](functions/makeGeneratedAliasesWarningComment.md)

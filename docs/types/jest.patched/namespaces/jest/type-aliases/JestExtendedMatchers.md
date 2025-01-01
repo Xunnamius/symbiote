@@ -8,12 +8,10 @@
 
 > **JestExtendedMatchers**\<`TMatchers`, `TActual`\>: [`JestMatchersShape`](JestMatchersShape.md)\<[`ExtendedMatchers`](ExtendedMatchers.md)\<`TMatchers`, `void`, `TActual`\>, [`ExtendedMatchers`](ExtendedMatchers.md)\<`TMatchers`, `Promise`\<`void`\>, `TActual`\>\>
 
+Defined in: node\_modules/@types/jest/index.d.ts:1186
+
 ## Type Parameters
 
 • **TMatchers** *extends* [`ExpectExtendMap`](../interfaces/ExpectExtendMap.md)
 
 • **TActual**
-
-## Defined in
-
-node\_modules/@types/jest/index.d.ts:1186

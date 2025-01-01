@@ -6,12 +6,12 @@
 
 # Interface: FunctionLike
 
+Defined in: node\_modules/@types/jest/index.d.ts:505
+
 ## Properties
 
 ### name
 
 > `readonly` **name**: `string`
 
-#### Defined in
-
-node\_modules/@types/jest/index.d.ts:506
+Defined in: node\_modules/@types/jest/index.d.ts:506

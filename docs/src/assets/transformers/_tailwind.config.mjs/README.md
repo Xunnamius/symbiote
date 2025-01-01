@@ -6,9 +6,7 @@
 
 # src/assets/transformers/\_tailwind.config.mjs
 
-## Index
-
-### Functions
+## Functions
 
 - [moduleExport](functions/moduleExport.md)
 - [transformer](functions/transformer.md)

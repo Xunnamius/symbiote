@@ -8,6 +8,8 @@
 
 > **Lifecycle**: (`fn`, `timeout`?) => `any`
 
+Defined in: node\_modules/@types/jest/index.d.ts:503
+
 ## Parameters
 
 ### fn
@@ -21,7 +23,3 @@
 ## Returns
 
 `any`
-
-## Defined in
-
-node\_modules/@types/jest/index.d.ts:503

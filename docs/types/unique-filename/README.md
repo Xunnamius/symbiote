@@ -6,8 +6,6 @@
 
 # types/unique-filename
 
-## Index
-
-### Functions
+## Functions
 
 - [default](functions/default.md)

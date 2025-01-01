@@ -8,6 +8,8 @@
 
 > **RawAliasMapperFunction**: (`projectMetadata`, `outputFunctions`) => [`RawAliasMapperArray`](RawAliasMapperArray.md)
 
+Defined in: [src/util.ts:117](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/util.ts#L117)
+
 A function that receives the current ProjectMetadata and must return
 an array of RawAliasMappings.
 
@@ -37,7 +39,3 @@ Note that import map files can export via default either
 ## See
 
 [ImportedAliasMap](ImportedAliasMap.md)
-
-## Defined in
-
-[src/util.ts:117](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/util.ts#L117)

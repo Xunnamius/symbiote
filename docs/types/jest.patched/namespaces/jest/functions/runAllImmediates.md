@@ -8,6 +8,8 @@
 
 > **runAllImmediates**(): `void`
 
+Defined in: node\_modules/@types/jest/index.d.ts:298
+
 Exhausts tasks queued by `setImmediate()`.
 
 ## Returns
@@ -17,7 +19,3 @@ Exhausts tasks queued by `setImmediate()`.
 ## Remarks
 
 This function is only available when using legacy fake timers implementation.
-
-## Defined in
-
-node\_modules/@types/jest/index.d.ts:298

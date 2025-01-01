@@ -6,6 +6,8 @@
 
 # Enumeration: AssetPreset
 
+Defined in: [src/assets.ts:73](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/assets.ts#L73)
+
 These presets determine which assets will be returned by which transformers
 when they're invoked. By specifying a preset, only the assets it represents
 will be generated. All others will be ignored.
@@ -18,6 +20,8 @@ See the symbiote wiki for details.
 
 > **Basic**: `"basic"`
 
+Defined in: [src/assets.ts:84](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/assets.ts#L84)
+
 Represents the most basic assets necessary for symbiote to be fully
 functional.
 
@@ -27,15 +31,13 @@ desired.
 
 See the symbiote wiki for details.
 
-#### Defined in
-
-[src/assets.ts:84](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/assets.ts#L84)
-
 ***
 
 ### Cli
 
 > **Cli**: `"cli"`
+
+Defined in: [src/assets.ts:92](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/assets.ts#L92)
 
 Represents the standard assets for an symbiote-compliant command-line
 interface project (such as `@black-flag/core`-powered tools like `symbiote`
@@ -43,15 +45,13 @@ itself).
 
 See the symbiote wiki for details.
 
-#### Defined in
-
-[src/assets.ts:92](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/assets.ts#L92)
-
 ***
 
 ### Lib
 
 > **Lib**: `"lib"`
+
+Defined in: [src/assets.ts:101](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/assets.ts#L101)
 
 Represents the standard assets for an symbiote-compliant library project
 built for both CJS and ESM consumers (such as the case with
@@ -60,15 +60,13 @@ well.
 
 See the symbiote wiki for details.
 
-#### Defined in
-
-[src/assets.ts:101](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/assets.ts#L101)
-
 ***
 
 ### LibEsm
 
 > **LibEsm**: `"lib-esm"`
+
+Defined in: [src/assets.ts:109](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/assets.ts#L109)
 
 Represents the standard assets for an symbiote-compliant library project
 built exclusively for ESM and ESM-compatible consumers (such as the case
@@ -76,15 +74,13 @@ with the `unified-utils` monorepo).
 
 See the symbiote wiki for details.
 
-#### Defined in
-
-[src/assets.ts:109](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/assets.ts#L109)
-
 ***
 
 ### LibWeb
 
 > **LibWeb**: `"lib-web"`
+
+Defined in: [src/assets.ts:117](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/assets.ts#L117)
 
 Represents the standard assets for an symbiote-compliant library project
 built exclusively for ESM consumers operating in a browser-like runtime
@@ -92,24 +88,18 @@ built exclusively for ESM consumers operating in a browser-like runtime
 
 See the symbiote wiki for details.
 
-#### Defined in
-
-[src/assets.ts:117](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/assets.ts#L117)
-
 ***
 
 ### Nextjs
 
 > **Nextjs**: `"nextjs"`
 
+Defined in: [src/assets.ts:130](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/assets.ts#L130)
+
 Represents the standard assets for an symbiote-compliant Next.js + React
 project.
 
 See the symbiote wiki for details.
-
-#### Defined in
-
-[src/assets.ts:130](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/assets.ts#L130)
 
 ***
 
@@ -117,13 +107,11 @@ See the symbiote wiki for details.
 
 > **React**: `"react"`
 
+Defined in: [src/assets.ts:123](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/assets.ts#L123)
+
 Represents the standard assets for an symbiote-compliant React project.
 
 See the symbiote wiki for details.
-
-#### Defined in
-
-[src/assets.ts:123](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/assets.ts#L123)
 
 ***
 
@@ -131,11 +119,9 @@ See the symbiote wiki for details.
 
 > **TurboOnly**: `"turbo-only"`
 
+Defined in: [src/assets.ts:137](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/assets.ts#L137)
+
 Represents exclusively targeting `turbo.json` assets across the entire
 project.
 
 See the symbiote wiki for details.
-
-#### Defined in
-
-[src/assets.ts:137](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/assets.ts#L137)

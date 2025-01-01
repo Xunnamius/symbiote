@@ -6,6 +6,8 @@
 
 # Interface: ReleaseConfig
 
+Defined in: node\_modules/semantic-release/index.d.ts:577
+
 semantic-release options.
 
 Can be used to set any core option or plugin options.
@@ -14,13 +16,15 @@ configuration file and shareable configurations.
 
 ## Indexable
 
- \[`name`: `string`\]: `any`
+\[`name`: `string`\]: `any`
 
 ## Properties
 
 ### branches?
 
 > `optional` **branches**: `BranchSpec` \| readonly `BranchSpec`[]
+
+Defined in: node\_modules/semantic-release/index.d.ts:624
 
 The branches on which releases should happen. By default
 **semantic-release** will release:
@@ -53,22 +57,16 @@ example with [GitHub protected branches](https://help.github.com/articles/about-
 See [Workflow configuration](https://semantic-release.gitbook.io/semantic-release/usage/workflow-configuration#workflow-configuration)
 for more details.
 
-#### Defined in
-
-node\_modules/semantic-release/index.d.ts:624
-
 ***
 
 ### ci?
 
 > `optional` **ci**: `boolean`
 
+Defined in: node\_modules/semantic-release/index.d.ts:676
+
 Set to false to skip Continuous Integration environment verifications.
 This allows for making releases from a local machine.
-
-#### Defined in
-
-node\_modules/semantic-release/index.d.ts:676
 
 ***
 
@@ -76,17 +74,17 @@ node\_modules/semantic-release/index.d.ts:676
 
 > `optional` **dryRun**: `boolean`
 
+Defined in: node\_modules/semantic-release/index.d.ts:670
+
 Dry-run mode, skip publishing, print next version and release notes.
-
-#### Defined in
-
-node\_modules/semantic-release/index.d.ts:670
 
 ***
 
 ### extends?
 
 > `optional` **extends**: `string` \| readonly `string`[]
+
+Defined in: node\_modules/semantic-release/index.d.ts:590
 
 List of modules or file paths containing a
 [shareable configuration](https://semantic-release.gitbook.io/semantic-release/usage/shareable-configurations).
@@ -99,15 +97,13 @@ configuration.
 file will take precedence over the ones defined in any shareable
 configuration.
 
-#### Defined in
-
-node\_modules/semantic-release/index.d.ts:590
-
 ***
 
 ### plugins?
 
 > `optional` **plugins**: readonly `PluginSpec`\<`any`\>[]
+
+Defined in: node\_modules/semantic-release/index.d.ts:665
 
 Define the list of plugins to use. Plugins will run in series, in
 the order defined, for each [step](https://semantic-release.gitbook.io/semantic-release/#release-steps)
@@ -126,15 +122,13 @@ Default: `[
     "@semantic-release/github"
 ]`
 
-#### Defined in
-
-node\_modules/semantic-release/index.d.ts:665
-
 ***
 
 ### repositoryUrl?
 
 > `optional` **repositoryUrl**: `string`
+
+Defined in: node\_modules/semantic-release/index.d.ts:634
 
 The git repository URL.
 
@@ -143,15 +137,13 @@ Any valid git url format is supported (see
 
 Default: `repository` property in `package.json`, or git origin url.
 
-#### Defined in
-
-node\_modules/semantic-release/index.d.ts:634
-
 ***
 
 ### tagFormat?
 
 > `optional` **tagFormat**: `string`
+
+Defined in: node\_modules/semantic-release/index.d.ts:645
 
 The git tag format used by **semantic-release** to identify
 releases. The tag name is generated with [Lodash template](https://lodash.com/docs#template)
@@ -160,7 +152,3 @@ and will be compiled with the `version` variable.
 **Note**: The `tagFormat` must contain the `version` variable
 exactly once and compile to a
 [valid git reference](https://git-scm.com/docs/git-check-ref-format#_description).
-
-#### Defined in
-
-node\_modules/semantic-release/index.d.ts:645

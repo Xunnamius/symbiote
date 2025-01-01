@@ -6,13 +6,11 @@
 
 # types/glob-gitignore
 
-## Index
-
-### Type Aliases
+## Type Aliases
 
 - [GlobGitignoreOptions](type-aliases/GlobGitignoreOptions.md)
 
-### Functions
+## Functions
 
 - [glob](functions/glob.md)
 - [hasMagic](functions/hasMagic.md)

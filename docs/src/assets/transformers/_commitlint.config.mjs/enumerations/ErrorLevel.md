@@ -6,6 +6,8 @@
 
 # Enumeration: ErrorLevel
 
+Defined in: [src/assets/transformers/\_commitlint.config.mjs.ts:18](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/assets/transformers/_commitlint.config.mjs.ts#L18)
+
 ## See
 
 https://github.com/conventional-changelog/commitlint/blob/master/docs/reference/rules-configuration.md
@@ -16,9 +18,7 @@ https://github.com/conventional-changelog/commitlint/blob/master/docs/reference/
 
 > **Disabled**: `0`
 
-#### Defined in
-
-[src/assets/transformers/\_commitlint.config.mjs.ts:19](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/assets/transformers/_commitlint.config.mjs.ts#L19)
+Defined in: [src/assets/transformers/\_commitlint.config.mjs.ts:19](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/assets/transformers/_commitlint.config.mjs.ts#L19)
 
 ***
 
@@ -26,9 +26,7 @@ https://github.com/conventional-changelog/commitlint/blob/master/docs/reference/
 
 > **Error**: `2`
 
-#### Defined in
-
-[src/assets/transformers/\_commitlint.config.mjs.ts:21](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/assets/transformers/_commitlint.config.mjs.ts#L21)
+Defined in: [src/assets/transformers/\_commitlint.config.mjs.ts:21](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/assets/transformers/_commitlint.config.mjs.ts#L21)
 
 ***
 
@@ -36,6 +34,4 @@ https://github.com/conventional-changelog/commitlint/blob/master/docs/reference/
 
 > **Warn**: `1`
 
-#### Defined in
-
-[src/assets/transformers/\_commitlint.config.mjs.ts:20](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/assets/transformers/_commitlint.config.mjs.ts#L20)
+Defined in: [src/assets/transformers/\_commitlint.config.mjs.ts:20](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/assets/transformers/_commitlint.config.mjs.ts#L20)

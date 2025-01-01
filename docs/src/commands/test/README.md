@@ -6,24 +6,22 @@
 
 # src/commands/test
 
-## Index
-
-### Enumerations
+## Enumerations
 
 - [\_TesterScope](enumerations/TesterScope.md)
 - [Test](enumerations/Test.md)
 
-### Type Aliases
+## Type Aliases
 
 - [CustomCliArguments](type-aliases/CustomCliArguments.md)
 - [TesterScope](type-aliases/TesterScope.md)
 
-### Variables
+## Variables
 
 - [TesterScope](variables/TesterScope.md)
 - [testerScopes](variables/testerScopes.md)
 - [tests](variables/tests.md)
 
-### Functions
+## Functions
 
 - [default](functions/default.md)

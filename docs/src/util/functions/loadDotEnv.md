@@ -10,6 +10,8 @@
 
 > **loadDotEnv**(`settings`): `DotenvParseOutput`
 
+Defined in: [src/util.ts:731](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/util.ts#L731)
+
 Loads environment variables from the given `dotEnvFilePaths` files, with
 variables from files earlier in the list being overwritten by variables from
 files later in the list.
@@ -30,13 +32,11 @@ files, meaning they'll only be read once.**
 
 `DotenvParseOutput`
 
-### Defined in
-
-[src/util.ts:731](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/util.ts#L731)
-
 ## Call Signature
 
 > **loadDotEnv**(`settings`): `DotenvParseOutput`
+
+Defined in: [src/util.ts:745](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/util.ts#L745)
 
 Loads environment variables from the given `dotEnvFilePaths` files, with
 variables from files earlier in the list being overwritten by variables from
@@ -58,13 +58,11 @@ files, meaning they'll only be read once.**
 
 `DotenvParseOutput`
 
-### Defined in
-
-[src/util.ts:745](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/util.ts#L745)
-
 ## Call Signature
 
 > **loadDotEnv**(`expectedEnvironmentVariables`, `settings`): `DotenvParseOutput`
+
+Defined in: [src/util.ts:762](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/util.ts#L762)
 
 Loads environment variables from the given `dotEnvFilePaths` files, with
 variables from files earlier in the list being overwritten by variables from
@@ -93,13 +91,11 @@ files, meaning they'll only be read once.**
 
 `DotenvParseOutput`
 
-### Defined in
-
-[src/util.ts:762](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/util.ts#L762)
-
 ## Call Signature
 
 > **loadDotEnv**(`expectedEnvironmentVariables`, `settings`): `DotenvParseOutput`
+
+Defined in: [src/util.ts:780](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/util.ts#L780)
 
 Loads environment variables from the given `dotEnvFilePaths` files, with
 variables from files earlier in the list being overwritten by variables from
@@ -127,7 +123,3 @@ files, meaning they'll only be read once.**
 ### Returns
 
 `DotenvParseOutput`
-
-### Defined in
-
-[src/util.ts:780](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/util.ts#L780)

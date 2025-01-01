@@ -6,23 +6,21 @@
 
 # src/commands/build/distributables
 
-## Index
-
-### Enumerations
+## Enumerations
 
 - [IntermediateTranspilationEnvironment](enumerations/IntermediateTranspilationEnvironment.md)
 - [ModuleSystem](enumerations/ModuleSystem.md)
 
-### Type Aliases
+## Type Aliases
 
 - [CustomCliArguments](type-aliases/CustomCliArguments.md)
 
-### Variables
+## Variables
 
 - [distributablesBuilderScopes](variables/distributablesBuilderScopes.md)
 - [intermediateTranspilationEnvironment](variables/intermediateTranspilationEnvironment.md)
 - [moduleSystems](variables/moduleSystems.md)
 
-### Functions
+## Functions
 
 - [default](functions/default.md)

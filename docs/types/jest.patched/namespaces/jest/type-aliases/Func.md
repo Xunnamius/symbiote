@@ -8,6 +8,8 @@
 
 > **Func**: (...`args`) => `any`
 
+Defined in: node\_modules/@types/jest/index.d.ts:472
+
 ## Parameters
 
 ### args
@@ -17,7 +19,3 @@
 ## Returns
 
 `any`
-
-## Defined in
-
-node\_modules/@types/jest/index.d.ts:472

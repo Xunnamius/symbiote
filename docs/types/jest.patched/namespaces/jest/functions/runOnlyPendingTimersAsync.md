@@ -8,6 +8,8 @@
 
 > **runOnlyPendingTimersAsync**(): `Promise`\<`void`\>
 
+Defined in: node\_modules/@types/jest/index.d.ts:329
+
 Asynchronous equivalent of `jest.runOnlyPendingTimers()`. It also yields to the event loop,
 allowing any scheduled promise callbacks to execute _before_ running the timers.
 
@@ -18,7 +20,3 @@ allowing any scheduled promise callbacks to execute _before_ running the timers.
 ## Remarks
 
 Not available when using legacy fake timers implementation.
-
-## Defined in
-
-node\_modules/@types/jest/index.d.ts:329

@@ -8,10 +8,8 @@
 
 > **EmptyFunction**: () => `void`
 
+Defined in: node\_modules/@types/jest/index.d.ts:469
+
 ## Returns
 
 `void`
-
-## Defined in
-
-node\_modules/@types/jest/index.d.ts:469

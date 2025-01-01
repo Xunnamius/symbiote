@@ -8,6 +8,8 @@
 
 > **CustomCliArguments**: [`GlobalCliArguments`](../../../configure/type-aliases/GlobalCliArguments.md)\<[`TesterScope`](TesterScope.md)\> & `object`
 
+Defined in: [src/commands/test.ts:133](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/commands/test.ts#L133)
+
 ## Type declaration
 
 ### baseline
@@ -41,7 +43,3 @@
 ### tests
 
 > **tests**: [`Test`](../enumerations/Test.md)[]
-
-## Defined in
-
-[src/commands/test.ts:133](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/commands/test.ts#L133)

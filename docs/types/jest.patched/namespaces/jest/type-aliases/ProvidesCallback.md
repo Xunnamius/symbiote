@@ -8,6 +8,4 @@
 
 > **ProvidesCallback**: (`cb`) => `void` \| `undefined` \| () => `PromiseLike`\<`unknown`\>
 
-## Defined in
-
-node\_modules/@types/jest/index.d.ts:500
+Defined in: node\_modules/@types/jest/index.d.ts:500

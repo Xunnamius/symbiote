@@ -6,15 +6,13 @@
 
 # src/assets/transformers/\_eslint.config.mjs
 
-## Index
-
-### Type Aliases
+## Type Aliases
 
 - [EslintConfig](type-aliases/EslintConfig.md)
 - [PathGroup](type-aliases/PathGroup.md)
 - [PathGroupOverride](type-aliases/PathGroupOverride.md)
 
-### Functions
+## Functions
 
 - [assertEnvironment](functions/assertEnvironment.md)
 - [legacyExtendsFactory](functions/legacyExtendsFactory.md)

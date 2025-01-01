@@ -6,16 +6,14 @@
 
 # src/commands/dev
 
-## Index
-
-### Type Aliases
+## Type Aliases
 
 - [CustomCliArguments](type-aliases/CustomCliArguments.md)
 
-### Variables
+## Variables
 
 - [devScopes](variables/devScopes.md)
 
-### Functions
+## Functions
 
 - [default](functions/default.md)

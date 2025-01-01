@@ -6,8 +6,6 @@
 
 # src/assets/transformers/\_SECURITY.md
 
-## Index
-
-### Functions
+## Functions
 
 - [transformer](functions/transformer.md)

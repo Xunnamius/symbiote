@@ -6,9 +6,7 @@
 
 # src/util
 
-## Index
-
-### Type Aliases
+## Type Aliases
 
 - [ImportedAliasMap](type-aliases/ImportedAliasMap.md)
 - [LoadDotEnvSettings](type-aliases/LoadDotEnvSettings.md)
@@ -16,7 +14,7 @@
 - [RawAliasMapperArray](type-aliases/RawAliasMapperArray.md)
 - [RawAliasMapperFunction](type-aliases/RawAliasMapperFunction.md)
 
-### Variables
+## Variables
 
 - [magicStringChooserBlockEnd](variables/magicStringChooserBlockEnd.md)
 - [magicStringChooserBlockSplit](variables/magicStringChooserBlockSplit.md)
@@ -26,7 +24,7 @@
 - [noSpecialInitialCommitIndicator](variables/noSpecialInitialCommitIndicator.md)
 - [replacerRegionMatcherRegExp](variables/replacerRegionMatcherRegExp.md)
 
-### Functions
+## Functions
 
 - [\_\_read\_file\_sync](functions/read_file_sync.md)
 - [\_\_write\_file\_sync](functions/write_file_sync.md)

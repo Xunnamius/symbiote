@@ -8,6 +8,8 @@
 
 > **useFakeTimers**(`config`?): *typeof* [`jest`](../README.md)
 
+Defined in: node\_modules/@types/jest/index.d.ts:425
+
 Instructs Jest to use fake versions of the standard timer functions.
 
 ## Parameters
@@ -19,7 +21,3 @@ Instructs Jest to use fake versions of the standard timer functions.
 ## Returns
 
 *typeof* [`jest`](../README.md)
-
-## Defined in
-
-node\_modules/@types/jest/index.d.ts:425

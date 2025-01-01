@@ -8,6 +8,8 @@
 
 > **PluginConfig**: `object`
 
+Defined in: [src/assets/transformers/\_release.config.cjs.ts:81](https://github.com/Xunnamius/symbiote/blob/1901cfe78a48fcd1dfae4e3760acf197e8812676/src/assets/transformers/_release.config.cjs.ts#L81)
+
 The custom configuration object expected by the custom semantic-release
 plugin steps defined below.
 
@@ -15,7 +17,7 @@ plugin steps defined below.
 
 ## Index Signature
 
- \[`key`: `string`\]: `unknown`
+\[`key`: `string`\]: `unknown`
 
 ### parserOpts
 
@@ -28,7 +30,3 @@ plugin steps defined below.
 ### writerOpts
 
 > **writerOpts**: `NonNullable`\<`XchangelogConfigOptions`\[`"writerOpts"`\]\>
-
-## Defined in
-
-[src/assets/transformers/\_release.config.cjs.ts:81](https://github.com/Xunnamius/symbiote/blob/365faa6b8d22d2d1cc9b1342665abfa85d3e4f67/src/assets/transformers/_release.config.cjs.ts#L81)

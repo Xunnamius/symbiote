@@ -6,8 +6,6 @@
 
 # src/assets/transformers/\_changelog.patch.mjs
 
-## Index
-
-### Functions
+## Functions
 
 - [transformer](functions/transformer.md)

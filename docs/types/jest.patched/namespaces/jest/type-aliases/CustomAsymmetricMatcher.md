@@ -8,6 +8,8 @@
 
 > **CustomAsymmetricMatcher**\<`TMatcher`\>: (...`args`) => [`AsymmetricMatcher`](../interfaces/AsymmetricMatcher.md)
 
+Defined in: node\_modules/@types/jest/index.d.ts:1165
+
 ## Type Parameters
 
 • **TMatcher** *extends* (...`args`) => `any`
@@ -21,7 +23,3 @@
 ## Returns
 
 [`AsymmetricMatcher`](../interfaces/AsymmetricMatcher.md)
-
-## Defined in
-
-node\_modules/@types/jest/index.d.ts:1165
