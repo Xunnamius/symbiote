@@ -1541,6 +1541,28 @@ distrib root: ${absoluteOutputDirPath}
                 return false;
               }
 
+              // * Warnings
+
+              if (otherMissingDependencies.length) {
+                genericLogger.newline([LogTag.IF_NOT_SILENCED]);
+                genericLogger.warn(
+                  [LogTag.IF_NOT_SILENCED],
+                  ErrorMessage.specialized.OthersSpecifiersDependenciesMissing(
+                    otherMissingDependencies
+                  )
+                );
+              }
+
+              if (otherExtraneousDependencies.length) {
+                genericLogger.newline([LogTag.IF_NOT_SILENCED]);
+                genericLogger.warn(
+                  [LogTag.IF_NOT_SILENCED],
+                  ErrorMessage.specialized.DependenciesExtraneous(
+                    otherExtraneousDependencies
+                  )
+                );
+              }
+
               // * Errors
 
               const hasErrors =
@@ -1591,28 +1613,6 @@ distrib root: ${absoluteOutputDirPath}
                 }
 
                 throw new BuildOutputCheckError();
-              }
-
-              // * Warnings
-
-              if (otherMissingDependencies.length) {
-                genericLogger.newline([LogTag.IF_NOT_SILENCED]);
-                genericLogger.warn(
-                  [LogTag.IF_NOT_SILENCED],
-                  ErrorMessage.specialized.OthersSpecifiersDependenciesMissing(
-                    otherMissingDependencies
-                  )
-                );
-              }
-
-              if (otherExtraneousDependencies.length) {
-                genericLogger.newline([LogTag.IF_NOT_SILENCED]);
-                genericLogger.warn(
-                  [LogTag.IF_NOT_SILENCED],
-                  ErrorMessage.specialized.DependenciesExtraneous(
-                    otherExtraneousDependencies
-                  )
-                );
               }
             }
 
