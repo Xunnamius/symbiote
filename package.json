@@ -1,6 +1,6 @@
 {
   "name": "@-xun/symbiote",
-  "version": "2.3.3",
+  "version": "2.3.4",
   "description": "The scripts and assets powering Xunnamius's NPM-based projects",
   "keywords": [],
   "homepage": "https://github.com/Xunnamius/symbiote#readme",
@@ -136,7 +136,7 @@
     "@types/lodash.get": "^4.4.9",
     "@types/lodash.isequal": "^4.5.8",
     "@types/lodash.mergewith": "^4.6.9",
-    "@types/node": "^22.10.3",
+    "@types/node": "^22.10.4",
     "@types/react": "^19.0.2",
     "@types/semver": "^7.5.8",
     "@types/spellchecker": "^3.5.2",
