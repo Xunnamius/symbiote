@@ -63,8 +63,8 @@ export default function command({
     },
     'run-to-completion': {
       boolean: true,
-      description: 'Do not exit until all tasks have finished running',
-      default: true
+      default: true,
+      description: 'Do not exit until all tasks have finished running'
     }
   });
 
@@ -87,7 +87,7 @@ The ${postNpmInstallPackageBase} file, when present at a package root, is recogn
 
 Typically, this command should not be executed manually but by your package manager automatically at "install time," i.e. when running \`npm install\` locally. With respect to NPM, this command should be run whenever NPM would run its "prepare" life cycle operation. Therefore, note that post-npm-install scripts MUST BE IDEMPOTENT, as they _will_ be invoked multiple times over the lifetime of long-lived projects, including at odd times like during package publication/release. See https://docs.npmjs.com/cli/v10/using-npm/scripts#life-cycle-operation-order for details.
 
-This command exits immediately (becomes a no-op) when the CI environment variable is defined, or when the NODE_ENV environment variable is NOT either undefined or equal to "development". Provide --force to force this command to perform project initialization without regard for any environment variables.
+This command exits immediately (becomes a no-op) when the runtime pre-checks fail, the CI environment variable is defined, or when the NODE_ENV environment variable is NOT either undefined or equal to "development". Provide --force to force this command to perform project initialization without regard for any environment variables. However, if the runtime pre-checks fail, this command will always exit immediately as a no-op regardless of the flags passed.
 
 This command runs Husky along with any post-npm-install scripts asynchronously and concurrently. To force serial invocation, provide --no-parallel. This command also "runs to completion," in that task-level errors will not interrupt its execution. To fail on the first encountered error, provide --no-run-to-completion`
     ),
@@ -103,12 +103,30 @@ This command runs Husky along with any post-npm-install scripts asynchronously a
 
       debug('entered handler');
 
-      const { projectMetadata } = await runGlobalPreChecks({
-        debug_,
-        projectMetadata_,
-        scope
-      });
+      try {
+        await runGlobalPreChecks({
+          debug_,
+          projectMetadata_,
+          scope
+        });
+      } catch (error) {
+        log.warn(
+          [LogTag.IF_NOT_HUSHED],
+          'Global pre-checks failed for command %O with error: %O',
+          scriptFullName,
+          error
+        );
 
+        log.warn(
+          [LogTag.IF_NOT_HUSHED],
+          'Since this command can be triggered by package managers in ways that are hard to predict, this error will be suppressed and symbiote will exit vacuously (exit code 0)'
+        );
+
+        return;
+      }
+
+      // ? Thanks to runGlobalPreChecks (above)
+      const projectMetadata = projectMetadata_!;
       const { startTime } = state;
 
       logStartTime({ log, startTime });
