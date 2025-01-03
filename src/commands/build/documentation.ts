@@ -43,35 +43,41 @@ export default function command({
   projectMetadata: projectMetadata_
 }: AsStrictExecutionContext<GlobalExecutionContext>) {
   const { rootPackage: { root: projectRoot } = {} } = projectMetadata_ || {};
-  const [builder, withGlobalHandler] = withGlobalBuilder<CustomCliArguments>({
-    scope: { choices: documentationBuilderScopes },
-    entries: {
-      alias: ['entry'],
-      array: true,
-      description: 'The entry point(s) of your documentation',
-      default: projectRoot
-        ? ['src/**/*.ts', 'test/**/*.ts', 'types/**/*.ts']
-        : '(project-dependent)',
-      check: checkArrayNotEmpty('--entries')
-    },
-    baseline: {
-      alias: ['base', 'bare'],
-      boolean: true,
-      description: 'Execute typedoc with minimal arguments (plus --entries)',
-      default: false
-    },
-    'typedoc-options': {
-      alias: 'options',
-      array: true,
-      description: 'Command-line arguments passed directly to typedoc',
-      default: []
+  const [builder, withGlobalHandler] = withGlobalBuilder<CustomCliArguments>(
+    (blackFlag) => {
+      blackFlag.parserConfiguration({ 'unknown-options-as-args': true });
+
+      return {
+        scope: { choices: documentationBuilderScopes },
+        entries: {
+          alias: ['entry'],
+          array: true,
+          description: 'The entry point(s) of your documentation',
+          default: projectRoot
+            ? ['src/**/*.ts', 'test/**/*.ts', 'types/**/*.ts']
+            : '(project-dependent)',
+          check: checkArrayNotEmpty('--entries')
+        },
+        baseline: {
+          alias: ['base', 'bare'],
+          boolean: true,
+          description: 'Execute typedoc with minimal arguments (plus --entries)',
+          default: false
+        },
+        'typedoc-options': {
+          alias: 'options',
+          array: true,
+          description: 'Command-line arguments passed directly to typedoc',
+          default: []
+        }
+      };
     }
-  });
+  );
 
   return {
     aliases: ['docs'],
     builder,
-    description: 'Generate documentation from source and assets',
+    description: 'Generate documentation from source and assets using typedoc',
     usage: withGlobalUsage(),
     handler: withGlobalHandler(async function ({
       $0: scriptFullName,
