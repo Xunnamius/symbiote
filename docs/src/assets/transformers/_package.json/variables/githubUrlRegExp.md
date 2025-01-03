@@ -8,4 +8,4 @@
 
 > `const` **githubUrlRegExp**: `RegExp`
 
-Defined in: [src/assets/transformers/\_package.json.ts:53](https://github.com/Xunnamius/symbiote/blob/10f876ec625b234388ec5689f4d10663cabb4139/src/assets/transformers/_package.json.ts#L53)
+Defined in: [src/assets/transformers/\_package.json.ts:53](https://github.com/Xunnamius/symbiote/blob/02e289a9c890d4a9fb9b9f17fa7e8731f4ab9d2b/src/assets/transformers/_package.json.ts#L53)

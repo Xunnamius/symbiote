@@ -8,7 +8,7 @@
 
 > **gatherAssetsFromTransformer**(`__namedParameters`): `Promise`\<[`ReifiedAssets`](../type-aliases/ReifiedAssets.md)\>
 
-Defined in: [src/assets.ts:375](https://github.com/Xunnamius/symbiote/blob/10f876ec625b234388ec5689f4d10663cabb4139/src/assets.ts#L375)
+Defined in: [src/assets.ts:375](https://github.com/Xunnamius/symbiote/blob/02e289a9c890d4a9fb9b9f17fa7e8731f4ab9d2b/src/assets.ts#L375)
 
 Retrieve one or more assets, conditioned on `transformerContext`, by invoking
 a single transformer. For example, to retrieve the `eslint.config.mjs` asset

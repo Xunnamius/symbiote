@@ -8,7 +8,7 @@
 
 > **checkIsNotNil**(`argName`): (`currentArg`) => `string` \| `true`
 
-Defined in: [src/util.ts:1037](https://github.com/Xunnamius/symbiote/blob/10f876ec625b234388ec5689f4d10663cabb4139/src/util.ts#L1037)
+Defined in: [src/util.ts:1037](https://github.com/Xunnamius/symbiote/blob/02e289a9c890d4a9fb9b9f17fa7e8731f4ab9d2b/src/util.ts#L1037)
 
 ## Parameters
 

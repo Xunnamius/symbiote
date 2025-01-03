@@ -8,7 +8,7 @@
 
 > **glob**(`patterns`, `options`): `Promise`\<`string`[]\>
 
-Defined in: [types/glob-gitignore.d.ts:13](https://github.com/Xunnamius/symbiote/blob/10f876ec625b234388ec5689f4d10663cabb4139/types/glob-gitignore.d.ts#L13)
+Defined in: [types/glob-gitignore.d.ts:13](https://github.com/Xunnamius/symbiote/blob/02e289a9c890d4a9fb9b9f17fa7e8731f4ab9d2b/types/glob-gitignore.d.ts#L13)
 
 ## Parameters
 

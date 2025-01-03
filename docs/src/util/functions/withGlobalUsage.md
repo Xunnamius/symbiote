@@ -8,7 +8,7 @@
 
 > **withGlobalUsage**(`altDescription`, `__namedParameters`): `string`
 
-Defined in: [packages/bfe/src/index.ts:1295](https://github.com/Xunnamius/symbiote/blob/10f876ec625b234388ec5689f4d10663cabb4139/packages/bfe/src/index.ts#L1295)
+Defined in: [packages/bfe/src/index.ts:1295](https://github.com/Xunnamius/symbiote/blob/02e289a9c890d4a9fb9b9f17fa7e8731f4ab9d2b/packages/bfe/src/index.ts#L1295)
 
 Generate command usage text consistently yet flexibly.
 
