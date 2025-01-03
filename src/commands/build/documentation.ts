@@ -32,6 +32,8 @@ export const documentationBuilderScopes = Object.values(DocumentationBuilderScop
 
 export type CustomCliArguments = GlobalCliArguments<DocumentationBuilderScope> & {
   entries: string[];
+  typedocOptions: string[];
+  baseline: boolean;
 };
 
 export default function command({
@@ -51,6 +53,18 @@ export default function command({
         ? ['src/**/*.ts', 'test/**/*.ts', 'types/**/*.ts']
         : '(project-dependent)',
       check: checkArrayNotEmpty('--entries')
+    },
+    baseline: {
+      alias: ['base', 'bare'],
+      boolean: true,
+      description: 'Execute typedoc with minimal arguments (plus --entries)',
+      default: false
+    },
+    'typedoc-options': {
+      alias: 'options',
+      array: true,
+      description: 'Command-line arguments passed directly to typedoc',
+      default: []
     }
   });
 
@@ -63,6 +77,8 @@ export default function command({
       $0: scriptFullName,
       scope,
       entries,
+      baseline,
+      typedocOptions,
       hush: isHushed,
       quiet: isQuieted
     }) {
@@ -88,23 +104,30 @@ export default function command({
           // {@symbiote/notExtraneous typedoc}
           'typedoc',
 
-          '--plugin',
-          // {@symbiote/notExtraneous typedoc-plugin-markdown}
-          'typedoc-plugin-markdown',
-          '--skipErrorChecking',
-          '--excludeInternal',
           '--cleanOutputDir',
+          '--sourceLinkExternal',
           '--tsconfig',
           Tsconfig.PackageDocumentation,
-          '--out',
-          'docs',
-          '--readme',
-          'none',
-          '--exclude',
-          '**/*.test.*',
-          '--exclude',
-          '**/bin',
 
+          ...(baseline
+            ? []
+            : [
+                '--plugin',
+                // {@symbiote/notExtraneous typedoc-plugin-markdown}
+                'typedoc-plugin-markdown',
+                '--skipErrorChecking',
+                '--excludeInternal',
+                '--out',
+                'docs',
+                '--readme',
+                'none',
+                '--exclude',
+                '**/*.test.*',
+                '--exclude',
+                '**/bin'
+              ]),
+
+          ...typedocOptions,
           ...entries
         ],
         {
