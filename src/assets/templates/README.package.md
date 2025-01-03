@@ -80,6 +80,7 @@ TODO
 
 Further documentation can be found under [`docs/`][x-repo-docs].
 
+<!-- TODO: additional appendix sections here -->
 <!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
@@ -106,7 +107,7 @@ browser-like environments. For TypeScript users, this package supports both
 {{chooserBlockEnd}}
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
@@ -158,7 +159,7 @@ also that [`package.json`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 8 -->
 
 </details>
@@ -169,7 +170,7 @@ optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 See [LICENSE][x-repo-license].
 
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional license information and/or sections here -->
 <!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
@@ -183,7 +184,7 @@ See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional sections here -->
+<!-- TODO: additional contribution/support sections here -->
 <!-- symbiote-template-region-start 10 -->
 
 ### Contributors
