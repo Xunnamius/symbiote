@@ -8,6 +8,6 @@
 
 > `const` **wellKnownNodeEnvValues**: readonly \[`"test"`\]
 
-Defined in: [src/assets/transformers/\_jest.config.mjs.ts:49](https://github.com/Xunnamius/symbiote/blob/7f1f7a2772751006b2f87a140f0b00c116f4412c/src/assets/transformers/_jest.config.mjs.ts#L49)
+Defined in: [src/assets/transformers/\_jest.config.mjs.ts:49](https://github.com/Xunnamius/symbiote/blob/10f876ec625b234388ec5689f4d10663cabb4139/src/assets/transformers/_jest.config.mjs.ts#L49)
 
 An array of NODE_ENV values recognized by this configuration file.

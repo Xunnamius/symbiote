@@ -8,7 +8,7 @@
 
 > **assertEnvironment**(): `Promise`\<`Parameters`\<*typeof* [`moduleExport`](moduleExport.md)\>\[`0`\]\>
 
-Defined in: [src/assets/transformers/\_.remarkrc.mjs.ts:284](https://github.com/Xunnamius/symbiote/blob/7f1f7a2772751006b2f87a140f0b00c116f4412c/src/assets/transformers/_.remarkrc.mjs.ts#L284)
+Defined in: [src/assets/transformers/\_.remarkrc.mjs.ts:284](https://github.com/Xunnamius/symbiote/blob/10f876ec625b234388ec5689f4d10663cabb4139/src/assets/transformers/_.remarkrc.mjs.ts#L284)
 
 ## Returns
 
