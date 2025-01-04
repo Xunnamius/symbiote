@@ -352,7 +352,7 @@ ${printRenovationTasks()}`,
         `Renovating ${scope === ProjectRenovateScope.ThisPackage ? projectMetadata.cwdPackage.json.name : 'the entire project'}...`
       );
 
-      genericLogger.newline([LogTag.IF_NOT_HUSHED]);
+      genericLogger.newline([LogTag.IF_NOT_QUIETED]);
 
       debug('argv: %O', argv);
 
@@ -392,7 +392,7 @@ ${printRenovationTasks()}`,
               const taskLogger = genericLogger.extend(taskName);
 
               dbg('preparing to run task %O', taskName);
-              taskLogger([LogTag.IF_NOT_HUSHED], `${emoji} ${actionDescription}`);
+              taskLogger([LogTag.IF_NOT_QUIETED], `${emoji} ${actionDescription}`);
 
               dbg('entering runner function');
 
@@ -402,7 +402,7 @@ ${printRenovationTasks()}`,
                 self: task as unknown as RenovationTask
               });
 
-              taskLogger([LogTag.IF_NOT_HUSHED], '✅');
+              taskLogger([LogTag.IF_NOT_QUIETED], '✅');
             };
           })
           .filter((fn) => !!fn);
@@ -481,7 +481,7 @@ ${printRenovationTasks()}`,
 
       genericLogger.message(
         [LogTag.IF_NOT_QUIETED],
-        'To prevent structural issues in package-lock.json and node_modules, consider rebuilding them now:'
+        'To prevent issues in package-lock.json and/or node_modules, consider rebuilding them now:'
       );
 
       genericLogger.message(
@@ -1087,11 +1087,11 @@ By default, this command will preserve the origin repository's pre-existing conf
                   return true;
                 }
 
-                log([LogTag.IF_NOT_HUSHED], 'EXISTING secret: %O', variable);
+                log([LogTag.IF_NOT_QUIETED], 'EXISTING secret: %O', variable);
                 return false;
               }
 
-              log([LogTag.IF_NOT_HUSHED], 'IGNORING secret: %O', variable);
+              log([LogTag.IF_NOT_QUIETED], 'IGNORING secret: %O', variable);
               return false;
             })
             .map(([variable, value]) => ({
@@ -1109,7 +1109,7 @@ By default, this command will preserve the origin repository's pre-existing conf
 
           await Promise.all(
             updatedSecrets.map(function (secret) {
-              log([LogTag.IF_NOT_HUSHED], 'UPLOADING secret: %O', secret.secret_name);
+              log([LogTag.IF_NOT_QUIETED], 'UPLOADING secret: %O', secret.secret_name);
 
               return github.actions.createOrUpdateRepoSecret({
                 ...ownerAndRepo,
@@ -1194,10 +1194,13 @@ By default, this command will preserve the origin repository's pre-existing conf
               enforcement: 'active'
             });
 
-            log([LogTag.IF_NOT_HUSHED], `Existing ${rulesetName} ruleset was activated`);
+            log(
+              [LogTag.IF_NOT_QUIETED],
+              `Existing ${rulesetName} ruleset was activated`
+            );
           } else {
             log(
-              [LogTag.IF_NOT_HUSHED],
+              [LogTag.IF_NOT_QUIETED],
               `Existing ${rulesetName} ruleset already activated`
             );
           }
@@ -1218,11 +1221,11 @@ By default, this command will preserve the origin repository's pre-existing conf
 
           if (shouldOverwrite) {
             log.message(
-              [LogTag.IF_NOT_HUSHED],
+              [LogTag.IF_NOT_QUIETED],
               `Existing ${rulesetName} ruleset was overwritten!`
             );
           } else {
-            log([LogTag.IF_NOT_HUSHED], `new ${rulesetName} ruleset created`);
+            log([LogTag.IF_NOT_QUIETED], `new ${rulesetName} ruleset created`);
           }
         }
       }
@@ -1289,7 +1292,7 @@ To create and recreate alias tags for existing release tags more generally, see 
 
       const {
         force,
-        hush: isHushed,
+        quiet: isQuieted,
         newRepoName: _newRepoName,
         newRootPackageName: _newRootPackageName,
         [$executionContext]: { projectMetadata }
@@ -1485,9 +1488,9 @@ To create and recreate alias tags for existing release tags more generally, see 
         skippedDescription: `renaming (moving) project directory: path has not changed`
       });
 
-      log.newline([LogTag.IF_NOT_HUSHED]);
+      log.newline([LogTag.IF_NOT_QUIETED]);
 
-      if (!isHushed) {
+      if (!isQuieted) {
         process.stdout.write(
           `⚠️🚧 The renovation completed successfully! But there are further tasks that must be completed manually:` +
             (shouldMoveProjectRoot
@@ -1508,7 +1511,7 @@ npm deprecate '${oldRootPackageName}' 'This package has been superseded by \`${u
         );
       }
 
-      log.newline([LogTag.IF_NOT_HUSHED]);
+      log.newline([LogTag.IF_NOT_QUIETED]);
 
       // ? Typescript wants this here because of our "as const" for some reason
       return undefined;
@@ -1623,7 +1626,7 @@ Or to generate aliases for existing modern scoped tags, i.e. alias tag "@new/pac
 
 \`symbiote project renovate --generate-alias-tags --old-scope='existing-scope' --new-scope='@new/package-name'\`
 
-Use --rename-matching-releases (\`true\` by default) to control if releases on GitHub with names matching --old-scope will have that scope replaced with --new-scope.
+Use --rename-matching-releases to control if releases on GitHub with names matching --old-scope will have that scope replaced with --new-scope.
 
 Note that this command never deletes tags.`,
     requiresForce: false,
@@ -1651,7 +1654,7 @@ Note that this command never deletes tags.`,
       'rename-matching-releases': {
         boolean: true,
         description: 'Whether to rename matching GitHub releases',
-        default: true
+        default: false
       }
     },
     conflicts: conflictingUpstreamRenovationTasks.filter(
@@ -2085,7 +2088,7 @@ See the symbiote wiki documentation for more details on this command and all ava
       if (subRootPackages) {
         if (scope === DefaultGlobalScope.ThisPackage) {
           log(
-            [LogTag.IF_NOT_HUSHED],
+            [LogTag.IF_NOT_QUIETED],
             'Synchronizing dependencies in %O',
             cwdPackage.json.name
           );
@@ -2093,7 +2096,7 @@ See the symbiote wiki documentation for more details on this command and all ava
           await synchronizePackageInterdependencies(cwdPackage);
         } else {
           log(
-            [LogTag.IF_NOT_HUSHED],
+            [LogTag.IF_NOT_QUIETED],
             'Synchronizing dependencies across the entire project'
           );
 
@@ -2102,7 +2105,7 @@ See the symbiote wiki documentation for more details on this command and all ava
           );
         }
       } else {
-        log.message([LogTag.IF_NOT_HUSHED], 'This renovation is a no-op in polyrepos');
+        log.message([LogTag.IF_NOT_QUIETED], 'This renovation is a no-op in polyrepos');
       }
 
       // ? Typescript wants this here because of our "as const" for some reason
@@ -2197,7 +2200,7 @@ See the symbiote wiki documentation for more details on this command and all ava
           debug('sub-command completed successfully');
 
           log(
-            [LogTag.IF_NOT_HUSHED],
+            [LogTag.IF_NOT_QUIETED],
             `Wrote out updated dependencies to:\n${SHORT_TAB}%O`,
             ourPackageJsonPath
           );
@@ -2246,11 +2249,11 @@ function makeReplacementLogger(log: ExtendedLogger) {
       log([LogTag.IF_NOT_QUIETED], `✅ ${replacedDescription}`);
 
       if ('previousValue' in input) {
-        log([LogTag.IF_NOT_HUSHED], `Original value:  ${String(input.previousValue)}`);
+        log([LogTag.IF_NOT_QUIETED], `Original value:  ${String(input.previousValue)}`);
       }
 
       if ('updatedValue' in input) {
-        log([LogTag.IF_NOT_HUSHED], `Committed value: ${String(input.updatedValue)}`);
+        log([LogTag.IF_NOT_QUIETED], `Committed value: ${String(input.updatedValue)}`);
       }
     } else {
       log([LogTag.IF_NOT_QUIETED], `✖️ Skipped ${skippedDescription}`);
@@ -2337,7 +2340,9 @@ async function createAliasTags(
           wasReplaced: shouldCreateNewAliasTag,
           replacedDescription: `Created alias tag`,
           updatedValue: `"${aliasTag}" => "${oldTag}"`,
-          skippedDescription: `aliasing "${oldTag}": tag "${aliasTag}" already exists`
+          skippedDescription: `aliasing "${oldTag}": ${
+            oldTag === aliasTag ? '' : `tag "${aliasTag}" `
+          }already exists`
         });
       } else {
         logReplacement({
