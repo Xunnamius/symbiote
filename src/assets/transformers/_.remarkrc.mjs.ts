@@ -203,6 +203,7 @@ function formatConfig(
             .filter(Boolean)
             // ? And don't capitalize other titles
             .concat('PR')
+            .concat('BREAKING CHANGES')
             // ? And don't capitalize packages nor their version information
             .concat(String.raw`\S+@\S+`)
         }
