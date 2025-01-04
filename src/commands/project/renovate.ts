@@ -481,7 +481,7 @@ ${printRenovationTasks()}`,
 
       genericLogger.message(
         [LogTag.IF_NOT_QUIETED],
-        'Consider running the following to prevent structural issues in node_modules and package-lock.json:'
+        'Consider running the following to fixup node_modules and package-lock.json:'
       );
 
       genericLogger.message(
