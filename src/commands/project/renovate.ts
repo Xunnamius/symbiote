@@ -481,7 +481,7 @@ ${printRenovationTasks()}`,
 
       genericLogger.message(
         [LogTag.IF_NOT_QUIETED],
-        'To prevent structural issues in package-lock.json and node_modules, you should rebuild them now:'
+        'To prevent structural issues in package-lock.json and node_modules, consider rebuilding them now:'
       );
 
       genericLogger.message(
@@ -721,7 +721,7 @@ const conflictingUpstreamRenovationTasks = [
   'github-delete-all-releases',
   'github-clone-remote-wiki',
   'github-kill-master',
-  'generate-scoped-tags',
+  'generate-alias-tags',
   'full-deprecate',
   'full-undeprecate'
 ].map((t) => ({ [t]: true }));
@@ -1237,7 +1237,7 @@ By default, this command will preserve the origin repository's pre-existing conf
 
 1. Rename the origin repository on GitHub.
 
-2. Update the package name in the origin repository's release names on GitHub that match the old root package's name. If --force is given, all releases with old-style semver valid names (e.g. "v1.2.3") will also be updated (to e.g. "new-package-name@1.2.3").
+2. Update the origin repository's GitHub release names that are scoped to the old root package's name. If --force is given, all releases with old-style semver valid names (e.g. "v1.2.3") will be updated (to e.g. "new-package-name@1.2.3") as well.
 
 3. Update the name field in the root package's package.json file.
 
@@ -1245,13 +1245,13 @@ By default, this command will preserve the origin repository's pre-existing conf
 
 5. Update the origin remote url in \`.git/config\` if it matches the old origin url. If --force is given, the origin remote url will always be updated regardless of its value.
 
-6. In a hybridrepo or polyrepo, add new annotated tags with the updated root package name as respective aliases of tags with the old package name, and then push them to the origin repository. If --force is given, alias tags will be created for any tags with old-style semver valid names (e.g. "v1.2.3").
+6. In a hybridrepo or polyrepo, add new annotated tags with the updated root package name as respective aliases of tags with the old package name, and then push them to the origin repository. If --force is given, alias tags (e.g. "new-package-name@1.2.3") will be created for any existing tags with old-style semver valid names (e.g. "v1.2.3") as well.
 
 7. Rename (move) the repository directory on the local filesystem, if the repository name has changed. If the destination directory path already exists, this step will fail.
 
-If any step fails, the renovation will abort immediately.
+If any step fails, the renovation will abort immediately. Further, this command never deletes tags.
 
-To create and recreate alias tags for existing release tags with more fidelity and control, see the --generate-scoped-tags renovation.`,
+To create and recreate alias tags for existing release tags more generally, see the --generate-alias-tags renovation.`,
     requiresForce: false,
     supportedScopes: [ProjectRenovateScope.Unlimited],
     subOptions: {
@@ -1349,62 +1349,20 @@ To create and recreate alias tags for existing release tags with more fidelity a
       debug('updatedRootPackageName: %O', updatedRootPackageName);
 
       if (force || shouldUpdateRootPackageName) {
-        const oldReleases = await github.paginate(github.repos.listReleases, {
-          ...ownerAndRepo
+        await renameGithubReleases(oldRootPackageName, updatedRootPackageName, {
+          alsoUpdateGitHubReleaseNames: force,
+          debug,
+          github,
+          log,
+          logReplacement,
+          ownerAndRepo
         });
-
-        await Promise.all(
-          oldReleases.map(async ({ id: release_id, name: oldReleaseName }) => {
-            if (!oldReleaseName) {
-              log.warn(
-                [LogTag.IF_NOT_QUIETED],
-                'Release id %O is missing a name!',
-                release_id
-              );
-              return;
-            }
-
-            const isOldReleaseNameSemverAndRelevant =
-              force && !!semver.valid(oldReleaseName);
-
-            const updatedReleaseName = isOldReleaseNameSemverAndRelevant
-              ? // TODO: isn't this logic centralized in conventional config?
-                `${updatedRootPackageName}@${oldReleaseName}`
-              : oldReleaseName.replace(oldRootPackageName, updatedRootPackageName);
-
-            const shouldUpdateReleaseName = oldReleaseName !== updatedReleaseName;
-
-            debug('oldReleaseName: %O', oldReleaseName);
-            debug('updatedReleaseName: %O', updatedReleaseName);
-            debug(
-              'isOldReleaseNameSemverAndRelevant: %O',
-              isOldReleaseNameSemverAndRelevant
-            );
-            debug('shouldUpdateReleaseName: %O', shouldUpdateReleaseName);
-
-            if (shouldUpdateReleaseName) {
-              await github.repos.updateRelease({
-                ...ownerAndRepo,
-                release_id,
-                name: updatedReleaseName
-              });
-            }
-
-            logReplacement({
-              wasReplaced: shouldUpdateReleaseName,
-              replacedDescription: 'Updated release name',
-              previousValue: oldReleaseName,
-              updatedValue: updatedReleaseName,
-              skippedDescription: `updating release "${oldReleaseName}": unnecessary`
-            });
-          })
-        );
       } else {
         logReplacement({
           wasReplaced: false,
           replacedDescription: '',
           skippedDescription:
-            'updating existing release names since root package name was not updated (use --force to run these updates anyway)'
+            'updating existing release names since root package name has not changed (use --force to try anyway)'
         });
       }
 
@@ -1468,95 +1426,18 @@ To create and recreate alias tags for existing release tags with more fidelity a
 
       // * Add new tags with the updated root package name
 
-      const { stdout: tags_ } = await run('git', ['tag', '--list']);
-      const oldTags = tags_.split(whitespaceRegExp);
-
-      const oldTagExtractSemverRegExp = new RegExp(
-        // TODO: isn't this logic somewhere else too? conventional.config?
-        `${escapeStringRegexp(oldRootPackageName)}@(.+)$`
-      );
-
-      debug('oldTagExtractSemverRegExp: %O', oldTagExtractSemverRegExp);
-      debug('oldTags (length): %O', oldTags.length);
-
-      const allTags = [...oldTags];
-
-      if (oldTags.length) {
-        if (force || shouldUpdateRootPackageName) {
-          for (const oldTag of oldTags) {
-            const oldTagSemver =
-              semver.valid(oldTag) || oldTag.match(oldTagExtractSemverRegExp)?.[1];
-
-            // TODO: same with this too, isn't this logic repeated elsewhere?
-            const aliasTag = `${updatedRootPackageName}@${oldTagSemver || ''}`;
-
-            debug('oldTag: %O', oldTag);
-            debug('oldTagSemver: %O', oldTagSemver);
-
-            if (oldTagSemver) {
-              debug('aliasTag: %O', aliasTag);
-
-              const shouldCreateNewAliasTag = !allTags.includes(aliasTag);
-              debug('shouldCreateNewAliasTag: %O', shouldCreateNewAliasTag);
-
-              if (shouldCreateNewAliasTag) {
-                // eslint-disable-next-line no-await-in-loop
-                const oldTagCommitterDate = await run('git', [
-                  'show',
-                  `${oldTag}^{}`,
-                  '--format=%aD'
-                ]).then(({ stdout }) => stdout.split('\n')[0]);
-
-                debug('oldTagCommitterDate: %O', oldTagCommitterDate);
-                debug.message('creating new tag %O that aliases %O', aliasTag, oldTag);
-
-                // eslint-disable-next-line no-await-in-loop
-                await run(
-                  'git',
-                  ['tag', '-m', `alias => ${oldTag}`, aliasTag, `${oldTag}^{}`],
-                  {
-                    env: {
-                      // ? We need to preserve the date of the aliased tag
-                      GIT_COMMITTER_DATE: oldTagCommitterDate
-                    }
-                  }
-                );
-
-                allTags.push(aliasTag);
-              }
-
-              logReplacement({
-                wasReplaced: shouldCreateNewAliasTag,
-                replacedDescription: `Created alias tag`,
-                updatedValue: `"${aliasTag}" => "${oldTag}"`,
-                skippedDescription: `aliasing "${oldTag}": already exists`
-              });
-            } else {
-              logReplacement({
-                wasReplaced: false,
-                replacedDescription: '',
-                skippedDescription: `aliasing "${oldTag}": not relevant`
-              });
-            }
-          }
-
-          await run('git', ['push', '--follow-tags']);
-
-          logReplacement({
-            replacedDescription: 'Pushed all reachable annotated tags to origin'
-          });
-        } else {
-          logReplacement({
-            wasReplaced: false,
-            replacedDescription: '',
-            skippedDescription: `creating alias tags: root package name has not changed (use --force to delete and recreate relevant alias tags)`
-          });
-        }
+      if (force || shouldUpdateRootPackageName) {
+        await createAliasTags(oldRootPackageName, updatedRootPackageName, {
+          alsoUpdateOldStyleVersionTags: force,
+          debug,
+          logReplacement
+        });
       } else {
         logReplacement({
           wasReplaced: false,
           replacedDescription: '',
-          skippedDescription: 'creating alias tags: no tags to alias'
+          skippedDescription:
+            'creating alias tags: root package name has not changed (use --force to try anyway)'
         });
       }
 
@@ -1727,23 +1608,32 @@ npm deprecate '${oldRootPackageName}' 'This package has been superseded by \`${u
       return undefined;
     }
   },
-  'generate-scoped-tags': {
+  'generate-alias-tags': {
     emoji: '⚓',
     taskAliases: [],
-    actionDescription: 'Generating scoped aliases for each non-scoped version tag',
-    shortHelpDescription:
-      'Generate a scoped version tag for each non-scoped version tag',
-    longHelpDescription: `This renovation creates an alias of each old-style version tag in the repository going all the way back to the initial commit. The alias tags will be named according to --new-scope (and with respect to the optional --old-scope) in the form of: "\${newScope}@\${toSemver(tagUsingOldScope)}".
+    actionDescription: 'Creating aliases for matching tags',
+    shortHelpDescription: 'Create tag aliases for each existing tag with matching scope',
+    longHelpDescription: `This renovation creates an alias of every tag in the repository with --old-scope. The alias tag names are derived by taking the existing tag name and replacing --old-scope with --new-scope. If --force is given, alias tags (e.g. "new-package-name@1.2.3") will be created for any existing tags with old-style semver valid names (e.g. "v1.2.3") as well.
 
-Note that this renovation will respect the "[INIT]" xpipeline command when it appears in commit messages. See the symbiote wiki and xchangelog/xrelease documentation for details on xpipeline command semantics.`,
+For example, to only create new-style aliases of all tags with old-style semver valid names, i.e. alias tag "new-package-name@1.2.3" for existing tag "v1.2.3":
+
+\`symbiote project renovate --generate-alias-tags --new-scope='new-package-name' --force\`
+
+Or to generate aliases for existing modern scoped tags, i.e. alias tag "@new/package-name@1.2.3" for existing tag "existing-scope@1.2.3":
+
+\`symbiote project renovate --generate-alias-tags --old-scope='existing-scope' --new-scope='@new/package-name'\`
+
+Use --rename-matching-releases (\`true\` by default) to control if releases on GitHub with names matching --old-scope will have that scope replaced with --new-scope.
+
+Note that this command never deletes tags.`,
     requiresForce: false,
     supportedScopes: [ProjectRenovateScope.Unlimited],
     subOptions: {
       'new-scope': {
         string: true,
-        description: 'The characters preceding "@" in newly created alias tags',
+        description: 'The characters preceding "@" in generated alias tags',
         subOptionOf: {
-          'generate-scoped-tags': {
+          'generate-alias-tags': {
             when: (superOptionValue) => superOptionValue,
             update(oldOptionConfig) {
               return { ...oldOptionConfig, demandThisOption: true };
@@ -1753,46 +1643,75 @@ Note that this renovation will respect the "[INIT]" xpipeline command when it ap
       },
       'old-scope': {
         string: true,
-        description: 'The characters preceding "@" in existing tags to be aliased',
-        defaultDescription: '"v" without "@", e.g. "v${version}"'
+        description: 'The characters preceding "@" in existing target tags',
+        default: '',
+        defaultDescription:
+          'if omitted while --force is used, only old-style tags are aliased'
+      },
+      'rename-matching-releases': {
+        boolean: true,
+        description: 'Whether to rename matching GitHub releases',
+        default: true
       }
     },
     conflicts: conflictingUpstreamRenovationTasks.filter(
-      (o) => !o['generate-scoped-tags']
+      (o) => !o['generate-alias-tags']
     ),
-    async run(argv_, { log }) {
+    async run(argv_, { debug, log }) {
       const argv = argv_ as RenovationTaskArgv;
 
-      // TODO: high fidelity and control over which tags are deleted and changed
+      const {
+        force,
+        newScope: _newScope,
+        oldScope: _oldScope,
+        renameMatchingReleases: _renameMatchingReleases,
+        [$executionContext]: { projectMetadata }
+      } = argv;
 
-      // debug.message('deleting tag %O locally and from origin', oldTag);
+      hardAssert(projectMetadata, ErrorMessage.GuruMeditation());
 
-      // // ? Delete the tag locally
-      // await run('git', ['tag', '--delete', oldTag]).catch((error) =>
-      //   log.warn(
-      //     [LogTag.IF_NOT_QUIETED],
-      //     'Failed to delete tag %O from local repository: %O',
-      //     oldTag,
-      //     error
-      //   )
-      // );
+      const {
+        // * Since "this-package" is not supported, we can't use cwdPackage
+        rootPackage
+      } = projectMetadata;
 
-      // // ? Delete the tag from origin
-      // await run('git', ['push', 'origin', `:refs/tags/${oldTag}`]).catch(
-      //   (error) =>
-      //     log.warn(
-      //       [LogTag.IF_NOT_QUIETED],
-      //       'Failed to delete tag %O from origin remote: %O',
-      //       oldTag,
-      //       error
-      //     )
-      // );
+      const updatedScope = _newScope as string;
+      // ? If oldScope === '' and --force, user is only targeting old-style tags
+      const oldScope = (_oldScope || _newScope) as string;
+      const renameMatchingReleases = _renameMatchingReleases as boolean;
+      const logReplacement = makeReplacementLogger(log);
 
-      // TODO: the logic for this is pretty much done in --github-rename-root
-      // * Since "this-package" is not supported, we can't use cwdPackage
-      // TODO: only since [INIT] (if found)
-      void argv;
-      log.message([LogTag.IF_NOT_SILENCED], `✖️ This task is currently a no-op (todo)`);
+      debug('force: %O', force);
+      debug('updatedScope: %O', updatedScope);
+      debug('oldScope: %O', oldScope);
+      debug('renameMatchingReleases: %O', renameMatchingReleases);
+
+      await createAliasTags(oldScope, updatedScope, {
+        alsoUpdateOldStyleVersionTags: force,
+        debug,
+        logReplacement
+      });
+
+      if (renameMatchingReleases) {
+        const github = await makeOctokit({ debug, log });
+        const ownerAndRepo = parsePackageJsonRepositoryIntoOwnerAndRepo(
+          rootPackage.json
+        );
+
+        await renameGithubReleases(oldScope, updatedScope, {
+          alsoUpdateGitHubReleaseNames: renameMatchingReleases,
+          debug,
+          github,
+          log,
+          logReplacement,
+          ownerAndRepo
+        });
+      } else {
+        debug(
+          'skipped attempting to rename any GitHub releases since --rename-matching-releases=false'
+        );
+      }
+
       // ? Typescript wants this here because of our "as const" for some reason
       return undefined;
     }
@@ -2337,4 +2256,197 @@ function makeReplacementLogger(log: ExtendedLogger) {
       log([LogTag.IF_NOT_QUIETED], `✖️ Skipped ${skippedDescription}`);
     }
   };
+}
+
+async function createAliasTags(
+  oldScopeWithoutAtSign: string,
+  updatedScopeWithoutAtSign: string,
+  {
+    alsoUpdateOldStyleVersionTags,
+    debug,
+    logReplacement
+  }: {
+    alsoUpdateOldStyleVersionTags: boolean;
+    debug: ExtendedDebugger;
+    logReplacement: ReturnType<typeof makeReplacementLogger>;
+  }
+) {
+  debug('oldScopeWithoutAtSign: %O', oldScopeWithoutAtSign);
+  debug('updatedScopeWithoutAtSign: %O', updatedScopeWithoutAtSign);
+  debug('alsoUpdateOldStyleVersionTags: %O', alsoUpdateOldStyleVersionTags);
+
+  const oldScopeWithAtSign = oldScopeWithoutAtSign + '@';
+  const updatedScopeWithAtSign = updatedScopeWithoutAtSign + '@';
+
+  const { stdout: tags_ } = await run('git', ['tag', '--list']);
+  const oldTags = tags_.split(whitespaceRegExp);
+
+  debug('oldTags (length): %O', oldTags.length);
+
+  const allTags = [...oldTags];
+
+  if (oldTags.length) {
+    for (const oldTag of oldTags) {
+      debug('oldTag: %O', oldTag);
+
+      const versionDerivedFromOldStyleName = semver.valid(oldTag);
+      const isOldStyleVersionTagAndRelevant =
+        alsoUpdateOldStyleVersionTags && !!versionDerivedFromOldStyleName;
+      const hasTargetedScopeInVersionTag = oldTag.startsWith(oldScopeWithAtSign);
+      const aliasTag = isOldStyleVersionTagAndRelevant
+        ? `${updatedScopeWithAtSign}${versionDerivedFromOldStyleName}`
+        : oldTag.replace(oldScopeWithAtSign, updatedScopeWithAtSign);
+
+      debug('versionDerivedFromOldStyleName: %O', versionDerivedFromOldStyleName);
+      debug('isOldStyleVersionTagAndRelevant: %O', isOldStyleVersionTagAndRelevant);
+      debug('hasTargetedScopeInVersionTag: %O', hasTargetedScopeInVersionTag);
+
+      if (isOldStyleVersionTagAndRelevant || hasTargetedScopeInVersionTag) {
+        debug('aliasTag: %O', aliasTag);
+
+        const shouldCreateNewAliasTag = !allTags.includes(aliasTag);
+        debug('shouldCreateNewAliasTag: %O', shouldCreateNewAliasTag);
+
+        if (shouldCreateNewAliasTag) {
+          // eslint-disable-next-line no-await-in-loop
+          const oldTagCommitterDate = await run('git', [
+            'show',
+            `${oldTag}^{}`,
+            '--format=%aD'
+          ]).then(({ stdout }) => stdout.split('\n')[0]);
+
+          debug('oldTagCommitterDate: %O', oldTagCommitterDate);
+          debug.message('creating new tag %O that aliases %O', aliasTag, oldTag);
+
+          // eslint-disable-next-line no-await-in-loop
+          await run(
+            'git',
+            ['tag', '-m', `alias => ${oldTag}`, aliasTag, `${oldTag}^{}`],
+            {
+              env: {
+                // ? We need to preserve the date of the aliased tag
+                GIT_COMMITTER_DATE: oldTagCommitterDate
+              }
+            }
+          );
+
+          allTags.push(aliasTag);
+        }
+
+        logReplacement({
+          wasReplaced: shouldCreateNewAliasTag,
+          replacedDescription: `Created alias tag`,
+          updatedValue: `"${aliasTag}" => "${oldTag}"`,
+          skippedDescription: `aliasing "${oldTag}": tag "${aliasTag}" already exists`
+        });
+      } else {
+        logReplacement({
+          wasReplaced: false,
+          replacedDescription: '',
+          skippedDescription: `aliasing "${oldTag}": not relevant`
+        });
+      }
+    }
+
+    await run('git', ['push', '--follow-tags']);
+
+    logReplacement({
+      replacedDescription: 'Pushed all reachable annotated tags to origin'
+    });
+  } else {
+    logReplacement({
+      wasReplaced: false,
+      replacedDescription: '',
+      skippedDescription: 'creating alias tags: no tags to alias'
+    });
+  }
+}
+
+async function renameGithubReleases(
+  oldScopeWithoutAtSign: string,
+  updatedScopeWithoutAtSign: string,
+  {
+    github,
+    ownerAndRepo,
+    alsoUpdateGitHubReleaseNames: alsoUpdateOldStyleReleaseNames,
+    debug,
+    log,
+    logReplacement
+  }: {
+    github: Awaited<ReturnType<typeof makeOctokit>>;
+    ownerAndRepo: ReturnType<typeof parsePackageJsonRepositoryIntoOwnerAndRepo>;
+    alsoUpdateGitHubReleaseNames: boolean;
+    debug: ExtendedDebugger;
+    log: ExtendedLogger;
+    logReplacement: ReturnType<typeof makeReplacementLogger>;
+  }
+) {
+  debug('oldScopeWithoutAtSign: %O', oldScopeWithoutAtSign);
+  debug('updatedScopeWithoutAtSign: %O', updatedScopeWithoutAtSign);
+  debug('alsoUpdateOldStyleReleaseNames: %O', alsoUpdateOldStyleReleaseNames);
+
+  const oldScopeWithAtSign = oldScopeWithoutAtSign + '@';
+  const updatedScopeWithAtSign = updatedScopeWithoutAtSign + '@';
+
+  const oldReleases = await github.paginate(github.repos.listReleases, {
+    ...ownerAndRepo
+  });
+
+  await Promise.all(
+    oldReleases.map(async ({ id: release_id, name: oldReleaseName }) => {
+      if (!oldReleaseName) {
+        log.warn(
+          [LogTag.IF_NOT_QUIETED],
+          'Release id %O is missing a name!',
+          release_id
+        );
+        return;
+      }
+
+      const versionDerivedFromOldStyleName = semver.valid(oldReleaseName);
+      const isOldStyleReleaseNameAndRelevant =
+        alsoUpdateOldStyleReleaseNames && !!versionDerivedFromOldStyleName;
+      const hasTargetedScopeInReleaseName =
+        oldReleaseName.startsWith(oldScopeWithAtSign);
+
+      debug('versionDerivedFromOldStyleName: %O', versionDerivedFromOldStyleName);
+      debug('isOldStyleReleaseNameAndRelevant: %O', isOldStyleReleaseNameAndRelevant);
+      debug('hasTargetedScopeInReleaseName: %O', hasTargetedScopeInReleaseName);
+
+      if (isOldStyleReleaseNameAndRelevant || hasTargetedScopeInReleaseName) {
+        const updatedReleaseName = isOldStyleReleaseNameAndRelevant
+          ? `${updatedScopeWithAtSign}${versionDerivedFromOldStyleName}`
+          : oldReleaseName.replace(oldScopeWithAtSign, updatedScopeWithAtSign);
+
+        const shouldUpdateReleaseName = oldReleaseName !== updatedReleaseName;
+
+        debug('oldReleaseName: %O', oldReleaseName);
+        debug('updatedReleaseName: %O', updatedReleaseName);
+        debug('isOldStyleReleaseNameAndRelevant: %O', isOldStyleReleaseNameAndRelevant);
+        debug('shouldUpdateReleaseName: %O', shouldUpdateReleaseName);
+
+        if (shouldUpdateReleaseName) {
+          await github.repos.updateRelease({
+            ...ownerAndRepo,
+            release_id,
+            name: updatedReleaseName
+          });
+        }
+
+        logReplacement({
+          wasReplaced: shouldUpdateReleaseName,
+          replacedDescription: 'Updated release name',
+          previousValue: oldReleaseName,
+          updatedValue: updatedReleaseName,
+          skippedDescription: `updating release "${oldReleaseName}": unnecessary`
+        });
+      } else {
+        logReplacement({
+          wasReplaced: false,
+          replacedDescription: '',
+          skippedDescription: `updating release "${oldReleaseName}": not relevant`
+        });
+      }
+    })
+  );
 }

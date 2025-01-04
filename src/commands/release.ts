@@ -966,7 +966,7 @@ const protoPrereleaseTasks: ProtoPrereleaseTask[][] = [
           githubDeleteAllReleases: false,
           githubReconfigureRepo: false,
           githubKillMaster: false,
-          generateScopedTags: false,
+          generateAliasTags: false,
           regenerateAssets: false,
           fullDeprecate: false,
           fullUndeprecate: false,
