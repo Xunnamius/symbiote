@@ -566,7 +566,7 @@ WARNING: this command is NOT DESIGNED TO HANDLE CONCURRENT EXECUTION ON THE SAME
               if (skipTasks.includes(id)) {
                 taskLogger.message(
                   [LogTag.IF_NOT_SILENCED],
-                  `✖️ Task was skipped at the behest of the user`
+                  `✖️ Task ${emoji.trim()} was skipped at the behest of the user`
                 );
               } else {
                 let ranNpmScript = false;
@@ -619,6 +619,7 @@ WARNING: this command is NOT DESIGNED TO HANDLE CONCURRENT EXECUTION ON THE SAME
 
                 if (taskRunner) {
                   dbg('entering runner function');
+
                   taskLogger(
                     [LogTag.IF_NOT_HUSHED],
                     `${emoji}${actionDescription || `Running task #${id}`}`
@@ -631,7 +632,7 @@ WARNING: this command is NOT DESIGNED TO HANDLE CONCURRENT EXECUTION ON THE SAME
                   if (!ranNpmScript) {
                     taskLogger[allowMissingNpmScripts ? 'warn' : 'error'](
                       [LogTag.IF_NOT_HUSHED],
-                      '👹 Task is not runnable and called no existing NPM scripts'
+                      `👹 Task ${emoji.trim()} is not runnable and called no existing NPM scripts`
                     );
 
                     if (skipTaskMissingScripts || allowMissingNpmScripts) {
