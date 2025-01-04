@@ -72,17 +72,17 @@ you for contribution 🎉, your efforts are greatly appreciated! 🙌🏿
 - Issues that go for an extended period without activity are subject to closure.
 
 [badge-issue-percentage]:
-  https://isitmaintained.com/badge/open/Xunnamius/repo-name.svg
+  https://isitmaintained.com/badge/open/repo-owner/repo-name.svg
   'Open issues as a percentage of all issues'
 [badge-issue-resolution]:
-  https://isitmaintained.com/badge/resolution/Xunnamius/repo-name.svg
+  https://isitmaintained.com/badge/resolution/repo-owner/repo-name.svg
   'Average time to resolve an issue'
 [choose-new-issue]:
   https://github.com/repo-owner/repo-name/issues/new/choose
 [github-blog]:
   https://github.com/blog/2119-add-reactions-to-pull-requests-issues-and-comments
 [link-issue-resolution]:
-  https://isitmaintained.com/project/Xunnamius/repo-name
+  https://isitmaintained.com/project/repo-owner/repo-name
 [open-issues]: https://github.com/repo-owner/repo-name/issues?q=
 ",
   "CONTRIBUTING.md": "# Contributing
@@ -287,6 +287,7 @@ TODO
 
 Further documentation can be found under [\`docs/\`][x-repo-docs].
 
+<!-- TODO: additional appendix sections here -->
 <!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
@@ -313,7 +314,7 @@ browser-like environments. For TypeScript users, this package supports both
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
@@ -365,7 +366,7 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 8 -->
 
 </details>
@@ -376,7 +377,7 @@ optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 See [LICENSE][x-repo-license].
 
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional license information and/or sections here -->
 <!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
@@ -390,7 +391,7 @@ See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional sections here -->
+<!-- TODO: additional contribution/support sections here -->
 <!-- symbiote-template-region-start 10 -->
 
 ### Contributors
@@ -565,7 +566,6 @@ exports[`::gatherAssetsFromAllTransformers preset: basic generates expected asse
   "packages/webpack/tsc.package.lint.json",
   "packages/webpack/tsc.package.docs.json",
   "tstyche.config.json",
-  "turbo.json",
   "types/global.ts",
   "types/_example-d.ts",
 ]
@@ -653,7 +653,6 @@ exports[`::gatherAssetsFromAllTransformers preset: basic generates expected asse
   "packages/pkg-import/tsc.package.lint.json",
   "packages/pkg-import/tsc.package.docs.json",
   "tstyche.config.json",
-  "turbo.json",
   "types/global.ts",
   "types/_example-d.ts",
 ]
@@ -708,7 +707,6 @@ exports[`::gatherAssetsFromAllTransformers preset: basic generates expected asse
   "tsc.package.lint.json",
   "tsc.package.docs.json",
   "tstyche.config.json",
-  "turbo.json",
 ]
 `;
 
@@ -792,7 +790,6 @@ exports[`::gatherAssetsFromAllTransformers preset: cli generates expected assets
   "packages/webpack/tsc.package.lint.json",
   "packages/webpack/tsc.package.docs.json",
   "tstyche.config.json",
-  "turbo.json",
   "types/global.ts",
   "types/_example-d.ts",
 ]
@@ -888,7 +885,6 @@ exports[`::gatherAssetsFromAllTransformers preset: cli generates expected assets
   "packages/pkg-import/tsc.package.lint.json",
   "packages/pkg-import/tsc.package.docs.json",
   "tstyche.config.json",
-  "turbo.json",
   "types/global.ts",
   "types/_example-d.ts",
 ]
@@ -948,7 +944,6 @@ exports[`::gatherAssetsFromAllTransformers preset: cli generates expected assets
   "tsc.package.lint.json",
   "tsc.package.docs.json",
   "tstyche.config.json",
-  "turbo.json",
 ]
 `;
 
@@ -1036,7 +1031,6 @@ exports[`::gatherAssetsFromAllTransformers preset: default (no preset) generates
   "packages/webpack/tsc.package.lint.json",
   "packages/webpack/tsc.package.docs.json",
   "tstyche.config.json",
-  "turbo.json",
   "types/global.ts",
   "types/_example-d.ts",
   "vercel.json",
@@ -1138,7 +1132,6 @@ exports[`::gatherAssetsFromAllTransformers preset: default (no preset) generates
   "packages/pkg-import/tsc.package.lint.json",
   "packages/pkg-import/tsc.package.docs.json",
   "tstyche.config.json",
-  "turbo.json",
   "types/global.ts",
   "types/_example-d.ts",
   "vercel.json",
@@ -1204,7 +1197,6 @@ exports[`::gatherAssetsFromAllTransformers preset: default (no preset) generates
   "tsc.package.lint.json",
   "tsc.package.docs.json",
   "tstyche.config.json",
-  "turbo.json",
   "vercel.json",
   "webpack.config.mjs",
 ]
@@ -1290,7 +1282,6 @@ exports[`::gatherAssetsFromAllTransformers preset: lib generates expected assets
   "packages/webpack/tsc.package.lint.json",
   "packages/webpack/tsc.package.docs.json",
   "tstyche.config.json",
-  "turbo.json",
   "types/global.ts",
   "types/_example-d.ts",
 ]
@@ -1386,7 +1377,6 @@ exports[`::gatherAssetsFromAllTransformers preset: lib generates expected assets
   "packages/pkg-import/tsc.package.lint.json",
   "packages/pkg-import/tsc.package.docs.json",
   "tstyche.config.json",
-  "turbo.json",
   "types/global.ts",
   "types/_example-d.ts",
 ]
@@ -1446,7 +1436,6 @@ exports[`::gatherAssetsFromAllTransformers preset: lib generates expected assets
   "tsc.package.lint.json",
   "tsc.package.docs.json",
   "tstyche.config.json",
-  "turbo.json",
 ]
 `;
 
@@ -1530,7 +1519,6 @@ exports[`::gatherAssetsFromAllTransformers preset: lib-esm generates expected as
   "packages/webpack/tsc.package.lint.json",
   "packages/webpack/tsc.package.docs.json",
   "tstyche.config.json",
-  "turbo.json",
   "types/global.ts",
   "types/_example-d.ts",
 ]
@@ -1626,7 +1614,6 @@ exports[`::gatherAssetsFromAllTransformers preset: lib-esm generates expected as
   "packages/pkg-import/tsc.package.lint.json",
   "packages/pkg-import/tsc.package.docs.json",
   "tstyche.config.json",
-  "turbo.json",
   "types/global.ts",
   "types/_example-d.ts",
 ]
@@ -1686,7 +1673,6 @@ exports[`::gatherAssetsFromAllTransformers preset: lib-esm generates expected as
   "tsc.package.lint.json",
   "tsc.package.docs.json",
   "tstyche.config.json",
-  "turbo.json",
 ]
 `;
 
@@ -1771,7 +1757,6 @@ exports[`::gatherAssetsFromAllTransformers preset: lib-web generates expected as
   "packages/webpack/tsc.package.lint.json",
   "packages/webpack/tsc.package.docs.json",
   "tstyche.config.json",
-  "turbo.json",
   "types/global.ts",
   "types/_example-d.ts",
 ]
@@ -1868,7 +1853,6 @@ exports[`::gatherAssetsFromAllTransformers preset: lib-web generates expected as
   "packages/pkg-import/tsc.package.lint.json",
   "packages/pkg-import/tsc.package.docs.json",
   "tstyche.config.json",
-  "turbo.json",
   "types/global.ts",
   "types/_example-d.ts",
 ]
@@ -1929,7 +1913,6 @@ exports[`::gatherAssetsFromAllTransformers preset: lib-web generates expected as
   "tsc.package.lint.json",
   "tsc.package.docs.json",
   "tstyche.config.json",
-  "turbo.json",
 ]
 `;
 
@@ -2009,7 +1992,6 @@ exports[`::gatherAssetsFromAllTransformers preset: nextjs generates expected ass
   "packages/webpack/tsc.package.lint.json",
   "packages/webpack/tsc.package.docs.json",
   "tstyche.config.json",
-  "turbo.json",
   "types/global.ts",
   "types/_example-d.ts",
   "vercel.json",
@@ -2103,7 +2085,6 @@ exports[`::gatherAssetsFromAllTransformers preset: nextjs generates expected ass
   "packages/pkg-import/tsc.package.lint.json",
   "packages/pkg-import/tsc.package.docs.json",
   "tstyche.config.json",
-  "turbo.json",
   "types/global.ts",
   "types/_example-d.ts",
   "vercel.json",
@@ -2164,7 +2145,6 @@ exports[`::gatherAssetsFromAllTransformers preset: nextjs generates expected ass
   "tsc.package.lint.json",
   "tsc.package.docs.json",
   "tstyche.config.json",
-  "turbo.json",
   "vercel.json",
   "webpack.config.mjs",
 ]
@@ -2245,7 +2225,6 @@ exports[`::gatherAssetsFromAllTransformers preset: react generates expected asse
   "packages/webpack/tsc.package.lint.json",
   "packages/webpack/tsc.package.docs.json",
   "tstyche.config.json",
-  "turbo.json",
   "types/global.ts",
   "types/_example-d.ts",
 ]
@@ -2336,7 +2315,6 @@ exports[`::gatherAssetsFromAllTransformers preset: react generates expected asse
   "packages/pkg-import/tsc.package.lint.json",
   "packages/pkg-import/tsc.package.docs.json",
   "tstyche.config.json",
-  "turbo.json",
   "types/global.ts",
   "types/_example-d.ts",
 ]
@@ -2394,28 +2372,24 @@ exports[`::gatherAssetsFromAllTransformers preset: react generates expected asse
   "tsc.package.lint.json",
   "tsc.package.docs.json",
   "tstyche.config.json",
-  "turbo.json",
 ]
 `;
 
 exports[`::gatherAssetsFromAllTransformers preset: turbo-only generates expected assets at hybridrepo 1`] = `
 [
   "eslint.config.mjs",
-  "turbo.json",
 ]
 `;
 
 exports[`::gatherAssetsFromAllTransformers preset: turbo-only generates expected assets at non-hybrid monorepo 1`] = `
 [
   "eslint.config.mjs",
-  "turbo.json",
 ]
 `;
 
 exports[`::gatherAssetsFromAllTransformers preset: turbo-only generates expected assets for polyrepo 1`] = `
 [
   "eslint.config.mjs",
-  "turbo.json",
 ]
 `;
 
@@ -4296,17 +4270,17 @@ you for contribution 🎉, your efforts are greatly appreciated! 🙌🏿
 - Issues that go for an extended period without activity are subject to closure.
 
 [badge-issue-percentage]:
-  https://isitmaintained.com/badge/open/Xunnamius/repo-name.svg
+  https://isitmaintained.com/badge/open/repo-owner/repo-name.svg
   'Open issues as a percentage of all issues'
 [badge-issue-resolution]:
-  https://isitmaintained.com/badge/resolution/Xunnamius/repo-name.svg
+  https://isitmaintained.com/badge/resolution/repo-owner/repo-name.svg
   'Average time to resolve an issue'
 [choose-new-issue]:
   https://github.com/repo-owner/repo-name/issues/new/choose
 [github-blog]:
   https://github.com/blog/2119-add-reactions-to-pull-requests-issues-and-comments
 [link-issue-resolution]:
-  https://isitmaintained.com/project/Xunnamius/repo-name
+  https://isitmaintained.com/project/repo-owner/repo-name
 [open-issues]: https://github.com/repo-owner/repo-name/issues?q=
 "
 `;
@@ -4736,17 +4710,17 @@ you for contribution 🎉, your efforts are greatly appreciated! 🙌🏿
 - Issues that go for an extended period without activity are subject to closure.
 
 [badge-issue-percentage]:
-  https://isitmaintained.com/badge/open/Xunnamius/repo-name.svg
+  https://isitmaintained.com/badge/open/repo-owner/repo-name.svg
   'Open issues as a percentage of all issues'
 [badge-issue-resolution]:
-  https://isitmaintained.com/badge/resolution/Xunnamius/repo-name.svg
+  https://isitmaintained.com/badge/resolution/repo-owner/repo-name.svg
   'Average time to resolve an issue'
 [choose-new-issue]:
   https://github.com/repo-owner/repo-name/issues/new/choose
 [github-blog]:
   https://github.com/blog/2119-add-reactions-to-pull-requests-issues-and-comments
 [link-issue-resolution]:
-  https://isitmaintained.com/project/Xunnamius/repo-name
+  https://isitmaintained.com/project/repo-owner/repo-name
 [open-issues]: https://github.com/repo-owner/repo-name/issues?q=
 "
 `;
@@ -5176,17 +5150,17 @@ you for contribution 🎉, your efforts are greatly appreciated! 🙌🏿
 - Issues that go for an extended period without activity are subject to closure.
 
 [badge-issue-percentage]:
-  https://isitmaintained.com/badge/open/Xunnamius/repo-name.svg
+  https://isitmaintained.com/badge/open/repo-owner/repo-name.svg
   'Open issues as a percentage of all issues'
 [badge-issue-resolution]:
-  https://isitmaintained.com/badge/resolution/Xunnamius/repo-name.svg
+  https://isitmaintained.com/badge/resolution/repo-owner/repo-name.svg
   'Average time to resolve an issue'
 [choose-new-issue]:
   https://github.com/repo-owner/repo-name/issues/new/choose
 [github-blog]:
   https://github.com/blog/2119-add-reactions-to-pull-requests-issues-and-comments
 [link-issue-resolution]:
-  https://isitmaintained.com/project/Xunnamius/repo-name
+  https://isitmaintained.com/project/repo-owner/repo-name
 [open-issues]: https://github.com/repo-owner/repo-name/issues?q=
 "
 `;
@@ -5616,17 +5590,17 @@ you for contribution 🎉, your efforts are greatly appreciated! 🙌🏿
 - Issues that go for an extended period without activity are subject to closure.
 
 [badge-issue-percentage]:
-  https://isitmaintained.com/badge/open/Xunnamius/repo-name.svg
+  https://isitmaintained.com/badge/open/repo-owner/repo-name.svg
   'Open issues as a percentage of all issues'
 [badge-issue-resolution]:
-  https://isitmaintained.com/badge/resolution/Xunnamius/repo-name.svg
+  https://isitmaintained.com/badge/resolution/repo-owner/repo-name.svg
   'Average time to resolve an issue'
 [choose-new-issue]:
   https://github.com/repo-owner/repo-name/issues/new/choose
 [github-blog]:
   https://github.com/blog/2119-add-reactions-to-pull-requests-issues-and-comments
 [link-issue-resolution]:
-  https://isitmaintained.com/project/Xunnamius/repo-name
+  https://isitmaintained.com/project/repo-owner/repo-name
 [open-issues]: https://github.com/repo-owner/repo-name/issues?q=
 "
 `;
@@ -6056,17 +6030,17 @@ you for contribution 🎉, your efforts are greatly appreciated! 🙌🏿
 - Issues that go for an extended period without activity are subject to closure.
 
 [badge-issue-percentage]:
-  https://isitmaintained.com/badge/open/Xunnamius/repo-name.svg
+  https://isitmaintained.com/badge/open/repo-owner/repo-name.svg
   'Open issues as a percentage of all issues'
 [badge-issue-resolution]:
-  https://isitmaintained.com/badge/resolution/Xunnamius/repo-name.svg
+  https://isitmaintained.com/badge/resolution/repo-owner/repo-name.svg
   'Average time to resolve an issue'
 [choose-new-issue]:
   https://github.com/repo-owner/repo-name/issues/new/choose
 [github-blog]:
   https://github.com/blog/2119-add-reactions-to-pull-requests-issues-and-comments
 [link-issue-resolution]:
-  https://isitmaintained.com/project/Xunnamius/repo-name
+  https://isitmaintained.com/project/repo-owner/repo-name
 [open-issues]: https://github.com/repo-owner/repo-name/issues?q=
 "
 `;
@@ -6496,17 +6470,17 @@ you for contribution 🎉, your efforts are greatly appreciated! 🙌🏿
 - Issues that go for an extended period without activity are subject to closure.
 
 [badge-issue-percentage]:
-  https://isitmaintained.com/badge/open/Xunnamius/repo-name.svg
+  https://isitmaintained.com/badge/open/repo-owner/repo-name.svg
   'Open issues as a percentage of all issues'
 [badge-issue-resolution]:
-  https://isitmaintained.com/badge/resolution/Xunnamius/repo-name.svg
+  https://isitmaintained.com/badge/resolution/repo-owner/repo-name.svg
   'Average time to resolve an issue'
 [choose-new-issue]:
   https://github.com/repo-owner/repo-name/issues/new/choose
 [github-blog]:
   https://github.com/blog/2119-add-reactions-to-pull-requests-issues-and-comments
 [link-issue-resolution]:
-  https://isitmaintained.com/project/Xunnamius/repo-name
+  https://isitmaintained.com/project/repo-owner/repo-name
 [open-issues]: https://github.com/repo-owner/repo-name/issues?q=
 "
 `;
@@ -6936,17 +6910,17 @@ you for contribution 🎉, your efforts are greatly appreciated! 🙌🏿
 - Issues that go for an extended period without activity are subject to closure.
 
 [badge-issue-percentage]:
-  https://isitmaintained.com/badge/open/Xunnamius/repo-name.svg
+  https://isitmaintained.com/badge/open/repo-owner/repo-name.svg
   'Open issues as a percentage of all issues'
 [badge-issue-resolution]:
-  https://isitmaintained.com/badge/resolution/Xunnamius/repo-name.svg
+  https://isitmaintained.com/badge/resolution/repo-owner/repo-name.svg
   'Average time to resolve an issue'
 [choose-new-issue]:
   https://github.com/repo-owner/repo-name/issues/new/choose
 [github-blog]:
   https://github.com/blog/2119-add-reactions-to-pull-requests-issues-and-comments
 [link-issue-resolution]:
-  https://isitmaintained.com/project/Xunnamius/repo-name
+  https://isitmaintained.com/project/repo-owner/repo-name
 [open-issues]: https://github.com/repo-owner/repo-name/issues?q=
 "
 `;
@@ -7376,17 +7350,17 @@ you for contribution 🎉, your efforts are greatly appreciated! 🙌🏿
 - Issues that go for an extended period without activity are subject to closure.
 
 [badge-issue-percentage]:
-  https://isitmaintained.com/badge/open/Xunnamius/repo-name.svg
+  https://isitmaintained.com/badge/open/repo-owner/repo-name.svg
   'Open issues as a percentage of all issues'
 [badge-issue-resolution]:
-  https://isitmaintained.com/badge/resolution/Xunnamius/repo-name.svg
+  https://isitmaintained.com/badge/resolution/repo-owner/repo-name.svg
   'Average time to resolve an issue'
 [choose-new-issue]:
   https://github.com/repo-owner/repo-name/issues/new/choose
 [github-blog]:
   https://github.com/blog/2119-add-reactions-to-pull-requests-issues-and-comments
 [link-issue-resolution]:
-  https://isitmaintained.com/project/Xunnamius/repo-name
+  https://isitmaintained.com/project/repo-owner/repo-name
 [open-issues]: https://github.com/repo-owner/repo-name/issues?q=
 "
 `;
@@ -8447,8 +8421,9 @@ fi
 
 NODE_NO_WARNINGS=1 commitlint -e
 if [ -z "$GAC_VERIFY_SIMPLE" ]; then npm run test; fi
-echo
-NODE_NO_WARNINGS=1 node spellcheck-commit.cjs
+# TODO: bring back spellchecker:
+#echo
+#NODE_NO_WARNINGS=1 node spellcheck-commit.cjs
 "
 `;
 
@@ -8522,8 +8497,9 @@ fi
 
 NODE_NO_WARNINGS=1 commitlint -e
 if [ -z "$GAC_VERIFY_SIMPLE" ]; then npm run test; fi
-echo
-NODE_NO_WARNINGS=1 node spellcheck-commit.cjs
+# TODO: bring back spellchecker:
+#echo
+#NODE_NO_WARNINGS=1 node spellcheck-commit.cjs
 "
 `;
 
@@ -8597,8 +8573,9 @@ fi
 
 NODE_NO_WARNINGS=1 commitlint -e
 if [ -z "$GAC_VERIFY_SIMPLE" ]; then npm run test; fi
-echo
-NODE_NO_WARNINGS=1 node spellcheck-commit.cjs
+# TODO: bring back spellchecker:
+#echo
+#NODE_NO_WARNINGS=1 node spellcheck-commit.cjs
 "
 `;
 
@@ -8672,8 +8649,9 @@ fi
 
 NODE_NO_WARNINGS=1 commitlint -e
 if [ -z "$GAC_VERIFY_SIMPLE" ]; then npm run test; fi
-echo
-NODE_NO_WARNINGS=1 node spellcheck-commit.cjs
+# TODO: bring back spellchecker:
+#echo
+#NODE_NO_WARNINGS=1 node spellcheck-commit.cjs
 "
 `;
 
@@ -8747,8 +8725,9 @@ fi
 
 NODE_NO_WARNINGS=1 commitlint -e
 if [ -z "$GAC_VERIFY_SIMPLE" ]; then npm run test; fi
-echo
-NODE_NO_WARNINGS=1 node spellcheck-commit.cjs
+# TODO: bring back spellchecker:
+#echo
+#NODE_NO_WARNINGS=1 node spellcheck-commit.cjs
 "
 `;
 
@@ -8822,8 +8801,9 @@ fi
 
 NODE_NO_WARNINGS=1 commitlint -e
 if [ -z "$GAC_VERIFY_SIMPLE" ]; then npm run test; fi
-echo
-NODE_NO_WARNINGS=1 node spellcheck-commit.cjs
+# TODO: bring back spellchecker:
+#echo
+#NODE_NO_WARNINGS=1 node spellcheck-commit.cjs
 "
 `;
 
@@ -8897,8 +8877,9 @@ fi
 
 NODE_NO_WARNINGS=1 commitlint -e
 if [ -z "$GAC_VERIFY_SIMPLE" ]; then npm run test; fi
-echo
-NODE_NO_WARNINGS=1 node spellcheck-commit.cjs
+# TODO: bring back spellchecker:
+#echo
+#NODE_NO_WARNINGS=1 node spellcheck-commit.cjs
 "
 `;
 
@@ -8972,8 +8953,9 @@ fi
 
 NODE_NO_WARNINGS=1 commitlint -e
 if [ -z "$GAC_VERIFY_SIMPLE" ]; then npm run test; fi
-echo
-NODE_NO_WARNINGS=1 node spellcheck-commit.cjs
+# TODO: bring back spellchecker:
+#echo
+#NODE_NO_WARNINGS=1 node spellcheck-commit.cjs
 "
 `;
 
@@ -9234,8 +9216,11 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .pret
 "key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/.prettierignore
 scope: this-package
 ⏶⏷⏶⏷⏶
-# * Paths below are ignored by prettier as well as remark and doctoc when called
-# * with \`symbiote format\`.
+# * Paths below are ignored by prettier, remark, doctoc when called
+# * with \`symbiote format\` and \`symbiote lint\`. To have eslint ignore
+# * certain files, add them to an "ignores" block in eslint.config.js. To have
+# * tsc ignore certain files, exclude them from the appropriate tsc.*.json file.
+# * See symbiote's help text for more details.
 
 # ! Note that any pattern with a / in the beginning OR MIDDLE (but not end) will
 # ! be considered relative to this file ONLY. Matching subdirs will NOT match!
@@ -9279,6 +9264,7 @@ package-lock.json
 
 # Ignore test fixtures in any subdir (which may depend on remaining as they are)
 fixtures
+__*__
 
 # Ignore things that prettier isn't good at in any subdir
 *.hbs
@@ -9294,8 +9280,11 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .pret
 "key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/.prettierignore
 scope: unlimited
 ⏶⏷⏶⏷⏶
-# * Paths below are ignored by prettier as well as remark and doctoc when called
-# * with \`symbiote format\`.
+# * Paths below are ignored by prettier, remark, doctoc when called
+# * with \`symbiote format\` and \`symbiote lint\`. To have eslint ignore
+# * certain files, add them to an "ignores" block in eslint.config.js. To have
+# * tsc ignore certain files, exclude them from the appropriate tsc.*.json file.
+# * See symbiote's help text for more details.
 
 # ! Note that any pattern with a / in the beginning OR MIDDLE (but not end) will
 # ! be considered relative to this file ONLY. Matching subdirs will NOT match!
@@ -9339,6 +9328,7 @@ package-lock.json
 
 # Ignore test fixtures in any subdir (which may depend on remaining as they are)
 fixtures
+__*__
 
 # Ignore things that prettier isn't good at in any subdir
 *.hbs
@@ -9354,8 +9344,11 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .pret
 "key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/.prettierignore
 scope: unlimited
 ⏶⏷⏶⏷⏶
-# * Paths below are ignored by prettier as well as remark and doctoc when called
-# * with \`symbiote format\`.
+# * Paths below are ignored by prettier, remark, doctoc when called
+# * with \`symbiote format\` and \`symbiote lint\`. To have eslint ignore
+# * certain files, add them to an "ignores" block in eslint.config.js. To have
+# * tsc ignore certain files, exclude them from the appropriate tsc.*.json file.
+# * See symbiote's help text for more details.
 
 # ! Note that any pattern with a / in the beginning OR MIDDLE (but not end) will
 # ! be considered relative to this file ONLY. Matching subdirs will NOT match!
@@ -9399,6 +9392,7 @@ package-lock.json
 
 # Ignore test fixtures in any subdir (which may depend on remaining as they are)
 fixtures
+__*__
 
 # Ignore things that prettier isn't good at in any subdir
 *.hbs
@@ -9414,8 +9408,11 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .pret
 "key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-monorepo-no-src/.prettierignore
 scope: unlimited
 ⏶⏷⏶⏷⏶
-# * Paths below are ignored by prettier as well as remark and doctoc when called
-# * with \`symbiote format\`.
+# * Paths below are ignored by prettier, remark, doctoc when called
+# * with \`symbiote format\` and \`symbiote lint\`. To have eslint ignore
+# * certain files, add them to an "ignores" block in eslint.config.js. To have
+# * tsc ignore certain files, exclude them from the appropriate tsc.*.json file.
+# * See symbiote's help text for more details.
 
 # ! Note that any pattern with a / in the beginning OR MIDDLE (but not end) will
 # ! be considered relative to this file ONLY. Matching subdirs will NOT match!
@@ -9459,6 +9456,7 @@ package-lock.json
 
 # Ignore test fixtures in any subdir (which may depend on remaining as they are)
 fixtures
+__*__
 
 # Ignore things that prettier isn't good at in any subdir
 *.hbs
@@ -9474,8 +9472,11 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .pret
 "key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-monorepo-no-src/.prettierignore
 scope: unlimited
 ⏶⏷⏶⏷⏶
-# * Paths below are ignored by prettier as well as remark and doctoc when called
-# * with \`symbiote format\`.
+# * Paths below are ignored by prettier, remark, doctoc when called
+# * with \`symbiote format\` and \`symbiote lint\`. To have eslint ignore
+# * certain files, add them to an "ignores" block in eslint.config.js. To have
+# * tsc ignore certain files, exclude them from the appropriate tsc.*.json file.
+# * See symbiote's help text for more details.
 
 # ! Note that any pattern with a / in the beginning OR MIDDLE (but not end) will
 # ! be considered relative to this file ONLY. Matching subdirs will NOT match!
@@ -9519,6 +9520,7 @@ package-lock.json
 
 # Ignore test fixtures in any subdir (which may depend on remaining as they are)
 fixtures
+__*__
 
 # Ignore things that prettier isn't good at in any subdir
 *.hbs
@@ -9534,8 +9536,11 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .pret
 "key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.prettierignore
 scope: unlimited
 ⏶⏷⏶⏷⏶
-# * Paths below are ignored by prettier as well as remark and doctoc when called
-# * with \`symbiote format\`.
+# * Paths below are ignored by prettier, remark, doctoc when called
+# * with \`symbiote format\` and \`symbiote lint\`. To have eslint ignore
+# * certain files, add them to an "ignores" block in eslint.config.js. To have
+# * tsc ignore certain files, exclude them from the appropriate tsc.*.json file.
+# * See symbiote's help text for more details.
 
 # ! Note that any pattern with a / in the beginning OR MIDDLE (but not end) will
 # ! be considered relative to this file ONLY. Matching subdirs will NOT match!
@@ -9579,6 +9584,7 @@ package-lock.json
 
 # Ignore test fixtures in any subdir (which may depend on remaining as they are)
 fixtures
+__*__
 
 # Ignore things that prettier isn't good at in any subdir
 *.hbs
@@ -9594,8 +9600,11 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .pret
 "key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.prettierignore
 scope: this-package
 ⏶⏷⏶⏷⏶
-# * Paths below are ignored by prettier as well as remark and doctoc when called
-# * with \`symbiote format\`.
+# * Paths below are ignored by prettier, remark, doctoc when called
+# * with \`symbiote format\` and \`symbiote lint\`. To have eslint ignore
+# * certain files, add them to an "ignores" block in eslint.config.js. To have
+# * tsc ignore certain files, exclude them from the appropriate tsc.*.json file.
+# * See symbiote's help text for more details.
 
 # ! Note that any pattern with a / in the beginning OR MIDDLE (but not end) will
 # ! be considered relative to this file ONLY. Matching subdirs will NOT match!
@@ -9639,6 +9648,7 @@ package-lock.json
 
 # Ignore test fixtures in any subdir (which may depend on remaining as they are)
 fixtures
+__*__
 
 # Ignore things that prettier isn't good at in any subdir
 *.hbs
@@ -9654,8 +9664,11 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .pret
 "key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/.prettierignore
 scope: unlimited
 ⏶⏷⏶⏷⏶
-# * Paths below are ignored by prettier as well as remark and doctoc when called
-# * with \`symbiote format\`.
+# * Paths below are ignored by prettier, remark, doctoc when called
+# * with \`symbiote format\` and \`symbiote lint\`. To have eslint ignore
+# * certain files, add them to an "ignores" block in eslint.config.js. To have
+# * tsc ignore certain files, exclude them from the appropriate tsc.*.json file.
+# * See symbiote's help text for more details.
 
 # ! Note that any pattern with a / in the beginning OR MIDDLE (but not end) will
 # ! be considered relative to this file ONLY. Matching subdirs will NOT match!
@@ -9699,6 +9712,7 @@ package-lock.json
 
 # Ignore test fixtures in any subdir (which may depend on remaining as they are)
 fixtures
+__*__
 
 # Ignore things that prettier isn't good at in any subdir
 *.hbs
@@ -16645,6 +16659,7 @@ TODO
 
 Further documentation can be found under [\`docs/\`][x-repo-docs].
 
+<!-- TODO: additional appendix sections here -->
 <!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
@@ -16671,7 +16686,7 @@ browser-like environments. For TypeScript users, this package supports both
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
@@ -16723,7 +16738,7 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 8 -->
 
 </details>
@@ -16734,7 +16749,7 @@ optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 See [LICENSE][x-repo-license].
 
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional license information and/or sections here -->
 <!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
@@ -16748,7 +16763,7 @@ See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional sections here -->
+<!-- TODO: additional contribution/support sections here -->
 <!-- symbiote-template-region-start 10 -->
 
 ### Contributors
@@ -16932,6 +16947,7 @@ TODO
 
 Further documentation can be found under [\`docs/\`][x-repo-docs].
 
+<!-- TODO: additional appendix sections here -->
 <!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
@@ -16958,7 +16974,7 @@ browser-like environments. For TypeScript users, this package supports both
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
@@ -17010,7 +17026,7 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 8 -->
 
 </details>
@@ -17021,7 +17037,7 @@ optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 See [LICENSE][x-repo-license].
 
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional license information and/or sections here -->
 <!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
@@ -17035,7 +17051,7 @@ See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional sections here -->
+<!-- TODO: additional contribution/support sections here -->
 <!-- symbiote-template-region-start 10 -->
 
 ### Contributors
@@ -17219,6 +17235,7 @@ TODO
 
 Further documentation can be found under [\`docs/\`][x-repo-docs].
 
+<!-- TODO: additional appendix sections here -->
 <!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
@@ -17245,7 +17262,7 @@ browser-like environments. For TypeScript users, this package supports both
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
@@ -17297,7 +17314,7 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 8 -->
 
 </details>
@@ -17308,7 +17325,7 @@ optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 See [LICENSE][x-repo-license].
 
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional license information and/or sections here -->
 <!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
@@ -17322,7 +17339,7 @@ See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional sections here -->
+<!-- TODO: additional contribution/support sections here -->
 <!-- symbiote-template-region-start 10 -->
 
 ### Contributors
@@ -17483,6 +17500,7 @@ TODO
 
 Further documentation can be found under [\`docs/\`][x-repo-docs].
 
+<!-- TODO: additional appendix sections here -->
 <!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
@@ -17509,7 +17527,7 @@ browser-like environments. For TypeScript users, this package supports both
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
@@ -17561,7 +17579,7 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 8 -->
 
 </details>
@@ -17572,7 +17590,7 @@ optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 See [LICENSE][x-repo-license].
 
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional license information and/or sections here -->
 <!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
@@ -17586,7 +17604,7 @@ See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional sections here -->
+<!-- TODO: additional contribution/support sections here -->
 <!-- symbiote-template-region-start 10 -->
 
 ### Contributors
@@ -17747,6 +17765,7 @@ TODO
 
 Further documentation can be found under [\`docs/\`][x-repo-docs].
 
+<!-- TODO: additional appendix sections here -->
 <!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
@@ -17773,7 +17792,7 @@ browser-like environments. For TypeScript users, this package supports both
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
@@ -17825,7 +17844,7 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 8 -->
 
 </details>
@@ -17836,7 +17855,7 @@ optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 See [LICENSE][x-repo-license].
 
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional license information and/or sections here -->
 <!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
@@ -17850,7 +17869,7 @@ See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional sections here -->
+<!-- TODO: additional contribution/support sections here -->
 <!-- symbiote-template-region-start 10 -->
 
 ### Contributors
@@ -18011,6 +18030,7 @@ TODO
 
 Further documentation can be found under [\`docs/\`][x-repo-docs].
 
+<!-- TODO: additional appendix sections here -->
 <!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
@@ -18037,7 +18057,7 @@ browser-like environments. For TypeScript users, this package supports both
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
@@ -18089,7 +18109,7 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 8 -->
 
 </details>
@@ -18100,7 +18120,7 @@ optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 See [LICENSE][x-repo-license].
 
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional license information and/or sections here -->
 <!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
@@ -18114,7 +18134,7 @@ See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional sections here -->
+<!-- TODO: additional contribution/support sections here -->
 <!-- symbiote-template-region-start 10 -->
 
 ### Contributors
@@ -18298,6 +18318,7 @@ TODO
 
 Further documentation can be found under [\`docs/\`][x-repo-docs].
 
+<!-- TODO: additional appendix sections here -->
 <!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
@@ -18324,7 +18345,7 @@ browser-like environments. For TypeScript users, this package supports both
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
@@ -18376,7 +18397,7 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 8 -->
 
 </details>
@@ -18387,7 +18408,7 @@ optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 See [LICENSE][x-repo-license].
 
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional license information and/or sections here -->
 <!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
@@ -18401,7 +18422,7 @@ See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional sections here -->
+<!-- TODO: additional contribution/support sections here -->
 <!-- symbiote-template-region-start 10 -->
 
 ### Contributors
@@ -18562,6 +18583,7 @@ TODO
 
 Further documentation can be found under [\`docs/\`][x-repo-docs].
 
+<!-- TODO: additional appendix sections here -->
 <!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
@@ -18588,7 +18610,7 @@ browser-like environments. For TypeScript users, this package supports both
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
@@ -18640,7 +18662,7 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 8 -->
 
 </details>
@@ -18651,7 +18673,7 @@ optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 See [LICENSE][x-repo-license].
 
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional license information and/or sections here -->
 <!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
@@ -18665,7 +18687,7 @@ See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional sections here -->
+<!-- TODO: additional contribution/support sections here -->
 <!-- symbiote-template-region-start 10 -->
 
 ### Contributors
@@ -18826,6 +18848,7 @@ TODO
 
 Further documentation can be found under [\`docs/\`][x-repo-docs].
 
+<!-- TODO: additional appendix sections here -->
 <!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
@@ -18852,7 +18875,7 @@ browser-like environments. For TypeScript users, this package supports both
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
@@ -18904,7 +18927,7 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 8 -->
 
 </details>
@@ -18915,7 +18938,7 @@ optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 See [LICENSE][x-repo-license].
 
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional license information and/or sections here -->
 <!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
@@ -18929,7 +18952,7 @@ See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional sections here -->
+<!-- TODO: additional contribution/support sections here -->
 <!-- symbiote-template-region-start 10 -->
 
 ### Contributors
@@ -19090,6 +19113,7 @@ TODO
 
 Further documentation can be found under [\`docs/\`][x-repo-docs].
 
+<!-- TODO: additional appendix sections here -->
 <!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
@@ -19116,7 +19140,7 @@ browser-like environments. For TypeScript users, this package supports both
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
@@ -19168,7 +19192,7 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 8 -->
 
 </details>
@@ -19179,7 +19203,7 @@ optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 See [LICENSE][x-repo-license].
 
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional license information and/or sections here -->
 <!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
@@ -19193,7 +19217,7 @@ See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional sections here -->
+<!-- TODO: additional contribution/support sections here -->
 <!-- symbiote-template-region-start 10 -->
 
 ### Contributors
@@ -19362,6 +19386,7 @@ TODO
 
 Further documentation can be found under [\`docs/\`][x-repo-docs].
 
+<!-- TODO: additional appendix sections here -->
 <!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
@@ -19388,7 +19413,7 @@ browser-like environments. For TypeScript users, this package supports both
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
@@ -19440,7 +19465,7 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 8 -->
 
 </details>
@@ -19451,7 +19476,7 @@ optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 See [LICENSE][x-repo-license].
 
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional license information and/or sections here -->
 <!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
@@ -19465,7 +19490,7 @@ See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional sections here -->
+<!-- TODO: additional contribution/support sections here -->
 <!-- symbiote-template-region-start 10 -->
 
 ### Contributors
@@ -19626,6 +19651,7 @@ TODO
 
 Further documentation can be found under [\`docs/\`][x-repo-docs].
 
+<!-- TODO: additional appendix sections here -->
 <!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
@@ -19652,7 +19678,7 @@ browser-like environments. For TypeScript users, this package supports both
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
@@ -19704,7 +19730,7 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 8 -->
 
 </details>
@@ -19715,7 +19741,7 @@ optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 See [LICENSE][x-repo-license].
 
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional license information and/or sections here -->
 <!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
@@ -19729,7 +19755,7 @@ See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional sections here -->
+<!-- TODO: additional contribution/support sections here -->
 <!-- symbiote-template-region-start 10 -->
 
 ### Contributors
@@ -19890,6 +19916,7 @@ TODO
 
 Further documentation can be found under [\`docs/\`][x-repo-docs].
 
+<!-- TODO: additional appendix sections here -->
 <!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
@@ -19916,7 +19943,7 @@ browser-like environments. For TypeScript users, this package supports both
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
@@ -19968,7 +19995,7 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 8 -->
 
 </details>
@@ -19979,7 +20006,7 @@ optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 See [LICENSE][x-repo-license].
 
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional license information and/or sections here -->
 <!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
@@ -19993,7 +20020,7 @@ See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional sections here -->
+<!-- TODO: additional contribution/support sections here -->
 <!-- symbiote-template-region-start 10 -->
 
 ### Contributors
@@ -20162,6 +20189,7 @@ TODO
 
 Further documentation can be found under [\`docs/\`][x-repo-docs].
 
+<!-- TODO: additional appendix sections here -->
 <!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
@@ -20188,7 +20216,7 @@ browser-like environments. For TypeScript users, this package supports both
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
@@ -20240,7 +20268,7 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 8 -->
 
 </details>
@@ -20251,7 +20279,7 @@ optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 See [LICENSE][x-repo-license].
 
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional license information and/or sections here -->
 <!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
@@ -20265,7 +20293,7 @@ See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional sections here -->
+<!-- TODO: additional contribution/support sections here -->
 <!-- symbiote-template-region-start 10 -->
 
 ### Contributors
@@ -20426,6 +20454,7 @@ TODO
 
 Further documentation can be found under [\`docs/\`][x-repo-docs].
 
+<!-- TODO: additional appendix sections here -->
 <!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
@@ -20452,7 +20481,7 @@ browser-like environments. For TypeScript users, this package supports both
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
@@ -20504,7 +20533,7 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 8 -->
 
 </details>
@@ -20515,7 +20544,7 @@ optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 See [LICENSE][x-repo-license].
 
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional license information and/or sections here -->
 <!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
@@ -20529,7 +20558,7 @@ See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional sections here -->
+<!-- TODO: additional contribution/support sections here -->
 <!-- symbiote-template-region-start 10 -->
 
 ### Contributors
@@ -20690,6 +20719,7 @@ TODO
 
 Further documentation can be found under [\`docs/\`][x-repo-docs].
 
+<!-- TODO: additional appendix sections here -->
 <!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
@@ -20716,7 +20746,7 @@ browser-like environments. For TypeScript users, this package supports both
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
@@ -20768,7 +20798,7 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 8 -->
 
 </details>
@@ -20779,7 +20809,7 @@ optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 See [LICENSE][x-repo-license].
 
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional license information and/or sections here -->
 <!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
@@ -20793,7 +20823,7 @@ See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional sections here -->
+<!-- TODO: additional contribution/support sections here -->
 <!-- symbiote-template-region-start 10 -->
 
 ### Contributors
@@ -20954,6 +20984,7 @@ TODO
 
 Further documentation can be found under [\`docs/\`][x-repo-docs].
 
+<!-- TODO: additional appendix sections here -->
 <!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
@@ -20980,7 +21011,7 @@ browser-like environments. For TypeScript users, this package supports both
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
@@ -21032,7 +21063,7 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 8 -->
 
 </details>
@@ -21043,7 +21074,7 @@ optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 See [LICENSE][x-repo-license].
 
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional license information and/or sections here -->
 <!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
@@ -21057,7 +21088,7 @@ See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional sections here -->
+<!-- TODO: additional contribution/support sections here -->
 <!-- symbiote-template-region-start 10 -->
 
 ### Contributors
@@ -21241,6 +21272,7 @@ TODO
 
 Further documentation can be found under [\`docs/\`][x-repo-docs].
 
+<!-- TODO: additional appendix sections here -->
 <!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
@@ -21267,7 +21299,7 @@ browser-like environments. For TypeScript users, this package supports both
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
@@ -21319,7 +21351,7 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 8 -->
 
 </details>
@@ -21330,7 +21362,7 @@ optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 See [LICENSE][x-repo-license].
 
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional license information and/or sections here -->
 <!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
@@ -21344,7 +21376,7 @@ See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional sections here -->
+<!-- TODO: additional contribution/support sections here -->
 <!-- symbiote-template-region-start 10 -->
 
 ### Contributors
@@ -21528,6 +21560,7 @@ TODO
 
 Further documentation can be found under [\`docs/\`][x-repo-docs].
 
+<!-- TODO: additional appendix sections here -->
 <!-- symbiote-template-region-start 6 -->
 
 ### Published Package Details
@@ -21554,7 +21587,7 @@ browser-like environments. For TypeScript users, this package supports both
 <!-- TODO: choose one of the above and --✄--delete--✄-- the others! -->
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 7 -->
 
 <details><summary>Expand details</summary>
@@ -21606,7 +21639,7 @@ also that [\`package.json\`][x-repo-package-json] may include the
 optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional package details here -->
 <!-- symbiote-template-region-start 8 -->
 
 </details>
@@ -21617,7 +21650,7 @@ optimal [tree shaking][x-pkg-tree-shaking] where appropriate.
 
 See [LICENSE][x-repo-license].
 
-<!-- TODO: optional additional details here -->
+<!-- TODO: additional license information and/or sections here -->
 <!-- symbiote-template-region-start 9 -->
 
 ## Contributing and Support
@@ -21631,7 +21664,7 @@ See [CONTRIBUTING.md][x-repo-contributing] and [SUPPORT.md][x-repo-support] for
 more information.
 
 <!-- symbiote-template-region-end -->
-<!-- TODO: optional additional sections here -->
+<!-- TODO: additional contribution/support sections here -->
 <!-- symbiote-template-region-start 10 -->
 
 ### Contributors
@@ -24596,7 +24629,7 @@ scope: this-package
 ⏶⏷⏶⏷⏶
 {
   "devDependencies": {
-    "@-xun/symbiote": "^2.2.0"
+    "@-xun/symbiote": "^2.4.3"
   },
   "workspaces": [
     "packages/*"
@@ -24687,7 +24720,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 {
   "devDependencies": {
-    "@-xun/symbiote": "^2.2.0"
+    "@-xun/symbiote": "^2.4.3"
   },
   "workspaces": [
     "packages/*",
@@ -25027,7 +25060,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 {
   "devDependencies": {
-    "@-xun/symbiote": "^2.2.0"
+    "@-xun/symbiote": "^2.4.3"
   },
   "workspaces": [
     "packages/*"
@@ -26164,7 +26197,7 @@ scope: unlimited
   },
   "dependencies": {},
   "devDependencies": {
-    "@-xun/symbiote": "^2.2.0"
+    "@-xun/symbiote": "^2.4.3"
   }
 }
 "
@@ -26248,7 +26281,7 @@ scope: this-package
   },
   "dependencies": {},
   "devDependencies": {
-    "@-xun/symbiote": "^2.2.0"
+    "@-xun/symbiote": "^2.4.3"
   }
 }
 "
@@ -26327,7 +26360,7 @@ scope: unlimited
   },
   "dependencies": {},
   "devDependencies": {
-    "@-xun/symbiote": "^2.2.0"
+    "@-xun/symbiote": "^2.4.3"
   }
 }
 "
