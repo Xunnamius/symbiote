@@ -8,7 +8,7 @@
 
 > `const` **renovationTasks**: `object`
 
-Defined in: [src/commands/project/renovate.ts:734](https://github.com/Xunnamius/symbiote/blob/7b8ca545f93c3e9d22b693c6c58dbb29604867ff/src/commands/project/renovate.ts#L734)
+Defined in: [src/commands/project/renovate.ts:734](https://github.com/Xunnamius/symbiote/blob/023107e8d1856ee3cd449bab77222ba9d9fdb206/src/commands/project/renovate.ts#L734)
 
 ## Type declaration
 
@@ -132,15 +132,15 @@ Defined in: [src/commands/project/renovate.ts:734](https://github.com/Xunnamius/
 
 `Promise`\<`undefined`\>
 
-### generate-scoped-tags
+### generate-alias-tags
 
-> `readonly` **generate-scoped-tags**: `object`
+> `readonly` **generate-alias-tags**: `object`
 
-#### generate-scoped-tags.actionDescription
+#### generate-alias-tags.actionDescription
 
-> `readonly` **actionDescription**: `"Generating scoped aliases for each non-scoped version tag"` = `'Generating scoped aliases for each non-scoped version tag'`
+> `readonly` **actionDescription**: `"Creating aliases for matching tags"` = `'Creating aliases for matching tags'`
 
-#### generate-scoped-tags.conflicts
+#### generate-alias-tags.conflicts
 
 > `readonly` **conflicts**: `object`[]
 
@@ -148,47 +148,47 @@ Defined in: [src/commands/project/renovate.ts:734](https://github.com/Xunnamius/
 
 \[`key`: `string`\]: `boolean`
 
-#### generate-scoped-tags.emoji
+#### generate-alias-tags.emoji
 
 > `readonly` **emoji**: `"⚓"` = `'⚓'`
 
-#### generate-scoped-tags.longHelpDescription
+#### generate-alias-tags.longHelpDescription
 
-> `readonly` **longHelpDescription**: "This renovation creates an alias of each old-style version tag in the repository going all the way back to the initial commit. The alias tags will be named according to --new-scope (and with respect to the optional --old-scope) in the form of: \"$\{newScope\}@$\{toSemver(tagUsingOldScope)\}\".\n\nNote that this renovation will respect the \"\[INIT\]\" xpipeline command when it appears in commit messages. See the symbiote wiki and xchangelog/xrelease documentation for details on xpipeline command semantics."
+> `readonly` **longHelpDescription**: "This renovation creates an alias of every tag in the repository with --old-scope. The alias tag names are derived by taking the existing tag name and replacing --old-scope with --new-scope. If --force is given, alias tags (e.g. \"new-package-name@1.2.3\") will be created for any existing tags with old-style semver valid names (e.g. \"v1.2.3\") as well.\n\nFor example, to only create new-style aliases of all tags with old-style semver valid names, i.e. alias tag \"new-package-name@1.2.3\" for existing tag \"v1.2.3\":\n\n\`symbiote project renovate --generate-alias-tags --new-scope='new-package-name' --force\`\n\nOr to generate aliases for existing modern scoped tags, i.e. alias tag \"@new/package-name@1.2.3\" for existing tag \"existing-scope@1.2.3\":\n\n\`symbiote project renovate --generate-alias-tags --old-scope='existing-scope' --new-scope='@new/package-name'\`\n\nUse --rename-matching-releases to control if releases on GitHub with names matching --old-scope will have that scope replaced with --new-scope.\n\nNote that this command never deletes tags."
 
-#### generate-scoped-tags.requiresForce
+#### generate-alias-tags.requiresForce
 
 > `readonly` **requiresForce**: `false` = `false`
 
-#### generate-scoped-tags.shortHelpDescription
+#### generate-alias-tags.shortHelpDescription
 
-> `readonly` **shortHelpDescription**: `"Generate a scoped version tag for each non-scoped version tag"` = `'Generate a scoped version tag for each non-scoped version tag'`
+> `readonly` **shortHelpDescription**: `"Create tag aliases for each existing tag with matching scope"` = `'Create tag aliases for each existing tag with matching scope'`
 
-#### generate-scoped-tags.subOptions
+#### generate-alias-tags.subOptions
 
 > `readonly` **subOptions**: `object`
 
-#### generate-scoped-tags.subOptions.new-scope
+#### generate-alias-tags.subOptions.new-scope
 
 > `readonly` **new-scope**: `object`
 
-#### generate-scoped-tags.subOptions.new-scope.description
+#### generate-alias-tags.subOptions.new-scope.description
 
-> `readonly` **description**: "The characters preceding \"@\" in newly created alias tags" = `'The characters preceding "@" in newly created alias tags'`
+> `readonly` **description**: "The characters preceding \"@\" in generated alias tags" = `'The characters preceding "@" in generated alias tags'`
 
-#### generate-scoped-tags.subOptions.new-scope.string
+#### generate-alias-tags.subOptions.new-scope.string
 
 > `readonly` **string**: `true` = `true`
 
-#### generate-scoped-tags.subOptions.new-scope.subOptionOf
+#### generate-alias-tags.subOptions.new-scope.subOptionOf
 
 > `readonly` **subOptionOf**: `object`
 
-#### generate-scoped-tags.subOptions.new-scope.subOptionOf.generate-scoped-tags
+#### generate-alias-tags.subOptions.new-scope.subOptionOf.generate-alias-tags
 
-> `readonly` **generate-scoped-tags**: `object`
+> `readonly` **generate-alias-tags**: `object`
 
-#### generate-scoped-tags.subOptions.new-scope.subOptionOf.generate-scoped-tags.when()
+#### generate-alias-tags.subOptions.new-scope.subOptionOf.generate-alias-tags.when()
 
 > `readonly` **when**: (`superOptionValue`) => `any`
 
@@ -202,7 +202,7 @@ Defined in: [src/commands/project/renovate.ts:734](https://github.com/Xunnamius/
 
 `any`
 
-#### generate-scoped-tags.subOptions.new-scope.subOptionOf.generate-scoped-tags.update()
+#### generate-alias-tags.subOptions.new-scope.subOptionOf.generate-alias-tags.update()
 
 ##### Parameters
 
@@ -594,31 +594,51 @@ false
 
 BfeBuilderObjectValueExtensions.implies
 
-#### generate-scoped-tags.subOptions.old-scope
+#### generate-alias-tags.subOptions.old-scope
 
 > `readonly` **old-scope**: `object`
 
-#### generate-scoped-tags.subOptions.old-scope.defaultDescription
+#### generate-alias-tags.subOptions.old-scope.default
 
-> `readonly` **defaultDescription**: "\"v\" without \"@\", e.g. \"v$\{version\}\"" = `'"v" without "@", e.g. "v${version}"'`
+> `readonly` **default**: `""` = `''`
 
-#### generate-scoped-tags.subOptions.old-scope.description
+#### generate-alias-tags.subOptions.old-scope.defaultDescription
 
-> `readonly` **description**: "The characters preceding \"@\" in existing tags to be aliased" = `'The characters preceding "@" in existing tags to be aliased'`
+> `readonly` **defaultDescription**: `"if omitted while --force is used, only old-style tags are aliased"` = `'if omitted while --force is used, only old-style tags are aliased'`
 
-#### generate-scoped-tags.subOptions.old-scope.string
+#### generate-alias-tags.subOptions.old-scope.description
+
+> `readonly` **description**: "The characters preceding \"@\" in existing target tags" = `'The characters preceding "@" in existing target tags'`
+
+#### generate-alias-tags.subOptions.old-scope.string
 
 > `readonly` **string**: `true` = `true`
 
-#### generate-scoped-tags.supportedScopes
+#### generate-alias-tags.subOptions.rename-matching-releases
+
+> `readonly` **rename-matching-releases**: `object`
+
+#### generate-alias-tags.subOptions.rename-matching-releases.boolean
+
+> `readonly` **boolean**: `true` = `true`
+
+#### generate-alias-tags.subOptions.rename-matching-releases.default
+
+> `readonly` **default**: `false` = `false`
+
+#### generate-alias-tags.subOptions.rename-matching-releases.description
+
+> `readonly` **description**: `"Whether to rename matching GitHub releases"` = `'Whether to rename matching GitHub releases'`
+
+#### generate-alias-tags.supportedScopes
 
 > `readonly` **supportedScopes**: \[[`Unlimited`](../../../../configure/enumerations/DefaultGlobalScope.md#unlimited)\]
 
-#### generate-scoped-tags.taskAliases
+#### generate-alias-tags.taskAliases
 
 > `readonly` **taskAliases**: \[\] = `[]`
 
-#### generate-scoped-tags.run()
+#### generate-alias-tags.run()
 
 ##### Parameters
 
@@ -995,7 +1015,7 @@ By default, this command will preserve the origin repository's pre-existing conf
 
 #### github-rename-root.longHelpDescription
 
-> `readonly` **longHelpDescription**: "This renovation will:\n\n1. Rename the origin repository on GitHub.\n\n2. Update the package name in the origin repository's release names on GitHub that match the old root package's name. If --force is given, all releases with old-style semver valid names (e.g. \"v1.2.3\") will also be updated (to e.g. \"new-package-name@1.2.3\").\n\n3. Update the name field in the root package's package.json file.\n\n4. Update the package.json::repository of all packages in the project.\n\n5. Update the origin remote url in \`.git/config\` if it matches the old origin url. If --force is given, the origin remote url will always be updated regardless of its value.\n\n6. In a hybridrepo or polyrepo, add new annotated tags with the updated root package name as respective aliases of tags with the old package name, and then push them to the origin repository. If --force is given, alias tags will be created for any tags with old-style semver valid names (e.g. \"v1.2.3\").\n\n7. Rename (move) the repository directory on the local filesystem, if the repository name has changed. If the destination directory path already exists, this step will fail.\n\nIf any step fails, the renovation will abort immediately.\n\nTo create and recreate alias tags for existing release tags with more fidelity and control, see the --generate-scoped-tags renovation."
+> `readonly` **longHelpDescription**: "This renovation will:\n\n1. Rename the origin repository on GitHub.\n\n2. Update the origin repository's GitHub release names that are scoped to the old root package's name. If --force is given, all releases with old-style semver valid names (e.g. \"v1.2.3\") will be updated (to e.g. \"new-package-name@1.2.3\") as well.\n\n3. Update the name field in the root package's package.json file.\n\n4. Update the package.json::repository of all packages in the project.\n\n5. Update the origin remote url in \`.git/config\` if it matches the old origin url. If --force is given, the origin remote url will always be updated regardless of its value.\n\n6. In a hybridrepo or polyrepo, add new annotated tags with the updated root package name as respective aliases of tags with the old package name, and then push them to the origin repository. If --force is given, alias tags (e.g. \"new-package-name@1.2.3\") will be created for any existing tags with old-style semver valid names (e.g. \"v1.2.3\") as well.\n\n7. Rename (move) the repository directory on the local filesystem, if the repository name has changed. If the destination directory path already exists, this step will fail.\n\nIf any step fails, the renovation will abort immediately. Further, this command never deletes tags.\n\nTo create and recreate alias tags for existing release tags more generally, see the --generate-alias-tags renovation."
 
 #### github-rename-root.requiresForce
 
