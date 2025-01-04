@@ -1,10 +1,86 @@
 {
   "$schema": "https://turbo.build/schema.json",
+  // * In cases where individual packages need their own turbo.json, "extends"
+  // * can be used to easily reference the root turbo.json.
+  //"extends": ["//"]
+
+  // * Prevents environment variables NOT listed in a task-level or global env
+  // * config from being accessible by tasks. If an environment variable isn't
+  // * making it through, the solution is to update one of the env-related
+  // * configuration options elsewhere in this file:
+  "envMode": "strict",
+  // * Global environment variables that, when changed, SHOULD cause Turbo to
+  // * recalculate all task outputs. Wildcards and negation are supported too.
+  "globalEnv": ["DEBUG_*", "SYMBIOTE_", "NODE_ENV", "APP_ENV"],
+  // * Global environment variables that, when changed, should NOT cause Turbo
+  // * to recalculate all task outputs but should still be available to them
+  // * anyway.
+  // ! BE CAREFUL not to put something here that shouldn't be here. Just because
+  // ! a variable is in .env does NOT mean it automatically goes here!
+  "globalPassThroughEnv": [],
+
+  // * Global "inputs" for all tasks. These should include all the
+  // * infrastructure files at the project and package root levels.
+  "globalDependencies": [],
+
+  // * Each of these tasks can be executed by the turbo command. If there are
+  // * ANY package.json files with script keys matching the executed task's
+  // * name, they will also be run. If a package lists another intra-project
+  // * package as a dependency in its package.json, tasks will be run in
+  // * topological order (and also with respect to "dependsOn").
   "tasks": {
+    // * Will run any matching npm scripts with this task name, but it can also
+    // * be a custom task name for which no scripts yet exist.
     "build:dist": {
+      // * If false, this task's outputs will never be cached and this task will
+      // * always be rerun; this is useful for powerful tasks like "release".
+      //"cache": false,
+      // * Whether the task might require interaction from the user. If so, set
+      // * this to true (which also requires "cache: false").
+      // ! Note that local interactivity is fine, but interactivity should never
+      // ! be necessary for a task succeed in an CI/CD scenario.
+      //"interactive": true,
+      // * These are the NPM SCRIPTS (and not necessarily the "tasks" from this
+      // * file) that exist in zero or more packages' package.json that must
+      // * complete successfully before this task can execute.
+      // *
+      // * To target intra-package scripts, just use the scripts' name (e.g.
+      // * "build"). To target inter-package scripts in topological order, use
+      // * the "^" microsyntax (e.g. "^build"). To target inter-package scripts
+      // * arbitrarily, use the "#" microsyntax (e.g. "utils#build"). For tasks
+      // * that do not depend on any scripts to execute (that don't already
+      // * match the task name), specify an empty array.
+      // *
+      // * Note that scripts with corresponding tasks marked "persistent"
+      // * cannot be targeted by "dependsOn".
+      "dependsOn": [],
+      // * "inputs" files will, when changed, cause Turbo to recalculate all
+      // * outputs for this task (i.e. force a cache miss). Supports globs and
+      // * negation, and paths are relative to the PACKAGE root.
+      // ! Note that "inputs" when OMITTED (not just empty) defaults to all
+      // ! files in the package that are checked into source control. Specifying
+      // ! a custom "inputs" array turns this off, meaning it is possible to
+      // ! target files that are ignored by git. Instead of this allow-list
+      // ! approach, you can use a deny-list approach via "$TURBO_DEFAULT$",
+      // ! e.g.: ["$TURBO_DEFAULT$", "!README.md"] (everything except README.md)
+      //"inputs": [],
+      // * "outputs" files will be returned from the cache. Supports globs and
+      // * negation, and paths are relative to the PACKAGE root.
+      // ! Note that cache directories within output directories should usually
+      // ! be negated/excluded, e.g. "!.build/cache/**" or "!.next/cache/**"
       "outputs": ["dist/**", "!dist/types/**"]
+      // * Environment variables that, when changed, SHOULD cause Turbo to
+      // * recalculate this task's outputs. Wildcards and negation are supported
+      // * too.
+      //"env": []
+      // * Environment variables that, when changed, should NOT cause Turbo to
+      // * recalculate this task's outputs but should still be available to it
+      // * anyway.
+      // ! BE CAREFUL not to put something here that shouldn't be here. Just
+      // ! because a variable is in .env does NOT mean it automatically goes
+      // ! here!
+      //"passThroughEnv": []
     },
-    // TODO: update this whole file for symbiote etc
     // "build:types": {
     //   "outputs": ["dist/types/**"]
     // }
@@ -13,7 +89,7 @@
       "cache": false
     },
 
-    // ? We list these here even though they're empty so turbo will cache them
+    // ? We list these here even though they're empty so turbo will cache them.
     "lint:tsc": {
       "inputs": [
         "src/**/*.js",
@@ -24,7 +100,9 @@
         "src/**/*.cts",
         "src/**/*.mts",
         "src/**/*.json"
-      ]
+      ],
+      // * An empty "outputs" field instructs Turbo to only cache logs.
+      "outputs": []
     },
     "lint:eslint": {
       "inputs": [
@@ -32,7 +110,16 @@
         "types/**",
         "packages/*/src/**",
         "packages/*/types/**"
-      ]
+      ],
+      // * An empty "outputs" field instructs Turbo to only cache logs.
+      "outputs": []
     }
-  }
+  },
+
+  // * It seems to be the case that the "stream" UI can still allow for stdin
+  // * interactivity if the task has "cache: false" and "interactive: true".
+  "ui": "stream",
+  // Not a wise choice to use package.json::packageManager for this. Why not
+  // just have a turbo.json::packageManager key? Check on this periodically.
+  "dangerouslyDisablePackageManagerCheck": true
 }

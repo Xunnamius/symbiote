@@ -40,18 +40,18 @@
   "envMode": "strict",
   // * Global environment variables that, when changed, SHOULD cause Turbo to
   // * recalculate all task outputs. Wildcards and negation are supported too.
-  "globalEnv": ["DEBUG_*", "SYMBIOTE_", "NODE_ENV", "APP_ENV"],
+  "globalEnv": ["{{globalEnv}}"],
   // * Global environment variables that, when changed, should NOT cause Turbo
   // * to recalculate all task outputs but should still be available to them
   // * anyway.
   // ! BE CAREFUL not to put something here that shouldn't be here. Just because
   // ! a variable is in .env does NOT mean it automatically goes here!
-  "globalPassThroughEnv": [],
+  "globalPassThroughEnv": ["{{globalPassThroughEnv}}"],
 
   // * Global "inputs" for all tasks. These should include all the
   // * infrastructure files at the project-root level (and package-root level if
   // * this file is for a root package in a hybridrepo or polyrepo).
-  "globalDependencies": [],
+  "globalDependencies": ["{{globalDependencies}}"],
 
   // * Each of these tasks can be executed by the turbo command. If there are
   // * ANY package.json files with script keys matching the executed task's

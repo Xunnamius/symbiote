@@ -88,19 +88,19 @@
     },
 
     "build": {
-      "dependsOn": ["{{turboInitTaskName}}"],
+      "dependsOn": ["{{turboInitTaskName}}", "^build"],
       "inputs": ["$TURBO_DEFAULT$", "{{buildInputsExcludes}}"],
       "outputs": ["dist/**", "build/**", ".next/**"]
     },
 
     "test": {
-      "dependsOn": ["{{turboInitTaskName}}"]
+      "dependsOn": ["{{turboInitTaskName}}", "^build"]
     },
 
     "release": {
       "cache": false,
       "interactive": true,
-      "dependsOn": ["{{turboInitTaskName}}"]
+      "dependsOn": ["{{turboInitTaskName}}", "^release"]
     }
   }
 }
