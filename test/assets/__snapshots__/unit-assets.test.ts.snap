@@ -24629,7 +24629,7 @@ scope: this-package
 ⏶⏷⏶⏷⏶
 {
   "devDependencies": {
-    "@-xun/symbiote": "^2.4.3"
+    "@-xun/symbiote": "^2.5.0"
   },
   "workspaces": [
     "packages/*"
@@ -24720,7 +24720,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 {
   "devDependencies": {
-    "@-xun/symbiote": "^2.4.3"
+    "@-xun/symbiote": "^2.5.0"
   },
   "workspaces": [
     "packages/*",
@@ -25060,7 +25060,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 {
   "devDependencies": {
-    "@-xun/symbiote": "^2.4.3"
+    "@-xun/symbiote": "^2.5.0"
   },
   "workspaces": [
     "packages/*"
@@ -26197,7 +26197,7 @@ scope: unlimited
   },
   "dependencies": {},
   "devDependencies": {
-    "@-xun/symbiote": "^2.4.3"
+    "@-xun/symbiote": "^2.5.0"
   }
 }
 "
@@ -26281,7 +26281,7 @@ scope: this-package
   },
   "dependencies": {},
   "devDependencies": {
-    "@-xun/symbiote": "^2.4.3"
+    "@-xun/symbiote": "^2.5.0"
   }
 }
 "
@@ -26360,7 +26360,7 @@ scope: unlimited
   },
   "dependencies": {},
   "devDependencies": {
-    "@-xun/symbiote": "^2.4.3"
+    "@-xun/symbiote": "^2.5.0"
   }
 }
 "
