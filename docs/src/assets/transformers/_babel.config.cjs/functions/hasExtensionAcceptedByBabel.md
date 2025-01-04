@@ -8,7 +8,7 @@
 
 > **hasExtensionAcceptedByBabel**(`path`): `boolean`
 
-Defined in: [src/assets/transformers/\_babel.config.cjs.ts:160](https://github.com/Xunnamius/symbiote/blob/023107e8d1856ee3cd449bab77222ba9d9fdb206/src/assets/transformers/_babel.config.cjs.ts#L160)
+Defined in: [src/assets/transformers/\_babel.config.cjs.ts:160](https://github.com/Xunnamius/symbiote/blob/510118102ef530d135a286522a7a776ec12a8a72/src/assets/transformers/_babel.config.cjs.ts#L160)
 
 Returns `true` if `path` points to a file with an extension accepted by Babel
 (except [extensionTypescriptDefinition](../variables/extensionTypescriptDefinition.md)).
