@@ -260,7 +260,7 @@ export function generateNonHybridMonorepoProjectXPackageJson(
     scripts: {
       ...incomingBaseScripts,
       'list-tasks': `NODE_NO_WARNINGS=1 symbiote list-tasks${scopeUnlimitedArg}`,
-      'turbo:init': `NODE_NO_WARNINGS=1 symbiote project renovate --hush --regenerate-assets --assets-preset '${AssetPreset.TurboOnly}'`
+      'turbo:init': `NODE_NO_WARNINGS=1 symbiote project init-turbo --no-multiversal`
     }
   } as const satisfies XPackageJsonMonorepoRoot;
 }
@@ -275,8 +275,20 @@ export function generateHybridrepoProjectXPackageJson(
     preset
   ]: GeneratorParameters
 ) {
-  const { private: _, ...incomingMonorepoJson } =
-    generateNonHybridMonorepoProjectXPackageJson(
+  const {
+    private: _,
+    scripts: monorepoScripts,
+    ...incomingMonorepoJson
+  } = generateNonHybridMonorepoProjectXPackageJson(
+    incomingPackageJson,
+    isHybridrepo,
+    repoUrl,
+    projectRelativePackageRoot,
+    preset
+  );
+
+  const { scripts: polyrepoScripts, ...incomingPolyrepoJson } =
+    generatePolyrepoXPackageJson(
       incomingPackageJson,
       isHybridrepo,
       repoUrl,
@@ -286,13 +298,12 @@ export function generateHybridrepoProjectXPackageJson(
 
   return {
     ...incomingMonorepoJson,
-    ...generatePolyrepoXPackageJson(
-      incomingPackageJson,
-      isHybridrepo,
-      repoUrl,
-      projectRelativePackageRoot,
-      preset
-    )
+    ...incomingPolyrepoJson,
+    scripts: {
+      ...monorepoScripts,
+      ...polyrepoScripts,
+      'turbo:init': `NODE_NO_WARNINGS=1 symbiote project init-turbo --multiversal`
+    }
     // ? "private" is preserved from generatePolyrepoXPackageJson
   } as const satisfies XPackageJsonHybridrepoRoot;
 }
@@ -309,7 +320,7 @@ export function generateSubRootXPackageJson(
 ) {
   // ? Filter out what's not allowed in sub-root package.json
   const {
-    scripts: { prepare: _1, renovate: _2, release, build, ...incomingBaseScripts },
+    scripts: { prepare: _1, renovate: _2, ...incomingBaseScripts },
     ...incomingBaseJson
   } = generateBaseXPackageJson(
     incomingPackageJson,
@@ -321,11 +332,7 @@ export function generateSubRootXPackageJson(
 
   return {
     ...incomingBaseJson,
-    // ? Hybridrepo non-root packages should not be built, released, or marked
-    // ? non-private since they're temporary and meant to be moved into their
-    // ? own repos eventually. But they still retain "build:dist" just in case
-    scripts: { ...incomingBaseScripts, ...(!isHybridrepo ? { build, release } : {}) },
-    ...(isHybridrepo ? { private: true } : {})
+    scripts: { ...incomingBaseScripts }
   } as const satisfies XPackageJsonSubRoot;
 }
 
