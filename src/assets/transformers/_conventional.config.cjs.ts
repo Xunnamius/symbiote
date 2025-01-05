@@ -444,7 +444,7 @@ export function moduleExport({
         return a === -1 || b === -1 ? b - a : a - b;
       },
       // ? Note that in recent versions of conventional-commits, the commit
-      // ? object is now "immutable" (i.e. a Proxy); we do away with that below:
+      // ? object is now "immutable" (i.e. a Proxy); we do away with that below
       transform(commit_, context) {
         assert(
           cubby.proxiedTargets.has(commit_),
@@ -552,13 +552,34 @@ export function moduleExport({
 
             const paragraphs = note.text
               .split('\n\n')
-              .map((paragraph) => toSentenceCase(paragraph.replaceAll('\n', ' ')));
+              .map((paragraph, index, noteTextBlocks) => {
+                const isFirst = index === 0;
+                const isFirstAndNotLast = isFirst && index + 1 !== noteTextBlocks.length;
+
+                const sentenceCaseParagraph = toSentenceCase(
+                  paragraph.replaceAll('\n', ' ')
+                );
+
+                return isFirstAndNotLast
+                  ? // ? Bold the first line if there are multiple lines
+                    `**${sentenceCaseParagraph}**`
+                  : // ? Ensure content is indented
+                    `${isFirst ? '' : '  '}${sentenceCaseParagraph}`;
+              });
 
             // ? Never discard breaking changes
             discard = false;
             note.title = noteTitleForBreakingChange;
             note.text = paragraphs.join('\n\n') + '\n';
           }
+        });
+
+        // ? Sort multi-line BC notes before single-line notes
+        commit.notes = commit.notes.sort((noteA, noteB) => {
+          const noteAIsMultiline = noteA.text.includes('\n\n');
+          const noteBIsMultiline = noteB.text.includes('\n\n');
+
+          return noteAIsMultiline === noteBIsMultiline ? 0 : noteAIsMultiline ? 1 : -1;
         });
 
         // ? Discard entries of unknown or hidden types if discard === true
