@@ -687,50 +687,6 @@ export function moduleExport({
     //issuePrefixes: ...
   };
 
-  intermediateConfig.recommendedBumpOpts = {
-    tagPrefix: intermediateConfig.options.tagPrefix,
-    parserOpts: intermediateConfig.parserOpts,
-    whatBump: (commits) => {
-      const debug_ = debug.extend('writerOpts:whatBump');
-
-      let level = 2; // ? 0 = major, 1 = minor, 2 = patch (default)
-      let breakings = 0;
-      let features = 0;
-
-      commits.forEach((commit) => {
-        addBangNotes(commit);
-
-        if (commit.notes.length > 0) {
-          breakings += commit.notes.length;
-          level = 0; // ? -> major
-        } else if (commit.type === 'feat' || commit.type === 'feature') {
-          features += 1;
-
-          if (level === 2) {
-            level = 1; // ? patch -> minor
-          }
-        }
-      });
-
-      // ? If release <1.0.0 and we were gonna do a major/minor bump, do a
-      // ? minor/patch (respectively) bump instead
-      if (intermediateConfig.preMajor && level < 2) {
-        debug_('preMajor release detected; restricted to minor and patch bumps');
-        level++;
-      }
-
-      const recommendation = {
-        level,
-        reason: `There ${breakings === 1 ? 'is' : 'are'} ${breakings} breaking change${
-          breakings === 1 ? '' : 's'
-        } and ${features} feature${features === 1 ? '' : 's'}`
-      };
-
-      debug_('recommendation: %O', recommendation);
-      return recommendation;
-    }
-  } as typeof intermediateConfig.recommendedBumpOpts;
-
   debug('intermediate config: %O', intermediateConfig);
 
   const finalConfig =
