@@ -8,4 +8,4 @@
 
 > `const` **NODE\_LTS**: `"maintained node versions"` = `'maintained node versions'`
 
-Defined in: [src/assets/transformers/\_babel.config.cjs.ts:113](https://github.com/Xunnamius/symbiote/blob/4231719a4050b5b3956e3e19d12d8c469fd0bd37/src/assets/transformers/_babel.config.cjs.ts#L113)
+Defined in: [src/assets/transformers/\_babel.config.cjs.ts:113](https://github.com/Xunnamius/symbiote/blob/b0f6e46275dcd7f80ceb92f05b1e0795869afaf6/src/assets/transformers/_babel.config.cjs.ts#L113)

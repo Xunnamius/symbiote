@@ -8,7 +8,7 @@
 
 > **generateSubRootXPackageJson**(...`__namedParameters`): `object`
 
-Defined in: [src/assets/transformers/\_package.json.ts:301](https://github.com/Xunnamius/symbiote/blob/4231719a4050b5b3956e3e19d12d8c469fd0bd37/src/assets/transformers/_package.json.ts#L301)
+Defined in: [src/assets/transformers/\_package.json.ts:312](https://github.com/Xunnamius/symbiote/blob/b0f6e46275dcd7f80ceb92f05b1e0795869afaf6/src/assets/transformers/_package.json.ts#L312)
 
 ## Parameters
 
@@ -254,7 +254,7 @@ If set to `true`, a warning will be shown if package is installed locally. Usefu
 
 ### private?
 
-> `optional` **private**: `boolean`
+> `readonly` `optional` **private**: `boolean`
 
 If set to `true`, then npm will refuse to publish it.
 
@@ -306,9 +306,20 @@ Selective version resolutions. Allows the definition of custom package versions 
 
 > `readonly` **scripts**: `object`
 
-#### scripts.build?
+#### scripts.build
 
-> `optional` **build**: `string`
+> `readonly` **build**: `string` = `'npm run build:dist --'`
+
+Run by users, symbiote, and related tooling when building the current
+package's production-ready distributables.
+
+This script is usually a reference to `npm run build:dist`.
+
+##### Example
+
+```ts
+`npm run build:dist --`
+```
 
 #### scripts.build:changelog
 
@@ -431,7 +442,7 @@ This script is usually a reference to `npm run lint:package`.
 
 #### scripts.lint:package
 
-> `readonly` **lint:package**: `string` = `'NODE_NO_WARNINGS=1 symbiote lint'`
+> `readonly` **lint:package**: `string` = `'NODE_NO_WARNINGS=1 symbiote lint --hush'`
 
 Run by users, symbiote, and related tooling when linting all of the
 lintable files under the current package's root along with any other
@@ -603,9 +614,18 @@ Run **before** bump the package version and before `version`.
 
 Run **after** the package is published.
 
-#### scripts.release?
+#### scripts.release
 
-> `optional` **release**: `string`
+> `readonly` **release**: `string` = `'NODE_NO_WARNINGS=1 symbiote release'`
+
+Run by users, symbiote, and related tooling when potentially releasing
+the next version of a package.
+
+##### Example
+
+```ts
+`NODE_NO_WARNINGS=1 symbiote release`
+```
 
 #### scripts.restart?
 

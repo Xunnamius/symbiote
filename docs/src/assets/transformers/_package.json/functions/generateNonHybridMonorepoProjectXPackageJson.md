@@ -8,7 +8,7 @@
 
 > **generateNonHybridMonorepoProjectXPackageJson**(...`__namedParameters`): `object`
 
-Defined in: [src/assets/transformers/\_package.json.ts:206](https://github.com/Xunnamius/symbiote/blob/4231719a4050b5b3956e3e19d12d8c469fd0bd37/src/assets/transformers/_package.json.ts#L206)
+Defined in: [src/assets/transformers/\_package.json.ts:206](https://github.com/Xunnamius/symbiote/blob/b0f6e46275dcd7f80ceb92f05b1e0795869afaf6/src/assets/transformers/_package.json.ts#L206)
 
 ## Parameters
 
@@ -567,7 +567,7 @@ tests across the entire project.
 
 #### scripts.turbo:init
 
-> `readonly` **turbo:init**: `"NODE_NO_WARNINGS=1 symbiote project renovate --hush --regenerate-assets --assets-preset 'turbo-only'"`
+> `readonly` **turbo:init**: `"NODE_NO_WARNINGS=1 symbiote project init-turbo --no-multiversal"`
 
 #### scripts.uninstall?
 

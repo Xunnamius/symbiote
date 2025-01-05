@@ -8,7 +8,7 @@
 
 > `const` **preparationScopes**: [`Unlimited`](../../../../configure/enumerations/UnlimitedGlobalScope.md#unlimited)[]
 
-Defined in: [src/commands/project/prepare.ts:38](https://github.com/Xunnamius/symbiote/blob/4231719a4050b5b3956e3e19d12d8c469fd0bd37/src/commands/project/prepare.ts#L38)
+Defined in: [src/commands/project/prepare.ts:38](https://github.com/Xunnamius/symbiote/blob/b0f6e46275dcd7f80ceb92f05b1e0795869afaf6/src/commands/project/prepare.ts#L38)
 
 ## See
 

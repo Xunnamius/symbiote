@@ -8,7 +8,7 @@
 
 > **generatePolyrepoXPackageJson**(...`__namedParameters`): `object`
 
-Defined in: [src/assets/transformers/\_package.json.ts:181](https://github.com/Xunnamius/symbiote/blob/4231719a4050b5b3956e3e19d12d8c469fd0bd37/src/assets/transformers/_package.json.ts#L181)
+Defined in: [src/assets/transformers/\_package.json.ts:181](https://github.com/Xunnamius/symbiote/blob/b0f6e46275dcd7f80ceb92f05b1e0795869afaf6/src/assets/transformers/_package.json.ts#L181)
 
 ## Parameters
 
@@ -438,7 +438,7 @@ This script is usually a reference to `npm run lint:package`.
 
 #### scripts.lint:package
 
-> **lint:package**: `string` = `'NODE_NO_WARNINGS=1 symbiote lint'`
+> **lint:package**: `string` = `'NODE_NO_WARNINGS=1 symbiote lint --hush'`
 
 Run by users, symbiote, and related tooling when linting all of the
 lintable files under the current package's root along with any other
