@@ -1906,9 +1906,16 @@ async function expectAssetsToMatchSnapshots(
     expect(
       `key: ${key}\nscope: ${scope}\n⏶⏷⏶⏷⏶\n` +
         // eslint-disable-next-line no-await-in-loop
-        String(await asset())
+        replaceDynamicValuesWithStableStrings(await asset())
     ).toMatchSnapshot(key);
   }
+}
+
+function replaceDynamicValuesWithStableStrings(str: string | symbol) {
+  return String(str).replaceAll(
+    /"@-xun\/symbiote": "[^"]+"/g,
+    '"@-xun/symbiote": "<latest>"'
+  );
 }
 
 async function toAssetsMap(assets: ReifiedAssets | Asset[]) {
