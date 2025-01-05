@@ -83,8 +83,8 @@
     "format": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js format --hush",
     "info": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js project info",
     "lint": "npm run lint:package --",
-    "lint:package": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js lint",
-    "lint:packages": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js lint --scope unlimited",
+    "lint:package": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js lint --hush",
+    "lint:packages": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js lint --hush --scope unlimited",
     "lint:project": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js project lint",
     "list-tasks": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js list-tasks --scope this-package",
     "prepare": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js project prepare",
@@ -96,7 +96,8 @@
     "test:package:e2e": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js test --tests end-to-end",
     "test:package:integration": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js test --tests integration",
     "test:package:unit": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js test --tests unit",
-    "test:packages:all": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js test --scope unlimited --coverage"
+    "test:packages:all": "NODE_NO_WARNINGS=1 ./node_modules/@-xun/symbiote/dist/src/cli.js test --scope unlimited --coverage",
+    "turbo:init": "NODE_NO_WARNINGS=1 symbiote project init-turbo --multiversal"
   },
   "dependencies": {
     "@-xun/changelog": "^1.0.0",

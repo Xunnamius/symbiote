@@ -35,8 +35,6 @@ Technically a fork of [babel-plugin-list-imports][1].
 
 <!-- symbiote-template-region-start 3 -->
 
-<br />
-
 ---
 
 <!-- remark-ignore-start -->

@@ -87,8 +87,6 @@ ecosystem behind a stable-but-highly-opinionated API and CLI.
 
 <!-- symbiote-template-region-start 3 -->
 
-<br />
-
 ---
 
 <!-- remark-ignore-start -->

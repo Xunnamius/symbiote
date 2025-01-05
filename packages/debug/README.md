@@ -35,8 +35,6 @@ A wrapper around [debug][1] with several convenience methods.
 
 <!-- symbiote-template-region-start 3 -->
 
-<br />
-
 ---
 
 <!-- remark-ignore-start -->

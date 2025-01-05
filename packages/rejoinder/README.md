@@ -35,8 +35,6 @@ TODO <!-- TODO -->
 
 <!-- symbiote-template-region-start 3 -->
 
-<br />
-
 ---
 
 <!-- remark-ignore-start -->
