@@ -615,7 +615,7 @@ it('does not list breaking change twice if "!" is used', async () => {
   );
 });
 
-it('outputs as one line all lines of multi-line breaking change notes with each line in sentence case', async () => {
+it('outputs as one line all lines of multi-line breaking change notes with each line in sentence case and first line bold', async () => {
   expect.hasAssertions();
 
   await withMockedFixtureWrapper(
@@ -624,8 +624,23 @@ it('outputs as one line all lines of multi-line breaking change notes with each 
         const config = moduleExport(dummyModuleExportConfig);
         const changelog = await runConventionalChangelog(config, { releaseCount: 2 });
         expect(changelog).toInclude(
-          '* The Change is huge. Big. Really big.\n\nReally. Like super big. Wow!\n\nHere are some extra details!'
+          '* **The Change is huge. Big. Really big.**\n\n  Really. Like super big. Wow!\n\n  Here are some extra details!'
         );
+      }
+    },
+    generatePatchesForEnvironment9()
+  );
+});
+
+it('outputs single-line breaking change notes in sentence case and not bolded', async () => {
+  expect.hasAssertions();
+
+  await withMockedFixtureWrapper(
+    {
+      async test() {
+        const config = moduleExport(dummyModuleExportConfig);
+        const changelog = await runConventionalChangelog(config, { releaseCount: 2 });
+        expect(changelog).toInclude('* Incredible new flag FIXES: [#33]');
       }
     },
     generatePatchesForEnvironment9()

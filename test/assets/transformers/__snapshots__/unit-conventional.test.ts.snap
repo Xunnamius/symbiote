@@ -85,13 +85,13 @@ exports[`matches changelog snapshot when there are semver tags in the repo 1`] =
 
 ### 💥 BREAKING CHANGES 💥
 
+* **The Change is huge. Big. Really big.**
+
+  Really. Like super big. Wow!
+
+  Here are some extra details!
+
 * Incredible new flag FIXES: [#33](https://github.com/fake-user/fake-repo/issues/33)-[#22](https://github.com/fake-user/fake-repo/issues/22)
-
-* The Change is huge. Big. Really big.
-
-Really. Like super big. Wow!
-
-Here are some extra details!
 
 * This completely changes the API
 
