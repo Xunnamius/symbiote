@@ -57,12 +57,9 @@ import { moduleExport } from '@-xun/symbiote/assets/${asset}';
 
 /*const debug = createDebugLogger({ namespace: '${globalDebuggerNamespace}:config:prettier' });*/
 
-const config = deepMergeConfig(
-  moduleExport(),
-  {
-    // Any custom configs here will be deep merged with moduleExport's result
-  }
-);
+const config = deepMergeConfig(moduleExport(), {
+  // Any custom configs here will be deep merged with moduleExport's result
+});
 
 export default config;
 

@@ -333,12 +333,9 @@ import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/${asset}'
 
 /*const debug = createDebugLogger({ namespace: '${globalDebuggerNamespace}:config:remarkrc' });*/
 
-const config = deepMergeConfig(
-  moduleExport(await assertEnvironment()),
-  {
-    // Any custom configs here will be deep merged with moduleExport
-  }
-);
+const config = deepMergeConfig(moduleExport(await assertEnvironment()), {
+  // Any custom configs here will be deep merged with moduleExport
+});
 
 export default config;
 
