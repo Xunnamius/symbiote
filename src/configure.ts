@@ -171,12 +171,13 @@ export const configureExecutionContext = async function (context) {
       'tsconfig.json'
     );
 
-    const isRunningFromWithinCurrentProject =
-      __dirname.startsWith(rootPackageDistDirPath);
+    const isRunningFromWithinCurrentProject = __dirname.startsWith(projectRoot);
     const isRunningFromWithinCurrentProjectDistDir =
-      !__dirname.includes('/node_modules/') && isRunningFromWithinCurrentProject;
+      !__dirname.includes('/node_modules/') &&
+      __dirname.startsWith(rootPackageDistDirPath);
 
     rootDebugLogger('__dirname: %O', __dirname);
+    rootDebugLogger('rootPackageDistDirPath: %O', rootPackageDistDirPath);
     rootDebugLogger(
       'nodeModulesDirTsconfigFilePath: %O',
       nodeModulesDirTsconfigFilePath
