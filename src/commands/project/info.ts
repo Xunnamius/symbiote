@@ -66,7 +66,8 @@ export default function command({
 
       debug('scope: %O', scope);
 
-      // TODO (what is the next version gonna be, if any?)
+      // TODO (what is the next version of all packages gonna be, if any?)
+      // TODO (--porcelain to output simple key=value lines)
       // TODO (report on which vscode settings are used via .vscode, but also warn that in a vscode multi-root workspace, options are ignored in favor of the options in said workspace's configuration file directly)
       // TODO (report on `*.ignore`-ed packages)
       // TODO (import graph made visible using treeify package)
