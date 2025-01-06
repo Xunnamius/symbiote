@@ -214,7 +214,8 @@ Provide --allow-warning-comments to set the SYMBIOTE_LINT_ALLOW_WARNING_COMMENTS
       allowWarningComments,
       runToCompletion,
       hush: isHushed,
-      quiet: isQuieted
+      quiet: isQuieted,
+      silent: isSilenced
     }) {
       const genericLogger = log.extend(scriptBasename(scriptFullName));
       const debug = debug_.extend('handler');
@@ -460,8 +461,8 @@ Provide --allow-warning-comments to set the SYMBIOTE_LINT_ALLOW_WARNING_COMMENTS
                 }
               : {})
           },
-          stdout: isHushed ? 'ignore' : 'pipe',
-          stderr: isQuieted ? 'ignore' : 'pipe',
+          stdout: isQuieted ? 'ignore' : 'pipe',
+          stderr: isSilenced ? 'ignore' : 'pipe',
           killSignal: 'SIGKILL',
           useIntermediate(subprocess) {
             debug(
