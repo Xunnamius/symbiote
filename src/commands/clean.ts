@@ -60,7 +60,8 @@ export default function command({
   log,
   debug_,
   state: { startTime },
-  projectMetadata: projectMetadata_
+  projectMetadata: projectMetadata_,
+  isUsingLocalInstallation
 }: AsStrictExecutionContext<GlobalExecutionContext>) {
   const [builder, withGlobalHandler] = withGlobalBuilder<CustomCliArguments>({
     'exclude-paths': {
@@ -111,7 +112,8 @@ The default value for --exclude-paths includes the following regular expressions
         }
       } = await runGlobalPreChecks({ debug_, projectMetadata_, scope });
 
-      logStartTime({ log, startTime });
+      logStartTime({ log, startTime, isUsingLocalInstallation });
+
       genericLogger(
         [LogTag.IF_NOT_QUIETED],
         `Cleaning ${scope === DefaultGlobalScope.ThisPackage ? 'this package only' : 'the entire project'}...`

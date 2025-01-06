@@ -145,7 +145,8 @@ export default function command({
   log,
   debug_,
   state,
-  projectMetadata: projectMetadata_
+  projectMetadata: projectMetadata_,
+  isUsingLocalInstallation
 }: AsStrictExecutionContext<GlobalExecutionContext>) {
   const allActualTests = tests.filter(
     (test) => ![Test.All, Test.AllLocal].includes(test)
@@ -350,7 +351,7 @@ Provide --skip-slow-tests (or -x) to set the SYMBIOTE_TEST_JEST_SKIP_SLOW_TESTS 
 
       const { startTime } = state;
 
-      logStartTime({ log, startTime });
+      logStartTime({ log, startTime, isUsingLocalInstallation });
 
       genericLogger(
         [LogTag.IF_NOT_QUIETED],

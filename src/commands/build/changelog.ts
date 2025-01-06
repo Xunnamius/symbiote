@@ -154,7 +154,8 @@ export default function command(
     log,
     debug_,
     state,
-    projectMetadata: projectMetadata_
+    projectMetadata: projectMetadata_,
+    isUsingLocalInstallation
   } = globalExecutionContext;
 
   const [builder, withGlobalHandler] = withGlobalBuilder<CustomCliArguments>({
@@ -247,9 +248,15 @@ Use --import-section-file to add a custom release section to the changelog. The 
         projectMetadata_,
         scope
       });
+
       const { startTime } = state;
 
-      logStartTime({ log, startTime });
+      logStartTime({
+        log,
+        startTime,
+        isUsingLocalInstallation
+      });
+
       genericLogger([LogTag.IF_NOT_QUIETED], 'Compiling changelog...');
 
       const {

@@ -39,7 +39,16 @@ const rootDebugLogger = createDebugLogger({ namespace: globalDebuggerNamespace }
 export { $executionContext } from '@black-flag/core';
 
 export type GlobalExecutionContext = StandardExecutionContext & {
+  /**
+   * A collection of useful information about the current project. Never
+   * includes unnamed workspace packages.
+   */
   projectMetadata: ProjectMetadata | undefined;
+  /**
+   * Whether symbiote is being run from within the current project or from
+   * elsewhere in the filesystem.
+   */
+  isUsingLocalInstallation: boolean;
 };
 
 /**
@@ -146,15 +155,14 @@ export const configureExecutionContext = async function (context) {
     () => undefined
   );
 
+  let isUsingLocalInstallation = false;
+
   if (projectMetadata) {
     const {
-      rootPackage: { root: projectRoot },
-      cwdPackage: { root: packageRoot }
+      rootPackage: { root: projectRoot }
     } = projectMetadata;
 
-    const cwdPackageDistDirPath = toPath(packageRoot, directoryDistPackageBase);
     const rootPackageDistDirPath = toPath(projectRoot, directoryDistPackageBase);
-
     const nodeModulesDirTsconfigFilePath = toPath(
       projectRoot,
       'node_modules',
@@ -163,15 +171,19 @@ export const configureExecutionContext = async function (context) {
       'tsconfig.json'
     );
 
+    const isRunningFromWithinCurrentProject =
+      __dirname.startsWith(rootPackageDistDirPath);
     const isRunningFromWithinCurrentProjectDistDir =
-      !__dirname.includes('/node_modules/') &&
-      (__dirname.startsWith(cwdPackageDistDirPath) ||
-        __dirname.startsWith(rootPackageDistDirPath));
+      !__dirname.includes('/node_modules/') && isRunningFromWithinCurrentProject;
 
     rootDebugLogger('__dirname: %O', __dirname);
     rootDebugLogger(
       'nodeModulesDirTsconfigFilePath: %O',
       nodeModulesDirTsconfigFilePath
+    );
+    rootDebugLogger(
+      'isRunningFromWithinCurrentProject: %O',
+      isRunningFromWithinCurrentProject
     );
     rootDebugLogger(
       'isRunningFromWithinCurrentProjectDistDir: %O',
@@ -194,9 +206,20 @@ export const configureExecutionContext = async function (context) {
     } else {
       rootDebugLogger('decision: a non-dev version is probably running');
     }
+
+    isUsingLocalInstallation = isRunningFromWithinCurrentProject;
   }
 
-  return { ...standardContext, projectMetadata };
+  rootDebugLogger.message(
+    'is using locally installed binary: %O',
+    isUsingLocalInstallation
+  );
+
+  return {
+    ...standardContext,
+    projectMetadata,
+    isUsingLocalInstallation
+  };
 } as ConfigureExecutionContext<GlobalExecutionContext>;
 
 export const configureErrorHandlingEpilogue = function (...args) {

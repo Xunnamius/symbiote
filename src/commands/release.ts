@@ -279,7 +279,13 @@ export type CustomCliArguments = GlobalCliArguments<ReleaseScope> & {
 export default function command(
   executionContext: AsStrictExecutionContext<GlobalExecutionContext>
 ) {
-  const { log, debug_, state, projectMetadata: projectMetadata_ } = executionContext;
+  const {
+    log,
+    debug_,
+    state,
+    projectMetadata: projectMetadata_,
+    isUsingLocalInstallation
+  } = executionContext;
 
   const { prereleaseTasks, postreleaseTasks, tasksInRunOrder } =
     // ! This is guaranteed by a hardAssert before task.run is called (below)
@@ -469,7 +475,7 @@ WARNING: this command is NOT DESIGNED TO HANDLE CONCURRENT EXECUTION ON THE SAME
       const { json: cwdPackageJson } = cwdPackage;
       const { scripts: cwdPackageJsonScripts = {} } = cwdPackageJson;
 
-      logStartTime({ log, startTime });
+      logStartTime({ log, startTime, isUsingLocalInstallation });
       genericLogger([LogTag.IF_NOT_QUIETED], 'Releasing project...');
 
       debug('scope (unused): %O', scope);

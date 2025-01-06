@@ -35,7 +35,8 @@ export default function command({
   log,
   debug_,
   state,
-  projectMetadata: projectMetadata_
+  projectMetadata: projectMetadata_,
+  isUsingLocalInstallation
 }: AsStrictExecutionContext<GlobalExecutionContext>) {
   const [builder, withGlobalHandler] = withGlobalBuilder<CustomCliArguments>({
     // TODO
@@ -55,7 +56,7 @@ export default function command({
       await runGlobalPreChecks({ debug_, projectMetadata_, scope });
       const { startTime } = state;
 
-      logStartTime({ log, startTime });
+      logStartTime({ log, startTime, isUsingLocalInstallation });
       genericLogger([LogTag.IF_NOT_QUIETED], 'Verifying structural compliance...');
 
       debug('scope (unused): %O', scope);

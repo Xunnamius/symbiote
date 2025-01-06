@@ -75,7 +75,8 @@ export default async function command({
   log,
   debug_,
   state,
-  projectMetadata: projectMetadata_
+  projectMetadata: projectMetadata_,
+  isUsingLocalInstallation
 }: AsStrictExecutionContext<GlobalExecutionContext>) {
   const [builder, withGlobalHandler] = withGlobalBuilder<CustomCliArguments>(
     (blackFlag) => {
@@ -230,7 +231,8 @@ Provide --allow-warning-comments to set the SYMBIOTE_LINT_ALLOW_WARNING_COMMENTS
 
       const { startTime } = state;
 
-      logStartTime({ log, startTime });
+      logStartTime({ log, startTime, isUsingLocalInstallation });
+
       genericLogger(
         [LogTag.IF_NOT_QUIETED],
         `Linting ${

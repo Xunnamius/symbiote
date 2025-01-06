@@ -58,7 +58,8 @@ export default function command({
   log,
   debug_,
   state,
-  projectMetadata: projectMetadata_
+  projectMetadata: projectMetadata_,
+  isUsingLocalInstallation
 }: AsStrictExecutionContext<GlobalExecutionContext>) {
   const [builder, withGlobalHandler] = withGlobalBuilder<CustomCliArguments>({
     scope: {
@@ -161,7 +162,8 @@ With respect to .prettierignore being the single source of truth for formatters:
 
       const { startTime } = state;
 
-      logStartTime({ log, startTime });
+      logStartTime({ log, startTime, isUsingLocalInstallation });
+
       genericLogger(
         [LogTag.IF_NOT_QUIETED],
         `Preparing to format ${scope === DefaultGlobalScope.ThisPackage ? "this package's" : "the entire project's"} files...`

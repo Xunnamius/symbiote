@@ -65,7 +65,8 @@ export default function command({
   log,
   debug_,
   state,
-  projectMetadata: projectMetadata_
+  projectMetadata: projectMetadata_,
+  isUsingLocalInstallation
 }: AsStrictExecutionContext<GlobalExecutionContext>) {
   const [builder, withGlobalHandler] = withGlobalBuilder<CustomCliArguments>({
     scope: { choices: deployScopes },
@@ -228,7 +229,7 @@ When using --target=ssh, it is assumed the key pair necessary to authenticate wi
 
       const { startTime } = state;
 
-      logStartTime({ log, startTime });
+      logStartTime({ log, startTime, isUsingLocalInstallation });
       genericLogger([LogTag.IF_NOT_QUIETED], 'Deploying project...');
 
       const { attributes: projectAttributes } = projectMetadata.rootPackage;

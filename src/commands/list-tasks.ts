@@ -32,7 +32,8 @@ export default function command({
   log,
   debug_,
   state,
-  projectMetadata: projectMetadata_
+  projectMetadata: projectMetadata_,
+  isUsingLocalInstallation
 }: AsStrictExecutionContext<GlobalExecutionContext>) {
   const [builder, withGlobalHandler] = withGlobalBuilder<CustomCliArguments>(
     (blackFlag, _, argv) => {
@@ -77,7 +78,7 @@ export default function command({
 
       const { startTime } = state;
 
-      logStartTime({ log, startTime });
+      logStartTime({ log, startTime, isUsingLocalInstallation });
       genericLogger([LogTag.IF_NOT_QUIETED], 'Gathering available tasks...');
 
       debug('scope: %O', scope);

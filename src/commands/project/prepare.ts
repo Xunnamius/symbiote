@@ -47,7 +47,8 @@ export default function command({
   log,
   debug_,
   state,
-  projectMetadata: projectMetadata_
+  projectMetadata: projectMetadata_,
+  isUsingLocalInstallation
 }: AsStrictExecutionContext<GlobalExecutionContext>) {
   const [builder, withGlobalHandler] = withGlobalBuilder<CustomCliArguments>({
     scope: { choices: preparationScopes, default: PreparationScope.Unlimited },
@@ -129,7 +130,7 @@ This command runs Husky along with any post-npm-install scripts asynchronously a
       const projectMetadata = projectMetadata_!;
       const { startTime } = state;
 
-      logStartTime({ log, startTime });
+      logStartTime({ log, startTime, isUsingLocalInstallation });
       genericLogger([LogTag.IF_NOT_QUIETED], 'Preparing project...');
       genericLogger.newline([LogTag.IF_NOT_QUIETED]);
 

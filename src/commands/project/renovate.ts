@@ -279,7 +279,13 @@ export type CustomCliArguments = GlobalCliArguments & {
 export default function command(
   executionContext: AsStrictExecutionContext<GlobalExecutionContext>
 ) {
-  const { log, debug_, state, projectMetadata: projectMetadata_ } = executionContext;
+  const {
+    log,
+    debug_,
+    state,
+    projectMetadata: projectMetadata_,
+    isUsingLocalInstallation
+  } = executionContext;
 
   const [builder, withGlobalHandler] = withGlobalBuilder<CustomCliArguments>({
     hush: { default: true },
@@ -345,7 +351,7 @@ ${printRenovationTasks()}`,
 
       const { startTime } = state;
 
-      logStartTime({ log, startTime });
+      logStartTime({ log, startTime, isUsingLocalInstallation });
 
       genericLogger(
         [LogTag.IF_NOT_QUIETED],

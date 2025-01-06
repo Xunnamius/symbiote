@@ -26,12 +26,15 @@ export enum LogTag {
  * Prints a timestamp indicating the beginning of execution.
  */
 export function logStartTime({
-  log,
-  startTime
+  log: _log,
+  startTime,
+  isUsingLocalInstallation
 }: {
   log: ExtendedLogger;
   startTime: Date;
+  isUsingLocalInstallation: boolean;
 }) {
+  const log = _log.extend(`[${isUsingLocalInstallation ? 'local' : 'GLOBAL'}]`);
   log(
     [LogTag.IF_NOT_HUSHED],
     'Execution began on',

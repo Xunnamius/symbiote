@@ -173,7 +173,8 @@ export default async function command({
   log,
   debug_,
   state,
-  projectMetadata: projectMetadata_
+  projectMetadata: projectMetadata_,
+  isUsingLocalInstallation
 }: AsStrictExecutionContext<GlobalExecutionContext>) {
   const { attributes: projectAttributes = {} } = projectMetadata_?.rootPackage || {};
   const isCwdTheProjectRoot =
@@ -442,7 +443,7 @@ Finally, note that, when attempting to build a Next.js package, this command wil
       const { startTime } = state;
       let isBuildAlreadyOutput = false;
 
-      logStartTime({ log, startTime });
+      logStartTime({ log, startTime, isUsingLocalInstallation });
 
       debug('scope (unused): %O', scope);
       debug('cleanOutputDir: %O', cleanOutputDir);
