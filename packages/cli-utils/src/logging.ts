@@ -34,9 +34,8 @@ export function logStartTime({
   startTime: Date;
   isUsingLocalInstallation: boolean;
 }) {
-  const log = _log.extend(`[${isUsingLocalInstallation ? 'local' : 'GLOBAL'}]`);
-  log(
-    [LogTag.IF_NOT_HUSHED],
+  _log.extend(isUsingLocalInstallation ? '🏠local' : '🌎GLOBAL')(
+    [LogTag.IF_NOT_QUIETED],
     'Execution began on',
     startTime.toLocaleDateString(),
     'at',
