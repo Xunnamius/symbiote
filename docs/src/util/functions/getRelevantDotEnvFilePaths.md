@@ -8,7 +8,7 @@
 
 > **getRelevantDotEnvFilePaths**(`projectMetadata`, `scope`): `AbsolutePath`[]
 
-Defined in: [src/util.ts:373](https://github.com/Xunnamius/symbiote/blob/3831af5468c04bc48a0849a15233d1d644e5c45b/src/util.ts#L373)
+Defined in: [src/util.ts:373](https://github.com/Xunnamius/symbiote/blob/2fd61c45d5639f5e6f8edadc3b7d4851011bc365/src/util.ts#L373)
 
 Returns all dotenv file paths relevant to the current package in reverse
 order of precedence; the most important dotenv file will be last in the

@@ -8,7 +8,7 @@
 
 > `const` **allPostReleaseTasks**: `"postrelease"` = `'postrelease'`
 
-Defined in: [src/commands/release.ts:116](https://github.com/Xunnamius/symbiote/blob/3831af5468c04bc48a0849a15233d1d644e5c45b/src/commands/release.ts#L116)
+Defined in: [src/commands/release.ts:116](https://github.com/Xunnamius/symbiote/blob/2fd61c45d5639f5e6f8edadc3b7d4851011bc365/src/commands/release.ts#L116)
 
 A string that can be passed to --skip-tasks representing all postrelease
 tasks.
