@@ -335,9 +335,6 @@ import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/${asset}'
 
 const config = deepMergeConfig(
   moduleExport(await assertEnvironment()),
-  /**
-   * @type {import('@-xun/symbiote/assets/${asset}').RemarkConfig}
-   */
   {
     // Any custom configs here will be deep merged with moduleExport
   }

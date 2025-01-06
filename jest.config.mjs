@@ -11,9 +11,6 @@ import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/jest.conf
 
 const config = deepMergeConfig(
   moduleExport({ derivedAliases: getJestAliases(), ...assertEnvironment() }),
-  /**
-   * @type {import('@-xun/symbiote/assets/jest.config.mjs').JestConfig}
-   */
   {
     // Any custom configs here will be deep merged with moduleExport's result
   }

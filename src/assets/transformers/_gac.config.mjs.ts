@@ -40,9 +40,6 @@ import { moduleExport } from '@-xun/symbiote/assets/${asset}';
 /*const debug = createDebugLogger({ namespace: '${globalDebuggerNamespace}:config:gac' });*/
 
 const config = deepMergeConfig(moduleExport(),
-/**
- * @type {import('@-xun/symbiote/assets/${asset}').GacConfig}
- */
 {
   // Any custom configs here will be deep merged with moduleExport's result
 });

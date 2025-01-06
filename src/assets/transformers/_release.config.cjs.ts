@@ -236,9 +236,6 @@ const {
 
 module.exports = deepMergeConfig(
   moduleExport(assertEnvironment({ projectRoot: __dirname })),
-  /**
-   * @type {import('@-xun/symbiote/assets/${asset}').ReleaseConfig}
-   */
   {
     // Any custom configs here will be deep merged with moduleExport's result
   }
