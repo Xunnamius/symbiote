@@ -64,6 +64,7 @@
 - [src/commands/project](src/commands/project/README.md)
 - [src/commands/project/info](src/commands/project/info/README.md)
 - [src/commands/project/init](src/commands/project/init/README.md)
+- [src/commands/project/init-turbo](src/commands/project/init-turbo/README.md)
 - [src/commands/project/lint](src/commands/project/lint/README.md)
 - [src/commands/project/prepare](src/commands/project/prepare/README.md)
 - [src/commands/project/renovate](src/commands/project/renovate/README.md)

@@ -8,7 +8,7 @@
 
 > **isNonEmptyString**(`o`): `o is string`
 
-Defined in: [src/util.ts:1052](https://github.com/Xunnamius/symbiote/blob/b0f6e46275dcd7f80ceb92f05b1e0795869afaf6/src/util.ts#L1052)
+Defined in: [src/util.ts:1052](https://github.com/Xunnamius/symbiote/blob/2e287e33709b516a0ca83d4aca24e98dc1018688/src/util.ts#L1052)
 
 ## Parameters
 
