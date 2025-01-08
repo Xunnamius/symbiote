@@ -25,7 +25,14 @@
   "envMode": "strict",
   // * Global environment variables that, when changed, SHOULD cause Turbo to
   // * recalculate all task outputs. Wildcards and negation are supported too.
-  "globalEnv": ["DEBUG_*", "SYMBIOTE_", "NODE_ENV", "APP_ENV"],
+  "globalEnv": [
+    "DEBUG_*",
+    "SYMBIOTE_",
+    "NODE_ENV",
+    "APP_ENV",
+    "GPG_*",
+    "SSH_*"
+  ],
   // * Global environment variables that, when changed, should NOT cause Turbo
   // * to recalculate all task outputs but should still be available to them
   // * anyway.
