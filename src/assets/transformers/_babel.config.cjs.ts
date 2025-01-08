@@ -796,7 +796,9 @@ function makeDistReplacerEntry(
               // ? For perf reasons, we only attempt resolutions in definition
               // ? files at the moment
               if (type === 'definition') {
-                const flatXports = flattenPackageJsonSubpathMap({ map: packageExports });
+                const flatExports = flattenPackageJsonSubpathMap({
+                  map: packageExports
+                });
                 const target = ensureRelativePathLooksLocal(
                   toRelativePath(packageDir, specifierTargetOutputPath)
                 );
@@ -804,7 +806,7 @@ function makeDistReplacerEntry(
                 const isTargetDoubleDot = target === '..';
 
                 const options = {
-                  flattenedExports: flatXports,
+                  flattenedExports: flatExports,
                   target,
                   conditions: ['types', 'require', 'node']
                 };
