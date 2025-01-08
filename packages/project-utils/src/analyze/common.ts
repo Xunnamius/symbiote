@@ -539,49 +539,49 @@ export type XPackageJsonScripts = {
    * Run by users, symbiote, and related tooling when building the current
    * package's `CHANGELOG.md` file.
    *
-   * @example `NODE_NO_WARNINGS=1 symbiote build changelog`
+   * @example `symbiote build changelog`
    */
   'build:changelog'?: string;
   /**
    * Run by users, symbiote, and related tooling when building the current
    * package's production-ready distributables.
    *
-   * @example `NODE_NO_WARNINGS=1 symbiote build distributables`
+   * @example `symbiote build distributables`
    */
   'build:dist'?: string;
   /**
    * Run by users, symbiote, and related tooling when building the current
    * package's documentation (typically found under `docs/`).
    *
-   * @example `NODE_NO_WARNINGS=1 symbiote build docs`
+   * @example `symbiote build docs`
    */
   'build:docs'?: string;
   /**
    * Run by users, symbiote, and related tooling when removing files from the
    * project or package that are ignored by git (with exceptions).
    *
-   * @example `NODE_NO_WARNINGS=1 symbiote clean`
+   * @example `symbiote clean`
    */
   clean?: string;
   /**
    * Run by users, symbiote, and related tooling when deploying built
    * distributables to the appropriate remote system(s).
    *
-   * @example `NODE_NO_WARNINGS=1 symbiote deploy --target ssh --host prod.x.y.com --to-path /prod/some/path`
+   * @example `symbiote deploy --target ssh --host prod.x.y.com --to-path /prod/some/path`
    */
   deploy?: string;
   /**
    * Run by users, symbiote, and related tooling when formatting the project
    * or package.
    *
-   * @example `NODE_NO_WARNINGS=1 symbiote format --hush`
+   * @example `symbiote format --hush`
    */
   format?: string;
   /**
    * Run by users, symbiote, and related tooling when printing information
    * about the current project or package.
    *
-   * @example `NODE_NO_WARNINGS=1 symbiote project info`
+   * @example `symbiote project info`
    */
   info?: string;
   /**
@@ -599,28 +599,28 @@ export type XPackageJsonScripts = {
    * source files that comprise this package's build targets (see
    * {@link gatherPackageBuildTargets}).
    *
-   * @example `NODE_NO_WARNINGS=1 symbiote lint --scope this-package`
+   * @example `symbiote lint --scope this-package`
    */
   'lint:package'?: string;
   /**
    * Run by users, symbiote, and related tooling when linting all lintable
    * files in the entire project.
    *
-   * @example `NODE_NO_WARNINGS=1 symbiote lint --scope unlimited`
+   * @example `symbiote lint --scope unlimited`
    */
   'lint:packages'?: string;
   /**
    * Run by users, symbiote, and related tooling when linting a project's
    * metadata, such as its file structure and configuration settings.
    *
-   * @example `NODE_NO_WARNINGS=1 symbiote project lint`
+   * @example `symbiote project lint`
    */
   'lint:project'?: string;
   /**
    * Run by users, symbiote, and related tooling when printing information
    * about available scripts in `package.json`.
    *
-   * @example `NODE_NO_WARNINGS=1 symbiote list-tasks`
+   * @example `symbiote list-tasks`
    */
   'list-tasks'?: string;
   /**
@@ -631,14 +631,14 @@ export type XPackageJsonScripts = {
    * docs](https://docs.npmjs.com/cli/v9/using-npm/scripts#prepare-and-prepublish)
    * for more information.
    *
-   * @example `NODE_NO_WARNINGS=1 symbiote project prepare`
+   * @example `symbiote project prepare`
    */
   prepare?: string;
   /**
    * Run by users, symbiote, and related tooling when potentially releasing
    * the next version of a package.
    *
-   * @example `NODE_NO_WARNINGS=1 symbiote release`
+   * @example `symbiote release`
    */
   release?: string;
   /**
@@ -646,7 +646,7 @@ export type XPackageJsonScripts = {
    * _metadata_, such as its file structure and configuration settings, with the
    * goal of bringing the project up to date with latest best practices.
    *
-   * @example `NODE_NO_WARNINGS=1 symbiote project renovate
+   * @example `symbiote project renovate
    * --github-reconfigure-repo --regenerate-assets --assets-preset basic`
    */
   renovate?: string;
@@ -657,7 +657,7 @@ export type XPackageJsonScripts = {
    * See [the docs](https://docs.npmjs.com/cli/v9/using-npm/scripts#npm-start)
    * for more information.
    *
-   * @example `NODE_NO_WARNINGS=1 symbiote start --`
+   * @example `symbiote start --`
    */
   start?: string;
   /**
@@ -682,7 +682,7 @@ export type XPackageJsonScripts = {
    * will also run the tests of any package that this package depends on
    * (including transitive dependencies).
    *
-   * @example `NODE_NO_WARNINGS=1 symbiote test --scope this-package --coverage`
+   * @example `symbiote test --scope this-package --coverage`
    */
   'test:package:all'?: string;
   /**
@@ -691,7 +691,7 @@ export type XPackageJsonScripts = {
    * will also run the tests of any package that this package depends on
    * (including transitive dependencies).
    *
-   * @example `NODE_NO_WARNINGS=1 symbiote test --scope this-package --tests end-to-end`
+   * @example `symbiote test --scope this-package --tests end-to-end`
    */
   'test:package:e2e'?: string;
   /**
@@ -700,7 +700,7 @@ export type XPackageJsonScripts = {
    * will also run the tests of any package that this package depends on
    * (including transitive dependencies).
    *
-   * @example `NODE_NO_WARNINGS=1 symbiote test --scope this-package --tests integration`
+   * @example `symbiote test --scope this-package --tests integration`
    */
   'test:package:integration'?: string;
   /**
@@ -709,14 +709,14 @@ export type XPackageJsonScripts = {
    * will also run the tests of any package that this package depends on
    * (including transitive dependencies).
    *
-   * @example `NODE_NO_WARNINGS=1 symbiote test --scope this-package --tests unit`
+   * @example `symbiote test --scope this-package --tests unit`
    */
   'test:package:unit'?: string;
   /**
    * Run by users, symbiote, and related tooling when executing all possible
    * tests across the entire project.
    *
-   * @example `NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage`
+   * @example `symbiote test --scope unlimited --coverage`
    */
   'test:packages:all'?: string;
   /**
@@ -724,8 +724,7 @@ export type XPackageJsonScripts = {
    * step to rebuild the project's turbo.json files when necessary. It is
    * therefore important that this command completes as fast as possible!
    *
-   * @example `NODE_NO_WARNINGS=1 symbiote project renovate --regenerate-assets
-   * --preset turbo-only`
+   * @example `symbiote project init-turbo --not-multiversal`
    */
   'turbo:init'?: string;
 };
