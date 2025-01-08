@@ -127,14 +127,7 @@ export enum AssetPreset {
    *
    * See the symbiote wiki for details.
    */
-  Nextjs = 'nextjs',
-  /**
-   * Represents exclusively targeting `turbo.json` assets across the entire
-   * project.
-   *
-   * See the symbiote wiki for details.
-   */
-  TurboOnly = 'turbo-only'
+  Nextjs = 'nextjs'
 }
 
 /**
@@ -161,17 +154,6 @@ export const libAssetPresets = [
  * preset.
  */
 export const reactAssetPresets = [undefined, AssetPreset.React, AssetPreset.Nextjs];
-
-/**
- * Special presets that should not trigger a full regeneration of the project
- * (such as {@link AssetPreset.TurboOnly}).
- *
- * Unlike the other presets, these presets do not use {@link AssetPreset.Basic}
- * as a baseline.
- */
-export const definedNonBasicAssetPresets = [
-  AssetPreset.TurboOnly
-] as typeof reactAssetPresets;
 
 /**
  * An _asset_ maps an absolute output path and a function that generates output.
