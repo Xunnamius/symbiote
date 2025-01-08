@@ -8,7 +8,7 @@
 
 > **moduleExport**(): `object`
 
-Defined in: [src/assets/transformers/\_webpack.config.mjs.ts:11](https://github.com/Xunnamius/symbiote/blob/2fd61c45d5639f5e6f8edadc3b7d4851011bc365/src/assets/transformers/_webpack.config.mjs.ts#L11)
+Defined in: [src/assets/transformers/\_webpack.config.mjs.ts:11](https://github.com/Xunnamius/symbiote/blob/dddfc44396c55ebfc704f8d576edac2868fe28cc/src/assets/transformers/_webpack.config.mjs.ts#L11)
 
 ## Returns
 

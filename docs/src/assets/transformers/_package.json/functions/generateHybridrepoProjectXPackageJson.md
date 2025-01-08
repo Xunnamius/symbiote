@@ -8,7 +8,7 @@
 
 > **generateHybridrepoProjectXPackageJson**(...`__namedParameters`): `object`
 
-Defined in: [src/assets/transformers/\_package.json.ts:269](https://github.com/Xunnamius/symbiote/blob/2fd61c45d5639f5e6f8edadc3b7d4851011bc365/src/assets/transformers/_package.json.ts#L269)
+Defined in: [src/assets/transformers/\_package.json.ts:270](https://github.com/Xunnamius/symbiote/blob/dddfc44396c55ebfc704f8d576edac2868fe28cc/src/assets/transformers/_package.json.ts#L270)
 
 ## Parameters
 
@@ -319,7 +319,7 @@ This script is usually a reference to `npm run build:dist`.
 
 #### scripts.build:changelog
 
-> `readonly` **build:changelog**: `string` = `'NODE_NO_WARNINGS=1 symbiote build changelog'`
+> `readonly` **build:changelog**: `string` = `'symbiote build changelog --env NODE_NO_WARNINGS=1'`
 
 Run by users, symbiote, and related tooling when building the current
 package's `CHANGELOG.md` file.
@@ -327,12 +327,12 @@ package's `CHANGELOG.md` file.
 ##### Example
 
 ```ts
-`NODE_NO_WARNINGS=1 symbiote build changelog`
+`symbiote build changelog`
 ```
 
 #### scripts.build:dist
 
-> `readonly` **build:dist**: `string` = `'NODE_NO_WARNINGS=1 symbiote build distributables'`
+> `readonly` **build:dist**: `string` = `'symbiote build distributables --env NODE_NO_WARNINGS=1'`
 
 Run by users, symbiote, and related tooling when building the current
 package's production-ready distributables.
@@ -340,12 +340,12 @@ package's production-ready distributables.
 ##### Example
 
 ```ts
-`NODE_NO_WARNINGS=1 symbiote build distributables`
+`symbiote build distributables`
 ```
 
 #### scripts.build:docs
 
-> `readonly` **build:docs**: `string` = `'NODE_NO_WARNINGS=1 symbiote build docs'`
+> `readonly` **build:docs**: `string` = `'symbiote build docs --env NODE_NO_WARNINGS=1'`
 
 Run by users, symbiote, and related tooling when building the current
 package's documentation (typically found under `docs/`).
@@ -353,12 +353,12 @@ package's documentation (typically found under `docs/`).
 ##### Example
 
 ```ts
-`NODE_NO_WARNINGS=1 symbiote build docs`
+`symbiote build docs`
 ```
 
 #### scripts.clean
 
-> `readonly` **clean**: `string` = `'NODE_NO_WARNINGS=1 symbiote clean'`
+> `readonly` **clean**: `string` = `'symbiote clean --env NODE_NO_WARNINGS=1'`
 
 Run by users, symbiote, and related tooling when removing files from the
 project or package that are ignored by git (with exceptions).
@@ -366,7 +366,7 @@ project or package that are ignored by git (with exceptions).
 ##### Example
 
 ```ts
-`NODE_NO_WARNINGS=1 symbiote clean`
+`symbiote clean`
 ```
 
 #### scripts.deploy?
@@ -379,7 +379,7 @@ distributables to the appropriate remote system(s).
 ##### Example
 
 ```ts
-`NODE_NO_WARNINGS=1 symbiote deploy --target ssh --host prod.x.y.com --to-path /prod/some/path`
+`symbiote deploy --target ssh --host prod.x.y.com --to-path /prod/some/path`
 ```
 
 #### scripts.dev?
@@ -391,7 +391,7 @@ local development environment.
 
 #### scripts.format
 
-> `readonly` **format**: `string` = `'NODE_NO_WARNINGS=1 symbiote format --hush'`
+> `readonly` **format**: `string` = `'symbiote format --env NODE_NO_WARNINGS=1 --hush'`
 
 Run by users, symbiote, and related tooling when formatting the project
 or package.
@@ -399,12 +399,12 @@ or package.
 ##### Example
 
 ```ts
-`NODE_NO_WARNINGS=1 symbiote format --hush`
+`symbiote format --hush`
 ```
 
 #### scripts.info
 
-> `readonly` **info**: `string` = `'NODE_NO_WARNINGS=1 symbiote project info'`
+> `readonly` **info**: `string` = `'symbiote project info --env NODE_NO_WARNINGS=1'`
 
 Run by users, symbiote, and related tooling when printing information
 about the current project or package.
@@ -412,7 +412,7 @@ about the current project or package.
 ##### Example
 
 ```ts
-`NODE_NO_WARNINGS=1 symbiote project info`
+`symbiote project info`
 ```
 
 #### scripts.install?
@@ -438,7 +438,7 @@ This script is usually a reference to `npm run lint:package`.
 
 #### scripts.lint:package
 
-> `readonly` **lint:package**: `string` = `'NODE_NO_WARNINGS=1 symbiote lint --hush'`
+> `readonly` **lint:package**: `string` = `'symbiote lint --env NODE_NO_WARNINGS=1 --hush'`
 
 Run by users, symbiote, and related tooling when linting all of the
 lintable files under the current package's root along with any other
@@ -448,7 +448,7 @@ gatherPackageBuildTargets).
 ##### Example
 
 ```ts
-`NODE_NO_WARNINGS=1 symbiote lint --scope this-package`
+`symbiote lint --scope this-package`
 ```
 
 #### scripts.lint:packages
@@ -461,12 +461,12 @@ files in the entire project.
 ##### Example
 
 ```ts
-`NODE_NO_WARNINGS=1 symbiote lint --scope unlimited`
+`symbiote lint --scope unlimited`
 ```
 
 #### scripts.lint:project
 
-> `readonly` **lint:project**: `string` = `'NODE_NO_WARNINGS=1 symbiote project lint'`
+> `readonly` **lint:project**: `string` = `'symbiote project lint --env NODE_NO_WARNINGS=1'`
 
 Run by users, symbiote, and related tooling when linting a project's
 metadata, such as its file structure and configuration settings.
@@ -474,7 +474,7 @@ metadata, such as its file structure and configuration settings.
 ##### Example
 
 ```ts
-`NODE_NO_WARNINGS=1 symbiote project lint`
+`symbiote project lint`
 ```
 
 #### scripts.list-tasks
@@ -487,7 +487,7 @@ about available scripts in `package.json`.
 ##### Example
 
 ```ts
-`NODE_NO_WARNINGS=1 symbiote list-tasks`
+`symbiote list-tasks`
 ```
 
 #### scripts.postinstall?
@@ -558,7 +558,7 @@ Run **before** a tarball is packed (on `npm pack`, `npm publish`, and when insta
 
 #### scripts.prepare
 
-> `readonly` **prepare**: `string` = `'NODE_NO_WARNINGS=1 symbiote project prepare'`
+> `readonly` **prepare**: `string` = `'symbiote project prepare --env NODE_NO_WARNINGS=1'`
 
 Run both **before** the package is packed and published, and on local `npm install` without any arguments. This is run **after** `prepublish`, but **before** `prepublishOnly`.
 
@@ -618,7 +618,7 @@ Run **after** the package is published.
 
 #### scripts.release
 
-> `readonly` **release**: `string` = `'NODE_NO_WARNINGS=1 symbiote release'`
+> `readonly` **release**: `string` = `'symbiote release --env NODE_NO_WARNINGS=1'`
 
 Run by users, symbiote, and related tooling when potentially releasing
 the next version of a package.
@@ -626,7 +626,7 @@ the next version of a package.
 ##### Example
 
 ```ts
-`NODE_NO_WARNINGS=1 symbiote release`
+`symbiote release`
 ```
 
 #### scripts.renovate
@@ -640,7 +640,7 @@ goal of bringing the project up to date with latest best practices.
 ##### Example
 
 ```ts
-`NODE_NO_WARNINGS=1 symbiote project renovate
+`symbiote project renovate
 --github-reconfigure-repo --regenerate-assets --assets-preset basic`
 ```
 
@@ -652,7 +652,7 @@ Run with the `npm restart` command. Note: `npm restart` will run the `stop` and 
 
 #### scripts.start
 
-> `readonly` **start**: `string` = `'NODE_NO_WARNINGS=1 symbiote start --'`
+> `readonly` **start**: `string` = `'symbiote start --env NODE_NO_WARNINGS=1 --'`
 
 Run with the `npm start` command.
 
@@ -670,7 +670,7 @@ Run with the `npm test` command.
 
 #### scripts.test:package:all
 
-> `readonly` **test:package:all**: `string` = `'NODE_NO_WARNINGS=1 symbiote test --coverage'`
+> `readonly` **test:package:all**: `string` = `'symbiote test --env NODE_NO_WARNINGS=1 --coverage'`
 
 Run by users, symbiote, and related tooling when executing all possible
 tests against the current package. In a monorepo context, this script
@@ -680,12 +680,12 @@ will also run the tests of any package that this package depends on
 ##### Example
 
 ```ts
-`NODE_NO_WARNINGS=1 symbiote test --scope this-package --coverage`
+`symbiote test --scope this-package --coverage`
 ```
 
 #### scripts.test:package:e2e
 
-> `readonly` **test:package:e2e**: `string` = `'NODE_NO_WARNINGS=1 symbiote test --tests end-to-end'`
+> `readonly` **test:package:e2e**: `string` = `'symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end'`
 
 Run by users, symbiote, and related tooling when executing end-to-end
 tests against the current package. In a monorepo context, this script
@@ -695,12 +695,12 @@ will also run the tests of any package that this package depends on
 ##### Example
 
 ```ts
-`NODE_NO_WARNINGS=1 symbiote test --scope this-package --tests end-to-end`
+`symbiote test --scope this-package --tests end-to-end`
 ```
 
 #### scripts.test:package:integration
 
-> `readonly` **test:package:integration**: `string` = `'NODE_NO_WARNINGS=1 symbiote test --tests integration'`
+> `readonly` **test:package:integration**: `string` = `'symbiote test --env NODE_NO_WARNINGS=1 --tests integration'`
 
 Run by users, symbiote, and related tooling when executing integration
 tests against the current package. In a monorepo context, this script
@@ -710,12 +710,12 @@ will also run the tests of any package that this package depends on
 ##### Example
 
 ```ts
-`NODE_NO_WARNINGS=1 symbiote test --scope this-package --tests integration`
+`symbiote test --scope this-package --tests integration`
 ```
 
 #### scripts.test:package:unit
 
-> `readonly` **test:package:unit**: `string` = `'NODE_NO_WARNINGS=1 symbiote test --tests unit'`
+> `readonly` **test:package:unit**: `string` = `'symbiote test --env NODE_NO_WARNINGS=1 --tests unit'`
 
 Run by users, symbiote, and related tooling when executing unit tests
 against the current package. In a monorepo context, this script
@@ -725,7 +725,7 @@ will also run the tests of any package that this package depends on
 ##### Example
 
 ```ts
-`NODE_NO_WARNINGS=1 symbiote test --scope this-package --tests unit`
+`symbiote test --scope this-package --tests unit`
 ```
 
 #### scripts.test:packages:all
@@ -738,12 +738,12 @@ tests across the entire project.
 ##### Example
 
 ```ts
-`NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage`
+`symbiote test --scope unlimited --coverage`
 ```
 
 #### scripts.turbo:init
 
-> `readonly` **turbo:init**: `"NODE_NO_WARNINGS=1 symbiote project init-turbo --multiversal"`
+> `readonly` **turbo:init**: `"symbiote project init-turbo --env NODE_NO_WARNINGS=1 --multiversal"`
 
 #### scripts.uninstall?
 

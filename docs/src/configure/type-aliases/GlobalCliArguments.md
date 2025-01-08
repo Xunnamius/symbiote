@@ -8,7 +8,7 @@
 
 > **GlobalCliArguments**\<`Scope`\>: `StandardCommonCliArguments` & `object`
 
-Defined in: [src/configure.ts:116](https://github.com/Xunnamius/symbiote/blob/2fd61c45d5639f5e6f8edadc3b7d4851011bc365/src/configure.ts#L116)
+Defined in: [src/configure.ts:116](https://github.com/Xunnamius/symbiote/blob/dddfc44396c55ebfc704f8d576edac2868fe28cc/src/configure.ts#L116)
 
 These properties will be available in the `argv` object of any command that
 uses [withGlobalBuilder](../../util/functions/withGlobalBuilder.md) to construct its `builder`.
@@ -17,6 +17,10 @@ This type is manually synchronized with [globalCliArguments](../variables/global
 keys may differ slightly (e.g. hyphens may be elided in favor of camelCase).
 
 ## Type declaration
+
+### env
+
+> **env**: `string`[]
 
 ### scope
 

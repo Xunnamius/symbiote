@@ -8,7 +8,7 @@
 
 > `const` **globalCliArguments**: `object`
 
-Defined in: [src/configure.ts:139](https://github.com/Xunnamius/symbiote/blob/2fd61c45d5639f5e6f8edadc3b7d4851011bc365/src/configure.ts#L139)
+Defined in: [src/configure.ts:140](https://github.com/Xunnamius/symbiote/blob/dddfc44396c55ebfc704f8d576edac2868fe28cc/src/configure.ts#L140)
 
 This BfeBuilderObject instance describes the CLI arguments available
 in the `argv` object of any command that uses [withGlobalBuilder](../../util/functions/withGlobalBuilder.md) to
@@ -26,6 +26,26 @@ pass minimal configuration values for the keys that are also in
 default configuration value in `globalCliArguments`.
 
 ## Type declaration
+
+### env
+
+> **env**: `object`
+
+#### env.array
+
+> **array**: `true` = `true`
+
+#### env.default
+
+> **default**: `never`[] = `[]`
+
+#### env.description
+
+> **description**: `string` = `'Set cross-platform environment variables using Bourne syntax'`
+
+#### env.string
+
+> **string**: `true` = `true`
 
 ### scope
 

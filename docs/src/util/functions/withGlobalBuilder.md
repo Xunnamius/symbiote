@@ -8,10 +8,11 @@
 
 > **withGlobalBuilder**\<`CustomCliArguments`\>(...`__namedParameters`): `ReturnType`\<*typeof* `withStandardBuilder`\>
 
-Defined in: [src/util.ts:251](https://github.com/Xunnamius/symbiote/blob/2fd61c45d5639f5e6f8edadc3b7d4851011bc365/src/util.ts#L251)
+Defined in: [src/util.ts:258](https://github.com/Xunnamius/symbiote/blob/dddfc44396c55ebfc704f8d576edac2868fe28cc/src/util.ts#L258)
 
 A version of withStandardBuilder that expects `CustomCliArguments` to
-extend [GlobalCliArguments](../../configure/type-aliases/GlobalCliArguments.md).
+extend [GlobalCliArguments](../../configure/type-aliases/GlobalCliArguments.md) and implements any related global handler
+functionality.
 
 [globalCliArguments](../../configure/variables/globalCliArguments.md) is included in `additionalCommonOptions`
 automatically. See withStandardBuilder for more details on how this
