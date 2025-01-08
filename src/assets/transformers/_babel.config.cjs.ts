@@ -107,7 +107,7 @@ export const wellKnownNodeEnvValues = [
  *
  * ! MUST ALWAYS FOLLOW THE SYNTAX X.X -OR- X.X.X (WHERE "X" ARE NUMERIC CHARS)
  */
-export const CORE_JS_LIBRARY_VERSION = '3.39';
+export const CORE_JS_LIBRARY_VERSION = '3.40';
 
 // ? https://nodejs.org/en/about/releases
 export const NODE_LTS = 'maintained node versions';
