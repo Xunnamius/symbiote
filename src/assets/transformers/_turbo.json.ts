@@ -9,7 +9,6 @@
 import {
   // AssetPreset,
   // compileTemplate,
-  // definedNonBasicAssetPresets,
   // generatePerPackageAssets,
   makeTransformer
   // type TransformerContext
@@ -22,14 +21,6 @@ import {
 export const { transformer } = makeTransformer(async function (/* context */) {
   return [];
   // const { assetPreset } = context;
-
-  // // * Do not generate any files when using the "wrong" preset
-  // if (
-  //   definedNonBasicAssetPresets.includes(assetPreset) &&
-  //   assetPreset !== AssetPreset.TurboOnly
-  // ) {
-  //   return [];
-  // }
 
   // // * Every package gets these files including non-hybrid monorepo roots
   // return generatePerPackageAssets(

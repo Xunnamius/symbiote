@@ -1,23 +1,13 @@
 import { directoryTestPackageBase, isAccessible } from 'multiverse+project-utils:fs.ts';
 
 import {
-  definedNonBasicAssetPresets,
   generatePerPackageAssets,
   generateRootOnlyAssets,
   makeTransformer
 } from 'universe:assets.ts';
 
 export const { transformer } = makeTransformer(async function (context) {
-  const {
-    toProjectAbsolutePath,
-    forceOverwritePotentiallyDestructive: force,
-    assetPreset
-  } = context;
-
-  // * Do not generate any files when using the "wrong" preset
-  if (definedNonBasicAssetPresets.includes(assetPreset)) {
-    return [];
-  }
+  const { toProjectAbsolutePath, forceOverwritePotentiallyDestructive: force } = context;
 
   return [
     ...// * Only the root package gets these files

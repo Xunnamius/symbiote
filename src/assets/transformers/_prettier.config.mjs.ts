@@ -1,11 +1,6 @@
 import { prettierConfigProjectBase } from 'multiverse+project-utils:fs.ts';
 
-import {
-  definedNonBasicAssetPresets,
-  generateRootOnlyAssets,
-  makeTransformer
-} from 'universe:assets.ts';
-
+import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 import { globalDebuggerNamespace } from 'universe:constant.ts';
 
 import type { Config as PrettierConfig } from 'prettier';
@@ -34,12 +29,7 @@ export function moduleExport() {
 }
 
 export const { transformer } = makeTransformer(function (context) {
-  const { asset, toProjectAbsolutePath, assetPreset } = context;
-
-  // * Do not generate any files when using the "wrong" preset
-  if (definedNonBasicAssetPresets.includes(assetPreset)) {
-    return [];
-  }
+  const { asset, toProjectAbsolutePath } = context;
 
   // * Only the root package gets these files
   return generateRootOnlyAssets(context, async function () {

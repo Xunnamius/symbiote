@@ -38,11 +38,7 @@ import {
 
 import { createDebugLogger, createGenericLogger } from 'multiverse+rejoinder';
 
-import {
-  definedNonBasicAssetPresets,
-  generateRootOnlyAssets,
-  makeTransformer
-} from 'universe:assets.ts';
+import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 
 import {
   globalDebuggerNamespace,
@@ -409,14 +405,8 @@ export const { transformer } = makeTransformer(function (context) {
     shouldDeriveAliases,
     additionalRawAliasMappings,
     projectMetadata,
-    toProjectAbsolutePath,
-    assetPreset
+    toProjectAbsolutePath
   } = context;
-
-  // * Do not generate any files when using the "wrong" preset
-  if (definedNonBasicAssetPresets.includes(assetPreset)) {
-    return [];
-  }
 
   const derivedAliasesSourceSnippet = shouldDeriveAliases
     ? `return ${stringifyJson(

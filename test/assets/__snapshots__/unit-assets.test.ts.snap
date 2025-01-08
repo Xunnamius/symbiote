@@ -2375,24 +2375,6 @@ exports[`::gatherAssetsFromAllTransformers preset: react generates expected asse
 ]
 `;
 
-exports[`::gatherAssetsFromAllTransformers preset: turbo-only generates expected assets at hybridrepo 1`] = `
-[
-  "eslint.config.mjs",
-]
-`;
-
-exports[`::gatherAssetsFromAllTransformers preset: turbo-only generates expected assets at non-hybrid monorepo 1`] = `
-[
-  "eslint.config.mjs",
-]
-`;
-
-exports[`::gatherAssetsFromAllTransformers preset: turbo-only generates expected assets for polyrepo 1`] = `
-[
-  "eslint.config.mjs",
-]
-`;
-
 exports[`::gatherAssetsFromTransformer <additional asset content tests> dotenv appends to current .env and .env.default only if force is used: .env=no,.end.default=no,force=no 1`] = `
 "CODECOV_TOKEN=
 GITHUB_TOKEN=
@@ -24566,7 +24548,7 @@ scope: this-package
     "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
     "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
-    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs turbo-only'",
+    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs'",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage",
     "turbo:init": "symbiote project init-turbo --env NODE_NO_WARNINGS=1 --multiversal",
@@ -24656,7 +24638,7 @@ scope: unlimited
     "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
     "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
-    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs turbo-only'",
+    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs'",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage",
     "turbo:init": "symbiote project init-turbo --env NODE_NO_WARNINGS=1 --multiversal",
@@ -25003,7 +24985,7 @@ scope: unlimited
     "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
     "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
-    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs turbo-only'",
+    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs'",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage",
     "turbo:init": "symbiote project init-turbo --env NODE_NO_WARNINGS=1 --multiversal",
@@ -25410,7 +25392,7 @@ scope: unlimited
     "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope unlimited",
     "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
-    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs turbo-only'",
+    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs'",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage",
     "turbo:init": "symbiote project init-turbo --env NODE_NO_WARNINGS=1 --not-multiversal"
@@ -25755,7 +25737,7 @@ scope: unlimited
     "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope unlimited",
     "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
-    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs turbo-only'",
+    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs'",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage",
     "turbo:init": "symbiote project init-turbo --env NODE_NO_WARNINGS=1 --not-multiversal"
@@ -26037,7 +26019,7 @@ scope: unlimited
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
     "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
     "release": "symbiote release --env NODE_NO_WARNINGS=1",
-    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs turbo-only'",
+    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs'",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "echo 'it works!'",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
@@ -26146,7 +26128,7 @@ scope: this-package
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
     "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
     "release": "symbiote release --env NODE_NO_WARNINGS=1",
-    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs turbo-only'",
+    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs'",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "npm run test:package:unit --",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
@@ -26200,7 +26182,7 @@ scope: unlimited
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
     "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
     "release": "symbiote release --env NODE_NO_WARNINGS=1",
-    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs turbo-only'",
+    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs'",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "echo 'it works!'",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",

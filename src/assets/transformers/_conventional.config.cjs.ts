@@ -12,12 +12,7 @@ import { analyzeProjectStructure, type ProjectMetadata } from 'multiverse+projec
 import { xchangelogConfigProjectBase } from 'multiverse+project-utils:fs.ts';
 import { createDebugLogger } from 'multiverse+rejoinder';
 
-import {
-  definedNonBasicAssetPresets,
-  generateRootOnlyAssets,
-  makeTransformer
-} from 'universe:assets.ts';
-
+import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 import { globalDebuggerNamespace } from 'universe:constant.ts';
 import { ErrorMessage } from 'universe:error.ts';
 
@@ -277,12 +272,7 @@ export const defaultTemplates = {
  * @see {@link assertEnvironment}
  */
 export const { transformer } = makeTransformer(function (context) {
-  const { asset, toProjectAbsolutePath, assetPreset } = context;
-
-  // * Do not generate any files when using the "wrong" preset
-  if (definedNonBasicAssetPresets.includes(assetPreset)) {
-    return [];
-  }
+  const { asset, toProjectAbsolutePath } = context;
 
   // * Only the root package gets these files
   return generateRootOnlyAssets(context, async function () {

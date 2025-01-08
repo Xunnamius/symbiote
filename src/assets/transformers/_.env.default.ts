@@ -7,13 +7,7 @@ import {
   toRelativePath
 } from 'multiverse+project-utils:fs.ts';
 
-import {
-  definedNonBasicAssetPresets,
-  generateRootOnlyAssets,
-  makeTransformer,
-  type Asset
-} from 'universe:assets.ts';
-
+import { generateRootOnlyAssets, makeTransformer, type Asset } from 'universe:assets.ts';
 import { readFile } from 'universe:util.ts';
 
 // {@symbiote/notExtraneous dotenv-cli}
@@ -79,18 +73,8 @@ GPG_PRIVATE_KEY=
 `.trim();
 
 export const { transformer } = makeTransformer(function (context) {
-  const {
-    toProjectAbsolutePath,
-    forceOverwritePotentiallyDestructive,
-    log,
-    debug,
-    assetPreset
-  } = context;
-
-  // * Do not generate any files when using the "wrong" preset
-  if (definedNonBasicAssetPresets.includes(assetPreset)) {
-    return [];
-  }
+  const { toProjectAbsolutePath, forceOverwritePotentiallyDestructive, log, debug } =
+    context;
 
   const secretsFilePath = toProjectAbsolutePath(dotEnvConfigPackageBase);
   const defaultsFilePath = toProjectAbsolutePath(dotEnvDefaultConfigPackageBase);

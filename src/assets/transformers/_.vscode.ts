@@ -6,7 +6,6 @@ import {
 
 import {
   compileTemplates,
-  definedNonBasicAssetPresets,
   generateRootOnlyAssets,
   makeTransformer
 } from 'universe:assets.ts';
@@ -19,14 +18,8 @@ export const { transformer } = makeTransformer(function (context) {
   const {
     forceOverwritePotentiallyDestructive: force,
     toProjectAbsolutePath,
-    debug,
-    assetPreset
+    debug
   } = context;
-
-  // * Do not generate any files when using the "wrong" preset
-  if (definedNonBasicAssetPresets.includes(assetPreset)) {
-    return [];
-  }
 
   // * Only the root package gets these files
   return generateRootOnlyAssets(context, async function () {

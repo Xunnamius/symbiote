@@ -7,7 +7,6 @@ import { isRootPackage } from 'multiverse+project-utils:analyze.ts';
 import { Tsconfig } from 'multiverse+project-utils:fs.ts';
 
 import {
-  definedNonBasicAssetPresets,
   generatePerPackageAssets,
   generateRootOnlyAssets,
   makeTransformer
@@ -270,14 +269,8 @@ export const { transformer } = makeTransformer(async function (context) {
     shouldDeriveAliases,
     additionalRawAliasMappings,
     projectMetadata,
-    toProjectAbsolutePath,
-    assetPreset
+    toProjectAbsolutePath
   } = context;
-
-  // * Do not generate any files when using the "wrong" preset
-  if (definedNonBasicAssetPresets.includes(assetPreset)) {
-    return [];
-  }
 
   const derivedAliasesSourceSnippet = shouldDeriveAliases
     ? stringifyJson(
