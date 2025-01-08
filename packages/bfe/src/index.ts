@@ -594,7 +594,9 @@ export type BfeStrictArguments<
   CustomCliArguments extends Record<string, unknown>,
   CustomExecutionContext extends ExecutionContext
 > =
-  // ? Strangely, OmitIndexSignature kills our symbol-based props. Weird...
+  // ? Strangely, OmitIndexSignature kills our symbol-based props and has other
+  // ? weird side effects. If something strange is going on with the types and
+  // ? you've come this far, it's probably OmitIndexSignature's fault.
   OmitIndexSignature<Arguments<CustomCliArguments, CustomExecutionContext>> &
     FrameworkArguments<CustomExecutionContext> & { [$artificiallyInvoked]?: boolean };
 
