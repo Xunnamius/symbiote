@@ -963,6 +963,7 @@ const protoPrereleaseTasks: ProtoPrereleaseTask[][] = [
           ...argv,
           $0: 'renovate',
           _: [],
+          env: [],
           scope: DefaultGlobalScope.ThisPackage,
 
           synchronizeInterdependencies: true,

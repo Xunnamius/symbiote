@@ -116,6 +116,7 @@ export enum UnlimitedGlobalScope {
 export type GlobalCliArguments<Scope extends string = DefaultGlobalScope> =
   StandardCommonCliArguments & {
     scope: Scope;
+    env: string[];
   };
 
 /**
@@ -137,6 +138,12 @@ export type GlobalCliArguments<Scope extends string = DefaultGlobalScope> =
  * @see {@link StandardCommonCliArguments}
  */
 export const globalCliArguments = {
+  env: {
+    string: true,
+    array: true,
+    default: [],
+    description: 'Set cross-platform environment variables using Bourne syntax'
+  },
   scope: {
     string: true,
     choices: Object.values(DefaultGlobalScope),

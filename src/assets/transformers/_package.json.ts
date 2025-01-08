@@ -143,27 +143,28 @@ export function generateBaseXPackageJson(
     ],
     scripts: {
       build: 'npm run build:dist --',
-      'build:changelog': 'NODE_NO_WARNINGS=1 symbiote build changelog',
-      'build:dist': 'NODE_NO_WARNINGS=1 symbiote build distributables',
-      'build:docs': 'NODE_NO_WARNINGS=1 symbiote build docs',
-      clean: 'NODE_NO_WARNINGS=1 symbiote clean',
-      format: 'NODE_NO_WARNINGS=1 symbiote format --hush',
-      info: 'NODE_NO_WARNINGS=1 symbiote project info',
+      'build:changelog': 'symbiote build changelog --env NODE_NO_WARNINGS=1',
+      'build:dist': 'symbiote build distributables --env NODE_NO_WARNINGS=1',
+      'build:docs': 'symbiote build docs --env NODE_NO_WARNINGS=1',
+      clean: 'symbiote clean --env NODE_NO_WARNINGS=1',
+      format: 'symbiote format --env NODE_NO_WARNINGS=1 --hush',
+      info: 'symbiote project info --env NODE_NO_WARNINGS=1',
       lint: 'npm run lint:package --',
-      'lint:package': 'NODE_NO_WARNINGS=1 symbiote lint --hush',
-      'lint:packages': `NODE_NO_WARNINGS=1 symbiote lint --hush --scope ${DefaultGlobalScope.Unlimited}`,
-      'lint:project': 'NODE_NO_WARNINGS=1 symbiote project lint',
-      'list-tasks': `NODE_NO_WARNINGS=1 symbiote list-tasks --scope ${DefaultGlobalScope.ThisPackage}`,
-      prepare: 'NODE_NO_WARNINGS=1 symbiote project prepare',
-      release: 'NODE_NO_WARNINGS=1 symbiote release',
-      renovate: `NODE_NO_WARNINGS=1 symbiote project renovate --hush --github-reconfigure-repo --regenerate-assets --assets-preset '${assetPresets.join(' ')}'`,
-      start: 'NODE_NO_WARNINGS=1 symbiote start --',
+      'lint:package': 'symbiote lint --env NODE_NO_WARNINGS=1 --hush',
+      'lint:packages': `symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope ${DefaultGlobalScope.Unlimited}`,
+      'lint:project': 'symbiote project lint --env NODE_NO_WARNINGS=1',
+      'list-tasks': `symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope ${DefaultGlobalScope.ThisPackage}`,
+      prepare: 'symbiote project prepare --env NODE_NO_WARNINGS=1',
+      release: 'symbiote release --env NODE_NO_WARNINGS=1',
+      renovate: `symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset '${assetPresets.join(' ')}'`,
+      start: 'symbiote start --env NODE_NO_WARNINGS=1 --',
       test: 'npm run test:package:unit --',
-      'test:package:all': 'NODE_NO_WARNINGS=1 symbiote test --coverage',
-      'test:package:e2e': 'NODE_NO_WARNINGS=1 symbiote test --tests end-to-end',
-      'test:package:integration': 'NODE_NO_WARNINGS=1 symbiote test --tests integration',
-      'test:package:unit': 'NODE_NO_WARNINGS=1 symbiote test --tests unit',
-      'test:packages:all': `NODE_NO_WARNINGS=1 symbiote test --scope ${DefaultGlobalScope.Unlimited} --coverage`,
+      'test:package:all': 'symbiote test --env NODE_NO_WARNINGS=1 --coverage',
+      'test:package:e2e': 'symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end',
+      'test:package:integration':
+        'symbiote test --env NODE_NO_WARNINGS=1 --tests integration',
+      'test:package:unit': 'symbiote test --env NODE_NO_WARNINGS=1 --tests unit',
+      'test:packages:all': `symbiote test --env NODE_NO_WARNINGS=1 --scope ${DefaultGlobalScope.Unlimited} --coverage`,
       ...incomingPackageJson.scripts
     },
     engines: incomingPackageJson.engines ?? {
@@ -259,8 +260,8 @@ export function generateNonHybridMonorepoProjectXPackageJson(
     private: true,
     scripts: {
       ...incomingBaseScripts,
-      'list-tasks': `NODE_NO_WARNINGS=1 symbiote list-tasks${scopeUnlimitedArg}`,
-      'turbo:init': `NODE_NO_WARNINGS=1 symbiote project init-turbo --no-multiversal`
+      'list-tasks': `symbiote list-tasks --env NODE_NO_WARNINGS=1${scopeUnlimitedArg}`,
+      'turbo:init': `symbiote project init-turbo --env NODE_NO_WARNINGS=1 --not-multiversal`
     }
   } as const satisfies XPackageJsonMonorepoRoot;
 }
@@ -302,7 +303,7 @@ export function generateHybridrepoProjectXPackageJson(
     scripts: {
       ...monorepoScripts,
       ...polyrepoScripts,
-      'turbo:init': `NODE_NO_WARNINGS=1 symbiote project init-turbo --multiversal`
+      'turbo:init': `symbiote project init-turbo --env NODE_NO_WARNINGS=1 --multiversal`
     }
     // ? "private" is preserved from generatePolyrepoXPackageJson
   } as const satisfies XPackageJsonHybridrepoRoot;

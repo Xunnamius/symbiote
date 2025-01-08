@@ -499,6 +499,7 @@ Use --import-section-file to add a custom release section to the changelog. The 
           ...argv,
           $0: 'format',
           _: [],
+          env: [],
           scope: DefaultGlobalScope.ThisPackage,
           files: [changelogFile],
           silent: true,

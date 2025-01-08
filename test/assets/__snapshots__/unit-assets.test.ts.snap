@@ -8410,7 +8410,7 @@ scope: this-package
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: make this work natively on Windows
+# TODO: make this work natively on Windows (if possible)
 
 beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
 
@@ -8433,7 +8433,7 @@ scope: this-package
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: make this work natively on Windows
+# TODO: make this work natively on Windows (if possible)
 
 beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
 
@@ -8453,7 +8453,7 @@ scope: this-package
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: make this work natively on Windows
+# TODO: make this work natively on Windows (if possible)
 
 beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
 
@@ -8486,7 +8486,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: make this work natively on Windows
+# TODO: make this work natively on Windows (if possible)
 
 beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
 
@@ -8509,7 +8509,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: make this work natively on Windows
+# TODO: make this work natively on Windows (if possible)
 
 beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
 
@@ -8529,7 +8529,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: make this work natively on Windows
+# TODO: make this work natively on Windows (if possible)
 
 beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
 
@@ -8562,7 +8562,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: make this work natively on Windows
+# TODO: make this work natively on Windows (if possible)
 
 beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
 
@@ -8585,7 +8585,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: make this work natively on Windows
+# TODO: make this work natively on Windows (if possible)
 
 beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
 
@@ -8605,7 +8605,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: make this work natively on Windows
+# TODO: make this work natively on Windows (if possible)
 
 beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
 
@@ -8638,7 +8638,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: make this work natively on Windows
+# TODO: make this work natively on Windows (if possible)
 
 beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
 
@@ -8661,7 +8661,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: make this work natively on Windows
+# TODO: make this work natively on Windows (if possible)
 
 beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
 
@@ -8681,7 +8681,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: make this work natively on Windows
+# TODO: make this work natively on Windows (if possible)
 
 beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
 
@@ -8714,7 +8714,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: make this work natively on Windows
+# TODO: make this work natively on Windows (if possible)
 
 beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
 
@@ -8737,7 +8737,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: make this work natively on Windows
+# TODO: make this work natively on Windows (if possible)
 
 beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
 
@@ -8757,7 +8757,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: make this work natively on Windows
+# TODO: make this work natively on Windows (if possible)
 
 beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
 
@@ -8790,7 +8790,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: make this work natively on Windows
+# TODO: make this work natively on Windows (if possible)
 
 beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
 
@@ -8813,7 +8813,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: make this work natively on Windows
+# TODO: make this work natively on Windows (if possible)
 
 beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
 
@@ -8833,7 +8833,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: make this work natively on Windows
+# TODO: make this work natively on Windows (if possible)
 
 beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
 
@@ -8866,7 +8866,7 @@ scope: this-package
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: make this work natively on Windows
+# TODO: make this work natively on Windows (if possible)
 
 beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
 
@@ -8889,7 +8889,7 @@ scope: this-package
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: make this work natively on Windows
+# TODO: make this work natively on Windows (if possible)
 
 beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
 
@@ -8909,7 +8909,7 @@ scope: this-package
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: make this work natively on Windows
+# TODO: make this work natively on Windows (if possible)
 
 beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
 
@@ -8942,7 +8942,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: make this work natively on Windows
+# TODO: make this work natively on Windows (if possible)
 
 beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
 
@@ -8965,7 +8965,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: make this work natively on Windows
+# TODO: make this work natively on Windows (if possible)
 
 beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
 
@@ -8985,7 +8985,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: make this work natively on Windows
+# TODO: make this work natively on Windows (if possible)
 
 beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
 
@@ -9738,15 +9738,9 @@ import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/.remarkrc
 
 /*const debug = createDebugLogger({ namespace: 'symbiote:config:remarkrc' });*/
 
-const config = deepMergeConfig(
-  moduleExport(await assertEnvironment()),
-  /**
-   * @type {import('@-xun/symbiote/assets/.remarkrc.mjs').RemarkConfig}
-   */
-  {
-    // Any custom configs here will be deep merged with moduleExport
-  }
-);
+const config = deepMergeConfig(moduleExport(await assertEnvironment()), {
+  // Any custom configs here will be deep merged with moduleExport
+});
 
 export default config;
 
@@ -9768,15 +9762,9 @@ import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/.remarkrc
 
 /*const debug = createDebugLogger({ namespace: 'symbiote:config:remarkrc' });*/
 
-const config = deepMergeConfig(
-  moduleExport(await assertEnvironment()),
-  /**
-   * @type {import('@-xun/symbiote/assets/.remarkrc.mjs').RemarkConfig}
-   */
-  {
-    // Any custom configs here will be deep merged with moduleExport
-  }
-);
+const config = deepMergeConfig(moduleExport(await assertEnvironment()), {
+  // Any custom configs here will be deep merged with moduleExport
+});
 
 export default config;
 
@@ -9798,15 +9786,9 @@ import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/.remarkrc
 
 /*const debug = createDebugLogger({ namespace: 'symbiote:config:remarkrc' });*/
 
-const config = deepMergeConfig(
-  moduleExport(await assertEnvironment()),
-  /**
-   * @type {import('@-xun/symbiote/assets/.remarkrc.mjs').RemarkConfig}
-   */
-  {
-    // Any custom configs here will be deep merged with moduleExport
-  }
-);
+const config = deepMergeConfig(moduleExport(await assertEnvironment()), {
+  // Any custom configs here will be deep merged with moduleExport
+});
 
 export default config;
 
@@ -9828,15 +9810,9 @@ import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/.remarkrc
 
 /*const debug = createDebugLogger({ namespace: 'symbiote:config:remarkrc' });*/
 
-const config = deepMergeConfig(
-  moduleExport(await assertEnvironment()),
-  /**
-   * @type {import('@-xun/symbiote/assets/.remarkrc.mjs').RemarkConfig}
-   */
-  {
-    // Any custom configs here will be deep merged with moduleExport
-  }
-);
+const config = deepMergeConfig(moduleExport(await assertEnvironment()), {
+  // Any custom configs here will be deep merged with moduleExport
+});
 
 export default config;
 
@@ -9858,15 +9834,9 @@ import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/.remarkrc
 
 /*const debug = createDebugLogger({ namespace: 'symbiote:config:remarkrc' });*/
 
-const config = deepMergeConfig(
-  moduleExport(await assertEnvironment()),
-  /**
-   * @type {import('@-xun/symbiote/assets/.remarkrc.mjs').RemarkConfig}
-   */
-  {
-    // Any custom configs here will be deep merged with moduleExport
-  }
-);
+const config = deepMergeConfig(moduleExport(await assertEnvironment()), {
+  // Any custom configs here will be deep merged with moduleExport
+});
 
 export default config;
 
@@ -9888,15 +9858,9 @@ import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/.remarkrc
 
 /*const debug = createDebugLogger({ namespace: 'symbiote:config:remarkrc' });*/
 
-const config = deepMergeConfig(
-  moduleExport(await assertEnvironment()),
-  /**
-   * @type {import('@-xun/symbiote/assets/.remarkrc.mjs').RemarkConfig}
-   */
-  {
-    // Any custom configs here will be deep merged with moduleExport
-  }
-);
+const config = deepMergeConfig(moduleExport(await assertEnvironment()), {
+  // Any custom configs here will be deep merged with moduleExport
+});
 
 export default config;
 
@@ -9918,15 +9882,9 @@ import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/.remarkrc
 
 /*const debug = createDebugLogger({ namespace: 'symbiote:config:remarkrc' });*/
 
-const config = deepMergeConfig(
-  moduleExport(await assertEnvironment()),
-  /**
-   * @type {import('@-xun/symbiote/assets/.remarkrc.mjs').RemarkConfig}
-   */
-  {
-    // Any custom configs here will be deep merged with moduleExport
-  }
-);
+const config = deepMergeConfig(moduleExport(await assertEnvironment()), {
+  // Any custom configs here will be deep merged with moduleExport
+});
 
 export default config;
 
@@ -9948,15 +9906,9 @@ import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/.remarkrc
 
 /*const debug = createDebugLogger({ namespace: 'symbiote:config:remarkrc' });*/
 
-const config = deepMergeConfig(
-  moduleExport(await assertEnvironment()),
-  /**
-   * @type {import('@-xun/symbiote/assets/.remarkrc.mjs').RemarkConfig}
-   */
-  {
-    // Any custom configs here will be deep merged with moduleExport
-  }
-);
+const config = deepMergeConfig(moduleExport(await assertEnvironment()), {
+  // Any custom configs here will be deep merged with moduleExport
+});
 
 export default config;
 
@@ -21986,9 +21938,6 @@ module.exports = deepMergeConfig(
     derivedAliases: getBabelAliases(),
     ...assertEnvironment({ projectRoot: __dirname })
   }),
-  /**
-   * @type {import('@-xun/symbiote/assets/babel.config.cjs').BabelConfig}
-   */
   {
     // Any custom configs here will be deep merged with moduleExport's result
   }
@@ -22056,9 +22005,6 @@ module.exports = deepMergeConfig(
     derivedAliases: getBabelAliases(),
     ...assertEnvironment({ projectRoot: __dirname })
   }),
-  /**
-   * @type {import('@-xun/symbiote/assets/babel.config.cjs').BabelConfig}
-   */
   {
     // Any custom configs here will be deep merged with moduleExport's result
   }
@@ -22126,9 +22072,6 @@ module.exports = deepMergeConfig(
     derivedAliases: getBabelAliases(),
     ...assertEnvironment({ projectRoot: __dirname })
   }),
-  /**
-   * @type {import('@-xun/symbiote/assets/babel.config.cjs').BabelConfig}
-   */
   {
     // Any custom configs here will be deep merged with moduleExport's result
   }
@@ -22196,9 +22139,6 @@ module.exports = deepMergeConfig(
     derivedAliases: getBabelAliases(),
     ...assertEnvironment({ projectRoot: __dirname })
   }),
-  /**
-   * @type {import('@-xun/symbiote/assets/babel.config.cjs').BabelConfig}
-   */
   {
     // Any custom configs here will be deep merged with moduleExport's result
   }
@@ -22266,9 +22206,6 @@ module.exports = deepMergeConfig(
     derivedAliases: getBabelAliases(),
     ...assertEnvironment({ projectRoot: __dirname })
   }),
-  /**
-   * @type {import('@-xun/symbiote/assets/babel.config.cjs').BabelConfig}
-   */
   {
     // Any custom configs here will be deep merged with moduleExport's result
   }
@@ -22336,9 +22273,6 @@ module.exports = deepMergeConfig(
     derivedAliases: getBabelAliases(),
     ...assertEnvironment({ projectRoot: __dirname })
   }),
-  /**
-   * @type {import('@-xun/symbiote/assets/babel.config.cjs').BabelConfig}
-   */
   {
     // Any custom configs here will be deep merged with moduleExport's result
   }
@@ -22386,9 +22320,6 @@ module.exports = deepMergeConfig(
     derivedAliases: getBabelAliases(),
     ...assertEnvironment({ projectRoot: __dirname })
   }),
-  /**
-   * @type {import('@-xun/symbiote/assets/babel.config.cjs').BabelConfig}
-   */
   {
     // Any custom configs here will be deep merged with moduleExport's result
   }
@@ -22436,9 +22367,6 @@ module.exports = deepMergeConfig(
     derivedAliases: getBabelAliases(),
     ...assertEnvironment({ projectRoot: __dirname })
   }),
-  /**
-   * @type {import('@-xun/symbiote/assets/babel.config.cjs').BabelConfig}
-   */
   {
     // Any custom configs here will be deep merged with moduleExport's result
   }
@@ -23569,11 +23497,7 @@ import { moduleExport } from '@-xun/symbiote/assets/gac.config.mjs';
 
 /*const debug = createDebugLogger({ namespace: 'symbiote:config:gac' });*/
 
-const config = deepMergeConfig(moduleExport(),
-/**
- * @type {import('@-xun/symbiote/assets/gac.config.mjs').GacConfig}
- */
-{
+const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
 });
 
@@ -23597,11 +23521,7 @@ import { moduleExport } from '@-xun/symbiote/assets/gac.config.mjs';
 
 /*const debug = createDebugLogger({ namespace: 'symbiote:config:gac' });*/
 
-const config = deepMergeConfig(moduleExport(),
-/**
- * @type {import('@-xun/symbiote/assets/gac.config.mjs').GacConfig}
- */
-{
+const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
 });
 
@@ -23625,11 +23545,7 @@ import { moduleExport } from '@-xun/symbiote/assets/gac.config.mjs';
 
 /*const debug = createDebugLogger({ namespace: 'symbiote:config:gac' });*/
 
-const config = deepMergeConfig(moduleExport(),
-/**
- * @type {import('@-xun/symbiote/assets/gac.config.mjs').GacConfig}
- */
-{
+const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
 });
 
@@ -23653,11 +23569,7 @@ import { moduleExport } from '@-xun/symbiote/assets/gac.config.mjs';
 
 /*const debug = createDebugLogger({ namespace: 'symbiote:config:gac' });*/
 
-const config = deepMergeConfig(moduleExport(),
-/**
- * @type {import('@-xun/symbiote/assets/gac.config.mjs').GacConfig}
- */
-{
+const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
 });
 
@@ -23681,11 +23593,7 @@ import { moduleExport } from '@-xun/symbiote/assets/gac.config.mjs';
 
 /*const debug = createDebugLogger({ namespace: 'symbiote:config:gac' });*/
 
-const config = deepMergeConfig(moduleExport(),
-/**
- * @type {import('@-xun/symbiote/assets/gac.config.mjs').GacConfig}
- */
-{
+const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
 });
 
@@ -23709,11 +23617,7 @@ import { moduleExport } from '@-xun/symbiote/assets/gac.config.mjs';
 
 /*const debug = createDebugLogger({ namespace: 'symbiote:config:gac' });*/
 
-const config = deepMergeConfig(moduleExport(),
-/**
- * @type {import('@-xun/symbiote/assets/gac.config.mjs').GacConfig}
- */
-{
+const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
 });
 
@@ -23737,11 +23641,7 @@ import { moduleExport } from '@-xun/symbiote/assets/gac.config.mjs';
 
 /*const debug = createDebugLogger({ namespace: 'symbiote:config:gac' });*/
 
-const config = deepMergeConfig(moduleExport(),
-/**
- * @type {import('@-xun/symbiote/assets/gac.config.mjs').GacConfig}
- */
-{
+const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
 });
 
@@ -23765,11 +23665,7 @@ import { moduleExport } from '@-xun/symbiote/assets/gac.config.mjs';
 
 /*const debug = createDebugLogger({ namespace: 'symbiote:config:gac' });*/
 
-const config = deepMergeConfig(moduleExport(),
-/**
- * @type {import('@-xun/symbiote/assets/gac.config.mjs').GacConfig}
- */
-{
+const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
 });
 
@@ -23796,9 +23692,6 @@ import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/jest.conf
 
 const config = deepMergeConfig(
   moduleExport({ derivedAliases: getJestAliases(), ...assertEnvironment() }),
-  /**
-   * @type {import('@-xun/symbiote/assets/jest.config.mjs').JestConfig}
-   */
   {
     // Any custom configs here will be deep merged with moduleExport's result
   }
@@ -23861,9 +23754,6 @@ import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/jest.conf
 
 const config = deepMergeConfig(
   moduleExport({ derivedAliases: getJestAliases(), ...assertEnvironment() }),
-  /**
-   * @type {import('@-xun/symbiote/assets/jest.config.mjs').JestConfig}
-   */
   {
     // Any custom configs here will be deep merged with moduleExport's result
   }
@@ -23926,9 +23816,6 @@ import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/jest.conf
 
 const config = deepMergeConfig(
   moduleExport({ derivedAliases: getJestAliases(), ...assertEnvironment() }),
-  /**
-   * @type {import('@-xun/symbiote/assets/jest.config.mjs').JestConfig}
-   */
   {
     // Any custom configs here will be deep merged with moduleExport's result
   }
@@ -23991,9 +23878,6 @@ import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/jest.conf
 
 const config = deepMergeConfig(
   moduleExport({ derivedAliases: getJestAliases(), ...assertEnvironment() }),
-  /**
-   * @type {import('@-xun/symbiote/assets/jest.config.mjs').JestConfig}
-   */
   {
     // Any custom configs here will be deep merged with moduleExport's result
   }
@@ -24056,9 +23940,6 @@ import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/jest.conf
 
 const config = deepMergeConfig(
   moduleExport({ derivedAliases: getJestAliases(), ...assertEnvironment() }),
-  /**
-   * @type {import('@-xun/symbiote/assets/jest.config.mjs').JestConfig}
-   */
   {
     // Any custom configs here will be deep merged with moduleExport's result
   }
@@ -24121,9 +24002,6 @@ import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/jest.conf
 
 const config = deepMergeConfig(
   moduleExport({ derivedAliases: getJestAliases(), ...assertEnvironment() }),
-  /**
-   * @type {import('@-xun/symbiote/assets/jest.config.mjs').JestConfig}
-   */
   {
     // Any custom configs here will be deep merged with moduleExport's result
   }
@@ -24166,9 +24044,6 @@ import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/jest.conf
 
 const config = deepMergeConfig(
   moduleExport({ derivedAliases: getJestAliases(), ...assertEnvironment() }),
-  /**
-   * @type {import('@-xun/symbiote/assets/jest.config.mjs').JestConfig}
-   */
   {
     // Any custom configs here will be deep merged with moduleExport's result
   }
@@ -24211,9 +24086,6 @@ import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/jest.conf
 
 const config = deepMergeConfig(
   moduleExport({ derivedAliases: getJestAliases(), ...assertEnvironment() }),
-  /**
-   * @type {import('@-xun/symbiote/assets/jest.config.mjs').JestConfig}
-   */
   {
     // Any custom configs here will be deep merged with moduleExport's result
   }
@@ -24687,29 +24559,29 @@ scope: this-package
   "private": true,
   "dependencies": {},
   "scripts": {
-    "clean": "NODE_NO_WARNINGS=1 symbiote clean",
-    "format": "NODE_NO_WARNINGS=1 symbiote format --hush",
-    "info": "NODE_NO_WARNINGS=1 symbiote project info",
-    "lint:packages": "NODE_NO_WARNINGS=1 symbiote lint --hush --scope unlimited",
-    "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
-    "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
-    "prepare": "NODE_NO_WARNINGS=1 symbiote project prepare",
-    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs turbo-only'",
-    "start": "NODE_NO_WARNINGS=1 symbiote start --",
-    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage",
-    "turbo:init": "NODE_NO_WARNINGS=1 symbiote project init-turbo --multiversal",
+    "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
+    "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush",
+    "info": "symbiote project info --env NODE_NO_WARNINGS=1",
+    "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
+    "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
+    "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
+    "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
+    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs turbo-only'",
+    "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
+    "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage",
+    "turbo:init": "symbiote project init-turbo --env NODE_NO_WARNINGS=1 --multiversal",
     "build": "npm run build:dist --",
-    "build:changelog": "NODE_NO_WARNINGS=1 symbiote build changelog",
-    "build:dist": "NODE_NO_WARNINGS=1 symbiote build distributables",
-    "build:docs": "NODE_NO_WARNINGS=1 symbiote build docs",
+    "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
+    "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1",
+    "build:docs": "symbiote build docs --env NODE_NO_WARNINGS=1",
     "lint": "npm run lint:package --",
-    "lint:package": "NODE_NO_WARNINGS=1 symbiote lint --hush",
-    "release": "NODE_NO_WARNINGS=1 symbiote release",
+    "lint:package": "symbiote lint --env NODE_NO_WARNINGS=1 --hush",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1",
     "test": "npm run test:package:unit --",
-    "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
-    "test:package:e2e": "NODE_NO_WARNINGS=1 symbiote test --tests end-to-end",
-    "test:package:integration": "NODE_NO_WARNINGS=1 symbiote test --tests integration",
-    "test:package:unit": "NODE_NO_WARNINGS=1 symbiote test --tests unit"
+    "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
+    "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit"
   }
 }
 "
@@ -24777,29 +24649,29 @@ scope: unlimited
   "private": true,
   "dependencies": {},
   "scripts": {
-    "clean": "NODE_NO_WARNINGS=1 symbiote clean",
-    "format": "NODE_NO_WARNINGS=1 symbiote format --hush",
-    "info": "NODE_NO_WARNINGS=1 symbiote project info",
-    "lint:packages": "NODE_NO_WARNINGS=1 symbiote lint --hush --scope unlimited",
-    "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
-    "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
-    "prepare": "NODE_NO_WARNINGS=1 symbiote project prepare",
-    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs turbo-only'",
-    "start": "NODE_NO_WARNINGS=1 symbiote start --",
-    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage",
-    "turbo:init": "NODE_NO_WARNINGS=1 symbiote project init-turbo --multiversal",
+    "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
+    "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush",
+    "info": "symbiote project info --env NODE_NO_WARNINGS=1",
+    "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
+    "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
+    "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
+    "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
+    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs turbo-only'",
+    "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
+    "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage",
+    "turbo:init": "symbiote project init-turbo --env NODE_NO_WARNINGS=1 --multiversal",
     "build": "npm run build:dist --",
-    "build:changelog": "NODE_NO_WARNINGS=1 symbiote build changelog",
-    "build:dist": "NODE_NO_WARNINGS=1 symbiote build distributables",
-    "build:docs": "NODE_NO_WARNINGS=1 symbiote build docs",
+    "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
+    "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1",
+    "build:docs": "symbiote build docs --env NODE_NO_WARNINGS=1",
     "lint": "npm run lint:package --",
-    "lint:package": "NODE_NO_WARNINGS=1 symbiote lint --hush",
-    "release": "NODE_NO_WARNINGS=1 symbiote release",
+    "lint:package": "symbiote lint --env NODE_NO_WARNINGS=1 --hush",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1",
     "test": "npm run test:package:unit --",
-    "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
-    "test:package:e2e": "NODE_NO_WARNINGS=1 symbiote test --tests end-to-end",
-    "test:package:integration": "NODE_NO_WARNINGS=1 symbiote test --tests integration",
-    "test:package:unit": "NODE_NO_WARNINGS=1 symbiote test --tests unit"
+    "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
+    "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit"
   }
 }
 "
@@ -24876,25 +24748,25 @@ scope: unlimited
   },
   "scripts": {
     "build": "npm run build:dist --",
-    "build:changelog": "NODE_NO_WARNINGS=1 symbiote build changelog",
-    "build:dist": "NODE_NO_WARNINGS=1 symbiote build distributables",
-    "build:docs": "NODE_NO_WARNINGS=1 symbiote build docs",
-    "clean": "NODE_NO_WARNINGS=1 symbiote clean",
-    "format": "NODE_NO_WARNINGS=1 symbiote format --hush",
-    "info": "NODE_NO_WARNINGS=1 symbiote project info",
+    "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
+    "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1",
+    "build:docs": "symbiote build docs --env NODE_NO_WARNINGS=1",
+    "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
+    "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush",
+    "info": "symbiote project info --env NODE_NO_WARNINGS=1",
     "lint": "npm run lint:package --",
-    "lint:package": "NODE_NO_WARNINGS=1 symbiote lint --hush",
-    "lint:packages": "NODE_NO_WARNINGS=1 symbiote lint --hush --scope unlimited",
-    "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
-    "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
-    "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "start": "NODE_NO_WARNINGS=1 symbiote start --",
+    "lint:package": "symbiote lint --env NODE_NO_WARNINGS=1 --hush",
+    "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
+    "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
+    "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "npm run test:package:unit --",
-    "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
-    "test:package:e2e": "NODE_NO_WARNINGS=1 symbiote test --tests end-to-end",
-    "test:package:integration": "NODE_NO_WARNINGS=1 symbiote test --tests integration",
-    "test:package:unit": "NODE_NO_WARNINGS=1 symbiote test --tests unit",
-    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage"
+    "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
+    "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit",
+    "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage"
   }
 }
 "
@@ -24955,25 +24827,25 @@ scope: unlimited
   },
   "scripts": {
     "build": "npm run build:dist --",
-    "build:changelog": "NODE_NO_WARNINGS=1 symbiote build changelog",
-    "build:dist": "NODE_NO_WARNINGS=1 symbiote build distributables",
-    "build:docs": "NODE_NO_WARNINGS=1 symbiote build docs",
-    "clean": "NODE_NO_WARNINGS=1 symbiote clean",
-    "format": "NODE_NO_WARNINGS=1 symbiote format --hush",
-    "info": "NODE_NO_WARNINGS=1 symbiote project info",
+    "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
+    "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1",
+    "build:docs": "symbiote build docs --env NODE_NO_WARNINGS=1",
+    "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
+    "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush",
+    "info": "symbiote project info --env NODE_NO_WARNINGS=1",
     "lint": "npm run lint:package --",
-    "lint:package": "NODE_NO_WARNINGS=1 symbiote lint --hush",
-    "lint:packages": "NODE_NO_WARNINGS=1 symbiote lint --hush --scope unlimited",
-    "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
-    "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
-    "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "start": "NODE_NO_WARNINGS=1 symbiote start --",
+    "lint:package": "symbiote lint --env NODE_NO_WARNINGS=1 --hush",
+    "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
+    "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
+    "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "npm run test:package:unit --",
-    "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
-    "test:package:e2e": "NODE_NO_WARNINGS=1 symbiote test --tests end-to-end",
-    "test:package:integration": "NODE_NO_WARNINGS=1 symbiote test --tests integration",
-    "test:package:unit": "NODE_NO_WARNINGS=1 symbiote test --tests unit",
-    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage"
+    "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
+    "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit",
+    "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage"
   }
 }
 "
@@ -25036,25 +24908,25 @@ scope: unlimited
   },
   "scripts": {
     "build": "npm run build:dist --",
-    "build:changelog": "NODE_NO_WARNINGS=1 symbiote build changelog",
-    "build:dist": "NODE_NO_WARNINGS=1 symbiote build distributables",
-    "build:docs": "NODE_NO_WARNINGS=1 symbiote build docs",
-    "clean": "NODE_NO_WARNINGS=1 symbiote clean",
-    "format": "NODE_NO_WARNINGS=1 symbiote format --hush",
-    "info": "NODE_NO_WARNINGS=1 symbiote project info",
+    "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
+    "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1",
+    "build:docs": "symbiote build docs --env NODE_NO_WARNINGS=1",
+    "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
+    "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush",
+    "info": "symbiote project info --env NODE_NO_WARNINGS=1",
     "lint": "npm run lint:package --",
-    "lint:package": "NODE_NO_WARNINGS=1 symbiote lint --hush",
-    "lint:packages": "NODE_NO_WARNINGS=1 symbiote lint --hush --scope unlimited",
-    "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
-    "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
-    "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "start": "NODE_NO_WARNINGS=1 symbiote start --",
+    "lint:package": "symbiote lint --env NODE_NO_WARNINGS=1 --hush",
+    "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
+    "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
+    "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "npm run test:package:unit --",
-    "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
-    "test:package:e2e": "NODE_NO_WARNINGS=1 symbiote test --tests end-to-end",
-    "test:package:integration": "NODE_NO_WARNINGS=1 symbiote test --tests integration",
-    "test:package:unit": "NODE_NO_WARNINGS=1 symbiote test --tests unit",
-    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage"
+    "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
+    "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit",
+    "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage"
   }
 }
 "
@@ -25124,29 +24996,29 @@ scope: unlimited
   "private": true,
   "dependencies": {},
   "scripts": {
-    "clean": "NODE_NO_WARNINGS=1 symbiote clean",
-    "format": "NODE_NO_WARNINGS=1 symbiote format --hush",
-    "info": "NODE_NO_WARNINGS=1 symbiote project info",
-    "lint:packages": "NODE_NO_WARNINGS=1 symbiote lint --hush --scope unlimited",
-    "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
-    "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
-    "prepare": "NODE_NO_WARNINGS=1 symbiote project prepare",
-    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs turbo-only'",
-    "start": "NODE_NO_WARNINGS=1 symbiote start --",
-    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage",
-    "turbo:init": "NODE_NO_WARNINGS=1 symbiote project init-turbo --multiversal",
+    "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
+    "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush",
+    "info": "symbiote project info --env NODE_NO_WARNINGS=1",
+    "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
+    "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
+    "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
+    "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
+    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs turbo-only'",
+    "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
+    "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage",
+    "turbo:init": "symbiote project init-turbo --env NODE_NO_WARNINGS=1 --multiversal",
     "build": "npm run build:dist --",
-    "build:changelog": "NODE_NO_WARNINGS=1 symbiote build changelog",
-    "build:dist": "NODE_NO_WARNINGS=1 symbiote build distributables",
-    "build:docs": "NODE_NO_WARNINGS=1 symbiote build docs",
+    "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
+    "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1",
+    "build:docs": "symbiote build docs --env NODE_NO_WARNINGS=1",
     "lint": "npm run lint:package --",
-    "lint:package": "NODE_NO_WARNINGS=1 symbiote lint --hush",
-    "release": "NODE_NO_WARNINGS=1 symbiote release",
+    "lint:package": "symbiote lint --env NODE_NO_WARNINGS=1 --hush",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1",
     "test": "npm run test:package:unit --",
-    "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
-    "test:package:e2e": "NODE_NO_WARNINGS=1 symbiote test --tests end-to-end",
-    "test:package:integration": "NODE_NO_WARNINGS=1 symbiote test --tests integration",
-    "test:package:unit": "NODE_NO_WARNINGS=1 symbiote test --tests unit"
+    "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
+    "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit"
   }
 }
 "
@@ -25224,25 +25096,25 @@ scope: unlimited
   },
   "scripts": {
     "build": "npm run build:dist --",
-    "build:changelog": "NODE_NO_WARNINGS=1 symbiote build changelog",
-    "build:dist": "NODE_NO_WARNINGS=1 symbiote build distributables",
-    "build:docs": "NODE_NO_WARNINGS=1 symbiote build docs",
-    "clean": "NODE_NO_WARNINGS=1 symbiote clean",
-    "format": "NODE_NO_WARNINGS=1 symbiote format --hush",
-    "info": "NODE_NO_WARNINGS=1 symbiote project info",
+    "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
+    "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1",
+    "build:docs": "symbiote build docs --env NODE_NO_WARNINGS=1",
+    "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
+    "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush",
+    "info": "symbiote project info --env NODE_NO_WARNINGS=1",
     "lint": "npm run lint:package --",
-    "lint:package": "NODE_NO_WARNINGS=1 symbiote lint --hush",
-    "lint:packages": "NODE_NO_WARNINGS=1 symbiote lint --hush --scope unlimited",
-    "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
-    "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
-    "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "start": "NODE_NO_WARNINGS=1 symbiote start --",
+    "lint:package": "symbiote lint --env NODE_NO_WARNINGS=1 --hush",
+    "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
+    "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
+    "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "echo 'it works!'",
-    "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
-    "test:package:e2e": "NODE_NO_WARNINGS=1 symbiote test --tests end-to-end",
-    "test:package:integration": "NODE_NO_WARNINGS=1 symbiote test --tests integration",
-    "test:package:unit": "NODE_NO_WARNINGS=1 symbiote test --tests unit",
-    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage"
+    "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
+    "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit",
+    "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage"
   }
 }
 "
@@ -25298,25 +25170,25 @@ scope: unlimited
   },
   "scripts": {
     "build": "npm run build:dist --",
-    "build:changelog": "NODE_NO_WARNINGS=1 symbiote build changelog",
-    "build:dist": "NODE_NO_WARNINGS=1 symbiote build distributables",
-    "build:docs": "NODE_NO_WARNINGS=1 symbiote build docs",
-    "clean": "NODE_NO_WARNINGS=1 symbiote clean",
-    "format": "NODE_NO_WARNINGS=1 symbiote format --hush",
-    "info": "NODE_NO_WARNINGS=1 symbiote project info",
+    "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
+    "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1",
+    "build:docs": "symbiote build docs --env NODE_NO_WARNINGS=1",
+    "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
+    "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush",
+    "info": "symbiote project info --env NODE_NO_WARNINGS=1",
     "lint": "npm run lint:package --",
-    "lint:package": "NODE_NO_WARNINGS=1 symbiote lint --hush",
-    "lint:packages": "NODE_NO_WARNINGS=1 symbiote lint --hush --scope unlimited",
-    "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
-    "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
-    "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "start": "NODE_NO_WARNINGS=1 symbiote start --",
+    "lint:package": "symbiote lint --env NODE_NO_WARNINGS=1 --hush",
+    "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
+    "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
+    "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "echo 'it works!'",
-    "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
-    "test:package:e2e": "NODE_NO_WARNINGS=1 symbiote test --tests end-to-end",
-    "test:package:integration": "NODE_NO_WARNINGS=1 symbiote test --tests integration",
-    "test:package:unit": "NODE_NO_WARNINGS=1 symbiote test --tests unit",
-    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage"
+    "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
+    "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit",
+    "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage"
   }
 }
 "
@@ -25374,25 +25246,25 @@ scope: unlimited
   },
   "scripts": {
     "build": "npm run build:dist --",
-    "build:changelog": "NODE_NO_WARNINGS=1 symbiote build changelog",
-    "build:dist": "NODE_NO_WARNINGS=1 symbiote build distributables",
-    "build:docs": "NODE_NO_WARNINGS=1 symbiote build docs",
-    "clean": "NODE_NO_WARNINGS=1 symbiote clean",
-    "format": "NODE_NO_WARNINGS=1 symbiote format --hush",
-    "info": "NODE_NO_WARNINGS=1 symbiote project info",
+    "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
+    "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1",
+    "build:docs": "symbiote build docs --env NODE_NO_WARNINGS=1",
+    "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
+    "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush",
+    "info": "symbiote project info --env NODE_NO_WARNINGS=1",
     "lint": "npm run lint:package --",
-    "lint:package": "NODE_NO_WARNINGS=1 symbiote lint --hush",
-    "lint:packages": "NODE_NO_WARNINGS=1 symbiote lint --hush --scope unlimited",
-    "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
-    "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
-    "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "start": "NODE_NO_WARNINGS=1 symbiote start --",
+    "lint:package": "symbiote lint --env NODE_NO_WARNINGS=1 --hush",
+    "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
+    "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
+    "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "echo 'it works!'",
-    "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
-    "test:package:e2e": "NODE_NO_WARNINGS=1 symbiote test --tests end-to-end",
-    "test:package:integration": "NODE_NO_WARNINGS=1 symbiote test --tests integration",
-    "test:package:unit": "NODE_NO_WARNINGS=1 symbiote test --tests unit",
-    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage"
+    "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
+    "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit",
+    "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage"
   }
 }
 "
@@ -25448,25 +25320,25 @@ scope: this-package
   },
   "scripts": {
     "build": "npm run build:dist --",
-    "build:changelog": "NODE_NO_WARNINGS=1 symbiote build changelog",
-    "build:dist": "NODE_NO_WARNINGS=1 symbiote build distributables",
-    "build:docs": "NODE_NO_WARNINGS=1 symbiote build docs",
-    "clean": "NODE_NO_WARNINGS=1 symbiote clean",
-    "format": "NODE_NO_WARNINGS=1 symbiote format --hush",
-    "info": "NODE_NO_WARNINGS=1 symbiote project info",
+    "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
+    "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1",
+    "build:docs": "symbiote build docs --env NODE_NO_WARNINGS=1",
+    "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
+    "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush",
+    "info": "symbiote project info --env NODE_NO_WARNINGS=1",
     "lint": "npm run lint:package --",
-    "lint:package": "NODE_NO_WARNINGS=1 symbiote lint --hush",
-    "lint:packages": "NODE_NO_WARNINGS=1 symbiote lint --hush --scope unlimited",
-    "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
-    "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
-    "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "start": "NODE_NO_WARNINGS=1 symbiote start --",
+    "lint:package": "symbiote lint --env NODE_NO_WARNINGS=1 --hush",
+    "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
+    "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
+    "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "echo 'it works!'",
-    "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
-    "test:package:e2e": "NODE_NO_WARNINGS=1 symbiote test --tests end-to-end",
-    "test:package:integration": "NODE_NO_WARNINGS=1 symbiote test --tests integration",
-    "test:package:unit": "NODE_NO_WARNINGS=1 symbiote test --tests unit",
-    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage"
+    "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
+    "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit",
+    "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage"
   }
 }
 "
@@ -25531,17 +25403,17 @@ scope: unlimited
   },
   "private": true,
   "scripts": {
-    "clean": "NODE_NO_WARNINGS=1 symbiote clean --scope unlimited",
-    "format": "NODE_NO_WARNINGS=1 symbiote format --hush --scope unlimited",
-    "info": "NODE_NO_WARNINGS=1 symbiote project info",
-    "lint:packages": "NODE_NO_WARNINGS=1 symbiote lint --hush --scope unlimited",
-    "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
-    "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope unlimited",
-    "prepare": "NODE_NO_WARNINGS=1 symbiote project prepare",
-    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs turbo-only'",
-    "start": "NODE_NO_WARNINGS=1 symbiote start --",
-    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage",
-    "turbo:init": "NODE_NO_WARNINGS=1 symbiote project init-turbo --no-multiversal"
+    "clean": "symbiote clean --env NODE_NO_WARNINGS=1 --scope unlimited",
+    "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
+    "info": "symbiote project info --env NODE_NO_WARNINGS=1",
+    "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
+    "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
+    "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope unlimited",
+    "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
+    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs turbo-only'",
+    "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
+    "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage",
+    "turbo:init": "symbiote project init-turbo --env NODE_NO_WARNINGS=1 --not-multiversal"
   }
 }
 "
@@ -25618,25 +25490,25 @@ scope: unlimited
   },
   "scripts": {
     "build": "npm run build:dist --",
-    "build:changelog": "NODE_NO_WARNINGS=1 symbiote build changelog",
-    "build:dist": "NODE_NO_WARNINGS=1 symbiote build distributables",
-    "build:docs": "NODE_NO_WARNINGS=1 symbiote build docs",
-    "clean": "NODE_NO_WARNINGS=1 symbiote clean",
-    "format": "NODE_NO_WARNINGS=1 symbiote format --hush",
-    "info": "NODE_NO_WARNINGS=1 symbiote project info",
+    "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
+    "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1",
+    "build:docs": "symbiote build docs --env NODE_NO_WARNINGS=1",
+    "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
+    "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush",
+    "info": "symbiote project info --env NODE_NO_WARNINGS=1",
     "lint": "npm run lint:package --",
-    "lint:package": "NODE_NO_WARNINGS=1 symbiote lint --hush",
-    "lint:packages": "NODE_NO_WARNINGS=1 symbiote lint --hush --scope unlimited",
-    "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
-    "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
-    "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "start": "NODE_NO_WARNINGS=1 symbiote start --",
+    "lint:package": "symbiote lint --env NODE_NO_WARNINGS=1 --hush",
+    "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
+    "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
+    "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "npm run test:package:unit --",
-    "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
-    "test:package:e2e": "NODE_NO_WARNINGS=1 symbiote test --tests end-to-end",
-    "test:package:integration": "NODE_NO_WARNINGS=1 symbiote test --tests integration",
-    "test:package:unit": "NODE_NO_WARNINGS=1 symbiote test --tests unit",
-    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage"
+    "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
+    "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit",
+    "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage"
   }
 }
 "
@@ -25713,25 +25585,25 @@ scope: unlimited
   },
   "scripts": {
     "build": "npm run build:dist --",
-    "build:changelog": "NODE_NO_WARNINGS=1 symbiote build changelog",
-    "build:dist": "NODE_NO_WARNINGS=1 symbiote build distributables",
-    "build:docs": "NODE_NO_WARNINGS=1 symbiote build docs",
-    "clean": "NODE_NO_WARNINGS=1 symbiote clean",
-    "format": "NODE_NO_WARNINGS=1 symbiote format --hush",
-    "info": "NODE_NO_WARNINGS=1 symbiote project info",
+    "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
+    "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1",
+    "build:docs": "symbiote build docs --env NODE_NO_WARNINGS=1",
+    "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
+    "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush",
+    "info": "symbiote project info --env NODE_NO_WARNINGS=1",
     "lint": "npm run lint:package --",
-    "lint:package": "NODE_NO_WARNINGS=1 symbiote lint --hush",
-    "lint:packages": "NODE_NO_WARNINGS=1 symbiote lint --hush --scope unlimited",
-    "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
-    "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
-    "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "start": "NODE_NO_WARNINGS=1 symbiote start --",
+    "lint:package": "symbiote lint --env NODE_NO_WARNINGS=1 --hush",
+    "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
+    "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
+    "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "npm run test:package:unit --",
-    "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
-    "test:package:e2e": "NODE_NO_WARNINGS=1 symbiote test --tests end-to-end",
-    "test:package:integration": "NODE_NO_WARNINGS=1 symbiote test --tests integration",
-    "test:package:unit": "NODE_NO_WARNINGS=1 symbiote test --tests unit",
-    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage"
+    "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
+    "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit",
+    "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage"
   }
 }
 "
@@ -25794,25 +25666,25 @@ scope: unlimited
   },
   "scripts": {
     "build": "npm run build:dist --",
-    "build:changelog": "NODE_NO_WARNINGS=1 symbiote build changelog",
-    "build:dist": "NODE_NO_WARNINGS=1 symbiote build distributables",
-    "build:docs": "NODE_NO_WARNINGS=1 symbiote build docs",
-    "clean": "NODE_NO_WARNINGS=1 symbiote clean",
-    "format": "NODE_NO_WARNINGS=1 symbiote format --hush",
-    "info": "NODE_NO_WARNINGS=1 symbiote project info",
+    "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
+    "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1",
+    "build:docs": "symbiote build docs --env NODE_NO_WARNINGS=1",
+    "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
+    "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush",
+    "info": "symbiote project info --env NODE_NO_WARNINGS=1",
     "lint": "npm run lint:package --",
-    "lint:package": "NODE_NO_WARNINGS=1 symbiote lint --hush",
-    "lint:packages": "NODE_NO_WARNINGS=1 symbiote lint --hush --scope unlimited",
-    "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
-    "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
-    "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "start": "NODE_NO_WARNINGS=1 symbiote start --",
+    "lint:package": "symbiote lint --env NODE_NO_WARNINGS=1 --hush",
+    "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
+    "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
+    "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "npm run test:package:unit --",
-    "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
-    "test:package:e2e": "NODE_NO_WARNINGS=1 symbiote test --tests end-to-end",
-    "test:package:integration": "NODE_NO_WARNINGS=1 symbiote test --tests integration",
-    "test:package:unit": "NODE_NO_WARNINGS=1 symbiote test --tests unit",
-    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage"
+    "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
+    "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit",
+    "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage"
   }
 }
 "
@@ -25876,17 +25748,17 @@ scope: unlimited
   },
   "private": true,
   "scripts": {
-    "clean": "NODE_NO_WARNINGS=1 symbiote clean --scope unlimited",
-    "format": "NODE_NO_WARNINGS=1 symbiote format --hush --scope unlimited",
-    "info": "NODE_NO_WARNINGS=1 symbiote project info",
-    "lint:packages": "NODE_NO_WARNINGS=1 symbiote lint --hush --scope unlimited",
-    "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
-    "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope unlimited",
-    "prepare": "NODE_NO_WARNINGS=1 symbiote project prepare",
-    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs turbo-only'",
-    "start": "NODE_NO_WARNINGS=1 symbiote start --",
-    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage",
-    "turbo:init": "NODE_NO_WARNINGS=1 symbiote project init-turbo --no-multiversal"
+    "clean": "symbiote clean --env NODE_NO_WARNINGS=1 --scope unlimited",
+    "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
+    "info": "symbiote project info --env NODE_NO_WARNINGS=1",
+    "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
+    "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
+    "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope unlimited",
+    "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
+    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs turbo-only'",
+    "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
+    "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage",
+    "turbo:init": "symbiote project init-turbo --env NODE_NO_WARNINGS=1 --not-multiversal"
   }
 }
 "
@@ -25950,25 +25822,25 @@ scope: unlimited
   },
   "scripts": {
     "build": "npm run build:dist --",
-    "build:changelog": "NODE_NO_WARNINGS=1 symbiote build changelog",
-    "build:dist": "NODE_NO_WARNINGS=1 symbiote build distributables",
-    "build:docs": "NODE_NO_WARNINGS=1 symbiote build docs",
-    "clean": "NODE_NO_WARNINGS=1 symbiote clean",
-    "format": "NODE_NO_WARNINGS=1 symbiote format --hush",
-    "info": "NODE_NO_WARNINGS=1 symbiote project info",
+    "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
+    "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1",
+    "build:docs": "symbiote build docs --env NODE_NO_WARNINGS=1",
+    "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
+    "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush",
+    "info": "symbiote project info --env NODE_NO_WARNINGS=1",
     "lint": "npm run lint:package --",
-    "lint:package": "NODE_NO_WARNINGS=1 symbiote lint --hush",
-    "lint:packages": "NODE_NO_WARNINGS=1 symbiote lint --hush --scope unlimited",
-    "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
-    "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
-    "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "start": "NODE_NO_WARNINGS=1 symbiote start --",
+    "lint:package": "symbiote lint --env NODE_NO_WARNINGS=1 --hush",
+    "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
+    "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
+    "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "echo 'it works!'",
-    "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
-    "test:package:e2e": "NODE_NO_WARNINGS=1 symbiote test --tests end-to-end",
-    "test:package:integration": "NODE_NO_WARNINGS=1 symbiote test --tests integration",
-    "test:package:unit": "NODE_NO_WARNINGS=1 symbiote test --tests unit",
-    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage"
+    "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
+    "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit",
+    "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage"
   }
 }
 "
@@ -26035,25 +25907,25 @@ scope: unlimited
   },
   "scripts": {
     "build": "npm run build:dist --",
-    "build:changelog": "NODE_NO_WARNINGS=1 symbiote build changelog",
-    "build:dist": "NODE_NO_WARNINGS=1 symbiote build distributables",
-    "build:docs": "NODE_NO_WARNINGS=1 symbiote build docs",
-    "clean": "NODE_NO_WARNINGS=1 symbiote clean",
-    "format": "NODE_NO_WARNINGS=1 symbiote format --hush",
-    "info": "NODE_NO_WARNINGS=1 symbiote project info",
+    "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
+    "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1",
+    "build:docs": "symbiote build docs --env NODE_NO_WARNINGS=1",
+    "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
+    "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush",
+    "info": "symbiote project info --env NODE_NO_WARNINGS=1",
     "lint": "npm run lint:package --",
-    "lint:package": "NODE_NO_WARNINGS=1 symbiote lint --hush",
-    "lint:packages": "NODE_NO_WARNINGS=1 symbiote lint --hush --scope unlimited",
-    "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
-    "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
-    "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "start": "NODE_NO_WARNINGS=1 symbiote start --",
+    "lint:package": "symbiote lint --env NODE_NO_WARNINGS=1 --hush",
+    "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
+    "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
+    "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "echo 'it works!'",
-    "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
-    "test:package:e2e": "NODE_NO_WARNINGS=1 symbiote test --tests end-to-end",
-    "test:package:integration": "NODE_NO_WARNINGS=1 symbiote test --tests integration",
-    "test:package:unit": "NODE_NO_WARNINGS=1 symbiote test --tests unit",
-    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage"
+    "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
+    "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit",
+    "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage"
   }
 }
 "
@@ -26111,25 +25983,25 @@ scope: unlimited
   },
   "scripts": {
     "build": "npm run build:dist --",
-    "build:changelog": "NODE_NO_WARNINGS=1 symbiote build changelog",
-    "build:dist": "NODE_NO_WARNINGS=1 symbiote build distributables",
-    "build:docs": "NODE_NO_WARNINGS=1 symbiote build docs",
-    "clean": "NODE_NO_WARNINGS=1 symbiote clean",
-    "format": "NODE_NO_WARNINGS=1 symbiote format --hush",
-    "info": "NODE_NO_WARNINGS=1 symbiote project info",
+    "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
+    "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1",
+    "build:docs": "symbiote build docs --env NODE_NO_WARNINGS=1",
+    "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
+    "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush",
+    "info": "symbiote project info --env NODE_NO_WARNINGS=1",
     "lint": "npm run lint:package --",
-    "lint:package": "NODE_NO_WARNINGS=1 symbiote lint --hush",
-    "lint:packages": "NODE_NO_WARNINGS=1 symbiote lint --hush --scope unlimited",
-    "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
-    "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
-    "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "start": "NODE_NO_WARNINGS=1 symbiote start --",
+    "lint:package": "symbiote lint --env NODE_NO_WARNINGS=1 --hush",
+    "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
+    "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
+    "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "echo 'it works!'",
-    "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
-    "test:package:e2e": "NODE_NO_WARNINGS=1 symbiote test --tests end-to-end",
-    "test:package:integration": "NODE_NO_WARNINGS=1 symbiote test --tests integration",
-    "test:package:unit": "NODE_NO_WARNINGS=1 symbiote test --tests unit",
-    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage"
+    "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
+    "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit",
+    "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage"
   }
 }
 "
@@ -26152,27 +26024,27 @@ scope: unlimited
   },
   "scripts": {
     "build": "npm run build:dist --",
-    "build:changelog": "NODE_NO_WARNINGS=1 symbiote build changelog",
-    "build:dist": "NODE_NO_WARNINGS=1 symbiote build distributables",
-    "build:docs": "NODE_NO_WARNINGS=1 symbiote build docs",
-    "clean": "NODE_NO_WARNINGS=1 symbiote clean",
-    "format": "NODE_NO_WARNINGS=1 symbiote format --hush",
-    "info": "NODE_NO_WARNINGS=1 symbiote project info",
+    "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
+    "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1",
+    "build:docs": "symbiote build docs --env NODE_NO_WARNINGS=1",
+    "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
+    "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush",
+    "info": "symbiote project info --env NODE_NO_WARNINGS=1",
     "lint": "npm run lint:package --",
-    "lint:package": "NODE_NO_WARNINGS=1 symbiote lint --hush",
-    "lint:packages": "NODE_NO_WARNINGS=1 symbiote lint --hush --scope unlimited",
-    "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
-    "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
-    "prepare": "NODE_NO_WARNINGS=1 symbiote project prepare",
-    "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs turbo-only'",
-    "start": "NODE_NO_WARNINGS=1 symbiote start --",
+    "lint:package": "symbiote lint --env NODE_NO_WARNINGS=1 --hush",
+    "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
+    "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
+    "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
+    "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs turbo-only'",
+    "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "echo 'it works!'",
-    "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
-    "test:package:e2e": "NODE_NO_WARNINGS=1 symbiote test --tests end-to-end",
-    "test:package:integration": "NODE_NO_WARNINGS=1 symbiote test --tests integration",
-    "test:package:unit": "NODE_NO_WARNINGS=1 symbiote test --tests unit",
-    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage"
+    "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
+    "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit",
+    "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage"
   },
   "description": "TODO: set a description",
   "keywords": [],
@@ -26261,27 +26133,27 @@ scope: this-package
   ],
   "scripts": {
     "build": "npm run build:dist --",
-    "build:changelog": "NODE_NO_WARNINGS=1 symbiote build changelog",
-    "build:dist": "NODE_NO_WARNINGS=1 symbiote build distributables",
-    "build:docs": "NODE_NO_WARNINGS=1 symbiote build docs",
-    "clean": "NODE_NO_WARNINGS=1 symbiote clean",
-    "format": "NODE_NO_WARNINGS=1 symbiote format --hush",
-    "info": "NODE_NO_WARNINGS=1 symbiote project info",
+    "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
+    "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1",
+    "build:docs": "symbiote build docs --env NODE_NO_WARNINGS=1",
+    "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
+    "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush",
+    "info": "symbiote project info --env NODE_NO_WARNINGS=1",
     "lint": "npm run lint:package --",
-    "lint:package": "NODE_NO_WARNINGS=1 symbiote lint --hush",
-    "lint:packages": "NODE_NO_WARNINGS=1 symbiote lint --hush --scope unlimited",
-    "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
-    "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
-    "prepare": "NODE_NO_WARNINGS=1 symbiote project prepare",
-    "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs turbo-only'",
-    "start": "NODE_NO_WARNINGS=1 symbiote start --",
+    "lint:package": "symbiote lint --env NODE_NO_WARNINGS=1 --hush",
+    "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
+    "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
+    "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
+    "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs turbo-only'",
+    "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "npm run test:package:unit --",
-    "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
-    "test:package:e2e": "NODE_NO_WARNINGS=1 symbiote test --tests end-to-end",
-    "test:package:integration": "NODE_NO_WARNINGS=1 symbiote test --tests integration",
-    "test:package:unit": "NODE_NO_WARNINGS=1 symbiote test --tests unit",
-    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage"
+    "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
+    "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit",
+    "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage"
   },
   "engines": {
     "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
@@ -26315,27 +26187,27 @@ scope: unlimited
   },
   "scripts": {
     "build": "npm run build:dist --",
-    "build:changelog": "NODE_NO_WARNINGS=1 symbiote build changelog",
-    "build:dist": "NODE_NO_WARNINGS=1 symbiote build distributables",
-    "build:docs": "NODE_NO_WARNINGS=1 symbiote build docs",
-    "clean": "NODE_NO_WARNINGS=1 symbiote clean",
-    "format": "NODE_NO_WARNINGS=1 symbiote format --hush",
-    "info": "NODE_NO_WARNINGS=1 symbiote project info",
+    "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
+    "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1",
+    "build:docs": "symbiote build docs --env NODE_NO_WARNINGS=1",
+    "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
+    "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush",
+    "info": "symbiote project info --env NODE_NO_WARNINGS=1",
     "lint": "npm run lint:package --",
-    "lint:package": "NODE_NO_WARNINGS=1 symbiote lint --hush",
-    "lint:packages": "NODE_NO_WARNINGS=1 symbiote lint --hush --scope unlimited",
-    "lint:project": "NODE_NO_WARNINGS=1 symbiote project lint",
-    "list-tasks": "NODE_NO_WARNINGS=1 symbiote list-tasks --scope this-package",
-    "prepare": "NODE_NO_WARNINGS=1 symbiote project prepare",
-    "release": "NODE_NO_WARNINGS=1 symbiote release",
-    "renovate": "NODE_NO_WARNINGS=1 symbiote project renovate --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs turbo-only'",
-    "start": "NODE_NO_WARNINGS=1 symbiote start --",
+    "lint:package": "symbiote lint --env NODE_NO_WARNINGS=1 --hush",
+    "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
+    "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
+    "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
+    "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs turbo-only'",
+    "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "echo 'it works!'",
-    "test:package:all": "NODE_NO_WARNINGS=1 symbiote test --coverage",
-    "test:package:e2e": "NODE_NO_WARNINGS=1 symbiote test --tests end-to-end",
-    "test:package:integration": "NODE_NO_WARNINGS=1 symbiote test --tests integration",
-    "test:package:unit": "NODE_NO_WARNINGS=1 symbiote test --tests unit",
-    "test:packages:all": "NODE_NO_WARNINGS=1 symbiote test --scope unlimited --coverage"
+    "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
+    "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit",
+    "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage"
   },
   "description": "TODO: set a description",
   "keywords": [],
@@ -26583,15 +26455,9 @@ import { moduleExport } from '@-xun/symbiote/assets/prettier.config.mjs';
 
 /*const debug = createDebugLogger({ namespace: 'symbiote:config:prettier' });*/
 
-const config = deepMergeConfig(
-  moduleExport(),
-  /**
-   * @type {import('@-xun/symbiote/assets/prettier.config.mjs').PrettierConfig}
-   */
-  {
-    // Any custom configs here will be deep merged with moduleExport's result
-  }
-);
+const config = deepMergeConfig(moduleExport(), {
+  // Any custom configs here will be deep merged with moduleExport's result
+});
 
 export default config;
 
@@ -26613,15 +26479,9 @@ import { moduleExport } from '@-xun/symbiote/assets/prettier.config.mjs';
 
 /*const debug = createDebugLogger({ namespace: 'symbiote:config:prettier' });*/
 
-const config = deepMergeConfig(
-  moduleExport(),
-  /**
-   * @type {import('@-xun/symbiote/assets/prettier.config.mjs').PrettierConfig}
-   */
-  {
-    // Any custom configs here will be deep merged with moduleExport's result
-  }
-);
+const config = deepMergeConfig(moduleExport(), {
+  // Any custom configs here will be deep merged with moduleExport's result
+});
 
 export default config;
 
@@ -26643,15 +26503,9 @@ import { moduleExport } from '@-xun/symbiote/assets/prettier.config.mjs';
 
 /*const debug = createDebugLogger({ namespace: 'symbiote:config:prettier' });*/
 
-const config = deepMergeConfig(
-  moduleExport(),
-  /**
-   * @type {import('@-xun/symbiote/assets/prettier.config.mjs').PrettierConfig}
-   */
-  {
-    // Any custom configs here will be deep merged with moduleExport's result
-  }
-);
+const config = deepMergeConfig(moduleExport(), {
+  // Any custom configs here will be deep merged with moduleExport's result
+});
 
 export default config;
 
@@ -26673,15 +26527,9 @@ import { moduleExport } from '@-xun/symbiote/assets/prettier.config.mjs';
 
 /*const debug = createDebugLogger({ namespace: 'symbiote:config:prettier' });*/
 
-const config = deepMergeConfig(
-  moduleExport(),
-  /**
-   * @type {import('@-xun/symbiote/assets/prettier.config.mjs').PrettierConfig}
-   */
-  {
-    // Any custom configs here will be deep merged with moduleExport's result
-  }
-);
+const config = deepMergeConfig(moduleExport(), {
+  // Any custom configs here will be deep merged with moduleExport's result
+});
 
 export default config;
 
@@ -26703,15 +26551,9 @@ import { moduleExport } from '@-xun/symbiote/assets/prettier.config.mjs';
 
 /*const debug = createDebugLogger({ namespace: 'symbiote:config:prettier' });*/
 
-const config = deepMergeConfig(
-  moduleExport(),
-  /**
-   * @type {import('@-xun/symbiote/assets/prettier.config.mjs').PrettierConfig}
-   */
-  {
-    // Any custom configs here will be deep merged with moduleExport's result
-  }
-);
+const config = deepMergeConfig(moduleExport(), {
+  // Any custom configs here will be deep merged with moduleExport's result
+});
 
 export default config;
 
@@ -26733,15 +26575,9 @@ import { moduleExport } from '@-xun/symbiote/assets/prettier.config.mjs';
 
 /*const debug = createDebugLogger({ namespace: 'symbiote:config:prettier' });*/
 
-const config = deepMergeConfig(
-  moduleExport(),
-  /**
-   * @type {import('@-xun/symbiote/assets/prettier.config.mjs').PrettierConfig}
-   */
-  {
-    // Any custom configs here will be deep merged with moduleExport's result
-  }
-);
+const config = deepMergeConfig(moduleExport(), {
+  // Any custom configs here will be deep merged with moduleExport's result
+});
 
 export default config;
 
@@ -26763,15 +26599,9 @@ import { moduleExport } from '@-xun/symbiote/assets/prettier.config.mjs';
 
 /*const debug = createDebugLogger({ namespace: 'symbiote:config:prettier' });*/
 
-const config = deepMergeConfig(
-  moduleExport(),
-  /**
-   * @type {import('@-xun/symbiote/assets/prettier.config.mjs').PrettierConfig}
-   */
-  {
-    // Any custom configs here will be deep merged with moduleExport's result
-  }
-);
+const config = deepMergeConfig(moduleExport(), {
+  // Any custom configs here will be deep merged with moduleExport's result
+});
 
 export default config;
 
@@ -26793,15 +26623,9 @@ import { moduleExport } from '@-xun/symbiote/assets/prettier.config.mjs';
 
 /*const debug = createDebugLogger({ namespace: 'symbiote:config:prettier' });*/
 
-const config = deepMergeConfig(
-  moduleExport(),
-  /**
-   * @type {import('@-xun/symbiote/assets/prettier.config.mjs').PrettierConfig}
-   */
-  {
-    // Any custom configs here will be deep merged with moduleExport's result
-  }
-);
+const config = deepMergeConfig(moduleExport(), {
+  // Any custom configs here will be deep merged with moduleExport's result
+});
 
 export default config;
 
@@ -26830,9 +26654,6 @@ const {
 
 module.exports = deepMergeConfig(
   moduleExport(assertEnvironment({ projectRoot: __dirname })),
-  /**
-   * @type {import('@-xun/symbiote/assets/release.config.cjs').ReleaseConfig}
-   */
   {
     // Any custom configs here will be deep merged with moduleExport's result
   }
@@ -26863,9 +26684,6 @@ const {
 
 module.exports = deepMergeConfig(
   moduleExport(assertEnvironment({ projectRoot: __dirname })),
-  /**
-   * @type {import('@-xun/symbiote/assets/release.config.cjs').ReleaseConfig}
-   */
   {
     // Any custom configs here will be deep merged with moduleExport's result
   }
@@ -26896,9 +26714,6 @@ const {
 
 module.exports = deepMergeConfig(
   moduleExport(assertEnvironment({ projectRoot: __dirname })),
-  /**
-   * @type {import('@-xun/symbiote/assets/release.config.cjs').ReleaseConfig}
-   */
   {
     // Any custom configs here will be deep merged with moduleExport's result
   }
@@ -26929,9 +26744,6 @@ const {
 
 module.exports = deepMergeConfig(
   moduleExport(assertEnvironment({ projectRoot: __dirname })),
-  /**
-   * @type {import('@-xun/symbiote/assets/release.config.cjs').ReleaseConfig}
-   */
   {
     // Any custom configs here will be deep merged with moduleExport's result
   }
@@ -26962,9 +26774,6 @@ const {
 
 module.exports = deepMergeConfig(
   moduleExport(assertEnvironment({ projectRoot: __dirname })),
-  /**
-   * @type {import('@-xun/symbiote/assets/release.config.cjs').ReleaseConfig}
-   */
   {
     // Any custom configs here will be deep merged with moduleExport's result
   }
@@ -26995,9 +26804,6 @@ const {
 
 module.exports = deepMergeConfig(
   moduleExport(assertEnvironment({ projectRoot: __dirname })),
-  /**
-   * @type {import('@-xun/symbiote/assets/release.config.cjs').ReleaseConfig}
-   */
   {
     // Any custom configs here will be deep merged with moduleExport's result
   }
@@ -27028,9 +26834,6 @@ const {
 
 module.exports = deepMergeConfig(
   moduleExport(assertEnvironment({ projectRoot: __dirname })),
-  /**
-   * @type {import('@-xun/symbiote/assets/release.config.cjs').ReleaseConfig}
-   */
   {
     // Any custom configs here will be deep merged with moduleExport's result
   }
@@ -27061,9 +26864,6 @@ const {
 
 module.exports = deepMergeConfig(
   moduleExport(assertEnvironment({ projectRoot: __dirname })),
-  /**
-   * @type {import('@-xun/symbiote/assets/release.config.cjs').ReleaseConfig}
-   */
   {
     // Any custom configs here will be deep merged with moduleExport's result
   }

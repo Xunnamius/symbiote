@@ -4,7 +4,13 @@ import fsSync from 'node:fs';
 import fs from 'node:fs/promises';
 
 import { runNoRejectOnBadExit } from '@-xun/run';
-import { CliError, FrameworkExitCode } from '@black-flag/core';
+
+import {
+  $executionContext,
+  CliError,
+  FrameworkExitCode,
+  type Arguments
+} from '@black-flag/core';
 
 import {
   config as _loadDotEnv,
@@ -242,7 +248,8 @@ export const magicStringChooserBlockEnd =
 
 /**
  * A version of {@link withStandardBuilder} that expects `CustomCliArguments` to
- * extend {@link GlobalCliArguments}.
+ * extend {@link GlobalCliArguments} and implements any related global handler
+ * functionality.
  *
  * {@link globalCliArguments} is included in `additionalCommonOptions`
  * automatically. See {@link withStandardBuilder} for more details on how this
@@ -253,13 +260,56 @@ export function withGlobalBuilder<CustomCliArguments extends GlobalCliArguments<
     typeof withStandardBuilder<CustomCliArguments, GlobalExecutionContext>
   >
 ): ReturnType<typeof withStandardBuilder<CustomCliArguments, GlobalExecutionContext>> {
-  return withStandardBuilder<CustomCliArguments, GlobalExecutionContext>(customBuilder, {
+  const [globalBuilder, withStandardHandlerExtensions] = withStandardBuilder<
+    CustomCliArguments,
+    GlobalExecutionContext
+  >(customBuilder, {
     ...settings,
     additionalCommonOptions: [
       globalCliArguments,
       ...(settings?.additionalCommonOptions || [])
     ]
   });
+
+  return [
+    globalBuilder,
+    function withGlobalHandler(customHandler) {
+      return withStandardHandlerExtensions(async function customGlobalHandler(argv) {
+        const {
+          env: envOverrides,
+          [$executionContext]: { debug_ }
+          // ? Work around weirdness with BfeStrictArguments's OmitIndexSignature
+        } = argv as Arguments<CustomCliArguments, GlobalExecutionContext>;
+
+        const debug = debug_.extend('handler-wrapper');
+
+        debug('entered customHandler wrapper function');
+
+        for (const envString of envOverrides) {
+          const [envKey, envVal] = envString.split('=');
+
+          if (envKey) {
+            if (envVal) {
+              debug.message('set environment variable %O to %O', envKey, envVal);
+              process.env[envKey] = envVal;
+            } else {
+              debug.message('unset environment variable %O', envKey);
+              // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
+              delete process.env[envKey];
+            }
+          } else {
+            debug.message('skipped invalid argument --env=%O', envString);
+          }
+        }
+
+        debug(
+          'exiting customHandler wrapper function (triggering actual customHandler)'
+        );
+
+        return customHandler?.(argv);
+      });
+    }
+  ];
 }
 
 export { withStandardUsage as withGlobalUsage };
@@ -285,7 +335,7 @@ export async function runGlobalPreChecks({
 }): Promise<{
   projectMetadata: NonNullable<GlobalExecutionContext['projectMetadata']>;
 }> {
-  const debug = debug_.extend('globalPreChecks');
+  const debug = debug_.extend('pre-checks');
 
   assert(projectMetadata_, ErrorMessage.CannotRunOutsideRoot());
 
