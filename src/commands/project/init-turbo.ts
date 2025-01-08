@@ -39,14 +39,20 @@ export default function command({
   projectMetadata: projectMetadata_,
   isUsingLocalInstallation
 }: AsStrictExecutionContext<GlobalExecutionContext>) {
-  const [builder, withGlobalHandler] = withGlobalBuilder<CustomCliArguments>({
-    scope: { choices: projectInitScopes, default: ProjectInitScope.Unlimited },
-    multiversal: {
-      boolean: true,
-      demandThisOption: true,
-      description: 'Whether this project allows multiversal imports or not'
+  const [builder, withGlobalHandler] = withGlobalBuilder<CustomCliArguments>(
+    function (blackFlag) {
+      blackFlag.parserConfiguration({ 'negation-prefix': 'not-' });
+
+      return {
+        scope: { choices: projectInitScopes, default: ProjectInitScope.Unlimited },
+        multiversal: {
+          boolean: true,
+          demandThisOption: true,
+          description: 'Whether or not this project allows multiversal imports'
+        }
+      };
     }
-  });
+  );
 
   return {
     builder,
@@ -55,7 +61,7 @@ export default function command({
 
 Currently, this command regenerates ${turboConfigProjectBase} for every package in the project (including the root package) when --multiversal is provided. This step allows Turbo to pick up on the "cross-package dependencies" created when multiversal imports are used, such as in hybridrepos.
 
-When --no-multiversal is provided instead, this command becomes a no-op. Typically, polyrepos and monorepos will use --no-multiversal, or will forgo using this command entirely.
+When --not-multiversal is provided instead, this command becomes a no-op. Typically, polyrepos and monorepos will use --not-multiversal, or will forgo using this command entirely.
 
 This command is not meant to be run manually, but by Turbo itself as an initialization script/task that belongs exclusively to the project root package.json file. See the symbiote wiki for details.`),
     handler: withGlobalHandler(async function ({
