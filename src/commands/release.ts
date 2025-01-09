@@ -1123,9 +1123,13 @@ const protoReleaseTask: ProtoCoreReleaseTask = {
           );
         }
 
-        log.warn([LogTag.IF_NOT_SILENCED], 'Executing hard reset');
+        log.warn(
+          [LogTag.IF_NOT_SILENCED],
+          'Executing hard reset to %O',
+          previousCommitSha
+        );
 
-        await run('git', ['reset', '--hard', currentCommitSha], {
+        await run('git', ['reset', '--hard', previousCommitSha], {
           stdout: isQuieted ? 'ignore' : 'inherit',
           stderr: isSilenced ? 'ignore' : 'inherit'
         });
@@ -1150,7 +1154,7 @@ const protoReleaseTask: ProtoCoreReleaseTask = {
       log.warn(
         [LogTag.IF_NOT_SILENCED],
         'Rolling repository back to %O (HEAD)',
-        previousCommitSha
+        currentCommitSha
       );
 
       await run('git', ['reset', '--hard', 'HEAD'], {
