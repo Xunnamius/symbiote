@@ -551,24 +551,36 @@ export function compileTemplateInMemory(
   const compiledTemplate = Object.entries(context).reduce((result, [key, value]) => {
     return result
       .replaceAll(
-        new RegExp(`{{${key}(\\.[^:|}]+)?(?:|:|:(.+?(?=}})))}}`, 'g'),
+        new RegExp(`{{${key}(\\.[^:|+}]+)?(?:|:|:(.+?(?=}})))}}`, 'g'),
         (_matchText, query: string | undefined, linkText: string | undefined) => {
           const actualValue = String(query ? getInObject(value, query.slice(1)) : value);
           // ! `value` may be sensitive, so do not output it in logs
-          debug('found and replaced %O template variable', key + (query || ''));
+          debug('found and replaced %O template variable (link)', key + (query || ''));
           return linkText ? `[${linkText}](${actualValue})` : actualValue;
         }
       )
       .replaceAll(
-        new RegExp(`{{${key}(\\.[^:|}]+)?(?:\\|(.*?(?=}})))}}`, 'g'),
+        new RegExp(`{{${key}(\\.[^:|+}]+)?(?:\\|(.*?(?=}})))}}`, 'g'),
         (_matchText, query: string | undefined, defaultText: string) => {
           const actualValue = query ? getInObject(value, query.slice(1)) : value;
           // ! `value` may be sensitive, so do not output it in logs
           debug(
-            'found and replaced %O conditional template variable',
+            'found and replaced %O conditional template variable (default)',
             key + (query || '')
           );
           return actualValue ? String(actualValue) : defaultText;
+        }
+      )
+      .replaceAll(
+        new RegExp(`{{${key}(\\.[^:|+}]+)?(?:\\+(.+?(?=}})))}}`, 'g'),
+        (_matchText, query: string | undefined, suffix: string) => {
+          const actualValue = query ? getInObject(value, query.slice(1)) : value;
+          // ! `value` may be sensitive, so do not output it in logs
+          debug(
+            'found and replaced %O conditional template variable (concat)',
+            key + (query || '')
+          );
+          return actualValue ? String(actualValue) + suffix : '';
         }
       );
   }, rawTemplate);

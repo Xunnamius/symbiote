@@ -208,7 +208,7 @@ Thank you for your contribution!
   "package/README.md": "<!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./logo.png">
+  <img width="300" src="https://raw.githubusercontent.com/repo-owner/repo-name/refs/heads/main/logo.png">
 </p>
 
 <p align="center" width="100%">
@@ -16514,7 +16514,7 @@ scope: this-package
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./logo.png">
+  <img width="300" src="https://raw.githubusercontent.com/repo-owner/repo-name/refs/heads/main/logo.png">
 </p>
 
 <p align="center" width="100%">
@@ -16802,7 +16802,7 @@ scope: unlimited
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./logo.png">
+  <img width="300" src="https://raw.githubusercontent.com/repo-owner/repo-name/refs/heads/main/logo.png">
 </p>
 
 <p align="center" width="100%">
@@ -17090,7 +17090,7 @@ scope: unlimited
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./logo.png">
+  <img width="300" src="https://raw.githubusercontent.com/repo-owner/repo-name/refs/heads/main/packages/cli/logo.png">
 </p>
 
 <p align="center" width="100%">
@@ -17355,7 +17355,7 @@ scope: unlimited
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./logo.png">
+  <img width="300" src="https://raw.githubusercontent.com/repo-owner/repo-name/refs/heads/main/packages/private/logo.png">
 </p>
 
 <p align="center" width="100%">
@@ -17620,7 +17620,7 @@ scope: unlimited
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./logo.png">
+  <img width="300" src="https://raw.githubusercontent.com/repo-owner/repo-name/refs/heads/main/packages/webpack/logo.png">
 </p>
 
 <p align="center" width="100%">
@@ -17885,7 +17885,7 @@ scope: unlimited
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./logo.png">
+  <img width="300" src="https://raw.githubusercontent.com/repo-owner/repo-name/refs/heads/main/logo.png">
 </p>
 
 <p align="center" width="100%">
@@ -18173,7 +18173,7 @@ scope: unlimited
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./logo.png">
+  <img width="300" src="https://raw.githubusercontent.com/repo-owner/repo-name/refs/heads/main/packages/cli/logo.png">
 </p>
 
 <p align="center" width="100%">
@@ -18438,7 +18438,7 @@ scope: unlimited
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./logo.png">
+  <img width="300" src="https://raw.githubusercontent.com/repo-owner/repo-name/refs/heads/main/packages/private/logo.png">
 </p>
 
 <p align="center" width="100%">
@@ -18703,7 +18703,7 @@ scope: unlimited
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./logo.png">
+  <img width="300" src="https://raw.githubusercontent.com/repo-owner/repo-name/refs/heads/main/packages/webpack/logo.png">
 </p>
 
 <p align="center" width="100%">
@@ -18968,7 +18968,7 @@ scope: this-package
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./logo.png">
+  <img width="300" src="https://raw.githubusercontent.com/repo-owner/repo-name/refs/heads/main/packages/pkg-1/logo.png">
 </p>
 
 <p align="center" width="100%">
@@ -19241,7 +19241,7 @@ scope: unlimited
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./logo.png">
+  <img width="300" src="https://raw.githubusercontent.com/repo-owner/repo-name/refs/heads/main/packages/pkg-1/logo.png">
 </p>
 
 <p align="center" width="100%">
@@ -19506,7 +19506,7 @@ scope: unlimited
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./logo.png">
+  <img width="300" src="https://raw.githubusercontent.com/repo-owner/repo-name/refs/heads/main/packages/pkg-2/logo.png">
 </p>
 
 <p align="center" width="100%">
@@ -19771,7 +19771,7 @@ scope: unlimited
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./logo.png">
+  <img width="300" src="https://raw.githubusercontent.com/repo-owner/repo-name/refs/heads/main/packages/pkg-import/logo.png">
 </p>
 
 <p align="center" width="100%">
@@ -20044,7 +20044,7 @@ scope: unlimited
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./logo.png">
+  <img width="300" src="https://raw.githubusercontent.com/repo-owner/repo-name/refs/heads/main/packages/pkg-1/logo.png">
 </p>
 
 <p align="center" width="100%">
@@ -20309,7 +20309,7 @@ scope: unlimited
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./logo.png">
+  <img width="300" src="https://raw.githubusercontent.com/repo-owner/repo-name/refs/heads/main/packages/pkg-2/logo.png">
 </p>
 
 <p align="center" width="100%">
@@ -20574,7 +20574,7 @@ scope: unlimited
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./logo.png">
+  <img width="300" src="https://raw.githubusercontent.com/repo-owner/repo-name/refs/heads/main/packages/pkg-import/logo.png">
 </p>
 
 <p align="center" width="100%">
@@ -20839,7 +20839,7 @@ scope: unlimited
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./logo.png">
+  <img width="300" src="https://raw.githubusercontent.com/repo-owner/repo-name/refs/heads/main/logo.png">
 </p>
 
 <p align="center" width="100%">
@@ -21127,7 +21127,7 @@ scope: this-package
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./logo.png">
+  <img width="300" src="https://raw.githubusercontent.com/repo-owner/repo-name/refs/heads/main/logo.png">
 </p>
 
 <p align="center" width="100%">
@@ -21415,7 +21415,7 @@ scope: unlimited
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./logo.png">
+  <img width="300" src="https://raw.githubusercontent.com/repo-owner/repo-name/refs/heads/main/logo.png">
 </p>
 
 <p align="center" width="100%">
