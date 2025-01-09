@@ -8,7 +8,7 @@
 
 > **configureExecutionContext**(`context`): `Promisable`\<[`GlobalExecutionContext`](../type-aliases/GlobalExecutionContext.md)\>
 
-Defined in: [src/configure.ts:155](https://github.com/Xunnamius/symbiote/blob/138da875f3247f966687e95b91c7caf822df3c49/src/configure.ts#L155)
+Defined in: [src/configure.ts:155](https://github.com/Xunnamius/symbiote/blob/6997faa5359efb83c247c1b6e5dcf27da55db104/src/configure.ts#L155)
 
 ## Parameters
 

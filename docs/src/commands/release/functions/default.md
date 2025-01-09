@@ -8,7 +8,7 @@
 
 > **default**(`executionContext`): `object`
 
-Defined in: [src/commands/release.ts:279](https://github.com/Xunnamius/symbiote/blob/138da875f3247f966687e95b91c7caf822df3c49/src/commands/release.ts#L279)
+Defined in: [src/commands/release.ts:282](https://github.com/Xunnamius/symbiote/blob/6997faa5359efb83c247c1b6e5dcf27da55db104/src/commands/release.ts#L282)
 
 ## Parameters
 

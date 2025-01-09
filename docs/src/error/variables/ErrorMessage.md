@@ -8,7 +8,7 @@
 
 > `const` **ErrorMessage**: `object`
 
-Defined in: [src/error.ts:63](https://github.com/Xunnamius/symbiote/blob/138da875f3247f966687e95b91c7caf822df3c49/src/error.ts#L63)
+Defined in: [src/error.ts:63](https://github.com/Xunnamius/symbiote/blob/6997faa5359efb83c247c1b6e5dcf27da55db104/src/error.ts#L63)
 
 A collection of possible error and warning messages.
 
@@ -736,6 +736,12 @@ readonly `string`[]
 `string`
 
 ### ReleaseEnvironmentValidationFailed()
+
+#### Returns
+
+`string`
+
+### ReleaseFailedRepoRolledBack()
 
 #### Returns
 

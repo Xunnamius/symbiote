@@ -8,7 +8,7 @@
 
 > **moduleExport**(`__namedParameters`): [`ReleaseConfig`](../interfaces/ReleaseConfig.md)
 
-Defined in: [src/assets/transformers/\_release.config.cjs.ts:87](https://github.com/Xunnamius/symbiote/blob/138da875f3247f966687e95b91c7caf822df3c49/src/assets/transformers/_release.config.cjs.ts#L87)
+Defined in: [src/assets/transformers/\_release.config.cjs.ts:91](https://github.com/Xunnamius/symbiote/blob/6997faa5359efb83c247c1b6e5dcf27da55db104/src/assets/transformers/_release.config.cjs.ts#L91)
 
 ## Parameters
 

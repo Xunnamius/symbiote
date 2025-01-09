@@ -8,7 +8,7 @@
 
 > `const` **allPrereleaseTasks**: `"prerelease"` = `'prerelease'`
 
-Defined in: [src/commands/release.ts:110](https://github.com/Xunnamius/symbiote/blob/138da875f3247f966687e95b91c7caf822df3c49/src/commands/release.ts#L110)
+Defined in: [src/commands/release.ts:113](https://github.com/Xunnamius/symbiote/blob/6997faa5359efb83c247c1b6e5dcf27da55db104/src/commands/release.ts#L113)
 
 A string that can be passed to --skip-tasks representing all prerelease
 tasks.
