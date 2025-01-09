@@ -71,7 +71,7 @@
     "@babel/core": "^7.26.0",
     "@listr2/manager": "^2.0.13",
     "@types/debug": "^4.1.12",
-    "core-js": "3.39.0",
+    "core-js": "^3.39.0",
     "debug": "^4.3.7",
     "jsonc-parser": "^3.3.1",
     "listr2": "^8.2.5",
