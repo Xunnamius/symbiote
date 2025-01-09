@@ -186,7 +186,10 @@ export function moduleExport({
 
       // ! This ordering is important to ensure errors stop the process safely
       // ! and that broken builds are not published. The proper order is:
-      // ! NPM (+ attestations) > Git > GitHub.
+      // ! NPM (+ attestations) > Git > GitHub. Note that the order here is not
+      // ! the exact run order since different plugins have different hooks that
+      // ! are executed at different points. Specifically: a git commit is
+      // ! created BEFORE npm runs.
 
       // TODO: add support for GitHub Actions build provenance attestations here
       // This comes bundled with semantic-release
