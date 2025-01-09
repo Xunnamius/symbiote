@@ -687,7 +687,7 @@ WARNING: this command is NOT DESIGNED TO HANDLE CONCURRENT EXECUTION ON THE SAME
         }
       } catch (error) {
         if (isNativeError(error) && error.cause === $gracefulExit) {
-          log.message(
+          genericLogger.message(
             [LogTag.IF_NOT_HUSHED],
             'The release process exited prematurely, but gracefully 💃🏿 (i.e. not due to an error)'
           );
