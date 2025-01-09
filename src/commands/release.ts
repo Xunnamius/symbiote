@@ -2,6 +2,7 @@ import { chmod, mkdir, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { type ReadableStream } from 'node:stream/web';
 import { setTimeout as delay } from 'node:timers/promises';
+import { isNativeError } from 'node:util/types';
 
 import { run, runNoRejectOnBadExit, type RunOptions } from '@-xun/run';
 import { CliError, type ChildConfiguration } from '@black-flag/core';
@@ -77,6 +78,8 @@ const nestedTaskDepth = 2;
 const maxCodecovDownloadRetries = 3;
 const codecovDownloadTimeoutSeconds = 10;
 const codecovDownloadUrl = 'https://cli.codecov.io/latest/linux/codecov';
+
+const $gracefulExit = Symbol('interrupt-tasks-and-exit-cleanly');
 
 /**
  * The environment variables this command expects to be defined in
@@ -682,6 +685,15 @@ WARNING: this command is NOT DESIGNED TO HANDLE CONCURRENT EXECUTION ON THE SAME
             }
           }
         }
+      } catch (error) {
+        if (isNativeError(error) && error.cause === $gracefulExit) {
+          log.message(
+            [LogTag.IF_NOT_HUSHED],
+            'The release process exited prematurely, but gracefully 💃🏿 (i.e. not due to an error)'
+          );
+        } else {
+          throw error;
+        }
       } finally {
         genericLogger.newline([LogTag.IF_NOT_QUIETED]);
       }
@@ -1074,6 +1086,9 @@ const protoReleaseTask: ProtoCoreReleaseTask = {
         );
 
         await rollbackRepositoryToHead();
+
+        // ? Will be handled specially further up the stack
+        throw new Error('$gracefulExit', { cause: $gracefulExit });
       } else {
         log([LogTag.IF_NOT_HUSHED], 'New version release detected 🧑🏿‍🚀');
       }
