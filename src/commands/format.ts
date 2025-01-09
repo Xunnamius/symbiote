@@ -535,7 +535,7 @@ With respect to .prettierignore being the single source of truth for formatters:
             });
 
             hardAssert(typeof outputLines === 'string', ErrorMessage.GuruMeditation());
-            status.prettier = outputLines.split('\n').length;
+            status.prettier = outputLines.trim().split('\n').length;
           } else {
             debug('prettierTargetFiles was empty, so prettier run was skipped');
           }

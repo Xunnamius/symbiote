@@ -1104,7 +1104,7 @@ const protoReleaseTask: ProtoCoreReleaseTask = {
           '--points-at',
           currentCommitSha
           // TODO: replace with "lines" when fixed in upstream @-xun/run
-        ]).then(({ stdout }) => stdout.split('\n'));
+        ]).then(({ stdout }) => stdout.trim().split('\n'));
 
         debug('tagsToDelete: %O', tagsToDelete);
 

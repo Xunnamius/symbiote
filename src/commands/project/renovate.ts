@@ -2324,9 +2324,10 @@ async function createAliasTags(
             'show',
             `${oldTag}^{}`,
             '--format=%aD'
-          ]).then(({ stdout }) => stdout.split('\n')[0]);
+          ]).then(({ stdout }) => stdout.trim().split('\n')[0]);
 
           debug('oldTagCommitterDate: %O', oldTagCommitterDate);
+          softAssert(oldTagCommitterDate, ErrorMessage.GuruMeditation());
           debug.message('creating new tag %O that aliases %O', aliasTag, oldTag);
 
           // eslint-disable-next-line no-await-in-loop
