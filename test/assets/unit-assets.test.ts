@@ -1224,6 +1224,10 @@ describe('::compileTemplateInMemory', () => {
 
 {{projectMetadata.cwdPackage.json.description}}
 
+Does not exist at all: "{{does.not.exist}}" "{{does.not.exist|}}"
+
+Does not exist partially: "{{projectMetadata.cwdPackage.relativeRoot|}}"
+
 To install {{repoName}}:
 
 \`\`\`shell
@@ -1272,6 +1276,10 @@ npm install {{projectMetadata.cwdPackage.json.name}}
       <!-- symbiote-template-region-end -->
 
       good-hybridrepo-description
+
+      Does not exist at all: "{{does.not.exist}}" "{{does.not.exist|}}"
+
+      Does not exist partially: ""
 
       To install repo-name:
 

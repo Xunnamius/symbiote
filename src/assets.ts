@@ -560,7 +560,7 @@ export function compileTemplateInMemory(
         }
       )
       .replaceAll(
-        new RegExp(`{{${key}(\\.[^:|}]+)?(?:\\|(.+?(?=}})))}}`, 'g'),
+        new RegExp(`{{${key}(\\.[^:|}]+)?(?:\\|(.*?(?=}})))}}`, 'g'),
         (_matchText, query: string | undefined, defaultText: string) => {
           const actualValue = query ? getInObject(value, query.slice(1)) : value;
           // ! `value` may be sensitive, so do not output it in logs
