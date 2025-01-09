@@ -1008,7 +1008,11 @@ const protoPrereleaseTasks: ProtoPrereleaseTask[][] = [
 const protoReleaseTask: ProtoCoreReleaseTask = {
   actionDescription: 'Running @-xun/release',
   helpDescription: 'Run @-xun/release (publish new release)',
-  async run({ projectMetadata }, { dryRun, ci, quiet: isQuieted, silent: isSilenced }) {
+  async run(
+    { projectMetadata },
+    { dryRun, ci, quiet: isQuieted, silent: isSilenced },
+    { debug, log }
+  ) {
     const {
       rootPackage: { root: projectRoot },
       cwdPackage: {
@@ -1024,7 +1028,15 @@ const protoReleaseTask: ProtoCoreReleaseTask = {
         `${cwdPackageName}@`
       );
 
-    await run(
+    const { stdout: previousCommitSha } = await runNoRejectOnBadExit('git', [
+      'log',
+      '-1',
+      '--pretty=format:%H'
+    ]);
+
+    debug('previousCommitSha: %O', previousCommitSha);
+
+    const { exitCode } = await runNoRejectOnBadExit(
       'npx',
       [
         '--no-install',
@@ -1045,6 +1057,100 @@ const protoReleaseTask: ProtoCoreReleaseTask = {
         stderr: isSilenced ? 'ignore' : 'inherit'
       }
     );
+
+    const { stdout: currentCommitSha } = await runNoRejectOnBadExit('git', [
+      'log',
+      '-1',
+      '--pretty=format:%H'
+    ]);
+
+    debug('currentCommitSha: %O', currentCommitSha);
+
+    if (exitCode === 0) {
+      if (previousCommitSha === currentCommitSha) {
+        log.warn(
+          [LogTag.IF_NOT_SILENCED],
+          '@-xun/release exited cleanly but NO new version release was detected!'
+        );
+
+        await rollbackRepositoryToHead();
+      } else {
+        log([LogTag.IF_NOT_HUSHED], 'New version release detected 🧑🏿‍🚀');
+      }
+    } else {
+      log.error(
+        [LogTag.IF_NOT_SILENCED],
+        '⚠️🚧 @-xun/release exited with a non-zero exit code (%O)! 😵',
+        exitCode
+      );
+
+      await rollbackRepositoryToHead();
+
+      if (previousCommitSha !== currentCommitSha) {
+        log.error(
+          [LogTag.IF_NOT_SILENCED],
+          '❗ POTENTIALLY bad release commit %O detected',
+          currentCommitSha
+        );
+
+        log.warn(
+          [LogTag.IF_NOT_SILENCED],
+          'Rolling repository back further to %O...',
+          previousCommitSha
+        );
+
+        const tagsToDelete = await run('git', [
+          'tag',
+          '--points-at',
+          currentCommitSha
+          // TODO: replace with "lines" when fixed in upstream @-xun/run
+        ]).then(({ stdout }) => stdout.split('\n'));
+
+        debug('tagsToDelete: %O', tagsToDelete);
+
+        for (const tagToDelete of tagsToDelete) {
+          // eslint-disable-next-line no-await-in-loop
+          await run('git', ['tag', '--delete', tagToDelete]);
+          log.warn([LogTag.IF_NOT_SILENCED], 'Deleted local tag %O', tagToDelete);
+        }
+
+        await run('git', ['reset', '--hard', currentCommitSha], {
+          stdout: isQuieted ? 'ignore' : 'inherit',
+          stderr: isSilenced ? 'ignore' : 'inherit'
+        });
+
+        log([LogTag.IF_NOT_SILENCED], 'Repository was rolled back successfully');
+
+        log.newline([LogTag.IF_NOT_SILENCED]);
+
+        log.message(
+          [LogTag.IF_NOT_SILENCED],
+          '⚠️🚧 Depending on how exactly the release failed, you must now do one of the following:\n\n1. If the release failed AFTER the package was published SUCCESSFULLY, then the failure was not so catastrophic. Run `git fetch --all && git pull --rebase` to catch this repo up to remote.\n\n2. If the release failed BEFORE the package could be published, or the publish step itself failed, then you must roll back the remote repository by hand. Run `git push --force` to roll back the remote repository (you may need to disable any protective rulesets); finally, run `git push --delete your-remote your-tag` for each deleted local tag and relevant remote to complete the recovery process.'
+        );
+
+        log.newline([LogTag.IF_NOT_SILENCED]);
+      }
+    }
+
+    async function rollbackRepositoryToHead() {
+      log.warn(
+        [LogTag.IF_NOT_SILENCED],
+        'Rolling repository back to %O (HEAD)...',
+        previousCommitSha
+      );
+
+      await run('git', ['reset', '--hard', 'HEAD'], {
+        stdout: isQuieted ? 'ignore' : 'inherit',
+        stderr: isSilenced ? 'ignore' : 'inherit'
+      });
+
+      await run('git', ['clean', '-df'], {
+        stdout: isQuieted ? 'ignore' : 'inherit',
+        stderr: isSilenced ? 'ignore' : 'inherit'
+      });
+
+      log([LogTag.IF_NOT_SILENCED], 'Repository was rolled back successfully');
+    }
   }
 };
 
