@@ -1134,7 +1134,7 @@ const protoReleaseTask: ProtoCoreReleaseTask = {
           stderr: isSilenced ? 'ignore' : 'inherit'
         });
 
-        log([LogTag.IF_NOT_SILENCED], 'Repository was rolled back successfully');
+        log([LogTag.IF_NOT_SILENCED], 'Local repository was rolled back successfully');
 
         log.newline([LogTag.IF_NOT_SILENCED]);
 
@@ -1167,7 +1167,10 @@ const protoReleaseTask: ProtoCoreReleaseTask = {
         stderr: isSilenced ? 'ignore' : 'inherit'
       });
 
-      log([LogTag.IF_NOT_SILENCED], 'Repository was rolled back successfully');
+      log(
+        [LogTag.IF_NOT_SILENCED],
+        'Local repository was rolled back to HEAD successfully'
+      );
     }
   }
 };
