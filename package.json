@@ -119,8 +119,8 @@
     "@eslint/js": "^9.17.0",
     "@listr2/manager": "^2.0.13",
     "@octokit/plugin-retry": "^7.1.3",
-    "@octokit/plugin-throttling": "^9.3.3",
-    "@octokit/rest": "^21.0.2",
+    "@octokit/plugin-throttling": "^9.4.0",
+    "@octokit/rest": "^21.1.0",
     "@semantic-release/git": "^10.0.1",
     "@semantic-release/release-notes-generator": "^14.0.3",
     "@types/babel__preset-env": "^7.9.7",
@@ -138,7 +138,7 @@
     "@types/lodash.isequal": "^4.5.8",
     "@types/lodash.mergewith": "^4.6.9",
     "@types/node": "^22.10.5",
-    "@types/react": "^19.0.3",
+    "@types/react": "^19.0.4",
     "@types/semver": "^7.5.8",
     "@types/validate-npm-package-name": "^4.0.2",
     "@types/yargs": "^17.0.33",
@@ -147,7 +147,7 @@
     "babel-jest": "next",
     "babel-plugin-explicit-exports-references": "^1.0.2",
     "babel-plugin-transform-rewrite-imports": "^1.5.3",
-    "browserslist": "^4.24.3",
+    "browserslist": "^4.24.4",
     "confusing-browser-globals": "^1.0.11",
     "core-js": "3.40.0",
     "debug": "^4.4.0",
@@ -240,17 +240,17 @@
     "toss-expression": "^0.1.2",
     "tstyche": "^3.3.1",
     "turbo": "^2.3.3",
-    "type-fest": "^4.31.0",
+    "type-fest": "^4.32.0",
     "typedoc": "^0.27.6",
     "typedoc-plugin-markdown": "^4.4.1",
-    "typescript": "^5.7.2",
+    "typescript": "^5.7.3",
     "typescript-eslint": "^8.18.0",
     "unified-engine": "^11.2.2",
     "unique-filename": "^4.0.0",
     "validate-npm-package-name": "^6.0.0"
   },
   "devDependencies": {
-    "@-xun/symbiote": "^2.6.0"
+    "@-xun/symbiote": "^2.7.0"
   },
   "engines": {
     "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
