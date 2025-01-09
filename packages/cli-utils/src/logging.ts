@@ -1,5 +1,6 @@
-// ? Used in a comment for LogTag
 import { type ExtendedLogger } from 'multiverse+rejoinder';
+
+import { name as packageName, version as packageVersion } from 'rootverse:package.json';
 
 /**
  * Hard-coded maximum reporting depth of the causal stack when fatal errors
@@ -36,7 +37,8 @@ export function logStartTime({
 }) {
   _log.extend(isUsingLocalInstallation ? '🏠local' : '🌎GLOBAL')(
     [LogTag.IF_NOT_QUIETED],
-    'Execution began on',
+    // TODO: need to change this when cli-utils is moved out of symbiote
+    `Execution of ${packageName}@${packageVersion} began on`,
     startTime.toLocaleDateString(),
     'at',
     startTime.toLocaleTimeString()
