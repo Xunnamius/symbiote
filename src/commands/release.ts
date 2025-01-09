@@ -1136,7 +1136,7 @@ const protoReleaseTask: ProtoCoreReleaseTask = {
 
         log.message(
           [LogTag.IF_NOT_SILENCED],
-          '⚠️🚧 Depending on how exactly the release failed, you must now do one of the following:\n\n1. If the release failed AFTER the package was published SUCCESSFULLY, then the failure was not so catastrophic. Run `git fetch --all && git pull --rebase` to catch this repo up to remote.\n\n2. If the release failed BEFORE the package could be published, or the publish step itself failed, then you must roll back the remote repository by hand. Run `git push --force` to roll back the remote repository (you may need to disable any protective rulesets); finally, run `git push --delete your-remote your-tag` for each deleted local tag and relevant remote to complete the recovery process.'
+          '⚠️🚧 Depending on how exactly the release failed, you must now do one of the following:\n\n1. If the release failed AFTER the package was published SUCCESSFULLY, then the failure was not so catastrophic. Run `git fetch --all && git pull --rebase` to catch this repo up to remote.\n\n2. If the release failed BEFORE the package could be published, or the publish step itself failed, then it is very likely you need to rollback the remote repository by hand. Run `git push --force` to rollback the remote repository. You may need to disable any protective rulesets. Finally, run `git push --delete your-remote your-tag` for each deleted local tag and relevant remote to complete the recovery process.'
         );
 
         log.newline([LogTag.IF_NOT_SILENCED]);
