@@ -6,7 +6,7 @@
 
 # Enumeration: AssetPreset
 
-Defined in: [src/assets.ts:73](https://github.com/Xunnamius/symbiote/blob/dddfc44396c55ebfc704f8d576edac2868fe28cc/src/assets.ts#L73)
+Defined in: [src/assets.ts:74](https://github.com/Xunnamius/symbiote/blob/28acb7961df65f3e39ec6b549117698f529b083c/src/assets.ts#L74)
 
 These presets determine which assets will be returned by which transformers
 when they're invoked. By specifying a preset, only the assets it represents
@@ -20,7 +20,7 @@ See the symbiote wiki for details.
 
 > **Basic**: `"basic"`
 
-Defined in: [src/assets.ts:84](https://github.com/Xunnamius/symbiote/blob/dddfc44396c55ebfc704f8d576edac2868fe28cc/src/assets.ts#L84)
+Defined in: [src/assets.ts:85](https://github.com/Xunnamius/symbiote/blob/28acb7961df65f3e39ec6b549117698f529b083c/src/assets.ts#L85)
 
 Represents the most basic assets necessary for symbiote to be fully
 functional.
@@ -37,7 +37,7 @@ See the symbiote wiki for details.
 
 > **Cli**: `"cli"`
 
-Defined in: [src/assets.ts:92](https://github.com/Xunnamius/symbiote/blob/dddfc44396c55ebfc704f8d576edac2868fe28cc/src/assets.ts#L92)
+Defined in: [src/assets.ts:93](https://github.com/Xunnamius/symbiote/blob/28acb7961df65f3e39ec6b549117698f529b083c/src/assets.ts#L93)
 
 Represents the standard assets for an symbiote-compliant command-line
 interface project (such as `@black-flag/core`-powered tools like `symbiote`
@@ -51,7 +51,7 @@ See the symbiote wiki for details.
 
 > **Lib**: `"lib"`
 
-Defined in: [src/assets.ts:101](https://github.com/Xunnamius/symbiote/blob/dddfc44396c55ebfc704f8d576edac2868fe28cc/src/assets.ts#L101)
+Defined in: [src/assets.ts:102](https://github.com/Xunnamius/symbiote/blob/28acb7961df65f3e39ec6b549117698f529b083c/src/assets.ts#L102)
 
 Represents the standard assets for an symbiote-compliant library project
 built for both CJS and ESM consumers (such as the case with
@@ -66,7 +66,7 @@ See the symbiote wiki for details.
 
 > **LibEsm**: `"lib-esm"`
 
-Defined in: [src/assets.ts:109](https://github.com/Xunnamius/symbiote/blob/dddfc44396c55ebfc704f8d576edac2868fe28cc/src/assets.ts#L109)
+Defined in: [src/assets.ts:110](https://github.com/Xunnamius/symbiote/blob/28acb7961df65f3e39ec6b549117698f529b083c/src/assets.ts#L110)
 
 Represents the standard assets for an symbiote-compliant library project
 built exclusively for ESM and ESM-compatible consumers (such as the case
@@ -80,7 +80,7 @@ See the symbiote wiki for details.
 
 > **LibWeb**: `"lib-web"`
 
-Defined in: [src/assets.ts:117](https://github.com/Xunnamius/symbiote/blob/dddfc44396c55ebfc704f8d576edac2868fe28cc/src/assets.ts#L117)
+Defined in: [src/assets.ts:118](https://github.com/Xunnamius/symbiote/blob/28acb7961df65f3e39ec6b549117698f529b083c/src/assets.ts#L118)
 
 Represents the standard assets for an symbiote-compliant library project
 built exclusively for ESM consumers operating in a browser-like runtime
@@ -94,7 +94,7 @@ See the symbiote wiki for details.
 
 > **Nextjs**: `"nextjs"`
 
-Defined in: [src/assets.ts:130](https://github.com/Xunnamius/symbiote/blob/dddfc44396c55ebfc704f8d576edac2868fe28cc/src/assets.ts#L130)
+Defined in: [src/assets.ts:131](https://github.com/Xunnamius/symbiote/blob/28acb7961df65f3e39ec6b549117698f529b083c/src/assets.ts#L131)
 
 Represents the standard assets for an symbiote-compliant Next.js + React
 project.
@@ -107,21 +107,8 @@ See the symbiote wiki for details.
 
 > **React**: `"react"`
 
-Defined in: [src/assets.ts:123](https://github.com/Xunnamius/symbiote/blob/dddfc44396c55ebfc704f8d576edac2868fe28cc/src/assets.ts#L123)
+Defined in: [src/assets.ts:124](https://github.com/Xunnamius/symbiote/blob/28acb7961df65f3e39ec6b549117698f529b083c/src/assets.ts#L124)
 
 Represents the standard assets for an symbiote-compliant React project.
-
-See the symbiote wiki for details.
-
-***
-
-### TurboOnly
-
-> **TurboOnly**: `"turbo-only"`
-
-Defined in: [src/assets.ts:137](https://github.com/Xunnamius/symbiote/blob/dddfc44396c55ebfc704f8d576edac2868fe28cc/src/assets.ts#L137)
-
-Represents exclusively targeting `turbo.json` assets across the entire
-project.
 
 See the symbiote wiki for details.

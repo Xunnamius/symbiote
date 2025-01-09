@@ -8,7 +8,7 @@
 
 > **overwriteProperty**\<`T`\>(`configs`, `property`, `value`): [`EslintConfig`](../type-aliases/EslintConfig.md)[]
 
-Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:925](https://github.com/Xunnamius/symbiote/blob/dddfc44396c55ebfc704f8d576edac2868fe28cc/src/assets/transformers/_eslint.config.mjs.ts#L925)
+Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:928](https://github.com/Xunnamius/symbiote/blob/28acb7961df65f3e39ec6b549117698f529b083c/src/assets/transformers/_eslint.config.mjs.ts#L928)
 
 Accepts an [EslintConfig](../type-aliases/EslintConfig.md) object (or an array of them) and returns a
 flattened array with each object's `property` property overwritten by the

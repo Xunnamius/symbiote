@@ -8,7 +8,7 @@
 
 > **CustomCliArguments**: [`GlobalCliArguments`](../../../../configure/type-aliases/GlobalCliArguments.md)\<[`UnlimitedGlobalScope`](../../../../configure/enumerations/UnlimitedGlobalScope.md)\> & `object`
 
-Defined in: [src/commands/project/init-turbo.ts:31](https://github.com/Xunnamius/symbiote/blob/dddfc44396c55ebfc704f8d576edac2868fe28cc/src/commands/project/init-turbo.ts#L31)
+Defined in: [src/commands/project/init-turbo.ts:31](https://github.com/Xunnamius/symbiote/blob/28acb7961df65f3e39ec6b549117698f529b083c/src/commands/project/init-turbo.ts#L31)
 
 ## Type declaration
 

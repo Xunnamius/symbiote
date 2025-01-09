@@ -8,7 +8,7 @@
 
 > `const` **distributablesBuilderScopes**: [`ThisPackage`](../../../../configure/enumerations/ThisPackageGlobalScope.md#thispackage)[]
 
-Defined in: [src/commands/build/distributables.ts:152](https://github.com/Xunnamius/symbiote/blob/dddfc44396c55ebfc704f8d576edac2868fe28cc/src/commands/build/distributables.ts#L152)
+Defined in: [src/commands/build/distributables.ts:152](https://github.com/Xunnamius/symbiote/blob/28acb7961df65f3e39ec6b549117698f529b083c/src/commands/build/distributables.ts#L152)
 
 ## See
 

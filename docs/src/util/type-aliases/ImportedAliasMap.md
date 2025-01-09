@@ -8,7 +8,7 @@
 
 > **ImportedAliasMap**: [`RawAliasMapperArray`](RawAliasMapperArray.md) \| [`RawAliasMapperFunction`](RawAliasMapperFunction.md)
 
-Defined in: [src/util.ts:163](https://github.com/Xunnamius/symbiote/blob/dddfc44396c55ebfc704f8d576edac2868fe28cc/src/util.ts#L163)
+Defined in: [src/util.ts:164](https://github.com/Xunnamius/symbiote/blob/28acb7961df65f3e39ec6b549117698f529b083c/src/util.ts#L164)
 
 Represents the result of importing an import map file.
 
