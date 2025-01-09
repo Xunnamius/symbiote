@@ -1130,6 +1130,9 @@ const protoReleaseTask: ProtoCoreReleaseTask = {
 
         log.newline([LogTag.IF_NOT_SILENCED]);
       }
+
+      // ? Will be wrapped in CliError further up the stack
+      throw new Error(ErrorMessage.ReleaseFailedRepoRolledBack());
     }
 
     async function rollbackRepositoryToHead() {

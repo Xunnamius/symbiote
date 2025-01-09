@@ -230,7 +230,10 @@ export const ErrorMessage = {
     return `subtask operation ${index + 1} failed`;
   },
   ReleaseFinishedWithADirtyRepo() {
-    return 'the release pipeline has terminated but the repository remains in an unclean state. This is evidence of an incomplete or broken build process';
+    return 'the release pipeline has terminated successfully but the repository remains in an unclean state. This is evidence of an incomplete or broken build process';
+  },
+  ReleaseFailedRepoRolledBack() {
+    return '@-xun/release failed with a non-zero exit code. Act now to manually recover the repository to a stable state, if necessary';
   },
   BadReleaseSectionPath() {
     return 'the @-xun/symbiote semantic-release plugin requires the "releaseSectionPath" option be a non-empty string ending with ".md"';
