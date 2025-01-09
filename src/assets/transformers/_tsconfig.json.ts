@@ -135,7 +135,13 @@ ${makeGeneratedAliasesWarningComment(4)}
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
   "extends": "../../tsconfig.json",
-  "include": ["../../types/**/*", "**/*", "**/.*/**/*", "**/.*"],
+  "include": [
+    "../../test/setup.ts",
+    "../../types/**/*",
+    "**/*",
+    "**/.*/**/*",
+    "**/.*"
+  ],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
@@ -183,7 +189,12 @@ ${makeGeneratedAliasesWarningComment(4)}
 {
   "$schema": "https://json.schemastore.org/tsconfig.json",
   "extends": "../../tsconfig.json",
-  "include": ["../../types/**/*", "src/**/*", "test/**/*"],
+  "include": [
+    "../../test/setup.ts",
+    "../../types/**/*",
+    "src/**/*",
+    "test/**/*"
+  ],
   "exclude": [
     "**/dist/**/*",
     "**/test/fixtures/**/*",
