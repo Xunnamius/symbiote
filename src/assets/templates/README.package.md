@@ -1,7 +1,7 @@
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./logo.png">
+  <img width="300" src="https://raw.githubusercontent.com/{{repoOwner}}/{{repoName}}/refs/heads/main/{{projectMetadata.cwdPackage.relativeRoot+/}}logo.png">
 </p>
 
 <p align="center" width="100%">
