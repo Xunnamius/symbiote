@@ -19,6 +19,8 @@ import {
   type ProjectMetadata
 } from 'multiverse+project-utils:analyze.ts';
 
+import { ProjectError } from 'multiverse+project-utils:error.ts';
+
 import {
   toAbsolutePath,
   toPath,
@@ -413,7 +415,7 @@ export async function generateNotes(
   });
 
   if (!prettyTrimmedNotes) {
-    throw new Error(
+    throw new ProjectError(
       `unexpectedly empty temporary changelog file: ${releaseSectionPath}`
     );
   }
@@ -451,10 +453,8 @@ export async function success(_pluginConfig: PluginConfig, context: SuccessConte
       process.stdout.write(
         `::warning title=Repository left in unclean state::${ErrorMessage.ReleaseFinishedWithADirtyRepo()}.\n`
       );
-    } else {
-      // TODO: replace with rejoinder
-      // eslint-disable-next-line no-console
-      console.warn(`⚠️🚧 ${ErrorMessage.ReleaseFinishedWithADirtyRepo()}`);
     }
+
+    throw new ProjectError(ErrorMessage.ReleaseFinishedWithADirtyRepo());
   }
 }
