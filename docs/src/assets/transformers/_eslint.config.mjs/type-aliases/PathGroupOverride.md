@@ -8,7 +8,7 @@
 
 > **PathGroupOverride**: `object`
 
-Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:95](https://github.com/Xunnamius/symbiote/blob/28acb7961df65f3e39ec6b549117698f529b083c/src/assets/transformers/_eslint.config.mjs.ts#L95)
+Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:95](https://github.com/Xunnamius/symbiote/blob/138da875f3247f966687e95b91c7caf822df3c49/src/assets/transformers/_eslint.config.mjs.ts#L95)
 
 ## Type declaration
 

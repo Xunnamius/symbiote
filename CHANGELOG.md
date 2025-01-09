@@ -19,234 +19,242 @@ this project adheres to [Semantic Versioning][2].
 
 <br />
 
-## @-xun/symbiote[@2.6.0][7] (2025-01-08)
+### 🏗️ Patch @-xun/symbiote[@2.7.1][7] (2025-01-09)
+
+#### 🪄 Fixes
+
+- **assets/transformers:** ensure subroot tsconfigs include root test/setup.ts where appropriate ([138da87][8])
+
+<br />
+
+## @-xun/symbiote[@2.6.0][9] (2025-01-08)
 
 ### ✨ Features
 
-- Support `--env` common option for cross-env-like functionality ([dddfc44][8])
+- Support `--env` common option for cross-env-like functionality ([dddfc44][10])
 
 ### ⚙️ Build System
 
-- Remove unnecessary jsdoc type comments ([180f85f][9])
+- Remove unnecessary jsdoc type comments ([180f85f][11])
 
 <br />
 
-## @-xun/symbiote[@2.5.0][10] (2025-01-04)
+## @-xun/symbiote[@2.5.0][12] (2025-01-04)
 
 ### ✨ Features
 
-- **commands/renovate:** implement --generate-alias-tags renovation ([c133a92][11])
+- **commands/renovate:** implement --generate-alias-tags renovation ([c133a92][13])
 
 ### 🪄 Fixes
 
-- **assets/templates:** disable turbo config generation for now and add stashed configs ([6210727][12])
-- **assets/templates:** use less confusing language during readme regeneration ([625451c][13])
+- **assets/templates:** disable turbo config generation for now and add stashed configs ([6210727][14])
+- **assets/templates:** use less confusing language during readme regeneration ([625451c][15])
 
 <br />
 
-### 🏗️ Patch @-xun/symbiote[@2.5.6][14] (2025-01-06)
+### 🏗️ Patch @-xun/symbiote[@2.5.6][16] (2025-01-06)
 
 #### 🪄 Fixes
 
-- **assets:** ensure `deepMergeConfig` accepts a diverse set of overwrite objects ([2fd61c4][15])
+- **assets:** ensure `deepMergeConfig` accepts a diverse set of overwrite objects ([2fd61c4][17])
 
 <br />
 
-### 🏗️ Patch @-xun/symbiote[@2.5.5][16] (2025-01-06)
+### 🏗️ Patch @-xun/symbiote[@2.5.5][18] (2025-01-06)
 
 #### 🪄 Fixes
 
-- **src:** use proper path in global-vs-local binary detection ([3831af5][17])
+- **src:** use proper path in global-vs-local binary detection ([3831af5][19])
 
 <br />
 
-### 🏗️ Patch @-xun/symbiote[@2.5.4][18] (2025-01-06)
+### 🏗️ Patch @-xun/symbiote[@2.5.4][20] (2025-01-06)
 
 #### 🪄 Fixes
 
-- **commands/lint:** do not hide all output when `--hush` is used ([c23304e][19])
+- **commands/lint:** do not hide all output when `--hush` is used ([c23304e][21])
 
 #### ⚙️ Build System
 
-- Indicate in output topmatter whether current binary is globally or locally installed ([1411119][20])
+- Indicate in output topmatter whether current binary is globally or locally installed ([1411119][22])
 
 <br />
 
-### 🏗️ Patch @-xun/symbiote[@2.5.3][21] (2025-01-05)
+### 🏗️ Patch @-xun/symbiote[@2.5.3][23] (2025-01-05)
 
 #### 🪄 Fixes
 
-- **assets/transformers:** add `--hush` to "lint" script in generated package.json files ([0dd4fb7][22])
-- **assets/transformers:** generate properly formatted "breaking change" changelog notes ([607a378][23])
-- **assets/transformers:** update "turbo:init" script to use "project init-turbo" command in package.json ([19492a7][24])
+- **assets/transformers:** add `--hush` to "lint" script in generated package.json files ([0dd4fb7][24])
+- **assets/transformers:** generate properly formatted "breaking change" changelog notes ([607a378][25])
+- **assets/transformers:** update "turbo:init" script to use "project init-turbo" command in package.json ([19492a7][26])
 
 <br />
 
-### 🏗️ Patch @-xun/symbiote[@2.5.2][25] (2025-01-04)
+### 🏗️ Patch @-xun/symbiote[@2.5.2][27] (2025-01-04)
 
 #### 🪄 Fixes
 
-- **assets/transformers:** do not mess with "breaking change" title casing in generated changelog (via remark) ([4231719][26])
+- **assets/transformers:** do not mess with "breaking change" title casing in generated changelog (via remark) ([4231719][28])
 
 <br />
 
-### 🏗️ Patch @-xun/symbiote[@2.5.1][27] (2025-01-04)
+### 🏗️ Patch @-xun/symbiote[@2.5.1][29] (2025-01-04)
 
 #### 🪄 Fixes
 
-- **commands/release:** use emoji to reference skipped tasks in output ([b2dfed2][28])
+- **commands/release:** use emoji to reference skipped tasks in output ([b2dfed2][30])
 
 <br />
 
-## @-xun/symbiote[@2.4.0][29] (2025-01-03)
+## @-xun/symbiote[@2.4.0][31] (2025-01-03)
 
 ### ✨ Features
 
-- **commands/documentation:** add `--baseline` and `--typedoc-options` flag support ([10f876e][30])
+- **commands/documentation:** add `--baseline` and `--typedoc-options` flag support ([10f876e][32])
 
 <br />
 
-### 🏗️ Patch @-xun/symbiote[@2.4.3][31] (2025-01-03)
+### 🏗️ Patch @-xun/symbiote[@2.4.3][33] (2025-01-03)
 
 #### 🪄 Fixes
 
-- **assets/templates:** do not capitalize package semver data in markdown files (via remark) ([7b8ca54][32])
+- **assets/templates:** do not capitalize package semver data in markdown files (via remark) ([7b8ca54][34])
 
 <br />
 
-### 🏗️ Patch @-xun/symbiote[@2.4.2][33] (2025-01-03)
+### 🏗️ Patch @-xun/symbiote[@2.4.2][35] (2025-01-03)
 
 #### 🪄 Fixes
 
-- **assets/templates:** ensure real repo owner is used in support.md file link generation ([0bafa30][34])
+- **assets/templates:** ensure real repo owner is used in support.md file link generation ([0bafa30][36])
 
 <br />
 
-### 🏗️ Patch @-xun/symbiote[@2.4.1][35] (2025-01-03)
+### 🏗️ Patch @-xun/symbiote[@2.4.1][37] (2025-01-03)
 
 #### 🪄 Fixes
 
-- **commands/documentation:** ensure black flag uses proper argparser configuration ([02e289a][36])
+- **commands/documentation:** ensure black flag uses proper argparser configuration ([02e289a][38])
 
 <br />
 
-## @-xun/symbiote[@2.3.0][37] (2025-01-01)
+## @-xun/symbiote[@2.3.0][39] (2025-01-01)
 
 ### ✨ Features
 
-- **assets/transformers:** add eslint-config-turbo to eslint config ([23d01f3][38])
-- **assets/transformers:** add new "turbo-only" asset preset available to the renovate command ([ee079c1][39])
-- **commands/distributables:** implement `--skip-output-bijection-checks-for` ([c92b2cb][40])
-- **packages/project-utils:** add "turbo:init" script to `XPackageJson` ([c565452][41])
+- **assets/transformers:** add eslint-config-turbo to eslint config ([23d01f3][40])
+- **assets/transformers:** add new "turbo-only" asset preset available to the renovate command ([ee079c1][41])
+- **commands/distributables:** implement `--skip-output-bijection-checks-for` ([c92b2cb][42])
+- **packages/project-utils:** add "turbo:init" script to `XPackageJson` ([c565452][43])
 
 ### 🪄 Fixes
 
-- **assets/transformers:** add .turbo to gitignore ([6353b4f][42])
-- **assets/transformers:** ensure all project-root package.json files have a "turbo:init" script ([64a4138][43])
-- **assets/transformers:** generate readme using proper title ([9304778][44])
+- **assets/transformers:** add .turbo to gitignore ([6353b4f][44])
+- **assets/transformers:** ensure all project-root package.json files have a "turbo:init" script ([64a4138][45])
+- **assets/transformers:** generate readme using proper title ([9304778][46])
 
 <br />
 
-### 🏗️ Patch @-xun/symbiote[@2.3.4][45] (2025-01-02)
+### 🏗️ Patch @-xun/symbiote[@2.3.4][47] (2025-01-02)
 
 #### 🪄 Fixes
 
-- **assets/transformers:** remove commit spellchecker until commit-spell is released ([7f1f7a2][46])
+- **assets/transformers:** remove commit spellchecker until commit-spell is released ([7f1f7a2][48])
 
 <br />
 
-### 🏗️ Patch @-xun/symbiote[@2.3.3][47] (2025-01-02)
+### 🏗️ Patch @-xun/symbiote[@2.3.3][49] (2025-01-02)
 
 #### 🪄 Fixes
 
-- **commands/prepare:** exit immediately with exit code 0 when run runtime pre-checks fail ([1546ab8][48])
+- **commands/prepare:** exit immediately with exit code 0 when run runtime pre-checks fail ([1546ab8][50])
 
 <br />
 
-### 🏗️ Patch @-xun/symbiote[@2.3.2][49] (2025-01-01)
+### 🏗️ Patch @-xun/symbiote[@2.3.2][51] (2025-01-01)
 
 #### ⚙️ Build System
 
-- **assets/transformers:** add "**x**" directories to .prettierignore and eslint ignores ([ff6ce22][50])
-- **src:** add helpful verbiage to "lint" output and generated .prettierignore files ([9a456c5][51])
+- **assets/transformers:** add "**x**" directories to .prettierignore and eslint ignores ([ff6ce22][52])
+- **src:** add helpful verbiage to "lint" output and generated .prettierignore files ([9a456c5][53])
 
 <br />
 
-### 🏗️ Patch @-xun/symbiote[@2.3.1][52] (2025-01-01)
+### 🏗️ Patch @-xun/symbiote[@2.3.1][54] (2025-01-01)
 
 #### 🪄 Fixes
 
-- **commands/distributables:** ensure bijection check warnings are not overshadowed by errors ([1901cfe][53])
+- **commands/distributables:** ensure bijection check warnings are not overshadowed by errors ([1901cfe][55])
 
 <br />
 
-## @-xun/symbiote[@2.2.0][54] (2024-12-28)
+## @-xun/symbiote[@2.2.0][56] (2024-12-28)
 
 ### ✨ Features
 
-- **assets/transformers:** warn when updating package.json::engines that it is likely a breaking change ([0c1b93a][55])
-- **commands:** expose `RawAliasMapperFunction` and `RawAliasMapperArray` helper types ([ce6a12a][56])
-- **packages/cli-utils:** hoist semi-deep options configuration merge functionality from util ([14bf31f][57])
+- **assets/transformers:** warn when updating package.json::engines that it is likely a breaking change ([0c1b93a][57])
+- **commands:** expose `RawAliasMapperFunction` and `RawAliasMapperArray` helper types ([ce6a12a][58])
+- **packages/cli-utils:** hoist semi-deep options configuration merge functionality from util ([14bf31f][59])
 
 ### 🪄 Fixes
 
-- **assets/transformers:** do not allow --force to overwrite "sideEffects" field in package.json ([c263dc5][58])
-- **assets/transformers:** do not allow --force to overwrite files in src ([f556644][59])
-- **assets/transformers:** ensure provided aliases are added in addition to defaults ([9581339][60])
-- **assets/transformers:** ensure warning-comment errors are only reported when allowed ([432a5fa][61])
-- **assets/transformers:** exclude "renovate" script from sub-root package.json files ([f82fbf4][62])
-- **assets/transformers:** generate proper cli as index export subpath in package.json ([a95e910][63])
-- **assets/transformers:** generate proper tsconfig files for sub-root packages ([12dd3f7][64])
-- **assets/transformers:** generate properly-scoped field values for sub-root package.json files ([2a3e13c][65])
-- **assets/transformers:** generate valid GitHub link in "homepage" field of package.json ([b8841b5][66])
-- **assets/transformers:** guess the proper asset preset for sub-root packages ([f301229][67])
-- **assets/transformers:** improve license detection when generating readme ([26f78dc][68])
-- **assets/transformers:** improve replacer region flexibility and fidelity when generating readme ([c63847c][69])
-- **assets/transformers:** preserve all dependency-related keys in package.json ([df13f87][70])
-- **assets/transformers:** regenerate package.json files more carefully ([48163ba][71])
-- **commands/renovate:** do not attempt to format output when --force is given ([c4f81c0][72])
+- **assets/transformers:** do not allow --force to overwrite "sideEffects" field in package.json ([c263dc5][60])
+- **assets/transformers:** do not allow --force to overwrite files in src ([f556644][61])
+- **assets/transformers:** ensure provided aliases are added in addition to defaults ([9581339][62])
+- **assets/transformers:** ensure warning-comment errors are only reported when allowed ([432a5fa][63])
+- **assets/transformers:** exclude "renovate" script from sub-root package.json files ([f82fbf4][64])
+- **assets/transformers:** generate proper cli as index export subpath in package.json ([a95e910][65])
+- **assets/transformers:** generate proper tsconfig files for sub-root packages ([12dd3f7][66])
+- **assets/transformers:** generate properly-scoped field values for sub-root package.json files ([2a3e13c][67])
+- **assets/transformers:** generate valid GitHub link in "homepage" field of package.json ([b8841b5][68])
+- **assets/transformers:** guess the proper asset preset for sub-root packages ([f301229][69])
+- **assets/transformers:** improve license detection when generating readme ([26f78dc][70])
+- **assets/transformers:** improve replacer region flexibility and fidelity when generating readme ([c63847c][71])
+- **assets/transformers:** preserve all dependency-related keys in package.json ([df13f87][72])
+- **assets/transformers:** regenerate package.json files more carefully ([48163ba][73])
+- **commands/renovate:** do not attempt to format output when --force is given ([c4f81c0][74])
 
 ### ⚙️ Build System
 
-- **assets/transformers:** disable broken @typescript-eslint/no-unnecessary-type-assertion eslint rule ([8338afa][73])
-- **babel:** add special consideration for symbiote when building itself ([fb7752b][74])
+- **assets/transformers:** disable broken @typescript-eslint/no-unnecessary-type-assertion eslint rule ([8338afa][75])
+- **babel:** add special consideration for symbiote when building itself ([fb7752b][76])
 
 <br />
 
-## @-xun/symbiote[@2.1.0][75] (2024-12-27)
+## @-xun/symbiote[@2.1.0][77] (2024-12-27)
 
 ### ✨ Features
 
-- **commands/distributables:** `--partial` now filters against absolute paths ([0c86cb5][76])
-- **commands/distributables:** improve partial build metadata output ([0b96a6b][77])
+- **commands/distributables:** `--partial` now filters against absolute paths ([0c86cb5][78])
+- **commands/distributables:** improve partial build metadata output ([0b96a6b][79])
 
 ### 🪄 Fixes
 
-- **assets/transformers:** address incorrect capture group string in babel replacer functions ([e682734][78])
-- **assets/transformers:** address incorrect extension transform in babel replacer functions ([552b89f][79])
-- **assets/transformers:** address incorrect use of `toRelativePath` in babel replacer functions ([7409b67][80])
-- **assets/transformers:** be more selective in when and how to replace .env and .env.default files ([2013638][81])
-- **assets/transformers:** create test/util.ts instead of test/index.ts ([5057f53][82])
-- **assets/transformers:** do not attempt to deep merge the eslint config array ([6c5a8fe][83])
-- **assets/transformers:** do not create example definition files if root types dir already exists ([a84c523][84])
-- **assets/transformers:** do not include "import" condition during resolution in babel replacer functions ([f9bdb7e][85])
-- **assets/transformers:** do not overwrite existing changelog patch files ([b6927a9][86])
-- **assets/transformers:** do not overwrite existing global.ts types file ([364fbb2][87])
-- **assets/transformers:** populate .vscode example configs from existing or vice versa depending on force ([11bd584][88])
-- **assets/transformers:** populate new .env files with full lines from corresponding .env.default files ([aee10cd][89])
-- **assets/transformers:** properly construct subpath targets when resolving entry points in babel replacer functions ([d44fa79][90])
-- **assets/transformers:** short circuit resolution logic for simple bare specifiers in babel replacer functions ([b7f2754][91])
-- **packages/project-utils:** ensure aliases are generated in verse-specificity order ([f592d5f][92])
-- **src:** replace xscripts with symbiote in configuration version self-check ([7e66183][93])
+- **assets/transformers:** address incorrect capture group string in babel replacer functions ([e682734][80])
+- **assets/transformers:** address incorrect extension transform in babel replacer functions ([552b89f][81])
+- **assets/transformers:** address incorrect use of `toRelativePath` in babel replacer functions ([7409b67][82])
+- **assets/transformers:** be more selective in when and how to replace .env and .env.default files ([2013638][83])
+- **assets/transformers:** create test/util.ts instead of test/index.ts ([5057f53][84])
+- **assets/transformers:** do not attempt to deep merge the eslint config array ([6c5a8fe][85])
+- **assets/transformers:** do not create example definition files if root types dir already exists ([a84c523][86])
+- **assets/transformers:** do not include "import" condition during resolution in babel replacer functions ([f9bdb7e][87])
+- **assets/transformers:** do not overwrite existing changelog patch files ([b6927a9][88])
+- **assets/transformers:** do not overwrite existing global.ts types file ([364fbb2][89])
+- **assets/transformers:** populate .vscode example configs from existing or vice versa depending on force ([11bd584][90])
+- **assets/transformers:** populate new .env files with full lines from corresponding .env.default files ([aee10cd][91])
+- **assets/transformers:** properly construct subpath targets when resolving entry points in babel replacer functions ([d44fa79][92])
+- **assets/transformers:** short circuit resolution logic for simple bare specifiers in babel replacer functions ([b7f2754][93])
+- **packages/project-utils:** ensure aliases are generated in verse-specificity order ([f592d5f][94])
+- **src:** replace xscripts with symbiote in configuration version self-check ([7e66183][95])
 
 ### ⚙️ Build System
 
-- **babel:** regenerate configuration asset ([98c028a][94])
-- **package:** include missing dependency ([3030eb9][95])
+- **babel:** regenerate configuration asset ([98c028a][96])
+- **package:** include missing dependency ([3030eb9][97])
 
 <br />
 
-## @-xun/symbiote[@2.0.0][96] (2024-12-26)
+## @-xun/symbiote[@2.0.0][98] (2024-12-26)
 
 ### 💥 BREAKING CHANGES 💥
 
@@ -254,833 +262,827 @@ this project adheres to [Semantic Versioning][2].
 
 ### ✨ Features
 
-- **assets:** expose to per-package asset adders a per-package version of `TransformerContext` ([b7b101e][97])
-- **commands/renovate:** add tag aliasing to --github-rename-root renovation ([057f400][98])
-- **commands/renovate:** implement --github-rename-root renovation ([d22de31][99])
-- **commands/test:** all "Test.AllLocal" meta test kind and make it the default ([e83f2f2][100])
+- **assets:** expose to per-package asset adders a per-package version of `TransformerContext` ([b7b101e][99])
+- **commands/renovate:** add tag aliasing to --github-rename-root renovation ([057f400][100])
+- **commands/renovate:** implement --github-rename-root renovation ([d22de31][101])
+- **commands/test:** all "Test.AllLocal" meta test kind and make it the default ([e83f2f2][102])
 
 ### 🪄 Fixes
 
-- **assets/transformers:** do not throw on bad engines field in package.json (eslint) ([ad83e56][101])
-- **assets/transformers:** do not use sync API in eslint.config.mjs ([0a19ce6][102])
-- **assets/transformers:** ensure alias functions and related imports are generated with proper syntax ([70b5134][103])
-- **assets/transformers:** ensure certain outputs do not trigger eslint errors ([1a522e8][104])
-- **assets/transformers:** ensure certain outputs do not trigger eslint errors ([9d05b8b][105])
-- **assets/transformers:** generate integration configuration file with proper name ([7a8eee6][106])
-- **assets/transformers:** import `assertEnvironment` in release config template ([abbc2da][107])
-- **assets/transformers:** only generate .browserslistrc on web-related presets ([53409fa][108])
-- **assets/transformers:** remove unnecessary spacing from tsconfig.json output ([2bd57b5][109])
-- **assets/transformers:** use actual esm import syntax when generating commitlint config ([a40f886][110])
-- **assets/transformers:** use non-broken links in maintenance docs template ([f2bb03d][111])
-- **assets/transformers:** use repository name when generating all-contributors config ([641b57b][112])
-- **commands/renovate:** prevent attempts to resolve package root relative path in nonsensical scopes ([177a5dc][113])
-- **packages/bfe:** ensure `getInvocableExtendedHandler` handler invocation does not trigger bfe checks ([c331ae1][114])
-- **packages/bfe:** properly track canonical option name expansions in extended builders ([8724515][115])
-- **packages/project-utils:** never derive broken RegExp-based aliases for babel and jest ([a6f02e0][116])
-- **src:** use absolute paths when outputting and deleting files; use recursive mkdir ([5e99d88][117])
+- **assets/transformers:** do not throw on bad engines field in package.json (eslint) ([ad83e56][103])
+- **assets/transformers:** do not use sync API in eslint.config.mjs ([0a19ce6][104])
+- **assets/transformers:** ensure alias functions and related imports are generated with proper syntax ([70b5134][105])
+- **assets/transformers:** ensure certain outputs do not trigger eslint errors ([1a522e8][106])
+- **assets/transformers:** ensure certain outputs do not trigger eslint errors ([9d05b8b][107])
+- **assets/transformers:** generate integration configuration file with proper name ([7a8eee6][108])
+- **assets/transformers:** import `assertEnvironment` in release config template ([abbc2da][109])
+- **assets/transformers:** only generate .browserslistrc on web-related presets ([53409fa][110])
+- **assets/transformers:** remove unnecessary spacing from tsconfig.json output ([2bd57b5][111])
+- **assets/transformers:** use actual esm import syntax when generating commitlint config ([a40f886][112])
+- **assets/transformers:** use non-broken links in maintenance docs template ([f2bb03d][113])
+- **assets/transformers:** use repository name when generating all-contributors config ([641b57b][114])
+- **commands/renovate:** prevent attempts to resolve package root relative path in nonsensical scopes ([177a5dc][115])
+- **packages/bfe:** ensure `getInvocableExtendedHandler` handler invocation does not trigger bfe checks ([c331ae1][116])
+- **packages/bfe:** properly track canonical option name expansions in extended builders ([8724515][117])
+- **packages/project-utils:** never derive broken RegExp-based aliases for babel and jest ([a6f02e0][118])
+- **src:** use absolute paths when outputting and deleting files; use recursive mkdir ([5e99d88][119])
 
 ### ⚡️ Optimizations
 
-- **src:** combine lint-staged formatter invocations into a single command ([f511249][118])
-- **src:** use real package name instead of bin alias with npx during lint-staged formatting ([577710b][119])
+- **src:** combine lint-staged formatter invocations into a single command ([f511249][120])
+- **src:** use real package name instead of bin alias with npx during lint-staged formatting ([577710b][121])
 
 ### ⚙️ Build System
 
-- **commitlint.config:** reduce header-max-length severity from "error" to "warning" ([2841d26][120])
-- **jest:** regenerate configuration asset ([5c66c17][121])
-- Regenerate several other configuration assets ([6a44488][122])
-- Regenerate several other configuration assets ([26fb034][123])
-- Transmute remaining files @-xun/scripts => @-xun/symbiote ([4f8d351][124])
+- **commitlint.config:** reduce header-max-length severity from "error" to "warning" ([2841d26][122])
+- **jest:** regenerate configuration asset ([5c66c17][123])
+- Regenerate several other configuration assets ([6a44488][124])
+- Regenerate several other configuration assets ([26fb034][125])
+- Transmute remaining files @-xun/scripts => @-xun/symbiote ([4f8d351][126])
 
 ### 💎 Aesthetics
 
-- **package:** transmute @-xun/scripts => @-xun/symbiote ([26e7563][125])
+- **package:** transmute @-xun/scripts => @-xun/symbiote ([26e7563][127])
 
 <br />
 
-### 🏗️ Patch @-xun/symbiote[@2.0.1][126] (2024-12-26)
+### 🏗️ Patch @-xun/symbiote[@2.0.1][128] (2024-12-26)
 
 #### ⚙️ Build System
 
-- **package:** force CD pipeline to complete ([e42722b][127])
+- **package:** force CD pipeline to complete ([e42722b][129])
 
 <br />
 
-## @-xun/symbiote[@1.33.0][128] (2024-12-22)
+## @-xun/symbiote[@1.33.0][130] (2024-12-22)
 
 ### ✨ Features
 
-- **commands/release:** add `allowMissingNpmScripts` task init option; skippable coverage upload ([f1e8e8e][129])
-- **commands:** take advantage of improved target gathering functions ([4925885][130])
-- **packages/babel-plugin-metadata-accumulator:** always include type-only import metadata ([ca87588][131])
-- **packages/bfe:** add "options" to usage string in help text by default ([410a05a][132])
-- **packages/debug:** support and expand upstream debug's process.env.DEBUG activation behavior ([f111552][133])
-- **packages/project-utils:** exclude type-only imports from build targets (but keep them elsewhere) ([1d9accc][134])
-- **packages/project-utils:** introduce `toDirname` typed analogue of node:fs `dirname` ([51ab454][135])
-- **packages/project-utils:** provide richer metadata to consumers of `gatherPackageBuildTargets` ([c2bee3b][136])
-- Upgrade to experimental asset generation engine ([b057430][137])
+- **commands/release:** add `allowMissingNpmScripts` task init option; skippable coverage upload ([f1e8e8e][131])
+- **commands:** take advantage of improved target gathering functions ([4925885][132])
+- **packages/babel-plugin-metadata-accumulator:** always include type-only import metadata ([ca87588][133])
+- **packages/bfe:** add "options" to usage string in help text by default ([410a05a][134])
+- **packages/debug:** support and expand upstream debug's process.env.DEBUG activation behavior ([f111552][135])
+- **packages/project-utils:** exclude type-only imports from build targets (but keep them elsewhere) ([1d9accc][136])
+- **packages/project-utils:** introduce `toDirname` typed analogue of node:fs `dirname` ([51ab454][137])
+- **packages/project-utils:** provide richer metadata to consumers of `gatherPackageBuildTargets` ([c2bee3b][138])
+- Upgrade to experimental asset generation engine ([b057430][139])
 
 ### 🪄 Fixes
 
-- **assets/transformers:** ensure package.json generated for non-hybrid monorepo roots ([eec0ed9][138])
-- **assets/transformers:** make env.default transformer resilient to non-existence of .env ([16f64e1][139])
-- **commands/test:** ensure all the current package's multiversal dependencies' tests are run ([413dc39][140])
-- **commands/test:** ensure test coverage directory is always generated at the current package root ([28c221b][141])
-- **packages/debug:** add interop necessary to preserve upstream DEBUG env var activation behavior ([6a8c411][142])
-- **packages/project-utils:** ensure alias calculation uses correct relative directory src path ([da7e953][143])
-- **packages/rejoinder:** ensure sub-instance loggers are included in internal tracking ([edec64f][144])
-- **util:** consider scope during precheck phase ([578d631][145])
+- **assets/transformers:** ensure package.json generated for non-hybrid monorepo roots ([eec0ed9][140])
+- **assets/transformers:** make env.default transformer resilient to non-existence of .env ([16f64e1][141])
+- **commands/test:** ensure all the current package's multiversal dependencies' tests are run ([413dc39][142])
+- **commands/test:** ensure test coverage directory is always generated at the current package root ([28c221b][143])
+- **packages/debug:** add interop necessary to preserve upstream DEBUG env var activation behavior ([6a8c411][144])
+- **packages/project-utils:** ensure alias calculation uses correct relative directory src path ([da7e953][145])
+- **packages/rejoinder:** ensure sub-instance loggers are included in internal tracking ([edec64f][146])
+- **util:** consider scope during precheck phase ([578d631][147])
 
 ### ⚙️ Build System
 
-- **commands/deploy:** remove dummy release option ([bf993c9][146])
-- **husky:** skip slow unit tests ([c52b3f1][147])
-- **package:** downgrade typescript-eslint to 8.18.0 and pin it until it is fixed ([cdfd48d][148])
-- Regenerate conventional and release assets ([a33aed8][149])
+- **commands/deploy:** remove dummy release option ([bf993c9][148])
+- **husky:** skip slow unit tests ([c52b3f1][149])
+- **package:** downgrade typescript-eslint to 8.18.0 and pin it until it is fixed ([cdfd48d][150])
+- Regenerate conventional and release assets ([a33aed8][151])
 
 <br />
 
-## @-xun/symbiote[@1.32.0][150] (2024-12-11)
+## @-xun/symbiote[@1.32.0][152] (2024-12-11)
 
 ### ✨ Features
 
-- **commands/renovate:** complete --sync-deps and --github-reconfigure-repo renovations ([c9a6e8b][151])
-- **packages/project-utils:** add `relativeRoot` to `ProjectMetadata` ([e17adfb][152])
+- **commands/renovate:** complete --sync-deps and --github-reconfigure-repo renovations ([c9a6e8b][153])
+- **packages/project-utils:** add `relativeRoot` to `ProjectMetadata` ([e17adfb][154])
 
 ### 🪄 Fixes
 
-- **commands/renovate:** do not update existing origin secrets unless --force ([c5cd76a][153])
-- Rewrite assets interface to avoid impedance mismatch ([56e576c][154])
+- **commands/renovate:** do not update existing origin secrets unless --force ([c5cd76a][155])
+- Rewrite assets interface to avoid impedance mismatch ([56e576c][156])
 
 ### ⚙️ Build System
 
-- **babel:** `readPackageJsonAtRoot` => `readXPackageJsonAtRoot` ([aa60eeb][155])
-- **prettier.config:** reduce typescript print width to 89 (vscode shrunk) ([c248757][156])
+- **babel:** `readPackageJsonAtRoot` => `readXPackageJsonAtRoot` ([aa60eeb][157])
+- **prettier.config:** reduce typescript print width to 89 (vscode shrunk) ([c248757][158])
 
 <br />
 
-## @-xun/symbiote[@1.31.0][157] (2024-12-07)
+## @-xun/symbiote[@1.31.0][159] (2024-12-07)
 
 ### ✨ Features
 
-- **commands/renovate:** add initial stub version of "project renovate" ([8f7777c][158])
-- **src:** allow multiple choice string replacements in markdown asset templates ([6fc66d8][159])
+- **commands/renovate:** add initial stub version of "project renovate" ([8f7777c][160])
+- **src:** allow multiple choice string replacements in markdown asset templates ([6fc66d8][161])
 
 ### 🪄 Fixes
 
-- **assets/conventional:** ensure `issuePrefixes` xchangelog setting propagates throughout config object ([8a5fd8a][160])
-- **commands/release:** only rebuild changelog if the relevant task is not skipped ([68d5bda][161])
-- **commands/renovate:** account for vacuous case in bfe check functions ([ef6927b][162])
-- **src:** actually invoke "project renovate" command from within "release" command ([ceb6c62][163])
-- **src:** factor out shared runner wrapper; ensure runner rejects when it should ([ce93443][164])
-- **src:** support parameters in handlebars-style template strings ([6ce819a][165])
+- **assets/conventional:** ensure `issuePrefixes` xchangelog setting propagates throughout config object ([8a5fd8a][162])
+- **commands/release:** only rebuild changelog if the relevant task is not skipped ([68d5bda][163])
+- **commands/renovate:** account for vacuous case in bfe check functions ([ef6927b][164])
+- **src:** actually invoke "project renovate" command from within "release" command ([ceb6c62][165])
+- **src:** factor out shared runner wrapper; ensure runner rejects when it should ([ce93443][166])
+- **src:** support parameters in handlebars-style template strings ([6ce819a][167])
 
 ### ⚙️ Build System
 
-- **husky:** use proper lint command ([62a5a12][166])
+- **husky:** use proper lint command ([62a5a12][168])
 
 <br />
 
-### 🏗️ Patch @-xun/symbiote[@1.31.2][167] (2024-12-08)
+### 🏗️ Patch @-xun/symbiote[@1.31.2][169] (2024-12-08)
 
 #### 🪄 Fixes
 
-- **commands/test:** ensure all relevant source files are included when calculating coverage ([0565333][168])
+- **commands/test:** ensure all relevant source files are included when calculating coverage ([0565333][170])
 
 #### ⚙️ Build System
 
-- Remove execa bridge dependency now that we use @-xun/run exclusively ([f4ecfc9][169])
+- Remove execa bridge dependency now that we use @-xun/run exclusively ([f4ecfc9][171])
 
 <br />
 
-### 🏗️ Patch @-xun/symbiote[@1.31.1][170] (2024-12-08)
+### 🏗️ Patch @-xun/symbiote[@1.31.1][172] (2024-12-08)
 
 #### 🪄 Fixes
 
-- **command/release:** ensure "release" calls "project renovate" with --force ([cfe28e3][171])
-- **packages/bfe:** ensure `withUsageExtensions` configurations function as advertised ([8935008][172])
-- **packages/bfe:** handle declarative `group` option configurations in bfe instead of bf/yargs ([39e37a8][173])
-- **src:** use more specific conflicts for --deprecate vs --undeprecate ([58a6223][174])
+- **command/release:** ensure "release" calls "project renovate" with --force ([cfe28e3][173])
+- **packages/bfe:** ensure `withUsageExtensions` configurations function as advertised ([8935008][174])
+- **packages/bfe:** handle declarative `group` option configurations in bfe instead of bf/yargs ([39e37a8][175])
+- **src:** use more specific conflicts for --deprecate vs --undeprecate ([58a6223][176])
 
 <br />
 
-## @-xun/symbiote[@1.30.0][175] (2024-11-25)
+## @-xun/symbiote[@1.30.0][177] (2024-11-25)
 
 ### ✨ Features
 
-- **commands/list-tasks:** allow filtering tasks by string ([3710988][176])
-- **packages/bfe:** add support for `prependNewlines` ([e163302][177])
+- **commands/list-tasks:** allow filtering tasks by string ([3710988][178])
+- **packages/bfe:** add support for `prependNewlines` ([e163302][179])
 
 ### 🪄 Fixes
 
-- **commands/release:** ensure codecov uploader is passed the proper arguments ([ca47d93][178])
+- **commands/release:** ensure codecov uploader is passed the proper arguments ([ca47d93][180])
 
 <br />
 
-### 🏗️ Patch @-xun/symbiote[@1.30.3][179] (2024-12-04)
+### 🏗️ Patch @-xun/symbiote[@1.30.3][181] (2024-12-04)
 
 #### 🪄 Fixes
 
-- **packages/project-utils:** ensure meaningful error output from `readJsonc` ([01dca03][180])
-- **src:** allow testverse imports in non-source typescript files ([b923d6d][181])
+- **packages/project-utils:** ensure meaningful error output from `readJsonc` ([01dca03][182])
+- **src:** allow testverse imports in non-source typescript files ([b923d6d][183])
 
 <br />
 
-### 🏗️ Patch @-xun/symbiote[@1.30.2][182] (2024-11-26)
+### 🏗️ Patch @-xun/symbiote[@1.30.2][184] (2024-11-26)
 
 #### ⚙️ Build System
 
-- **remarkrc:** ensure remark doesn't mangle GFM alerts with escape characters ([98a868e][183])
+- **remarkrc:** ensure remark doesn't mangle GFM alerts with escape characters ([98a868e][185])
 
 <br />
 
-### 🏗️ Patch @-xun/symbiote[@1.30.1][184] (2024-11-25)
+### 🏗️ Patch @-xun/symbiote[@1.30.1][186] (2024-11-25)
 
 #### 🪄 Fixes
 
-- **config/conventional:** fix global patch detection logic ([89eebe7][185])
+- **config/conventional:** fix global patch detection logic ([89eebe7][187])
 
 <br />
 
-## @-xun/symbiote[@1.29.0][186] (2024-11-24)
+## @-xun/symbiote[@1.29.0][188] (2024-11-24)
 
 ### ✨ Features
 
-- **packages/bfe:** allow more control over `withUsageExtensions` result ([053bf3e][187])
-- **src:** add support for init version tag suffixes to "build changelog" ([002431f][188])
+- **packages/bfe:** allow more control over `withUsageExtensions` result ([053bf3e][189])
+- **src:** add support for init version tag suffixes to "build changelog" ([002431f][190])
 
 ### 🪄 Fixes
 
-- **src:** ensure "clean" command does not delete ignored packages ([65b8c0b][189])
+- **src:** ensure "clean" command does not delete ignored packages ([65b8c0b][191])
 
 <br />
 
-### 🏗️ Patch @-xun/symbiote[@1.29.2][190] (2024-11-25)
+### 🏗️ Patch @-xun/symbiote[@1.29.2][192] (2024-11-25)
 
 #### ⚙️ Build System
 
-- **package:** upgrade @-xun/changelog to 1.0.0 ([d89809b][191])
+- **package:** upgrade @-xun/changelog to 1.0.0 ([d89809b][193])
 
 <br />
 
-### 🏗️ Patch @-xun/symbiote[@1.29.1][192] (2024-11-24)
+### 🏗️ Patch @-xun/symbiote[@1.29.1][194] (2024-11-24)
 
 #### ⚙️ Build System
 
-- **remarkrc:** fix faulty array reference ([8feaaa7][193])
+- **remarkrc:** fix faulty array reference ([8feaaa7][195])
 
 <br />
 
-## @-xun/symbiote[@1.28.0][194] (2024-11-24)
+## @-xun/symbiote[@1.28.0][196] (2024-11-24)
 
 ### ✨ Features
 
-- **babel:** use reverse entrypoint resolver to fix tsc output ([c3fc126][195])
-- **packages/project-utils:** add `try` option to json reading functions ([a91e7fa][196])
+- **babel:** use reverse entrypoint resolver to fix tsc output ([c3fc126][197])
+- **packages/project-utils:** add `try` option to json reading functions ([a91e7fa][198])
 
 ### 🪄 Fixes
 
-- **eslint:** do not collapse path group overrides ([71b17c8][197])
-- **packages/project-utils:** ensure external and internal build target sets are mutually exclusive ([7fed439][198])
-- Remove unnecessary restrictions on universe imports; bail out when an import is rejected ([11b585d][199])
-- **src:** warn when release process ends with a dirty repo ([cf5b25b][200])
+- **eslint:** do not collapse path group overrides ([71b17c8][199])
+- **packages/project-utils:** ensure external and internal build target sets are mutually exclusive ([7fed439][200])
+- Remove unnecessary restrictions on universe imports; bail out when an import is rejected ([11b585d][201])
+- **src:** warn when release process ends with a dirty repo ([cf5b25b][202])
 
 ### ⚙️ Build System
 
-- **babel:** add core-js validation checks ([55ee62d][201])
-- **babel:** fix incorrect regexp stringification when using transform-rewrite-imports ([56b706a][202])
+- **babel:** add core-js validation checks ([55ee62d][203])
+- **babel:** fix incorrect regexp stringification when using transform-rewrite-imports ([56b706a][204])
 
 <br />
 
-## @-xun/symbiote[@1.27.0][203] (2024-11-23)
+## @-xun/symbiote[@1.27.0][205] (2024-11-23)
 
 ### ✨ Features
 
-- **project-utils:** expose `process.cwd` replacement exports ([1a69887][204])
+- **project-utils:** expose `process.cwd` replacement exports ([1a69887][206])
 
 ### 🪄 Fixes
 
-- **distributables.ts:** do not output "build succeeded but" message unless build actually succeeded ([1262cc8][205])
+- **distributables.ts:** do not output "build succeeded but" message unless build actually succeeded ([1262cc8][207])
 
 ### ⚙️ Build System
 
-- **eslint:** add `instanceof` and `process.cwd` usage restrictions ([645473d][206])
-- **package:** make scripts less verbose ([c5c742e][207])
-- **packages/debug:** package-ify this workspace ([afa3f46][208])
+- **eslint:** add `instanceof` and `process.cwd` usage restrictions ([645473d][208])
+- **package:** make scripts less verbose ([c5c742e][209])
+- **packages/debug:** package-ify this workspace ([afa3f46][210])
 
 <br />
 
-## @-xun/symbiote[@1.26.0][209] (2024-11-22)
+## @-xun/symbiote[@1.26.0][211] (2024-11-22)
 
 ### ✨ Features
 
-- **packages/bfe:** ensure `coerce` function always receive an array when so configured ([5c8816d][210])
-- **src:** implement "release" command ([44be676][211])
-- **src:** implement new graph algorithm for lint target determination ([3323fc3][212])
-- **src:** implement new graph algorithm for test target determination ([8a67d70][213])
+- **packages/bfe:** ensure `coerce` function always receive an array when so configured ([5c8816d][212])
+- **src:** implement "release" command ([44be676][213])
+- **src:** implement new graph algorithm for lint target determination ([3323fc3][214])
+- **src:** implement new graph algorithm for test target determination ([8a67d70][215])
 
 ### 🪄 Fixes
 
-- **packages/bfe:** ensure downstream builder functions receive nullable argv ([9b551a7][214])
-- **packages/bfe:** force `BfeStrictArgs` to be partial in argv to make usage easier ([0924dd3][215])
-- **packages/bfe:** use more intuitive arg-val interpretation when given argument value is an array ([ce72af2][216])
-- **packages/cli-utils:** do not propagate upstream error messages ([6ac3376][217])
-- **src:** ignore root package properly when releasing package ([09373fa][218])
-- **src:** improve dev version detection ([b3e95e7][219])
-- **src:** improve outputs; fix crash due to shifting arg type ([d27007d][220])
-- **src:** patch globals to deal with design decisions from upstream conventional-changelog-core ([998218d][221])
+- **packages/bfe:** ensure downstream builder functions receive nullable argv ([9b551a7][216])
+- **packages/bfe:** force `BfeStrictArgs` to be partial in argv to make usage easier ([0924dd3][217])
+- **packages/bfe:** use more intuitive arg-val interpretation when given argument value is an array ([ce72af2][218])
+- **packages/cli-utils:** do not propagate upstream error messages ([6ac3376][219])
+- **src:** ignore root package properly when releasing package ([09373fa][220])
+- **src:** improve dev version detection ([b3e95e7][221])
+- **src:** improve outputs; fix crash due to shifting arg type ([d27007d][222])
+- **src:** patch globals to deal with design decisions from upstream conventional-changelog-core ([998218d][223])
 
 ### ⚙️ Build System
 
-- **eslint:** allow "arg" as a variable name ([9087086][222])
-- **eslint:** update to use experimental features of @-xun/eslint-plugin-import-experimental ([36016b1][223])
-- **jest:** ensure jest and jest-haste-map ignore ignored packages ([86fca58][224])
-- **src:** update with latest launch.json ([bb6bde9][225])
+- **eslint:** allow "arg" as a variable name ([9087086][224])
+- **eslint:** update to use experimental features of @-xun/eslint-plugin-import-experimental ([36016b1][225])
+- **jest:** ensure jest and jest-haste-map ignore ignored packages ([86fca58][226])
+- **src:** update with latest launch.json ([bb6bde9][227])
 
 <br />
 
-## @-xun/symbiote[@1.25.0][226] (2024-11-14)
+## @-xun/symbiote[@1.25.0][228] (2024-11-14)
 
 ### ✨ Features
 
-- Integrate @-xun/changelog ([31c7bbb][227])
-- Integrate @-xun/release ([4f807cf][228])
-- Integrate @-xun/run ([d22cee3][229])
-- Integrate Tstyche into "test" command ([9045cd7][230])
-- **packages/project-utils:** add `typescriptTestFiles` to `ProjectFiles` objects ([e7c4b6e][231])
-- **packages/project-utils:** add support for `.shared` files at package roots ([c62261b][232])
-- **packages/project-utils:** ensure packages with id matching `*.ignore` are excluded from analysis ([4d5ddb6][233])
-- **packages/rejoinder:** ensure outputs are yellow iff they are "warn" outputs ([da60db8][234])
-- **packages/test-utils:** split off test utilities into new package ([576dd64][235])
-- **src:** "test" prevents propagation of DEBUG env var by default unless `--debug` given ([ffcad30][236])
-- **src:** ensure "build changelog" prints out full package name and version ([4059ed7][237])
-- **src:** ensure current package is always printed last for "list-tasks" ([5ea7f8a][238])
-- **src:** expand "build" pre-check to include all of a package's TS files ([d4d3756][239])
-- **src:** explicitly allow arbitrary options passed to executables in "lint" and "test" ([d915727][240])
-- **src:** implement "build" support for partial builds via `--partial` ([5d61e87][241])
+- Integrate @-xun/changelog ([31c7bbb][229])
+- Integrate @-xun/release ([4f807cf][230])
+- Integrate @-xun/run ([d22cee3][231])
+- Integrate Tstyche into "test" command ([9045cd7][232])
+- **packages/project-utils:** add `typescriptTestFiles` to `ProjectFiles` objects ([e7c4b6e][233])
+- **packages/project-utils:** add support for `.shared` files at package roots ([c62261b][234])
+- **packages/project-utils:** ensure packages with id matching `*.ignore` are excluded from analysis ([4d5ddb6][235])
+- **packages/rejoinder:** ensure outputs are yellow iff they are "warn" outputs ([da60db8][236])
+- **packages/test-utils:** split off test utilities into new package ([576dd64][237])
+- **src:** "test" prevents propagation of DEBUG env var by default unless `--debug` given ([ffcad30][238])
+- **src:** ensure "build changelog" prints out full package name and version ([4059ed7][239])
+- **src:** ensure current package is always printed last for "list-tasks" ([5ea7f8a][240])
+- **src:** expand "build" pre-check to include all of a package's TS files ([d4d3756][241])
+- **src:** explicitly allow arbitrary options passed to executables in "lint" and "test" ([d915727][242])
+- **src:** implement "build" support for partial builds via `--partial` ([5d61e87][243])
 
 ### 🪄 Fixes
 
-- **assets/config:** update conventional configuration to support both monorepos and polyrepos ([1d0dee8][242])
-- **packages/project-utils:** ensure `isRootPackage` differentiates from non-root packages ([2b46883][243])
-- **packages/project-utils:** ensure specifier-ok checks are also performed on type-only imports ([95b0f68][244])
-- **src:** ambient types are only allowed at package root types/ dir ([81ba7bc][245])
-- **src:** do not run prettier on files not targeted by `--files` ([128e83a][246])
-- **src:** ensure "format" functions properly in a monorepo context given `--scope` ([c4016a8][247])
-- **src:** ensure "lint" functions properly in monorepo context given `--scope` ([0f4c7b1][248])
-- **src:** ensure "test" functions properly in a monorepo context given `--scope` ([1894d80][249])
-- **src:** ensure BF context receives the correct version number from own package.json ([351ee50][250])
-- **src:** ensure prettier always gets a pass at markdown and json files in "format" command ([74ab5d9][251])
-- **src:** ensure tstyche is only run when type-only tests exist ([18dbad0][252])
-- **src:** ensure version extraction regexp behaves robustly ([8e82ac1][253])
-- **src:** improve "build distributables" options configuration ([f323a6a][254])
-- **src:** improve command output aesthetics ([4a6e254][255])
-- **src:** improved `--version` support ([4e3cdc0][256])
-- **src:** include full package name and version in release commit subject ([5e00587][257])
-- **src:** only match xpipeline commands that are proper suffixes ([9b8b41a][258])
-- **src:** use proper gitLogOptions.paths property (fixes typo) ([e22403c][259])
+- **assets/config:** update conventional configuration to support both monorepos and polyrepos ([1d0dee8][244])
+- **packages/project-utils:** ensure `isRootPackage` differentiates from non-root packages ([2b46883][245])
+- **packages/project-utils:** ensure specifier-ok checks are also performed on type-only imports ([95b0f68][246])
+- **src:** ambient types are only allowed at package root types/ dir ([81ba7bc][247])
+- **src:** do not run prettier on files not targeted by `--files` ([128e83a][248])
+- **src:** ensure "format" functions properly in a monorepo context given `--scope` ([c4016a8][249])
+- **src:** ensure "lint" functions properly in monorepo context given `--scope` ([0f4c7b1][250])
+- **src:** ensure "test" functions properly in a monorepo context given `--scope` ([1894d80][251])
+- **src:** ensure BF context receives the correct version number from own package.json ([351ee50][252])
+- **src:** ensure prettier always gets a pass at markdown and json files in "format" command ([74ab5d9][253])
+- **src:** ensure tstyche is only run when type-only tests exist ([18dbad0][254])
+- **src:** ensure version extraction regexp behaves robustly ([8e82ac1][255])
+- **src:** improve "build distributables" options configuration ([f323a6a][256])
+- **src:** improve command output aesthetics ([4a6e254][257])
+- **src:** improved `--version` support ([4e3cdc0][258])
+- **src:** include full package name and version in release commit subject ([5e00587][259])
+- **src:** only match xpipeline commands that are proper suffixes ([9b8b41a][260])
+- **src:** use proper gitLogOptions.paths property (fixes typo) ([e22403c][261])
 
 ### ⚙️ Build System
 
-- **eslint:** ensure .transpiled directory is ignored ([c34a549][260])
-- **gitignore:** upgrade to more robust .gitignore ([43da882][261])
-- **husky:** add husky pre-push protective hook ([33af2bc][262])
-- **jest:** ensure .transpiled directory is ignored ([c1ac811][263])
-- **jest:** ensure .transpiled directory is ignored by jest-haste-map etc ([901d853][264])
-- **jest:** ignore type-only tests ([1fb8568][265])
-- **package:** correct typo in bug.url ([3373208][266])
-- **package:** use `--no-parallel` in "release" script ([5eb9def][267])
-- **prettierignore:** ignore license files ([b928e8a][268])
-- **remarkrc:** never automatically capitalize our packages' names in markdown headings ([45bcd8c][269])
-- **src:** patch both `Proxy` and `spawn` as a side effect ([f50abaf][270])
-- Use consistent exclusions across TS configurations ([98a1dd7][271])
+- **eslint:** ensure .transpiled directory is ignored ([c34a549][262])
+- **gitignore:** upgrade to more robust .gitignore ([43da882][263])
+- **husky:** add husky pre-push protective hook ([33af2bc][264])
+- **jest:** ensure .transpiled directory is ignored ([c1ac811][265])
+- **jest:** ensure .transpiled directory is ignored by jest-haste-map etc ([901d853][266])
+- **jest:** ignore type-only tests ([1fb8568][267])
+- **package:** correct typo in bug.url ([3373208][268])
+- **package:** use `--no-parallel` in "release" script ([5eb9def][269])
+- **prettierignore:** ignore license files ([b928e8a][270])
+- **remarkrc:** never automatically capitalize our packages' names in markdown headings ([45bcd8c][271])
+- **src:** patch both `Proxy` and `spawn` as a side effect ([f50abaf][272])
+- Use consistent exclusions across TS configurations ([98a1dd7][273])
 
 <br />
 
-## @-xun/symbiote[@1.24.0][272] (2024-11-01)
+## @-xun/symbiote[@1.24.0][274] (2024-11-01)
 
 ### ✨ Features
 
-- **packages/debug:** differentiate root from nested namespaces ([467e884][273])
-- **packages/project-utils:** re-implement caching subsystem ([472af2c][274])
+- **packages/debug:** differentiate root from nested namespaces ([467e884][275])
+- **packages/project-utils:** re-implement caching subsystem ([472af2c][276])
 
 ### 🪄 Fixes
 
-- **packages/project-utils:** remove overengineered sync/async plumbing functions ([8ab4eec][275])
-- **src:** ensure build pre-checks run before the ./dist dir is cleared ([69f2dc0][276])
-- **src:** ignore internal-resolution-errors with attw since we do our own internal checks ([8dc4a96][277])
-- **src:** prevent clean command from obliterating cwd ([e3fa185][278])
-- **src:** use upward root mode when searching for babel configs ([89b57c4][279])
+- **packages/project-utils:** remove overengineered sync/async plumbing functions ([8ab4eec][277])
+- **src:** ensure build pre-checks run before the ./dist dir is cleared ([69f2dc0][278])
+- **src:** ignore internal-resolution-errors with attw since we do our own internal checks ([8dc4a96][279])
+- **src:** prevent clean command from obliterating cwd ([e3fa185][280])
+- **src:** use upward root mode when searching for babel configs ([89b57c4][281])
 
 ### ⚡️ Optimizations
 
-- **eslint:** use \_\_dirname assumption instead of analyzing the entire project ([b8b82d9][280])
+- **eslint:** use \_\_dirname assumption instead of analyzing the entire project ([b8b82d9][282])
 
 ### ⚙️ Build System
 
-- **package:** narrow scope of the lint npm script ([556f17e][281])
-- **package:** use no-hoist to block execa hoisting ([74d58d6][282])
+- **package:** narrow scope of the lint npm script ([556f17e][283])
+- **package:** use no-hoist to block execa hoisting ([74d58d6][284])
 
 <br />
 
-## @-xun/symbiote[@1.23.0][283] (2024-10-27)
+## @-xun/symbiote[@1.23.0][285] (2024-10-27)
 
 ### ✨ Features
 
-- **babel:** replace tsconfig-replace-paths with babel-plugin-transform-rewrite-import ([1bdceca][284])
-- **packages/project-utils:** implement support for pseudodecorators ([6ff2bd3][285])
-- **src:** perform validity and extraneity checks on build output for "build distributables" ([a1d3657][286])
+- **babel:** replace tsconfig-replace-paths with babel-plugin-transform-rewrite-import ([1bdceca][286])
+- **packages/project-utils:** implement support for pseudodecorators ([6ff2bd3][287])
+- **src:** perform validity and extraneity checks on build output for "build distributables" ([a1d3657][288])
 
 ### 🪄 Fixes
 
-- **eslint:** use latest `analyzeProjectStructure()` function ([fa2a97f][287])
-- **packages/project-utils:** ensure ".git" is already returned regardless of .gitignore ([6e3f599][288])
-- **packages/project-utils:** ensure analysis cache uses entire call signature when memoizing ([ca021f8][289])
-- **packages/project-utils:** repair caching mechanism for analyze-project-structure ([b9218ee][290])
+- **eslint:** use latest `analyzeProjectStructure()` function ([fa2a97f][289])
+- **packages/project-utils:** ensure ".git" is already returned regardless of .gitignore ([6e3f599][290])
+- **packages/project-utils:** ensure analysis cache uses entire call signature when memoizing ([ca021f8][291])
+- **packages/project-utils:** repair caching mechanism for analyze-project-structure ([b9218ee][292])
 
 ### ⚙️ Build System
 
-- Add pseudodecorators where appropriate ([dc47cfb][291])
-- **package:** fix dependency issues identified by xscripts when analyzing its own project structure ([ebb4fb5][292])
-- **package:** remove extraneous dependencies ([ccc82b3][293])
+- Add pseudodecorators where appropriate ([dc47cfb][293])
+- **package:** fix dependency issues identified by xscripts when analyzing its own project structure ([ebb4fb5][294])
+- **package:** remove extraneous dependencies ([ccc82b3][295])
 
 <br />
 
-## @-xun/symbiote[@1.22.0][294] (2024-10-24)
+## @-xun/symbiote[@1.22.0][296] (2024-10-24)
 
 ### ✨ Features
 
-- **src:** make `--run-to-completion` default to `true` for "lint" command ([8bdf28b][295])
+- **src:** make `--run-to-completion` default to `true` for "lint" command ([8bdf28b][297])
 
 ### 🪄 Fixes
 
-- **eslint:** disable no-unsupported-features checks, generalize `overwriteFileProperty`, fix eslint-plugin-n bug ([0c3f85c][296])
-- **src:** ensure CannotRunOutsideRoot error only triggers when outside root ([531d3ea][297])
-- **src:** properly add the development tag when using self-referential xscripts ([a7a66d9][298])
+- **eslint:** disable no-unsupported-features checks, generalize `overwriteFileProperty`, fix eslint-plugin-n bug ([0c3f85c][298])
+- **src:** ensure CannotRunOutsideRoot error only triggers when outside root ([531d3ea][299])
+- **src:** properly add the development tag when using self-referential xscripts ([a7a66d9][300])
 
 ### ⚙️ Build System
 
-- **eslint:** modernize eslint config ([e37006e][299])
-- **package:** expand engines.node to all maintained node versions ([349cf20][300])
-- **package:** remove more rarely used scripts ([d8b7442][301])
-- **package:** use consistent script names ([c7fe410][302])
-- **src:** fix import missing extension ([2c40974][303])
-- **src:** fix import missing extension ([f5fb1bc][304])
+- **eslint:** modernize eslint config ([e37006e][301])
+- **package:** expand engines.node to all maintained node versions ([349cf20][302])
+- **package:** remove more rarely used scripts ([d8b7442][303])
+- **package:** use consistent script names ([c7fe410][304])
+- **src:** fix import missing extension ([2c40974][305])
+- **src:** fix import missing extension ([f5fb1bc][306])
 
 <br />
 
-## @-xun/symbiote[@1.21.0][305] (2024-10-18)
+## @-xun/symbiote[@1.21.0][307] (2024-10-18)
 
 ### ✨ Features
 
-- **@-xun/babel-plugin-metadata-accumulator:** create accumulator babel plugin ([bf9514f][306])
-- **src:** upgrade commands with scope (monorepo) support ([7ad96c5][307])
+- **@-xun/babel-plugin-metadata-accumulator:** create accumulator babel plugin ([bf9514f][308])
+- **src:** upgrade commands with scope (monorepo) support ([7ad96c5][309])
 
 ### 🪄 Fixes
 
-- **src:** improve conventional-commits config monorepo support ([d54cfa0][308])
+- **src:** improve conventional-commits config monorepo support ([d54cfa0][310])
 
 ### ⚙️ Build System
 
-- **commitlint:** update commitlint configuration from cjs (js) to esm (mjs) ([cd82265][309])
-- **eslint.config:** activate several new rules ([94a2253][310])
-- **eslint:** update with alias test and latest rule updates ([db0c6d7][311])
-- **eslint:** upgrade eslint-plugin-import usage to take advantage of v9 support ([7dcbf56][312])
-- **jest:** update jest configuration from cjs (js) to esm (mjs) ([e334962][313])
-- **lint-staged:** update lint-staged configuration from cjs (js) to esm (mjs) ([8833e0a][314])
-- **ncurc:** pin non-broken remark-lint-no-inline-padding ([5070ab4][315])
-- **package:** add dependency aliases for find-up\@5 and escape-string-regexp\@4 ([1eff5cb][316])
-- **prettier:** update prettier configuration from cjs (js) to esm (mjs) ([0eb7fd3][317])
-- **remarkrc:** add lint-no-undef NODE\_ENV support ([e169f47][318])
-- Split tsconfig into project vs package configurations ([e7b8579][319])
-- **turbo:** add stub turbo configuration ([2036da0][320])
-- Update .gitignore and .prettierignore with improved documentation and latest best practices ([a35f4c0][321])
-- **vscode:** update full project lint vscode task example ([3f1a5a9][322])
+- **commitlint:** update commitlint configuration from cjs (js) to esm (mjs) ([cd82265][311])
+- **eslint.config:** activate several new rules ([94a2253][312])
+- **eslint:** update with alias test and latest rule updates ([db0c6d7][313])
+- **eslint:** upgrade eslint-plugin-import usage to take advantage of v9 support ([7dcbf56][314])
+- **jest:** update jest configuration from cjs (js) to esm (mjs) ([e334962][315])
+- **lint-staged:** update lint-staged configuration from cjs (js) to esm (mjs) ([8833e0a][316])
+- **ncurc:** pin non-broken remark-lint-no-inline-padding ([5070ab4][317])
+- **package:** add dependency aliases for find-up\@5 and escape-string-regexp\@4 ([1eff5cb][318])
+- **prettier:** update prettier configuration from cjs (js) to esm (mjs) ([0eb7fd3][319])
+- **remarkrc:** add lint-no-undef NODE\_ENV support ([e169f47][320])
+- Split tsconfig into project vs package configurations ([e7b8579][321])
+- **turbo:** add stub turbo configuration ([2036da0][322])
+- Update .gitignore and .prettierignore with improved documentation and latest best practices ([a35f4c0][323])
+- **vscode:** update full project lint vscode task example ([3f1a5a9][324])
 
 <br />
 
-## @-xun/symbiote[@1.20.0][323] (2024-08-20)
+## @-xun/symbiote[@1.20.0][325] (2024-08-20)
 
 ### ✨ Features
 
-- Ensure `--changelog-file` is added to "build changelog" ([d84b35f][324])
-- **src:** add `--import-section-file` and `--changelog-file` flags to "build changelog" ([8cf99a9][325])
+- Ensure `--changelog-file` is added to "build changelog" ([d84b35f][326])
+- **src:** add `--import-section-file` and `--changelog-file` flags to "build changelog" ([8cf99a9][327])
 
 ### 🪄 Fixes
 
-- **src:** ensure "format" ignores .remarkignore; ensure "lint" respects .remarkignore ([3dd5d78][326])
-- **src:** ensure changelog prints patches (including imports) in proper order ([5c3ed73][327])
-- **src:** properly section off patch notes using dividers ([c912b09][328])
+- **src:** ensure "format" ignores .remarkignore; ensure "lint" respects .remarkignore ([3dd5d78][328])
+- **src:** ensure changelog prints patches (including imports) in proper order ([5c3ed73][329])
+- **src:** properly section off patch notes using dividers ([c912b09][330])
 
 ### ⚙️ Build System
 
-- **package:** update repository url to conform with GHA provenance guidelines ([9cb2d72][329])
-- **src/assets:** disable remark-validate-links for template files ([ce03500][330])
-- **tsconfig:** set declaration=false by default ([22f2f41][331])
+- **package:** update repository url to conform with GHA provenance guidelines ([9cb2d72][331])
+- **src/assets:** disable remark-validate-links for template files ([ce03500][332])
+- **tsconfig:** set declaration=false by default ([22f2f41][333])
 
 <br />
 
-### 🏗️ Patch @-xun/symbiote[@1.20.8][332] (2024-08-23)
+### 🏗️ Patch @-xun/symbiote[@1.20.8][334] (2024-08-23)
 
 #### 🪄 Fixes
 
-- **src:** ensure release notes have headers at level 2 ([ce701f3][333])
+- **src:** ensure release notes have headers at level 2 ([ce701f3][335])
 
 <br />
 
-### 🏗️ Patch @-xun/symbiote[@1.20.7][334] (2024-08-23)
+### 🏗️ Patch @-xun/symbiote[@1.20.7][336] (2024-08-23)
 
 #### 🪄 Fixes
 
-- **src:** ensure only the start of the release notes are trimmed ([3c48ae1][335])
+- **src:** ensure only the start of the release notes are trimmed ([3c48ae1][337])
 
 <br />
 
-### 🏗️ Patch @-xun/symbiote[@1.20.6][336] (2024-08-23)
+### 🏗️ Patch @-xun/symbiote[@1.20.6][338] (2024-08-23)
 
 #### 🪄 Fixes
 
-- **src/assets:** remove first line from semantic-release plugin generated release notes ([76992d9][337])
+- **src/assets:** remove first line from semantic-release plugin generated release notes ([76992d9][339])
 
 <br />
 
-### 🏗️ Patch @-xun/symbiote[@1.20.5][338] (2024-08-22)
+### 🏗️ Patch @-xun/symbiote[@1.20.5][340] (2024-08-22)
 
 #### 🪄 Fixes
 
-- Ensure xscripts supports limited invocations outside of project root ([0864f92][339])
-- **src/commands/lint:** ensure no erroneous whitespaces are inserted between outputs ([ff3853f][340])
+- Ensure xscripts supports limited invocations outside of project root ([0864f92][341])
+- **src/commands/lint:** ensure no erroneous whitespaces are inserted between outputs ([ff3853f][342])
 
 <br />
 
-### 🏗️ Patch @-xun/symbiote[@1.20.4][341] (2024-08-21)
+### 🏗️ Patch @-xun/symbiote[@1.20.4][343] (2024-08-21)
 
 #### 🪄 Fixes
 
-- Remove deep import ([0bf89ca][342])
+- Remove deep import ([0bf89ca][344])
 
 <br />
 
-### 🏗️ Patch @-xun/symbiote[@1.20.3][343] (2024-08-21)
+### 🏗️ Patch @-xun/symbiote[@1.20.3][345] (2024-08-21)
 
 #### 🪄 Fixes
 
-- **src:** move deep import with respect to new deduped location ([dd265b4][344])
-- **src:** remove utf8 symbols from changelog generator output ([cf21d7d][345])
+- **src:** move deep import with respect to new deduped location ([dd265b4][346])
+- **src:** remove utf8 symbols from changelog generator output ([cf21d7d][347])
 
 <br />
 
-### 🏗️ Patch @-xun/symbiote[@1.20.2][346] (2024-08-21)
+### 🏗️ Patch @-xun/symbiote[@1.20.2][348] (2024-08-21)
 
 #### 🪄 Fixes
 
-- **src:** ensure calls to remark include an explicit --rc-path ([bc2a56b][347])
-- **src:** ensure robust handling of formatter errors when running "format" ([5211547][348])
-- **src:** make "build changelog" `CustomCliArguments` type more accurate ([8735f61][349])
-- **src:** work around glob-gitignore bug in "format" ([a86884f][350])
+- **src:** ensure calls to remark include an explicit --rc-path ([bc2a56b][349])
+- **src:** ensure robust handling of formatter errors when running "format" ([5211547][350])
+- **src:** make "build changelog" `CustomCliArguments` type more accurate ([8735f61][351])
+- **src:** work around glob-gitignore bug in "format" ([a86884f][352])
 
 #### ⚙️ Build System
 
-- **eslint.config:** update @typescript-eslint/require-await linting config ([b23b12b][351])
-- **release.config:** subsume semantic-release plugin functionality into custom release conf plugin ([8b54237][352])
-- **src/assets:** move custom semantic-release plugin into config asset ([25e7a3b][353])
-- **src:** ensure custom semantic-release plugin does not allow non-md files ([904c9ac][354])
+- **eslint.config:** update @typescript-eslint/require-await linting config ([b23b12b][353])
+- **release.config:** subsume semantic-release plugin functionality into custom release conf plugin ([8b54237][354])
+- **src/assets:** move custom semantic-release plugin into config asset ([25e7a3b][355])
+- **src:** ensure custom semantic-release plugin does not allow non-md files ([904c9ac][356])
 
 <br />
 
-### 🏗️ Patch @-xun/symbiote[@1.20.1][355] (2024-08-20)
+### 🏗️ Patch @-xun/symbiote[@1.20.1][357] (2024-08-20)
 
 #### ⚙️ Build System
 
-- **release:** fix incorrect use of lodash template evaluate delimiter ([35876a1][356])
+- **release:** fix incorrect use of lodash template evaluate delimiter ([35876a1][358])
 
 <br />
 
-## @-xun/symbiote[@1.19.0][357] (2024-07-29)
+## @-xun/symbiote[@1.19.0][359] (2024-07-29)
 
 ### ✨ Features
 
-- **src:** implement `--output-sort` for "build changelog"; integrate conventional core and drop cli ([587a354][358])
+- **src:** implement `--output-sort` for "build changelog"; integrate conventional core and drop cli ([587a354][360])
 
 ### ⚙️ Build System
 
-- **commitlint.config:** expand to include several useful rules ([909949d][359])
+- **commitlint.config:** expand to include several useful rules ([909949d][361])
 
 <br />
 
-### 🏗️ Patch @-xun/symbiote[@1.19.1][360] (2024-07-29)
+### 🏗️ Patch @-xun/symbiote[@1.19.1][362] (2024-07-29)
 
 #### 🪄 Fixes
 
-- **package:** fix asset config import configuration ([d201164][361])
+- **package:** fix asset config import configuration ([d201164][363])
 
 <br />
 
-## @-xun/symbiote[@1.18.0][362] (2024-07-27)
+## @-xun/symbiote[@1.18.0][364] (2024-07-27)
 
 ### ✨ Features
 
-- **src:** "build changelog" now accepts `--only-patch-changelog` and `--output-unreleased` ([6c7ae27][363])
-- **src:** "lint" now accepts `--run-to-completion` and `--ignore-warnings` ([e833523][364])
+- **src:** "build changelog" now accepts `--only-patch-changelog` and `--output-unreleased` ([6c7ae27][365])
+- **src:** "lint" now accepts `--run-to-completion` and `--ignore-warnings` ([e833523][366])
 
 ### 🪄 Fixes
 
-- **package:** downgrade @arethetypeswrong/cli to ^0.15.0 ([0383586][365])
-- **src:** ensure node options are concatenated properly ([3a3489c][366])
+- **package:** downgrade @arethetypeswrong/cli to ^0.15.0 ([0383586][367])
+- **src:** ensure node options are concatenated properly ([3a3489c][368])
 
 ### ⚡️ Optimizations
 
-- **src:** take advantage of [tsc@5.6-beta][367] `--noCheck` argument in "build distributables" ([4e75096][368])
+- **src:** take advantage of [tsc@5.6-beta][369] `--noCheck` argument in "build distributables" ([4e75096][370])
 
 ### ⚙️ Build System
 
-- **eslint.config:** update @typescript-eslint/unbound-method linting config ([f6515ea][369])
-- Update source aliases to latest ([8d71521][370])
-- **vscode:** take advantage of new `--run-to-completion` flag ([d9b4b80][371])
-- **vscode:** update example with latest best practices ([64b7309][372])
+- **eslint.config:** update @typescript-eslint/unbound-method linting config ([f6515ea][371])
+- Update source aliases to latest ([8d71521][372])
+- **vscode:** take advantage of new `--run-to-completion` flag ([d9b4b80][373])
+- **vscode:** update example with latest best practices ([64b7309][374])
 
 <br />
 
-## @-xun/symbiote[@1.17.0][373] (2024-07-23)
+## @-xun/symbiote[@1.17.0][375] (2024-07-23)
 
 ### ⚙️ Build System
 
-- **eslint.config:** update to eslint flat config (eslint.config.mjs) ([609fca8][374])
-- **husky:** update husky scripts ([e55a88e][375])
-- **package:** add semver; force install alpha versions of typescript-eslint et al ([b56fd66][376])
-- **package:** update exports, dependencies, and scripts ([323579d][377])
-- Update to eslint\@9; begin transition to eslint.config.js flat ([52763c5][378])
+- **eslint.config:** update to eslint flat config (eslint.config.mjs) ([609fca8][376])
+- **husky:** update husky scripts ([e55a88e][377])
+- **package:** add semver; force install alpha versions of typescript-eslint et al ([b56fd66][378])
+- **package:** update exports, dependencies, and scripts ([323579d][379])
+- Update to eslint\@9; begin transition to eslint.config.js flat ([52763c5][380])
 
-<br />
-
-## @-xun/symbiote[@1.16.0][379] (2024-07-14)
-
-### ✨ Features
-
-- **src:** implement "lint" command ([346b4ac][380])
-
-### 🪄 Fixes
-
-- **package:** include missing listr2 dependency ([f42f4ab][381])
-- **src:** ensure "build distributables" copies non-compiled files into ./dist ([e596e5b][382])
-- **src:** ensure "lint" command linter subprocesses don't write to stdout or hang after error ([d96ae1d][383])
-- **src:** ensure proper checks with various arguments ([c9e254a][384])
-
-### ⚙️ Build System
-
-- **husky:** update lint script to use latest name ([ea6aaff][385])
-- **package:** add final npm scripts ([eb5631b][386])
-- **package:** replace typescript babel preset dependency with syntax plugin ([b72401a][387])
-- **package:** update lint scripts to use xscripts ([7c1e7f1][388])
-
-<br />
-
-### 🏗️ Patch @-xun/symbiote[@1.16.1][389] (2024-07-14)
+## @-xun/symbiote[@1.16.1][381] (2024-07-14)
 
 #### 🪄 Fixes
 
-- **src:** place --copy-files argument in proper order in babel build sub-command ([8f1d25d][390])
+- **src:** place --copy-files argument in proper order in babel build sub-command ([8f1d25d][382])
 
-<br />
-
-## @-xun/symbiote[@1.15.0][391] (2024-07-07)
+## @-xun/symbiote[@1.16.0][383] (2024-07-14)
 
 ### ✨ Features
 
-- **src:** implement "test" script/command ([b665723][393])
-
-## @-xun/symbiote[@1.14.0][394] (2024-07-07)
-
-### ✨ Features
-
-- **src:** add --clean-output-dir option to "build distributables" command ([a507530][395])
-- **src:** add struts for projector-js replacement "project" commands ([489e75a][396])
-- **src:** merge "build distributables" and "build transpiled" commands ([1b6c72a][397])
+- **src:** implement "lint" command ([346b4ac][384])
 
 ### 🪄 Fixes
 
-- **src:** add .tsx to babel --extensions arg ([68c5582][398])
-- **src:** ensure "build distributables" --generate-intermediates-for includes tests ([2ed4344][399])
-- **src:** remove bad options references from "format" command ([cafeb73][400])
+- **package:** include missing listr2 dependency ([f42f4ab][385])
+- **src:** ensure "build distributables" copies non-compiled files into ./dist ([e596e5b][386])
+- **src:** ensure "lint" command linter subprocesses don't write to stdout or hang after error ([d96ae1d][387])
+- **src:** ensure proper checks with various arguments ([c9e254a][388])
 
 ### ⚙️ Build System
 
-- **maintaining:** note that resetting the working tree before publishing is optional ([f08250c][401])
+- **husky:** update lint script to use latest name ([ea6aaff][389])
+- **package:** add final npm scripts ([eb5631b][390])
+- **package:** replace typescript babel preset dependency with syntax plugin ([b72401a][391])
+- **package:** update lint scripts to use xscripts ([7c1e7f1][392])
 
-## @-xun/symbiote[@1.13.0][402] (2024-07-02)
+## @-xun/symbiote[@1.15.0][393] (2024-07-07)
 
 ### ✨ Features
 
-- **src:** implement "build documentation" script ([05e56e7][403])
-- **src:** implement "build externals" script ([1336341][404])
+- **src:** implement "test" script/command ([b665723][395])
 
-### ⚙️ Build System
-
-- Ensure local ecosystem ignores only relevant files ([e4a1e0b][405])
-
-## @-xun/symbiote[@1.12.0][406] (2024-07-01)
+## @-xun/symbiote[@1.14.0][396] (2024-07-07)
 
 ### ✨ Features
 
-- **src:** implement "build changelog" script ([8d4bb6d][407])
-- Transmute "format" command's --skip-docs into the more versatile --skip-ignored ([7364616][408])
+- **src:** add --clean-output-dir option to "build distributables" command ([a507530][397])
+- **src:** add struts for projector-js replacement "project" commands ([489e75a][398])
+- **src:** merge "build distributables" and "build transpiled" commands ([1b6c72a][399])
+
+### 🪄 Fixes
+
+- **src:** add .tsx to babel --extensions arg ([68c5582][400])
+- **src:** ensure "build distributables" --generate-intermediates-for includes tests ([2ed4344][401])
+- **src:** remove bad options references from "format" command ([cafeb73][402])
 
 ### ⚙️ Build System
 
-- **changelog:** add new CHANGELOG.md typo patches ([b9b106a][409])
-- Hide all warnings from nodejs ([c1a4b9c][410])
-- **package:** update scripts (and release.config.js) to use "build changelog" command ([5b11c68][411])
-- **remarkrc:** always translate normal links into reference links ([99c7b33][412])
+- **maintaining:** note that resetting the working tree before publishing is optional ([f08250c][403])
+
+## @-xun/symbiote[@1.13.0][404] (2024-07-02)
+
+### ✨ Features
+
+- **src:** implement "build documentation" script ([05e56e7][405])
+- **src:** implement "build externals" script ([1336341][406])
+
+### ⚙️ Build System
+
+- Ensure local ecosystem ignores only relevant files ([e4a1e0b][407])
+
+## @-xun/symbiote[@1.12.0][408] (2024-07-01)
+
+### ✨ Features
+
+- **src:** implement "build changelog" script ([8d4bb6d][409])
+- Transmute "format" command's --skip-docs into the more versatile --skip-ignored ([7364616][410])
+
+### ⚙️ Build System
+
+- **changelog:** add new CHANGELOG.md typo patches ([b9b106a][411])
+- Hide all warnings from nodejs ([c1a4b9c][412])
+- **package:** update scripts (and release.config.js) to use "build changelog" command ([5b11c68][413])
+- **remarkrc:** always translate normal links into reference links ([99c7b33][414])
 
 ### 🔥 Reverted
 
-- _"build(prettierignore): no longer ignore CHANGELOG.md when formatting"_ ([ddd9192][413])
+- _"build(prettierignore): no longer ignore CHANGELOG.md when formatting"_ ([ddd9192][415])
 
-## @-xun/symbiote[@1.11.0][414] (2024-06-30)
+## @-xun/symbiote[@1.11.0][416] (2024-06-30)
 
 ### ✨ Features
 
-- **src:** add all-contributors regeneration to "format" command ([d74f099][415])
+- **src:** add all-contributors regeneration to "format" command ([d74f099][417])
 
 ### 🪄 Fixes
 
-- **src:** ensure --files never hands prettier paths it can't handle when running "format" command ([0f4dd16][416])
-- **src:** ensure "format" command all-contributors regeneration only targets root README.md ([2cd56d1][417])
-- **src:** ensure all glob relevant glob calls never return directories ([9764967][418])
-- **src:** ensure, when --files is given, at least one option given for "format" command ([fd86f3f][419])
-- **src:** fix fix fd86f3f ([e295a02][420])
+- **src:** ensure --files never hands prettier paths it can't handle when running "format" command ([0f4dd16][418])
+- **src:** ensure "format" command all-contributors regeneration only targets root README.md ([2cd56d1][419])
+- **src:** ensure all glob relevant glob calls never return directories ([9764967][420])
+- **src:** ensure, when --files is given, at least one option given for "format" command ([fd86f3f][421])
+- **src:** fix fix fd86f3f ([e295a02][422])
 
 ### ⚙️ Build System
 
-- **lint-staged.config:** update to use xscripts ([d290ba5][421])
-- Reorganize deps/devdeps and re-enable commit-spell ([4ea8aa4][422])
+- **lint-staged.config:** update to use xscripts ([d290ba5][423])
+- Reorganize deps/devdeps and re-enable commit-spell ([4ea8aa4][424])
 
-### @-xun/symbiote[@1.10.1][423] (2024-06-29)
+### @-xun/symbiote[@1.10.1][425] (2024-06-29)
 
 #### 🪄 Fixes
 
-- **src:** ensure --files is respected by prettier in "format" command ([483f036][424])
+- **src:** ensure --files is respected by prettier in "format" command ([483f036][426])
 
-## @-xun/symbiote[@1.10.0][425] (2024-06-29)
+## @-xun/symbiote[@1.10.0][427] (2024-06-29)
 
 ### ✨ Features
 
-- **src:** add --prepend-shebang, Next.js support to "build distributables" command ([6575d49][426])
-- **src:** improve capabilities of "format" command ([7d33dfe][427])
+- **src:** add --prepend-shebang, Next.js support to "build distributables" command ([6575d49][428])
+- **src:** improve capabilities of "format" command ([7d33dfe][429])
 
 ### 🪄 Fixes
 
-- **src:** actually implement --skip-docs functionality in "format" command ([d535b78][428])
-- **src:** restrict root/sub-root check to certain commands ([1b65f46][429])
+- **src:** actually implement --skip-docs functionality in "format" command ([d535b78][430])
+- **src:** restrict root/sub-root check to certain commands ([1b65f46][431])
 
-## @-xun/symbiote[@1.9.0][430] (2024-06-28)
+## @-xun/symbiote[@1.9.0][432] (2024-06-28)
 
 ### ✨ Features
 
-- **src:** add `--full` argument to "list-tasks" command ([f47742b][431])
-- **src:** prevent cli from running if not in root or sub-root ([4f280dc][432])
+- **src:** add `--full` argument to "list-tasks" command ([f47742b][433])
+- **src:** prevent cli from running if not in root or sub-root ([4f280dc][434])
 
 ### 🪄 Fixes
 
-- **src:** fix lib output and improve other aspects of the "build distributables" command ([159d771][433])
+- **src:** fix lib output and improve other aspects of the "build distributables" command ([159d771][435])
 
-## @-xun/symbiote[@1.8.0][434] (2024-06-27)
+## @-xun/symbiote[@1.8.0][436] (2024-06-27)
 
 ### ✨ Features
 
-- **src:** commit initial version of "build" command ([c7b7623][435])
+- **src:** commit initial version of "build" command ([c7b7623][437])
 
 ### ⚙️ Build System
 
-- **eslintrc:** do not ignore src/build ([847cc63][436])
-- **gitignore:** do not ignore src files anymore ([fd210c5][437])
+- **eslintrc:** do not ignore src/build ([847cc63][438])
+- **gitignore:** do not ignore src files anymore ([fd210c5][439])
 
-## @-xun/symbiote[@1.7.0][438] (2024-06-26)
-
-### ✨ Features
-
-- **src:** implement "format" script ([7824c25][439])
-
-### 🪄 Fixes
-
-- **remarkrc:** improve output of "format" command" ([b4c296e][440])
-
-### ⚙️ Build System
-
-- **package:** replace format script with "format" command ([005e378][441])
-- **package:** use --hush over --quiet for "format" command ([9e4ae59][442])
-
-## @-xun/symbiote[@1.6.0][443] (2024-06-24)
+## @-xun/symbiote[@1.7.0][440] (2024-06-26)
 
 ### ✨ Features
 
-- **src:** implement "deploy" script ([62e673b][444])
-
-## @-xun/symbiote[@1.5.0][445] (2024-06-23)
+- **src:** implement "format" script ([7824c25][441])
 
 ### 🪄 Fixes
 
-- **clean.ts:** add .vercel to list of ignored directories ([fd903a4][446])
-- **src:** use loose implications with deploy command ([8e11d66][447])
+- **remarkrc:** improve output of "format" command" ([b4c296e][442])
 
 ### ⚙️ Build System
 
-- **package:** disable tty in debug when running tests ([b57a6be][448])
-- **package:** fix bad overwrite of ignore patterns ([8d03799][449])
+- **package:** replace format script with "format" command ([005e378][443])
+- **package:** use --hush over --quiet for "format" command ([9e4ae59][444])
 
-### @-xun/symbiote[@1.4.1][450] (2024-06-02)
+## @-xun/symbiote[@1.6.0][445] (2024-06-24)
+
+### ✨ Features
+
+- **src:** implement "deploy" script ([62e673b][446])
+
+## @-xun/symbiote[@1.5.0][447] (2024-06-23)
+
+### 🪄 Fixes
+
+- **clean.ts:** add .vercel to list of ignored directories ([fd903a4][448])
+- **src:** use loose implications with deploy command ([8e11d66][449])
+
+### ⚙️ Build System
+
+- **package:** disable tty in debug when running tests ([b57a6be][450])
+- **package:** fix bad overwrite of ignore patterns ([8d03799][451])
+
+### @-xun/symbiote[@1.4.1][452] (2024-06-02)
 
 #### 🪄 Fixes
 
-- **src:** pass arbitrary args to downstream executable ([4b94a07][451])
+- **src:** pass arbitrary args to downstream executable ([4b94a07][453])
 
 #### ⚙️ Build System
 
-- **package:** update "start" script to ensure arbitrary args are not erroneously parsed ([a8ddaa5][452])
+- **package:** update "start" script to ensure arbitrary args are not erroneously parsed ([a8ddaa5][454])
 
-## @-xun/symbiote[@1.4.0][453] (2024-06-01)
+## @-xun/symbiote[@1.4.0][455] (2024-06-01)
 
 ### ✨ Features
 
-- **src:** implement "dev" script ([4eeba00][454])
+- **src:** implement "dev" script ([4eeba00][456])
 
 ### ⚙️ Build System
 
-- **package:** use real path to devdep version of xscripts ([99d5786][455])
+- **package:** use real path to devdep version of xscripts ([99d5786][457])
 
-## @-xun/symbiote[@1.3.0][456] (2024-06-01)
+## @-xun/symbiote[@1.3.0][458] (2024-06-01)
 
 ### ✨ Features
 
-- **src:** implement "start" script ([cf66045][457])
+- **src:** implement "start" script ([cf66045][459])
 
 ### 🪄 Fixes
 
-- **package:** add workaround for npx being unable to deal with this type of recursion ([b999593][458])
-- **src:** do not inherit IO when executing "clean" script ([380c055][459])
-- **src:** execute husky post-checkout hook if available ([f0b3b8c][460])
+- **package:** add workaround for npx being unable to deal with this type of recursion ([b999593][460])
+- **src:** do not inherit IO when executing "clean" script ([380c055][461])
+- **src:** execute husky post-checkout hook if available ([f0b3b8c][462])
 
-## @-xun/symbiote[@1.2.0][461] (2024-05-31)
-
-### ✨ Features
-
-- Implement "prepare" script ([6426d70][462])
-
-## @-xun/symbiote[@1.1.0][463] (2024-05-31)
+## @-xun/symbiote[@1.2.0][463] (2024-05-31)
 
 ### ✨ Features
 
-- Implement "list-tasks" script ([ac5a9ba][464])
+- Implement "prepare" script ([6426d70][464])
 
-## @-xun/symbiote[@1.0.0][465] (2024-05-31)
+## @-xun/symbiote[@1.1.0][465] (2024-05-31)
 
 ### ✨ Features
 
-- **src:** implement "clean" script ([89d81a3][466])
+- Implement "list-tasks" script ([ac5a9ba][466])
+
+## @-xun/symbiote[@1.0.0][467] (2024-05-31)
+
+### ✨ Features
+
+- **src:** implement "clean" script ([89d81a3][468])
 
 ### ⚙️ Build System
 
-- **package:** update build scripts ([589fcb0][467])
+- **package:** update build scripts ([589fcb0][469])
 
 [1]: https://conventionalcommits.org
 [2]: https://semver.org
@@ -1088,464 +1090,466 @@ this project adheres to [Semantic Versioning][2].
 [4]: https://github.com/Xunnamius/symbiote/commit/28acb7961df65f3e39ec6b549117698f529b083c
 [5]: https://github.com/Xunnamius/symbiote/commit/6f8cbe26308839edf019112bb191cb4e7c8a18a8
 [6]: https://github.com/Xunnamius/symbiote/commit/edc6cca484e3748ffa96bf6f6831c7193e830976
-[7]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.5.6...@-xun/symbiote@2.6.0
-[8]: https://github.com/Xunnamius/symbiote/commit/dddfc44396c55ebfc704f8d576edac2868fe28cc
-[9]: https://github.com/Xunnamius/symbiote/commit/180f85f730f6f4763c685986886d65a870f73558
-[10]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.4.3...@-xun/symbiote@2.5.0
-[11]: https://github.com/Xunnamius/symbiote/commit/c133a92a38c285bf0a63dd9098f7c876155f3274
-[12]: https://github.com/Xunnamius/symbiote/commit/6210727d4bc9b20c2064df6f0a987bc509ba512a
-[13]: https://github.com/Xunnamius/symbiote/commit/625451cb712d5ebe6ef89478fed8669af6fa7236
-[14]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.5.5...@-xun/symbiote@2.5.6
-[15]: https://github.com/Xunnamius/symbiote/commit/2fd61c45d5639f5e6f8edadc3b7d4851011bc365
-[16]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.5.4...@-xun/symbiote@2.5.5
-[17]: https://github.com/Xunnamius/symbiote/commit/3831af5468c04bc48a0849a15233d1d644e5c45b
-[18]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.5.3...@-xun/symbiote@2.5.4
-[19]: https://github.com/Xunnamius/symbiote/commit/c23304e8bb55d71623ce6f30acd2195d704326aa
-[20]: https://github.com/Xunnamius/symbiote/commit/141111918245fc7294e26b6ee944d4c6977e4f25
-[21]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.5.2...@-xun/symbiote@2.5.3
-[22]: https://github.com/Xunnamius/symbiote/commit/0dd4fb76481355ace84b39c7eeba5c230951a237
-[23]: https://github.com/Xunnamius/symbiote/commit/607a378f58157a1b6b0a3a16880d3c2ba9e9d2e0
-[24]: https://github.com/Xunnamius/symbiote/commit/19492a702140242c81a8ef20cd42d9908f722b28
-[25]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.5.1...@-xun/symbiote@2.5.2
-[26]: https://github.com/Xunnamius/symbiote/commit/4231719a4050b5b3956e3e19d12d8c469fd0bd37
-[27]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.5.0...@-xun/symbiote@2.5.1
-[28]: https://github.com/Xunnamius/symbiote/commit/b2dfed2c46fd5bceb7922642e9955bce5a5c424b
-[29]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.3.4...@-xun/symbiote@2.4.0
-[30]: https://github.com/Xunnamius/symbiote/commit/10f876ec625b234388ec5689f4d10663cabb4139
-[31]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.4.2...@-xun/symbiote@2.4.3
-[32]: https://github.com/Xunnamius/symbiote/commit/7b8ca545f93c3e9d22b693c6c58dbb29604867ff
-[33]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.4.1...@-xun/symbiote@2.4.2
-[34]: https://github.com/Xunnamius/symbiote/commit/0bafa3046d16effe919127463c68cff1fb657848
-[35]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.4.0...@-xun/symbiote@2.4.1
-[36]: https://github.com/Xunnamius/symbiote/commit/02e289a9c890d4a9fb9b9f17fa7e8731f4ab9d2b
-[37]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.2.0...@-xun/symbiote@2.3.0
-[38]: https://github.com/Xunnamius/symbiote/commit/23d01f3f75587880142e8b0ffdaa5873a38a84c7
-[39]: https://github.com/Xunnamius/symbiote/commit/ee079c1feb775313923680cea371b862fa61c083
-[40]: https://github.com/Xunnamius/symbiote/commit/c92b2cbb33a4cd6367604b98422a0248a129d9bd
-[41]: https://github.com/Xunnamius/symbiote/commit/c565452e8b3b261e37e21b0b09dd52d395ccaa35
-[42]: https://github.com/Xunnamius/symbiote/commit/6353b4f3774f70fa5299ed6666a14165faacb829
-[43]: https://github.com/Xunnamius/symbiote/commit/64a41385dbcf83b268fe4d03f2ba1d60b705b634
-[44]: https://github.com/Xunnamius/symbiote/commit/9304778395eb8c9f48164e2c1d71660a7da484f6
-[45]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.3.3...@-xun/symbiote@2.3.4
-[46]: https://github.com/Xunnamius/symbiote/commit/7f1f7a2772751006b2f87a140f0b00c116f4412c
-[47]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.3.2...@-xun/symbiote@2.3.3
-[48]: https://github.com/Xunnamius/symbiote/commit/1546ab8527a571efe54081d7614bd35a9d6e0c3c
-[49]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.3.1...@-xun/symbiote@2.3.2
-[50]: https://github.com/Xunnamius/symbiote/commit/ff6ce22d3a3433c07460af5758ce7920a1d9aa5a
-[51]: https://github.com/Xunnamius/symbiote/commit/9a456c5795616fcf9f8cafa0c625eb12cf85cf50
-[52]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.3.0...@-xun/symbiote@2.3.1
-[53]: https://github.com/Xunnamius/symbiote/commit/1901cfe78a48fcd1dfae4e3760acf197e8812676
-[54]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.1.0...@-xun/symbiote@2.2.0
-[55]: https://github.com/Xunnamius/symbiote/commit/0c1b93abd02cb8ad4eec4362b917e5484000cae4
-[56]: https://github.com/Xunnamius/symbiote/commit/ce6a12a98f74e554db875dfa2e53e0fb3a45510a
-[57]: https://github.com/Xunnamius/symbiote/commit/14bf31ff01c26186bce6a35150f4e002e6f74475
-[58]: https://github.com/Xunnamius/symbiote/commit/c263dc5aa35ce06d85077337af7b4ca35564504d
-[59]: https://github.com/Xunnamius/symbiote/commit/f55664476107f5f2aaefbfe11df6c0e59e7bd7f6
-[60]: https://github.com/Xunnamius/symbiote/commit/9581339cf055172c61e96900096f7e6f3be04ff2
-[61]: https://github.com/Xunnamius/symbiote/commit/432a5faebe68d65bac4e627e9e022b4687917552
-[62]: https://github.com/Xunnamius/symbiote/commit/f82fbf4583d23478cfc54d320d4075f42cec86e8
-[63]: https://github.com/Xunnamius/symbiote/commit/a95e9104912da7d85cc6e908cf6f359ae0d74a50
-[64]: https://github.com/Xunnamius/symbiote/commit/12dd3f71aca30c382e26451fed7e15d6359cd624
-[65]: https://github.com/Xunnamius/symbiote/commit/2a3e13c79fb4a96dc5da63a1a3740be799be38c0
-[66]: https://github.com/Xunnamius/symbiote/commit/b8841b52f736c86ff811fc26b8db2a9ba638f693
-[67]: https://github.com/Xunnamius/symbiote/commit/f3012291ad31b4c57b3b592eaf687ac83162e1ba
-[68]: https://github.com/Xunnamius/symbiote/commit/26f78dcd18c0d83e4adc060449edff2071bc0adb
-[69]: https://github.com/Xunnamius/symbiote/commit/c63847c764bed07ff07a3b461170bf82b0fa5202
-[70]: https://github.com/Xunnamius/symbiote/commit/df13f8755a08757c99f20c71c55647e3478243fc
-[71]: https://github.com/Xunnamius/symbiote/commit/48163ba158b463dd21ffd6ad431f6f0714c93003
-[72]: https://github.com/Xunnamius/symbiote/commit/c4f81c0568db69961282c771dd28370d1357f4d8
-[73]: https://github.com/Xunnamius/symbiote/commit/8338afa2ed9f0cc68144505d32b9578e82661549
-[74]: https://github.com/Xunnamius/symbiote/commit/fb7752b12394e6c92912bc59517df8baff5be223
-[75]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.0.1...@-xun/symbiote@2.1.0
-[76]: https://github.com/Xunnamius/symbiote/commit/0c86cb529724eb2576b8d62e8c7f0addc3ea7084
-[77]: https://github.com/Xunnamius/symbiote/commit/0b96a6b7274a4b840e73bf97bf9b5455cba08666
-[78]: https://github.com/Xunnamius/symbiote/commit/e6827346cceeb12e8ce9f7aa52b868ccc9272253
-[79]: https://github.com/Xunnamius/symbiote/commit/552b89f4a78d09be4281b7001bbd2e37880f195f
-[80]: https://github.com/Xunnamius/symbiote/commit/7409b67ee7863d79fa9c689d34cb23378aa8707e
-[81]: https://github.com/Xunnamius/symbiote/commit/2013638bd9d290bd619fb188ae96d077510170be
-[82]: https://github.com/Xunnamius/symbiote/commit/5057f5376c96d6c9660cc672982f808454dd5ee7
-[83]: https://github.com/Xunnamius/symbiote/commit/6c5a8fe3b009a49f44c3a476433bb41204827ddb
-[84]: https://github.com/Xunnamius/symbiote/commit/a84c5235025ae7fe18d8bec997eb19472dce1b06
-[85]: https://github.com/Xunnamius/symbiote/commit/f9bdb7ed796e77ce7d3dad3e0f4b04960984a1f8
-[86]: https://github.com/Xunnamius/symbiote/commit/b6927a9b6e40937047008bc4337573e1eaafc4e8
-[87]: https://github.com/Xunnamius/symbiote/commit/364fbb2c1b1981e96aab54503b54ffa496b33898
-[88]: https://github.com/Xunnamius/symbiote/commit/11bd584b8b0d49b7f7e0184995922fbfad653666
-[89]: https://github.com/Xunnamius/symbiote/commit/aee10cdf72edb6a1741d2880fd4cff8aa5dd8f71
-[90]: https://github.com/Xunnamius/symbiote/commit/d44fa79bf7df8ae47acff4da881cdc7450cb64d1
-[91]: https://github.com/Xunnamius/symbiote/commit/b7f27541e4b8d8540c70decab93b1e0df2b330bf
-[92]: https://github.com/Xunnamius/symbiote/commit/f592d5faf07a02a50f3f3ed99baf8f23af94ee59
-[93]: https://github.com/Xunnamius/symbiote/commit/7e6618353b307cbe03f2e9d5429639a78fac738f
-[94]: https://github.com/Xunnamius/symbiote/commit/98c028a88e194a6085b320f7458a0a7de1ec7c62
-[95]: https://github.com/Xunnamius/symbiote/commit/3030eb9258c22141352cb27d69e1c84037bc9a50
-[96]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.33.0...@-xun/symbiote@2.0.0
-[97]: https://github.com/Xunnamius/symbiote/commit/b7b101e38446127aca8e7cd55b60f3731ab81ac0
-[98]: https://github.com/Xunnamius/symbiote/commit/057f400cc043f1e13e701a97d2e67b93be4719d3
-[99]: https://github.com/Xunnamius/symbiote/commit/d22de31fff57a3eabff39d5f564d04ca24051fda
-[100]: https://github.com/Xunnamius/symbiote/commit/e83f2f27cd2e5c01c4c32532fb39bf16557b62b4
-[101]: https://github.com/Xunnamius/symbiote/commit/ad83e562e1049d816498af50afc8a5bd3efca059
-[102]: https://github.com/Xunnamius/symbiote/commit/0a19ce6bf1c302624d6c6d68b0d5ee3aff17aeda
-[103]: https://github.com/Xunnamius/symbiote/commit/70b513431bf2d90c8590ecb68cedce9482ec0026
-[104]: https://github.com/Xunnamius/symbiote/commit/1a522e88ed38c4e2d051bd2809293a66b86e48ef
-[105]: https://github.com/Xunnamius/symbiote/commit/9d05b8bd93b6c28c218a060264253d403fe09617
-[106]: https://github.com/Xunnamius/symbiote/commit/7a8eee69e839138e96fe3937ae8c178e44148e27
-[107]: https://github.com/Xunnamius/symbiote/commit/abbc2da0ff368d976c2a73e0af1848d81e0ee05b
-[108]: https://github.com/Xunnamius/symbiote/commit/53409fa0bd5d3b104a74f7ad7eb060334ac48bca
-[109]: https://github.com/Xunnamius/symbiote/commit/2bd57b5ac1bbe3c23f772a9194ad604a01715290
-[110]: https://github.com/Xunnamius/symbiote/commit/a40f886ca5f4abdffdee5df1b5259b5165e69c4f
-[111]: https://github.com/Xunnamius/symbiote/commit/f2bb03d127d347d69b3f6c253cfbb286943c85fe
-[112]: https://github.com/Xunnamius/symbiote/commit/641b57b7d0dd966573747fbdcb220f3f8bacdf05
-[113]: https://github.com/Xunnamius/symbiote/commit/177a5dcf060e7d2a90e183ad6cf6d162e0746100
-[114]: https://github.com/Xunnamius/symbiote/commit/c331ae1339dce62af60a59c171dd4d8fe3db3ed3
-[115]: https://github.com/Xunnamius/symbiote/commit/87245154b394d12f43ac5f96675a8e0adcf7e7fe
-[116]: https://github.com/Xunnamius/symbiote/commit/a6f02e0b4e4b157c3d98ffece54f4765515376d2
-[117]: https://github.com/Xunnamius/symbiote/commit/5e99d888275bc8dd3d62e0add9cc3448476a2bda
-[118]: https://github.com/Xunnamius/symbiote/commit/f511249a44a64a3e5885f2e51822af539f427e0f
-[119]: https://github.com/Xunnamius/symbiote/commit/577710bf9ba5c47dff34554dd4bb1d20b9844d14
-[120]: https://github.com/Xunnamius/symbiote/commit/2841d263ae20fdc5d875afe74ce3fd6eb309105e
-[121]: https://github.com/Xunnamius/symbiote/commit/5c66c170ade8c6ab34e8003833eedb2fd35f13e5
-[122]: https://github.com/Xunnamius/symbiote/commit/6a44488ce9daf5ec86b6df8257fd06f6444bd4bf
-[123]: https://github.com/Xunnamius/symbiote/commit/26fb0346ccac211d0ab3deecc332eb8d047da9ea
-[124]: https://github.com/Xunnamius/symbiote/commit/4f8d351103c48f8114f47f07a37f1f6fe8c21c3f
-[125]: https://github.com/Xunnamius/symbiote/commit/26e756362a16f050e03cef2c4c582d94e29614cd
-[126]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.0.0...@-xun/symbiote@2.0.1
-[127]: https://github.com/Xunnamius/symbiote/commit/e42722b37c4b6d2ec1e39b5f7d10d304ac147bcc
-[128]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.32.0...@-xun/symbiote@1.33.0
-[129]: https://github.com/Xunnamius/symbiote/commit/f1e8e8e08a4139a060af4c155aa1ee4e73c344e0
-[130]: https://github.com/Xunnamius/symbiote/commit/49258852c3fcd7dd992c2b244bb7a7e50c88dbd7
-[131]: https://github.com/Xunnamius/symbiote/commit/ca87588aee7f76fe8635e4e7f2f712b7b96671bb
-[132]: https://github.com/Xunnamius/symbiote/commit/410a05ae14f91c62d0c43e624a9a8f815c0885c6
-[133]: https://github.com/Xunnamius/symbiote/commit/f111552d67f5c3bdd81c8d24a4fea5e21298f620
-[134]: https://github.com/Xunnamius/symbiote/commit/1d9accc2d1627d74a04f1bb7f776a4e4b2049f9a
-[135]: https://github.com/Xunnamius/symbiote/commit/51ab45426d8058a8a84b8206feda4242d780f53a
-[136]: https://github.com/Xunnamius/symbiote/commit/c2bee3ba59f700348dc33e31ad742d2348169ec0
-[137]: https://github.com/Xunnamius/symbiote/commit/b057430a463e47e5774bef53a00e8a0677914291
-[138]: https://github.com/Xunnamius/symbiote/commit/eec0ed930df8cfaec7a98459b4d56849aac01749
-[139]: https://github.com/Xunnamius/symbiote/commit/16f64e190ca4798c6fc148de2e354b7973750784
-[140]: https://github.com/Xunnamius/symbiote/commit/413dc399483771459ce358ca126bba405f1233c6
-[141]: https://github.com/Xunnamius/symbiote/commit/28c221bb8a859e69003ba2447e3f5763dc92a0ec
-[142]: https://github.com/Xunnamius/symbiote/commit/6a8c411beeda36c4d6825608de4c76eb481d8cb5
-[143]: https://github.com/Xunnamius/symbiote/commit/da7e953744dde41a45c249d74e7f4007719eece4
-[144]: https://github.com/Xunnamius/symbiote/commit/edec64f03b4f426f768a4ba699c64c8cc7ce1f80
-[145]: https://github.com/Xunnamius/symbiote/commit/578d631717f64f0a1405a5fe40106ff9e8520a22
-[146]: https://github.com/Xunnamius/symbiote/commit/bf993c947a42aaaa96060bc9ac29f334e28db0ea
-[147]: https://github.com/Xunnamius/symbiote/commit/c52b3f184ba122013ac555d962b3df41c9329d0c
-[148]: https://github.com/Xunnamius/symbiote/commit/cdfd48df4a6a422042c7f239bc2246f033da91c2
-[149]: https://github.com/Xunnamius/symbiote/commit/a33aed8d5b0262dd81b375fcef062e5f7d1b5601
-[150]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.31.2...@-xun/symbiote@1.32.0
-[151]: https://github.com/Xunnamius/symbiote/commit/c9a6e8b7ee5518f658bcd62a800be0b065feffb7
-[152]: https://github.com/Xunnamius/symbiote/commit/e17adfb5fcd7395225e1fb530ebce697dce1b40d
-[153]: https://github.com/Xunnamius/symbiote/commit/c5cd76a0fbb13149871b4b5b1d8badf6277c455a
-[154]: https://github.com/Xunnamius/symbiote/commit/56e576cb940a966292d7378200f153215b55351a
-[155]: https://github.com/Xunnamius/symbiote/commit/aa60eebffcdbbf28d8ce6943dc7ed6cb6b50150b
-[156]: https://github.com/Xunnamius/symbiote/commit/c248757d6afb672ef03d93c652f5385bd80670df
-[157]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.30.3...@-xun/symbiote@1.31.0
-[158]: https://github.com/Xunnamius/symbiote/commit/8f7777c426ce028f106db4654c8bd3535da7151b
-[159]: https://github.com/Xunnamius/symbiote/commit/6fc66d8a50979c2ee7424a94dd0c98179f9ac47b
-[160]: https://github.com/Xunnamius/symbiote/commit/8a5fd8a05a1b7cd3a9d820f594145e2be76bb746
-[161]: https://github.com/Xunnamius/symbiote/commit/68d5bda031da6af194e5d5f3199eeac7c7416076
-[162]: https://github.com/Xunnamius/symbiote/commit/ef6927b763b236d731e9013c739a5336d02193d2
-[163]: https://github.com/Xunnamius/symbiote/commit/ceb6c6280370ff13d3eb9fcd5d6b9ec2b4b993f3
-[164]: https://github.com/Xunnamius/symbiote/commit/ce934437a7db5039d1c572906332ee6389bcf5a2
-[165]: https://github.com/Xunnamius/symbiote/commit/6ce819a34df36aaf26bf7b8d7e87b6085547183f
-[166]: https://github.com/Xunnamius/symbiote/commit/62a5a128781629f5df99e05eff025da3e88022a6
-[167]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.31.1...@-xun/symbiote@1.31.2
-[168]: https://github.com/Xunnamius/symbiote/commit/0565333411580fd45659aad0e9727012cea9a699
-[169]: https://github.com/Xunnamius/symbiote/commit/f4ecfc9dd682e307a08becf562a877450fe903ef
-[170]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.31.0...@-xun/symbiote@1.31.1
-[171]: https://github.com/Xunnamius/symbiote/commit/cfe28e3d801ec1b719b0dedbda4e9f63d7924b77
-[172]: https://github.com/Xunnamius/symbiote/commit/89350088d45a927b2d85ce710a21d89af74c1d21
-[173]: https://github.com/Xunnamius/symbiote/commit/39e37a8070e22e93b0042ae80f80207b67cf3ed2
-[174]: https://github.com/Xunnamius/symbiote/commit/58a6223696187f874d98bb91ec3f37719e7f33bd
-[175]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.29.2...@-xun/symbiote@1.30.0
-[176]: https://github.com/Xunnamius/symbiote/commit/3710988e3577a60357c780a19fa9a28e0dd58332
-[177]: https://github.com/Xunnamius/symbiote/commit/e1633023dfcc7b2ea7a213c11139b589bd99d1b7
-[178]: https://github.com/Xunnamius/symbiote/commit/ca47d93f4c507108c23cfd2e613ff758fd56d1c9
-[179]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.30.2...@-xun/symbiote@1.30.3
-[180]: https://github.com/Xunnamius/symbiote/commit/01dca03e237882091b9f849a4beeb06537d27ecd
-[181]: https://github.com/Xunnamius/symbiote/commit/b923d6daa24240ab9930bade670683e950e36e30
-[182]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.30.1...@-xun/symbiote@1.30.2
-[183]: https://github.com/Xunnamius/symbiote/commit/98a868e21d0126772abbbb69bb64a9b56da229ac
-[184]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.30.0...@-xun/symbiote@1.30.1
-[185]: https://github.com/Xunnamius/symbiote/commit/89eebe76ad675b35907b3379b29bfde27fd5a5b8
-[186]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.28.0...@-xun/symbiote@1.29.0
-[187]: https://github.com/Xunnamius/symbiote/commit/053bf3e15be94ed90e9b2b9fdf82c0b0b7c6da0d
-[188]: https://github.com/Xunnamius/symbiote/commit/002431f7c880bdd55c6cc71f7660dec8ba84966f
-[189]: https://github.com/Xunnamius/symbiote/commit/65b8c0b01acf9c60fc3cb5a1904832fd99f95329
-[190]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.29.1...@-xun/symbiote@1.29.2
-[191]: https://github.com/Xunnamius/symbiote/commit/d89809b1811fb99fb24fbfe0c6960a0e087bcc27
-[192]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.29.0...@-xun/symbiote@1.29.1
-[193]: https://github.com/Xunnamius/symbiote/commit/8feaaa78a9f524f02e4cc9204ef84f329d31ab94
-[194]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.27.0...@-xun/symbiote@1.28.0
-[195]: https://github.com/Xunnamius/symbiote/commit/c3fc1264932eb8224289ef973366fc0cb5435f59
-[196]: https://github.com/Xunnamius/symbiote/commit/a91e7fa7a369d3d71bc98b147279c01b8f87af3c
-[197]: https://github.com/Xunnamius/symbiote/commit/71b17c8574fe55da23831cd1be11457e7cb4bdb5
-[198]: https://github.com/Xunnamius/symbiote/commit/7fed43963c71aad0d9b37b72a52dad1c55226140
-[199]: https://github.com/Xunnamius/symbiote/commit/11b585ddfa1954ce0380fa64b5c4120773dc55d2
-[200]: https://github.com/Xunnamius/symbiote/commit/cf5b25b85bacd164e57f5e26863cf6c1581d8c68
-[201]: https://github.com/Xunnamius/symbiote/commit/55ee62d4a379fc1aae845c6847adc0a9c8a8db6f
-[202]: https://github.com/Xunnamius/symbiote/commit/56b706a90fbab254ee74509f45cf632157a0cfdc
-[203]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.26.0...@-xun/symbiote@1.27.0
-[204]: https://github.com/Xunnamius/symbiote/commit/1a69887158a00db7133cf0a2eee85146ec6d1399
-[205]: https://github.com/Xunnamius/symbiote/commit/1262cc85e615a3e0ac7766099e166aeae6a1e3e1
-[206]: https://github.com/Xunnamius/symbiote/commit/645473d084f3d4033afe39d72802b0a2a89e112d
-[207]: https://github.com/Xunnamius/symbiote/commit/c5c742e64b9a56894866c0110cb3161ae3321b0f
-[208]: https://github.com/Xunnamius/symbiote/commit/afa3f466c6d6e960ccb11c76149c54378a87b16a
-[209]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.25.0...@-xun/symbiote@1.26.0
-[210]: https://github.com/Xunnamius/symbiote/commit/5c8816d895864b48e3106b178284d57e9fdc3687
-[211]: https://github.com/Xunnamius/symbiote/commit/44be676ca04207bd17553941d367abda2325c0ee
-[212]: https://github.com/Xunnamius/symbiote/commit/3323fc3580b663f00518e7ca7bd9f52a7e50b80f
-[213]: https://github.com/Xunnamius/symbiote/commit/8a67d707c540f5e23d6f3ad8f6efe2d79cb35361
-[214]: https://github.com/Xunnamius/symbiote/commit/9b551a7be83a12c43408f9d33d117c3a6218cff4
-[215]: https://github.com/Xunnamius/symbiote/commit/0924dd3f6544d39ab5f4f7f50c5173704aab3909
-[216]: https://github.com/Xunnamius/symbiote/commit/ce72af261f1d9c15f89e11251ad8c5f000ff8afa
-[217]: https://github.com/Xunnamius/symbiote/commit/6ac3376124a2d86316f248b662f327ceee470b58
-[218]: https://github.com/Xunnamius/symbiote/commit/09373fa4830377ba42824797eb0791655da0fa34
-[219]: https://github.com/Xunnamius/symbiote/commit/b3e95e72ccfdce365933aeb27afe5a8bb64bdec5
-[220]: https://github.com/Xunnamius/symbiote/commit/d27007d1ebda295a05b6ed116a0421d7610aff42
-[221]: https://github.com/Xunnamius/symbiote/commit/998218d7d3f3a654dcdd33e2e1c5ce033927774e
-[222]: https://github.com/Xunnamius/symbiote/commit/9087086d6944cb6a847f325142753a63be2ca30c
-[223]: https://github.com/Xunnamius/symbiote/commit/36016b10da47bb5799d3e558831a96eda878c10e
-[224]: https://github.com/Xunnamius/symbiote/commit/86fca5843564773f9e0ec53c454c72109befbec6
-[225]: https://github.com/Xunnamius/symbiote/commit/bb6bde93dffe0a8f565dace3bfc970b52ff88c79
-[226]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.24.0...@-xun/symbiote@1.25.0
-[227]: https://github.com/Xunnamius/symbiote/commit/31c7bbb45d313ca9a1edaf9c682da438fde76830
-[228]: https://github.com/Xunnamius/symbiote/commit/4f807cf260af20ae6a60138dae1e4b7204eed570
-[229]: https://github.com/Xunnamius/symbiote/commit/d22cee3b292da80ab45e4513bba3b2157fa72245
-[230]: https://github.com/Xunnamius/symbiote/commit/9045cd704121600e07d84839c3e23b407e184f6b
-[231]: https://github.com/Xunnamius/symbiote/commit/e7c4b6e1bc996d5a975a497cd3ca0e4774a39a85
-[232]: https://github.com/Xunnamius/symbiote/commit/c62261b48969a52b54464de106eb02edb170fd5a
-[233]: https://github.com/Xunnamius/symbiote/commit/4d5ddb62d49f74d07dc8c24887bcf3ec50c00362
-[234]: https://github.com/Xunnamius/symbiote/commit/da60db8ff76efa3ad05f524298df8c0bb64399e3
-[235]: https://github.com/Xunnamius/symbiote/commit/576dd649da2775841e9a2e985b02e564a2be1caa
-[236]: https://github.com/Xunnamius/symbiote/commit/ffcad30844a8223d29369bb5303468f1534176a4
-[237]: https://github.com/Xunnamius/symbiote/commit/4059ed7d534afa9b74bd93f761f92e5d5996990a
-[238]: https://github.com/Xunnamius/symbiote/commit/5ea7f8a45c16bd07ff0f5bcdc8e4f6fa82908df0
-[239]: https://github.com/Xunnamius/symbiote/commit/d4d37566ea09a69679ec61da20c3a5aca9a8720f
-[240]: https://github.com/Xunnamius/symbiote/commit/d91572787be84252d2b37f3f6c1fa72e7528c62b
-[241]: https://github.com/Xunnamius/symbiote/commit/5d61e8783923775def0a0fcd1fc9fd57e65ab184
-[242]: https://github.com/Xunnamius/symbiote/commit/1d0dee8044cdd8cd88c6d8ccfe10c95c7b6a36bd
-[243]: https://github.com/Xunnamius/symbiote/commit/2b46883f153688f590ac3e1baed996bde3c4e1e6
-[244]: https://github.com/Xunnamius/symbiote/commit/95b0f6899582ed0bbb4f78bb12ce556079d36b67
-[245]: https://github.com/Xunnamius/symbiote/commit/81ba7bcaea006b1094131d0f0bb3c3dd0828cf13
-[246]: https://github.com/Xunnamius/symbiote/commit/128e83acfd2dd1f5b3ffca6b1feb7892a2fa38b3
-[247]: https://github.com/Xunnamius/symbiote/commit/c4016a8318afb13d6fd6ff9b5bf58a30231e5002
-[248]: https://github.com/Xunnamius/symbiote/commit/0f4c7b1e678f56ff0cb5112c8858f0da57254d91
-[249]: https://github.com/Xunnamius/symbiote/commit/1894d80efed02438233672074116dfa06e0c91f7
-[250]: https://github.com/Xunnamius/symbiote/commit/351ee50466956e8fc31eeaf1de79418f8ab04c16
-[251]: https://github.com/Xunnamius/symbiote/commit/74ab5d91a21dd66aa7a0412fb3ce2ad89de3c1bc
-[252]: https://github.com/Xunnamius/symbiote/commit/18dbad0840fc762fab169d38d606afd41316dd1b
-[253]: https://github.com/Xunnamius/symbiote/commit/8e82ac18456a552cdf55fe75be9e7e11f958aa65
-[254]: https://github.com/Xunnamius/symbiote/commit/f323a6ad34c69bca84a2618598f0801f26a0df82
-[255]: https://github.com/Xunnamius/symbiote/commit/4a6e25433385507c2d326f40c56093bcd54b171d
-[256]: https://github.com/Xunnamius/symbiote/commit/4e3cdc092ad2bf0f716a41ff16e2d6fb2267cc5a
-[257]: https://github.com/Xunnamius/symbiote/commit/5e0058708501603a5ed40fbd3934a2d01842c3fa
-[258]: https://github.com/Xunnamius/symbiote/commit/9b8b41a72605c3beabdf11c9155733bf1eb99ec0
-[259]: https://github.com/Xunnamius/symbiote/commit/e22403c276eda0e6281085198933d6df3a1dcc90
-[260]: https://github.com/Xunnamius/symbiote/commit/c34a5499cb58878fdaa42e83063e1c36a0582e06
-[261]: https://github.com/Xunnamius/symbiote/commit/43da8828df733ab8fd835d1a40c2a2c0c98fdd9b
-[262]: https://github.com/Xunnamius/symbiote/commit/33af2bc79370b38bc94633617180bcd283b5a0bf
-[263]: https://github.com/Xunnamius/symbiote/commit/c1ac811d2d7500a4b665d4d1531b5d51a9da2c19
-[264]: https://github.com/Xunnamius/symbiote/commit/901d85357b06b854b6c37a34ac2b37948376660c
-[265]: https://github.com/Xunnamius/symbiote/commit/1fb8568e874687f25f13bcd31db7e94a8eb43282
-[266]: https://github.com/Xunnamius/symbiote/commit/3373208a68bb1c11e75e68b0c53ff04cb0446035
-[267]: https://github.com/Xunnamius/symbiote/commit/5eb9deff748ee6e4af3c57a16f6370d16bb97bfb
-[268]: https://github.com/Xunnamius/symbiote/commit/b928e8a92064bcc4a0ef17b45eb6af40654208f2
-[269]: https://github.com/Xunnamius/symbiote/commit/45bcd8c56f38ccbc330b4088c6f8a5812714611a
-[270]: https://github.com/Xunnamius/symbiote/commit/f50abaf0309ca2e0e0f21b429683c8369e5e2210
-[271]: https://github.com/Xunnamius/symbiote/commit/98a1dd7eacac964a7fbab47ded92c33173383f11
-[272]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.23.0...@-xun/symbiote@1.24.0
-[273]: https://github.com/Xunnamius/symbiote/commit/467e88442c58320f1b65e6de3bd5e52c0220132b
-[274]: https://github.com/Xunnamius/symbiote/commit/472af2c847833e17c6d88d61d8cc2e885ef21338
-[275]: https://github.com/Xunnamius/symbiote/commit/8ab4eecd7242de0447c86f2535ccdd31c5d5291e
-[276]: https://github.com/Xunnamius/symbiote/commit/69f2dc0d929150f46c3fc4990a37338111d1a4f6
-[277]: https://github.com/Xunnamius/symbiote/commit/8dc4a962ae457c82585e3c34d1ee02c731aedec3
-[278]: https://github.com/Xunnamius/symbiote/commit/e3fa185ffa33d801bc1f7d9faeda1d40eaa8a117
-[279]: https://github.com/Xunnamius/symbiote/commit/89b57c4e38f74970a301e6261acdfeca27982d44
-[280]: https://github.com/Xunnamius/symbiote/commit/b8b82d942c478673b10b2d071802c73461c42961
-[281]: https://github.com/Xunnamius/symbiote/commit/556f17ec5b274c0bf08d364905a99b8e27bfff63
-[282]: https://github.com/Xunnamius/symbiote/commit/74d58d66649401b6e8f17e53076ea4972bc1d888
-[283]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.22.0...@-xun/symbiote@1.23.0
-[284]: https://github.com/Xunnamius/symbiote/commit/1bdceca9e23b28bffb12b84013ba95ef54c5ac81
-[285]: https://github.com/Xunnamius/symbiote/commit/6ff2bd3423e7b7e9af224e937200bee1fb5691ea
-[286]: https://github.com/Xunnamius/symbiote/commit/a1d36577666cddfce19970975144e085c7a0c353
-[287]: https://github.com/Xunnamius/symbiote/commit/fa2a97f118389cdaf4227a07a9bf5a5bc4cc2dfe
-[288]: https://github.com/Xunnamius/symbiote/commit/6e3f599ab734f0a7fcd2faff59e2c377eeec3fa1
-[289]: https://github.com/Xunnamius/symbiote/commit/ca021f8fb5d821cc21129c4a29e6d43e24166183
-[290]: https://github.com/Xunnamius/symbiote/commit/b9218ee5f94be5da6a48d961950ed32307ad7f96
-[291]: https://github.com/Xunnamius/symbiote/commit/dc47cfbbdc869aa2d149924c72bb5414b0f46f07
-[292]: https://github.com/Xunnamius/symbiote/commit/ebb4fb597a47fa0d748735e3b0a2832434b7a637
-[293]: https://github.com/Xunnamius/symbiote/commit/ccc82b396baeb2445174d0c8b9da97522cb66066
-[294]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.21.0...@-xun/symbiote@1.22.0
-[295]: https://github.com/Xunnamius/symbiote/commit/8bdf28b7ba33aae68f04ee62f6b2d72d39c62012
-[296]: https://github.com/Xunnamius/symbiote/commit/0c3f85c0e926cff1645b6a329edcc6304b8ac189
-[297]: https://github.com/Xunnamius/symbiote/commit/531d3eae3ffb883e69799688a89c28e55cdcf177
-[298]: https://github.com/Xunnamius/symbiote/commit/a7a66d9ffeecb4ba1d8b8519a97fc10f1fea72a6
-[299]: https://github.com/Xunnamius/symbiote/commit/e37006ee62471c2cf178a89023e34a9b691b7574
-[300]: https://github.com/Xunnamius/symbiote/commit/349cf201e0cbfdc2b925690744b4ff6737a008b3
-[301]: https://github.com/Xunnamius/symbiote/commit/d8b7442d320a4c4efbe03cb0a502ad337211caee
-[302]: https://github.com/Xunnamius/symbiote/commit/c7fe4109820fb109db7a0ea07985089d1b488535
-[303]: https://github.com/Xunnamius/symbiote/commit/2c40974df517c6226d351e0ab9d8f66675792272
-[304]: https://github.com/Xunnamius/symbiote/commit/f5fb1bcbafb797b2c7d88655895e185b03f2e1db
-[305]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.20.8...@-xun/symbiote@1.21.0
-[306]: https://github.com/Xunnamius/symbiote/commit/bf9514f27e8299b6f489dab44174a3ce9f0c2c09
-[307]: https://github.com/Xunnamius/symbiote/commit/7ad96c5edd2c8a6275e94cde9a1c5721cdd88dda
-[308]: https://github.com/Xunnamius/symbiote/commit/d54cfa03ffcfc52779cb283802e447df42a0cfed
-[309]: https://github.com/Xunnamius/symbiote/commit/cd82265731cd411d9b374c3bbe3c642c93a053fe
-[310]: https://github.com/Xunnamius/symbiote/commit/94a2253a2888d5d2b34290d7b0180fdee2a2a104
-[311]: https://github.com/Xunnamius/symbiote/commit/db0c6d71e780edd2d6ab295abc136ac3fa3979d7
-[312]: https://github.com/Xunnamius/symbiote/commit/7dcbf56f1d89bddc9ad635e47a6f27a13274e799
-[313]: https://github.com/Xunnamius/symbiote/commit/e334962ae950f510b35d09bb5d6ed6326a586de0
-[314]: https://github.com/Xunnamius/symbiote/commit/8833e0a06f0733e89b4496719aa8b71050783339
-[315]: https://github.com/Xunnamius/symbiote/commit/5070ab49e00314a91a6c87aa1715846939531023
-[316]: https://github.com/Xunnamius/symbiote/commit/1eff5cb11f90533bd4ceeca8c269e8a4e5b998c0
-[317]: https://github.com/Xunnamius/symbiote/commit/0eb7fd3b75fe765781b5ca482abbd38e3b0a1a65
-[318]: https://github.com/Xunnamius/symbiote/commit/e169f47888b112eda08cb8518b69ba3bfd9f2b26
-[319]: https://github.com/Xunnamius/symbiote/commit/e7b857926d572780c951aa1161133186d2cf1784
-[320]: https://github.com/Xunnamius/symbiote/commit/2036da0350a573c7ae9179d6cdd794e91935c9ae
-[321]: https://github.com/Xunnamius/symbiote/commit/a35f4c0e581dff4a7667277284052a7fa71b672e
-[322]: https://github.com/Xunnamius/symbiote/commit/3f1a5a9a6c7ce7cd8aba5c521fb95c6beed3394e
-[323]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.19.1...@-xun/symbiote@1.20.0
-[324]: https://github.com/Xunnamius/symbiote/commit/d84b35ff2b28040920fb62a405e29f2e54d29d4f
-[325]: https://github.com/Xunnamius/symbiote/commit/8cf99a986ddf05e8d2a740d58e9ccdf5a0675e43
-[326]: https://github.com/Xunnamius/symbiote/commit/3dd5d787a3de11f375bb9ca815840400fbe8cdf3
-[327]: https://github.com/Xunnamius/symbiote/commit/5c3ed7323a7bf5f3dd1a3d7dd73c8511ef04ff82
-[328]: https://github.com/Xunnamius/symbiote/commit/c912b0992a3033ed5d978d7f5c139569f2bd0608
-[329]: https://github.com/Xunnamius/symbiote/commit/9cb2d72efc872c4003dabc8c68856b72e8f7c3a4
-[330]: https://github.com/Xunnamius/symbiote/commit/ce035004c4bea999ba5cf583c16fc1dbc8a232a6
-[331]: https://github.com/Xunnamius/symbiote/commit/22f2f41be642d3d94fc4e5a50014a61ab68c50b4
-[332]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.20.7...@-xun/symbiote@1.20.8
-[333]: https://github.com/Xunnamius/symbiote/commit/ce701f3d57da9f82ee0036320bc62d5c51233011
-[334]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.20.6...@-xun/symbiote@1.20.7
-[335]: https://github.com/Xunnamius/symbiote/commit/3c48ae1560cd1d689340739f550f4feb18754e81
-[336]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.20.5...@-xun/symbiote@1.20.6
-[337]: https://github.com/Xunnamius/symbiote/commit/76992d930b92919b8ab95f195cec98ddb91fb390
-[338]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.20.4...@-xun/symbiote@1.20.5
-[339]: https://github.com/Xunnamius/symbiote/commit/0864f9221ff2134311ba716cc2eca83aa044fa12
-[340]: https://github.com/Xunnamius/symbiote/commit/ff3853fa7835e9b2f89e2a9a846db76d6b2dd4a5
-[341]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.20.3...@-xun/symbiote@1.20.4
-[342]: https://github.com/Xunnamius/symbiote/commit/0bf89cad7426062a1d0f1ed6b9e69c1e60c734aa
-[343]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.20.2...@-xun/symbiote@1.20.3
-[344]: https://github.com/Xunnamius/symbiote/commit/dd265b47f6ff85a27a80867a60ffbc8aa87e15de
-[345]: https://github.com/Xunnamius/symbiote/commit/cf21d7d56b8d28fe14e87a975ec151c9f16e4717
-[346]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.20.1...@-xun/symbiote@1.20.2
-[347]: https://github.com/Xunnamius/symbiote/commit/bc2a56b8e3bb237caba1768c1673d3848d97e0d6
-[348]: https://github.com/Xunnamius/symbiote/commit/52115470ce25670c0355bba2653789a6df8b3aaa
-[349]: https://github.com/Xunnamius/symbiote/commit/8735f612072b02c3af08054d8f858b5764aab92d
-[350]: https://github.com/Xunnamius/symbiote/commit/a86884fbde354ac7d2cbd5c355d67b536e90f3e6
-[351]: https://github.com/Xunnamius/symbiote/commit/b23b12b64b968429652269db3ae710f79c3ce356
-[352]: https://github.com/Xunnamius/symbiote/commit/8b54237af01ef168984d9b306063e60e7914c936
-[353]: https://github.com/Xunnamius/symbiote/commit/25e7a3b93bd0cfd32df2aaaa83ee055bc7ba1c92
-[354]: https://github.com/Xunnamius/symbiote/commit/904c9ac9bb6b4b1d3b047124e749c9f33f8878c9
-[355]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.20.0...@-xun/symbiote@1.20.1
-[356]: https://github.com/Xunnamius/symbiote/commit/35876a1903ae9180624905e176f7c4b2e1d870a1
-[357]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.18.0...@-xun/symbiote@1.19.0
-[358]: https://github.com/Xunnamius/symbiote/commit/587a354329e46ca03f056ca1414915145928736c
-[359]: https://github.com/Xunnamius/symbiote/commit/909949d58e2ddecf4ad606fe0dd9525ec540a8fb
-[360]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.19.0...@-xun/symbiote@1.19.1
-[361]: https://github.com/Xunnamius/symbiote/commit/d2011645a568e76bdf61dde14dd0e15dbce243dc
-[362]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.17.0...@-xun/symbiote@1.18.0
-[363]: https://github.com/Xunnamius/symbiote/commit/6c7ae27d3d93d36e7cbcae873b8717d252cf6670
-[364]: https://github.com/Xunnamius/symbiote/commit/e833523e6085950c3477ca6e44ae92ef7b1fad46
-[365]: https://github.com/Xunnamius/symbiote/commit/0383586f6ccbb0bc503df636f515d19618548f92
-[366]: https://github.com/Xunnamius/symbiote/commit/3a3489c43d2ce10ac752d70ab23066bd3477a675
-[367]: mailto:tsc@5.6-beta
-[368]: https://github.com/Xunnamius/symbiote/commit/4e7509611f72d2c953572dbc67bb51aabf2304d6
-[369]: https://github.com/Xunnamius/symbiote/commit/f6515ea793a72cfd42cb6d3f74675b2ae3a9b2e1
-[370]: https://github.com/Xunnamius/symbiote/commit/8d7152112e4927f566e048c6b0be7dfce4a6c430
-[371]: https://github.com/Xunnamius/symbiote/commit/d9b4b80db15e6104a2a3ab7325996a08a350ea6d
-[372]: https://github.com/Xunnamius/symbiote/commit/64b7309fcb28c1214f1edcc8319960c1c94f72b0
-[373]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.16.1...@-xun/symbiote@1.17.0
-[374]: https://github.com/Xunnamius/symbiote/commit/609fca8cde508ecdb6c74ff8d1884821afdd5eb3
-[375]: https://github.com/Xunnamius/symbiote/commit/e55a88e728a9c4ccbd38648e85328ab563add014
-[376]: https://github.com/Xunnamius/symbiote/commit/b56fd666cfcccbc7d941df7afb6fcfc74ec0ae56
-[377]: https://github.com/Xunnamius/symbiote/commit/323579d026f46d2d0f70aa44440543eecbc7b4e2
-[378]: https://github.com/Xunnamius/symbiote/commit/52763c5b795e9ee0485e9a20a4cb5264eae0ef3c
-[379]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.15.0...@-xun/symbiote@1.16.0
-[380]: https://github.com/Xunnamius/symbiote/commit/346b4ac5d27ea045cd037c4987401786f7fa572b
-[381]: https://github.com/Xunnamius/symbiote/commit/f42f4ab7c83a05fed253475de7bf2df4ce53d48f
-[382]: https://github.com/Xunnamius/symbiote/commit/e596e5bc36b9ed024f8c524cd6d55f15b813bcfc
-[383]: https://github.com/Xunnamius/symbiote/commit/d96ae1df1940941fbdf491e0b36c200574179bea
-[384]: https://github.com/Xunnamius/symbiote/commit/c9e254a5eece3c3ed51348d28897ed354725643f
-[385]: https://github.com/Xunnamius/symbiote/commit/ea6aafff5d49f6acd8cac65b3c92e6cfd940e4b5
-[386]: https://github.com/Xunnamius/symbiote/commit/eb5631b6a316d808bb88928e27fe88ee818d230b
-[387]: https://github.com/Xunnamius/symbiote/commit/b72401ad18cead8a6d8571d8e35a6235c23b5381
-[388]: https://github.com/Xunnamius/symbiote/commit/7c1e7f14e28518285bc554c730f7eaea933a2e52
-[389]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.16.0...@-xun/symbiote@1.16.1
-[390]: https://github.com/Xunnamius/symbiote/commit/8f1d25d7356419160a65f4a4dd764a6192df2f26
-[391]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.14.0...@-xun/symbiote@1.15.0
-[392]: https://github.com/Xunnamius/symbiote/commit/8554e1a4fd20b72d6b917f92cdb9e084b4086b25
-[393]: https://github.com/Xunnamius/symbiote/commit/b66572376dd63858df091755bb1eb184b56f2c7b
-[394]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.13.0...@-xun/symbiote@1.14.0
-[395]: https://github.com/Xunnamius/symbiote/commit/a5075305e5d9a3cf5451ca5c156c3ffe307f7018
-[396]: https://github.com/Xunnamius/symbiote/commit/489e75a7916d4b77b6a37f6b557cbbd4b7c15e5e
-[397]: https://github.com/Xunnamius/symbiote/commit/1b6c72ae8007c801207547a74de598d38b769968
-[398]: https://github.com/Xunnamius/symbiote/commit/68c55821991d1eaf821dfe603cfee1a9aca83d4f
-[399]: https://github.com/Xunnamius/symbiote/commit/2ed43444661b4fba89c20bb5f2a0341faf535a9b
-[400]: https://github.com/Xunnamius/symbiote/commit/cafeb73773b2e08137d9c6d7f7432802cc9d3b88
-[401]: https://github.com/Xunnamius/symbiote/commit/f08250c17077cff70cdf722d2e9c3b16d3841ebf
-[402]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.12.0...@-xun/symbiote@1.13.0
-[403]: https://github.com/Xunnamius/symbiote/commit/05e56e787e73d42855fcd3ce10aff7f8f6e6c4c7
-[404]: https://github.com/Xunnamius/symbiote/commit/133634118118c7cff04eaaf7a65ead7c80329234
-[405]: https://github.com/Xunnamius/symbiote/commit/e4a1e0b3d6a20ae598f5a6feb2cf2b7ba077b6a7
-[406]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.11.0...@-xun/symbiote@1.12.0
-[407]: https://github.com/Xunnamius/symbiote/commit/8d4bb6d52de509c2ad8c5c82c8953d51e17c2d85
-[408]: https://github.com/Xunnamius/symbiote/commit/7364616ea349761591231a3547bd697ec67ed34b
-[409]: https://github.com/Xunnamius/symbiote/commit/b9b106aff4ff729fb1f8e70efe295ba058a50cfb
-[410]: https://github.com/Xunnamius/symbiote/commit/c1a4b9cb21d1c3e6941d6fbd6108edc694c2d4ed
-[411]: https://github.com/Xunnamius/symbiote/commit/5b11c68aebc8099007ffcf50444707165939e061
-[412]: https://github.com/Xunnamius/symbiote/commit/99c7b3396ff73868208060410f7430538f6d48d6
-[413]: https://github.com/Xunnamius/symbiote/commit/ddd9192c05110fca3ae0d93bac276426932269ef
-[414]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.10.1...@-xun/symbiote@1.11.0
-[415]: https://github.com/Xunnamius/symbiote/commit/d74f099ac798fd0c925ea4aad0b1860b8a8a741f
-[416]: https://github.com/Xunnamius/symbiote/commit/0f4dd160eb1181306899031186b4a3c7e64d936c
-[417]: https://github.com/Xunnamius/symbiote/commit/2cd56d132e3cd7318744839cbf119b126cc35c98
-[418]: https://github.com/Xunnamius/symbiote/commit/9764967b4ca5aab46b32317ddb14bc4e843d8674
-[419]: https://github.com/Xunnamius/symbiote/commit/fd86f3f321889f759eda02880982117b5a0aba16
-[420]: https://github.com/Xunnamius/symbiote/commit/e295a0270f8ae743771d79966cccb3fdb14f19fd
-[421]: https://github.com/Xunnamius/symbiote/commit/d290ba57054479eb873d3cdc785db602432fca09
-[422]: https://github.com/Xunnamius/symbiote/commit/4ea8aa453186568651849102a2ade4df2f6c5cee
-[423]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.10.0...@-xun/symbiote@1.10.1
-[424]: https://github.com/Xunnamius/symbiote/commit/483f03697f1cf01847759fa5c1cf61f5af578a3f
-[425]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.9.0...@-xun/symbiote@1.10.0
-[426]: https://github.com/Xunnamius/symbiote/commit/6575d493c2c0ff291a3bd7bf4b595198c46c0c70
-[427]: https://github.com/Xunnamius/symbiote/commit/7d33dfe2ea50a0fbf45641ef997ce2b7d0265aca
-[428]: https://github.com/Xunnamius/symbiote/commit/d535b785c9d45c87b29a5fbe5698c6021067570b
-[429]: https://github.com/Xunnamius/symbiote/commit/1b65f4667e138907ac8a1b90f06937f5fa4eb1b9
-[430]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.8.0...@-xun/symbiote@1.9.0
-[431]: https://github.com/Xunnamius/symbiote/commit/f47742b0bca31b054ec83d5b01089715e9925e39
-[432]: https://github.com/Xunnamius/symbiote/commit/4f280dc3af5bf633259d80cc8733fae31c903e04
-[433]: https://github.com/Xunnamius/symbiote/commit/159d771c90a65e05194cde9b8aec2478be7b97ff
-[434]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.7.0...@-xun/symbiote@1.8.0
-[435]: https://github.com/Xunnamius/symbiote/commit/c7b7623d68bde02438cbd8cbc80302079356914d
-[436]: https://github.com/Xunnamius/symbiote/commit/847cc63e9965c6c970e63d351fe8388ef666a1b6
-[437]: https://github.com/Xunnamius/symbiote/commit/fd210c55c4aff0ad663381a67b8b591dffc2a49c
-[438]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.6.0...@-xun/symbiote@1.7.0
-[439]: https://github.com/Xunnamius/symbiote/commit/7824c25d1d5db8ab824960b502c41e54a1f9ee03
-[440]: https://github.com/Xunnamius/symbiote/commit/b4c296eb75a142ede16da32a997e9999dd8074f3
-[441]: https://github.com/Xunnamius/symbiote/commit/005e378059ba0b3181031ff938854f54898e0437
-[442]: https://github.com/Xunnamius/symbiote/commit/9e4ae592d211ae39bacdc3f665b3078e69c73062
-[443]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.5.0...@-xun/symbiote@1.6.0
-[444]: https://github.com/Xunnamius/symbiote/commit/62e673b1ab8679e586b1b4337fe20c537c408fff
-[445]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.4.1...@-xun/symbiote@1.5.0
-[446]: https://github.com/Xunnamius/symbiote/commit/fd903a41ad88342ebd1896ffe3e46a6b81583711
-[447]: https://github.com/Xunnamius/symbiote/commit/8e11d6670bec0c605d781ecec695de4d6af1edd2
-[448]: https://github.com/Xunnamius/symbiote/commit/b57a6be3f30c8c0a2692b256135acbd661d0e92b
-[449]: https://github.com/Xunnamius/symbiote/commit/8d03799cbd574e0eed0667f1d91827116da6ff15
-[450]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.4.0...@-xun/symbiote@1.4.1
-[451]: https://github.com/Xunnamius/symbiote/commit/4b94a07feff53f35ff23d5c0456edd00b2e9f180
-[452]: https://github.com/Xunnamius/symbiote/commit/a8ddaa595b00d4730cdce60f5340175b3e9afbcc
-[453]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.3.0...@-xun/symbiote@1.4.0
-[454]: https://github.com/Xunnamius/symbiote/commit/4eeba0093c58c5ae075542203854b4a3add2907a
-[455]: https://github.com/Xunnamius/symbiote/commit/99d57864cb024e23115bc3b9c4b1529d2f3d9bf5
-[456]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.2.0...@-xun/symbiote@1.3.0
-[457]: https://github.com/Xunnamius/symbiote/commit/cf660452df6ac9781bd9b61d4cc225e926cd4e15
-[458]: https://github.com/Xunnamius/symbiote/commit/b999593e14846c8f87949286cd995e7ef92177a1
-[459]: https://github.com/Xunnamius/symbiote/commit/380c055b2920c8b96b65dc89b97b6497f996c452
-[460]: https://github.com/Xunnamius/symbiote/commit/f0b3b8ce97a389c4656d37f4745eaedb7d684f42
-[461]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.1.0...@-xun/symbiote@1.2.0
-[462]: https://github.com/Xunnamius/symbiote/commit/6426d70a844a1c3242d719bd648b2a5caf61a12c
-[463]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.0.0...@-xun/symbiote@1.1.0
-[464]: https://github.com/Xunnamius/symbiote/commit/ac5a9ba2ac77873619069cecc5a364cd09a74d43
-[465]: https://github.com/Xunnamius/symbiote/compare/589fcb01d65182c25a9604c55909b2667bd1b1e0...@-xun/symbiote@1.0.0
-[466]: https://github.com/Xunnamius/symbiote/commit/89d81a3e405096de202bc1f6be61ab5d58fc3e1e
-[467]: https://github.com/Xunnamius/symbiote/commit/589fcb01d65182c25a9604c55909b2667bd1b1e0
+[7]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.7.0...@-xun/symbiote@2.7.1
+[8]: https://github.com/Xunnamius/symbiote/commit/138da875f3247f966687e95b91c7caf822df3c49
+[9]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.5.6...@-xun/symbiote@2.6.0
+[10]: https://github.com/Xunnamius/symbiote/commit/dddfc44396c55ebfc704f8d576edac2868fe28cc
+[11]: https://github.com/Xunnamius/symbiote/commit/180f85f730f6f4763c685986886d65a870f73558
+[12]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.4.3...@-xun/symbiote@2.5.0
+[13]: https://github.com/Xunnamius/symbiote/commit/c133a92a38c285bf0a63dd9098f7c876155f3274
+[14]: https://github.com/Xunnamius/symbiote/commit/6210727d4bc9b20c2064df6f0a987bc509ba512a
+[15]: https://github.com/Xunnamius/symbiote/commit/625451cb712d5ebe6ef89478fed8669af6fa7236
+[16]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.5.5...@-xun/symbiote@2.5.6
+[17]: https://github.com/Xunnamius/symbiote/commit/2fd61c45d5639f5e6f8edadc3b7d4851011bc365
+[18]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.5.4...@-xun/symbiote@2.5.5
+[19]: https://github.com/Xunnamius/symbiote/commit/3831af5468c04bc48a0849a15233d1d644e5c45b
+[20]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.5.3...@-xun/symbiote@2.5.4
+[21]: https://github.com/Xunnamius/symbiote/commit/c23304e8bb55d71623ce6f30acd2195d704326aa
+[22]: https://github.com/Xunnamius/symbiote/commit/141111918245fc7294e26b6ee944d4c6977e4f25
+[23]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.5.2...@-xun/symbiote@2.5.3
+[24]: https://github.com/Xunnamius/symbiote/commit/0dd4fb76481355ace84b39c7eeba5c230951a237
+[25]: https://github.com/Xunnamius/symbiote/commit/607a378f58157a1b6b0a3a16880d3c2ba9e9d2e0
+[26]: https://github.com/Xunnamius/symbiote/commit/19492a702140242c81a8ef20cd42d9908f722b28
+[27]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.5.1...@-xun/symbiote@2.5.2
+[28]: https://github.com/Xunnamius/symbiote/commit/4231719a4050b5b3956e3e19d12d8c469fd0bd37
+[29]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.5.0...@-xun/symbiote@2.5.1
+[30]: https://github.com/Xunnamius/symbiote/commit/b2dfed2c46fd5bceb7922642e9955bce5a5c424b
+[31]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.3.4...@-xun/symbiote@2.4.0
+[32]: https://github.com/Xunnamius/symbiote/commit/10f876ec625b234388ec5689f4d10663cabb4139
+[33]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.4.2...@-xun/symbiote@2.4.3
+[34]: https://github.com/Xunnamius/symbiote/commit/7b8ca545f93c3e9d22b693c6c58dbb29604867ff
+[35]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.4.1...@-xun/symbiote@2.4.2
+[36]: https://github.com/Xunnamius/symbiote/commit/0bafa3046d16effe919127463c68cff1fb657848
+[37]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.4.0...@-xun/symbiote@2.4.1
+[38]: https://github.com/Xunnamius/symbiote/commit/02e289a9c890d4a9fb9b9f17fa7e8731f4ab9d2b
+[39]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.2.0...@-xun/symbiote@2.3.0
+[40]: https://github.com/Xunnamius/symbiote/commit/23d01f3f75587880142e8b0ffdaa5873a38a84c7
+[41]: https://github.com/Xunnamius/symbiote/commit/ee079c1feb775313923680cea371b862fa61c083
+[42]: https://github.com/Xunnamius/symbiote/commit/c92b2cbb33a4cd6367604b98422a0248a129d9bd
+[43]: https://github.com/Xunnamius/symbiote/commit/c565452e8b3b261e37e21b0b09dd52d395ccaa35
+[44]: https://github.com/Xunnamius/symbiote/commit/6353b4f3774f70fa5299ed6666a14165faacb829
+[45]: https://github.com/Xunnamius/symbiote/commit/64a41385dbcf83b268fe4d03f2ba1d60b705b634
+[46]: https://github.com/Xunnamius/symbiote/commit/9304778395eb8c9f48164e2c1d71660a7da484f6
+[47]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.3.3...@-xun/symbiote@2.3.4
+[48]: https://github.com/Xunnamius/symbiote/commit/7f1f7a2772751006b2f87a140f0b00c116f4412c
+[49]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.3.2...@-xun/symbiote@2.3.3
+[50]: https://github.com/Xunnamius/symbiote/commit/1546ab8527a571efe54081d7614bd35a9d6e0c3c
+[51]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.3.1...@-xun/symbiote@2.3.2
+[52]: https://github.com/Xunnamius/symbiote/commit/ff6ce22d3a3433c07460af5758ce7920a1d9aa5a
+[53]: https://github.com/Xunnamius/symbiote/commit/9a456c5795616fcf9f8cafa0c625eb12cf85cf50
+[54]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.3.0...@-xun/symbiote@2.3.1
+[55]: https://github.com/Xunnamius/symbiote/commit/1901cfe78a48fcd1dfae4e3760acf197e8812676
+[56]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.1.0...@-xun/symbiote@2.2.0
+[57]: https://github.com/Xunnamius/symbiote/commit/0c1b93abd02cb8ad4eec4362b917e5484000cae4
+[58]: https://github.com/Xunnamius/symbiote/commit/ce6a12a98f74e554db875dfa2e53e0fb3a45510a
+[59]: https://github.com/Xunnamius/symbiote/commit/14bf31ff01c26186bce6a35150f4e002e6f74475
+[60]: https://github.com/Xunnamius/symbiote/commit/c263dc5aa35ce06d85077337af7b4ca35564504d
+[61]: https://github.com/Xunnamius/symbiote/commit/f55664476107f5f2aaefbfe11df6c0e59e7bd7f6
+[62]: https://github.com/Xunnamius/symbiote/commit/9581339cf055172c61e96900096f7e6f3be04ff2
+[63]: https://github.com/Xunnamius/symbiote/commit/432a5faebe68d65bac4e627e9e022b4687917552
+[64]: https://github.com/Xunnamius/symbiote/commit/f82fbf4583d23478cfc54d320d4075f42cec86e8
+[65]: https://github.com/Xunnamius/symbiote/commit/a95e9104912da7d85cc6e908cf6f359ae0d74a50
+[66]: https://github.com/Xunnamius/symbiote/commit/12dd3f71aca30c382e26451fed7e15d6359cd624
+[67]: https://github.com/Xunnamius/symbiote/commit/2a3e13c79fb4a96dc5da63a1a3740be799be38c0
+[68]: https://github.com/Xunnamius/symbiote/commit/b8841b52f736c86ff811fc26b8db2a9ba638f693
+[69]: https://github.com/Xunnamius/symbiote/commit/f3012291ad31b4c57b3b592eaf687ac83162e1ba
+[70]: https://github.com/Xunnamius/symbiote/commit/26f78dcd18c0d83e4adc060449edff2071bc0adb
+[71]: https://github.com/Xunnamius/symbiote/commit/c63847c764bed07ff07a3b461170bf82b0fa5202
+[72]: https://github.com/Xunnamius/symbiote/commit/df13f8755a08757c99f20c71c55647e3478243fc
+[73]: https://github.com/Xunnamius/symbiote/commit/48163ba158b463dd21ffd6ad431f6f0714c93003
+[74]: https://github.com/Xunnamius/symbiote/commit/c4f81c0568db69961282c771dd28370d1357f4d8
+[75]: https://github.com/Xunnamius/symbiote/commit/8338afa2ed9f0cc68144505d32b9578e82661549
+[76]: https://github.com/Xunnamius/symbiote/commit/fb7752b12394e6c92912bc59517df8baff5be223
+[77]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.0.1...@-xun/symbiote@2.1.0
+[78]: https://github.com/Xunnamius/symbiote/commit/0c86cb529724eb2576b8d62e8c7f0addc3ea7084
+[79]: https://github.com/Xunnamius/symbiote/commit/0b96a6b7274a4b840e73bf97bf9b5455cba08666
+[80]: https://github.com/Xunnamius/symbiote/commit/e6827346cceeb12e8ce9f7aa52b868ccc9272253
+[81]: https://github.com/Xunnamius/symbiote/commit/552b89f4a78d09be4281b7001bbd2e37880f195f
+[82]: https://github.com/Xunnamius/symbiote/commit/7409b67ee7863d79fa9c689d34cb23378aa8707e
+[83]: https://github.com/Xunnamius/symbiote/commit/2013638bd9d290bd619fb188ae96d077510170be
+[84]: https://github.com/Xunnamius/symbiote/commit/5057f5376c96d6c9660cc672982f808454dd5ee7
+[85]: https://github.com/Xunnamius/symbiote/commit/6c5a8fe3b009a49f44c3a476433bb41204827ddb
+[86]: https://github.com/Xunnamius/symbiote/commit/a84c5235025ae7fe18d8bec997eb19472dce1b06
+[87]: https://github.com/Xunnamius/symbiote/commit/f9bdb7ed796e77ce7d3dad3e0f4b04960984a1f8
+[88]: https://github.com/Xunnamius/symbiote/commit/b6927a9b6e40937047008bc4337573e1eaafc4e8
+[89]: https://github.com/Xunnamius/symbiote/commit/364fbb2c1b1981e96aab54503b54ffa496b33898
+[90]: https://github.com/Xunnamius/symbiote/commit/11bd584b8b0d49b7f7e0184995922fbfad653666
+[91]: https://github.com/Xunnamius/symbiote/commit/aee10cdf72edb6a1741d2880fd4cff8aa5dd8f71
+[92]: https://github.com/Xunnamius/symbiote/commit/d44fa79bf7df8ae47acff4da881cdc7450cb64d1
+[93]: https://github.com/Xunnamius/symbiote/commit/b7f27541e4b8d8540c70decab93b1e0df2b330bf
+[94]: https://github.com/Xunnamius/symbiote/commit/f592d5faf07a02a50f3f3ed99baf8f23af94ee59
+[95]: https://github.com/Xunnamius/symbiote/commit/7e6618353b307cbe03f2e9d5429639a78fac738f
+[96]: https://github.com/Xunnamius/symbiote/commit/98c028a88e194a6085b320f7458a0a7de1ec7c62
+[97]: https://github.com/Xunnamius/symbiote/commit/3030eb9258c22141352cb27d69e1c84037bc9a50
+[98]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.33.0...@-xun/symbiote@2.0.0
+[99]: https://github.com/Xunnamius/symbiote/commit/b7b101e38446127aca8e7cd55b60f3731ab81ac0
+[100]: https://github.com/Xunnamius/symbiote/commit/057f400cc043f1e13e701a97d2e67b93be4719d3
+[101]: https://github.com/Xunnamius/symbiote/commit/d22de31fff57a3eabff39d5f564d04ca24051fda
+[102]: https://github.com/Xunnamius/symbiote/commit/e83f2f27cd2e5c01c4c32532fb39bf16557b62b4
+[103]: https://github.com/Xunnamius/symbiote/commit/ad83e562e1049d816498af50afc8a5bd3efca059
+[104]: https://github.com/Xunnamius/symbiote/commit/0a19ce6bf1c302624d6c6d68b0d5ee3aff17aeda
+[105]: https://github.com/Xunnamius/symbiote/commit/70b513431bf2d90c8590ecb68cedce9482ec0026
+[106]: https://github.com/Xunnamius/symbiote/commit/1a522e88ed38c4e2d051bd2809293a66b86e48ef
+[107]: https://github.com/Xunnamius/symbiote/commit/9d05b8bd93b6c28c218a060264253d403fe09617
+[108]: https://github.com/Xunnamius/symbiote/commit/7a8eee69e839138e96fe3937ae8c178e44148e27
+[109]: https://github.com/Xunnamius/symbiote/commit/abbc2da0ff368d976c2a73e0af1848d81e0ee05b
+[110]: https://github.com/Xunnamius/symbiote/commit/53409fa0bd5d3b104a74f7ad7eb060334ac48bca
+[111]: https://github.com/Xunnamius/symbiote/commit/2bd57b5ac1bbe3c23f772a9194ad604a01715290
+[112]: https://github.com/Xunnamius/symbiote/commit/a40f886ca5f4abdffdee5df1b5259b5165e69c4f
+[113]: https://github.com/Xunnamius/symbiote/commit/f2bb03d127d347d69b3f6c253cfbb286943c85fe
+[114]: https://github.com/Xunnamius/symbiote/commit/641b57b7d0dd966573747fbdcb220f3f8bacdf05
+[115]: https://github.com/Xunnamius/symbiote/commit/177a5dcf060e7d2a90e183ad6cf6d162e0746100
+[116]: https://github.com/Xunnamius/symbiote/commit/c331ae1339dce62af60a59c171dd4d8fe3db3ed3
+[117]: https://github.com/Xunnamius/symbiote/commit/87245154b394d12f43ac5f96675a8e0adcf7e7fe
+[118]: https://github.com/Xunnamius/symbiote/commit/a6f02e0b4e4b157c3d98ffece54f4765515376d2
+[119]: https://github.com/Xunnamius/symbiote/commit/5e99d888275bc8dd3d62e0add9cc3448476a2bda
+[120]: https://github.com/Xunnamius/symbiote/commit/f511249a44a64a3e5885f2e51822af539f427e0f
+[121]: https://github.com/Xunnamius/symbiote/commit/577710bf9ba5c47dff34554dd4bb1d20b9844d14
+[122]: https://github.com/Xunnamius/symbiote/commit/2841d263ae20fdc5d875afe74ce3fd6eb309105e
+[123]: https://github.com/Xunnamius/symbiote/commit/5c66c170ade8c6ab34e8003833eedb2fd35f13e5
+[124]: https://github.com/Xunnamius/symbiote/commit/6a44488ce9daf5ec86b6df8257fd06f6444bd4bf
+[125]: https://github.com/Xunnamius/symbiote/commit/26fb0346ccac211d0ab3deecc332eb8d047da9ea
+[126]: https://github.com/Xunnamius/symbiote/commit/4f8d351103c48f8114f47f07a37f1f6fe8c21c3f
+[127]: https://github.com/Xunnamius/symbiote/commit/26e756362a16f050e03cef2c4c582d94e29614cd
+[128]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@2.0.0...@-xun/symbiote@2.0.1
+[129]: https://github.com/Xunnamius/symbiote/commit/e42722b37c4b6d2ec1e39b5f7d10d304ac147bcc
+[130]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.32.0...@-xun/symbiote@1.33.0
+[131]: https://github.com/Xunnamius/symbiote/commit/f1e8e8e08a4139a060af4c155aa1ee4e73c344e0
+[132]: https://github.com/Xunnamius/symbiote/commit/49258852c3fcd7dd992c2b244bb7a7e50c88dbd7
+[133]: https://github.com/Xunnamius/symbiote/commit/ca87588aee7f76fe8635e4e7f2f712b7b96671bb
+[134]: https://github.com/Xunnamius/symbiote/commit/410a05ae14f91c62d0c43e624a9a8f815c0885c6
+[135]: https://github.com/Xunnamius/symbiote/commit/f111552d67f5c3bdd81c8d24a4fea5e21298f620
+[136]: https://github.com/Xunnamius/symbiote/commit/1d9accc2d1627d74a04f1bb7f776a4e4b2049f9a
+[137]: https://github.com/Xunnamius/symbiote/commit/51ab45426d8058a8a84b8206feda4242d780f53a
+[138]: https://github.com/Xunnamius/symbiote/commit/c2bee3ba59f700348dc33e31ad742d2348169ec0
+[139]: https://github.com/Xunnamius/symbiote/commit/b057430a463e47e5774bef53a00e8a0677914291
+[140]: https://github.com/Xunnamius/symbiote/commit/eec0ed930df8cfaec7a98459b4d56849aac01749
+[141]: https://github.com/Xunnamius/symbiote/commit/16f64e190ca4798c6fc148de2e354b7973750784
+[142]: https://github.com/Xunnamius/symbiote/commit/413dc399483771459ce358ca126bba405f1233c6
+[143]: https://github.com/Xunnamius/symbiote/commit/28c221bb8a859e69003ba2447e3f5763dc92a0ec
+[144]: https://github.com/Xunnamius/symbiote/commit/6a8c411beeda36c4d6825608de4c76eb481d8cb5
+[145]: https://github.com/Xunnamius/symbiote/commit/da7e953744dde41a45c249d74e7f4007719eece4
+[146]: https://github.com/Xunnamius/symbiote/commit/edec64f03b4f426f768a4ba699c64c8cc7ce1f80
+[147]: https://github.com/Xunnamius/symbiote/commit/578d631717f64f0a1405a5fe40106ff9e8520a22
+[148]: https://github.com/Xunnamius/symbiote/commit/bf993c947a42aaaa96060bc9ac29f334e28db0ea
+[149]: https://github.com/Xunnamius/symbiote/commit/c52b3f184ba122013ac555d962b3df41c9329d0c
+[150]: https://github.com/Xunnamius/symbiote/commit/cdfd48df4a6a422042c7f239bc2246f033da91c2
+[151]: https://github.com/Xunnamius/symbiote/commit/a33aed8d5b0262dd81b375fcef062e5f7d1b5601
+[152]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.31.2...@-xun/symbiote@1.32.0
+[153]: https://github.com/Xunnamius/symbiote/commit/c9a6e8b7ee5518f658bcd62a800be0b065feffb7
+[154]: https://github.com/Xunnamius/symbiote/commit/e17adfb5fcd7395225e1fb530ebce697dce1b40d
+[155]: https://github.com/Xunnamius/symbiote/commit/c5cd76a0fbb13149871b4b5b1d8badf6277c455a
+[156]: https://github.com/Xunnamius/symbiote/commit/56e576cb940a966292d7378200f153215b55351a
+[157]: https://github.com/Xunnamius/symbiote/commit/aa60eebffcdbbf28d8ce6943dc7ed6cb6b50150b
+[158]: https://github.com/Xunnamius/symbiote/commit/c248757d6afb672ef03d93c652f5385bd80670df
+[159]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.30.3...@-xun/symbiote@1.31.0
+[160]: https://github.com/Xunnamius/symbiote/commit/8f7777c426ce028f106db4654c8bd3535da7151b
+[161]: https://github.com/Xunnamius/symbiote/commit/6fc66d8a50979c2ee7424a94dd0c98179f9ac47b
+[162]: https://github.com/Xunnamius/symbiote/commit/8a5fd8a05a1b7cd3a9d820f594145e2be76bb746
+[163]: https://github.com/Xunnamius/symbiote/commit/68d5bda031da6af194e5d5f3199eeac7c7416076
+[164]: https://github.com/Xunnamius/symbiote/commit/ef6927b763b236d731e9013c739a5336d02193d2
+[165]: https://github.com/Xunnamius/symbiote/commit/ceb6c6280370ff13d3eb9fcd5d6b9ec2b4b993f3
+[166]: https://github.com/Xunnamius/symbiote/commit/ce934437a7db5039d1c572906332ee6389bcf5a2
+[167]: https://github.com/Xunnamius/symbiote/commit/6ce819a34df36aaf26bf7b8d7e87b6085547183f
+[168]: https://github.com/Xunnamius/symbiote/commit/62a5a128781629f5df99e05eff025da3e88022a6
+[169]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.31.1...@-xun/symbiote@1.31.2
+[170]: https://github.com/Xunnamius/symbiote/commit/0565333411580fd45659aad0e9727012cea9a699
+[171]: https://github.com/Xunnamius/symbiote/commit/f4ecfc9dd682e307a08becf562a877450fe903ef
+[172]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.31.0...@-xun/symbiote@1.31.1
+[173]: https://github.com/Xunnamius/symbiote/commit/cfe28e3d801ec1b719b0dedbda4e9f63d7924b77
+[174]: https://github.com/Xunnamius/symbiote/commit/89350088d45a927b2d85ce710a21d89af74c1d21
+[175]: https://github.com/Xunnamius/symbiote/commit/39e37a8070e22e93b0042ae80f80207b67cf3ed2
+[176]: https://github.com/Xunnamius/symbiote/commit/58a6223696187f874d98bb91ec3f37719e7f33bd
+[177]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.29.2...@-xun/symbiote@1.30.0
+[178]: https://github.com/Xunnamius/symbiote/commit/3710988e3577a60357c780a19fa9a28e0dd58332
+[179]: https://github.com/Xunnamius/symbiote/commit/e1633023dfcc7b2ea7a213c11139b589bd99d1b7
+[180]: https://github.com/Xunnamius/symbiote/commit/ca47d93f4c507108c23cfd2e613ff758fd56d1c9
+[181]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.30.2...@-xun/symbiote@1.30.3
+[182]: https://github.com/Xunnamius/symbiote/commit/01dca03e237882091b9f849a4beeb06537d27ecd
+[183]: https://github.com/Xunnamius/symbiote/commit/b923d6daa24240ab9930bade670683e950e36e30
+[184]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.30.1...@-xun/symbiote@1.30.2
+[185]: https://github.com/Xunnamius/symbiote/commit/98a868e21d0126772abbbb69bb64a9b56da229ac
+[186]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.30.0...@-xun/symbiote@1.30.1
+[187]: https://github.com/Xunnamius/symbiote/commit/89eebe76ad675b35907b3379b29bfde27fd5a5b8
+[188]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.28.0...@-xun/symbiote@1.29.0
+[189]: https://github.com/Xunnamius/symbiote/commit/053bf3e15be94ed90e9b2b9fdf82c0b0b7c6da0d
+[190]: https://github.com/Xunnamius/symbiote/commit/002431f7c880bdd55c6cc71f7660dec8ba84966f
+[191]: https://github.com/Xunnamius/symbiote/commit/65b8c0b01acf9c60fc3cb5a1904832fd99f95329
+[192]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.29.1...@-xun/symbiote@1.29.2
+[193]: https://github.com/Xunnamius/symbiote/commit/d89809b1811fb99fb24fbfe0c6960a0e087bcc27
+[194]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.29.0...@-xun/symbiote@1.29.1
+[195]: https://github.com/Xunnamius/symbiote/commit/8feaaa78a9f524f02e4cc9204ef84f329d31ab94
+[196]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.27.0...@-xun/symbiote@1.28.0
+[197]: https://github.com/Xunnamius/symbiote/commit/c3fc1264932eb8224289ef973366fc0cb5435f59
+[198]: https://github.com/Xunnamius/symbiote/commit/a91e7fa7a369d3d71bc98b147279c01b8f87af3c
+[199]: https://github.com/Xunnamius/symbiote/commit/71b17c8574fe55da23831cd1be11457e7cb4bdb5
+[200]: https://github.com/Xunnamius/symbiote/commit/7fed43963c71aad0d9b37b72a52dad1c55226140
+[201]: https://github.com/Xunnamius/symbiote/commit/11b585ddfa1954ce0380fa64b5c4120773dc55d2
+[202]: https://github.com/Xunnamius/symbiote/commit/cf5b25b85bacd164e57f5e26863cf6c1581d8c68
+[203]: https://github.com/Xunnamius/symbiote/commit/55ee62d4a379fc1aae845c6847adc0a9c8a8db6f
+[204]: https://github.com/Xunnamius/symbiote/commit/56b706a90fbab254ee74509f45cf632157a0cfdc
+[205]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.26.0...@-xun/symbiote@1.27.0
+[206]: https://github.com/Xunnamius/symbiote/commit/1a69887158a00db7133cf0a2eee85146ec6d1399
+[207]: https://github.com/Xunnamius/symbiote/commit/1262cc85e615a3e0ac7766099e166aeae6a1e3e1
+[208]: https://github.com/Xunnamius/symbiote/commit/645473d084f3d4033afe39d72802b0a2a89e112d
+[209]: https://github.com/Xunnamius/symbiote/commit/c5c742e64b9a56894866c0110cb3161ae3321b0f
+[210]: https://github.com/Xunnamius/symbiote/commit/afa3f466c6d6e960ccb11c76149c54378a87b16a
+[211]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.25.0...@-xun/symbiote@1.26.0
+[212]: https://github.com/Xunnamius/symbiote/commit/5c8816d895864b48e3106b178284d57e9fdc3687
+[213]: https://github.com/Xunnamius/symbiote/commit/44be676ca04207bd17553941d367abda2325c0ee
+[214]: https://github.com/Xunnamius/symbiote/commit/3323fc3580b663f00518e7ca7bd9f52a7e50b80f
+[215]: https://github.com/Xunnamius/symbiote/commit/8a67d707c540f5e23d6f3ad8f6efe2d79cb35361
+[216]: https://github.com/Xunnamius/symbiote/commit/9b551a7be83a12c43408f9d33d117c3a6218cff4
+[217]: https://github.com/Xunnamius/symbiote/commit/0924dd3f6544d39ab5f4f7f50c5173704aab3909
+[218]: https://github.com/Xunnamius/symbiote/commit/ce72af261f1d9c15f89e11251ad8c5f000ff8afa
+[219]: https://github.com/Xunnamius/symbiote/commit/6ac3376124a2d86316f248b662f327ceee470b58
+[220]: https://github.com/Xunnamius/symbiote/commit/09373fa4830377ba42824797eb0791655da0fa34
+[221]: https://github.com/Xunnamius/symbiote/commit/b3e95e72ccfdce365933aeb27afe5a8bb64bdec5
+[222]: https://github.com/Xunnamius/symbiote/commit/d27007d1ebda295a05b6ed116a0421d7610aff42
+[223]: https://github.com/Xunnamius/symbiote/commit/998218d7d3f3a654dcdd33e2e1c5ce033927774e
+[224]: https://github.com/Xunnamius/symbiote/commit/9087086d6944cb6a847f325142753a63be2ca30c
+[225]: https://github.com/Xunnamius/symbiote/commit/36016b10da47bb5799d3e558831a96eda878c10e
+[226]: https://github.com/Xunnamius/symbiote/commit/86fca5843564773f9e0ec53c454c72109befbec6
+[227]: https://github.com/Xunnamius/symbiote/commit/bb6bde93dffe0a8f565dace3bfc970b52ff88c79
+[228]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.24.0...@-xun/symbiote@1.25.0
+[229]: https://github.com/Xunnamius/symbiote/commit/31c7bbb45d313ca9a1edaf9c682da438fde76830
+[230]: https://github.com/Xunnamius/symbiote/commit/4f807cf260af20ae6a60138dae1e4b7204eed570
+[231]: https://github.com/Xunnamius/symbiote/commit/d22cee3b292da80ab45e4513bba3b2157fa72245
+[232]: https://github.com/Xunnamius/symbiote/commit/9045cd704121600e07d84839c3e23b407e184f6b
+[233]: https://github.com/Xunnamius/symbiote/commit/e7c4b6e1bc996d5a975a497cd3ca0e4774a39a85
+[234]: https://github.com/Xunnamius/symbiote/commit/c62261b48969a52b54464de106eb02edb170fd5a
+[235]: https://github.com/Xunnamius/symbiote/commit/4d5ddb62d49f74d07dc8c24887bcf3ec50c00362
+[236]: https://github.com/Xunnamius/symbiote/commit/da60db8ff76efa3ad05f524298df8c0bb64399e3
+[237]: https://github.com/Xunnamius/symbiote/commit/576dd649da2775841e9a2e985b02e564a2be1caa
+[238]: https://github.com/Xunnamius/symbiote/commit/ffcad30844a8223d29369bb5303468f1534176a4
+[239]: https://github.com/Xunnamius/symbiote/commit/4059ed7d534afa9b74bd93f761f92e5d5996990a
+[240]: https://github.com/Xunnamius/symbiote/commit/5ea7f8a45c16bd07ff0f5bcdc8e4f6fa82908df0
+[241]: https://github.com/Xunnamius/symbiote/commit/d4d37566ea09a69679ec61da20c3a5aca9a8720f
+[242]: https://github.com/Xunnamius/symbiote/commit/d91572787be84252d2b37f3f6c1fa72e7528c62b
+[243]: https://github.com/Xunnamius/symbiote/commit/5d61e8783923775def0a0fcd1fc9fd57e65ab184
+[244]: https://github.com/Xunnamius/symbiote/commit/1d0dee8044cdd8cd88c6d8ccfe10c95c7b6a36bd
+[245]: https://github.com/Xunnamius/symbiote/commit/2b46883f153688f590ac3e1baed996bde3c4e1e6
+[246]: https://github.com/Xunnamius/symbiote/commit/95b0f6899582ed0bbb4f78bb12ce556079d36b67
+[247]: https://github.com/Xunnamius/symbiote/commit/81ba7bcaea006b1094131d0f0bb3c3dd0828cf13
+[248]: https://github.com/Xunnamius/symbiote/commit/128e83acfd2dd1f5b3ffca6b1feb7892a2fa38b3
+[249]: https://github.com/Xunnamius/symbiote/commit/c4016a8318afb13d6fd6ff9b5bf58a30231e5002
+[250]: https://github.com/Xunnamius/symbiote/commit/0f4c7b1e678f56ff0cb5112c8858f0da57254d91
+[251]: https://github.com/Xunnamius/symbiote/commit/1894d80efed02438233672074116dfa06e0c91f7
+[252]: https://github.com/Xunnamius/symbiote/commit/351ee50466956e8fc31eeaf1de79418f8ab04c16
+[253]: https://github.com/Xunnamius/symbiote/commit/74ab5d91a21dd66aa7a0412fb3ce2ad89de3c1bc
+[254]: https://github.com/Xunnamius/symbiote/commit/18dbad0840fc762fab169d38d606afd41316dd1b
+[255]: https://github.com/Xunnamius/symbiote/commit/8e82ac18456a552cdf55fe75be9e7e11f958aa65
+[256]: https://github.com/Xunnamius/symbiote/commit/f323a6ad34c69bca84a2618598f0801f26a0df82
+[257]: https://github.com/Xunnamius/symbiote/commit/4a6e25433385507c2d326f40c56093bcd54b171d
+[258]: https://github.com/Xunnamius/symbiote/commit/4e3cdc092ad2bf0f716a41ff16e2d6fb2267cc5a
+[259]: https://github.com/Xunnamius/symbiote/commit/5e0058708501603a5ed40fbd3934a2d01842c3fa
+[260]: https://github.com/Xunnamius/symbiote/commit/9b8b41a72605c3beabdf11c9155733bf1eb99ec0
+[261]: https://github.com/Xunnamius/symbiote/commit/e22403c276eda0e6281085198933d6df3a1dcc90
+[262]: https://github.com/Xunnamius/symbiote/commit/c34a5499cb58878fdaa42e83063e1c36a0582e06
+[263]: https://github.com/Xunnamius/symbiote/commit/43da8828df733ab8fd835d1a40c2a2c0c98fdd9b
+[264]: https://github.com/Xunnamius/symbiote/commit/33af2bc79370b38bc94633617180bcd283b5a0bf
+[265]: https://github.com/Xunnamius/symbiote/commit/c1ac811d2d7500a4b665d4d1531b5d51a9da2c19
+[266]: https://github.com/Xunnamius/symbiote/commit/901d85357b06b854b6c37a34ac2b37948376660c
+[267]: https://github.com/Xunnamius/symbiote/commit/1fb8568e874687f25f13bcd31db7e94a8eb43282
+[268]: https://github.com/Xunnamius/symbiote/commit/3373208a68bb1c11e75e68b0c53ff04cb0446035
+[269]: https://github.com/Xunnamius/symbiote/commit/5eb9deff748ee6e4af3c57a16f6370d16bb97bfb
+[270]: https://github.com/Xunnamius/symbiote/commit/b928e8a92064bcc4a0ef17b45eb6af40654208f2
+[271]: https://github.com/Xunnamius/symbiote/commit/45bcd8c56f38ccbc330b4088c6f8a5812714611a
+[272]: https://github.com/Xunnamius/symbiote/commit/f50abaf0309ca2e0e0f21b429683c8369e5e2210
+[273]: https://github.com/Xunnamius/symbiote/commit/98a1dd7eacac964a7fbab47ded92c33173383f11
+[274]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.23.0...@-xun/symbiote@1.24.0
+[275]: https://github.com/Xunnamius/symbiote/commit/467e88442c58320f1b65e6de3bd5e52c0220132b
+[276]: https://github.com/Xunnamius/symbiote/commit/472af2c847833e17c6d88d61d8cc2e885ef21338
+[277]: https://github.com/Xunnamius/symbiote/commit/8ab4eecd7242de0447c86f2535ccdd31c5d5291e
+[278]: https://github.com/Xunnamius/symbiote/commit/69f2dc0d929150f46c3fc4990a37338111d1a4f6
+[279]: https://github.com/Xunnamius/symbiote/commit/8dc4a962ae457c82585e3c34d1ee02c731aedec3
+[280]: https://github.com/Xunnamius/symbiote/commit/e3fa185ffa33d801bc1f7d9faeda1d40eaa8a117
+[281]: https://github.com/Xunnamius/symbiote/commit/89b57c4e38f74970a301e6261acdfeca27982d44
+[282]: https://github.com/Xunnamius/symbiote/commit/b8b82d942c478673b10b2d071802c73461c42961
+[283]: https://github.com/Xunnamius/symbiote/commit/556f17ec5b274c0bf08d364905a99b8e27bfff63
+[284]: https://github.com/Xunnamius/symbiote/commit/74d58d66649401b6e8f17e53076ea4972bc1d888
+[285]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.22.0...@-xun/symbiote@1.23.0
+[286]: https://github.com/Xunnamius/symbiote/commit/1bdceca9e23b28bffb12b84013ba95ef54c5ac81
+[287]: https://github.com/Xunnamius/symbiote/commit/6ff2bd3423e7b7e9af224e937200bee1fb5691ea
+[288]: https://github.com/Xunnamius/symbiote/commit/a1d36577666cddfce19970975144e085c7a0c353
+[289]: https://github.com/Xunnamius/symbiote/commit/fa2a97f118389cdaf4227a07a9bf5a5bc4cc2dfe
+[290]: https://github.com/Xunnamius/symbiote/commit/6e3f599ab734f0a7fcd2faff59e2c377eeec3fa1
+[291]: https://github.com/Xunnamius/symbiote/commit/ca021f8fb5d821cc21129c4a29e6d43e24166183
+[292]: https://github.com/Xunnamius/symbiote/commit/b9218ee5f94be5da6a48d961950ed32307ad7f96
+[293]: https://github.com/Xunnamius/symbiote/commit/dc47cfbbdc869aa2d149924c72bb5414b0f46f07
+[294]: https://github.com/Xunnamius/symbiote/commit/ebb4fb597a47fa0d748735e3b0a2832434b7a637
+[295]: https://github.com/Xunnamius/symbiote/commit/ccc82b396baeb2445174d0c8b9da97522cb66066
+[296]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.21.0...@-xun/symbiote@1.22.0
+[297]: https://github.com/Xunnamius/symbiote/commit/8bdf28b7ba33aae68f04ee62f6b2d72d39c62012
+[298]: https://github.com/Xunnamius/symbiote/commit/0c3f85c0e926cff1645b6a329edcc6304b8ac189
+[299]: https://github.com/Xunnamius/symbiote/commit/531d3eae3ffb883e69799688a89c28e55cdcf177
+[300]: https://github.com/Xunnamius/symbiote/commit/a7a66d9ffeecb4ba1d8b8519a97fc10f1fea72a6
+[301]: https://github.com/Xunnamius/symbiote/commit/e37006ee62471c2cf178a89023e34a9b691b7574
+[302]: https://github.com/Xunnamius/symbiote/commit/349cf201e0cbfdc2b925690744b4ff6737a008b3
+[303]: https://github.com/Xunnamius/symbiote/commit/d8b7442d320a4c4efbe03cb0a502ad337211caee
+[304]: https://github.com/Xunnamius/symbiote/commit/c7fe4109820fb109db7a0ea07985089d1b488535
+[305]: https://github.com/Xunnamius/symbiote/commit/2c40974df517c6226d351e0ab9d8f66675792272
+[306]: https://github.com/Xunnamius/symbiote/commit/f5fb1bcbafb797b2c7d88655895e185b03f2e1db
+[307]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.20.8...@-xun/symbiote@1.21.0
+[308]: https://github.com/Xunnamius/symbiote/commit/bf9514f27e8299b6f489dab44174a3ce9f0c2c09
+[309]: https://github.com/Xunnamius/symbiote/commit/7ad96c5edd2c8a6275e94cde9a1c5721cdd88dda
+[310]: https://github.com/Xunnamius/symbiote/commit/d54cfa03ffcfc52779cb283802e447df42a0cfed
+[311]: https://github.com/Xunnamius/symbiote/commit/cd82265731cd411d9b374c3bbe3c642c93a053fe
+[312]: https://github.com/Xunnamius/symbiote/commit/94a2253a2888d5d2b34290d7b0180fdee2a2a104
+[313]: https://github.com/Xunnamius/symbiote/commit/db0c6d71e780edd2d6ab295abc136ac3fa3979d7
+[314]: https://github.com/Xunnamius/symbiote/commit/7dcbf56f1d89bddc9ad635e47a6f27a13274e799
+[315]: https://github.com/Xunnamius/symbiote/commit/e334962ae950f510b35d09bb5d6ed6326a586de0
+[316]: https://github.com/Xunnamius/symbiote/commit/8833e0a06f0733e89b4496719aa8b71050783339
+[317]: https://github.com/Xunnamius/symbiote/commit/5070ab49e00314a91a6c87aa1715846939531023
+[318]: https://github.com/Xunnamius/symbiote/commit/1eff5cb11f90533bd4ceeca8c269e8a4e5b998c0
+[319]: https://github.com/Xunnamius/symbiote/commit/0eb7fd3b75fe765781b5ca482abbd38e3b0a1a65
+[320]: https://github.com/Xunnamius/symbiote/commit/e169f47888b112eda08cb8518b69ba3bfd9f2b26
+[321]: https://github.com/Xunnamius/symbiote/commit/e7b857926d572780c951aa1161133186d2cf1784
+[322]: https://github.com/Xunnamius/symbiote/commit/2036da0350a573c7ae9179d6cdd794e91935c9ae
+[323]: https://github.com/Xunnamius/symbiote/commit/a35f4c0e581dff4a7667277284052a7fa71b672e
+[324]: https://github.com/Xunnamius/symbiote/commit/3f1a5a9a6c7ce7cd8aba5c521fb95c6beed3394e
+[325]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.19.1...@-xun/symbiote@1.20.0
+[326]: https://github.com/Xunnamius/symbiote/commit/d84b35ff2b28040920fb62a405e29f2e54d29d4f
+[327]: https://github.com/Xunnamius/symbiote/commit/8cf99a986ddf05e8d2a740d58e9ccdf5a0675e43
+[328]: https://github.com/Xunnamius/symbiote/commit/3dd5d787a3de11f375bb9ca815840400fbe8cdf3
+[329]: https://github.com/Xunnamius/symbiote/commit/5c3ed7323a7bf5f3dd1a3d7dd73c8511ef04ff82
+[330]: https://github.com/Xunnamius/symbiote/commit/c912b0992a3033ed5d978d7f5c139569f2bd0608
+[331]: https://github.com/Xunnamius/symbiote/commit/9cb2d72efc872c4003dabc8c68856b72e8f7c3a4
+[332]: https://github.com/Xunnamius/symbiote/commit/ce035004c4bea999ba5cf583c16fc1dbc8a232a6
+[333]: https://github.com/Xunnamius/symbiote/commit/22f2f41be642d3d94fc4e5a50014a61ab68c50b4
+[334]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.20.7...@-xun/symbiote@1.20.8
+[335]: https://github.com/Xunnamius/symbiote/commit/ce701f3d57da9f82ee0036320bc62d5c51233011
+[336]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.20.6...@-xun/symbiote@1.20.7
+[337]: https://github.com/Xunnamius/symbiote/commit/3c48ae1560cd1d689340739f550f4feb18754e81
+[338]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.20.5...@-xun/symbiote@1.20.6
+[339]: https://github.com/Xunnamius/symbiote/commit/76992d930b92919b8ab95f195cec98ddb91fb390
+[340]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.20.4...@-xun/symbiote@1.20.5
+[341]: https://github.com/Xunnamius/symbiote/commit/0864f9221ff2134311ba716cc2eca83aa044fa12
+[342]: https://github.com/Xunnamius/symbiote/commit/ff3853fa7835e9b2f89e2a9a846db76d6b2dd4a5
+[343]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.20.3...@-xun/symbiote@1.20.4
+[344]: https://github.com/Xunnamius/symbiote/commit/0bf89cad7426062a1d0f1ed6b9e69c1e60c734aa
+[345]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.20.2...@-xun/symbiote@1.20.3
+[346]: https://github.com/Xunnamius/symbiote/commit/dd265b47f6ff85a27a80867a60ffbc8aa87e15de
+[347]: https://github.com/Xunnamius/symbiote/commit/cf21d7d56b8d28fe14e87a975ec151c9f16e4717
+[348]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.20.1...@-xun/symbiote@1.20.2
+[349]: https://github.com/Xunnamius/symbiote/commit/bc2a56b8e3bb237caba1768c1673d3848d97e0d6
+[350]: https://github.com/Xunnamius/symbiote/commit/52115470ce25670c0355bba2653789a6df8b3aaa
+[351]: https://github.com/Xunnamius/symbiote/commit/8735f612072b02c3af08054d8f858b5764aab92d
+[352]: https://github.com/Xunnamius/symbiote/commit/a86884fbde354ac7d2cbd5c355d67b536e90f3e6
+[353]: https://github.com/Xunnamius/symbiote/commit/b23b12b64b968429652269db3ae710f79c3ce356
+[354]: https://github.com/Xunnamius/symbiote/commit/8b54237af01ef168984d9b306063e60e7914c936
+[355]: https://github.com/Xunnamius/symbiote/commit/25e7a3b93bd0cfd32df2aaaa83ee055bc7ba1c92
+[356]: https://github.com/Xunnamius/symbiote/commit/904c9ac9bb6b4b1d3b047124e749c9f33f8878c9
+[357]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.20.0...@-xun/symbiote@1.20.1
+[358]: https://github.com/Xunnamius/symbiote/commit/35876a1903ae9180624905e176f7c4b2e1d870a1
+[359]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.18.0...@-xun/symbiote@1.19.0
+[360]: https://github.com/Xunnamius/symbiote/commit/587a354329e46ca03f056ca1414915145928736c
+[361]: https://github.com/Xunnamius/symbiote/commit/909949d58e2ddecf4ad606fe0dd9525ec540a8fb
+[362]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.19.0...@-xun/symbiote@1.19.1
+[363]: https://github.com/Xunnamius/symbiote/commit/d2011645a568e76bdf61dde14dd0e15dbce243dc
+[364]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.17.0...@-xun/symbiote@1.18.0
+[365]: https://github.com/Xunnamius/symbiote/commit/6c7ae27d3d93d36e7cbcae873b8717d252cf6670
+[366]: https://github.com/Xunnamius/symbiote/commit/e833523e6085950c3477ca6e44ae92ef7b1fad46
+[367]: https://github.com/Xunnamius/symbiote/commit/0383586f6ccbb0bc503df636f515d19618548f92
+[368]: https://github.com/Xunnamius/symbiote/commit/3a3489c43d2ce10ac752d70ab23066bd3477a675
+[369]: mailto:tsc@5.6-beta
+[370]: https://github.com/Xunnamius/symbiote/commit/4e7509611f72d2c953572dbc67bb51aabf2304d6
+[371]: https://github.com/Xunnamius/symbiote/commit/f6515ea793a72cfd42cb6d3f74675b2ae3a9b2e1
+[372]: https://github.com/Xunnamius/symbiote/commit/8d7152112e4927f566e048c6b0be7dfce4a6c430
+[373]: https://github.com/Xunnamius/symbiote/commit/d9b4b80db15e6104a2a3ab7325996a08a350ea6d
+[374]: https://github.com/Xunnamius/symbiote/commit/64b7309fcb28c1214f1edcc8319960c1c94f72b0
+[375]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.16.1...@-xun/symbiote@1.17.0
+[376]: https://github.com/Xunnamius/symbiote/commit/609fca8cde508ecdb6c74ff8d1884821afdd5eb3
+[377]: https://github.com/Xunnamius/symbiote/commit/e55a88e728a9c4ccbd38648e85328ab563add014
+[378]: https://github.com/Xunnamius/symbiote/commit/b56fd666cfcccbc7d941df7afb6fcfc74ec0ae56
+[379]: https://github.com/Xunnamius/symbiote/commit/323579d026f46d2d0f70aa44440543eecbc7b4e2
+[380]: https://github.com/Xunnamius/symbiote/commit/52763c5b795e9ee0485e9a20a4cb5264eae0ef3c
+[381]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.16.0...@-xun/symbiote@1.16.1
+[382]: https://github.com/Xunnamius/symbiote/commit/8f1d25d7356419160a65f4a4dd764a6192df2f26
+[383]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.15.0...@-xun/symbiote@1.16.0
+[384]: https://github.com/Xunnamius/symbiote/commit/346b4ac5d27ea045cd037c4987401786f7fa572b
+[385]: https://github.com/Xunnamius/symbiote/commit/f42f4ab7c83a05fed253475de7bf2df4ce53d48f
+[386]: https://github.com/Xunnamius/symbiote/commit/e596e5bc36b9ed024f8c524cd6d55f15b813bcfc
+[387]: https://github.com/Xunnamius/symbiote/commit/d96ae1df1940941fbdf491e0b36c200574179bea
+[388]: https://github.com/Xunnamius/symbiote/commit/c9e254a5eece3c3ed51348d28897ed354725643f
+[389]: https://github.com/Xunnamius/symbiote/commit/ea6aafff5d49f6acd8cac65b3c92e6cfd940e4b5
+[390]: https://github.com/Xunnamius/symbiote/commit/eb5631b6a316d808bb88928e27fe88ee818d230b
+[391]: https://github.com/Xunnamius/symbiote/commit/b72401ad18cead8a6d8571d8e35a6235c23b5381
+[392]: https://github.com/Xunnamius/symbiote/commit/7c1e7f14e28518285bc554c730f7eaea933a2e52
+[393]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.14.0...@-xun/symbiote@1.15.0
+[394]: https://github.com/Xunnamius/symbiote/commit/8554e1a4fd20b72d6b917f92cdb9e084b4086b25
+[395]: https://github.com/Xunnamius/symbiote/commit/b66572376dd63858df091755bb1eb184b56f2c7b
+[396]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.13.0...@-xun/symbiote@1.14.0
+[397]: https://github.com/Xunnamius/symbiote/commit/a5075305e5d9a3cf5451ca5c156c3ffe307f7018
+[398]: https://github.com/Xunnamius/symbiote/commit/489e75a7916d4b77b6a37f6b557cbbd4b7c15e5e
+[399]: https://github.com/Xunnamius/symbiote/commit/1b6c72ae8007c801207547a74de598d38b769968
+[400]: https://github.com/Xunnamius/symbiote/commit/68c55821991d1eaf821dfe603cfee1a9aca83d4f
+[401]: https://github.com/Xunnamius/symbiote/commit/2ed43444661b4fba89c20bb5f2a0341faf535a9b
+[402]: https://github.com/Xunnamius/symbiote/commit/cafeb73773b2e08137d9c6d7f7432802cc9d3b88
+[403]: https://github.com/Xunnamius/symbiote/commit/f08250c17077cff70cdf722d2e9c3b16d3841ebf
+[404]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.12.0...@-xun/symbiote@1.13.0
+[405]: https://github.com/Xunnamius/symbiote/commit/05e56e787e73d42855fcd3ce10aff7f8f6e6c4c7
+[406]: https://github.com/Xunnamius/symbiote/commit/133634118118c7cff04eaaf7a65ead7c80329234
+[407]: https://github.com/Xunnamius/symbiote/commit/e4a1e0b3d6a20ae598f5a6feb2cf2b7ba077b6a7
+[408]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.11.0...@-xun/symbiote@1.12.0
+[409]: https://github.com/Xunnamius/symbiote/commit/8d4bb6d52de509c2ad8c5c82c8953d51e17c2d85
+[410]: https://github.com/Xunnamius/symbiote/commit/7364616ea349761591231a3547bd697ec67ed34b
+[411]: https://github.com/Xunnamius/symbiote/commit/b9b106aff4ff729fb1f8e70efe295ba058a50cfb
+[412]: https://github.com/Xunnamius/symbiote/commit/c1a4b9cb21d1c3e6941d6fbd6108edc694c2d4ed
+[413]: https://github.com/Xunnamius/symbiote/commit/5b11c68aebc8099007ffcf50444707165939e061
+[414]: https://github.com/Xunnamius/symbiote/commit/99c7b3396ff73868208060410f7430538f6d48d6
+[415]: https://github.com/Xunnamius/symbiote/commit/ddd9192c05110fca3ae0d93bac276426932269ef
+[416]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.10.1...@-xun/symbiote@1.11.0
+[417]: https://github.com/Xunnamius/symbiote/commit/d74f099ac798fd0c925ea4aad0b1860b8a8a741f
+[418]: https://github.com/Xunnamius/symbiote/commit/0f4dd160eb1181306899031186b4a3c7e64d936c
+[419]: https://github.com/Xunnamius/symbiote/commit/2cd56d132e3cd7318744839cbf119b126cc35c98
+[420]: https://github.com/Xunnamius/symbiote/commit/9764967b4ca5aab46b32317ddb14bc4e843d8674
+[421]: https://github.com/Xunnamius/symbiote/commit/fd86f3f321889f759eda02880982117b5a0aba16
+[422]: https://github.com/Xunnamius/symbiote/commit/e295a0270f8ae743771d79966cccb3fdb14f19fd
+[423]: https://github.com/Xunnamius/symbiote/commit/d290ba57054479eb873d3cdc785db602432fca09
+[424]: https://github.com/Xunnamius/symbiote/commit/4ea8aa453186568651849102a2ade4df2f6c5cee
+[425]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.10.0...@-xun/symbiote@1.10.1
+[426]: https://github.com/Xunnamius/symbiote/commit/483f03697f1cf01847759fa5c1cf61f5af578a3f
+[427]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.9.0...@-xun/symbiote@1.10.0
+[428]: https://github.com/Xunnamius/symbiote/commit/6575d493c2c0ff291a3bd7bf4b595198c46c0c70
+[429]: https://github.com/Xunnamius/symbiote/commit/7d33dfe2ea50a0fbf45641ef997ce2b7d0265aca
+[430]: https://github.com/Xunnamius/symbiote/commit/d535b785c9d45c87b29a5fbe5698c6021067570b
+[431]: https://github.com/Xunnamius/symbiote/commit/1b65f4667e138907ac8a1b90f06937f5fa4eb1b9
+[432]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.8.0...@-xun/symbiote@1.9.0
+[433]: https://github.com/Xunnamius/symbiote/commit/f47742b0bca31b054ec83d5b01089715e9925e39
+[434]: https://github.com/Xunnamius/symbiote/commit/4f280dc3af5bf633259d80cc8733fae31c903e04
+[435]: https://github.com/Xunnamius/symbiote/commit/159d771c90a65e05194cde9b8aec2478be7b97ff
+[436]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.7.0...@-xun/symbiote@1.8.0
+[437]: https://github.com/Xunnamius/symbiote/commit/c7b7623d68bde02438cbd8cbc80302079356914d
+[438]: https://github.com/Xunnamius/symbiote/commit/847cc63e9965c6c970e63d351fe8388ef666a1b6
+[439]: https://github.com/Xunnamius/symbiote/commit/fd210c55c4aff0ad663381a67b8b591dffc2a49c
+[440]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.6.0...@-xun/symbiote@1.7.0
+[441]: https://github.com/Xunnamius/symbiote/commit/7824c25d1d5db8ab824960b502c41e54a1f9ee03
+[442]: https://github.com/Xunnamius/symbiote/commit/b4c296eb75a142ede16da32a997e9999dd8074f3
+[443]: https://github.com/Xunnamius/symbiote/commit/005e378059ba0b3181031ff938854f54898e0437
+[444]: https://github.com/Xunnamius/symbiote/commit/9e4ae592d211ae39bacdc3f665b3078e69c73062
+[445]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.5.0...@-xun/symbiote@1.6.0
+[446]: https://github.com/Xunnamius/symbiote/commit/62e673b1ab8679e586b1b4337fe20c537c408fff
+[447]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.4.1...@-xun/symbiote@1.5.0
+[448]: https://github.com/Xunnamius/symbiote/commit/fd903a41ad88342ebd1896ffe3e46a6b81583711
+[449]: https://github.com/Xunnamius/symbiote/commit/8e11d6670bec0c605d781ecec695de4d6af1edd2
+[450]: https://github.com/Xunnamius/symbiote/commit/b57a6be3f30c8c0a2692b256135acbd661d0e92b
+[451]: https://github.com/Xunnamius/symbiote/commit/8d03799cbd574e0eed0667f1d91827116da6ff15
+[452]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.4.0...@-xun/symbiote@1.4.1
+[453]: https://github.com/Xunnamius/symbiote/commit/4b94a07feff53f35ff23d5c0456edd00b2e9f180
+[454]: https://github.com/Xunnamius/symbiote/commit/a8ddaa595b00d4730cdce60f5340175b3e9afbcc
+[455]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.3.0...@-xun/symbiote@1.4.0
+[456]: https://github.com/Xunnamius/symbiote/commit/4eeba0093c58c5ae075542203854b4a3add2907a
+[457]: https://github.com/Xunnamius/symbiote/commit/99d57864cb024e23115bc3b9c4b1529d2f3d9bf5
+[458]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.2.0...@-xun/symbiote@1.3.0
+[459]: https://github.com/Xunnamius/symbiote/commit/cf660452df6ac9781bd9b61d4cc225e926cd4e15
+[460]: https://github.com/Xunnamius/symbiote/commit/b999593e14846c8f87949286cd995e7ef92177a1
+[461]: https://github.com/Xunnamius/symbiote/commit/380c055b2920c8b96b65dc89b97b6497f996c452
+[462]: https://github.com/Xunnamius/symbiote/commit/f0b3b8ce97a389c4656d37f4745eaedb7d684f42
+[463]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.1.0...@-xun/symbiote@1.2.0
+[464]: https://github.com/Xunnamius/symbiote/commit/6426d70a844a1c3242d719bd648b2a5caf61a12c
+[465]: https://github.com/Xunnamius/symbiote/compare/@-xun/symbiote@1.0.0...@-xun/symbiote@1.1.0
+[466]: https://github.com/Xunnamius/symbiote/commit/ac5a9ba2ac77873619069cecc5a364cd09a74d43
+[467]: https://github.com/Xunnamius/symbiote/compare/589fcb01d65182c25a9604c55909b2667bd1b1e0...@-xun/symbiote@1.0.0
+[468]: https://github.com/Xunnamius/symbiote/commit/89d81a3e405096de202bc1f6be61ab5d58fc3e1e
+[469]: https://github.com/Xunnamius/symbiote/commit/589fcb01d65182c25a9604c55909b2667bd1b1e0
