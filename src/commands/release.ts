@@ -1080,7 +1080,7 @@ const protoReleaseTask: ProtoCoreReleaseTask = {
     } else {
       log.error(
         [LogTag.IF_NOT_SILENCED],
-        '⚠️🚧 @-xun/release exited with a non-zero exit code (%O)! 😵',
+        '⚠️🚧 @-xun/release exited with a non-zero exit code: %O 😵',
         exitCode
       );
 
@@ -1089,13 +1089,13 @@ const protoReleaseTask: ProtoCoreReleaseTask = {
       if (previousCommitSha !== currentCommitSha) {
         log.error(
           [LogTag.IF_NOT_SILENCED],
-          '❗ POTENTIALLY bad release commit %O detected',
+          '❗POTENTIALLY bad commit %O detected!',
           currentCommitSha
         );
 
         log.warn(
           [LogTag.IF_NOT_SILENCED],
-          'Rolling repository back further to %O...',
+          'Rolling repository back further to %O',
           previousCommitSha
         );
 
@@ -1104,15 +1104,17 @@ const protoReleaseTask: ProtoCoreReleaseTask = {
           '--points-at',
           currentCommitSha
           // TODO: replace with "lines" when fixed in upstream @-xun/run
-        ]).then(({ stdout }) => stdout.trim().split('\n'));
+        ]).then(({ stdout }) => stdout.split('\n').filter(Boolean));
 
         debug('tagsToDelete: %O', tagsToDelete);
 
         for (const tagToDelete of tagsToDelete) {
+          log.warn([LogTag.IF_NOT_SILENCED], 'Deleting local tag %O', tagToDelete);
           // eslint-disable-next-line no-await-in-loop
           await run('git', ['tag', '--delete', tagToDelete]);
-          log.warn([LogTag.IF_NOT_SILENCED], 'Deleted local tag %O', tagToDelete);
         }
+
+        log.warn([LogTag.IF_NOT_SILENCED], 'Executing hard reset');
 
         await run('git', ['reset', '--hard', currentCommitSha], {
           stdout: isQuieted ? 'ignore' : 'inherit',
@@ -1138,7 +1140,7 @@ const protoReleaseTask: ProtoCoreReleaseTask = {
     async function rollbackRepositoryToHead() {
       log.warn(
         [LogTag.IF_NOT_SILENCED],
-        'Rolling repository back to %O (HEAD)...',
+        'Rolling repository back to %O (HEAD)',
         previousCommitSha
       );
 
