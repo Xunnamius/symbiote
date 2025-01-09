@@ -1109,9 +1109,18 @@ const protoReleaseTask: ProtoCoreReleaseTask = {
         debug('tagsToDelete: %O', tagsToDelete);
 
         for (const tagToDelete of tagsToDelete) {
-          log.warn([LogTag.IF_NOT_SILENCED], 'Deleting local tag %O', tagToDelete);
           // eslint-disable-next-line no-await-in-loop
-          await run('git', ['tag', '--delete', tagToDelete]);
+          const { exitCode: gitTagDeleteExitCode } = await runNoRejectOnBadExit('git', [
+            'tag',
+            '--delete',
+            tagToDelete
+          ]);
+
+          log.warn(
+            [LogTag.IF_NOT_SILENCED],
+            `${gitTagDeleteExitCode === 0 ? 'Deleted' : 'FAILED to delete'} local tag %O`,
+            tagToDelete
+          );
         }
 
         log.warn([LogTag.IF_NOT_SILENCED], 'Executing hard reset');
