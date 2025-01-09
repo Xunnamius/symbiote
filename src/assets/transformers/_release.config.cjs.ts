@@ -15,12 +15,14 @@ import { getInvocableExtendedHandler } from 'multiverse+bfe';
 
 import {
   analyzeProjectStructure,
+  isRootPackage,
   type ProjectMetadata
 } from 'multiverse+project-utils:analyze.ts';
 
 import {
   toAbsolutePath,
   toPath,
+  toRelativePath,
   xchangelogConfigProjectBase,
   xreleaseConfigProjectBase
 } from 'multiverse+project-utils:fs.ts';
@@ -104,7 +106,10 @@ export function moduleExport({
 
   const gitLogPathspecs = deriveScopeNarrowingPathspecs({ projectMetadata });
 
-  const { cwdPackage } = projectMetadata;
+  const {
+    cwdPackage,
+    rootPackage: { root: projectRoot }
+  } = projectMetadata;
   const cwdPackageName = cwdPackage.json.name;
 
   const finalConfig = {
@@ -188,7 +193,17 @@ export function moduleExport({
         // {@symbiote/notExtraneous @semantic-release/git}
         '@semantic-release/git',
         {
-          assets: ['package.json', 'package-lock.json', 'CHANGELOG.md', 'docs'],
+          assets: [
+            'package.json',
+            isRootPackage(cwdPackage)
+              ? 'package-lock.json'
+              : toRelativePath(
+                  cwdPackage.root,
+                  toPath(projectRoot, 'package-lock.json')
+                ),
+            'CHANGELOG.md',
+            'docs'
+          ],
           // ? Make sure we send out the patched release notes (i.e. changelog)
           message: `release: ${cwdPackageName}@<%= nextRelease.version %> [skip ci]\n\n<%= nextRelease.notes %>`
         }
