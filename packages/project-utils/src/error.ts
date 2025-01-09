@@ -108,14 +108,15 @@ export function isDuplicatePackageIdError(
 // TODO: this type of error should probably be foundational since we're using it
 // TODO: often
 /**
- * Represents an exception originating from `@-xun/project-utils`.
+ * Represents an exception originating from project meta-analysis tooling (e.g.
+ * @-xun/project).
  */
 export class ProjectError extends Error implements NonNullable<ProjectErrorOptions> {
   // TODO: this prop should be added by makeNamedError or whatever other fn
   [$type] = [$type_ProjectError];
   /**
-   * Represents a CLI-specific error, optionally with suggested exit code and
-   * other context.
+   * Represents a project-specific error, optionally with suggested exit code
+   * and other context.
    */
   constructor(reason?: Error | string, options?: ProjectErrorOptions);
   /**
