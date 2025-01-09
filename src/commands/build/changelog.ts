@@ -1,5 +1,6 @@
 import { createWriteStream } from 'node:fs';
 import { pipeline } from 'node:stream/promises';
+import { pathToFileURL } from 'node:url';
 
 import { CliError, type ChildConfiguration } from '@black-flag/core';
 import escapeStringRegexp from 'escape-string-regexp~4';
@@ -284,7 +285,9 @@ Use --import-section-file to add a custom release section to the changelog. The 
       if (onlyPatchChangelog) {
         debug(`skipped regenerating ${changelogFile}`);
       } else {
-        const conventionalConfigPath = `${projectRoot}/${xchangelogConfigProjectBase}`;
+        const conventionalConfigPath = pathToFileURL(
+          `${projectRoot}/${xchangelogConfigProjectBase}`
+        ).toString();
 
         debug('conventionalConfigPath: %O', conventionalConfigPath);
         debug('outputting changelog to path: %O', changelogFile);
@@ -519,14 +522,15 @@ Use --import-section-file to add a custom release section to the changelog. The 
       }
 
       if (patchChangelog) {
-        const changelogPatcherProjectPath = toPath(
-          projectRoot,
-          changelogPatchConfigProjectBase
-        );
+        const changelogPatcherProjectPath = pathToFileURL(
+          toPath(projectRoot, changelogPatchConfigProjectBase)
+        ).toString();
 
         const changelogPatcherPackagePath = isRootPackage(cwdPackage)
           ? undefined
-          : toPath(packageRoot, changelogPatchConfigPackageBase);
+          : pathToFileURL(
+              toPath(packageRoot, changelogPatchConfigPackageBase)
+            ).toString();
 
         debug(`changelogPatcherProjectPath: %O`, changelogPatcherProjectPath);
         debug(`changelogPatcherPackagePath: %O`, changelogPatcherPackagePath);
@@ -578,7 +582,7 @@ Use --import-section-file to add a custom release section to the changelog. The 
 
           async function runPatcher(
             changelogPatcher: ImportedChangelogPatcher,
-            patcherPath: Path
+            patcherPath: Path | string
           ) {
             if (typeof changelogPatcher === 'function') {
               debug('invoking changelogPatcher as a function from %O', patcherPath);

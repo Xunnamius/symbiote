@@ -1,3 +1,5 @@
+import { pathToFileURL } from 'node:url';
+
 import { runWithInheritedIo } from '@-xun/run';
 import { CliError, type ChildConfiguration } from '@black-flag/core';
 
@@ -200,7 +202,9 @@ This command runs Husky along with any post-npm-install scripts asynchronously a
           ];
 
           for (const root of roots) {
-            const postNpmInstallPath = toAbsolutePath(root, postNpmInstallPackageBase);
+            const postNpmInstallPath = pathToFileURL(
+              toAbsolutePath(root, postNpmInstallPackageBase)
+            ).toString();
             debug('postNpmInstallPath: %O', postNpmInstallPath);
 
             tasks.push((shouldLogSuccess) =>

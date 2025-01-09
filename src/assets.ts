@@ -1,5 +1,6 @@
 /* eslint-disable unicorn/prevent-abbreviations */
 import { readdir } from 'node:fs/promises';
+import { pathToFileURL } from 'node:url';
 
 import { CliError } from '@black-flag/core';
 import getInObject from 'lodash.get';
@@ -600,7 +601,7 @@ export function deepMergeConfig<ConfigurationType>(
 
 async function invokeTransformerAndReifyAssets({
   debug,
-  transformerPath,
+  transformerPath: transformerPath_,
   transformerContext,
   transformerId,
   options
@@ -611,8 +612,11 @@ async function invokeTransformerAndReifyAssets({
   transformerId: string;
   options: MakeTransformerOptions & GatherAssetsFromTransformerOptions;
 }) {
+  const transformerPath = pathToFileURL(transformerPath_).toString();
+
   try {
     debug('importing transformer from: %O', transformerPath);
+
     const { transformer } = (await import(transformerPath)) as Awaited<
       ReturnType<typeof makeTransformer>
     >;

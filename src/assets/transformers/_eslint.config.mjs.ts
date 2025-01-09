@@ -1,6 +1,7 @@
 /* eslint-disable unicorn/prevent-abbreviations */
 // {@symbiote/notExtraneous eslint}
 import assert from 'node:assert';
+import { pathToFileURL } from 'node:url';
 
 import { fixupConfigRules } from '@eslint/compat';
 import eslintJs from '@eslint/js';
@@ -850,7 +851,9 @@ export async function assertEnvironment(): Promise<
   Omit<Parameters<typeof moduleExport>[0], 'derivedAliases'>
 > {
   const currentWorkingDirectory = getCurrentWorkingDirectory();
-  const packageJsonPath = toPath(currentWorkingDirectory, packageJsonConfigPackageBase);
+  const packageJsonPath = pathToFileURL(
+    toPath(currentWorkingDirectory, packageJsonConfigPackageBase)
+  ).toString();
 
   const packageJson = (
     await import(packageJsonPath, {

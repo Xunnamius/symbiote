@@ -2,6 +2,7 @@
 import assert from 'node:assert';
 import fsSync from 'node:fs';
 import fs from 'node:fs/promises';
+import { pathToFileURL } from 'node:url';
 
 import { runNoRejectOnBadExit } from '@-xun/run';
 
@@ -936,7 +937,9 @@ export async function importAdditionalRawAliasMappings(
     rootPackage: { root: projectRoot }
   } = projectMetadata;
 
-  const aliasMapPath = toPath(projectRoot, aliasMapConfigProjectBase);
+  const aliasMapPath = pathToFileURL(
+    toPath(projectRoot, aliasMapConfigProjectBase)
+  ).toString();
 
   debug(`aliasMapPath: %O`, aliasMapPath);
 
