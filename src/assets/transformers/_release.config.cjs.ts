@@ -79,6 +79,7 @@ export { noSpecialInitialCommitIndicator };
  * plugin steps defined below.
  */
 export type PluginConfig = {
+  projectRelativePackageLockPath: string;
   releaseSectionPath: string;
   parserOpts: NonNullable<XchangelogConfigOptions['parserOpts']>;
   writerOpts: NonNullable<XchangelogConfigOptions['writerOpts']>;
@@ -112,7 +113,12 @@ export function moduleExport({
     cwdPackage,
     rootPackage: { root: projectRoot }
   } = projectMetadata;
+
   const cwdPackageName = cwdPackage.json.name;
+
+  const projectRelativePackageLockPath = isRootPackage(cwdPackage)
+    ? 'package-lock.json'
+    : toRelativePath(cwdPackage.root, toPath(projectRoot, 'package-lock.json'));
 
   const finalConfig = {
     // ? Tell xrelease what package-specific tags look like
@@ -170,6 +176,7 @@ export function moduleExport({
       [
         `@-xun/symbiote/assets/${xreleaseConfigProjectBase}`,
         {
+          projectRelativePackageLockPath,
           releaseSectionPath,
           parserOpts,
           writerOpts: {
@@ -186,10 +193,15 @@ export function moduleExport({
 
       // ! This ordering is important to ensure errors stop the process safely
       // ! and that broken builds are not published. The proper order is:
-      // ! NPM (+ attestations) > Git > GitHub. Note that the order here is not
-      // ! the exact run order since different plugins have different hooks that
-      // ! are executed at different points. Specifically: a git commit is
-      // ! created BEFORE npm runs.
+      // ! NPM (+ attestations) > Git > GitHub.
+
+      // ! Note that the order here is not the exact run order since different
+      // ! plugins have different hooks that are executed at different points.
+      // ! Specifically: a git commit is created BEFORE npm publish runs. This
+      // ! is why we need to commit package-lock.json after the fact (during the
+      // ! "success" step), which we do below.
+
+      // ! See: https://github.com/semantic-release/semantic-release/blob/master/docs/usage/plugins.md
 
       // TODO: add support for GitHub Actions build provenance attestations here
       // This comes bundled with semantic-release
@@ -200,12 +212,7 @@ export function moduleExport({
         {
           assets: [
             'package.json',
-            isRootPackage(cwdPackage)
-              ? 'package-lock.json'
-              : toRelativePath(
-                  cwdPackage.root,
-                  toPath(projectRoot, 'package-lock.json')
-                ),
+            projectRelativePackageLockPath,
             'CHANGELOG.md',
             'docs'
           ],
@@ -439,7 +446,10 @@ export async function generateNotes(
  * other) warning if the release pipeline ends with the repository in an unclean
  * state.
  */
-export async function success(_pluginConfig: PluginConfig, context: SuccessContext) {
+export async function success(
+  { projectRelativePackageLockPath }: PluginConfig,
+  context: SuccessContext
+) {
   const pluginDebug = debug.extend('success');
   pluginDebug('entered step function');
 
@@ -450,11 +460,35 @@ export async function success(_pluginConfig: PluginConfig, context: SuccessConte
   const wasReleasedWithForce = SYMBIOTE_RELEASE_WITH_FORCE === 'true';
 
   pluginDebug('wasReleasedWithForce: %O', wasReleasedWithForce);
+  pluginDebug('projectRelativePackageLockPath: %O', projectRelativePackageLockPath);
 
   pluginDebug('updating remote');
   await run('git', ['fetch', '--prune']);
 
-  pluginDebug('analyzing repository state');
+  pluginDebug(
+    'defensively committing any package-lock.json changes (errors will be ignored)'
+  );
+
+  // ? We don't really care if this fails since failure will cause the next
+  // ? check to fail
+  try {
+    await run('git', ['reset']);
+    await run('git', ['add', projectRelativePackageLockPath]);
+    await run('git', [
+      'commit',
+      '--no-verify',
+      '-m',
+      'chore: commit post-release metadata changes'
+    ]);
+  } catch (error) {
+    pluginDebug.warn(
+      'attempt to commit post-release metadata changes failed (which might not be an issue): %O',
+      error
+    );
+  }
+
+  pluginDebug('checking repository state');
+
   const { isDirty } = await determineRepoWorkingTreeDirty();
 
   if (isDirty) {
