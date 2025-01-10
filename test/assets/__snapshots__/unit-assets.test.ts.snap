@@ -228,7 +228,7 @@ good-hybridrepo-description
 [![Uses Semantic Release!][x-badge-semanticrelease-image]][x-badge-semanticrelease-link]
 
 [![NPM version][x-badge-npm-image]][x-badge-npm-link]
-[![Monthly Downloads][x-badge-downloads-image]][x-badge-npm-link]
+[![Monthly Downloads][x-badge-downloads-image]][x-badge-downloads-link]
 
 </div>
 
@@ -440,6 +440,8 @@ See the [table of contributors][x-repo-contributors].
 [x-badge-downloads-image]:
   https://img.shields.io/npm/dm/good-hybridrepo?style=flat-square
   'Number of times this package has been downloaded per month'
+[x-badge-downloads-link]:
+  https://npmtrends.com/good-hybridrepo
 [x-badge-lastcommit-image]:
   https://img.shields.io/github/last-commit/repo-owner/repo-name?style=flat-square
   'Latest commit timestamp'
@@ -451,8 +453,7 @@ See the [table of contributors][x-repo-contributors].
 [x-badge-npm-image]:
   https://xunn.at/npm-pkg-version/good-hybridrepo
   'Install this package using npm or yarn!'
-[x-badge-npm-link]:
-  https://npmtrends.com/good-hybridrepo
+[x-badge-npm-link]: https://npm.im/good-hybridrepo
 [x-badge-repo-link]: https://github.com/repo-owner/repo-name
 [x-badge-semanticrelease-image]:
   https://xunn.at/badge-semantic-release
@@ -16534,7 +16535,7 @@ good-hybridrepo-description
 [![Uses Semantic Release!][x-badge-semanticrelease-image]][x-badge-semanticrelease-link]
 
 [![NPM version][x-badge-npm-image]][x-badge-npm-link]
-[![Monthly Downloads][x-badge-downloads-image]][x-badge-npm-link]
+[![Monthly Downloads][x-badge-downloads-image]][x-badge-downloads-link]
 
 </div>
 
@@ -16744,6 +16745,8 @@ specification. Contributions of any kind welcome!
 [x-badge-downloads-image]:
   https://img.shields.io/npm/dm/good-hybridrepo?style=flat-square
   'Number of times this package has been downloaded per month'
+[x-badge-downloads-link]:
+  https://npmtrends.com/good-hybridrepo
 [x-badge-lastcommit-image]:
   https://img.shields.io/github/last-commit/repo-owner/repo-name?style=flat-square
   'Latest commit timestamp'
@@ -16755,8 +16758,7 @@ specification. Contributions of any kind welcome!
 [x-badge-npm-image]:
   https://xunn.at/npm-pkg-version/good-hybridrepo
   'Install this package using npm or yarn!'
-[x-badge-npm-link]:
-  https://npmtrends.com/good-hybridrepo
+[x-badge-npm-link]: https://npm.im/good-hybridrepo
 [x-badge-repo-link]: https://github.com/repo-owner/repo-name
 [x-badge-semanticrelease-image]:
   https://xunn.at/badge-semantic-release
@@ -16822,7 +16824,7 @@ good-hybridrepo-description
 [![Uses Semantic Release!][x-badge-semanticrelease-image]][x-badge-semanticrelease-link]
 
 [![NPM version][x-badge-npm-image]][x-badge-npm-link]
-[![Monthly Downloads][x-badge-downloads-image]][x-badge-npm-link]
+[![Monthly Downloads][x-badge-downloads-image]][x-badge-downloads-link]
 
 </div>
 
@@ -17032,6 +17034,8 @@ specification. Contributions of any kind welcome!
 [x-badge-downloads-image]:
   https://img.shields.io/npm/dm/good-hybridrepo?style=flat-square
   'Number of times this package has been downloaded per month'
+[x-badge-downloads-link]:
+  https://npmtrends.com/good-hybridrepo
 [x-badge-lastcommit-image]:
   https://img.shields.io/github/last-commit/repo-owner/repo-name?style=flat-square
   'Latest commit timestamp'
@@ -17043,8 +17047,7 @@ specification. Contributions of any kind welcome!
 [x-badge-npm-image]:
   https://xunn.at/npm-pkg-version/good-hybridrepo
   'Install this package using npm or yarn!'
-[x-badge-npm-link]:
-  https://npmtrends.com/good-hybridrepo
+[x-badge-npm-link]: https://npm.im/good-hybridrepo
 [x-badge-repo-link]: https://github.com/repo-owner/repo-name
 [x-badge-semanticrelease-image]:
   https://xunn.at/badge-semantic-release
@@ -17110,7 +17113,7 @@ TODO <!-- TODO: a brief description/blurb -->
 [![Uses Semantic Release!][x-badge-semanticrelease-image]][x-badge-semanticrelease-link]
 
 [![NPM version][x-badge-npm-image]][x-badge-npm-link]
-[![Monthly Downloads][x-badge-downloads-image]][x-badge-npm-link]
+[![Monthly Downloads][x-badge-downloads-image]][x-badge-downloads-link]
 
 </div>
 
@@ -17297,6 +17300,8 @@ See the [table of contributors][x-repo-contributors].
 [x-badge-downloads-image]:
   https://img.shields.io/npm/dm/cli?style=flat-square
   'Number of times this package has been downloaded per month'
+[x-badge-downloads-link]:
+  https://npmtrends.com/cli
 [x-badge-lastcommit-image]:
   https://img.shields.io/github/last-commit/repo-owner/repo-name?style=flat-square
   'Latest commit timestamp'
@@ -17308,8 +17313,7 @@ See the [table of contributors][x-repo-contributors].
 [x-badge-npm-image]:
   https://xunn.at/npm-pkg-version/cli
   'Install this package using npm or yarn!'
-[x-badge-npm-link]:
-  https://npmtrends.com/cli
+[x-badge-npm-link]: https://npm.im/cli
 [x-badge-repo-link]: https://github.com/repo-owner/repo-name
 [x-badge-semanticrelease-image]:
   https://xunn.at/badge-semantic-release
@@ -17375,7 +17379,7 @@ TODO <!-- TODO: a brief description/blurb -->
 [![Uses Semantic Release!][x-badge-semanticrelease-image]][x-badge-semanticrelease-link]
 
 [![NPM version][x-badge-npm-image]][x-badge-npm-link]
-[![Monthly Downloads][x-badge-downloads-image]][x-badge-npm-link]
+[![Monthly Downloads][x-badge-downloads-image]][x-badge-downloads-link]
 
 </div>
 
@@ -17562,6 +17566,8 @@ See the [table of contributors][x-repo-contributors].
 [x-badge-downloads-image]:
   https://img.shields.io/npm/dm/private?style=flat-square
   'Number of times this package has been downloaded per month'
+[x-badge-downloads-link]:
+  https://npmtrends.com/private
 [x-badge-lastcommit-image]:
   https://img.shields.io/github/last-commit/repo-owner/repo-name?style=flat-square
   'Latest commit timestamp'
@@ -17573,8 +17579,7 @@ See the [table of contributors][x-repo-contributors].
 [x-badge-npm-image]:
   https://xunn.at/npm-pkg-version/private
   'Install this package using npm or yarn!'
-[x-badge-npm-link]:
-  https://npmtrends.com/private
+[x-badge-npm-link]: https://npm.im/private
 [x-badge-repo-link]: https://github.com/repo-owner/repo-name
 [x-badge-semanticrelease-image]:
   https://xunn.at/badge-semantic-release
@@ -17640,7 +17645,7 @@ TODO <!-- TODO: a brief description/blurb -->
 [![Uses Semantic Release!][x-badge-semanticrelease-image]][x-badge-semanticrelease-link]
 
 [![NPM version][x-badge-npm-image]][x-badge-npm-link]
-[![Monthly Downloads][x-badge-downloads-image]][x-badge-npm-link]
+[![Monthly Downloads][x-badge-downloads-image]][x-badge-downloads-link]
 
 </div>
 
@@ -17827,6 +17832,8 @@ See the [table of contributors][x-repo-contributors].
 [x-badge-downloads-image]:
   https://img.shields.io/npm/dm/webpack?style=flat-square
   'Number of times this package has been downloaded per month'
+[x-badge-downloads-link]:
+  https://npmtrends.com/webpack
 [x-badge-lastcommit-image]:
   https://img.shields.io/github/last-commit/repo-owner/repo-name?style=flat-square
   'Latest commit timestamp'
@@ -17838,8 +17845,7 @@ See the [table of contributors][x-repo-contributors].
 [x-badge-npm-image]:
   https://xunn.at/npm-pkg-version/webpack
   'Install this package using npm or yarn!'
-[x-badge-npm-link]:
-  https://npmtrends.com/webpack
+[x-badge-npm-link]: https://npm.im/webpack
 [x-badge-repo-link]: https://github.com/repo-owner/repo-name
 [x-badge-semanticrelease-image]:
   https://xunn.at/badge-semantic-release
@@ -17905,7 +17911,7 @@ good-hybridrepo-description
 [![Uses Semantic Release!][x-badge-semanticrelease-image]][x-badge-semanticrelease-link]
 
 [![NPM version][x-badge-npm-image]][x-badge-npm-link]
-[![Monthly Downloads][x-badge-downloads-image]][x-badge-npm-link]
+[![Monthly Downloads][x-badge-downloads-image]][x-badge-downloads-link]
 
 </div>
 
@@ -18115,6 +18121,8 @@ specification. Contributions of any kind welcome!
 [x-badge-downloads-image]:
   https://img.shields.io/npm/dm/good-hybridrepo?style=flat-square
   'Number of times this package has been downloaded per month'
+[x-badge-downloads-link]:
+  https://npmtrends.com/good-hybridrepo
 [x-badge-lastcommit-image]:
   https://img.shields.io/github/last-commit/repo-owner/repo-name?style=flat-square
   'Latest commit timestamp'
@@ -18126,8 +18134,7 @@ specification. Contributions of any kind welcome!
 [x-badge-npm-image]:
   https://xunn.at/npm-pkg-version/good-hybridrepo
   'Install this package using npm or yarn!'
-[x-badge-npm-link]:
-  https://npmtrends.com/good-hybridrepo
+[x-badge-npm-link]: https://npm.im/good-hybridrepo
 [x-badge-repo-link]: https://github.com/repo-owner/repo-name
 [x-badge-semanticrelease-image]:
   https://xunn.at/badge-semantic-release
@@ -18193,7 +18200,7 @@ TODO <!-- TODO: a brief description/blurb -->
 [![Uses Semantic Release!][x-badge-semanticrelease-image]][x-badge-semanticrelease-link]
 
 [![NPM version][x-badge-npm-image]][x-badge-npm-link]
-[![Monthly Downloads][x-badge-downloads-image]][x-badge-npm-link]
+[![Monthly Downloads][x-badge-downloads-image]][x-badge-downloads-link]
 
 </div>
 
@@ -18380,6 +18387,8 @@ See the [table of contributors][x-repo-contributors].
 [x-badge-downloads-image]:
   https://img.shields.io/npm/dm/cli?style=flat-square
   'Number of times this package has been downloaded per month'
+[x-badge-downloads-link]:
+  https://npmtrends.com/cli
 [x-badge-lastcommit-image]:
   https://img.shields.io/github/last-commit/repo-owner/repo-name?style=flat-square
   'Latest commit timestamp'
@@ -18391,8 +18400,7 @@ See the [table of contributors][x-repo-contributors].
 [x-badge-npm-image]:
   https://xunn.at/npm-pkg-version/cli
   'Install this package using npm or yarn!'
-[x-badge-npm-link]:
-  https://npmtrends.com/cli
+[x-badge-npm-link]: https://npm.im/cli
 [x-badge-repo-link]: https://github.com/repo-owner/repo-name
 [x-badge-semanticrelease-image]:
   https://xunn.at/badge-semantic-release
@@ -18458,7 +18466,7 @@ TODO <!-- TODO: a brief description/blurb -->
 [![Uses Semantic Release!][x-badge-semanticrelease-image]][x-badge-semanticrelease-link]
 
 [![NPM version][x-badge-npm-image]][x-badge-npm-link]
-[![Monthly Downloads][x-badge-downloads-image]][x-badge-npm-link]
+[![Monthly Downloads][x-badge-downloads-image]][x-badge-downloads-link]
 
 </div>
 
@@ -18645,6 +18653,8 @@ See the [table of contributors][x-repo-contributors].
 [x-badge-downloads-image]:
   https://img.shields.io/npm/dm/private?style=flat-square
   'Number of times this package has been downloaded per month'
+[x-badge-downloads-link]:
+  https://npmtrends.com/private
 [x-badge-lastcommit-image]:
   https://img.shields.io/github/last-commit/repo-owner/repo-name?style=flat-square
   'Latest commit timestamp'
@@ -18656,8 +18666,7 @@ See the [table of contributors][x-repo-contributors].
 [x-badge-npm-image]:
   https://xunn.at/npm-pkg-version/private
   'Install this package using npm or yarn!'
-[x-badge-npm-link]:
-  https://npmtrends.com/private
+[x-badge-npm-link]: https://npm.im/private
 [x-badge-repo-link]: https://github.com/repo-owner/repo-name
 [x-badge-semanticrelease-image]:
   https://xunn.at/badge-semantic-release
@@ -18723,7 +18732,7 @@ TODO <!-- TODO: a brief description/blurb -->
 [![Uses Semantic Release!][x-badge-semanticrelease-image]][x-badge-semanticrelease-link]
 
 [![NPM version][x-badge-npm-image]][x-badge-npm-link]
-[![Monthly Downloads][x-badge-downloads-image]][x-badge-npm-link]
+[![Monthly Downloads][x-badge-downloads-image]][x-badge-downloads-link]
 
 </div>
 
@@ -18910,6 +18919,8 @@ See the [table of contributors][x-repo-contributors].
 [x-badge-downloads-image]:
   https://img.shields.io/npm/dm/webpack?style=flat-square
   'Number of times this package has been downloaded per month'
+[x-badge-downloads-link]:
+  https://npmtrends.com/webpack
 [x-badge-lastcommit-image]:
   https://img.shields.io/github/last-commit/repo-owner/repo-name?style=flat-square
   'Latest commit timestamp'
@@ -18921,8 +18932,7 @@ See the [table of contributors][x-repo-contributors].
 [x-badge-npm-image]:
   https://xunn.at/npm-pkg-version/webpack
   'Install this package using npm or yarn!'
-[x-badge-npm-link]:
-  https://npmtrends.com/webpack
+[x-badge-npm-link]: https://npm.im/webpack
 [x-badge-repo-link]: https://github.com/repo-owner/repo-name
 [x-badge-semanticrelease-image]:
   https://xunn.at/badge-semantic-release
@@ -18988,7 +18998,7 @@ TODO <!-- TODO: a brief description/blurb -->
 [![Uses Semantic Release!][x-badge-semanticrelease-image]][x-badge-semanticrelease-link]
 
 [![NPM version][x-badge-npm-image]][x-badge-npm-link]
-[![Monthly Downloads][x-badge-downloads-image]][x-badge-npm-link]
+[![Monthly Downloads][x-badge-downloads-image]][x-badge-downloads-link]
 
 </div>
 
@@ -19175,6 +19185,8 @@ See the [table of contributors][x-repo-contributors].
 [x-badge-downloads-image]:
   https://img.shields.io/npm/dm/pkg-1?style=flat-square
   'Number of times this package has been downloaded per month'
+[x-badge-downloads-link]:
+  https://npmtrends.com/pkg-1
 [x-badge-lastcommit-image]:
   https://img.shields.io/github/last-commit/repo-owner/repo-name?style=flat-square
   'Latest commit timestamp'
@@ -19186,8 +19198,7 @@ See the [table of contributors][x-repo-contributors].
 [x-badge-npm-image]:
   https://xunn.at/npm-pkg-version/pkg-1
   'Install this package using npm or yarn!'
-[x-badge-npm-link]:
-  https://npmtrends.com/pkg-1
+[x-badge-npm-link]: https://npm.im/pkg-1
 [x-badge-repo-link]: https://github.com/repo-owner/repo-name
 [x-badge-semanticrelease-image]:
   https://xunn.at/badge-semantic-release
@@ -19261,7 +19272,7 @@ TODO <!-- TODO: a brief description/blurb -->
 [![Uses Semantic Release!][x-badge-semanticrelease-image]][x-badge-semanticrelease-link]
 
 [![NPM version][x-badge-npm-image]][x-badge-npm-link]
-[![Monthly Downloads][x-badge-downloads-image]][x-badge-npm-link]
+[![Monthly Downloads][x-badge-downloads-image]][x-badge-downloads-link]
 
 </div>
 
@@ -19448,6 +19459,8 @@ See the [table of contributors][x-repo-contributors].
 [x-badge-downloads-image]:
   https://img.shields.io/npm/dm/pkg-1?style=flat-square
   'Number of times this package has been downloaded per month'
+[x-badge-downloads-link]:
+  https://npmtrends.com/pkg-1
 [x-badge-lastcommit-image]:
   https://img.shields.io/github/last-commit/repo-owner/repo-name?style=flat-square
   'Latest commit timestamp'
@@ -19459,8 +19472,7 @@ See the [table of contributors][x-repo-contributors].
 [x-badge-npm-image]:
   https://xunn.at/npm-pkg-version/pkg-1
   'Install this package using npm or yarn!'
-[x-badge-npm-link]:
-  https://npmtrends.com/pkg-1
+[x-badge-npm-link]: https://npm.im/pkg-1
 [x-badge-repo-link]: https://github.com/repo-owner/repo-name
 [x-badge-semanticrelease-image]:
   https://xunn.at/badge-semantic-release
@@ -19526,7 +19538,7 @@ TODO <!-- TODO: a brief description/blurb -->
 [![Uses Semantic Release!][x-badge-semanticrelease-image]][x-badge-semanticrelease-link]
 
 [![NPM version][x-badge-npm-image]][x-badge-npm-link]
-[![Monthly Downloads][x-badge-downloads-image]][x-badge-npm-link]
+[![Monthly Downloads][x-badge-downloads-image]][x-badge-downloads-link]
 
 </div>
 
@@ -19713,6 +19725,8 @@ See the [table of contributors][x-repo-contributors].
 [x-badge-downloads-image]:
   https://img.shields.io/npm/dm/@namespaced/pkg?style=flat-square
   'Number of times this package has been downloaded per month'
+[x-badge-downloads-link]:
+  https://npmtrends.com/@namespaced/pkg
 [x-badge-lastcommit-image]:
   https://img.shields.io/github/last-commit/repo-owner/repo-name?style=flat-square
   'Latest commit timestamp'
@@ -19724,8 +19738,7 @@ See the [table of contributors][x-repo-contributors].
 [x-badge-npm-image]:
   https://xunn.at/npm-pkg-version/@namespaced/pkg
   'Install this package using npm or yarn!'
-[x-badge-npm-link]:
-  https://npmtrends.com/@namespaced/pkg
+[x-badge-npm-link]: https://npm.im/@namespaced/pkg
 [x-badge-repo-link]: https://github.com/repo-owner/repo-name
 [x-badge-semanticrelease-image]:
   https://xunn.at/badge-semantic-release
@@ -19791,7 +19804,7 @@ TODO <!-- TODO: a brief description/blurb -->
 [![Uses Semantic Release!][x-badge-semanticrelease-image]][x-badge-semanticrelease-link]
 
 [![NPM version][x-badge-npm-image]][x-badge-npm-link]
-[![Monthly Downloads][x-badge-downloads-image]][x-badge-npm-link]
+[![Monthly Downloads][x-badge-downloads-image]][x-badge-downloads-link]
 
 </div>
 
@@ -19978,6 +19991,8 @@ See the [table of contributors][x-repo-contributors].
 [x-badge-downloads-image]:
   https://img.shields.io/npm/dm/@namespaced/importer?style=flat-square
   'Number of times this package has been downloaded per month'
+[x-badge-downloads-link]:
+  https://npmtrends.com/@namespaced/importer
 [x-badge-lastcommit-image]:
   https://img.shields.io/github/last-commit/repo-owner/repo-name?style=flat-square
   'Latest commit timestamp'
@@ -19989,8 +20004,7 @@ See the [table of contributors][x-repo-contributors].
 [x-badge-npm-image]:
   https://xunn.at/npm-pkg-version/@namespaced/importer
   'Install this package using npm or yarn!'
-[x-badge-npm-link]:
-  https://npmtrends.com/@namespaced/importer
+[x-badge-npm-link]: https://npm.im/@namespaced/importer
 [x-badge-repo-link]: https://github.com/repo-owner/repo-name
 [x-badge-semanticrelease-image]:
   https://xunn.at/badge-semantic-release
@@ -20064,7 +20078,7 @@ TODO <!-- TODO: a brief description/blurb -->
 [![Uses Semantic Release!][x-badge-semanticrelease-image]][x-badge-semanticrelease-link]
 
 [![NPM version][x-badge-npm-image]][x-badge-npm-link]
-[![Monthly Downloads][x-badge-downloads-image]][x-badge-npm-link]
+[![Monthly Downloads][x-badge-downloads-image]][x-badge-downloads-link]
 
 </div>
 
@@ -20251,6 +20265,8 @@ See the [table of contributors][x-repo-contributors].
 [x-badge-downloads-image]:
   https://img.shields.io/npm/dm/pkg-1?style=flat-square
   'Number of times this package has been downloaded per month'
+[x-badge-downloads-link]:
+  https://npmtrends.com/pkg-1
 [x-badge-lastcommit-image]:
   https://img.shields.io/github/last-commit/repo-owner/repo-name?style=flat-square
   'Latest commit timestamp'
@@ -20262,8 +20278,7 @@ See the [table of contributors][x-repo-contributors].
 [x-badge-npm-image]:
   https://xunn.at/npm-pkg-version/pkg-1
   'Install this package using npm or yarn!'
-[x-badge-npm-link]:
-  https://npmtrends.com/pkg-1
+[x-badge-npm-link]: https://npm.im/pkg-1
 [x-badge-repo-link]: https://github.com/repo-owner/repo-name
 [x-badge-semanticrelease-image]:
   https://xunn.at/badge-semantic-release
@@ -20329,7 +20344,7 @@ TODO <!-- TODO: a brief description/blurb -->
 [![Uses Semantic Release!][x-badge-semanticrelease-image]][x-badge-semanticrelease-link]
 
 [![NPM version][x-badge-npm-image]][x-badge-npm-link]
-[![Monthly Downloads][x-badge-downloads-image]][x-badge-npm-link]
+[![Monthly Downloads][x-badge-downloads-image]][x-badge-downloads-link]
 
 </div>
 
@@ -20516,6 +20531,8 @@ See the [table of contributors][x-repo-contributors].
 [x-badge-downloads-image]:
   https://img.shields.io/npm/dm/@namespaced/pkg?style=flat-square
   'Number of times this package has been downloaded per month'
+[x-badge-downloads-link]:
+  https://npmtrends.com/@namespaced/pkg
 [x-badge-lastcommit-image]:
   https://img.shields.io/github/last-commit/repo-owner/repo-name?style=flat-square
   'Latest commit timestamp'
@@ -20527,8 +20544,7 @@ See the [table of contributors][x-repo-contributors].
 [x-badge-npm-image]:
   https://xunn.at/npm-pkg-version/@namespaced/pkg
   'Install this package using npm or yarn!'
-[x-badge-npm-link]:
-  https://npmtrends.com/@namespaced/pkg
+[x-badge-npm-link]: https://npm.im/@namespaced/pkg
 [x-badge-repo-link]: https://github.com/repo-owner/repo-name
 [x-badge-semanticrelease-image]:
   https://xunn.at/badge-semantic-release
@@ -20594,7 +20610,7 @@ TODO <!-- TODO: a brief description/blurb -->
 [![Uses Semantic Release!][x-badge-semanticrelease-image]][x-badge-semanticrelease-link]
 
 [![NPM version][x-badge-npm-image]][x-badge-npm-link]
-[![Monthly Downloads][x-badge-downloads-image]][x-badge-npm-link]
+[![Monthly Downloads][x-badge-downloads-image]][x-badge-downloads-link]
 
 </div>
 
@@ -20781,6 +20797,8 @@ See the [table of contributors][x-repo-contributors].
 [x-badge-downloads-image]:
   https://img.shields.io/npm/dm/@namespaced/importer?style=flat-square
   'Number of times this package has been downloaded per month'
+[x-badge-downloads-link]:
+  https://npmtrends.com/@namespaced/importer
 [x-badge-lastcommit-image]:
   https://img.shields.io/github/last-commit/repo-owner/repo-name?style=flat-square
   'Latest commit timestamp'
@@ -20792,8 +20810,7 @@ See the [table of contributors][x-repo-contributors].
 [x-badge-npm-image]:
   https://xunn.at/npm-pkg-version/@namespaced/importer
   'Install this package using npm or yarn!'
-[x-badge-npm-link]:
-  https://npmtrends.com/@namespaced/importer
+[x-badge-npm-link]: https://npm.im/@namespaced/importer
 [x-badge-repo-link]: https://github.com/repo-owner/repo-name
 [x-badge-semanticrelease-image]:
   https://xunn.at/badge-semantic-release
@@ -20859,7 +20876,7 @@ TODO <!-- TODO: a brief description/blurb -->
 [![Uses Semantic Release!][x-badge-semanticrelease-image]][x-badge-semanticrelease-link]
 
 [![NPM version][x-badge-npm-image]][x-badge-npm-link]
-[![Monthly Downloads][x-badge-downloads-image]][x-badge-npm-link]
+[![Monthly Downloads][x-badge-downloads-image]][x-badge-downloads-link]
 
 </div>
 
@@ -21069,6 +21086,8 @@ specification. Contributions of any kind welcome!
 [x-badge-downloads-image]:
   https://img.shields.io/npm/dm/good-polyrepo-no-src?style=flat-square
   'Number of times this package has been downloaded per month'
+[x-badge-downloads-link]:
+  https://npmtrends.com/good-polyrepo-no-src
 [x-badge-lastcommit-image]:
   https://img.shields.io/github/last-commit/repo-owner/repo-name?style=flat-square
   'Latest commit timestamp'
@@ -21080,8 +21099,7 @@ specification. Contributions of any kind welcome!
 [x-badge-npm-image]:
   https://xunn.at/npm-pkg-version/good-polyrepo-no-src
   'Install this package using npm or yarn!'
-[x-badge-npm-link]:
-  https://npmtrends.com/good-polyrepo-no-src
+[x-badge-npm-link]: https://npm.im/good-polyrepo-no-src
 [x-badge-repo-link]: https://github.com/repo-owner/repo-name
 [x-badge-semanticrelease-image]:
   https://xunn.at/badge-semantic-release
@@ -21147,7 +21165,7 @@ TODO <!-- TODO: a brief description/blurb -->
 [![Uses Semantic Release!][x-badge-semanticrelease-image]][x-badge-semanticrelease-link]
 
 [![NPM version][x-badge-npm-image]][x-badge-npm-link]
-[![Monthly Downloads][x-badge-downloads-image]][x-badge-npm-link]
+[![Monthly Downloads][x-badge-downloads-image]][x-badge-downloads-link]
 
 </div>
 
@@ -21357,6 +21375,8 @@ specification. Contributions of any kind welcome!
 [x-badge-downloads-image]:
   https://img.shields.io/npm/dm/good-polyrepo-no-src?style=flat-square
   'Number of times this package has been downloaded per month'
+[x-badge-downloads-link]:
+  https://npmtrends.com/good-polyrepo-no-src
 [x-badge-lastcommit-image]:
   https://img.shields.io/github/last-commit/repo-owner/repo-name?style=flat-square
   'Latest commit timestamp'
@@ -21368,8 +21388,7 @@ specification. Contributions of any kind welcome!
 [x-badge-npm-image]:
   https://xunn.at/npm-pkg-version/good-polyrepo-no-src
   'Install this package using npm or yarn!'
-[x-badge-npm-link]:
-  https://npmtrends.com/good-polyrepo-no-src
+[x-badge-npm-link]: https://npm.im/good-polyrepo-no-src
 [x-badge-repo-link]: https://github.com/repo-owner/repo-name
 [x-badge-semanticrelease-image]:
   https://xunn.at/badge-semantic-release
@@ -21435,7 +21454,7 @@ TODO <!-- TODO: a brief description/blurb -->
 [![Uses Semantic Release!][x-badge-semanticrelease-image]][x-badge-semanticrelease-link]
 
 [![NPM version][x-badge-npm-image]][x-badge-npm-link]
-[![Monthly Downloads][x-badge-downloads-image]][x-badge-npm-link]
+[![Monthly Downloads][x-badge-downloads-image]][x-badge-downloads-link]
 
 </div>
 
@@ -21645,6 +21664,8 @@ specification. Contributions of any kind welcome!
 [x-badge-downloads-image]:
   https://img.shields.io/npm/dm/good-polyrepo-no-src?style=flat-square
   'Number of times this package has been downloaded per month'
+[x-badge-downloads-link]:
+  https://npmtrends.com/good-polyrepo-no-src
 [x-badge-lastcommit-image]:
   https://img.shields.io/github/last-commit/repo-owner/repo-name?style=flat-square
   'Latest commit timestamp'
@@ -21656,8 +21677,7 @@ specification. Contributions of any kind welcome!
 [x-badge-npm-image]:
   https://xunn.at/npm-pkg-version/good-polyrepo-no-src
   'Install this package using npm or yarn!'
-[x-badge-npm-link]:
-  https://npmtrends.com/good-polyrepo-no-src
+[x-badge-npm-link]: https://npm.im/good-polyrepo-no-src
 [x-badge-repo-link]: https://github.com/repo-owner/repo-name
 [x-badge-semanticrelease-image]:
   https://xunn.at/badge-semantic-release
