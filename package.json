@@ -163,7 +163,7 @@
     "eslint-plugin-n": "^17.15.1",
     "eslint-plugin-unicorn": "^56.0.1",
     "find-up~5": "npm:find-up@^5.0.0",
-    "glob": "^11.0.0",
+    "glob": "^11.0.1",
     "glob-gitignore": "^1.0.15",
     "globals": "^15.14.0",
     "husky": "^9.1.7",
