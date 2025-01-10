@@ -11,8 +11,9 @@ import {
   enableLoggingByTag,
   getDisabledTags,
   type ExtendedDebugger,
-  type ExtendedLogger,
-  type ListrManager
+  type ExtendedLogger
+  // TODO: fix this when rejoinder-listr2 is published
+  //type ListrManager
 } from 'rejoinder';
 
 import {
@@ -75,7 +76,9 @@ export type StandardExecutionContext = ExecutionContext & {
          * support has not been enabled via
          * {@link makeStandardConfigureExecutionContext}.
          */
-        taskManager: ListrManager;
+        // TODO: fix this when rejoinder-listr2 is published
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        taskManager: /*ListrManager*/ any;
       }
     | {
         taskManager?: undefined;

@@ -1,7 +1,8 @@
 import { isNativeError } from 'node:util/types';
 
 import {
-  createListrManager,
+  // TODO: fix this when rejoinder-listr2 is published
+  //createListrManager,
   disableLoggers,
   LoggerType,
   TAB,
@@ -27,8 +28,9 @@ const { IF_NOT_SILENCED, IF_NOT_QUIETED, IF_NOT_HUSHED } = LogTag;
  */
 export function makeStandardConfigureExecutionContext({
   rootDebugLogger,
-  rootGenericLogger,
-  withListr2Support = false
+  rootGenericLogger
+  // TODO: fix this when rejoinder-listr2 is published
+  //withListr2Support = false
 }: {
   /**
    * The generic logging function used whenever the CLI wants to send text to
@@ -52,7 +54,8 @@ export function makeStandardConfigureExecutionContext({
       ...context,
       log: rootGenericLogger,
       debug_: rootDebugLogger,
-      ...(withListr2Support ? { taskManager: createListrManager() } : {}),
+      // TODO: fix this when rejoinder-listr2 is published
+      //...(withListr2Support ? { taskManager: createListrManager() } : {}),
       state: {
         ...context.state,
         isSilenced: false,
