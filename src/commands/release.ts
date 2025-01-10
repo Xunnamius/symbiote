@@ -686,7 +686,7 @@ WARNING: this command is NOT DESIGNED TO HANDLE CONCURRENT EXECUTION ON THE SAME
           }
         }
       } catch (error) {
-        if (isNativeError(error) && error.cause === $gracefulExit) {
+        if (isGracefulExitSomewhereInCausalStack(error)) {
           genericLogger.message(
             [LogTag.IF_NOT_HUSHED],
             'The release process exited prematurely, but gracefully 💃🏿 (i.e. not due to an error)'
@@ -720,6 +720,18 @@ WARNING: this command is NOT DESIGNED TO HANDLE CONCURRENT EXECUTION ON THE SAME
 
     // ? まさか!
     hardAssert(ErrorMessage.GuruMeditation());
+  }
+
+  function isGracefulExitSomewhereInCausalStack(error: unknown) {
+    if (error === $gracefulExit) {
+      return true;
+    }
+
+    if (isNativeError(error)) {
+      return isGracefulExitSomewhereInCausalStack(error.cause);
+    }
+
+    return false;
   }
 }
 
