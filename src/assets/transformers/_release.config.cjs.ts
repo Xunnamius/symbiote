@@ -443,6 +443,14 @@ export async function success(_pluginConfig: PluginConfig, context: SuccessConte
   const pluginDebug = debug.extend('success');
   pluginDebug('entered step function');
 
+  const {
+    env: { SYMBIOTE_RELEASE_WITH_FORCE }
+  } = context;
+
+  const wasReleasedWithForce = SYMBIOTE_RELEASE_WITH_FORCE === 'true';
+
+  pluginDebug('wasReleasedWithForce: %O', wasReleasedWithForce);
+
   pluginDebug('updating remote');
   await run('git', ['fetch', '--prune']);
 
@@ -458,7 +466,7 @@ export async function success(_pluginConfig: PluginConfig, context: SuccessConte
       );
     }
 
-    if (process.env.SYMBIOTE_RELEASE_WITH_FORCE === 'true') {
+    if (wasReleasedWithForce) {
       // TODO: replace with rejoinder
       // eslint-disable-next-line no-console
       console.warn(`⚠️🚧 ${ErrorMessage.ReleaseFinishedWithADirtyRepo()}`);
