@@ -8,7 +8,7 @@
 
 > **default**(`__namedParameters`): `Promise`\<\{ `aliases`: `string`[]; `builder`: `BfeBuilderFunction`\<[`CustomCliArguments`](../type-aliases/CustomCliArguments.md), [`GlobalExecutionContext`](../../../../configure/type-aliases/GlobalExecutionContext.md)\>; `description`: `string`; `handler`: (`argv`) => `Promisable`\<`void`\>; `usage`: `string`; \}\>
 
-Defined in: [src/commands/build/distributables.ts:172](https://github.com/Xunnamius/symbiote/blob/45a95680565f7437367edb2f8cc44a33e7541aa0/src/commands/build/distributables.ts#L172)
+Defined in: [src/commands/build/distributables.ts:171](https://github.com/Xunnamius/symbiote/blob/0437dc127bb0574f19f66370b2ed3a70bfedfd5d/src/commands/build/distributables.ts#L171)
 
 ## Parameters
 

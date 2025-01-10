@@ -8,7 +8,7 @@
 
 > `const` **defaultCleanExcludedPaths**: `string`[]
 
-Defined in: [src/commands/clean.ts:41](https://github.com/Xunnamius/symbiote/blob/45a95680565f7437367edb2f8cc44a33e7541aa0/src/commands/clean.ts#L41)
+Defined in: [src/commands/clean.ts:41](https://github.com/Xunnamius/symbiote/blob/0437dc127bb0574f19f66370b2ed3a70bfedfd5d/src/commands/clean.ts#L41)
 
 These are the default regular expressions matching paths that are excluded
 from deletion when running the "clean" command.

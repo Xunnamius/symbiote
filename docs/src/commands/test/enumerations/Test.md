@@ -6,7 +6,7 @@
 
 # Enumeration: Test
 
-Defined in: [src/commands/test.ts:65](https://github.com/Xunnamius/symbiote/blob/45a95680565f7437367edb2f8cc44a33e7541aa0/src/commands/test.ts#L65)
+Defined in: [src/commands/test.ts:64](https://github.com/Xunnamius/symbiote/blob/0437dc127bb0574f19f66370b2ed3a70bfedfd5d/src/commands/test.ts#L64)
 
 Which kind of test to run.
 
@@ -16,7 +16,7 @@ Which kind of test to run.
 
 > **All**: `"all"`
 
-Defined in: [src/commands/test.ts:95](https://github.com/Xunnamius/symbiote/blob/45a95680565f7437367edb2f8cc44a33e7541aa0/src/commands/test.ts#L95)
+Defined in: [src/commands/test.ts:94](https://github.com/Xunnamius/symbiote/blob/0437dc127bb0574f19f66370b2ed3a70bfedfd5d/src/commands/test.ts#L94)
 
 Include _all possible tests_ from the chosen scope.
 
@@ -28,7 +28,7 @@ Does not include code coverage results by default.
 
 > **AllLocal**: `"all-local"`
 
-Defined in: [src/commands/test.ts:102](https://github.com/Xunnamius/symbiote/blob/45a95680565f7437367edb2f8cc44a33e7541aa0/src/commands/test.ts#L102)
+Defined in: [src/commands/test.ts:101](https://github.com/Xunnamius/symbiote/blob/0437dc127bb0574f19f66370b2ed3a70bfedfd5d/src/commands/test.ts#L101)
 
 This option is identical to [Test.All](Test.md#all) except it _excludes end-to-end
 tests_.
@@ -41,7 +41,7 @@ Will also include code coverage results by default.
 
 > **EndToEnd**: `"end-to-end"`
 
-Defined in: [src/commands/test.ts:89](https://github.com/Xunnamius/symbiote/blob/45a95680565f7437367edb2f8cc44a33e7541aa0/src/commands/test.ts#L89)
+Defined in: [src/commands/test.ts:88](https://github.com/Xunnamius/symbiote/blob/0437dc127bb0574f19f66370b2ed3a70bfedfd5d/src/commands/test.ts#L88)
 
 Include end-to-end tests from the chosen scope.
 
@@ -53,7 +53,7 @@ Does not include code coverage results by default.
 
 > **Integration**: `"integration"`
 
-Defined in: [src/commands/test.ts:83](https://github.com/Xunnamius/symbiote/blob/45a95680565f7437367edb2f8cc44a33e7541aa0/src/commands/test.ts#L83)
+Defined in: [src/commands/test.ts:82](https://github.com/Xunnamius/symbiote/blob/0437dc127bb0574f19f66370b2ed3a70bfedfd5d/src/commands/test.ts#L82)
 
 Include integration tests from the chosen scope.
 
@@ -65,7 +65,7 @@ Does not include code coverage results by default.
 
 > **Type**: `"type"`
 
-Defined in: [src/commands/test.ts:71](https://github.com/Xunnamius/symbiote/blob/45a95680565f7437367edb2f8cc44a33e7541aa0/src/commands/test.ts#L71)
+Defined in: [src/commands/test.ts:70](https://github.com/Xunnamius/symbiote/blob/0437dc127bb0574f19f66370b2ed3a70bfedfd5d/src/commands/test.ts#L70)
 
 Include type tests from the chosen scope.
 
@@ -77,7 +77,7 @@ Does not include code coverage results by default.
 
 > **Unit**: `"unit"`
 
-Defined in: [src/commands/test.ts:77](https://github.com/Xunnamius/symbiote/blob/45a95680565f7437367edb2f8cc44a33e7541aa0/src/commands/test.ts#L77)
+Defined in: [src/commands/test.ts:76](https://github.com/Xunnamius/symbiote/blob/0437dc127bb0574f19f66370b2ed3a70bfedfd5d/src/commands/test.ts#L76)
 
 Include unit tests from the chosen scope.
 

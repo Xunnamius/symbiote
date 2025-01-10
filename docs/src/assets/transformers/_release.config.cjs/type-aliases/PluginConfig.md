@@ -8,7 +8,7 @@
 
 > **PluginConfig**: `object`
 
-Defined in: [src/assets/transformers/\_release.config.cjs.ts:81](https://github.com/Xunnamius/symbiote/blob/45a95680565f7437367edb2f8cc44a33e7541aa0/src/assets/transformers/_release.config.cjs.ts#L81)
+Defined in: [src/assets/transformers/\_release.config.cjs.ts:80](https://github.com/Xunnamius/symbiote/blob/0437dc127bb0574f19f66370b2ed3a70bfedfd5d/src/assets/transformers/_release.config.cjs.ts#L80)
 
 The custom configuration object expected by the custom semantic-release
 plugin steps defined below.
@@ -22,6 +22,10 @@ plugin steps defined below.
 ### parserOpts
 
 > **parserOpts**: `NonNullable`\<`XchangelogConfigOptions`\[`"parserOpts"`\]\>
+
+### projectRelativePackageLockPath
+
+> **projectRelativePackageLockPath**: `string`
 
 ### releaseSectionPath
 

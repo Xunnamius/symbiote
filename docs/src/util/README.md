@@ -38,6 +38,7 @@
 - [getRelevantDotEnvFilePaths](functions/getRelevantDotEnvFilePaths.md)
 - [hasExitCode](functions/hasExitCode.md)
 - [importAdditionalRawAliasMappings](functions/importAdditionalRawAliasMappings.md)
+- [isGitReferenceMoreRecent](functions/isGitReferenceMoreRecent.md)
 - [isNonEmptyString](functions/isNonEmptyString.md)
 - [loadDotEnv](functions/loadDotEnv.md)
 - [makeDirectory](functions/makeDirectory.md)
