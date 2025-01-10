@@ -440,7 +440,7 @@ export async function generateNotes(
  * state.
  */
 export async function success(_pluginConfig: PluginConfig, context: SuccessContext) {
-  const pluginDebug = debug.extend('generateNotes');
+  const pluginDebug = debug.extend('success');
   pluginDebug('entered step function');
 
   pluginDebug('updating remote');
