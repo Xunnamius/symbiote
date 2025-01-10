@@ -337,8 +337,9 @@ Provide --skip-slow-tests (or -x) to set the SYMBIOTE_TEST_JEST_SKIP_SLOW_TESTS 
       hush: isHushed,
       quiet: isQuieted
     }) {
-      const genericLogger = log.extend(scriptBasename(scriptFullName));
-      const debug = debug_.extend(`handler-${scriptFullName}`);
+      const handlerName = scriptBasename(scriptFullName);
+      const genericLogger = log.extend(handlerName);
+      const debug = debug_.extend(`handler-${handlerName}`);
 
       debug('entered handler');
 

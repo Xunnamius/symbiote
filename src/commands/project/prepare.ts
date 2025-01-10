@@ -106,8 +106,9 @@ This command runs all its tasks asynchronously and concurrently where possible. 
       parallel,
       runToCompletion
     }) {
-      const genericLogger = log.extend(scriptBasename(scriptFullName));
-      const debug = debug_.extend(`handler-${scriptFullName}`);
+      const handlerName = scriptBasename(scriptFullName);
+      const genericLogger = log.extend(handlerName);
+      const debug = debug_.extend(`handler-${handlerName}`);
 
       debug('entered handler');
 

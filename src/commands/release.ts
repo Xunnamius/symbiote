@@ -467,8 +467,9 @@ WARNING: this command is NOT DESIGNED TO HANDLE CONCURRENT EXECUTION ON THE SAME
         silent: isSilenced
       } = argv;
 
-      const genericLogger = log.extend(scriptBasename(scriptFullName));
-      const debug = debug_.extend(`handler-${scriptFullName}`);
+      const handlerName = scriptBasename(scriptFullName);
+      const genericLogger = log.extend(handlerName);
+      const debug = debug_.extend(`handler-${handlerName}`);
 
       debug('entered handler');
 

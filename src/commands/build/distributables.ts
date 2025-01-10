@@ -427,8 +427,9 @@ Finally, note that, when attempting to build a Next.js package, this command wil
       skipOutputBijectionCheckFor: skipOutputBijectionCheckFor_,
       partialFilter: partialFilter_
     }) {
-      const genericLogger = log.extend(scriptBasename(scriptFullName));
-      const debug = debug_.extend(`handler-${scriptFullName}`);
+      const handlerName = scriptBasename(scriptFullName);
+      const genericLogger = log.extend(handlerName);
+      const debug = debug_.extend(`handler-${handlerName}`);
       const filterMatchLogger = log.extend('filtered');
 
       debug('entered handler');

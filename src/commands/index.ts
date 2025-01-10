@@ -2,6 +2,7 @@ import { type RootConfiguration } from '@black-flag/core';
 import { CommandNotImplementedError } from '@black-flag/core/util';
 
 import { type AsStrictExecutionContext } from 'multiverse+bfe';
+import { scriptBasename } from 'multiverse+cli-utils:util.ts';
 
 import {
   UnlimitedGlobalScope as RootScope,
@@ -34,7 +35,7 @@ export default function command({
       "A collection of commands for interacting with Xunnamius's NPM-based projects",
     usage: withGlobalUsage(),
     handler: withGlobalHandler(function ({ $0: scriptFullName }) {
-      const debug = debug_.extend(`handler-${scriptFullName}`);
+      const debug = debug_.extend(`handler-${scriptBasename(scriptFullName)}`);
       debug('entered handler');
       throw new CommandNotImplementedError();
     })

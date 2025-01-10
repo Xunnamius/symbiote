@@ -239,8 +239,9 @@ Use --import-section-file to add a custom release section to the changelog. The 
         changelogFile
       } = argv;
 
-      const genericLogger = log.extend(scriptBasename(scriptFullName));
-      const debug = debug_.extend(`handler-${scriptFullName}`);
+      const handlerName = scriptBasename(scriptFullName);
+      const genericLogger = log.extend(handlerName);
+      const debug = debug_.extend(`handler-${handlerName}`);
 
       debug('entered handler');
 
