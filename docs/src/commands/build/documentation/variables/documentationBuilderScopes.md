@@ -8,7 +8,7 @@
 
 > `const` **documentationBuilderScopes**: [`ThisPackage`](../../../../configure/enumerations/ThisPackageGlobalScope.md#thispackage)[]
 
-Defined in: [src/commands/build/documentation.ts:31](https://github.com/Xunnamius/symbiote/blob/0437dc127bb0574f19f66370b2ed3a70bfedfd5d/src/commands/build/documentation.ts#L31)
+Defined in: [src/commands/build/documentation.ts:31](https://github.com/Xunnamius/symbiote/blob/71ec833685b57a820bf8f2491ca78156a6893662/src/commands/build/documentation.ts#L31)
 
 ## See
 
