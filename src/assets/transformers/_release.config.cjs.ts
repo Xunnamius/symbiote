@@ -458,7 +458,7 @@ export async function success(_pluginConfig: PluginConfig, context: SuccessConte
       );
     }
 
-    if (process.env.SYMBIOTE_RELEASE_WITH_FORCE) {
+    if (process.env.SYMBIOTE_RELEASE_WITH_FORCE === 'true') {
       // TODO: replace with rejoinder
       // eslint-disable-next-line no-console
       console.warn(`⚠️🚧 ${ErrorMessage.ReleaseFinishedWithADirtyRepo()}`);
