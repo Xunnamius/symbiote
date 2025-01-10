@@ -79,7 +79,7 @@
     "type-fest": "^4.32.0"
   },
   "devDependencies": {
-    "@babel/traverse": "^7.26.4"
+    "@babel/traverse": "^7.26.5"
   },
   "engines": {
     "node": "18.20.0 || ^20.15.0 || >=22.5.0"
