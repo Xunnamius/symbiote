@@ -185,34 +185,46 @@ export const configureExecutionContext = async function (context) {
 
     rootDebugLogger('__dirname: %O', __dirname);
     rootDebugLogger('rootPackageDistDirPath: %O', rootPackageDistDirPath);
+
     rootDebugLogger(
       'nodeModulesDirTsconfigFilePath: %O',
       nodeModulesDirTsconfigFilePath
     );
+
     rootDebugLogger(
       'isRunningFromWithinCurrentProject: %O',
       isRunningFromWithinCurrentProject
     );
+
     rootDebugLogger(
       'isRunningFromWithinCurrentProjectDistDir: %O',
       isRunningFromWithinCurrentProjectDistDir
     );
+
+    standardContext.state.globalVersionOption = {
+      name: 'version',
+      description: defaultVersionTextDescription,
+      // ! INVARIANT: package version must ALWAYS come first and either be
+      // ! suffixed with at least one whitespace character or have no other
+      // ! characters following it!
+      text:
+        String(packageVersion) + ` ${isRunningFromWithinCurrentProject ? '🏠' : '🌎'}`
+    };
 
     if (
       isRunningFromWithinCurrentProjectDistDir ||
       // ? ... or look for the existence of a non-distributables file
       (await isAccessible(nodeModulesDirTsconfigFilePath, { useCached: true }))
     ) {
-      rootDebugLogger('decision: a dev version is probably running');
+      rootDebugLogger('decision: a dev build is probably running');
 
-      standardContext.state.globalVersionOption = {
-        name: 'version',
-        description: defaultVersionTextDescription,
-        // ? Lets us know when we're loading a custom-built "dev" symbiote.
-        text: String(packageVersion) + ` (dev from ${__filename})`
-      };
+      // ? Lets us know when we're loading a custom-built "dev" symbiote.
+      // ! INVARIANT: package version must ALWAYS come first and either be
+      // ! suffixed with at least one whitespace character or have no other
+      // ! characters following it!
+      standardContext.state.globalVersionOption.text += ` (dev build @ ${__filename})`;
     } else {
-      rootDebugLogger('decision: a non-dev version is probably running');
+      rootDebugLogger('decision: a non-dev build is probably running');
     }
 
     isUsingLocalInstallation = isRunningFromWithinCurrentProject;
