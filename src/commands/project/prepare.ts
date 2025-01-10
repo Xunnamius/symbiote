@@ -87,11 +87,11 @@ export default function command({
 6. If the current working directory IS NOT the project root, exit
 7. If the current working directory is the project root and the project is a monorepo, search each package root for a post-npm-install script and run them as they are encountered (with cwd set to each respective package's root)
 
-The ${postNpmInstallPackageBase} file, when present at a package root, is recognized as a post-npm-install script. Each package in a project (including the root package) can contain at most one post-npm-install script. These scrips have access to the following additional environment variables, each of which are defined as either "true" or "false": SYMBIOTE_IS_CI, SYMBIOTE_IS_DEVELOPMENT_ENV.
+The ${postNpmInstallPackageBase} file, when present at a package root, is recognized as a post-npm-install script. Each package in a project (including the root package) can contain at most one post-npm-install script. These scrips have access to the following additional environment variables, each of which are defined as either "true" or "false": SYMBIOTE_IS_CI, SYMBIOTE_IS_DEVELOPMENT_ENV, SYMBIOTE_NPM_IS_INSTALLING.
 
 By default, this command exits (becomes a no-op) when the runtime pre-checks fail, the CI environment variable is defined (implies a CI environment and sets SYMBIOTE_IS_CI=true), or when the NODE_ENV environment variable is NOT undefined nor equal to "development" (implies a non-development environment and sets SYMBIOTE_IS_DEVELOPMENT_ENV=false).
 
-Provide --force to force this command to run post-npm-install scripts without regard for any environment variables, which can be useful in those rare cases where the scripts must run in CI and/or non-development environments. However, if the runtime pre-checks fail, this command will always exit as a no-op regardless of the flags passed.
+Provide --force to force this command to run post-npm-install scripts without regard for any environment variables, which can be useful in those rare cases where the scripts must run in CI and/or non-development environments. In such a scenario, post-npm-install scripts should take advantage of the available SYMBIOTE_* environment variables to alter their functionality (e.g. only running when SYMBIOTE_NPM_IS_INSTALLING=true). However, if the runtime pre-checks fail, this command will always exit as a no-op regardless of the flags passed.
 
 Note that, regardless of the presence of --force, Husky will NEVER execute in a CI or non-development environment.
 
@@ -182,6 +182,8 @@ This command runs all its tasks asynchronously and concurrently where possible. 
         );
       }
 
+      let scriptsExecuted = 0;
+      let totalScripts = 0;
       const errors: [identifier: string, error: unknown][] = [];
       const tasks: ((shouldLogSuccess: boolean) => Promise<unknown>)[] = [];
 
@@ -210,7 +212,7 @@ This command runs all its tasks asynchronously and concurrently where possible. 
         });
       }
 
-      if (isRunningNpmInstallCommand && (force || shouldRunTasks)) {
+      if (force || (isRunningNpmInstallCommand && shouldRunTasks)) {
         const roots = new Set<AbsolutePath>([currentPackageRoot]);
 
         if (isCwdTheProjectRoot) {
@@ -230,11 +232,8 @@ This command runs all its tasks asynchronously and concurrently where possible. 
             isAccessible(postNpmInstallPath, { useCached: true }).then(
               async (isPathAccessible) => {
                 if (isPathAccessible) {
-                  genericLogger(
-                    [LogTag.IF_NOT_HUSHED],
-                    'Executing post-npm-install script at: %O',
-                    postNpmInstallPath
-                  );
+                  debug('post-npm-install found at: %O', postNpmInstallPath);
+                  totalScripts += 1;
 
                   try {
                     // ? Reset these before each invocation just in case a
@@ -242,11 +241,25 @@ This command runs all its tasks asynchronously and concurrently where possible. 
                     process.env.SYMBIOTE_IS_CI = isInCiEnvironment.toString();
                     process.env.SYMBIOTE_IS_DEVELOPMENT_ENV =
                       isInDevelopmentEnvironment.toString();
+                    process.env.SYMBIOTE_NPM_IS_INSTALLING =
+                      isRunningNpmInstallCommand.toString();
 
                     debug('SYMBIOTE_IS_CI: %O', process.env.SYMBIOTE_IS_CI);
+
                     debug(
                       'SYMBIOTE_IS_DEVELOPMENT_ENV: %O',
                       process.env.SYMBIOTE_IS_DEVELOPMENT_ENV
+                    );
+
+                    debug(
+                      'SYMBIOTE_NPM_IS_INSTALLING: %O',
+                      process.env.SYMBIOTE_NPM_IS_INSTALLING
+                    );
+
+                    genericLogger(
+                      [LogTag.IF_NOT_HUSHED],
+                      'Executing post-npm-install script at: %O',
+                      postNpmInstallPath
                     );
 
                     debug('setting process.cwd to: %O', root);
@@ -258,6 +271,8 @@ This command runs all its tasks asynchronously and concurrently where possible. 
                       'post-install script execution successful: %O',
                       postNpmInstallPath
                     );
+
+                    scriptsExecuted += 1;
 
                     // ? This is here because we don't want one task to say
                     // ? "success!" while another poos the bed, especially when
@@ -298,7 +313,7 @@ This command runs all its tasks asynchronously and concurrently where possible. 
       // TODO: use this in eventual task-runner API factorization along with
       // TODO: what's in renovate, release, etc
 
-      debug.error('tasks: %O', tasks);
+      debug.error('task count (any of which may be no-ops): %O', tasks.length);
 
       if (tasks.length) {
         // TODO: redesign to have centralized logging in these blocks
@@ -349,6 +364,16 @@ This command runs all its tasks asynchronously and concurrently where possible. 
         }
 
         genericLogger.newline([LogTag.IF_NOT_QUIETED]);
+
+        if (totalScripts) {
+          genericLogger(
+            [LogTag.IF_NOT_QUIETED],
+            `Executed %O/%O post-npm-install scripts successfully`,
+            scriptsExecuted,
+            totalScripts
+          );
+        }
+
         genericLogger([LogTag.IF_NOT_QUIETED], standardSuccessMessage);
       } else {
         genericLogger(
