@@ -7,7 +7,6 @@ import { mkdir, writeFile } from 'node:fs/promises';
 import { basename } from 'node:path';
 
 import { glob as globAsync } from 'glob';
-
 import { createGenericLogger } from 'rejoinder';
 
 const root = import.meta.dirname;
