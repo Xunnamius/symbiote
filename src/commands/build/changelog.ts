@@ -240,7 +240,7 @@ Use --import-section-file to add a custom release section to the changelog. The 
       } = argv;
 
       const genericLogger = log.extend(scriptBasename(scriptFullName));
-      const debug = debug_.extend('handler');
+      const debug = debug_.extend(`handler-${scriptFullName}`);
 
       debug('entered handler');
 

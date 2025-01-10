@@ -33,8 +33,8 @@ export default function command({
     description:
       "A collection of commands for interacting with Xunnamius's NPM-based projects",
     usage: withGlobalUsage(),
-    handler: withGlobalHandler(function () {
-      const debug = debug_.extend('handler');
+    handler: withGlobalHandler(function ({ $0: scriptFullName }) {
+      const debug = debug_.extend(`handler-${scriptFullName}`);
       debug('entered handler');
       throw new CommandNotImplementedError();
     })

@@ -217,7 +217,7 @@ When using --target=ssh, it is assumed the key pair necessary to authenticate wi
       // ? It's down here instead of in the fn signature for typescript reasons
       const { $0: scriptFullName, scope, target } = argv;
       const genericLogger = log.extend(scriptBasename(scriptFullName));
-      const debug = debug_.extend('handler');
+      const debug = debug_.extend(`handler-${scriptFullName}`);
 
       debug('entered handler');
 

@@ -90,7 +90,7 @@ export default function command({
       quiet: isQuieted
     }) {
       const genericLogger = log.extend(scriptBasename(scriptFullName));
-      const debug = debug_.extend('handler');
+      const debug = debug_.extend(`handler-${scriptFullName}`);
 
       debug('entered handler');
 

@@ -219,7 +219,7 @@ Provide --allow-warning-comments to set the SYMBIOTE_LINT_ALLOW_WARNING_COMMENTS
       silent: isSilenced
     }) {
       const genericLogger = log.extend(scriptBasename(scriptFullName));
-      const debug = debug_.extend('handler');
+      const debug = debug_.extend(`handler-${scriptFullName}`);
 
       debug('entered handler');
 

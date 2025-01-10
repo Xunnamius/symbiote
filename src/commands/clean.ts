@@ -101,7 +101,7 @@ The default value for --exclude-paths includes the following regular expressions
       force
     }) {
       const genericLogger = log.extend(scriptBasename(scriptFullName));
-      const debug = debug_.extend('handler');
+      const debug = debug_.extend(`handler-${scriptFullName}`);
 
       debug('entered handler');
 

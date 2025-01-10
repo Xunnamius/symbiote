@@ -149,7 +149,7 @@ With respect to .prettierignore being the single source of truth for formatters:
       quiet: isQuieted
     }) {
       const genericLogger = log.extend(scriptBasename(scriptFullName));
-      const debug = debug_.extend('handler');
+      const debug = debug_.extend(`handler-${scriptFullName}`);
 
       debug('entered handler');
 

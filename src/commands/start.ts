@@ -54,7 +54,7 @@ If this command is run with --scope=unlimited (the default) in a monorepo, and t
     ),
     handler: withGlobalHandler(async function ({ $0: scriptFullName, scope, _: args_ }) {
       const genericLogger = log.extend(scriptBasename(scriptFullName));
-      const debug = debug_.extend('handler');
+      const debug = debug_.extend(`handler-${scriptFullName}`);
 
       debug('entered handler');
 

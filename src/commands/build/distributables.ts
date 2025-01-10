@@ -428,7 +428,7 @@ Finally, note that, when attempting to build a Next.js package, this command wil
       partialFilter: partialFilter_
     }) {
       const genericLogger = log.extend(scriptBasename(scriptFullName));
-      const debug = debug_.extend('handler');
+      const debug = debug_.extend(`handler-${scriptFullName}`);
       const filterMatchLogger = log.extend('filtered');
 
       debug('entered handler');

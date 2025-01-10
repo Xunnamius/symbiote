@@ -70,7 +70,7 @@ This command is not meant to be run manually, but by Turbo itself as an initiali
       multiversal
     }) {
       const genericLogger = log.extend(scriptBasename(scriptFullName));
-      const debug = debug_.extend('handler');
+      const debug = debug_.extend(`handler-${scriptFullName}`);
 
       debug('entered handler');
 
