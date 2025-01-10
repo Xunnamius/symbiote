@@ -79,6 +79,7 @@ export default function command({
       // TODO (each project gets its own personal GPG key added to the appropriate account automatically upon creation)
       // TODO (need to handle assetverse aliasing concerns (example in quiz-euphoriareign))
       // TODO (set special version of renovate command depending on preset used: basic, cli, lib, lib-esm, react, next)
+      // TODO (adding a new package to a monorepo should be accompanied by a `...@0.0.0-init` tag for the commit that initially adds the package)
 
       genericLogger([LogTag.IF_NOT_QUIETED], standardSuccessMessage);
     })
