@@ -6,15 +6,6 @@ import {
 } from '@black-flag/core/util';
 
 import {
-  withBuilderExtensions,
-  type BfeBuilderObject,
-  type WithBuilderExtensionsConfig,
-  type WithBuilderExtensionsReturnType
-} from 'multiverse+bfe';
-
-import { $artificiallyInvoked } from 'multiverse+bfe:symbols.ts';
-
-import {
   createDebugLogger,
   disableLoggingByTag,
   enableLoggingByTag,
@@ -23,6 +14,15 @@ import {
   type ExtendedLogger,
   type ListrManager
 } from 'rejoinder';
+
+import {
+  withBuilderExtensions,
+  type BfeBuilderObject,
+  type WithBuilderExtensionsConfig,
+  type WithBuilderExtensionsReturnType
+} from 'multiverse+bfe';
+
+import { $artificiallyInvoked } from 'multiverse+bfe:symbols.ts';
 
 // ? Used in a comment for taskManager
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

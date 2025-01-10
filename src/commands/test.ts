@@ -3,6 +3,7 @@ import { setTimeout as delay } from 'node:timers/promises';
 
 import { runNoRejectOnBadExit } from '@-xun/run';
 import { type ChildConfiguration } from '@black-flag/core';
+import { SHORT_TAB } from 'rejoinder';
 
 import { type AsStrictExecutionContext } from 'multiverse+bfe';
 import { softAssert } from 'multiverse+cli-utils:error.ts';
@@ -31,8 +32,6 @@ import {
   Tsconfig,
   tstycheConfigProjectBase
 } from 'multiverse+project-utils:fs.ts';
-
-import { SHORT_TAB } from 'rejoinder';
 
 import { baseConfig } from 'universe:assets/transformers/_jest.config.mjs.ts';
 

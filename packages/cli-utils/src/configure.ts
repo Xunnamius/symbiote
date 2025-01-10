@@ -149,7 +149,6 @@ export function makeStandardConfigureErrorHandlingEpilogue(): ConfigureErrorHand
         const { ListrErrorTypes } = await import('listr2');
 
         for (const taskError of context.taskManager.errors) {
-          // eslint-disable-next-line @typescript-eslint/no-unsafe-enum-comparison
           if (taskError.type !== ListrErrorTypes.HAS_FAILED_WITHOUT_ERROR) {
             context.log.error(
               [IF_NOT_HUSHED],

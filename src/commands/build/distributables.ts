@@ -15,6 +15,7 @@ import {
 
 import { type ChildConfiguration } from '@black-flag/core';
 import { glob } from 'glob';
+import { SHORT_TAB } from 'rejoinder';
 import { rimraf as forceDeletePaths } from 'rimraf';
 import uniqueFilename from 'unique-filename';
 
@@ -80,8 +81,6 @@ import {
   flattenPackageJsonSubpathMap,
   resolveExportsTargetsFromEntryPoint
 } from 'multiverse+project-utils:resolver.ts';
-
-import { SHORT_TAB } from 'rejoinder';
 
 import {
   extensionsTypescript,

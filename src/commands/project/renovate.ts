@@ -6,6 +6,14 @@ import { CliError, type ChildConfiguration } from '@black-flag/core';
 import escapeStringRegexp from 'escape-string-regexp~4';
 import libsodium from 'libsodium-wrappers';
 import getInObject from 'lodash.get';
+
+import {
+  SHORT_TAB,
+  SINGLE_SPACE,
+  type ExtendedDebugger,
+  type ExtendedLogger
+} from 'rejoinder';
+
 import semver from 'semver';
 
 import {
@@ -38,13 +46,6 @@ import {
   toPath,
   toRelativePath
 } from 'multiverse+project-utils:fs.ts';
-
-import {
-  SHORT_TAB,
-  SINGLE_SPACE,
-  type ExtendedDebugger,
-  type ExtendedLogger
-} from 'rejoinder';
 
 import { version as packageVersion } from 'rootverse:package.json';
 

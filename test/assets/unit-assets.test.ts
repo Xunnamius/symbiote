@@ -2,6 +2,8 @@
 
 import { readdirSync } from 'node:fs';
 
+import { createDebugLogger, createGenericLogger } from 'rejoinder';
+
 import {
   allContributorsConfigProjectBase,
   babelConfigProjectBase,
@@ -16,8 +18,6 @@ import {
   type AbsolutePath,
   type RelativePath
 } from 'multiverse+project-utils:fs.ts';
-
-import { createDebugLogger, createGenericLogger } from 'rejoinder';
 
 import {
   magicStringChooserBlockEnd,

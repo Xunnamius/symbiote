@@ -1,7 +1,7 @@
 <!-- symbiote-template-region-start 1 -->
 
 <p align="center" width="100%">
-  <img width="300" src="./logo.png">
+  <img width="300" src="https://raw.githubusercontent.com/Xunnamius/symbiote/refs/heads/main/packages/babel-plugin-metadata-accumulator/logo.png">
 </p>
 
 <p align="center" width="100%">
@@ -21,7 +21,7 @@ A babel plugin that collects and returns metadata from input files
 [![Uses Semantic Release!][x-badge-semanticrelease-image]][x-badge-semanticrelease-link]
 
 [![NPM version][x-badge-npm-image]][x-badge-npm-link]
-[![Monthly Downloads][x-badge-downloads-image]][x-badge-npm-link]
+[![Monthly Downloads][x-badge-downloads-image]][x-badge-downloads-link]
 
 </div>
 
@@ -169,6 +169,8 @@ See the [table of contributors][x-repo-contributors].
 [x-badge-downloads-image]:
   https://img.shields.io/npm/dm/@-xun/babel-plugin-metadata-accumulator?style=flat-square
   'Number of times this package has been downloaded per month'
+[x-badge-downloads-link]:
+  https://npmtrends.com/@-xun/babel-plugin-metadata-accumulator
 [x-badge-lastcommit-image]:
   https://img.shields.io/github/last-commit/Xunnamius/symbiote?style=flat-square
   'Latest commit timestamp'
@@ -179,8 +181,7 @@ See the [table of contributors][x-repo-contributors].
 [x-badge-npm-image]:
   https://xunn.at/npm-pkg-version/@-xun/babel-plugin-metadata-accumulator
   'Install this package using npm or yarn!'
-[x-badge-npm-link]:
-  https://npmtrends.com/@-xun/babel-plugin-metadata-accumulator
+[x-badge-npm-link]: https://npm.im/@-xun/babel-plugin-metadata-accumulator
 [x-badge-repo-link]: https://github.com/Xunnamius/symbiote
 [x-badge-semanticrelease-image]:
   https://xunn.at/badge-semantic-release

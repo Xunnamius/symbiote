@@ -4,6 +4,7 @@ import { run, runNoRejectOnBadExit } from '@-xun/run';
 import { CliError, type ChildConfiguration } from '@black-flag/core';
 import { glob } from 'glob-gitignore';
 import { getSupportInfo } from 'prettier';
+import { SHORT_TAB } from 'rejoinder';
 
 import { type AsStrictExecutionContext } from 'multiverse+bfe';
 import { $artificiallyInvoked } from 'multiverse+bfe:symbols.ts';
@@ -26,8 +27,6 @@ import {
   toRelativePath,
   type AbsolutePath
 } from 'multiverse+project-utils:fs.ts';
-
-import { SHORT_TAB } from 'rejoinder';
 
 import {
   DefaultGlobalScope,

@@ -12,6 +12,7 @@ import eslintPluginJest from 'eslint-plugin-jest';
 import eslintPluginNode from 'eslint-plugin-n';
 import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import jsGlobals from 'globals';
+import { createDebugLogger, createGenericLogger } from 'rejoinder';
 import { toss } from 'toss-expression';
 
 import {
@@ -41,8 +42,6 @@ import {
   Tsconfig,
   type AbsolutePath
 } from 'multiverse+project-utils:fs.ts';
-
-import { createDebugLogger, createGenericLogger } from 'rejoinder';
 
 import { makeTransformer } from 'universe:assets.ts';
 

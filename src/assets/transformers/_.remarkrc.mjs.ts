@@ -1,4 +1,5 @@
 import escapeStringRegExp from 'escape-string-regexp~4';
+import { createDebugLogger } from 'rejoinder';
 
 import {
   analyzeProjectStructure,
@@ -8,7 +9,6 @@ import {
 
 import { ProjectError } from 'multiverse+project-utils:error.ts';
 import { remarkConfigProjectBase } from 'multiverse+project-utils:fs.ts';
-import { createDebugLogger } from 'rejoinder';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 import { globalDebuggerNamespace } from 'universe:constant.ts';

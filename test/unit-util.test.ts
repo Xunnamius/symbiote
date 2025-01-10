@@ -3,6 +3,7 @@
 import nodeFs from 'node:fs/promises';
 
 import * as xrun from '@-xun/run';
+import { createDebugLogger } from 'rejoinder';
 
 import { type ProjectMetadata } from 'multiverse+project-utils:analyze.ts';
 
@@ -14,8 +15,6 @@ import {
   getInitialWorkingDirectory,
   type AbsolutePath
 } from 'multiverse+project-utils:fs.ts';
-
-import { createDebugLogger } from 'rejoinder';
 
 import { type TransformerContext } from 'universe:assets.ts';
 import { DefaultGlobalScope } from 'universe:configure.ts';

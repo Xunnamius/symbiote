@@ -21,6 +21,12 @@ import {
 } from 'dotenv';
 
 import {
+  createDebugLogger,
+  type ExtendedDebugger,
+  type ExtendedLogger
+} from 'rejoinder';
+
+import {
   withStandardBuilder,
   withStandardUsage
 } from 'multiverse+cli-utils:extensions.ts';
@@ -59,12 +65,6 @@ import {
   type AbsolutePath,
   type RelativePath
 } from 'multiverse+project-utils:fs.ts';
-
-import {
-  createDebugLogger,
-  type ExtendedDebugger,
-  type ExtendedLogger
-} from 'rejoinder';
 
 import {
   DefaultGlobalScope,

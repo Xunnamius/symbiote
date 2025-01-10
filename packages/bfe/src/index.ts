@@ -20,12 +20,11 @@ import toCamelCase from 'lodash.camelcase';
 import clone from 'lodash.clone';
 import cloneDeepWith from 'lodash.clonedeepwith';
 import isEqual from 'lodash.isequal';
+import { createDebugLogger } from 'rejoinder';
 import { type ParserConfigurationOptions } from 'yargs';
 // ? Black Flag will always come with its own yargs dependency
 // {@symbiote/notInvalid yargs}
 import makeVanillaYargs from 'yargs/yargs';
-
-import { createDebugLogger } from 'rejoinder';
 
 import { globalDebuggerNamespace } from 'rootverse+bfe:src/constant.ts';
 import { ErrorMessage, type KeyValueEntry } from 'rootverse+bfe:src/error.ts';

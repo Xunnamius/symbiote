@@ -5,12 +5,12 @@ import escapeStringRegExp from 'escape-string-regexp~4';
 import clone from 'lodash.clone';
 import cloneDeepWith from 'lodash.clonedeepwith';
 import deepMerge from 'lodash.mergewith';
+import { createDebugLogger } from 'rejoinder';
 import semver from 'semver';
 
 import { interpolateTemplate, toSentenceCase } from 'multiverse+cli-utils:util.ts';
 import { analyzeProjectStructure, type ProjectMetadata } from 'multiverse+project-utils';
 import { xchangelogConfigProjectBase } from 'multiverse+project-utils:fs.ts';
-import { createDebugLogger } from 'rejoinder';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 import { globalDebuggerNamespace } from 'universe:constant.ts';

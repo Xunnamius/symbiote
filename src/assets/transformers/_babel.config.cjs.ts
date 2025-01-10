@@ -6,6 +6,7 @@ import { statSync } from 'node:fs';
 
 import escapeStringRegexp from 'escape-string-regexp~4';
 import findUp from 'find-up~5';
+import { createDebugLogger, createGenericLogger } from 'rejoinder';
 import semver from 'semver';
 
 import { LogTag } from 'multiverse+cli-utils:logging.ts';
@@ -35,8 +36,6 @@ import {
   flattenPackageJsonSubpathMap,
   resolveEntryPointsFromExportsTarget
 } from 'multiverse+project-utils:resolver.ts';
-
-import { createDebugLogger, createGenericLogger } from 'rejoinder';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 

@@ -10,6 +10,7 @@ import os from 'node:os';
 
 import { run } from '@-xun/run';
 import { type ExecutionContext } from '@black-flag/core/util';
+import { createDebugLogger } from 'rejoinder';
 
 import { getInvocableExtendedHandler } from 'multiverse+bfe';
 
@@ -28,8 +29,6 @@ import {
   xchangelogConfigProjectBase,
   xreleaseConfigProjectBase
 } from 'multiverse+project-utils:fs.ts';
-
-import { createDebugLogger } from 'rejoinder';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 

@@ -1,6 +1,7 @@
 import { cpus } from 'node:os';
 
 import { type Config } from 'jest';
+import { createDebugLogger } from 'rejoinder';
 
 import {
   deriveAliasesForJest,
@@ -9,7 +10,6 @@ import {
 
 import { ProjectError } from 'multiverse+project-utils:error.ts';
 import { jestConfigProjectBase } from 'multiverse+project-utils:fs.ts';
-import { createDebugLogger } from 'rejoinder';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 

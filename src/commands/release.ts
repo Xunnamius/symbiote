@@ -10,6 +10,14 @@ import '@-xun/symbiote/assets/conventional.config.cjs';
 
 import { run, runNoRejectOnBadExit, type RunOptions } from '@-xun/run';
 import { CliError, type ChildConfiguration } from '@black-flag/core';
+
+import {
+  SHORT_TAB,
+  SINGLE_SPACE,
+  type ExtendedDebugger,
+  type ExtendedLogger
+} from 'rejoinder';
+
 import semver from 'semver';
 import { type Merge, type OmitIndexSignature, type StringKeyOf } from 'type-fest';
 
@@ -42,13 +50,6 @@ import {
   toPath,
   xreleaseConfigProjectBase
 } from 'multiverse+project-utils:fs.ts';
-
-import {
-  SHORT_TAB,
-  SINGLE_SPACE,
-  type ExtendedDebugger,
-  type ExtendedLogger
-} from 'rejoinder';
 
 import {
   default as renovate,

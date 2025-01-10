@@ -7,6 +7,12 @@ import getInObject from 'lodash.get';
 import mergeWith from 'lodash.mergewith';
 
 import {
+  createDebugLogger,
+  type ExtendedDebugger,
+  type ExtendedLogger
+} from 'rejoinder';
+
+import {
   isRootPackage,
   ProjectAttribute,
   type Package,
@@ -21,12 +27,6 @@ import {
   type AbsolutePath,
   type RelativePath
 } from 'multiverse+project-utils:fs.ts';
-
-import {
-  createDebugLogger,
-  type ExtendedDebugger,
-  type ExtendedLogger
-} from 'rejoinder';
 
 import { DefaultGlobalScope } from 'universe:configure.ts';
 import { globalDebuggerNamespace } from 'universe:constant.ts';

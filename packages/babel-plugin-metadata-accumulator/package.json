@@ -9,9 +9,9 @@
     "collection",
     "imports"
   ],
-  "homepage": "https://github.com/Xunnamius/babel-plugin-metadata-accumulator#readme",
+  "homepage": "https://github.com/Xunnamius/symbiote/tree/main/packages/babel-plugin-metadata-accumulator#readme",
   "bugs": {
-    "url": "https://github.com/Xunnamius/babel-plugin-metadata-accumulator/issues"
+    "url": "https://github.com/Xunnamius/symbiote/issues"
   },
   "repository": {
     "type": "git",
