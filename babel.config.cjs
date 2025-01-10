@@ -3,12 +3,14 @@
 
 const { createDebugLogger } = require('rejoinder');
 
-const { deepMergeConfig } = require('@-xun/symbiote/assets');
-
 const {
   assertEnvironment,
   moduleExport
-} = require('@-xun/symbiote/assets/babel.config.cjs');
+  // ? This needs to be this way only for this project since it builds itself
+} = require('./node_modules/@-xun/symbiote/dist/src/assets/transformers/_babel.config.cjs.js');
+
+// ? This needs to be this way only for this project since it builds itself
+const { deepMergeConfig } = require('./node_modules/@-xun/symbiote/dist/src/assets.js');
 
 const debug = createDebugLogger({ namespace: 'symbiote:config:babel' });
 
