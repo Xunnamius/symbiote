@@ -298,6 +298,15 @@ export const ErrorMessage = {
   ActionAttemptedWithADirtyRepo(actionNoun: string) {
     return `a ${actionNoun} was attempted but the working tree is in an unclean state; please commit or stash before trying again`;
   },
+  ActionAttemptedWithIllegalExperimentalVersion(
+    actionNoun: string,
+    modernStyleTag: string
+  ) {
+    const packageName = modernStyleTag.split('@').slice(0, -1).join('@');
+    const fixedTag = `${packageName}@0.0.0-init`;
+
+    return `a ${actionNoun} was attempted but the most recent version tag (${modernStyleTag}) is "semver experimental," which is not supported by xrelease; please execute the following command before trying again:\ngit tag -a '${fixedTag}' -m 'commit analysis (changelog/release) starting point for: ${packageName}' '${modernStyleTag}^{}'`;
+  },
   RenovationRepositoryExtraneousRuleset(rulesetName: string) {
     return `encountered extraneous ruleset while analyzing remote repository: ${rulesetName}`;
   },

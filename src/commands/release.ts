@@ -1,13 +1,16 @@
+import assert from 'node:assert';
 import { chmod, mkdir, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { type ReadableStream } from 'node:stream/web';
 import { setTimeout as delay } from 'node:timers/promises';
 import { isNativeError } from 'node:util/types';
 
-import { run, runNoRejectOnBadExit, type RunOptions } from '@-xun/run';
-import { CliError, type ChildConfiguration } from '@black-flag/core';
 // ? Patches global Proxy and spawn functions; see documentation for details
 import '@-xun/symbiote/assets/conventional.config.cjs';
+
+import { run, runNoRejectOnBadExit, type RunOptions } from '@-xun/run';
+import { CliError, type ChildConfiguration } from '@black-flag/core';
+import semver from 'semver';
 import { type Merge, type OmitIndexSignature, type StringKeyOf } from 'type-fest';
 
 import {
@@ -66,7 +69,9 @@ import {
   determineRepoWorkingTreeDirty,
   getLatestCommitWithXpipelineInitCommandSuffixOrTagSuffix,
   getRelevantDotEnvFilePaths,
+  isGitReferenceMoreRecent,
   loadDotEnv,
+  noSpecialInitialCommitIndicator,
   runGlobalPreChecks,
   withGlobalBuilder,
   withGlobalUsage
@@ -871,14 +876,81 @@ const protoPrereleaseTasks: ProtoPrereleaseTask[][] = [
       emoji: '🚨',
       actionDescription: 'Validating repository state',
       helpDescription: 'Validate repository state',
-      async run(_, { force }, { self: { id }, log: _log }) {
+      async run(
+        { projectMetadata },
+        { force },
+        { self: { id }, debug: debug_, log: log_ }
+      ) {
         const problems: string[] = [];
-        const failLogger = _log.extend('repo-valid');
+        const debug = debug_.extend('repo-valid');
+        const failLogger = log_.extend('repo-valid');
+
+        const {
+          cwdPackage: {
+            json: { name: cwdPackageName }
+          }
+        } = projectMetadata;
+
+        hardAssert(cwdPackageName, ErrorMessage.GuruMeditation());
+
+        // * Check if repo is in a dirty state
 
         const { isDirty } = await determineRepoWorkingTreeDirty();
 
         if (isDirty) {
           problems.push(ErrorMessage.ActionAttemptedWithADirtyRepo('release'));
+        }
+
+        // * Check if most recent version tag is an illegal experimental semver
+
+        const initialCommit =
+          await getLatestCommitWithXpipelineInitCommandSuffixOrTagSuffix(
+            `${cwdPackageName}@`
+          );
+
+        debug('initialCommit: %O', initialCommit);
+
+        const { stdout: mostRecentRelevantVersionTag } = await runNoRejectOnBadExit(
+          'git',
+          ['describe', '--abbrev=0', '--match', `${cwdPackageName}@*`]
+        );
+
+        debug('mostRecentRelevantVersionTag: %O', mostRecentRelevantVersionTag);
+
+        const mostRecentRelevantVersion = semver.coerce(mostRecentRelevantVersionTag);
+
+        debug('mostRecentRelevantVersion: %O', mostRecentRelevantVersion);
+        assert(mostRecentRelevantVersion, ErrorMessage.GuruMeditation());
+
+        const isMostRecentRelevantVersionExperimental = semver.satisfies(
+          mostRecentRelevantVersion,
+          '0.x'
+        );
+
+        const isMostRecentRelevantVersionTagMoreRecentThanInit =
+          initialCommit === noSpecialInitialCommitIndicator ||
+          (await isGitReferenceMoreRecent(mostRecentRelevantVersionTag, initialCommit));
+
+        debug(
+          'isMostRecentRelevantVersionExperimental: %O',
+          isMostRecentRelevantVersionExperimental
+        );
+
+        debug(
+          'isMostRecentRelevantVersionTagMoreRecentThanInit: %O',
+          isMostRecentRelevantVersionTagMoreRecentThanInit
+        );
+
+        if (
+          isMostRecentRelevantVersionTagMoreRecentThanInit &&
+          isMostRecentRelevantVersionExperimental
+        ) {
+          problems.push(
+            ErrorMessage.ActionAttemptedWithIllegalExperimentalVersion(
+              'release',
+              mostRecentRelevantVersionTag
+            )
+          );
         }
 
         problems.forEach((problem, index) => {
