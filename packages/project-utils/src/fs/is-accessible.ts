@@ -1,5 +1,6 @@
 import { accessSync } from 'node:fs';
 import { access as accessAsync, constants as fsConstants_ } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
 
 import { cache, CacheScope } from 'rootverse+project-utils:src/cache.ts';
 
@@ -64,6 +65,10 @@ function isAccessible_(
     }
   }
 
+  if (path.startsWith('file:')) {
+    path = fileURLToPath(path);
+  }
+
   if (shouldRunSynchronously) {
     try {
       accessSync(path, fsConstant);
@@ -86,7 +91,8 @@ function isAccessible_(
 
 /**
  * Sugar for asynchronous `access(path, fsConstant)` that returns `true` or
- * `false` rather than rejecting or resolving to `undefined`.
+ * `false` rather than rejecting or resolving to `undefined`. Also supports
+ * `file:///` protocol URL paths.
  *
  * **NOTE: the result of this function is memoized! This does NOT _necessarily_
  * mean results will strictly equal each other. See `useCached` in this specific
@@ -101,7 +107,8 @@ export function isAccessible(...args: ParametersNoFirst<typeof isAccessible_>) {
 export namespace isAccessible {
   /**
    * Sugar for the synchronous `access(path, fsConstant)` that returns `true` or
-   * `false` rather than throwing or returning `void`.
+   * `false` rather than throwing or returning `void`. Also supports `file:///`
+   *   protocol URL paths.
    *
    * **NOTE: the result of this function is memoized! This does NOT
    * _necessarily_ mean results will strictly equal each other. See `useCached`
