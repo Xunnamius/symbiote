@@ -1114,6 +1114,15 @@ const protoReleaseTask: ProtoCoreReleaseTask = {
       await rollbackRepositoryToHead();
 
       if (previousCommitSha !== currentCommitSha) {
+        if (dryRun) {
+          log
+            .extend('UNDEFINED BEHAVIOR')
+            .warn(
+              [LogTag.IF_NOT_SILENCED],
+              '--dry-run detected but a new commit was created?'
+            );
+        }
+
         log.error(
           [LogTag.IF_NOT_SILENCED],
           '❗POTENTIALLY bad commit %O detected!',
@@ -1184,15 +1193,23 @@ const protoReleaseTask: ProtoCoreReleaseTask = {
         currentCommitSha
       );
 
-      await run('git', ['reset', '--hard', 'HEAD'], {
-        stdout: isQuieted ? 'ignore' : 'inherit',
-        stderr: isSilenced ? 'ignore' : 'inherit'
-      });
+      if (dryRun) {
+        log.message(
+          [LogTag.IF_NOT_SILENCED],
+          '(no rollback was performed due to --dry-run)',
+          currentCommitSha
+        );
+      } else {
+        await run('git', ['reset', '--hard', 'HEAD'], {
+          stdout: isQuieted ? 'ignore' : 'inherit',
+          stderr: isSilenced ? 'ignore' : 'inherit'
+        });
 
-      await run('git', ['clean', '-df'], {
-        stdout: isQuieted ? 'ignore' : 'inherit',
-        stderr: isSilenced ? 'ignore' : 'inherit'
-      });
+        await run('git', ['clean', '-df'], {
+          stdout: isQuieted ? 'ignore' : 'inherit',
+          stderr: isSilenced ? 'ignore' : 'inherit'
+        });
+      }
 
       log(
         [LogTag.IF_NOT_SILENCED],
