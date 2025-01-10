@@ -15,7 +15,7 @@ import {
   type AbsolutePath
 } from 'multiverse+project-utils:fs.ts';
 
-import { createDebugLogger } from 'multiverse+rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
 import { type TransformerContext } from 'universe:assets.ts';
 import { DefaultGlobalScope } from 'universe:configure.ts';

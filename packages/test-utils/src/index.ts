@@ -12,7 +12,7 @@ import uniqueFilename from 'unique-filename';
 
 import { webpackConfigProjectBase } from 'multiverse+project-utils:fs/well-known-constants.ts';
 import { toAbsolutePath, toPath } from 'multiverse+project-utils:fs.ts';
-import { createDebugLogger, type ExtendedDebugger } from 'multiverse+rejoinder';
+import { createDebugLogger, type ExtendedDebugger } from 'rejoinder';
 
 import {
   name as rootPackageJsonName,

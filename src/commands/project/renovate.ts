@@ -44,7 +44,7 @@ import {
   SINGLE_SPACE,
   type ExtendedDebugger,
   type ExtendedLogger
-} from 'multiverse+rejoinder';
+} from 'rejoinder';
 
 import { version as packageVersion } from 'rootverse:package.json';
 

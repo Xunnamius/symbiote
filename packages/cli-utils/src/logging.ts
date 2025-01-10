@@ -1,4 +1,4 @@
-import { type ExtendedLogger } from 'multiverse+rejoinder';
+import { type ExtendedLogger } from 'rejoinder';
 
 import { name as packageName, version as packageVersion } from 'rootverse:package.json';
 

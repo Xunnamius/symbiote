@@ -5,8 +5,6 @@ test.todo('this');
 
 // import { runNoRejectOnBadExit } from '@-xun/run';
 
-// import { debugFactory } from 'multiverse+debug';
-
 // import {
 //   dummyDirectoriesFixture,
 //   dummyFilesFixture,

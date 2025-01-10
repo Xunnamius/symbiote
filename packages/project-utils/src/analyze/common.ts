@@ -1,4 +1,4 @@
-import { createDebugLogger } from 'multiverse+rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
 import { type MetadataImportsPrefix } from 'rootverse+project-utils:src/analyze.ts';
 import { globalDebuggerNamespace } from 'rootverse+project-utils:src/constant.ts';

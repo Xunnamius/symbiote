@@ -27,7 +27,7 @@ import {
   type AbsolutePath
 } from 'multiverse+project-utils:fs.ts';
 
-import { SHORT_TAB } from 'multiverse+rejoinder';
+import { SHORT_TAB } from 'rejoinder';
 
 import {
   DefaultGlobalScope,

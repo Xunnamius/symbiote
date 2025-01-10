@@ -46,7 +46,7 @@ function getEslintAliases() {
     ['multiverse+cli-utils', './packages/cli-utils/src/index.ts'],
     ['multiverse+debug', './packages/debug/src/index.ts'],
     ['multiverse+project-utils', './packages/project-utils/src/index.ts'],
-    ['multiverse+rejoinder', './packages/rejoinder/src/index.ts'],
+    ['rejoinder', './packages/rejoinder/src/index.ts'],
     ['multiverse+test-utils', './packages/test-utils/src/index.ts'],
     [
       'rootverse+babel-plugin-metadata-accumulator:*',

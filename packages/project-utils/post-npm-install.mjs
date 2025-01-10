@@ -8,9 +8,7 @@ import { basename } from 'node:path';
 
 import { glob as globAsync } from 'glob';
 
-// TODO: replace with rejoinder once published
-// eslint-disable-next-line import/no-relative-packages
-import { createGenericLogger } from '../../node_modules/@-xun/symbiote/dist/packages/rejoinder/src/index.js';
+import { createGenericLogger } from 'rejoinder';
 
 const root = import.meta.dirname;
 const log = createGenericLogger({

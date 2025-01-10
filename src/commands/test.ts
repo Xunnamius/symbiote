@@ -32,7 +32,7 @@ import {
   tstycheConfigProjectBase
 } from 'multiverse+project-utils:fs.ts';
 
-import { SHORT_TAB } from 'multiverse+rejoinder';
+import { SHORT_TAB } from 'rejoinder';
 
 import { baseConfig } from 'universe:assets/transformers/_jest.config.mjs.ts';
 

@@ -8,7 +8,7 @@ import {
 
 import { ProjectError } from 'multiverse+project-utils:error.ts';
 import { remarkConfigProjectBase } from 'multiverse+project-utils:fs.ts';
-import { createDebugLogger } from 'multiverse+rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 import { globalDebuggerNamespace } from 'universe:constant.ts';
@@ -317,11 +317,9 @@ export const { transformer } = makeTransformer(function (context) {
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/${asset}';
+import { createDebugLogger } from 'rejoinder';
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
-
-/*const debug = createDebugLogger({ namespace: '${globalDebuggerNamespace}:config:remarkrc' });*/
+const debug = createDebugLogger({ namespace: '${globalDebuggerNamespace}:config:remarkrc' });
 
 const config = deepMergeConfig(moduleExport(await assertEnvironment()), {
   // Any custom configs here will be deep merged with moduleExport
@@ -329,7 +327,7 @@ const config = deepMergeConfig(moduleExport(await assertEnvironment()), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 `
       }
     ];

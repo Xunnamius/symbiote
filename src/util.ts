@@ -64,7 +64,7 @@ import {
   createDebugLogger,
   type ExtendedDebugger,
   type ExtendedLogger
-} from 'multiverse+rejoinder';
+} from 'rejoinder';
 
 import {
   DefaultGlobalScope,

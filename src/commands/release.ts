@@ -48,7 +48,7 @@ import {
   SINGLE_SPACE,
   type ExtendedDebugger,
   type ExtendedLogger
-} from 'multiverse+rejoinder';
+} from 'rejoinder';
 
 import {
   default as renovate,

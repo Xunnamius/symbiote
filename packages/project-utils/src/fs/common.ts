@@ -2,7 +2,7 @@ import { dirname, isAbsolute, join, relative, resolve } from 'node:path';
 
 import { type Tagged } from 'type-fest';
 
-import { createDebugLogger } from 'multiverse+rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
 import { globalDebuggerNamespace } from 'rootverse+project-utils:src/constant.ts';
 

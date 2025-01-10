@@ -36,7 +36,7 @@ import {
   resolveEntryPointsFromExportsTarget
 } from 'multiverse+project-utils:resolver.ts';
 
-import { createDebugLogger, createGenericLogger } from 'multiverse+rejoinder';
+import { createDebugLogger, createGenericLogger } from 'rejoinder';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 
@@ -433,10 +433,9 @@ const {
   moduleExport
 } = require('@-xun/symbiote/assets/${asset}');
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//const { createDebugLogger } = require('rejoinder');
+const { createDebugLogger } = require('rejoinder');
 
-/*const debug = createDebugLogger({ namespace: '${globalDebuggerNamespace}:config:babel' });*/
+const debug = createDebugLogger({ namespace: '${globalDebuggerNamespace}:config:babel' });
 
 module.exports = deepMergeConfig(
   moduleExport({
@@ -448,7 +447,7 @@ module.exports = deepMergeConfig(
   }
 );
 
-/*debug('exported config: %O', module.exports);*/
+debug('exported config: %O', module.exports);
 
 function getBabelAliases() {
 ${makeGeneratedAliasesWarningComment(2)}

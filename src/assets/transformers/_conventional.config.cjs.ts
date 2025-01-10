@@ -10,7 +10,7 @@ import semver from 'semver';
 import { interpolateTemplate, toSentenceCase } from 'multiverse+cli-utils:util.ts';
 import { analyzeProjectStructure, type ProjectMetadata } from 'multiverse+project-utils';
 import { xchangelogConfigProjectBase } from 'multiverse+project-utils:fs.ts';
-import { createDebugLogger } from 'multiverse+rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 import { globalDebuggerNamespace } from 'universe:constant.ts';
@@ -288,10 +288,9 @@ const {
   moduleExport
 } = require('@-xun/symbiote/assets/${asset}');
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//const { createDebugLogger } = require('rejoinder');
+const { createDebugLogger } = require('rejoinder');
 
-/*const debug = createDebugLogger({ namespace: '${globalDebuggerNamespace}:config:conventional' });*/
+const debug = createDebugLogger({ namespace: '${globalDebuggerNamespace}:config:conventional' });
 
 module.exports = moduleExport({
   ...assertEnvironment(),
@@ -302,7 +301,7 @@ module.exports = moduleExport({
   }
 });
 
-/*debug('exported config: %O', module.exports);*/
+debug('exported config: %O', module.exports);
 `
       }
     ];

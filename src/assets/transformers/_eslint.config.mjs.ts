@@ -42,7 +42,7 @@ import {
   type AbsolutePath
 } from 'multiverse+project-utils:fs.ts';
 
-import { createDebugLogger, createGenericLogger } from 'multiverse+rejoinder';
+import { createDebugLogger, createGenericLogger } from 'rejoinder';
 
 import { makeTransformer } from 'universe:assets.ts';
 
@@ -817,10 +817,9 @@ import {
   moduleExport
 } from '@-xun/symbiote/assets/${asset}';
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-/*import { createDebugLogger } from 'rejoinder';*/
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: '${globalDebuggerNamespace}:config:eslint' });*/
+const debug = createDebugLogger({ namespace: '${globalDebuggerNamespace}:config:eslint' });
 
 const config = moduleExport({
   derivedAliases: getEslintAliases(),
@@ -833,7 +832,7 @@ config.push({
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 
 function getEslintAliases() {
 ${makeGeneratedAliasesWarningComment(2)}

@@ -22,7 +22,7 @@ import {
   type ExtendedDebugger,
   type ExtendedLogger,
   type ListrManager
-} from 'multiverse+rejoinder';
+} from 'rejoinder';
 
 // ? Used in a comment for taskManager
 // eslint-disable-next-line @typescript-eslint/no-unused-vars

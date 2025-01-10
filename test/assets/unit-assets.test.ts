@@ -17,7 +17,7 @@ import {
   type RelativePath
 } from 'multiverse+project-utils:fs.ts';
 
-import { createDebugLogger, createGenericLogger } from 'multiverse+rejoinder';
+import { createDebugLogger, createGenericLogger } from 'rejoinder';
 
 import {
   magicStringChooserBlockEnd,

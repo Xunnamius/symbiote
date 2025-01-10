@@ -23,7 +23,7 @@ import { type ProjectMetadata } from 'multiverse+project-utils:analyze/common.ts
 import { cache } from 'multiverse+project-utils:cache.ts';
 import { isAccessible } from 'multiverse+project-utils:fs/is-accessible.ts';
 import { directoryDistPackageBase, toPath } from 'multiverse+project-utils:fs.ts';
-import { createDebugLogger, createGenericLogger } from 'multiverse+rejoinder';
+import { createDebugLogger, createGenericLogger } from 'rejoinder';
 
 import { version as packageVersion } from 'rootverse:package.json';
 

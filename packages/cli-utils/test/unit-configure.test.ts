@@ -3,7 +3,7 @@ import { type Arguments } from '@black-flag/core';
 import { type ExecutionContext } from '@black-flag/core/util';
 import { ListrErrorTypes } from 'listr2';
 
-import { createDebugLogger, createGenericLogger, TAB } from 'multiverse+rejoinder';
+import { createDebugLogger, createGenericLogger, TAB } from 'rejoinder';
 import { withMockedOutput } from 'multiverse+test-utils';
 
 import {

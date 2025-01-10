@@ -2,7 +2,7 @@ import { run } from '@-xun/run';
 
 import { hardAssert } from 'multiverse+cli-utils:error.ts';
 import { LogTag } from 'multiverse+cli-utils:logging.ts';
-import { type ExtendedLogger } from 'multiverse+rejoinder';
+import { type ExtendedLogger } from 'rejoinder';
 
 import { ErrorMessage } from 'universe:error.ts';
 

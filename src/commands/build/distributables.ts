@@ -81,7 +81,7 @@ import {
   resolveExportsTargetsFromEntryPoint
 } from 'multiverse+project-utils:resolver.ts';
 
-import { SHORT_TAB } from 'multiverse+rejoinder';
+import { SHORT_TAB } from 'rejoinder';
 
 import {
   extensionsTypescript,
@@ -1134,8 +1134,6 @@ distrib root: ${absoluteOutputDirPath}
               (bijectionResult.status === 'rejected' && bijectionResult.reason) ||
               (entryResult.status === 'rejected' && entryResult.reason) ||
               false;
-
-            // TODO: replace all this with rejoinder and listr
 
             genericLogger.newline([LogTag.IF_NOT_SILENCED]);
 

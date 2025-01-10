@@ -7,7 +7,7 @@ import {
   TAB,
   type ExtendedDebugger,
   type ExtendedLogger
-} from 'multiverse+rejoinder';
+} from 'rejoinder';
 
 import { TaskError } from 'rootverse+cli-utils:src/error.ts';
 import { type StandardExecutionContext } from 'rootverse+cli-utils:src/extensions.ts';

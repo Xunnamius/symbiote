@@ -32,10 +32,9 @@ export const { transformer } = makeTransformer(function (context) {
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/${asset}';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: '${globalDebuggerNamespace}:config:next' });*/
+const debug = createDebugLogger({ namespace: '${globalDebuggerNamespace}:config:next' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -43,7 +42,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 `
       }
     ];

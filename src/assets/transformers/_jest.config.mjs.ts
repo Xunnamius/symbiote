@@ -9,7 +9,7 @@ import {
 
 import { ProjectError } from 'multiverse+project-utils:error.ts';
 import { jestConfigProjectBase } from 'multiverse+project-utils:fs.ts';
-import { createDebugLogger } from 'multiverse+rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 
@@ -157,11 +157,9 @@ export const { transformer } = makeTransformer(function (context) {
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/${asset}';
+import { createDebugLogger } from 'rejoinder';
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
-
-/*const debug = createDebugLogger({ namespace: '${globalDebuggerNamespace}:config:jest' });*/
+const debug = createDebugLogger({ namespace: '${globalDebuggerNamespace}:config:jest' });
 
 const config = deepMergeConfig(
   moduleExport({ derivedAliases: getJestAliases(), ...assertEnvironment() }),
@@ -172,7 +170,7 @@ const config = deepMergeConfig(
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 
 function getJestAliases() {
 ${makeGeneratedAliasesWarningComment(2)}

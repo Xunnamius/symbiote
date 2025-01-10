@@ -29,7 +29,7 @@ import {
   xreleaseConfigProjectBase
 } from 'multiverse+project-utils:fs.ts';
 
-import { createDebugLogger } from 'multiverse+rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 
@@ -247,10 +247,9 @@ const {
   moduleExport
 } = require('@-xun/symbiote/assets/${asset}');
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//const { createDebugLogger } = require('rejoinder');
+const { createDebugLogger } = require('rejoinder');
 
-/*const debug = createDebugLogger({ namespace: '${globalDebuggerNamespace}:config:release' });*/
+const debug = createDebugLogger({ namespace: '${globalDebuggerNamespace}:config:release' });
 
 module.exports = deepMergeConfig(
   moduleExport(assertEnvironment({ projectRoot: __dirname })),
@@ -259,7 +258,7 @@ module.exports = deepMergeConfig(
   }
 );
 
-/*debug('exported config: %O', module.exports);*/
+debug('exported config: %O', module.exports);
 `
       }
     ];
@@ -493,15 +492,14 @@ export async function success(
 
   if (isDirty) {
     if (context.envCi.isCi) {
-      // TODO: if we implement some sort of rejoinder-based ci output scheme,
-      // TODO: replace this with that
+      // TODO: replace with rejoinder-github-actions
       process.stdout.write(
         `::warning title=Repository left in unclean state::${ErrorMessage.ReleaseFinishedWithADirtyRepo()}.\n`
       );
     }
 
     if (wasReleasedWithForce) {
-      // TODO: replace with rejoinder
+      // TODO: replace with rejoinder / rejoinder-github-actions
       // eslint-disable-next-line no-console
       console.warn(`⚠️🚧 ${ErrorMessage.ReleaseFinishedWithADirtyRepo()}`);
     } else {

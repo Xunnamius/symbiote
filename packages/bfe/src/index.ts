@@ -25,7 +25,7 @@ import { type ParserConfigurationOptions } from 'yargs';
 // {@symbiote/notInvalid yargs}
 import makeVanillaYargs from 'yargs/yargs';
 
-import { createDebugLogger } from 'multiverse+rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
 import { globalDebuggerNamespace } from 'rootverse+bfe:src/constant.ts';
 import { ErrorMessage, type KeyValueEntry } from 'rootverse+bfe:src/error.ts';

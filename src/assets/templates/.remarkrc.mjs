@@ -1,10 +1,11 @@
 // @ts-check
 import assert from 'node:assert';
 
+import { createDebugLogger } from 'rejoinder';
+
 import config from '../../../.remarkrc.mjs';
 
-// TODO: use rejoinder instead
-const debug = (await import('debug')).default('symbiote:config:remark:asset-templates');
+const debug = createDebugLogger({ namespace: 'symbiote:config:remark:asset-templates' });
 
 /**
  * * The goal of this file is to disable remark-validate-links for template
