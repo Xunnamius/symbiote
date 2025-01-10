@@ -9002,10 +9002,9 @@ scope: this-package
 // @ts-check
 'use strict';
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//const { createDebugLogger } = require('rejoinder');
+const { createDebugLogger } = require('rejoinder');
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:ncurc' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:ncurc' });
 
 // * https://www.npmjs.com/package/npm-check-updates#configuration-files
 module.exports = {
@@ -9016,7 +9015,7 @@ module.exports = {
   ]
 };
 
-/*debug('exported config: %O', module.exports);*/
+debug('exported config: %O', module.exports);
 "
 `;
 
@@ -9027,10 +9026,9 @@ scope: unlimited
 // @ts-check
 'use strict';
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//const { createDebugLogger } = require('rejoinder');
+const { createDebugLogger } = require('rejoinder');
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:ncurc' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:ncurc' });
 
 // * https://www.npmjs.com/package/npm-check-updates#configuration-files
 module.exports = {
@@ -9041,7 +9039,7 @@ module.exports = {
   ]
 };
 
-/*debug('exported config: %O', module.exports);*/
+debug('exported config: %O', module.exports);
 "
 `;
 
@@ -9052,10 +9050,9 @@ scope: unlimited
 // @ts-check
 'use strict';
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//const { createDebugLogger } = require('rejoinder');
+const { createDebugLogger } = require('rejoinder');
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:ncurc' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:ncurc' });
 
 // * https://www.npmjs.com/package/npm-check-updates#configuration-files
 module.exports = {
@@ -9066,7 +9063,7 @@ module.exports = {
   ]
 };
 
-/*debug('exported config: %O', module.exports);*/
+debug('exported config: %O', module.exports);
 "
 `;
 
@@ -9077,10 +9074,9 @@ scope: unlimited
 // @ts-check
 'use strict';
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//const { createDebugLogger } = require('rejoinder');
+const { createDebugLogger } = require('rejoinder');
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:ncurc' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:ncurc' });
 
 // * https://www.npmjs.com/package/npm-check-updates#configuration-files
 module.exports = {
@@ -9091,7 +9087,7 @@ module.exports = {
   ]
 };
 
-/*debug('exported config: %O', module.exports);*/
+debug('exported config: %O', module.exports);
 "
 `;
 
@@ -9102,10 +9098,9 @@ scope: unlimited
 // @ts-check
 'use strict';
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//const { createDebugLogger } = require('rejoinder');
+const { createDebugLogger } = require('rejoinder');
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:ncurc' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:ncurc' });
 
 // * https://www.npmjs.com/package/npm-check-updates#configuration-files
 module.exports = {
@@ -9116,7 +9111,7 @@ module.exports = {
   ]
 };
 
-/*debug('exported config: %O', module.exports);*/
+debug('exported config: %O', module.exports);
 "
 `;
 
@@ -9127,10 +9122,9 @@ scope: unlimited
 // @ts-check
 'use strict';
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//const { createDebugLogger } = require('rejoinder');
+const { createDebugLogger } = require('rejoinder');
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:ncurc' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:ncurc' });
 
 // * https://www.npmjs.com/package/npm-check-updates#configuration-files
 module.exports = {
@@ -9141,7 +9135,7 @@ module.exports = {
   ]
 };
 
-/*debug('exported config: %O', module.exports);*/
+debug('exported config: %O', module.exports);
 "
 `;
 
@@ -9152,10 +9146,9 @@ scope: this-package
 // @ts-check
 'use strict';
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//const { createDebugLogger } = require('rejoinder');
+const { createDebugLogger } = require('rejoinder');
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:ncurc' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:ncurc' });
 
 // * https://www.npmjs.com/package/npm-check-updates#configuration-files
 module.exports = {
@@ -9166,7 +9159,7 @@ module.exports = {
   ]
 };
 
-/*debug('exported config: %O', module.exports);*/
+debug('exported config: %O', module.exports);
 "
 `;
 
@@ -9177,10 +9170,9 @@ scope: unlimited
 // @ts-check
 'use strict';
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//const { createDebugLogger } = require('rejoinder');
+const { createDebugLogger } = require('rejoinder');
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:ncurc' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:ncurc' });
 
 // * https://www.npmjs.com/package/npm-check-updates#configuration-files
 module.exports = {
@@ -9191,7 +9183,7 @@ module.exports = {
   ]
 };
 
-/*debug('exported config: %O', module.exports);*/
+debug('exported config: %O', module.exports);
 "
 `;
 
@@ -9715,11 +9707,9 @@ scope: this-package
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/.remarkrc.mjs';
+import { createDebugLogger } from 'rejoinder';
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
-
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:remarkrc' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:remarkrc' });
 
 const config = deepMergeConfig(moduleExport(await assertEnvironment()), {
   // Any custom configs here will be deep merged with moduleExport
@@ -9727,7 +9717,7 @@ const config = deepMergeConfig(moduleExport(await assertEnvironment()), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -9739,11 +9729,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/.remarkrc.mjs';
+import { createDebugLogger } from 'rejoinder';
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
-
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:remarkrc' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:remarkrc' });
 
 const config = deepMergeConfig(moduleExport(await assertEnvironment()), {
   // Any custom configs here will be deep merged with moduleExport
@@ -9751,7 +9739,7 @@ const config = deepMergeConfig(moduleExport(await assertEnvironment()), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -9763,11 +9751,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/.remarkrc.mjs';
+import { createDebugLogger } from 'rejoinder';
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
-
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:remarkrc' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:remarkrc' });
 
 const config = deepMergeConfig(moduleExport(await assertEnvironment()), {
   // Any custom configs here will be deep merged with moduleExport
@@ -9775,7 +9761,7 @@ const config = deepMergeConfig(moduleExport(await assertEnvironment()), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -9787,11 +9773,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/.remarkrc.mjs';
+import { createDebugLogger } from 'rejoinder';
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
-
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:remarkrc' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:remarkrc' });
 
 const config = deepMergeConfig(moduleExport(await assertEnvironment()), {
   // Any custom configs here will be deep merged with moduleExport
@@ -9799,7 +9783,7 @@ const config = deepMergeConfig(moduleExport(await assertEnvironment()), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -9811,11 +9795,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/.remarkrc.mjs';
+import { createDebugLogger } from 'rejoinder';
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
-
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:remarkrc' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:remarkrc' });
 
 const config = deepMergeConfig(moduleExport(await assertEnvironment()), {
   // Any custom configs here will be deep merged with moduleExport
@@ -9823,7 +9805,7 @@ const config = deepMergeConfig(moduleExport(await assertEnvironment()), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -9835,11 +9817,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/.remarkrc.mjs';
+import { createDebugLogger } from 'rejoinder';
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
-
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:remarkrc' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:remarkrc' });
 
 const config = deepMergeConfig(moduleExport(await assertEnvironment()), {
   // Any custom configs here will be deep merged with moduleExport
@@ -9847,7 +9827,7 @@ const config = deepMergeConfig(moduleExport(await assertEnvironment()), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -9859,11 +9839,9 @@ scope: this-package
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/.remarkrc.mjs';
+import { createDebugLogger } from 'rejoinder';
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
-
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:remarkrc' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:remarkrc' });
 
 const config = deepMergeConfig(moduleExport(await assertEnvironment()), {
   // Any custom configs here will be deep merged with moduleExport
@@ -9871,7 +9849,7 @@ const config = deepMergeConfig(moduleExport(await assertEnvironment()), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -9883,11 +9861,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/.remarkrc.mjs';
+import { createDebugLogger } from 'rejoinder';
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
-
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:remarkrc' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:remarkrc' });
 
 const config = deepMergeConfig(moduleExport(await assertEnvironment()), {
   // Any custom configs here will be deep merged with moduleExport
@@ -9895,7 +9871,7 @@ const config = deepMergeConfig(moduleExport(await assertEnvironment()), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -21930,10 +21906,9 @@ const {
   moduleExport
 } = require('@-xun/symbiote/assets/babel.config.cjs');
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//const { createDebugLogger } = require('rejoinder');
+const { createDebugLogger } = require('rejoinder');
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:babel' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:babel' });
 
 module.exports = deepMergeConfig(
   moduleExport({
@@ -21945,7 +21920,7 @@ module.exports = deepMergeConfig(
   }
 );
 
-/*debug('exported config: %O', module.exports);*/
+debug('exported config: %O', module.exports);
 
 function getBabelAliases() {
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
@@ -21997,10 +21972,9 @@ const {
   moduleExport
 } = require('@-xun/symbiote/assets/babel.config.cjs');
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//const { createDebugLogger } = require('rejoinder');
+const { createDebugLogger } = require('rejoinder');
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:babel' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:babel' });
 
 module.exports = deepMergeConfig(
   moduleExport({
@@ -22012,7 +21986,7 @@ module.exports = deepMergeConfig(
   }
 );
 
-/*debug('exported config: %O', module.exports);*/
+debug('exported config: %O', module.exports);
 
 function getBabelAliases() {
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
@@ -22064,10 +22038,9 @@ const {
   moduleExport
 } = require('@-xun/symbiote/assets/babel.config.cjs');
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//const { createDebugLogger } = require('rejoinder');
+const { createDebugLogger } = require('rejoinder');
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:babel' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:babel' });
 
 module.exports = deepMergeConfig(
   moduleExport({
@@ -22079,7 +22052,7 @@ module.exports = deepMergeConfig(
   }
 );
 
-/*debug('exported config: %O', module.exports);*/
+debug('exported config: %O', module.exports);
 
 function getBabelAliases() {
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
@@ -22131,10 +22104,9 @@ const {
   moduleExport
 } = require('@-xun/symbiote/assets/babel.config.cjs');
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//const { createDebugLogger } = require('rejoinder');
+const { createDebugLogger } = require('rejoinder');
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:babel' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:babel' });
 
 module.exports = deepMergeConfig(
   moduleExport({
@@ -22146,7 +22118,7 @@ module.exports = deepMergeConfig(
   }
 );
 
-/*debug('exported config: %O', module.exports);*/
+debug('exported config: %O', module.exports);
 
 function getBabelAliases() {
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
@@ -22198,10 +22170,9 @@ const {
   moduleExport
 } = require('@-xun/symbiote/assets/babel.config.cjs');
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//const { createDebugLogger } = require('rejoinder');
+const { createDebugLogger } = require('rejoinder');
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:babel' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:babel' });
 
 module.exports = deepMergeConfig(
   moduleExport({
@@ -22213,7 +22184,7 @@ module.exports = deepMergeConfig(
   }
 );
 
-/*debug('exported config: %O', module.exports);*/
+debug('exported config: %O', module.exports);
 
 function getBabelAliases() {
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
@@ -22265,10 +22236,9 @@ const {
   moduleExport
 } = require('@-xun/symbiote/assets/babel.config.cjs');
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//const { createDebugLogger } = require('rejoinder');
+const { createDebugLogger } = require('rejoinder');
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:babel' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:babel' });
 
 module.exports = deepMergeConfig(
   moduleExport({
@@ -22280,7 +22250,7 @@ module.exports = deepMergeConfig(
   }
 );
 
-/*debug('exported config: %O', module.exports);*/
+debug('exported config: %O', module.exports);
 
 function getBabelAliases() {
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
@@ -22312,10 +22282,9 @@ const {
   moduleExport
 } = require('@-xun/symbiote/assets/babel.config.cjs');
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//const { createDebugLogger } = require('rejoinder');
+const { createDebugLogger } = require('rejoinder');
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:babel' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:babel' });
 
 module.exports = deepMergeConfig(
   moduleExport({
@@ -22327,7 +22296,7 @@ module.exports = deepMergeConfig(
   }
 );
 
-/*debug('exported config: %O', module.exports);*/
+debug('exported config: %O', module.exports);
 
 function getBabelAliases() {
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
@@ -22359,10 +22328,9 @@ const {
   moduleExport
 } = require('@-xun/symbiote/assets/babel.config.cjs');
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//const { createDebugLogger } = require('rejoinder');
+const { createDebugLogger } = require('rejoinder');
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:babel' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:babel' });
 
 module.exports = deepMergeConfig(
   moduleExport({
@@ -22374,7 +22342,7 @@ module.exports = deepMergeConfig(
   }
 );
 
-/*debug('exported config: %O', module.exports);*/
+debug('exported config: %O', module.exports);
 
 function getBabelAliases() {
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
@@ -22537,10 +22505,9 @@ scope: this-package
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/commitlint.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:commitlint' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:commitlint' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -22548,7 +22515,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -22561,10 +22528,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/commitlint.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:commitlint' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:commitlint' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -22572,7 +22538,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -22585,10 +22551,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/commitlint.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:commitlint' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:commitlint' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -22596,7 +22561,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -22609,10 +22574,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/commitlint.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:commitlint' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:commitlint' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -22620,7 +22584,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -22633,10 +22597,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/commitlint.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:commitlint' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:commitlint' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -22644,7 +22607,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -22657,10 +22620,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/commitlint.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:commitlint' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:commitlint' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -22668,7 +22630,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -22681,10 +22643,9 @@ scope: this-package
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/commitlint.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:commitlint' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:commitlint' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -22692,7 +22653,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -22705,10 +22666,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/commitlint.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:commitlint' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:commitlint' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -22716,7 +22676,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -22732,10 +22692,9 @@ const {
   moduleExport
 } = require('@-xun/symbiote/assets/conventional.config.cjs');
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//const { createDebugLogger } = require('rejoinder');
+const { createDebugLogger } = require('rejoinder');
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:conventional' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:conventional' });
 
 module.exports = moduleExport({
   ...assertEnvironment(),
@@ -22746,7 +22705,7 @@ module.exports = moduleExport({
   }
 });
 
-/*debug('exported config: %O', module.exports);*/
+debug('exported config: %O', module.exports);
 "
 `;
 
@@ -22762,10 +22721,9 @@ const {
   moduleExport
 } = require('@-xun/symbiote/assets/conventional.config.cjs');
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//const { createDebugLogger } = require('rejoinder');
+const { createDebugLogger } = require('rejoinder');
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:conventional' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:conventional' });
 
 module.exports = moduleExport({
   ...assertEnvironment(),
@@ -22776,7 +22734,7 @@ module.exports = moduleExport({
   }
 });
 
-/*debug('exported config: %O', module.exports);*/
+debug('exported config: %O', module.exports);
 "
 `;
 
@@ -22792,10 +22750,9 @@ const {
   moduleExport
 } = require('@-xun/symbiote/assets/conventional.config.cjs');
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//const { createDebugLogger } = require('rejoinder');
+const { createDebugLogger } = require('rejoinder');
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:conventional' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:conventional' });
 
 module.exports = moduleExport({
   ...assertEnvironment(),
@@ -22806,7 +22763,7 @@ module.exports = moduleExport({
   }
 });
 
-/*debug('exported config: %O', module.exports);*/
+debug('exported config: %O', module.exports);
 "
 `;
 
@@ -22822,10 +22779,9 @@ const {
   moduleExport
 } = require('@-xun/symbiote/assets/conventional.config.cjs');
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//const { createDebugLogger } = require('rejoinder');
+const { createDebugLogger } = require('rejoinder');
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:conventional' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:conventional' });
 
 module.exports = moduleExport({
   ...assertEnvironment(),
@@ -22836,7 +22792,7 @@ module.exports = moduleExport({
   }
 });
 
-/*debug('exported config: %O', module.exports);*/
+debug('exported config: %O', module.exports);
 "
 `;
 
@@ -22852,10 +22808,9 @@ const {
   moduleExport
 } = require('@-xun/symbiote/assets/conventional.config.cjs');
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//const { createDebugLogger } = require('rejoinder');
+const { createDebugLogger } = require('rejoinder');
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:conventional' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:conventional' });
 
 module.exports = moduleExport({
   ...assertEnvironment(),
@@ -22866,7 +22821,7 @@ module.exports = moduleExport({
   }
 });
 
-/*debug('exported config: %O', module.exports);*/
+debug('exported config: %O', module.exports);
 "
 `;
 
@@ -22882,10 +22837,9 @@ const {
   moduleExport
 } = require('@-xun/symbiote/assets/conventional.config.cjs');
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//const { createDebugLogger } = require('rejoinder');
+const { createDebugLogger } = require('rejoinder');
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:conventional' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:conventional' });
 
 module.exports = moduleExport({
   ...assertEnvironment(),
@@ -22896,7 +22850,7 @@ module.exports = moduleExport({
   }
 });
 
-/*debug('exported config: %O', module.exports);*/
+debug('exported config: %O', module.exports);
 "
 `;
 
@@ -22912,10 +22866,9 @@ const {
   moduleExport
 } = require('@-xun/symbiote/assets/conventional.config.cjs');
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//const { createDebugLogger } = require('rejoinder');
+const { createDebugLogger } = require('rejoinder');
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:conventional' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:conventional' });
 
 module.exports = moduleExport({
   ...assertEnvironment(),
@@ -22926,7 +22879,7 @@ module.exports = moduleExport({
   }
 });
 
-/*debug('exported config: %O', module.exports);*/
+debug('exported config: %O', module.exports);
 "
 `;
 
@@ -22942,10 +22895,9 @@ const {
   moduleExport
 } = require('@-xun/symbiote/assets/conventional.config.cjs');
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//const { createDebugLogger } = require('rejoinder');
+const { createDebugLogger } = require('rejoinder');
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:conventional' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:conventional' });
 
 module.exports = moduleExport({
   ...assertEnvironment(),
@@ -22956,7 +22908,7 @@ module.exports = moduleExport({
   }
 });
 
-/*debug('exported config: %O', module.exports);*/
+debug('exported config: %O', module.exports);
 "
 `;
 
@@ -22971,10 +22923,9 @@ import {
   moduleExport
 } from '@-xun/symbiote/assets/eslint.config.mjs';
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-/*import { createDebugLogger } from 'rejoinder';*/
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:eslint' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:eslint' });
 
 const config = moduleExport({
   derivedAliases: getEslintAliases(),
@@ -22987,7 +22938,7 @@ config.push({
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 
 function getEslintAliases() {
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
@@ -23036,10 +22987,9 @@ import {
   moduleExport
 } from '@-xun/symbiote/assets/eslint.config.mjs';
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-/*import { createDebugLogger } from 'rejoinder';*/
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:eslint' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:eslint' });
 
 const config = moduleExport({
   derivedAliases: getEslintAliases(),
@@ -23052,7 +23002,7 @@ config.push({
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 
 function getEslintAliases() {
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
@@ -23101,10 +23051,9 @@ import {
   moduleExport
 } from '@-xun/symbiote/assets/eslint.config.mjs';
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-/*import { createDebugLogger } from 'rejoinder';*/
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:eslint' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:eslint' });
 
 const config = moduleExport({
   derivedAliases: getEslintAliases(),
@@ -23117,7 +23066,7 @@ config.push({
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 
 function getEslintAliases() {
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
@@ -23166,10 +23115,9 @@ import {
   moduleExport
 } from '@-xun/symbiote/assets/eslint.config.mjs';
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-/*import { createDebugLogger } from 'rejoinder';*/
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:eslint' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:eslint' });
 
 const config = moduleExport({
   derivedAliases: getEslintAliases(),
@@ -23182,7 +23130,7 @@ config.push({
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 
 function getEslintAliases() {
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
@@ -23231,10 +23179,9 @@ import {
   moduleExport
 } from '@-xun/symbiote/assets/eslint.config.mjs';
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-/*import { createDebugLogger } from 'rejoinder';*/
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:eslint' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:eslint' });
 
 const config = moduleExport({
   derivedAliases: getEslintAliases(),
@@ -23247,7 +23194,7 @@ config.push({
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 
 function getEslintAliases() {
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
@@ -23296,10 +23243,9 @@ import {
   moduleExport
 } from '@-xun/symbiote/assets/eslint.config.mjs';
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-/*import { createDebugLogger } from 'rejoinder';*/
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:eslint' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:eslint' });
 
 const config = moduleExport({
   derivedAliases: getEslintAliases(),
@@ -23312,7 +23258,7 @@ config.push({
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 
 function getEslintAliases() {
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
@@ -23361,10 +23307,9 @@ import {
   moduleExport
 } from '@-xun/symbiote/assets/eslint.config.mjs';
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-/*import { createDebugLogger } from 'rejoinder';*/
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:eslint' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:eslint' });
 
 const config = moduleExport({
   derivedAliases: getEslintAliases(),
@@ -23377,7 +23322,7 @@ config.push({
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 
 function getEslintAliases() {
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
@@ -23406,10 +23351,9 @@ import {
   moduleExport
 } from '@-xun/symbiote/assets/eslint.config.mjs';
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-/*import { createDebugLogger } from 'rejoinder';*/
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:eslint' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:eslint' });
 
 const config = moduleExport({
   derivedAliases: getEslintAliases(),
@@ -23422,7 +23366,7 @@ config.push({
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 
 function getEslintAliases() {
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
@@ -23451,10 +23395,9 @@ import {
   moduleExport
 } from '@-xun/symbiote/assets/eslint.config.mjs';
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-/*import { createDebugLogger } from 'rejoinder';*/
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:eslint' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:eslint' });
 
 const config = moduleExport({
   derivedAliases: getEslintAliases(),
@@ -23467,7 +23410,7 @@ config.push({
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 
 function getEslintAliases() {
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
@@ -23494,10 +23437,9 @@ scope: this-package
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/gac.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:gac' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:gac' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -23505,7 +23447,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -23518,10 +23460,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/gac.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:gac' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:gac' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -23529,7 +23470,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -23542,10 +23483,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/gac.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:gac' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:gac' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -23553,7 +23493,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -23566,10 +23506,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/gac.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:gac' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:gac' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -23577,7 +23516,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -23590,10 +23529,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/gac.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:gac' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:gac' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -23601,7 +23539,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -23614,10 +23552,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/gac.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:gac' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:gac' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -23625,7 +23562,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -23638,10 +23575,9 @@ scope: this-package
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/gac.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:gac' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:gac' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -23649,7 +23585,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -23662,10 +23598,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/gac.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:gac' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:gac' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -23673,7 +23608,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -23686,11 +23621,9 @@ scope: this-package
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/jest.config.mjs';
+import { createDebugLogger } from 'rejoinder';
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
-
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:jest' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:jest' });
 
 const config = deepMergeConfig(
   moduleExport({ derivedAliases: getJestAliases(), ...assertEnvironment() }),
@@ -23701,7 +23634,7 @@ const config = deepMergeConfig(
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 
 function getJestAliases() {
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
@@ -23748,11 +23681,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/jest.config.mjs';
+import { createDebugLogger } from 'rejoinder';
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
-
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:jest' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:jest' });
 
 const config = deepMergeConfig(
   moduleExport({ derivedAliases: getJestAliases(), ...assertEnvironment() }),
@@ -23763,7 +23694,7 @@ const config = deepMergeConfig(
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 
 function getJestAliases() {
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
@@ -23810,11 +23741,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/jest.config.mjs';
+import { createDebugLogger } from 'rejoinder';
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
-
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:jest' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:jest' });
 
 const config = deepMergeConfig(
   moduleExport({ derivedAliases: getJestAliases(), ...assertEnvironment() }),
@@ -23825,7 +23754,7 @@ const config = deepMergeConfig(
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 
 function getJestAliases() {
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
@@ -23872,11 +23801,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/jest.config.mjs';
+import { createDebugLogger } from 'rejoinder';
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
-
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:jest' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:jest' });
 
 const config = deepMergeConfig(
   moduleExport({ derivedAliases: getJestAliases(), ...assertEnvironment() }),
@@ -23887,7 +23814,7 @@ const config = deepMergeConfig(
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 
 function getJestAliases() {
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
@@ -23934,11 +23861,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/jest.config.mjs';
+import { createDebugLogger } from 'rejoinder';
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
-
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:jest' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:jest' });
 
 const config = deepMergeConfig(
   moduleExport({ derivedAliases: getJestAliases(), ...assertEnvironment() }),
@@ -23949,7 +23874,7 @@ const config = deepMergeConfig(
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 
 function getJestAliases() {
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
@@ -23996,11 +23921,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/jest.config.mjs';
+import { createDebugLogger } from 'rejoinder';
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
-
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:jest' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:jest' });
 
 const config = deepMergeConfig(
   moduleExport({ derivedAliases: getJestAliases(), ...assertEnvironment() }),
@@ -24011,7 +23934,7 @@ const config = deepMergeConfig(
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 
 function getJestAliases() {
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
@@ -24038,11 +23961,9 @@ scope: this-package
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/jest.config.mjs';
+import { createDebugLogger } from 'rejoinder';
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
-
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:jest' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:jest' });
 
 const config = deepMergeConfig(
   moduleExport({ derivedAliases: getJestAliases(), ...assertEnvironment() }),
@@ -24053,7 +23974,7 @@ const config = deepMergeConfig(
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 
 function getJestAliases() {
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
@@ -24080,11 +24001,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/jest.config.mjs';
+import { createDebugLogger } from 'rejoinder';
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
-
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:jest' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:jest' });
 
 const config = deepMergeConfig(
   moduleExport({ derivedAliases: getJestAliases(), ...assertEnvironment() }),
@@ -24095,7 +24014,7 @@ const config = deepMergeConfig(
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 
 function getJestAliases() {
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
@@ -24122,10 +24041,9 @@ scope: this-package
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/lint-staged.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:lint-staged' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:lint-staged' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -24133,7 +24051,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -24146,10 +24064,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/lint-staged.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:lint-staged' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:lint-staged' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -24157,7 +24074,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -24170,10 +24087,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/lint-staged.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:lint-staged' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:lint-staged' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -24181,7 +24097,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -24194,10 +24110,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/lint-staged.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:lint-staged' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:lint-staged' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -24205,7 +24120,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -24218,10 +24133,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/lint-staged.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:lint-staged' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:lint-staged' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -24229,7 +24143,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -24242,10 +24156,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/lint-staged.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:lint-staged' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:lint-staged' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -24253,7 +24166,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -24266,10 +24179,9 @@ scope: this-package
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/lint-staged.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:lint-staged' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:lint-staged' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -24277,7 +24189,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -24290,10 +24202,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/lint-staged.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:lint-staged' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:lint-staged' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -24301,7 +24212,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -24314,10 +24225,9 @@ scope: this-package
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/next.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:next' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:next' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -24325,7 +24235,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -24338,10 +24248,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/next.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:next' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:next' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -24349,7 +24258,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -24362,10 +24271,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/next.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:next' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:next' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -24373,7 +24281,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -24386,10 +24294,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/next.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:next' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:next' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -24397,7 +24304,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -24410,10 +24317,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/next.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:next' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:next' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -24421,7 +24327,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -24434,10 +24340,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/next.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:next' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:next' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -24445,7 +24350,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -24458,10 +24363,9 @@ scope: this-package
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/next.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:next' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:next' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -24469,7 +24373,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -24482,10 +24386,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/next.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:next' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:next' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -24493,7 +24396,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -26260,10 +26163,9 @@ scope: this-package
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/postcss.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:postcss' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:postcss' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -26271,7 +26173,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -26284,10 +26186,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/postcss.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:postcss' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:postcss' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -26295,7 +26196,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -26308,10 +26209,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/postcss.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:postcss' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:postcss' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -26319,7 +26219,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -26332,10 +26232,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/postcss.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:postcss' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:postcss' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -26343,7 +26242,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -26356,10 +26255,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/postcss.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:postcss' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:postcss' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -26367,7 +26265,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -26380,10 +26278,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/postcss.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:postcss' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:postcss' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -26391,7 +26288,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -26404,10 +26301,9 @@ scope: this-package
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/postcss.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:postcss' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:postcss' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -26415,7 +26311,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -26428,10 +26324,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/postcss.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:postcss' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:postcss' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -26439,7 +26334,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -26452,10 +26347,9 @@ scope: this-package
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/prettier.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:prettier' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:prettier' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -26463,7 +26357,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -26476,10 +26370,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/prettier.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:prettier' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:prettier' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -26487,7 +26380,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -26500,10 +26393,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/prettier.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:prettier' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:prettier' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -26511,7 +26403,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -26524,10 +26416,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/prettier.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:prettier' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:prettier' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -26535,7 +26426,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -26548,10 +26439,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/prettier.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:prettier' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:prettier' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -26559,7 +26449,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -26572,10 +26462,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/prettier.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:prettier' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:prettier' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -26583,7 +26472,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -26596,10 +26485,9 @@ scope: this-package
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/prettier.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:prettier' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:prettier' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -26607,7 +26495,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -26620,10 +26508,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/prettier.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:prettier' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:prettier' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -26631,7 +26518,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -26649,10 +26536,9 @@ const {
   moduleExport
 } = require('@-xun/symbiote/assets/release.config.cjs');
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//const { createDebugLogger } = require('rejoinder');
+const { createDebugLogger } = require('rejoinder');
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:release' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:release' });
 
 module.exports = deepMergeConfig(
   moduleExport(assertEnvironment({ projectRoot: __dirname })),
@@ -26661,7 +26547,7 @@ module.exports = deepMergeConfig(
   }
 );
 
-/*debug('exported config: %O', module.exports);*/
+debug('exported config: %O', module.exports);
 "
 `;
 
@@ -26679,10 +26565,9 @@ const {
   moduleExport
 } = require('@-xun/symbiote/assets/release.config.cjs');
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//const { createDebugLogger } = require('rejoinder');
+const { createDebugLogger } = require('rejoinder');
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:release' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:release' });
 
 module.exports = deepMergeConfig(
   moduleExport(assertEnvironment({ projectRoot: __dirname })),
@@ -26691,7 +26576,7 @@ module.exports = deepMergeConfig(
   }
 );
 
-/*debug('exported config: %O', module.exports);*/
+debug('exported config: %O', module.exports);
 "
 `;
 
@@ -26709,10 +26594,9 @@ const {
   moduleExport
 } = require('@-xun/symbiote/assets/release.config.cjs');
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//const { createDebugLogger } = require('rejoinder');
+const { createDebugLogger } = require('rejoinder');
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:release' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:release' });
 
 module.exports = deepMergeConfig(
   moduleExport(assertEnvironment({ projectRoot: __dirname })),
@@ -26721,7 +26605,7 @@ module.exports = deepMergeConfig(
   }
 );
 
-/*debug('exported config: %O', module.exports);*/
+debug('exported config: %O', module.exports);
 "
 `;
 
@@ -26739,10 +26623,9 @@ const {
   moduleExport
 } = require('@-xun/symbiote/assets/release.config.cjs');
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//const { createDebugLogger } = require('rejoinder');
+const { createDebugLogger } = require('rejoinder');
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:release' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:release' });
 
 module.exports = deepMergeConfig(
   moduleExport(assertEnvironment({ projectRoot: __dirname })),
@@ -26751,7 +26634,7 @@ module.exports = deepMergeConfig(
   }
 );
 
-/*debug('exported config: %O', module.exports);*/
+debug('exported config: %O', module.exports);
 "
 `;
 
@@ -26769,10 +26652,9 @@ const {
   moduleExport
 } = require('@-xun/symbiote/assets/release.config.cjs');
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//const { createDebugLogger } = require('rejoinder');
+const { createDebugLogger } = require('rejoinder');
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:release' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:release' });
 
 module.exports = deepMergeConfig(
   moduleExport(assertEnvironment({ projectRoot: __dirname })),
@@ -26781,7 +26663,7 @@ module.exports = deepMergeConfig(
   }
 );
 
-/*debug('exported config: %O', module.exports);*/
+debug('exported config: %O', module.exports);
 "
 `;
 
@@ -26799,10 +26681,9 @@ const {
   moduleExport
 } = require('@-xun/symbiote/assets/release.config.cjs');
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//const { createDebugLogger } = require('rejoinder');
+const { createDebugLogger } = require('rejoinder');
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:release' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:release' });
 
 module.exports = deepMergeConfig(
   moduleExport(assertEnvironment({ projectRoot: __dirname })),
@@ -26811,7 +26692,7 @@ module.exports = deepMergeConfig(
   }
 );
 
-/*debug('exported config: %O', module.exports);*/
+debug('exported config: %O', module.exports);
 "
 `;
 
@@ -26829,10 +26710,9 @@ const {
   moduleExport
 } = require('@-xun/symbiote/assets/release.config.cjs');
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//const { createDebugLogger } = require('rejoinder');
+const { createDebugLogger } = require('rejoinder');
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:release' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:release' });
 
 module.exports = deepMergeConfig(
   moduleExport(assertEnvironment({ projectRoot: __dirname })),
@@ -26841,7 +26721,7 @@ module.exports = deepMergeConfig(
   }
 );
 
-/*debug('exported config: %O', module.exports);*/
+debug('exported config: %O', module.exports);
 "
 `;
 
@@ -26859,10 +26739,9 @@ const {
   moduleExport
 } = require('@-xun/symbiote/assets/release.config.cjs');
 
-// TODO: publish latest rejoinder package first, then update configs to use it
-//const { createDebugLogger } = require('rejoinder');
+const { createDebugLogger } = require('rejoinder');
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:release' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:release' });
 
 module.exports = deepMergeConfig(
   moduleExport(assertEnvironment({ projectRoot: __dirname })),
@@ -26871,7 +26750,7 @@ module.exports = deepMergeConfig(
   }
 );
 
-/*debug('exported config: %O', module.exports);*/
+debug('exported config: %O', module.exports);
 "
 `;
 
@@ -26964,10 +26843,9 @@ scope: this-package
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/tailwind.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:tailwind' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:tailwind' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -26975,7 +26853,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -26988,10 +26866,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/tailwind.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:tailwind' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:tailwind' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -26999,7 +26876,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -27012,10 +26889,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/tailwind.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:tailwind' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:tailwind' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -27023,7 +26899,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -27036,10 +26912,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/tailwind.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:tailwind' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:tailwind' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -27047,7 +26922,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -27060,10 +26935,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/tailwind.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:tailwind' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:tailwind' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -27071,7 +26945,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -27084,10 +26958,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/tailwind.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:tailwind' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:tailwind' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -27095,7 +26968,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -27108,10 +26981,9 @@ scope: this-package
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/tailwind.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:tailwind' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:tailwind' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -27119,7 +26991,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -27132,10 +27004,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/tailwind.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:tailwind' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:tailwind' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -27143,7 +27014,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -31641,10 +31512,9 @@ scope: this-package
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/webpack.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:webpack' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:webpack' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -31652,7 +31522,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -31665,10 +31535,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/webpack.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:webpack' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:webpack' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -31676,7 +31545,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -31689,10 +31558,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/webpack.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:webpack' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:webpack' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -31700,7 +31568,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -31713,10 +31581,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/webpack.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:webpack' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:webpack' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -31724,7 +31591,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -31737,10 +31604,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/webpack.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:webpack' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:webpack' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -31748,7 +31614,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -31761,10 +31627,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/webpack.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:webpack' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:webpack' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -31772,7 +31637,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -31785,10 +31650,9 @@ scope: this-package
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/webpack.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:webpack' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:webpack' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -31796,7 +31660,7 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
 
@@ -31809,10 +31673,9 @@ scope: unlimited
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { moduleExport } from '@-xun/symbiote/assets/webpack.config.mjs';
-// TODO: publish latest rejoinder package first, then update configs to use it
-//import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';
 
-/*const debug = createDebugLogger({ namespace: 'symbiote:config:webpack' });*/
+const debug = createDebugLogger({ namespace: 'symbiote:config:webpack' });
 
 const config = deepMergeConfig(moduleExport(), {
   // Any custom configs here will be deep merged with moduleExport's result
@@ -31820,6 +31683,6 @@ const config = deepMergeConfig(moduleExport(), {
 
 export default config;
 
-/*debug('exported config: %O', config);*/
+debug('exported config: %O', config);
 "
 `;
