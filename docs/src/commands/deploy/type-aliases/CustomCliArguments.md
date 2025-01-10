@@ -8,7 +8,7 @@
 
 > **CustomCliArguments**: [`GlobalCliArguments`](../../../configure/type-aliases/GlobalCliArguments.md)\<[`ThisPackageGlobalScope`](../../../configure/enumerations/ThisPackageGlobalScope.md)\> & `object` & \{ `preview`: `boolean`; `previewUrl`: `string`; `production`: `boolean`; `target`: [`Vercel`](../enumerations/DeployTarget.md#vercel); \} \| \{ `host`: `string`; `target`: [`Ssh`](../enumerations/DeployTarget.md#ssh); `toPath`: `string`; \}
 
-Defined in: [src/commands/deploy.ts:48](https://github.com/Xunnamius/symbiote/blob/ecdd713c4d242b92209fafa38beadafe2769795c/src/commands/deploy.ts#L48)
+Defined in: [src/commands/deploy.ts:48](https://github.com/Xunnamius/symbiote/blob/45a95680565f7437367edb2f8cc44a33e7541aa0/src/commands/deploy.ts#L48)
 
 ## Type declaration
 

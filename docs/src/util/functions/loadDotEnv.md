@@ -10,7 +10,7 @@
 
 > **loadDotEnv**(`settings`): `DotenvParseOutput`
 
-Defined in: [src/util.ts:782](https://github.com/Xunnamius/symbiote/blob/ecdd713c4d242b92209fafa38beadafe2769795c/src/util.ts#L782)
+Defined in: [src/util.ts:782](https://github.com/Xunnamius/symbiote/blob/45a95680565f7437367edb2f8cc44a33e7541aa0/src/util.ts#L782)
 
 Loads environment variables from the given `dotEnvFilePaths` files, with
 variables from files earlier in the list being overwritten by variables from
@@ -36,7 +36,7 @@ files, meaning they'll only be read once.**
 
 > **loadDotEnv**(`settings`): `DotenvParseOutput`
 
-Defined in: [src/util.ts:796](https://github.com/Xunnamius/symbiote/blob/ecdd713c4d242b92209fafa38beadafe2769795c/src/util.ts#L796)
+Defined in: [src/util.ts:796](https://github.com/Xunnamius/symbiote/blob/45a95680565f7437367edb2f8cc44a33e7541aa0/src/util.ts#L796)
 
 Loads environment variables from the given `dotEnvFilePaths` files, with
 variables from files earlier in the list being overwritten by variables from
@@ -62,7 +62,7 @@ files, meaning they'll only be read once.**
 
 > **loadDotEnv**(`expectedEnvironmentVariables`, `settings`): `DotenvParseOutput`
 
-Defined in: [src/util.ts:813](https://github.com/Xunnamius/symbiote/blob/ecdd713c4d242b92209fafa38beadafe2769795c/src/util.ts#L813)
+Defined in: [src/util.ts:813](https://github.com/Xunnamius/symbiote/blob/45a95680565f7437367edb2f8cc44a33e7541aa0/src/util.ts#L813)
 
 Loads environment variables from the given `dotEnvFilePaths` files, with
 variables from files earlier in the list being overwritten by variables from
@@ -95,7 +95,7 @@ files, meaning they'll only be read once.**
 
 > **loadDotEnv**(`expectedEnvironmentVariables`, `settings`): `DotenvParseOutput`
 
-Defined in: [src/util.ts:831](https://github.com/Xunnamius/symbiote/blob/ecdd713c4d242b92209fafa38beadafe2769795c/src/util.ts#L831)
+Defined in: [src/util.ts:831](https://github.com/Xunnamius/symbiote/blob/45a95680565f7437367edb2f8cc44a33e7541aa0/src/util.ts#L831)
 
 Loads environment variables from the given `dotEnvFilePaths` files, with
 variables from files earlier in the list being overwritten by variables from

@@ -8,7 +8,7 @@
 
 > **default**(`__namedParameters`): `object`
 
-Defined in: [src/commands/format.ts:57](https://github.com/Xunnamius/symbiote/blob/ecdd713c4d242b92209fafa38beadafe2769795c/src/commands/format.ts#L57)
+Defined in: [src/commands/format.ts:57](https://github.com/Xunnamius/symbiote/blob/45a95680565f7437367edb2f8cc44a33e7541aa0/src/commands/format.ts#L57)
 
 ## Parameters
 
