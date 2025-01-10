@@ -1034,7 +1034,7 @@ const protoReleaseTask: ProtoCoreReleaseTask = {
   helpDescription: 'Run @-xun/release (publish new release)',
   async run(
     { projectMetadata },
-    { dryRun, ci, quiet: isQuieted, silent: isSilenced },
+    { dryRun, ci, quiet: isQuieted, silent: isSilenced, force },
     { debug, log }
   ) {
     const {
@@ -1074,6 +1074,7 @@ const protoReleaseTask: ProtoCoreReleaseTask = {
         env: {
           NODE_OPTIONS: `${NODE_OPTIONS ? `${NODE_OPTIONS} ` : ''}--require @-xun/symbiote/assets/conventional.config.cjs`,
           SYMBIOTE_SPECIAL_INITIAL_COMMIT,
+          SYMBIOTE_RELEASE_WITH_FORCE: force.toString(),
           HUSKY: '0'
           // ? process.env is already automatically included
         },
