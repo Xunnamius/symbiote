@@ -1106,7 +1106,7 @@ export function isNonEmptyString(o: unknown): o is string {
   return typeof o === 'string' && o.length > 0;
 }
 
-// TODO: migrate some part of this into xpipeline and hoist the other part up ^^
+// TODO: migrate some part of this into xpipeline
 
 /**
  * The value populating the SYMBIOTE_SPECIAL_INITIAL_COMMIT environment variable
@@ -1117,7 +1117,7 @@ export const noSpecialInitialCommitIndicator = 'N/A';
 /**
  * Return the commit-ish (SHA hash) of the most recent commit containing the
  * Xpipeline command suffix `[INIT]`, or being pointed to by a
- * `package-name@0.0.0-init` version tag. If no such commit could be found,
+ * `${tagPrefix}0.0.0-init` version tag. If no such commit could be found,
  * {@link noSpecialInitialCommitIndicator} is returned.
  *
  * @see {@link XchangelogConfig}
@@ -1135,6 +1135,7 @@ export async function getLatestCommitWithXpipelineInitCommandSuffixOrTagSuffix(
         'log',
         '-1',
         '--pretty=format:%H',
+        // ? It's called "grep" but it accepts regular expressions...
         '--grep',
         String.raw`\[INIT]$`
       ]),
@@ -1152,19 +1153,14 @@ export async function getLatestCommitWithXpipelineInitCommandSuffixOrTagSuffix(
   let reference: string;
 
   if (xpipelineReference && initTagReference) {
-    // ? Use the most recent of the two options
-    const { exitCode: isXpipelineReferenceMoreRecent } = await runNoRejectOnBadExit(
-      'git',
-      [
-        'merge-base',
-        initTagReference,
-        '--is-ancestor',
-        xpipelineReference // ? Is xpipelineRef the ancestor of initTagRef?
-      ]
+    const isXpipelineReferenceMoreRecent = await isGitReferenceMoreRecent(
+      xpipelineReference,
+      initTagReference
     );
 
     debug('isXpipelineReferenceMoreRecent: %O', isXpipelineReferenceMoreRecent);
 
+    // ? Use the most recent of the two options
     reference = isXpipelineReferenceMoreRecent ? xpipelineReference : initTagReference;
   } else {
     reference =
@@ -1179,7 +1175,25 @@ export async function getLatestCommitWithXpipelineInitCommandSuffixOrTagSuffix(
   return reference;
 }
 
-// TODO: ^^^
+/**
+ * Returns `true` if `ref` is "more recent than" `moreRecentThan`.
+ *
+ * In other words: `true` is returned iff `moreRecentThan` is or points to a
+ * commit that is an ancestor of `ref`. Returns `false` otherwise, including
+ * when `ref === moreRecentThan`.
+ */
+export async function isGitReferenceMoreRecent(ref: string, moreRecentThan: string) {
+  return runNoRejectOnBadExit('git', [
+    // ? Exits with code 0 if...
+    'merge-base',
+    // ? ... this...
+    ref,
+    // ? ... is the ancestor of (or the same commit as)...
+    '--is-ancestor',
+    // ? ... this.
+    moreRecentThan
+  ]).then(({ exitCode }) => !!exitCode);
+}
 
 function toRefDefMapping([refDef, ref]: RegExpMatchArray) {
   return [ref, refDef.trim()] as const;
