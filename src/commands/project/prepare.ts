@@ -15,9 +15,11 @@ import { scriptBasename } from 'multiverse+cli-utils:util.ts';
 import { isRootPackage } from 'multiverse+project-utils:analyze.ts';
 
 import {
+  getCurrentWorkingDirectory,
   isAccessible,
   postNpmInstallPackageBase,
-  toAbsolutePath
+  toAbsolutePath,
+  type AbsolutePath
 } from 'multiverse+project-utils:fs.ts';
 
 import {
@@ -57,12 +59,12 @@ export default function command({
     force: {
       boolean: true,
       default: false,
-      describe: 'Run all possible initialization tasks regardless of environment/context'
+      describe: 'Run initialization tasks (except Husky) regardless of environment'
     },
     parallel: {
       boolean: true,
       default: true,
-      describe: 'Run initialization tasks concurrently'
+      describe: 'Run initialization tasks concurrently where possible'
     },
     'run-to-completion': {
       boolean: true,
@@ -75,24 +77,27 @@ export default function command({
     builder,
     description: 'Run project-level initialization tasks across all roots',
     usage: withGlobalUsage(
-      `$1.
+      `$1. The tasks executed by this command are, in order:
 
-The project-level initialization tasks executed by this command are, in order:
+1. If the runtime pre-checks fail, exit
+2. If executing in a CI or non-development environment and --force is not provided, exit
+3. If executing in a non-CI development environment and the current working directory is the project root, run \`npx husky\`
+4. If the npm_command environment variable is not "install" or "ci", exit
+5. If the current working directory contains a post-npm-install script, run that script
+6. If the current working directory IS NOT the project root, exit
+7. If the current working directory is the project root and the project is a monorepo, search each package root for a post-npm-install script and run them as they are encountered (with cwd set to each respective package's root)
 
-1. If executing in a CI or non-development environment (see below), exit immediately
-2. If the current working directory is the project root, run \`npx husky\`
-3. If the npm_command environment variable is not "install", exit immediately
-3. If the current working directory contains a post-npm-install script, run that script
-4. If the current working directory _is not_ the project root, exit immediately
-5. If the current working directory is the project root and the project is a monorepo, search each package root for a post-npm-install script and run them as they are found (with cwd set to each respective package's root)
+The ${postNpmInstallPackageBase} file, when present at a package root, is recognized as a post-npm-install script. Each package in a project (including the root package) can contain at most one post-npm-install script. These scrips have access to the following additional environment variables, each of which are defined as either "true" or "false": SYMBIOTE_IS_CI, SYMBIOTE_IS_DEVELOPMENT_ENV.
 
-The ${postNpmInstallPackageBase} file, when present at a package root, is recognized as a post-npm-install script. Each package in a project (including the root package) can contain at most one post-npm-install script.
+By default, this command exits (becomes a no-op) when the runtime pre-checks fail, the CI environment variable is defined (implies a CI environment and sets SYMBIOTE_IS_CI=true), or when the NODE_ENV environment variable is NOT undefined nor equal to "development" (implies a non-development environment and sets SYMBIOTE_IS_DEVELOPMENT_ENV=false).
 
-Typically, this command should not be executed manually but by your package manager automatically at "install time," i.e. when running \`npm install\` locally. With respect to NPM, this command should be run whenever NPM would run its "prepare" life cycle operation. Therefore, note that post-npm-install scripts MUST BE IDEMPOTENT, as they _will_ be invoked multiple times over the lifetime of long-lived projects, including at odd times like during package publication/release. See https://docs.npmjs.com/cli/v10/using-npm/scripts#life-cycle-operation-order for details.
+Provide --force to force this command to run post-npm-install scripts without regard for any environment variables, which can be useful in those rare cases where the scripts must run in CI and/or non-development environments. However, if the runtime pre-checks fail, this command will always exit as a no-op regardless of the flags passed.
 
-This command exits immediately (becomes a no-op) when the runtime pre-checks fail, the CI environment variable is defined, or when the NODE_ENV environment variable is NOT either undefined or equal to "development". Provide --force to force this command to perform project initialization without regard for any environment variables. However, if the runtime pre-checks fail, this command will always exit immediately as a no-op regardless of the flags passed.
+Note that, regardless of the presence of --force, Husky will NEVER execute in a CI or non-development environment.
 
-This command runs Husky along with any post-npm-install scripts asynchronously and concurrently. To force serial invocation, provide --no-parallel. This command also "runs to completion," in that task-level errors will not interrupt its execution. To fail on the first encountered error, provide --no-run-to-completion`
+Typically, this command should not be executed manually but by your package manager automatically at "install time," i.e. when running \`npm install\`/\`npm ci\` locally. With respect to NPM, this command should be run whenever NPM would run its "prepare" life cycle operation. Therefore, note that post-npm-install scripts MUST BE IDEMPOTENT and EXTREMELY LIGHTWEIGHT, as they WILL be invoked multiple times over the lifetime of long-lived projects, including at ODD TIMES like during package publication/release. See https://docs.npmjs.com/cli/v10/using-npm/scripts#life-cycle-operation-order for details.
+
+This command runs all its tasks asynchronously and concurrently where possible. To force serial invocation, provide --no-parallel. This command also "runs to completion," in that task-level errors will not interrupt its execution. To fail on the first encountered error, provide --no-run-to-completion`
     ),
     handler: withGlobalHandler(async function ({
       $0: scriptFullName,
@@ -147,19 +152,28 @@ This command runs Husky along with any post-npm-install scripts asynchronously a
         subRootPackages
       } = projectMetadata;
 
-      const { root: cwdPackageRoot } = cwdPackage;
+      const { root: currentPackageRoot } = cwdPackage;
+      const cwd = getCurrentWorkingDirectory();
+
       const isCwdTheProjectRoot = isRootPackage(cwdPackage);
       const isInCiEnvironment = !!process.env.CI;
+
       const isInDevelopmentEnvironment =
         process.env.NODE_ENV === undefined || process.env.NODE_ENV === 'development';
-      const isRunningNpmInstallCommand = process.env.npm_command === 'install';
+
+      const isRunningNpmInstallCommand = ['install', 'ci'].includes(
+        process.env.npm_command!
+      );
 
       debug('projectRoot: %O', projectRoot);
-      debug('cwdPackageRoot: %O', cwdPackageRoot);
+      debug('cwdPackageRoot: %O', currentPackageRoot);
       debug('isCwdTheProjectRoot: %O', isCwdTheProjectRoot);
       debug('isInCiEnvironment: %O', isInCiEnvironment);
       debug('isInDevelopmentEnvironment: %O', isInDevelopmentEnvironment);
       debug('isRunningNpmInstallCommand: %O', isRunningNpmInstallCommand);
+
+      const shouldRunTasks = !isInCiEnvironment && isInDevelopmentEnvironment;
+      debug('shouldRunTasks: %O', shouldRunTasks);
 
       if (runToCompletion) {
         debug.message(
@@ -167,99 +181,125 @@ This command runs Husky along with any post-npm-install scripts asynchronously a
         );
       }
 
-      if (force || (!isInCiEnvironment && isInDevelopmentEnvironment)) {
-        const errors: [identifier: string, error: unknown][] = [];
+      const errors: [identifier: string, error: unknown][] = [];
+      const tasks: ((shouldLogSuccess: boolean) => Promise<unknown>)[] = [];
 
-        const tasks: ((shouldLogSuccess: boolean) => Promise<unknown>)[] = [
-          async (shouldLogSuccess) => {
-            try {
-              genericLogger(
-                [LogTag.IF_NOT_HUSHED],
-                'Executing %O initialization task',
-                'husky'
-              );
-
-              await runWithInheritedIo('npx', ['husky'], { cwd: projectRoot });
-              debug('husky initialization was successful');
-
-              // TODO: replace this horror with centralized task logging
-              if (shouldLogSuccess) {
-                genericLogger.message(
-                  [LogTag.IF_NOT_QUIETED],
-                  'Task execution succeeded'
-                );
-              }
-            } catch (error) {
-              errors.push(['husky executable', error]);
-            }
-          }
-        ];
-
-        if (force || isRunningNpmInstallCommand) {
-          const roots = [
-            projectRoot,
-            ...(subRootPackages?.all.map(({ root }) => root) || [])
-          ];
-
-          for (const root of roots) {
-            const postNpmInstallPath = pathToFileURL(
-              toAbsolutePath(root, postNpmInstallPackageBase)
-            ).toString();
-            debug('postNpmInstallPath: %O', postNpmInstallPath);
-
-            tasks.push((shouldLogSuccess) =>
-              isAccessible(postNpmInstallPath, { useCached: true }).then(
-                async (isPathAccessible) => {
-                  if (isPathAccessible) {
-                    genericLogger(
-                      [LogTag.IF_NOT_HUSHED],
-                      'Executing post-npm-install script at: %O',
-                      postNpmInstallPath
-                    );
-
-                    try {
-                      await import(postNpmInstallPath);
-
-                      debug(
-                        'post-install script execution successful: %O',
-                        postNpmInstallPath
-                      );
-
-                      // TODO: replace this horror with centralized task logging
-                      if (shouldLogSuccess) {
-                        genericLogger.message(
-                          [LogTag.IF_NOT_QUIETED],
-                          'Task execution succeeded'
-                        );
-                      }
-                    } catch (error) {
-                      debug.error(
-                        'execution attempt failed catastrophically: %O',
-                        error
-                      );
-
-                      errors.push([postNpmInstallPath, error]);
-
-                      throw new CliError(
-                        ErrorMessage.BadPostNpmInstallScript(postNpmInstallPath),
-                        { cause: error }
-                      );
-                    }
-                  } else {
-                    debug.message(
-                      'no post-install script found at: %O',
-                      postNpmInstallPath
-                    );
-                  }
-                }
-              )
+      if (shouldRunTasks && isCwdTheProjectRoot) {
+        tasks.push(async (shouldLogSuccess) => {
+          try {
+            genericLogger(
+              [LogTag.IF_NOT_HUSHED],
+              'Executing %O initialization task',
+              'husky'
             );
+
+            await runWithInheritedIo('npx', ['husky'], { cwd: projectRoot });
+            debug('husky initialization was successful');
+
+            // ? This is here because we don't want one task to say "success!"
+            // ? while another poos the bed, especially when they are executed
+            // ? concurrently
+            // TODO: replace this horror with centralized task logging
+            if (shouldLogSuccess) {
+              genericLogger.message([LogTag.IF_NOT_QUIETED], 'Task execution succeeded');
+            }
+          } catch (error) {
+            errors.push(['husky executable', error]);
           }
+        });
+      }
+
+      if (isRunningNpmInstallCommand && (force || shouldRunTasks)) {
+        const roots = new Set<AbsolutePath>([currentPackageRoot]);
+
+        if (isCwdTheProjectRoot) {
+          subRootPackages?.all.forEach(({ root }) => roots.add(root));
         }
 
-        // TODO: use this in eventual task-runner API factorization along with
-        // TODO: what's in renovate, release, etc
+        debug('roots: %O', roots);
 
+        for (const root of roots) {
+          const postNpmInstallPath = pathToFileURL(
+            toAbsolutePath(root, postNpmInstallPackageBase)
+          ).toString();
+
+          debug('potential post-npm-install script path: %O', postNpmInstallPath);
+
+          tasks.push((shouldLogSuccess) =>
+            isAccessible(postNpmInstallPath, { useCached: true }).then(
+              async (isPathAccessible) => {
+                if (isPathAccessible) {
+                  genericLogger(
+                    [LogTag.IF_NOT_HUSHED],
+                    'Executing post-npm-install script at: %O',
+                    postNpmInstallPath
+                  );
+
+                  try {
+                    // ? Reset these before each invocation just in case a
+                    // ? script modified them
+                    process.env.SYMBIOTE_IS_CI = isInCiEnvironment.toString();
+                    process.env.SYMBIOTE_IS_DEVELOPMENT_ENV =
+                      isInDevelopmentEnvironment.toString();
+
+                    debug('SYMBIOTE_IS_CI: %O', process.env.SYMBIOTE_IS_CI);
+                    debug(
+                      'SYMBIOTE_IS_DEVELOPMENT_ENV: %O',
+                      process.env.SYMBIOTE_IS_DEVELOPMENT_ENV
+                    );
+
+                    debug('setting process.cwd to: %O', root);
+                    process.chdir(root);
+
+                    await import(postNpmInstallPath);
+
+                    debug(
+                      'post-install script execution successful: %O',
+                      postNpmInstallPath
+                    );
+
+                    // ? This is here because we don't want one task to say
+                    // ? "success!" while another poos the bed, especially when
+                    // ? they are executed concurrently
+                    // TODO: replace this horror with centralized task logging
+                    if (shouldLogSuccess) {
+                      genericLogger.message(
+                        [LogTag.IF_NOT_QUIETED],
+                        'Task execution succeeded'
+                      );
+                    }
+                  } catch (error) {
+                    debug.error('execution attempt failed catastrophically: %O', error);
+
+                    errors.push([postNpmInstallPath, error]);
+
+                    throw new CliError(
+                      ErrorMessage.BadPostNpmInstallScript(postNpmInstallPath),
+                      { cause: error }
+                    );
+                  } finally {
+                    try {
+                      process.chdir(cwd);
+                    } catch {}
+                  }
+                } else {
+                  debug.message(
+                    'no post-install script found at: %O',
+                    postNpmInstallPath
+                  );
+                }
+              }
+            )
+          );
+        }
+      }
+
+      // TODO: use this in eventual task-runner API factorization along with
+      // TODO: what's in renovate, release, etc
+
+      debug.error('tasks: %O', tasks);
+
+      if (tasks.length) {
         // TODO: redesign to have centralized logging in these blocks
         if (parallel) {
           debug.message('running tasks in parallel...');
@@ -310,7 +350,10 @@ This command runs Husky along with any post-npm-install scripts asynchronously a
         genericLogger.newline([LogTag.IF_NOT_QUIETED]);
         genericLogger([LogTag.IF_NOT_QUIETED], standardSuccessMessage);
       } else {
-        genericLogger([LogTag.IF_NOT_QUIETED], 'Skipped project preparation');
+        genericLogger(
+          [LogTag.IF_NOT_QUIETED],
+          'Skipped project preparation (no runnable tasks)'
+        );
       }
     })
   } satisfies ChildConfiguration<CustomCliArguments, GlobalExecutionContext>;
