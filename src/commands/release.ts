@@ -689,7 +689,7 @@ WARNING: this command is NOT DESIGNED TO HANDLE CONCURRENT EXECUTION ON THE SAME
         if (isGracefulExitSomewhereInCausalStack(error)) {
           genericLogger.message(
             [LogTag.IF_NOT_HUSHED],
-            'The release process exited prematurely, but gracefully 💃🏿 (i.e. not due to error)'
+            '💃🏿 The release process exited prematurely but gracefully 💃🏿'
           );
         } else {
           throw error;
