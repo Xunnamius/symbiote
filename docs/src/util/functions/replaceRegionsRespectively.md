@@ -8,7 +8,7 @@
 
 > **replaceRegionsRespectively**(`__namedParameters`): `Promise`\<`string`\>
 
-Defined in: [src/util.ts:468](https://github.com/Xunnamius/symbiote/blob/fcdd2ab0b85b01d184680d7337de52754feba693/src/util.ts#L468)
+Defined in: [src/util.ts:468](https://github.com/Xunnamius/symbiote/blob/ecdd713c4d242b92209fafa38beadafe2769795c/src/util.ts#L468)
 
 Performs regional replacement on a Markdown file's contents, including
 overwriting existing non-numeric reference definitions that match those

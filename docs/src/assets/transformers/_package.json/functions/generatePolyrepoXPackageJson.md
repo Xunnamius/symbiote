@@ -8,7 +8,7 @@
 
 > **generatePolyrepoXPackageJson**(...`__namedParameters`): `object`
 
-Defined in: [src/assets/transformers/\_package.json.ts:181](https://github.com/Xunnamius/symbiote/blob/fcdd2ab0b85b01d184680d7337de52754feba693/src/assets/transformers/_package.json.ts#L181)
+Defined in: [src/assets/transformers/\_package.json.ts:181](https://github.com/Xunnamius/symbiote/blob/ecdd713c4d242b92209fafa38beadafe2769795c/src/assets/transformers/_package.json.ts#L181)
 
 ## Parameters
 

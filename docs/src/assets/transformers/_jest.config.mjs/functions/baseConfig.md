@@ -8,7 +8,7 @@
 
 > **baseConfig**(`__namedParameters`): `object`
 
-Defined in: [src/assets/transformers/\_jest.config.mjs.ts:50](https://github.com/Xunnamius/symbiote/blob/fcdd2ab0b85b01d184680d7337de52754feba693/src/assets/transformers/_jest.config.mjs.ts#L50)
+Defined in: [src/assets/transformers/\_jest.config.mjs.ts:50](https://github.com/Xunnamius/symbiote/blob/ecdd713c4d242b92209fafa38beadafe2769795c/src/assets/transformers/_jest.config.mjs.ts#L50)
 
 Return a partial configuration that must be initialized further.
 
