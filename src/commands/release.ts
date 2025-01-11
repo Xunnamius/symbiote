@@ -1338,7 +1338,10 @@ const protoPostreleaseTasks: ProtoPostreleaseTask[][] = [
           debug('codecovCommand: %O', codecovCommand);
 
           if (isMissingCodecov) {
-            log.message([LogTag.IF_NOT_HUSHED], 'No "codecov" executable detected!');
+            log.message(
+              [LogTag.IF_NOT_HUSHED],
+              'No "codecov" executable detected in PATH!'
+            );
 
             softAssert(
               process.platform === 'linux',
