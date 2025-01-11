@@ -1080,7 +1080,7 @@ const protoPrereleaseTasks: ProtoPrereleaseTask[][] = [
           runToCompletion: true,
           parallel: false,
           force: true,
-          silent: true,
+          silent: false,
           quiet: true,
           hush: true
         });
