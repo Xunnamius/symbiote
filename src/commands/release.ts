@@ -958,10 +958,13 @@ const protoPrereleaseTasks: ProtoPrereleaseTask[][] = [
             );
           }
         } else {
-          failLogger.warn('No relevant version tags found for this package');
+          failLogger('No relevant version tags found for this package 🫥');
           failLogger.warn(
-            'ALL COMMITS SINCE THE INITIAL COMMIT ARE ELIGIBLE FOR ANALYSIS!'
+            `ALL COMMITS SINCE THE INITIAL COMMIT ARE ELIGIBLE FOR RELEASE ANALYSIS AND WILL BE INCLUDED IN THE CHANGELOG! If this is a mistake, interrupt this process now (CTRL+C) and create an initializing tag for this package (replace "HEAD" with the proper commit-ish):\ngit tag -a '${cwdPackageName}@0.0.0-init' -m 'commit analysis (changelog/release) starting point for: ${cwdPackageName}' HEAD`
           );
+
+          failLogger('Otherwise, the release process will resume in 10 seconds...');
+          await delay(10_000);
         }
 
         problems.forEach((problem, index) => {
