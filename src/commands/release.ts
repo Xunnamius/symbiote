@@ -918,39 +918,49 @@ const protoPrereleaseTasks: ProtoPrereleaseTask[][] = [
 
         debug('mostRecentRelevantVersionTag: %O', mostRecentRelevantVersionTag);
 
-        const mostRecentRelevantVersion = semver.coerce(mostRecentRelevantVersionTag);
+        if (mostRecentRelevantVersionTag) {
+          const mostRecentRelevantVersion = semver.coerce(mostRecentRelevantVersionTag);
 
-        debug('mostRecentRelevantVersion: %O', mostRecentRelevantVersion);
-        assert(mostRecentRelevantVersion, ErrorMessage.GuruMeditation());
+          debug('mostRecentRelevantVersion: %O', mostRecentRelevantVersion);
+          assert(mostRecentRelevantVersion, ErrorMessage.GuruMeditation());
 
-        const isMostRecentRelevantVersionExperimental = semver.satisfies(
-          mostRecentRelevantVersion,
-          '0.x'
-        );
+          const isMostRecentRelevantVersionExperimental = semver.satisfies(
+            mostRecentRelevantVersion,
+            '0.x'
+          );
 
-        const isMostRecentRelevantVersionTagMoreRecentThanInit =
-          initialCommit === noSpecialInitialCommitIndicator ||
-          (await isGitReferenceMoreRecent(mostRecentRelevantVersionTag, initialCommit));
+          const isMostRecentRelevantVersionTagMoreRecentThanInit =
+            initialCommit === noSpecialInitialCommitIndicator ||
+            (await isGitReferenceMoreRecent(
+              mostRecentRelevantVersionTag,
+              initialCommit
+            ));
 
-        debug(
-          'isMostRecentRelevantVersionExperimental: %O',
-          isMostRecentRelevantVersionExperimental
-        );
+          debug(
+            'isMostRecentRelevantVersionExperimental: %O',
+            isMostRecentRelevantVersionExperimental
+          );
 
-        debug(
-          'isMostRecentRelevantVersionTagMoreRecentThanInit: %O',
-          isMostRecentRelevantVersionTagMoreRecentThanInit
-        );
+          debug(
+            'isMostRecentRelevantVersionTagMoreRecentThanInit: %O',
+            isMostRecentRelevantVersionTagMoreRecentThanInit
+          );
 
-        if (
-          isMostRecentRelevantVersionTagMoreRecentThanInit &&
-          isMostRecentRelevantVersionExperimental
-        ) {
-          problems.push(
-            ErrorMessage.ActionAttemptedWithIllegalExperimentalVersion(
-              'release',
-              mostRecentRelevantVersionTag
-            )
+          if (
+            isMostRecentRelevantVersionTagMoreRecentThanInit &&
+            isMostRecentRelevantVersionExperimental
+          ) {
+            problems.push(
+              ErrorMessage.ActionAttemptedWithIllegalExperimentalVersion(
+                'release',
+                mostRecentRelevantVersionTag
+              )
+            );
+          }
+        } else {
+          failLogger.warn('No relevant version tags found for this package');
+          failLogger.warn(
+            'ALL COMMITS SINCE THE INITIAL COMMIT ARE ELIGIBLE FOR ANALYSIS!'
           );
         }
 
