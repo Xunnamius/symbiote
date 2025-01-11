@@ -1270,8 +1270,7 @@ const protoReleaseTask: ProtoCoreReleaseTask = {
       if (dryRun) {
         log.message(
           [LogTag.IF_NOT_SILENCED],
-          '(no rollback was performed due to --dry-run)',
-          currentCommitSha
+          '(no rollback was performed due to --dry-run)'
         );
       } else {
         await run('git', ['reset', '--hard', 'HEAD'], {
