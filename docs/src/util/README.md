@@ -32,6 +32,7 @@
 - [checkIsNotNegative](functions/checkIsNotNegative.md)
 - [checkIsNotNil](functions/checkIsNotNil.md)
 - [copyFile](functions/copyFile.md)
+- [deriveCodecovPackageFlag](functions/deriveCodecovPackageFlag.md)
 - [deriveScopeNarrowingPathspecs](functions/deriveScopeNarrowingPathspecs.md)
 - [determineRepoWorkingTreeDirty](functions/determineRepoWorkingTreeDirty.md)
 - [getLatestCommitWithXpipelineInitCommandSuffixOrTagSuffix](functions/getLatestCommitWithXpipelineInitCommandSuffixOrTagSuffix.md)

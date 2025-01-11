@@ -8,7 +8,7 @@
 
 > **configureExecutionEpilogue**(`argv`, `context`): `Promisable`\<`Arguments`\>
 
-Defined in: [src/configure.ts:250](https://github.com/Xunnamius/symbiote/blob/71ec833685b57a820bf8f2491ca78156a6893662/src/configure.ts#L250)
+Defined in: [src/configure.ts:250](https://github.com/Xunnamius/symbiote/blob/1e0174c32cff28e404202c1cf920e474b94cfe7b/src/configure.ts#L250)
 
 ## Parameters
 

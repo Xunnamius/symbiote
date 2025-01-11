@@ -8,7 +8,7 @@
 
 > **default**(`executionContext`): `object`
 
-Defined in: [src/commands/project/renovate.ts:280](https://github.com/Xunnamius/symbiote/blob/71ec833685b57a820bf8f2491ca78156a6893662/src/commands/project/renovate.ts#L280)
+Defined in: [src/commands/project/renovate.ts:281](https://github.com/Xunnamius/symbiote/blob/1e0174c32cff28e404202c1cf920e474b94cfe7b/src/commands/project/renovate.ts#L281)
 
 ## Parameters
 

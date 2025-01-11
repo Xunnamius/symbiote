@@ -8,7 +8,7 @@
 
 > **GatherAssetsFromTransformerOptions**: `object`
 
-Defined in: [src/assets.ts:320](https://github.com/Xunnamius/symbiote/blob/71ec833685b57a820bf8f2491ca78156a6893662/src/assets.ts#L320)
+Defined in: [src/assets.ts:324](https://github.com/Xunnamius/symbiote/blob/1e0174c32cff28e404202c1cf920e474b94cfe7b/src/assets.ts#L324)
 
 Options to tweak the runtime of [gatherAssetsFromTransformer](../functions/gatherAssetsFromTransformer.md) and
 related functions.

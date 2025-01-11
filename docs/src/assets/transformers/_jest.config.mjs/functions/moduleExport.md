@@ -8,7 +8,7 @@
 
 > **moduleExport**(`__namedParameters`): `object`
 
-Defined in: [src/assets/transformers/\_jest.config.mjs.ts:104](https://github.com/Xunnamius/symbiote/blob/71ec833685b57a820bf8f2491ca78156a6893662/src/assets/transformers/_jest.config.mjs.ts#L104)
+Defined in: [src/assets/transformers/\_jest.config.mjs.ts:104](https://github.com/Xunnamius/symbiote/blob/1e0174c32cff28e404202c1cf920e474b94cfe7b/src/assets/transformers/_jest.config.mjs.ts#L104)
 
 ## Parameters
 

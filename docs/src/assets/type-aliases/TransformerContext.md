@@ -8,7 +8,7 @@
 
 > **TransformerContext**: `object`
 
-Defined in: [src/assets.ts:208](https://github.com/Xunnamius/symbiote/blob/71ec833685b57a820bf8f2491ca78156a6893662/src/assets.ts#L208)
+Defined in: [src/assets.ts:208](https://github.com/Xunnamius/symbiote/blob/1e0174c32cff28e404202c1cf920e474b94cfe7b/src/assets.ts#L208)
 
 A union of well-known context keys passed directly to each transformer
 [Transformer](Transformer.md).
@@ -67,6 +67,12 @@ The standard markdown text denoting the beginning of a new choice in a
 > **chooserBlockStart**: `string`
 
 The standard markdown text denoting the start of a "chooser block".
+
+### codecovFlag
+
+> **codecovFlag**: `string`
+
+The flag used when generating codecov badges and related links.
 
 ### debug
 
