@@ -8,7 +8,7 @@
 
 > **\_\_read\_file\_sync**(`path`): `string`
 
-Defined in: [src/util.ts:1081](https://github.com/Xunnamius/symbiote/blob/e2a70374b9e5c61d555e2445ff09c823f586ccb3/src/util.ts#L1081)
+Defined in: [src/util.ts:1081](https://github.com/Xunnamius/symbiote/blob/15d3444639e5919af49429f7c60a387a77f22b82/src/util.ts#L1081)
 
 ## Parameters
 
