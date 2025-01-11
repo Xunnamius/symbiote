@@ -10,7 +10,7 @@ import os from 'node:os';
 
 import { run } from '@-xun/run';
 import { type ExecutionContext } from '@black-flag/core/util';
-import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger, createGenericLogger } from 'rejoinder';
 
 import { getInvocableExtendedHandler } from 'multiverse+bfe';
 
@@ -45,7 +45,7 @@ import {
   type GlobalExecutionContext
 } from 'universe:configure.ts';
 
-import { globalDebuggerNamespace } from 'universe:constant.ts';
+import { globalDebuggerNamespace, globalLoggerNamespace } from 'universe:constant.ts';
 import { ErrorMessage } from 'universe:error.ts';
 
 import {
@@ -68,6 +68,10 @@ import type {
 
 const debug = createDebugLogger({
   namespace: `${globalDebuggerNamespace}:asset:release`
+});
+
+const log = createGenericLogger({
+  namespace: `${globalLoggerNamespace}:asset:release`
 });
 
 export type { ReleaseConfig };
@@ -448,6 +452,7 @@ export async function success(
   { projectRelativePackageLockPath }: PluginConfig,
   context: SuccessContext
 ) {
+  const pluginLog = log.extend('post-release');
   const pluginDebug = debug.extend('success');
   pluginDebug('entered step function');
 
@@ -470,14 +475,20 @@ export async function success(
   // ? We don't really care if this fails since failure will cause the next
   // ? check to fail
   try {
-    await run('git', ['reset']);
-    await run('git', ['add', projectRelativePackageLockPath]);
-    await run('git', [
-      'commit',
-      '--no-verify',
-      '-m',
-      'chore: commit post-release metadata changes'
-    ]);
+    const sharedOptions: Parameters<typeof run>[2] = { stdio: 'inherit' };
+
+    await run('git', ['reset'], sharedOptions);
+    await run('git', ['add', projectRelativePackageLockPath], sharedOptions);
+
+    await run(
+      'git',
+      ['commit', '--no-verify', '-m', 'chore: commit post-release metadata changes'],
+      sharedOptions
+    );
+
+    await run('git', ['push'], sharedOptions);
+
+    pluginLog('committed and pushed post-release metadata changes');
   } catch (error) {
     pluginDebug.warn(
       'attempt to commit post-release metadata changes failed (which might not be an issue): %O',
