@@ -6,7 +6,7 @@
 
 # Enumeration: DefaultGlobalScope
 
-Defined in: [src/configure.ts:62](https://github.com/Xunnamius/symbiote/blob/5ab38d0bb0a593488721fdd41b6c1fcc4618d081/src/configure.ts#L62)
+Defined in: [src/configure.ts:62](https://github.com/Xunnamius/symbiote/blob/16c5abb574a56340fcb49cdcf402702ed3917f82/src/configure.ts#L62)
 
 Determines which project files are considered within a command's purview.
 Files outside of a command's purview will be treated by symbiote as if they
@@ -21,7 +21,7 @@ This enum is essentially [ThisPackageGlobalScope](ThisPackageGlobalScope.md) +
 
 > **ThisPackage**: `"this-package"`
 
-Defined in: [src/configure.ts:71](https://github.com/Xunnamius/symbiote/blob/5ab38d0bb0a593488721fdd41b6c1fcc4618d081/src/configure.ts#L71)
+Defined in: [src/configure.ts:71](https://github.com/Xunnamius/symbiote/blob/16c5abb574a56340fcb49cdcf402702ed3917f82/src/configure.ts#L71)
 
 Limit the command to _all_ relevant files contained within the current
 package (as determined by the current working directory), excluding the
@@ -36,7 +36,7 @@ This is the default scope for most commands.
 
 > **Unlimited**: `"unlimited"`
 
-Defined in: [src/configure.ts:78](https://github.com/Xunnamius/symbiote/blob/5ab38d0bb0a593488721fdd41b6c1fcc4618d081/src/configure.ts#L78)
+Defined in: [src/configure.ts:78](https://github.com/Xunnamius/symbiote/blob/16c5abb574a56340fcb49cdcf402702ed3917f82/src/configure.ts#L78)
 
 Do not limit or exclude any files by default when running the command.
 

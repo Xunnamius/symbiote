@@ -8,7 +8,7 @@
 
 > **checkArrayNotEmpty**(`argName`, `adjective`): (`currentArg`) => `string` \| `true`
 
-Defined in: [src/util.ts:1130](https://github.com/Xunnamius/symbiote/blob/5ab38d0bb0a593488721fdd41b6c1fcc4618d081/src/util.ts#L1130)
+Defined in: [src/util.ts:1130](https://github.com/Xunnamius/symbiote/blob/16c5abb574a56340fcb49cdcf402702ed3917f82/src/util.ts#L1130)
 
 ## Parameters
 
