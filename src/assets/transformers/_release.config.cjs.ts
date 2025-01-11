@@ -488,7 +488,7 @@ export async function success(
 
     await run('git', ['push'], sharedOptions);
 
-    pluginLog('committed and pushed post-release metadata changes');
+    pluginLog('Committed and pushed post-release metadata changes');
   } catch (error) {
     pluginDebug.warn(
       'attempt to commit post-release metadata changes failed (which might not be an issue): %O',
