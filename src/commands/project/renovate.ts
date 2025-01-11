@@ -344,6 +344,8 @@ ${printRenovationTasks()}`,
       const genericLogger = log.extend(handlerName);
       const debug = debug_.extend(`handler-${handlerName}`);
 
+      const camelize = (str: string) => str.replaceAll(/-./g, (x) => x[1].toUpperCase());
+
       debug('entered handler');
 
       const { projectMetadata } = await runGlobalPreChecks({
@@ -390,7 +392,7 @@ ${printRenovationTasks()}`,
 
         const taskPromiseFunctions = renovationTasksEntries
           .map(([taskName, task]) => {
-            if (!argv[taskName]) {
+            if (!argv[taskName] && !argv[camelize(taskName) as typeof taskName]) {
               return undefined;
             }
 
