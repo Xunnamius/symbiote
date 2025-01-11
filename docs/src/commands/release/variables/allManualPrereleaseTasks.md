@@ -8,7 +8,7 @@
 
 > `const` **allManualPrereleaseTasks**: `"manual"` = `'manual'`
 
-Defined in: [src/commands/release.ts:134](https://github.com/Xunnamius/symbiote/blob/15d3444639e5919af49429f7c60a387a77f22b82/src/commands/release.ts#L134)
+Defined in: [src/commands/release.ts:134](https://github.com/Xunnamius/symbiote/blob/5ab38d0bb0a593488721fdd41b6c1fcc4618d081/src/commands/release.ts#L134)
 
 A string that can be passed to --skip-tasks representing all prerelease tasks
 that should be skipped when following "Manual Release Method 2" in

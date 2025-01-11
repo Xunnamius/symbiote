@@ -8,4 +8,4 @@
 
 > `const` **default**: `Linter.Config`[]
 
-Defined in: [types/eslint-config-turbo.d.ts:5](https://github.com/Xunnamius/symbiote/blob/15d3444639e5919af49429f7c60a387a77f22b82/types/eslint-config-turbo.d.ts#L5)
+Defined in: [types/eslint-config-turbo.d.ts:5](https://github.com/Xunnamius/symbiote/blob/5ab38d0bb0a593488721fdd41b6c1fcc4618d081/types/eslint-config-turbo.d.ts#L5)

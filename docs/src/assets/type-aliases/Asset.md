@@ -8,7 +8,7 @@
 
 > **Asset**: `object`
 
-Defined in: [src/assets.ts:164](https://github.com/Xunnamius/symbiote/blob/15d3444639e5919af49429f7c60a387a77f22b82/src/assets.ts#L164)
+Defined in: [src/assets.ts:164](https://github.com/Xunnamius/symbiote/blob/5ab38d0bb0a593488721fdd41b6c1fcc4618d081/src/assets.ts#L164)
 
 An _asset_ maps an absolute output path and a function that generates output.
 
