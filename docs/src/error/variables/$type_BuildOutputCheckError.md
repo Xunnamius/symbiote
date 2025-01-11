@@ -8,4 +8,4 @@
 
 > `const` **$type\_BuildOutputCheckError**: *typeof* [`$type_BuildOutputCheckError`]($type_BuildOutputCheckError.md)
 
-Defined in: [src/error.ts:25](https://github.com/Xunnamius/symbiote/blob/1e0174c32cff28e404202c1cf920e474b94cfe7b/src/error.ts#L25)
+Defined in: [src/error.ts:25](https://github.com/Xunnamius/symbiote/blob/e2a70374b9e5c61d555e2445ff09c823f586ccb3/src/error.ts#L25)

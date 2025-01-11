@@ -8,7 +8,7 @@
 
 > **default**(`__namedParameters`): `object`
 
-Defined in: [src/commands/clean.ts:59](https://github.com/Xunnamius/symbiote/blob/1e0174c32cff28e404202c1cf920e474b94cfe7b/src/commands/clean.ts#L59)
+Defined in: [src/commands/clean.ts:59](https://github.com/Xunnamius/symbiote/blob/e2a70374b9e5c61d555e2445ff09c823f586ccb3/src/commands/clean.ts#L59)
 
 ## Parameters
 

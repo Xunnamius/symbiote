@@ -8,6 +8,6 @@
 
 > **MergeWithCustomizer**: `Parameters`\<*typeof* `mergeWith`\>\[`2`\]
 
-Defined in: [src/assets.ts:606](https://github.com/Xunnamius/symbiote/blob/1e0174c32cff28e404202c1cf920e474b94cfe7b/src/assets.ts#L606)
+Defined in: [src/assets.ts:606](https://github.com/Xunnamius/symbiote/blob/e2a70374b9e5c61d555e2445ff09c823f586ccb3/src/assets.ts#L606)
 
 The `MergeWithCustomizer` type from lodash's mergeWith.

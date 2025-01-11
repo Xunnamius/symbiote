@@ -8,7 +8,7 @@
 
 > **ImportedChangelogPatcher**: [`ChangelogPatches`](ChangelogPatches.md) \| [`ChangelogPatcherFunction`](ChangelogPatcherFunction.md)
 
-Defined in: [src/commands/build/changelog.ts:109](https://github.com/Xunnamius/symbiote/blob/1e0174c32cff28e404202c1cf920e474b94cfe7b/src/commands/build/changelog.ts#L109)
+Defined in: [src/commands/build/changelog.ts:109](https://github.com/Xunnamius/symbiote/blob/e2a70374b9e5c61d555e2445ff09c823f586ccb3/src/commands/build/changelog.ts#L109)
 
 Represents the result of importing a `changelog.patch.mjs` file.
 `changelog.patch.mjs` can export via default either
