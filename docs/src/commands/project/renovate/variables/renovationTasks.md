@@ -8,7 +8,7 @@
 
 > `const` **renovationTasks**: `object`
 
-Defined in: [src/commands/project/renovate.ts:745](https://github.com/Xunnamius/symbiote/blob/16c5abb574a56340fcb49cdcf402702ed3917f82/src/commands/project/renovate.ts#L745)
+Defined in: [src/commands/project/renovate.ts:745](https://github.com/Xunnamius/symbiote/blob/130931259fdc2fa9b7d2a06a4f7ac8fdd407e67a/src/commands/project/renovate.ts#L745)
 
 ## Type declaration
 

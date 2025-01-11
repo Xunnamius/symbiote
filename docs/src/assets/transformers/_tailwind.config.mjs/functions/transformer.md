@@ -8,7 +8,7 @@
 
 > **transformer**(`this`, `context`, `options`?): `Promise`\<[`ReifiedAssets`](../../../type-aliases/ReifiedAssets.md)\>
 
-Defined in: [src/assets/transformers/\_tailwind.config.mjs.ts:17](https://github.com/Xunnamius/symbiote/blob/16c5abb574a56340fcb49cdcf402702ed3917f82/src/assets/transformers/_tailwind.config.mjs.ts#L17)
+Defined in: [src/assets/transformers/\_tailwind.config.mjs.ts:17](https://github.com/Xunnamius/symbiote/blob/130931259fdc2fa9b7d2a06a4f7ac8fdd407e67a/src/assets/transformers/_tailwind.config.mjs.ts#L17)
 
 ## Parameters
 
