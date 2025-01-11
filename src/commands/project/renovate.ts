@@ -2101,7 +2101,7 @@ See the symbiote wiki documentation for more details on this command and all ava
       if (subRootPackages) {
         if (scope === DefaultGlobalScope.ThisPackage) {
           log(
-            [LogTag.IF_NOT_QUIETED],
+            [LogTag.IF_NOT_SILENCED],
             'Synchronizing dependencies in %O',
             cwdPackage.json.name
           );
@@ -2109,7 +2109,7 @@ See the symbiote wiki documentation for more details on this command and all ava
           await synchronizePackageInterdependencies(cwdPackage);
         } else {
           log(
-            [LogTag.IF_NOT_QUIETED],
+            [LogTag.IF_NOT_SILENCED],
             'Synchronizing dependencies across the entire project'
           );
 
@@ -2118,7 +2118,7 @@ See the symbiote wiki documentation for more details on this command and all ava
           );
         }
       } else {
-        log.message([LogTag.IF_NOT_QUIETED], 'This renovation is a no-op in polyrepos');
+        log.message([LogTag.IF_NOT_SILENCED], 'This renovation is a no-op in polyrepos');
       }
 
       // ? Typescript wants this here because of our "as const" for some reason
@@ -2160,7 +2160,7 @@ See the symbiote wiki documentation for more details on this command and all ava
               didUpdatePackageJson = true;
 
               log(
-                [LogTag.IF_NOT_QUIETED],
+                [LogTag.IF_NOT_SILENCED],
                 `⛓️ Dependency synchronized:\n${SHORT_TAB}%O\n${SHORT_TAB}%O ==> %O`,
                 theirPackageName,
                 ourDependenciesSemverOfTheirPackage,
@@ -2168,14 +2168,14 @@ See the symbiote wiki documentation for more details on this command and all ava
               );
             } else {
               log(
-                [LogTag.IF_NOT_QUIETED],
+                [LogTag.IF_NOT_SILENCED],
                 `✔️ Dependency already synchronized:\n${SHORT_TAB}%O`,
                 theirPackageName
               );
             }
           } else {
             log.warn(
-              [LogTag.IF_NOT_QUIETED],
+              [LogTag.IF_NOT_SILENCED],
               `Dependency %O is missing "version" field in:\n${SHORT_TAB}%O`,
               theirPackageName,
               toPath(theirPackage_.root, packageJsonConfigPackageBase)
@@ -2214,14 +2214,14 @@ See the symbiote wiki documentation for more details on this command and all ava
           debug('sub-command completed successfully');
 
           log(
-            [LogTag.IF_NOT_QUIETED],
+            [LogTag.IF_NOT_SILENCED],
             `Wrote out updated dependencies to:\n${SHORT_TAB}%O`,
             ourPackageJsonPath
           );
         }
 
         log(
-          [LogTag.IF_NOT_QUIETED],
+          [LogTag.IF_NOT_SILENCED],
           `%O: %O dep${interdependencies.length === 1 ? '' : 's'} synced`,
           ourPackageName,
           interdependencies.length
