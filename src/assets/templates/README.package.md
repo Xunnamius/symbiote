@@ -227,7 +227,7 @@ See the [table of contributors][x-repo-contributors].
 [x-badge-blm-image]: https://xunn.at/badge-blm 'Join the movement!'
 [x-badge-blm-link]: https://xunn.at/donate-blm
 [x-badge-codecov-image]:
-  https://img.shields.io/codecov/c/github/{{repoOwner}}/{{repoName}}/main?style=flat-square&token=HWRIOBAAPW&flag=package.main_root
+  https://img.shields.io/codecov/c/github/{{repoOwner}}/{{repoName}}/main?style=flat-square&token=HWRIOBAAPW&flag={{codecovFlag}}
   'Is this package well-tested?'
 [x-badge-codecov-link]: https://codecov.io/gh/{{repoOwner}}/{{repoName}}
 [x-badge-downloads-image]:

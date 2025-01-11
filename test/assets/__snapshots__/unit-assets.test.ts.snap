@@ -434,7 +434,7 @@ See the [table of contributors][x-repo-contributors].
 [x-badge-blm-image]: https://xunn.at/badge-blm 'Join the movement!'
 [x-badge-blm-link]: https://xunn.at/donate-blm
 [x-badge-codecov-image]:
-  https://img.shields.io/codecov/c/github/repo-owner/repo-name/main?style=flat-square&token=HWRIOBAAPW&flag=package.main_root
+  https://img.shields.io/codecov/c/github/repo-owner/repo-name/main?style=flat-square&token=HWRIOBAAPW&flag=codecov.flag_here
   'Is this package well-tested?'
 [x-badge-codecov-link]: https://codecov.io/gh/repo-owner/repo-name
 [x-badge-downloads-image]:
@@ -16715,7 +16715,7 @@ specification. Contributions of any kind welcome!
 [x-badge-blm-image]: https://xunn.at/badge-blm 'Join the movement!'
 [x-badge-blm-link]: https://xunn.at/donate-blm
 [x-badge-codecov-image]:
-  https://img.shields.io/codecov/c/github/repo-owner/repo-name/main?style=flat-square&token=HWRIOBAAPW&flag=package.main_root
+  https://img.shields.io/codecov/c/github/repo-owner/repo-name/main?style=flat-square&token=HWRIOBAAPW&flag=codecov.flag_here
   'Is this package well-tested?'
 [x-badge-codecov-link]: https://codecov.io/gh/repo-owner/repo-name
 [x-badge-downloads-image]:
@@ -19155,7 +19155,7 @@ See the [table of contributors][x-repo-contributors].
 [x-badge-blm-image]: https://xunn.at/badge-blm 'Join the movement!'
 [x-badge-blm-link]: https://xunn.at/donate-blm
 [x-badge-codecov-image]:
-  https://img.shields.io/codecov/c/github/repo-owner/repo-name/main?style=flat-square&token=HWRIOBAAPW&flag=package.main_root
+  https://img.shields.io/codecov/c/github/repo-owner/repo-name/main?style=flat-square&token=HWRIOBAAPW&flag=codecov.flag_here
   'Is this package well-tested?'
 [x-badge-codecov-link]: https://codecov.io/gh/repo-owner/repo-name
 [x-badge-downloads-image]:
@@ -21056,7 +21056,7 @@ specification. Contributions of any kind welcome!
 [x-badge-blm-image]: https://xunn.at/badge-blm 'Join the movement!'
 [x-badge-blm-link]: https://xunn.at/donate-blm
 [x-badge-codecov-image]:
-  https://img.shields.io/codecov/c/github/repo-owner/repo-name/main?style=flat-square&token=HWRIOBAAPW&flag=package.main_root
+  https://img.shields.io/codecov/c/github/repo-owner/repo-name/main?style=flat-square&token=HWRIOBAAPW&flag=codecov.flag_here
   'Is this package well-tested?'
 [x-badge-codecov-link]: https://codecov.io/gh/repo-owner/repo-name
 [x-badge-downloads-image]:

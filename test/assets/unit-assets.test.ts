@@ -75,6 +75,7 @@ const dummyContext: IncomingTransformerContext = {
   repoOwner: 'repo-owner',
   repoName: 'repo-name',
   year: '1776',
+  codecovFlag: 'codecov.flag_here',
 
   chooserBlockStart: magicStringChooserBlockStart,
   chooserBlockSplit: magicStringChooserBlockSplit,
@@ -1473,18 +1474,30 @@ describe('::generatePerPackageAssets', () => {
         adder
       );
 
-      expect(adder.mock.calls).toStrictEqual(
-        [
-          dummyProjectMetadata.rootPackage,
-          ...(dummyProjectMetadata.subRootPackages?.values() || [])
-        ].map(({ root }) => [
+      const packages = [
+        dummyProjectMetadata.rootPackage,
+        ...(dummyProjectMetadata.subRootPackages?.values() || [])
+      ];
+
+      for (const package_ of packages) {
+        expect(
+          adder.mock.calls.find(
+            ([
+              {
+                package_: { root }
+              }
+            ]) => root === package_.root
+          )
+        ).toStrictEqual([
           {
-            package_: expect.objectContaining({ root }),
+            package_: expect.objectContaining({ root: package_.root }),
             toPackageAbsolutePath: expect.any(Function),
             contextWithCwdPackage: expect.any(Object)
           }
-        ])
-      );
+        ]);
+      }
+
+      expect(adder.mock.calls).toHaveLength(packages.length);
     }
 
     {
@@ -1499,17 +1512,29 @@ describe('::generatePerPackageAssets', () => {
         adder
       );
 
-      expect(adder.mock.calls).toStrictEqual(
-        (dummyProjectMetadata.subRootPackages?.values().toArray() || []).map(
-          ({ root }) => [
-            {
-              package_: expect.objectContaining({ root }),
-              toPackageAbsolutePath: expect.any(Function),
-              contextWithCwdPackage: expect.any(Object)
-            }
-          ]
-        )
-      );
+      const packages = [
+        ...(dummyProjectMetadata.subRootPackages?.values().toArray() || [])
+      ];
+
+      for (const package_ of packages) {
+        expect(
+          adder.mock.calls.find(
+            ([
+              {
+                package_: { root }
+              }
+            ]) => root === package_.root
+          )
+        ).toStrictEqual([
+          {
+            package_: expect.objectContaining({ root: package_.root }),
+            toPackageAbsolutePath: expect.any(Function),
+            contextWithCwdPackage: expect.any(Object)
+          }
+        ]);
+      }
+
+      expect(adder.mock.calls).toHaveLength(packages.length);
     }
   });
 
@@ -1528,18 +1553,30 @@ describe('::generatePerPackageAssets', () => {
       { includeRootPackageInNonHybridMonorepo: true }
     );
 
-    expect(adder.mock.calls).toStrictEqual(
-      [
-        dummyProjectMetadata.rootPackage,
-        ...(dummyProjectMetadata.subRootPackages?.values() || [])
-      ].map(({ root }) => [
+    const packages = [
+      dummyProjectMetadata.rootPackage,
+      ...(dummyProjectMetadata.subRootPackages?.values() || [])
+    ];
+
+    for (const package_ of packages) {
+      expect(
+        adder.mock.calls.find(
+          ([
+            {
+              package_: { root }
+            }
+          ]) => root === package_.root
+        )
+      ).toStrictEqual([
         {
-          package_: expect.objectContaining({ root }),
+          package_: expect.objectContaining({ root: package_.root }),
           toPackageAbsolutePath: expect.any(Function),
           contextWithCwdPackage: expect.any(Object)
         }
-      ])
-    );
+      ]);
+    }
+
+    expect(adder.mock.calls).toHaveLength(packages.length);
   });
 
   it('calls adder function on cwdPackage only when scope=this-package', async () => {
@@ -1599,29 +1636,25 @@ describe('::generatePerPackageAssets', () => {
         adder
       );
 
-      expect(adder.mock.calls).toStrictEqual([
-        [
+      for (const package_ of pkgs) {
+        expect(
+          adder.mock.calls.find(
+            ([
+              {
+                package_: { root }
+              }
+            ]) => root === package_.root
+          )
+        ).toStrictEqual([
           expect.objectContaining({
             contextWithCwdPackage: expect.objectContaining({
-              projectMetadata: expect.objectContaining({ cwdPackage: pkgs[0] })
+              projectMetadata: expect.objectContaining({ cwdPackage: package_ })
             })
           })
-        ],
-        [
-          expect.objectContaining({
-            contextWithCwdPackage: expect.objectContaining({
-              projectMetadata: expect.objectContaining({ cwdPackage: pkgs[1] })
-            })
-          })
-        ],
-        [
-          expect.objectContaining({
-            contextWithCwdPackage: expect.objectContaining({
-              projectMetadata: expect.objectContaining({ cwdPackage: pkgs[2] })
-            })
-          })
-        ]
-      ]);
+        ]);
+      }
+
+      expect(adder.mock.calls).toHaveLength(pkgs.length);
     }
 
     {
@@ -1638,36 +1671,25 @@ describe('::generatePerPackageAssets', () => {
         { includeRootPackageInNonHybridMonorepo: true }
       );
 
-      expect(adder.mock.calls).toStrictEqual([
-        [
+      for (const package_ of [rootPackage, ...pkgs]) {
+        expect(
+          adder.mock.calls.find(
+            ([
+              {
+                package_: { root }
+              }
+            ]) => root === package_.root
+          )
+        ).toStrictEqual([
           expect.objectContaining({
             contextWithCwdPackage: expect.objectContaining({
-              projectMetadata: expect.objectContaining({ cwdPackage: rootPackage })
+              projectMetadata: expect.objectContaining({ cwdPackage: package_ })
             })
           })
-        ],
-        [
-          expect.objectContaining({
-            contextWithCwdPackage: expect.objectContaining({
-              projectMetadata: expect.objectContaining({ cwdPackage: pkgs[0] })
-            })
-          })
-        ],
-        [
-          expect.objectContaining({
-            contextWithCwdPackage: expect.objectContaining({
-              projectMetadata: expect.objectContaining({ cwdPackage: pkgs[1] })
-            })
-          })
-        ],
-        [
-          expect.objectContaining({
-            contextWithCwdPackage: expect.objectContaining({
-              projectMetadata: expect.objectContaining({ cwdPackage: pkgs[2] })
-            })
-          })
-        ]
-      ]);
+        ]);
+      }
+
+      expect(adder.mock.calls).toHaveLength(pkgs.length + 1);
     }
   });
 

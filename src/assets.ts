@@ -31,7 +31,7 @@ import {
 import { DefaultGlobalScope } from 'universe:configure.ts';
 import { globalDebuggerNamespace } from 'universe:constant.ts';
 import { ErrorMessage } from 'universe:error.ts';
-import { readFile } from 'universe:util.ts';
+import { deriveCodecovPackageFlag, readFile } from 'universe:util.ts';
 
 import type { EmptyObject, Entry, Promisable } from 'type-fest';
 
@@ -286,6 +286,10 @@ export type TransformerContext = {
    * The year as shown in various generated documents like `LICENSE.md`.
    */
   year: string;
+  /**
+   * The flag used when generating codecov badges and related links.
+   */
+  codecovFlag: string;
   /**
    * The standard markdown text denoting the start of a "chooser block".
    */
@@ -714,12 +718,13 @@ export async function generatePerPackageAssets(
     }
 
     const allPackagesAssets = await Promise.all(
-      allPackages.map((package_) =>
+      allPackages.map(async (package_) =>
         adder({
           package_: package_,
           toPackageAbsolutePath: toSpecificPackageAbsolutePath(package_),
           contextWithCwdPackage: {
             ...transformerContext,
+            codecovFlag: (await deriveCodecovPackageFlag(rootPackage)).flag,
             projectMetadata: {
               ...transformerContext.projectMetadata,
               cwdPackage: package_

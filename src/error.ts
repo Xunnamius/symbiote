@@ -183,6 +183,9 @@ export const ErrorMessage = {
   OptionValueMustBeAloneWhenBaseline(option: string, noun: string) {
     return ErrorMessage.OptionValueMustBeAlone(option, noun) + ' when using --baseline';
   },
+  NoCurrentBranch() {
+    return 'repository "HEAD" ref is not currently on an existing branch (are you in detached HEAD state?)';
+  },
   LintingFailed() {
     return 'one or more linters returned a bad exit code';
   },
@@ -210,9 +213,6 @@ export const ErrorMessage = {
   },
   ReleaseRepositoryStateValidationFailed() {
     return 'one or more repository state validation checks failed';
-  },
-  ReleaseRepositoryNoCurrentBranch() {
-    return 'repository "HEAD" ref is not currently on an existing branch (are you in detached HEAD state?)';
   },
   ReleaseScriptExecutionFailed() {
     return 'one or more package.json scripts returned a non-zero exit code';

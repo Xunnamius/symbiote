@@ -79,6 +79,7 @@ import {
 import { ErrorMessage } from 'universe:error.ts';
 
 import {
+  deriveCodecovPackageFlag,
   determineRepoWorkingTreeDirty,
   getRelevantDotEnvFilePaths,
   importAdditionalRawAliasMappings,
@@ -1849,8 +1850,10 @@ See the symbiote wiki documentation for more details on this command and all ava
 
       const {
         // * Since "this-package" is not supported, we can't use cwdPackage
-        rootPackage: { root: projectRoot, json: projectJson }
+        rootPackage
       } = projectMetadata;
+
+      const { root: projectRoot, json: projectJson } = rootPackage;
 
       const { owner: repoOwner, repo: repoName } =
         parsePackageJsonRepositoryIntoOwnerAndRepo(projectJson);
@@ -1879,6 +1882,7 @@ See the symbiote wiki documentation for more details on this command and all ava
         repoOwner,
         repoName,
         year: new Date().getFullYear().toString(),
+        codecovFlag: (await deriveCodecovPackageFlag(rootPackage)).flag,
 
         chooserBlockStart: magicStringChooserBlockStart,
         chooserBlockSplit: magicStringChooserBlockSplit,

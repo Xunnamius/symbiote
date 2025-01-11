@@ -45,6 +45,7 @@ import {
   isRootPackage,
   ProjectAttribute,
   type GenericProjectMetadata,
+  type Package,
   type ProjectMetadata
 } from 'multiverse+project-utils:analyze/common.ts';
 
@@ -109,6 +110,7 @@ const globPathsExclusiveToRootPackage = [
 
 const cachedDotEnvResults = new Map<string, Partial<DotenvPopulateInput> | undefined>();
 
+const maxCodecovFlagSize = 44;
 const refDefMatcherRegExp = /^\[([a-z0-9-_]+)\]:([^[\]]+)(?=\[|$)/gim;
 const beginsWithAlphaRegExp = /^[a-z]/i;
 
@@ -721,6 +723,38 @@ export function deriveScopeNarrowingPathspecs({
       return pathspecs;
     }, new Set());
   }
+}
+
+/**
+ * Returns a codecov flag consisting of the current branch name and package id.
+ */
+export async function deriveCodecovPackageFlag(cwdPackage: Package) {
+  const debug = createDebugLogger({
+    namespace: `${globalDebuggerNamespace}:derive-codecov-package-flag`
+  });
+
+  const { stdout: currentBranch } = await runNoRejectOnBadExit('git', [
+    'branch',
+    '--show-current'
+  ]);
+
+  assert(currentBranch, ErrorMessage.NoCurrentBranch());
+
+  const rawFlag = `package.${currentBranch}_${isRootPackage(cwdPackage) ? 'root' : cwdPackage.id}`;
+
+  debug(
+    `computed flag (before ${maxCodecovFlagSize}-character truncation): %O`,
+    rawFlag
+  );
+
+  const result = {
+    currentBranch,
+    flag: rawFlag.slice(0, maxCodecovFlagSize)
+  };
+
+  debug(`derived codecov package flag: %O`, result);
+
+  return result;
 }
 
 // TODO: transmute this and related functions into @-xun/env

@@ -37,7 +37,6 @@ import {
 import { scriptBasename } from 'multiverse+cli-utils:util.ts';
 
 import {
-  isRootPackage,
   type ProjectMetadata,
   type XPackageJson
 } from 'multiverse+project-utils:analyze.ts';
@@ -67,6 +66,7 @@ import { ErrorMessage } from 'universe:error.ts';
 import { attemptToRunCommand } from 'universe:task-runner.ts';
 
 import {
+  deriveCodecovPackageFlag,
   determineRepoWorkingTreeDirty,
   getLatestCommitWithXpipelineInitCommandSuffixOrTagSuffix,
   getRelevantDotEnvFilePaths,
@@ -79,7 +79,6 @@ import {
 } from 'universe:util.ts';
 
 const releaseEmoji = '🚀';
-const maxFlagSize = 44;
 const nestedTaskDepth = 2;
 const maxCodecovDownloadRetries = 3;
 const codecovDownloadTimeoutSeconds = 10;
@@ -1445,21 +1444,7 @@ const protoPostreleaseTasks: ProtoPostreleaseTask[][] = [
           );
 
           softAssert(codecovCheckExitCode === 0, ErrorMessage.FailedToInstallCodecov());
-
-          const { stdout: currentBranch } = await run('git', [
-            'branch',
-            '--show-current'
-          ]);
-
-          debug('currentBranch: %O', currentBranch);
-          softAssert(currentBranch, ErrorMessage.ReleaseRepositoryNoCurrentBranch());
-
-          // TODO: a new project-wide coverage tag; probably not so useful here:
-          // TODO: project.${currentBranch}
-
-          const flag = `package.${currentBranch}_${isRootPackage(cwdPackage) ? 'root' : cwdPackage.id}`;
-
-          debug(`computed flag (before ${maxFlagSize}-character truncation): %O`, flag);
+          const { currentBranch, flag } = await deriveCodecovPackageFlag(cwdPackage);
 
           log(
             [LogTag.IF_NOT_HUSHED],
