@@ -724,7 +724,7 @@ export async function generatePerPackageAssets(
           toPackageAbsolutePath: toSpecificPackageAbsolutePath(package_),
           contextWithCwdPackage: {
             ...transformerContext,
-            codecovFlag: (await deriveCodecovPackageFlag(rootPackage)).flag,
+            codecovFlag: (await deriveCodecovPackageFlag(package_)).flag,
             projectMetadata: {
               ...transformerContext.projectMetadata,
               cwdPackage: package_

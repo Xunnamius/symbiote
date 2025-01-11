@@ -19,12 +19,6 @@ import {
   type RelativePath
 } from 'multiverse+project-utils:fs.ts';
 
-import {
-  magicStringChooserBlockEnd,
-  magicStringChooserBlockSplit,
-  magicStringChooserBlockStart
-} from 'rootverse:src/util.ts';
-
 import { parsePackageJsonRepositoryIntoOwnerAndRepo } from 'universe:assets/transformers/_package.json.ts';
 
 import {
@@ -48,6 +42,13 @@ import {
 
 import { DefaultGlobalScope } from 'universe:configure.ts';
 import { ErrorMessage } from 'universe:error.ts';
+
+import {
+  deriveCodecovPackageFlag,
+  magicStringChooserBlockEnd,
+  magicStringChooserBlockSplit,
+  magicStringChooserBlockStart
+} from 'universe:util.ts';
 
 import { fixtureToProjectMetadata } from 'testverse+project-utils:helpers/dummy-repo.ts';
 
@@ -1684,6 +1685,89 @@ describe('::generatePerPackageAssets', () => {
           expect.objectContaining({
             contextWithCwdPackage: expect.objectContaining({
               projectMetadata: expect.objectContaining({ cwdPackage: package_ })
+            })
+          })
+        ]);
+      }
+
+      expect(adder.mock.calls).toHaveLength(pkgs.length + 1);
+    }
+  });
+
+  it('calls adder function with correct transformerContext.codecovFlag', async () => {
+    expect.hasAssertions();
+
+    const dummyProjectMetadata = fixtureToProjectMetadata(
+      'goodMonorepo'
+    ) as TransformerContext['projectMetadata'];
+
+    const { subRootPackages: pkgs_, rootPackage } = dummyProjectMetadata;
+    const pkgs = pkgs_!.values().toArray();
+    const { currentBranch } = await deriveCodecovPackageFlag(rootPackage);
+
+    {
+      const adder = jest.fn();
+
+      await generatePerPackageAssets(
+        {
+          ...dummyContext,
+          projectMetadata: dummyProjectMetadata,
+          asset: 'dummy',
+          scope: DefaultGlobalScope.Unlimited
+        },
+        adder
+      );
+
+      for (const package_ of pkgs) {
+        expect(
+          adder.mock.calls.find(
+            ([
+              {
+                package_: { root }
+              }
+            ]) => root === package_.root
+          )
+        ).toStrictEqual([
+          expect.objectContaining({
+            contextWithCwdPackage: expect.objectContaining({
+              codecovFlag: `package.${currentBranch}_${package_.id}`
+            })
+          })
+        ]);
+      }
+
+      expect(adder.mock.calls).toHaveLength(pkgs.length);
+    }
+
+    {
+      const adder = jest.fn();
+
+      await generatePerPackageAssets(
+        {
+          ...dummyContext,
+          projectMetadata: dummyProjectMetadata,
+          asset: 'dummy',
+          scope: DefaultGlobalScope.Unlimited
+        },
+        adder,
+        { includeRootPackageInNonHybridMonorepo: true }
+      );
+
+      for (const package_ of [rootPackage, ...pkgs]) {
+        expect(
+          adder.mock.calls.find(
+            ([
+              {
+                package_: { root }
+              }
+            ]) => root === package_.root
+          )
+        ).toStrictEqual([
+          expect.objectContaining({
+            contextWithCwdPackage: expect.objectContaining({
+              codecovFlag: `package.${
+                currentBranch
+              }_${'id' in package_ ? package_.id : 'root'}`
             })
           })
         ]);
