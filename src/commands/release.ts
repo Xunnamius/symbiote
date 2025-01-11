@@ -1173,8 +1173,10 @@ const protoReleaseTask: ProtoCoreReleaseTask = {
 
         await rollbackRepositoryToHead();
 
-        // ? Will be handled specially further up the stack
-        throw new Error('$gracefulExit', { cause: $gracefulExit });
+        if (!dryRun) {
+          // ? Will be handled specially further up the stack
+          throw new Error('$gracefulExit', { cause: $gracefulExit });
+        }
       } else {
         log([LogTag.IF_NOT_HUSHED], 'New version release detected 🧑🏿‍🚀');
       }
@@ -1256,10 +1258,8 @@ const protoReleaseTask: ProtoCoreReleaseTask = {
         log.newline([LogTag.IF_NOT_SILENCED]);
       }
 
-      if (!dryRun) {
-        // ? Will be wrapped in CliError further up the stack
-        throw new Error(ErrorMessage.ReleaseFailedRepoRolledBack());
-      }
+      // ? Will be wrapped in CliError further up the stack
+      throw new Error(ErrorMessage.ReleaseFailedRepoRolledBack());
     }
 
     async function rollbackRepositoryToHead() {
