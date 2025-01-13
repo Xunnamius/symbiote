@@ -12,8 +12,6 @@ import {
   getDisabledTags,
   type ExtendedDebugger,
   type ExtendedLogger
-  // TODO: fix this when rejoinder-listr2 is published
-  //type ListrManager
 } from 'rejoinder';
 
 import {
@@ -31,6 +29,7 @@ import { type makeStandardConfigureExecutionContext } from 'rootverse+cli-utils:
 import { globalDebuggerNamespace } from 'rootverse+cli-utils:src/constant.ts';
 import { LogTag } from 'rootverse+cli-utils:src/logging.ts';
 
+import type { ListrManager } from 'rejoinder-listr2';
 import type { Entries } from 'type-fest';
 
 export { withUsageExtensions as withStandardUsage } from 'multiverse+bfe';
@@ -69,21 +68,18 @@ export type StandardExecutionContext = ExecutionContext & {
      */
     startTime: Date;
   };
-} & (
-    | {
+  // ? This bit of dark magic detects if ListrManager is the "any" type or not.
+  // ? We need this check because ListrManager is an optional peer dependency.
+} & (0 extends 1 & ListrManager
+    ? { taskManager?: undefined }
+    : {
         /**
          * The global Listr task manager singleton or `undefined` if Listr2
          * support has not been enabled via
          * {@link makeStandardConfigureExecutionContext}.
          */
-        // TODO: fix this when rejoinder-listr2 is published
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        taskManager: /*ListrManager*/ any;
-      }
-    | {
-        taskManager?: undefined;
-      }
-  );
+        taskManager?: import('rejoinder-listr2').ListrManager;
+      });
 
 /**
  * These properties will be available in the `argv` object of any command that

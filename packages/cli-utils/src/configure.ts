@@ -1,8 +1,6 @@
 import { isNativeError } from 'node:util/types';
 
 import {
-  // TODO: fix this when rejoinder-listr2 is published
-  //createListrManager,
   disableLoggers,
   LoggerType,
   TAB,
@@ -26,11 +24,10 @@ const { IF_NOT_SILENCED, IF_NOT_QUIETED, IF_NOT_HUSHED } = LogTag;
  * Returns a {@link ConfigureExecutionContext} instance considered standard
  * across [Xunnamius](https://github.com/Xunnamius)'s CLI projects.
  */
-export function makeStandardConfigureExecutionContext({
+export async function makeStandardConfigureExecutionContext({
   rootDebugLogger,
-  rootGenericLogger
-  // TODO: fix this when rejoinder-listr2 is published
-  //withListr2Support = false
+  rootGenericLogger,
+  withListr2Support = false
 }: {
   /**
    * The generic logging function used whenever the CLI wants to send text to
@@ -48,14 +45,17 @@ export function makeStandardConfigureExecutionContext({
    * @default false
    */
   withListr2Support?: boolean;
-}): ConfigureExecutionContext<StandardExecutionContext> {
+}): Promise<ConfigureExecutionContext<StandardExecutionContext>> {
+  const taskManager = withListr2Support
+    ? (await import('rejoinder-listr2')).createListrManager()
+    : undefined;
+
   return function (context) {
     return {
       ...context,
       log: rootGenericLogger,
       debug_: rootDebugLogger,
-      // TODO: fix this when rejoinder-listr2 is published
-      //...(withListr2Support ? { taskManager: createListrManager() } : {}),
+      taskManager,
       state: {
         ...context.state,
         isSilenced: false,
@@ -152,6 +152,7 @@ export function makeStandardConfigureErrorHandlingEpilogue(): ConfigureErrorHand
         const { ListrErrorTypes } = await import('listr2');
 
         for (const taskError of context.taskManager.errors) {
+          // eslint-disable-next-line @typescript-eslint/no-unsafe-enum-comparison
           if (taskError.type !== ListrErrorTypes.HAS_FAILED_WITHOUT_ERROR) {
             context.log.error(
               [IF_NOT_HUSHED],

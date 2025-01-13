@@ -61,12 +61,14 @@
     "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage"
   },
-  "dependencies": {},
-  "peerDependencies": {
+  "dependencies": {
     "listr2": "^8.2.3"
   },
+  "peerDependencies": {
+    "rejoinder-listr2": "^1.0.0"
+  },
   "peerDependenciesMeta": {
-    "listr2": {
+    "rejoinder-listr2": {
       "optional": true
     }
   },
