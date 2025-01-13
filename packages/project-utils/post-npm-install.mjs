@@ -11,7 +11,7 @@ import { createGenericLogger } from 'rejoinder';
 
 const root = import.meta.dirname;
 const log = createGenericLogger({
-  namespace: `${basename(import.meta.dirname)}:post-npm-install`
+  namespace: `${basename(root)}:post-npm-install`
 });
 
 await Promise.all([
@@ -35,3 +35,5 @@ await Promise.all([
     log('Created .git-ignored dummy directory in good-hybridrepo');
   })
 ]);
+
+log('✅');
