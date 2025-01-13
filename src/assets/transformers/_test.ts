@@ -11,21 +11,25 @@ export const { transformer } = makeTransformer(async function (context) {
 
   return [
     ...// * Only the root package gets these files
-    (await generateRootOnlyAssets(context, function () {
-      return [
-        {
-          path: toProjectAbsolutePath(directoryTestPackageBase, 'util.ts'),
-          generate: () => /*js*/ `
+    (await generateRootOnlyAssets(context, async function () {
+      const outputDir = toProjectAbsolutePath(directoryTestPackageBase);
+
+      // ? Only create this file if its parent directory does not already exist
+      if (force || !(await isAccessible(outputDir, { useCached: true }))) {
+        return [
+          {
+            path: toProjectAbsolutePath(directoryTestPackageBase, 'util.ts'),
+            generate: () => /*js*/ `
 /**
  ** This file exports test utilities specific to this project and beyond what is
  ** exported by @-xun/test; these can be imported using the testversal aliases.
  */
 
 export * from '@-xun/test';`
-        },
-        {
-          path: toProjectAbsolutePath(directoryTestPackageBase, 'setup.ts'),
-          generate: () => /*js*/ `
+          },
+          {
+            path: toProjectAbsolutePath(directoryTestPackageBase, 'setup.ts'),
+            generate: () => /*js*/ `
 /**
  ** This file is automatically imported by Jest, and is responsible for
  **  bootstrapping the runtime for every test file.
@@ -37,8 +41,9 @@ export * from '@-xun/test';`
 // ? https://github.com/jest-community/jest-extended#typescript
 import 'jest-extended';
 import 'jest-extended/all';`
-        }
-      ];
+          }
+        ];
+      }
     })),
 
     ...// * Every package gets these files except non-hybrid monorepo roots
