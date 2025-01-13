@@ -509,9 +509,7 @@ export async function success(
     }
 
     if (wasReleasedWithForce) {
-      // TODO: replace with rejoinder / rejoinder-github-actions
-      // eslint-disable-next-line no-console
-      console.warn(`⚠️🚧 ${ErrorMessage.ReleaseFinishedWithADirtyRepo()}`);
+      pluginLog.warn(`⚠️🚧 ${ErrorMessage.ReleaseFinishedWithADirtyRepo()}`);
     } else {
       throw new ProjectError(ErrorMessage.ReleaseFinishedWithADirtyRepo());
     }
