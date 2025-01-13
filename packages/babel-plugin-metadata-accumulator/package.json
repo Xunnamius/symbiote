@@ -74,7 +74,6 @@
     "core-js": "^3.40.0",
     "debug": "^4.4.0",
     "jsonc-parser": "^3.3.1",
-    "listr2": "^8.2.5",
     "named-app-errors": "^4.0.2",
     "type-fest": "^4.32.0"
   },
