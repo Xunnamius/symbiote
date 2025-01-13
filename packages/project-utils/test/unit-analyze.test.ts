@@ -1640,6 +1640,8 @@ describe('::gatherPseudodecoratorEntriesFromFiles', () => {
   const jsonFile = `${__dirname}/fixtures/dummy-pseudodecorators/3.json` as AbsolutePath;
   const mdFile = `${__dirname}/fixtures/dummy-pseudodecorators/4.md` as AbsolutePath;
   const ymlFile = `${__dirname}/fixtures/dummy-pseudodecorators/5.yml` as AbsolutePath;
+  const superPinnedFile =
+    `${__dirname}/fixtures/dummy-pseudodecorators/6` as AbsolutePath;
 
   describe('<synchronous>', () => {
     it('returns an array of pseudodecorator entries from a variety of files', () => {
@@ -1653,6 +1655,40 @@ describe('::gatherPseudodecoratorEntriesFromFiles', () => {
       ).toStrictEqual(
         getExpectedPseudodecorators(tsFile, jsFile, jsonFile, mdFile, ymlFile)
       );
+    });
+
+    it('accepts technically-invalid super-pinned dependencies (containing tilde)', () => {
+      expect.hasAssertions();
+
+      expect(
+        gatherPseudodecoratorEntriesFromFiles.sync([superPinnedFile], {
+          useCached: true
+        })
+      ).toStrictEqual([
+        [
+          superPinnedFile,
+          [
+            {
+              tag: PseudodecoratorTag.NotExtraneous,
+              items: [
+                'all~contributors~cli',
+                'remark~7',
+                '@jest/something~dev',
+                '@babel/cli~5'
+              ]
+            },
+            {
+              tag: PseudodecoratorTag.NotInvalid,
+              items: [
+                'all~contributors~cli',
+                'remark~7',
+                '@jest/something~dev',
+                '@babel/cli~5'
+              ]
+            }
+          ]
+        ]
+      ]);
     });
 
     it('returns result from internal cache if available unless useCached is false (new result is always added to internal cache)', () => {
@@ -1693,6 +1729,38 @@ describe('::gatherPseudodecoratorEntriesFromFiles', () => {
       ).resolves.toStrictEqual(
         getExpectedPseudodecorators(tsFile, jsFile, jsonFile, mdFile, ymlFile)
       );
+    });
+
+    it('accepts technically-invalid super-pinned dependencies (containing tilde)', async () => {
+      expect.hasAssertions();
+
+      await expect(
+        gatherPseudodecoratorEntriesFromFiles([superPinnedFile], { useCached: true })
+      ).resolves.toStrictEqual([
+        [
+          superPinnedFile,
+          [
+            {
+              tag: PseudodecoratorTag.NotExtraneous,
+              items: [
+                'all~contributors~cli',
+                'remark~7',
+                '@jest/something~dev',
+                '@babel/cli~5'
+              ]
+            },
+            {
+              tag: PseudodecoratorTag.NotInvalid,
+              items: [
+                'all~contributors~cli',
+                'remark~7',
+                '@jest/something~dev',
+                '@babel/cli~5'
+              ]
+            }
+          ]
+        ]
+      ]);
     });
 
     it('returns result from internal cache if available unless useCached is false (new result is always added to internal cache)', async () => {

@@ -17,8 +17,9 @@ import type { Promisable } from 'type-fest';
 const debug = debug_.extend('gatherPseudodecoratorEntriesFromFiles');
 
 const whitespace = /\s/;
+// ? We use this because strange package names like "-" are technically valid.
 // ! Cannot use "g" flag
-const hasAlphanumeric = /[a-z0-9]/i;
+const hasAtLeastOneAlphanumericCharacter = /[a-z0-9]/i;
 
 /**
  * The available {@link Pseudodecorator} tags. These tags must not contain valid
@@ -298,9 +299,22 @@ function contentsToDecorators(contents: string): Pseudodecorator[] {
       .map(function ([, rawTag, rawItems]) {
         return {
           tag: rawTag as PseudodecoratorTag,
-          items: rawItems.split(whitespace).filter((m) => {
+          items: rawItems.split(whitespace).filter((packageName) => {
+            const npmValidationResult = isValidNpmPackageName(
+              packageName.replaceAll('~', '_')
+            );
+
             const isValid =
-              hasAlphanumeric.test(m) && isValidNpmPackageName(m).validForNewPackages;
+              hasAtLeastOneAlphanumericCharacter.test(packageName) &&
+              npmValidationResult.validForNewPackages;
+
+            if (!isValid) {
+              debug.warn(
+                'encountered invalid pseudodecorator tag content %O: %O',
+                packageName,
+                npmValidationResult
+              );
+            }
 
             return isValid;
           })
