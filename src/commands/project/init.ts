@@ -47,7 +47,7 @@ export default function command({
 
   return {
     builder,
-    description: 'Create a brand new project from one of several presets',
+    description: 'Create a new project or package from one of several presets',
     usage: withGlobalUsage(),
     handler: withGlobalHandler(async function ({ $0: scriptFullName, scope }) {
       const handlerName = scriptBasename(scriptFullName);
