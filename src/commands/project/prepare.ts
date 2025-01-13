@@ -85,7 +85,9 @@ export default function command({
 4. If the npm_command environment variable is not "install" or "ci", exit
 5. If the current working directory contains a post-npm-install script, run that script
 6. If the current working directory IS NOT the project root, exit
-7. If the current working directory is the project root and the project is a monorepo, search each package root for a post-npm-install script and run them as they are encountered (with cwd set to each respective package's root)
+7. If the current working directory is the project root and the project is a monorepo, search each package root for a post-npm-install script and run them as they are encountered
+
+The same current working directory is shared by all tasks, and is equal to the current working directory at the time this command was executed.
 
 The ${postNpmInstallPackageBase} file, when present at a package root, is recognized as a post-npm-install script. Each package in a project (including the root package) can contain at most one post-npm-install script. These scrips have access to the following additional environment variables, each of which are defined as either "true" or "false": SYMBIOTE_IS_CI, SYMBIOTE_IS_DEVELOPMENT_ENV, SYMBIOTE_NPM_IS_INSTALLING.
 
@@ -261,9 +263,6 @@ This command runs all its tasks asynchronously and concurrently where possible. 
                       'Executing post-npm-install script at: %O',
                       postNpmInstallPath
                     );
-
-                    debug('setting process.cwd to: %O', root);
-                    process.chdir(root);
 
                     await import(postNpmInstallPath);
 
