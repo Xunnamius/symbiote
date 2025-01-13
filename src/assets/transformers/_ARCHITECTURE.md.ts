@@ -11,6 +11,8 @@ import {
   makeTransformer
 } from 'universe:assets.ts';
 
+import { replaceRegionsRespectively } from 'universe:util.ts';
+
 export const { transformer } = makeTransformer(function (context) {
   const { toProjectAbsolutePath, assetPreset } = context;
 
@@ -21,11 +23,21 @@ export const { transformer } = makeTransformer(function (context) {
 
   // * Only the root package gets these files
   return generateRootOnlyAssets(context, async function () {
+    const path = toProjectAbsolutePath(markdownArchitectureProjectBase);
+
     return [
       {
-        path: toProjectAbsolutePath(markdownArchitectureProjectBase),
-        generate: () =>
-          compileTemplate(markdownArchitectureProjectBase as RelativePath, context)
+        path,
+        generate: async () => {
+          return replaceRegionsRespectively({
+            outputPath: path,
+            templateContent: await compileTemplate(
+              markdownArchitectureProjectBase as RelativePath,
+              context
+            ),
+            context
+          });
+        }
       }
     ];
   });
