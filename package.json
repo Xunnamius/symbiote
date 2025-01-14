@@ -101,7 +101,7 @@
   "dependencies": {
     "@-xun/changelog": "^1.0.0",
     "@-xun/run": "^0.0.1",
-    "@arethetypeswrong/cli": "^0.17.2",
+    "@arethetypeswrong/cli": "^0.17.3",
     "@babel/cli": "^7.26.4",
     "@babel/core": "^7.26.0",
     "@babel/eslint-parser": "^7.26.5",
@@ -134,8 +134,8 @@
     "@types/lodash.get": "^4.4.9",
     "@types/lodash.isequal": "^4.5.8",
     "@types/lodash.mergewith": "^4.6.9",
-    "@types/node": "^22.10.5",
-    "@types/react": "^19.0.4",
+    "@types/node": "^22.10.6",
+    "@types/react": "^19.0.6",
     "@types/semver": "^7.5.8",
     "@types/validate-npm-package-name": "^4.0.2",
     "@types/yargs": "^17.0.33",
@@ -232,20 +232,20 @@
     "semantic-release": "npm:@-xun/release@^24.2.1",
     "semver": "^7.6.3",
     "simple-git": "^3.27.0",
-    "sort-package-json": "^2.12.0",
+    "sort-package-json": "^2.13.0",
     "toss-expression": "^0.1.2",
     "tstyche": "^3.4.0",
     "type-fest": "^4.32.0",
     "typedoc": "^0.27.6",
     "typedoc-plugin-markdown": "^4.4.1",
     "typescript": "^5.7.3",
-    "typescript-eslint": "^8.19.1",
+    "typescript-eslint": "^8.20.0",
     "unified-engine": "^11.2.2",
     "unique-filename": "^4.0.0",
     "validate-npm-package-name": "^6.0.0"
   },
   "devDependencies": {
-    "@-xun/symbiote": "^2.11.6"
+    "@-xun/symbiote": "^2.11.7"
   },
   "engines": {
     "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
