@@ -62,7 +62,7 @@
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage"
   },
   "dependencies": {
-    "listr2": "^8.2.3"
+    "listr2": "^8.2.5"
   },
   "peerDependencies": {
     "rejoinder-listr2": "^1.0.0"
