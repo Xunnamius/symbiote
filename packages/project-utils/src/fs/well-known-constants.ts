@@ -176,16 +176,6 @@ export const postcssConfigProjectBase = 'postcss.config.mjs';
 export const tailwindConfigProjectBase = 'tailwind.config.mjs';
 
 /**
- * The basename of the well-known Turbo configuration file.
- */
-export const turboConfigProjectBase = 'turbo.json';
-
-/**
- * The basename of the well-known Turbo configuration file.
- */
-export const turboConfigPackageBase = 'turbo.json';
-
-/**
  * The basename of the well-known @vercel/cli configuration file.
  */
 export const vercelConfigProjectBase = 'vercel.json';

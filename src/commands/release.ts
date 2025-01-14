@@ -106,32 +106,37 @@ export const expectedEnvVariables = [
 export const releaseScopes = Object.values(ReleaseScope);
 
 /**
- * A string that can be passed to --skip-tasks representing all prerelease and
- * postrelease tasks.
+ * Well-known names representing groups of tasks to be skipped when running the
+ * release process.
  */
-export const allTasks = 'all';
+export enum SkippableTasksGroup {
+  /**
+   * A string that can be passed to --skip-tasks representing all prerelease and
+   * postrelease tasks.
+   */
+  AllTasks = 'all',
+  /**
+   * A string that can be passed to --skip-tasks representing all prerelease
+   * tasks.
+   */
+  AllPrereleaseTasks = 'prerelease',
+  /**
+   * A string that can be passed to --skip-tasks representing all postrelease
+   * tasks.
+   */
+  AllPostReleaseTasks = 'postrelease',
+  /**
+   * A string that can be passed to --skip-tasks representing all prerelease
+   * tasks that should be skipped when following "Manual Release Method 2" in
+   * `MAINTAINING.md`.
+   */
+  AllManualPrereleaseTasks = 'manual'
+}
 
 /**
- * A string that can be passed to --skip-tasks representing all prerelease
- * tasks.
+ * @see {@link SkippableTasksGroup}
  */
-export const allPrereleaseTasks = 'prerelease';
-
-/**
- * A string that can be passed to --skip-tasks representing all postrelease
- * tasks.
- */
-export const allPostReleaseTasks = 'postrelease';
-
-/**
- * A string that can be passed to --skip-tasks representing all prerelease tasks
- * that should be skipped when following "Manual Release Method 2" in
- * `MAINTAINING.md`.
- *
- * The skipped tasks are those manageable by an outside scheduler, making this
- * mode useful when integrating with tools like Turbo.
- */
-export const allManualPrereleaseTasks = 'manual';
+export const skippableTasksGroups = Object.values(SkippableTasksGroup);
 
 // TODO: unify task runners in this command, in renovate, and elsewhere into
 // TODO: src/task-runner.ts
@@ -311,8 +316,6 @@ export default function command(
     ErrorMessage.GuruMeditation()
   );
 
-  debug_('turbo detected: %O', !!process.env.TURBO_HASH);
-
   const [builder, withGlobalHandler] = withGlobalBuilder<CustomCliArguments>(
     function (blackFlag) {
       blackFlag.parserConfiguration({
@@ -359,21 +362,15 @@ export default function command(
         'skip-tasks': {
           alias: 'skip-task',
           array: true,
-          choices: allSkippableTasks.concat([
-            allManualPrereleaseTasks,
-            allPrereleaseTasks,
-            allPostReleaseTasks,
-            allTasks
-          ]),
+          choices: allSkippableTasks.concat(skippableTasksGroups),
           description: 'Skip one, some, or all prerelease/postrelease tasks',
-          default: process.env.TURBO_HASH ? [allManualPrereleaseTasks] : [],
-          defaultDescription: `"${allManualPrereleaseTasks}" if run using Turbo, empty otherwise`,
+          default: [],
           coerce(skipTargets: string[]) {
             return Array.from(
               new Set(
                 skipTargets.flatMap((target) => {
-                  switch (target) {
-                    case allManualPrereleaseTasks: {
+                  switch (target as SkippableTasksGroup) {
+                    case SkippableTasksGroup.AllManualPrereleaseTasks: {
                       return Array.from({
                         length:
                           lastSchedulerPurviewTaskId - firstSkippablePrereleaseTaskId + 1
@@ -382,15 +379,15 @@ export default function command(
                       );
                     }
 
-                    case allPrereleaseTasks: {
+                    case SkippableTasksGroup.AllPrereleaseTasks: {
                       return skippablePrereleaseTasks;
                     }
 
-                    case allPostReleaseTasks: {
+                    case SkippableTasksGroup.AllPostReleaseTasks: {
                       return skippablePostreleaseTasks;
                     }
 
-                    case allTasks: {
+                    case SkippableTasksGroup.AllTasks: {
                       return allSkippableTasks;
                     }
 
@@ -439,17 +436,17 @@ Task #${findTaskByDescription(/codecov/i).id}, a postrelease task that uploads t
 
 Running \`symbiote release\` will usually execute all prerelease and postrelease tasks. Provide --skip-tasks=task-id (where "task-id" is a valid task number) to skip running a specific task, --skip-tasks=prerelease to skip running tasks #${firstSkippablePrereleaseTaskId}-${prereleaseTasks.at(-1)!.id}, --skip-tasks=postrelease to skip running tasks #${postreleaseTasks[0].id} and above, or --skip-tasks=all to skip running all skippable prerelease and postrelease tasks.
 
-There is also --skip-tasks=${allManualPrereleaseTasks}, which will skip running tasks ${firstSkippablePrereleaseTaskId} through ${lastSchedulerPurviewTaskId}. This is useful when symbiote is being managed by a task scheduling tool like Turbo that decides out-of-band if/when/how it wants to run these specific tasks; such a tool only calls \`symbiote release\` afterwards, when it's ready to trigger xrelease. It is for this reason that --skip-tasks=${allManualPrereleaseTasks} becomes the default when Turbo is detected in the runtime environment (by checking for the existence of process.env.TURBO_HASH).
+There is also --skip-tasks=${SkippableTasksGroup.AllManualPrereleaseTasks}, which will skip running tasks ${firstSkippablePrereleaseTaskId} through ${lastSchedulerPurviewTaskId}. This is useful when symbiote is being managed by a task scheduling tool like Turbo or Lage.
 
 When a task executes an NPM script, it will typically select from one of several choices. If the package's package.json file is missing every NPM script a task might choose, this command will exit with an error unless (1) the task allows itself to be skipped or (2) --skip-task-missing-scripts is provided. In either case, any missing scripts are noted in a warning but otherwise ignored.
 
-The only available scope is "${ReleaseScope.ThisPackage}"; hence, when invoking this command, only the package at the current working directory will be eligible for release. Use NPM's workspace features, or Turbo's, if your goal is to potentially release multiple packages.
+The only available scope is "${ReleaseScope.ThisPackage}"; hence, when invoking this command, only the package at the current working directory will be eligible for release. Use NPM's workspace features, or symbiote's "project release" command, if your goal is to safely release multiple packages.
 
 Provide --dry-run to ensure no permanent changes to the project are made, no release is cut, and no publishing or git write operations occur. Use --dry-run to test what would happen if you were to cut a release. Note that --dry-run will NOT prevent prerelease tasks from running; however, postrelease tasks that exclusively run NPM scripts are always skipped.
 
 Further, note the minimum package version this command will release will always be 1.0.0. This is because xrelease (nor upstream semantic-release) does not officially support "experimental packages," which are packages with versions below semver 1.0.0. If you attempt to release a package with a version below 1.0.0 (e.g. 0.0.1), it will be released as a 1.0.0 (breaking change) instead. It is not wise to use experimental package versions with xrelease or symbiote.
 
-WARNING: this command is NOT DESIGNED TO HANDLE CONCURRENT EXECUTION ON THE SAME GIT REPOSITORY IN A SAFE MANNER. DO NOT run multiple instances of this command on the same repository or project. If using a tool like Turbo, ensure it runs all NPM "release" scripts serially (and ideally topologically).
+WARNING: this command is NOT DESIGNED TO HANDLE CONCURRENT EXECUTION ON THE SAME GIT REPOSITORY IN A SAFE MANNER. DO NOT run multiple instances of this command on the same repository or project simultaneously.
 `.trim()
     ),
     handler: withGlobalHandler(async function (argv) {
@@ -1055,7 +1052,6 @@ const protoPrereleaseTasks: ProtoPrereleaseTask[][] = [
       npmScripts: ['test:package:all', 'test'],
       helpDescription: 'symbiote test --scope=this-package --coverage'
     },
-    // * The other skippable tasks before this task (above) are skipped by Turbo
     {
       skippable: true,
       emoji: '🧹',

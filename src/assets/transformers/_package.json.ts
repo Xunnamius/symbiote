@@ -154,7 +154,8 @@ export function generateBaseXPackageJson(
       'lint:project': 'symbiote project lint --env NODE_NO_WARNINGS=1',
       'list-tasks': `symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope ${DefaultGlobalScope.ThisPackage}`,
       prepare: 'symbiote project prepare --env NODE_NO_WARNINGS=1',
-      release: 'symbiote release --env NODE_NO_WARNINGS=1',
+      release: 'symbiote release --env NODE_NO_WARNINGS=1 --not-multiversal',
+      'release:project': 'symbiote project release --env NODE_NO_WARNINGS=1',
       renovate: `symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset '${assetPresets.join(' ')}'`,
       start: 'symbiote start --env NODE_NO_WARNINGS=1 --',
       test: 'npm run test:package:unit --',
@@ -214,8 +215,6 @@ export function generateNonHybridMonorepoProjectXPackageJson(
 ) {
   // ? Filter out what's not allowed in non-hybrid monorepo root package.json
   const {
-    // ? Can't have a bare lint/build/test/release script because Turbo will try
-    // ? to run it, which we don't want in a non-hybrid monorepo context.
     scripts: {
       build: _1,
       'build:changelog': _2,
@@ -259,8 +258,7 @@ export function generateNonHybridMonorepoProjectXPackageJson(
     private: true,
     scripts: {
       ...incomingBaseScripts,
-      'list-tasks': `symbiote list-tasks --env NODE_NO_WARNINGS=1${scopeUnlimitedArg}`,
-      'turbo:init': `symbiote project init-turbo --env NODE_NO_WARNINGS=1 --not-multiversal`
+      'list-tasks': `symbiote list-tasks --env NODE_NO_WARNINGS=1${scopeUnlimitedArg}`
     }
   } as const satisfies XPackageJsonMonorepoRoot;
 }
@@ -301,8 +299,7 @@ export function generateHybridrepoProjectXPackageJson(
     ...incomingPolyrepoJson,
     scripts: {
       ...monorepoScripts,
-      ...polyrepoScripts,
-      'turbo:init': `symbiote project init-turbo --env NODE_NO_WARNINGS=1 --multiversal`
+      ...polyrepoScripts
     }
     // ? "private" is preserved from generatePolyrepoXPackageJson
   } as const satisfies XPackageJsonHybridrepoRoot;

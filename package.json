@@ -96,8 +96,7 @@
     "test:package:e2e": "./node_modules/@-xun/symbiote/dist/src/cli.js test --env NODE_NO_WARNINGS=1 --tests end-to-end",
     "test:package:integration": "./node_modules/@-xun/symbiote/dist/src/cli.js test --env NODE_NO_WARNINGS=1 --tests integration",
     "test:package:unit": "./node_modules/@-xun/symbiote/dist/src/cli.js test --env NODE_NO_WARNINGS=1 --tests unit",
-    "test:packages:all": "./node_modules/@-xun/symbiote/dist/src/cli.js test --env NODE_NO_WARNINGS=1 --scope unlimited --env NODE_NO_WARNINGS=1 --coverage",
-    "turbo:init": "symbiote project init-turbo --env NODE_NO_WARNINGS=1 --multiversal"
+    "test:packages:all": "./node_modules/@-xun/symbiote/dist/src/cli.js test --env NODE_NO_WARNINGS=1 --scope unlimited --env NODE_NO_WARNINGS=1 --coverage"
   },
   "dependencies": {
     "@-xun/changelog": "^1.0.0",
@@ -153,7 +152,6 @@
     "dotenv-cli": "^8.0.0",
     "escape-string-regexp~4": "npm:escape-string-regexp@^4.0.0",
     "eslint": "^9.18.0",
-    "eslint-config-turbo": "^2.3.3",
     "eslint-import-resolver-typescript": "^3.7.0",
     "eslint-plugin-import": "npm:@-xun/eslint-plugin-import-experimental@^2.32.0",
     "eslint-plugin-jest": "^28.10.0",
@@ -235,7 +233,6 @@
     "sort-package-json": "^2.12.0",
     "toss-expression": "^0.1.2",
     "tstyche": "^3.4.0",
-    "turbo": "^2.3.3",
     "type-fest": "^4.32.0",
     "typedoc": "^0.27.6",
     "typedoc-plugin-markdown": "^4.4.1",

@@ -43,7 +43,6 @@ export const defaultCleanExcludedPaths: string[] = [
   String.raw`(^|/)\.vscode/`,
   String.raw`(^|/)\.vercel/`,
   String.raw`(^|/)\.husky/`,
-  String.raw`(^|/)\.turbo/`,
   String.raw`(^|/)next-env\.d\.ts$`,
   String.raw`(^|/)packages/[^/]*\.ignore/`,
   '(^|/)node_modules/',

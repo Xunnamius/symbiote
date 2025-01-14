@@ -638,9 +638,16 @@ export type XPackageJsonScripts = {
    * Run by users, symbiote, and related tooling when potentially releasing
    * the next version of a package.
    *
-   * @example `symbiote release`
+   * @example `symbiote release --no-parallel --not-multiversal`
    */
   release?: string;
+  /**
+   * Run by users, symbiote, and related tooling when running the npm "release"
+   * script for every package in the project in topological order.
+   *
+   * @example `symbiote project release`
+   */
+  'release:project'?: string;
   /**
    * Run by users, symbiote, and related tooling when manipulating a project's
    * _metadata_, such as its file structure and configuration settings, with the
@@ -719,14 +726,6 @@ export type XPackageJsonScripts = {
    * @example `symbiote test --scope unlimited --coverage`
    */
   'test:packages:all'?: string;
-  /**
-   * Run exclusively by Turbo tasks in non-hybrid monorepos as a pre-execution
-   * step to rebuild the project's turbo.json files when necessary. It is
-   * therefore important that this command completes as fast as possible!
-   *
-   * @example `symbiote project init-turbo --not-multiversal`
-   */
-  'turbo:init'?: string;
 };
 
 /**
