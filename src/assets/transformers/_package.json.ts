@@ -258,7 +258,8 @@ export function generateNonHybridMonorepoProjectXPackageJson(
     private: true,
     scripts: {
       ...incomingBaseScripts,
-      'list-tasks': `symbiote list-tasks --env NODE_NO_WARNINGS=1${scopeUnlimitedArg}`
+      'list-tasks': `symbiote list-tasks --env NODE_NO_WARNINGS=1${scopeUnlimitedArg}`,
+      ...incomingPackageJson.scripts
     }
   } as const satisfies XPackageJsonMonorepoRoot;
 }
