@@ -153,11 +153,12 @@ export const globalCliArguments = {
 } satisfies BfeBuilderObject<Record<string, unknown>, StandardExecutionContext>;
 
 export const configureExecutionContext = async function (context) {
-  const standardContext = await makeStandardConfigureExecutionContext({
+  const standardContextFactory = await makeStandardConfigureExecutionContext({
     rootGenericLogger,
     rootDebugLogger
-  })(context);
+  });
 
+  const standardContext = await standardContextFactory(context);
   const projectMetadata = await analyzeProjectStructure({ useCached: true }).catch(
     () => undefined
   );
