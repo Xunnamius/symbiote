@@ -21,10 +21,12 @@ describe('::makeStandardConfigureExecutionContext', () => {
   it('returns expected context by default', async () => {
     expect.hasAssertions();
     expect(
-      makeStandardConfigureExecutionContext({
-        rootDebugLogger: 2 as any,
-        rootGenericLogger: 3 as any
-      })({ a: 1, state: { b: 1 } } as any)
+      (
+        await makeStandardConfigureExecutionContext({
+          rootDebugLogger: 2 as any,
+          rootGenericLogger: 3 as any
+        })
+      )({ a: 1, state: { b: 1 } } as any)
     ).toStrictEqual({
       a: 1,
       log: 3,
@@ -42,11 +44,13 @@ describe('::makeStandardConfigureExecutionContext', () => {
   it('returns expected context when withListr2Support is enabled', async () => {
     expect.hasAssertions();
     expect(
-      makeStandardConfigureExecutionContext({
-        rootDebugLogger: 2 as any,
-        rootGenericLogger: 3 as any,
-        withListr2Support: true
-      })({ a: 1, state: { b: 1 } } as any)
+      (
+        await makeStandardConfigureExecutionContext({
+          rootDebugLogger: 2 as any,
+          rootGenericLogger: 3 as any,
+          withListr2Support: true
+        })
+      )({ a: 1, state: { b: 1 } } as any)
     ).toStrictEqual({
       a: 1,
       log: 3,
@@ -785,11 +789,13 @@ async function makeMocks({
       exitCode: 0
     },
     argv: {} as Arguments,
-    context: await makeStandardConfigureExecutionContext({
-      rootDebugLogger: createDebugLogger(namespace),
-      rootGenericLogger: createGenericLogger(namespace),
-      withListr2Support
-    })({} as ExecutionContext)
+    context: await (
+      await makeStandardConfigureExecutionContext({
+        rootDebugLogger: createDebugLogger(namespace),
+        rootGenericLogger: createGenericLogger(namespace),
+        withListr2Support
+      })
+    )({} as ExecutionContext)
   };
 
   Object.assign(mocks.context.state, state);
