@@ -8,7 +8,7 @@
 
 > **generateHybridrepoProjectXPackageJson**(...`__namedParameters`): `object`
 
-Defined in: [src/assets/transformers/\_package.json.ts:269](https://github.com/Xunnamius/symbiote/blob/130931259fdc2fa9b7d2a06a4f7ac8fdd407e67a/src/assets/transformers/_package.json.ts#L269)
+Defined in: [src/assets/transformers/\_package.json.ts:268](https://github.com/Xunnamius/symbiote/blob/e4a3480a34344acbb42f5fad75ae58e0064f0a51/src/assets/transformers/_package.json.ts#L268)
 
 ## Parameters
 
@@ -371,7 +371,7 @@ project or package that are ignored by git (with exceptions).
 
 #### scripts.deploy?
 
-> `readonly` `optional` **deploy**: `string`
+> `optional` **deploy**: `string`
 
 Run by users, symbiote, and related tooling when deploying built
 distributables to the appropriate remote system(s).
@@ -384,7 +384,7 @@ distributables to the appropriate remote system(s).
 
 #### scripts.dev?
 
-> `readonly` `optional` **dev**: `string`
+> `optional` **dev**: `string`
 
 Run by users, symbiote, and related tooling when spinning up a project's
 local development environment.
@@ -417,7 +417,7 @@ about the current project or package.
 
 #### scripts.install?
 
-> `readonly` `optional` **install**: `string`
+> `optional` **install**: `string`
 
 Run **after** the package is installed.
 
@@ -492,67 +492,67 @@ about available scripts in `package.json`.
 
 #### scripts.postinstall?
 
-> `readonly` `optional` **postinstall**: `string`
+> `optional` **postinstall**: `string`
 
 Run **after** the package is installed and after `install`.
 
 #### scripts.postpack?
 
-> `readonly` `optional` **postpack**: `string`
+> `optional` **postpack**: `string`
 
 Run **after** the tarball has been generated and moved to its final destination.
 
 #### scripts.postpublish?
 
-> `readonly` `optional` **postpublish**: `string`
+> `optional` **postpublish**: `string`
 
 Run **after** the package is published.
 
 #### scripts.postrestart?
 
-> `readonly` `optional` **postrestart**: `string`
+> `optional` **postrestart**: `string`
 
 Run with the `npm restart` command, after `restart`. Note: `npm restart` will run the `stop` and `start` scripts if no `restart` script is provided.
 
 #### scripts.poststart?
 
-> `readonly` `optional` **poststart**: `string`
+> `optional` **poststart**: `string`
 
 Run with the `npm start` command, after `start`.
 
 #### scripts.poststop?
 
-> `readonly` `optional` **poststop**: `string`
+> `optional` **poststop**: `string`
 
 Run with the `npm stop` command, after `stop`.
 
 #### scripts.posttest?
 
-> `readonly` `optional` **posttest**: `string`
+> `optional` **posttest**: `string`
 
 Run with the `npm test` command, after `test`.
 
 #### scripts.postuninstall?
 
-> `readonly` `optional` **postuninstall**: `string`
+> `optional` **postuninstall**: `string`
 
 Run **after** the package is uninstalled.
 
 #### scripts.postversion?
 
-> `readonly` `optional` **postversion**: `string`
+> `optional` **postversion**: `string`
 
 Run **after** bump the package version.
 
 #### scripts.preinstall?
 
-> `readonly` `optional` **preinstall**: `string`
+> `optional` **preinstall**: `string`
 
 Run **before** the package is installed.
 
 #### scripts.prepack?
 
-> `readonly` `optional` **prepack**: `string`
+> `optional` **prepack**: `string`
 
 Run **before** a tarball is packed (on `npm pack`, `npm publish`, and when installing git dependencies).
 
@@ -564,61 +564,61 @@ Run both **before** the package is packed and published, and on local `npm insta
 
 #### scripts.prepublish?
 
-> `readonly` `optional` **prepublish**: `string`
+> `optional` **prepublish**: `string`
 
 Run **before** the package is published (Also run on local `npm install` without any arguments).
 
 #### scripts.prepublishOnly?
 
-> `readonly` `optional` **prepublishOnly**: `string`
+> `optional` **prepublishOnly**: `string`
 
 Run **before** the package is prepared and packed, **only** on `npm publish`.
 
 #### scripts.prerestart?
 
-> `readonly` `optional` **prerestart**: `string`
+> `optional` **prerestart**: `string`
 
 Run with the `npm restart` command, before `restart`. Note: `npm restart` will run the `stop` and `start` scripts if no `restart` script is provided.
 
 #### scripts.prestart?
 
-> `readonly` `optional` **prestart**: `string`
+> `optional` **prestart**: `string`
 
 Run with the `npm start` command, before `start`.
 
 #### scripts.prestop?
 
-> `readonly` `optional` **prestop**: `string`
+> `optional` **prestop**: `string`
 
 Run with the `npm stop` command, before `stop`.
 
 #### scripts.pretest?
 
-> `readonly` `optional` **pretest**: `string`
+> `optional` **pretest**: `string`
 
 Run with the `npm test` command, before `test`.
 
 #### scripts.preuninstall?
 
-> `readonly` `optional` **preuninstall**: `string`
+> `optional` **preuninstall**: `string`
 
 Run **before** the package is uninstalled and before `uninstall`.
 
 #### scripts.preversion?
 
-> `readonly` `optional` **preversion**: `string`
+> `optional` **preversion**: `string`
 
 Run **before** bump the package version and before `version`.
 
 #### scripts.publish?
 
-> `readonly` `optional` **publish**: `string`
+> `optional` **publish**: `string`
 
 Run **after** the package is published.
 
 #### scripts.release
 
-> `readonly` **release**: `string` = `'symbiote release --env NODE_NO_WARNINGS=1'`
+> `readonly` **release**: `string` = `'symbiote release --env NODE_NO_WARNINGS=1 --not-multiversal'`
 
 Run by users, symbiote, and related tooling when potentially releasing
 the next version of a package.
@@ -626,7 +626,20 @@ the next version of a package.
 ##### Example
 
 ```ts
-`symbiote release`
+`symbiote release --no-parallel --not-multiversal`
+```
+
+#### scripts.release:project
+
+> `readonly` **release:project**: `string` = `'symbiote project release --env NODE_NO_WARNINGS=1'`
+
+Run by users, symbiote, and related tooling when running the npm "release"
+script for every package in the project in topological order.
+
+##### Example
+
+```ts
+`symbiote project release`
 ```
 
 #### scripts.renovate
@@ -646,7 +659,7 @@ goal of bringing the project up to date with latest best practices.
 
 #### scripts.restart?
 
-> `readonly` `optional` **restart**: `string`
+> `optional` **restart**: `string`
 
 Run with the `npm restart` command. Note: `npm restart` will run the `stop` and `start` scripts if no `restart` script is provided.
 
@@ -658,7 +671,7 @@ Run with the `npm start` command.
 
 #### scripts.stop?
 
-> `readonly` `optional` **stop**: `string`
+> `optional` **stop**: `string`
 
 Run with the `npm stop` command.
 
@@ -741,19 +754,15 @@ tests across the entire project.
 `symbiote test --scope unlimited --coverage`
 ```
 
-#### scripts.turbo:init
-
-> `readonly` **turbo:init**: `"symbiote project init-turbo --env NODE_NO_WARNINGS=1 --multiversal"`
-
 #### scripts.uninstall?
 
-> `readonly` `optional` **uninstall**: `string`
+> `optional` **uninstall**: `string`
 
 Run **before** the package is uninstalled.
 
 #### scripts.version?
 
-> `readonly` `optional` **version**: `string`
+> `optional` **version**: `string`
 
 Run **before** bump the package version.
 

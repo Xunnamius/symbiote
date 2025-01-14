@@ -8,6 +8,6 @@
 
 > `const` **extensionsTypescript**: readonly \[`".ts"`, `".cts"`, `".mts"`, `".tsx"`\]
 
-Defined in: [src/assets/transformers/\_babel.config.cjs.ts:113](https://github.com/Xunnamius/symbiote/blob/130931259fdc2fa9b7d2a06a4f7ac8fdd407e67a/src/assets/transformers/_babel.config.cjs.ts#L113)
+Defined in: [src/assets/transformers/\_babel.config.cjs.ts:113](https://github.com/Xunnamius/symbiote/blob/e4a3480a34344acbb42f5fad75ae58e0064f0a51/src/assets/transformers/_babel.config.cjs.ts#L113)
 
 All known TypeScript file extensions supported by Babel (except [extensionTypescriptDefinition](extensionTypescriptDefinition.md)).

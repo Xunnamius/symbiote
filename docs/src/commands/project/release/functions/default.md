@@ -2,13 +2,13 @@
 
 ***
 
-[@-xun/symbiote](../../../../../README.md) / [src/commands/project/init-turbo](../README.md) / default
+[@-xun/symbiote](../../../../../README.md) / [src/commands/project/release](../README.md) / default
 
 # Function: default()
 
 > **default**(`__namedParameters`): `object`
 
-Defined in: [src/commands/project/init-turbo.ts:35](https://github.com/Xunnamius/symbiote/blob/130931259fdc2fa9b7d2a06a4f7ac8fdd407e67a/src/commands/project/init-turbo.ts#L35)
+Defined in: [src/commands/project/release.ts:28](https://github.com/Xunnamius/symbiote/blob/e4a3480a34344acbb42f5fad75ae58e0064f0a51/src/commands/project/release.ts#L28)
 
 ## Parameters
 
@@ -26,7 +26,7 @@ Defined in: [src/commands/project/init-turbo.ts:35](https://github.com/Xunnamius
 
 ### description
 
-> **description**: `string` = `'Execute initialization tasks specific to Turbo'`
+> **description**: `string`
 
 ### handler()
 

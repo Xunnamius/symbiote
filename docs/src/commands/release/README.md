@@ -6,6 +6,10 @@
 
 # src/commands/release
 
+## Enumerations
+
+- [SkippableTasksGroup](enumerations/SkippableTasksGroup.md)
+
 ## Interfaces
 
 - [BaseProtoTask](interfaces/BaseProtoTask.md)
@@ -24,12 +28,9 @@
 
 ## Variables
 
-- [allManualPrereleaseTasks](variables/allManualPrereleaseTasks.md)
-- [allPostReleaseTasks](variables/allPostReleaseTasks.md)
-- [allPrereleaseTasks](variables/allPrereleaseTasks.md)
-- [allTasks](variables/allTasks.md)
 - [expectedEnvVariables](variables/expectedEnvVariables.md)
 - [releaseScopes](variables/releaseScopes.md)
+- [skippableTasksGroups](variables/skippableTasksGroups.md)
 
 ## Functions
 

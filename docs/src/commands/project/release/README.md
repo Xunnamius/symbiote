@@ -2,9 +2,9 @@
 
 ***
 
-[@-xun/symbiote](../../../../README.md) / src/commands/project/init-turbo
+[@-xun/symbiote](../../../../README.md) / src/commands/project/release
 
-# src/commands/project/init-turbo
+# src/commands/project/release
 
 ## Type Aliases
 
@@ -12,7 +12,7 @@
 
 ## Variables
 
-- [projectInitScopes](variables/projectInitScopes.md)
+- [projectReleaseScopes](variables/projectReleaseScopes.md)
 
 ## Functions
 

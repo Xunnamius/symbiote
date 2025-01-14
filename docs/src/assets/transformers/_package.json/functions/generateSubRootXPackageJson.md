@@ -8,7 +8,7 @@
 
 > **generateSubRootXPackageJson**(...`__namedParameters`): `object`
 
-Defined in: [src/assets/transformers/\_package.json.ts:312](https://github.com/Xunnamius/symbiote/blob/130931259fdc2fa9b7d2a06a4f7ac8fdd407e67a/src/assets/transformers/_package.json.ts#L312)
+Defined in: [src/assets/transformers/\_package.json.ts:310](https://github.com/Xunnamius/symbiote/blob/e4a3480a34344acbb42f5fad75ae58e0064f0a51/src/assets/transformers/_package.json.ts#L310)
 
 ## Parameters
 
@@ -616,7 +616,7 @@ Run **after** the package is published.
 
 #### scripts.release
 
-> `readonly` **release**: `string` = `'symbiote release --env NODE_NO_WARNINGS=1'`
+> `readonly` **release**: `string` = `'symbiote release --env NODE_NO_WARNINGS=1 --not-multiversal'`
 
 Run by users, symbiote, and related tooling when potentially releasing
 the next version of a package.
@@ -624,7 +624,7 @@ the next version of a package.
 ##### Example
 
 ```ts
-`symbiote release`
+`symbiote release --no-parallel --not-multiversal`
 ```
 
 #### scripts.restart?
@@ -722,20 +722,6 @@ tests across the entire project.
 
 ```ts
 `symbiote test --scope unlimited --coverage`
-```
-
-#### scripts.turbo:init?
-
-> `readonly` `optional` **turbo:init**: `string`
-
-Run exclusively by Turbo tasks in non-hybrid monorepos as a pre-execution
-step to rebuild the project's turbo.json files when necessary. It is
-therefore important that this command completes as fast as possible!
-
-##### Example
-
-```ts
-`symbiote project init-turbo --not-multiversal`
 ```
 
 #### scripts.uninstall?
