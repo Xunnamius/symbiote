@@ -36,7 +36,8 @@ describe('::makeStandardConfigureExecutionContext', () => {
         isSilenced: false,
         isQuieted: false,
         isHushed: false,
-        startTime: expect.any(Date)
+        startTime: expect.any(Date),
+        taskManager: undefined
       }
     });
   });
