@@ -544,8 +544,6 @@ exports[`::gatherAssetsFromAllTransformers preset: basic generates expected asse
   "prettier.config.mjs",
   "release.config.cjs",
   "packages/webpack/src/index.ts",
-  "test/util.ts",
-  "test/setup.ts",
   "packages/webpack/test/unit-x.test.ts",
   "packages/webpack/test/integration/.config.ts",
   "packages/webpack/test/integration/integration-node-smoke.test.ts",
@@ -700,8 +698,6 @@ exports[`::gatherAssetsFromAllTransformers preset: basic generates expected asse
   "prettier.config.mjs",
   "release.config.cjs",
   "src/index.ts",
-  "test/util.ts",
-  "test/setup.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
   "tsc.package.types.json",
@@ -768,8 +764,6 @@ exports[`::gatherAssetsFromAllTransformers preset: cli generates expected assets
   "prettier.config.mjs",
   "release.config.cjs",
   "packages/webpack/src/index.ts",
-  "test/util.ts",
-  "test/setup.ts",
   "packages/webpack/test/unit-x.test.ts",
   "packages/webpack/test/integration/.config.ts",
   "packages/webpack/test/integration/integration-node-smoke.test.ts",
@@ -937,8 +931,6 @@ exports[`::gatherAssetsFromAllTransformers preset: cli generates expected assets
   "prettier.config.mjs",
   "release.config.cjs",
   "src/index.ts",
-  "test/util.ts",
-  "test/setup.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
   "tsc.package.types.json",
@@ -1009,8 +1001,6 @@ exports[`::gatherAssetsFromAllTransformers preset: default (no preset) generates
   "release.config.cjs",
   "packages/webpack/src/index.ts",
   "tailwind.config.mjs",
-  "test/util.ts",
-  "test/setup.ts",
   "packages/webpack/test/unit-x.test.ts",
   "packages/webpack/test/integration/.config.ts",
   "packages/webpack/test/integration/integration-node-smoke.test.ts",
@@ -1190,8 +1180,6 @@ exports[`::gatherAssetsFromAllTransformers preset: default (no preset) generates
   "release.config.cjs",
   "src/index.ts",
   "tailwind.config.mjs",
-  "test/util.ts",
-  "test/setup.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
   "tsc.package.types.json",
@@ -1260,8 +1248,6 @@ exports[`::gatherAssetsFromAllTransformers preset: lib generates expected assets
   "prettier.config.mjs",
   "release.config.cjs",
   "packages/webpack/src/index.ts",
-  "test/util.ts",
-  "test/setup.ts",
   "packages/webpack/test/unit-x.test.ts",
   "packages/webpack/test/integration/.config.ts",
   "packages/webpack/test/integration/integration-node-smoke.test.ts",
@@ -1429,8 +1415,6 @@ exports[`::gatherAssetsFromAllTransformers preset: lib generates expected assets
   "prettier.config.mjs",
   "release.config.cjs",
   "src/index.ts",
-  "test/util.ts",
-  "test/setup.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
   "tsc.package.types.json",
@@ -1497,8 +1481,6 @@ exports[`::gatherAssetsFromAllTransformers preset: lib-esm generates expected as
   "prettier.config.mjs",
   "release.config.cjs",
   "packages/webpack/src/index.ts",
-  "test/util.ts",
-  "test/setup.ts",
   "packages/webpack/test/unit-x.test.ts",
   "packages/webpack/test/integration/.config.ts",
   "packages/webpack/test/integration/integration-node-smoke.test.ts",
@@ -1666,8 +1648,6 @@ exports[`::gatherAssetsFromAllTransformers preset: lib-esm generates expected as
   "prettier.config.mjs",
   "release.config.cjs",
   "src/index.ts",
-  "test/util.ts",
-  "test/setup.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
   "tsc.package.types.json",
@@ -1735,8 +1715,6 @@ exports[`::gatherAssetsFromAllTransformers preset: lib-web generates expected as
   "prettier.config.mjs",
   "release.config.cjs",
   "packages/webpack/src/index.ts",
-  "test/util.ts",
-  "test/setup.ts",
   "packages/webpack/test/unit-x.test.ts",
   "packages/webpack/test/integration/.config.ts",
   "packages/webpack/test/integration/integration-node-smoke.test.ts",
@@ -1906,8 +1884,6 @@ exports[`::gatherAssetsFromAllTransformers preset: lib-web generates expected as
   "prettier.config.mjs",
   "release.config.cjs",
   "src/index.ts",
-  "test/util.ts",
-  "test/setup.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
   "tsc.package.types.json",
@@ -1970,8 +1946,6 @@ exports[`::gatherAssetsFromAllTransformers preset: nextjs generates expected ass
   "release.config.cjs",
   "packages/webpack/src/index.ts",
   "tailwind.config.mjs",
-  "test/util.ts",
-  "test/setup.ts",
   "packages/webpack/test/unit-x.test.ts",
   "packages/webpack/test/integration/.config.ts",
   "packages/webpack/test/integration/integration-node-smoke.test.ts",
@@ -2138,8 +2112,6 @@ exports[`::gatherAssetsFromAllTransformers preset: nextjs generates expected ass
   "release.config.cjs",
   "src/index.ts",
   "tailwind.config.mjs",
-  "test/util.ts",
-  "test/setup.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
   "tsc.package.types.json",
@@ -2203,8 +2175,6 @@ exports[`::gatherAssetsFromAllTransformers preset: react generates expected asse
   "release.config.cjs",
   "packages/webpack/src/index.ts",
   "tailwind.config.mjs",
-  "test/util.ts",
-  "test/setup.ts",
   "packages/webpack/test/unit-x.test.ts",
   "packages/webpack/test/integration/.config.ts",
   "packages/webpack/test/integration/integration-node-smoke.test.ts",
@@ -2365,8 +2335,6 @@ exports[`::gatherAssetsFromAllTransformers preset: react generates expected asse
   "release.config.cjs",
   "src/index.ts",
   "tailwind.config.mjs",
-  "test/util.ts",
-  "test/setup.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
   "tsc.package.types.json",
@@ -7498,7 +7466,6 @@ bower_components
 build/Release
 .vercel
 .next
-.turbo
 next-env.d.ts
 
 # Ignore cloned GitHub wiki (do not regard it as a so-called "submodule")
@@ -7615,7 +7582,6 @@ bower_components
 build/Release
 .vercel
 .next
-.turbo
 next-env.d.ts
 
 # Ignore cloned GitHub wiki (do not regard it as a so-called "submodule")
@@ -7732,7 +7698,6 @@ bower_components
 build/Release
 .vercel
 .next
-.turbo
 next-env.d.ts
 
 # Ignore cloned GitHub wiki (do not regard it as a so-called "submodule")
@@ -7849,7 +7814,6 @@ bower_components
 build/Release
 .vercel
 .next
-.turbo
 next-env.d.ts
 
 # Ignore cloned GitHub wiki (do not regard it as a so-called "submodule")
@@ -7966,7 +7930,6 @@ bower_components
 build/Release
 .vercel
 .next
-.turbo
 next-env.d.ts
 
 # Ignore cloned GitHub wiki (do not regard it as a so-called "submodule")
@@ -8083,7 +8046,6 @@ bower_components
 build/Release
 .vercel
 .next
-.turbo
 next-env.d.ts
 
 # Ignore cloned GitHub wiki (do not regard it as a so-called "submodule")
@@ -8200,7 +8162,6 @@ bower_components
 build/Release
 .vercel
 .next
-.turbo
 next-env.d.ts
 
 # Ignore cloned GitHub wiki (do not regard it as a so-called "submodule")
@@ -8317,7 +8278,6 @@ bower_components
 build/Release
 .vercel
 .next
-.turbo
 next-env.d.ts
 
 # Ignore cloned GitHub wiki (do not regard it as a so-called "submodule")
@@ -11867,6 +11827,8 @@ document.
 
 ---
 
+<br />
+
 <!-- symbiote-template-region-end -->
 
 There are as of yet no notable deviations or additions. See the linked document
@@ -11895,6 +11857,8 @@ document.
 <br />
 
 ---
+
+<br />
 
 <!-- symbiote-template-region-end -->
 
@@ -11925,6 +11889,8 @@ document.
 
 ---
 
+<br />
+
 <!-- symbiote-template-region-end -->
 
 There are as of yet no notable deviations or additions. See the linked document
@@ -11953,6 +11919,8 @@ document.
 <br />
 
 ---
+
+<br />
 
 <!-- symbiote-template-region-end -->
 
@@ -11983,6 +11951,8 @@ document.
 
 ---
 
+<br />
+
 <!-- symbiote-template-region-end -->
 
 There are as of yet no notable deviations or additions. See the linked document
@@ -12011,6 +11981,8 @@ document.
 <br />
 
 ---
+
+<br />
 
 <!-- symbiote-template-region-end -->
 
@@ -12041,6 +12013,8 @@ document.
 
 ---
 
+<br />
+
 <!-- symbiote-template-region-end -->
 
 There are as of yet no notable deviations or additions. See the linked document
@@ -12069,6 +12043,8 @@ document.
 <br />
 
 ---
+
+<br />
 
 <!-- symbiote-template-region-end -->
 
@@ -13644,19 +13620,19 @@ npm ci
 To release all packages in a repository:
 
 \`\`\`bash
-# Do a Turbo dry run first:
-npx turbo release --dry-run
-# Then do the actual Turbo-based release:
-npx turbo release
+# Do a dry run first if you're not absolutely sure all is as it should be:
+npx run project:release -- --dry-run
+# Then do the actual topological release:
+npx run project:release
 \`\`\`
 
-To release one or more specific packages:
+To release a specific package (without regard for topology):
 
 \`\`\`bash
-# Do a Turbo dry run first:
-npx turbo release --filter=pkg-1 --filter=pkg-2 --dry-run
-# Then do the actual Turbo-based release:
-npx turbo release --filter=pkg-1 --filter=pkg-2
+# Do a dry run first if you're not absolutely sure all is as it should be:
+npx -w specific-package-name-here run release -- --dry-run
+# Then do the actual topological release:
+npx -w specific-package-name-here run release
 \`\`\`
 
 #### Manual Release Method 2: By Hand
@@ -13667,11 +13643,11 @@ npx turbo release --filter=pkg-1 --filter=pkg-2
 > a release may result in a non-functional package being released if said
 > package depends on other packages in the project that have unreleased changes.
 >
-> [Turbo][24] solves this problem and should be preferred over building packages
-> by hand.
+> Symbiote's "project release" command solves this problem and should be
+> preferred over building packages individually.
 
-There are two ways to execute the release procedure by hand. The first is by
-leveraging the release script:
+There are two ways to execute the release procedure of a particular package by
+hand. The first is by leveraging the release script:
 
 \`\`\`bash
 # Do a symbiote dry run first:
@@ -13887,7 +13863,6 @@ Thank you so much for helping to maintain this project!
 [22]: https://docs.npmjs.com/cli/v8/commands/npm-deprecate
 [23]:
   https://docs.npmjs.com/deprecating-and-undeprecating-packages-or-package-versions
-[24]: #manual-release-method-1-semi-automated
 [25]:
   https://github.com/conventional-changelog-archived-repos/conventional-changelog-angular/blob/ed32559941719a130bb0327f886d6a32a8cbc2ba/convention.md
 [26]: https://github.com/semantic-release/commit-analyzer
@@ -14014,19 +13989,19 @@ npm ci
 To release all packages in a repository:
 
 \`\`\`bash
-# Do a Turbo dry run first:
-npx turbo release --dry-run
-# Then do the actual Turbo-based release:
-npx turbo release
+# Do a dry run first if you're not absolutely sure all is as it should be:
+npx run project:release -- --dry-run
+# Then do the actual topological release:
+npx run project:release
 \`\`\`
 
-To release one or more specific packages:
+To release a specific package (without regard for topology):
 
 \`\`\`bash
-# Do a Turbo dry run first:
-npx turbo release --filter=pkg-1 --filter=pkg-2 --dry-run
-# Then do the actual Turbo-based release:
-npx turbo release --filter=pkg-1 --filter=pkg-2
+# Do a dry run first if you're not absolutely sure all is as it should be:
+npx -w specific-package-name-here run release -- --dry-run
+# Then do the actual topological release:
+npx -w specific-package-name-here run release
 \`\`\`
 
 #### Manual Release Method 2: By Hand
@@ -14037,11 +14012,11 @@ npx turbo release --filter=pkg-1 --filter=pkg-2
 > a release may result in a non-functional package being released if said
 > package depends on other packages in the project that have unreleased changes.
 >
-> [Turbo][24] solves this problem and should be preferred over building packages
-> by hand.
+> Symbiote's "project release" command solves this problem and should be
+> preferred over building packages individually.
 
-There are two ways to execute the release procedure by hand. The first is by
-leveraging the release script:
+There are two ways to execute the release procedure of a particular package by
+hand. The first is by leveraging the release script:
 
 \`\`\`bash
 # Do a symbiote dry run first:
@@ -14257,7 +14232,6 @@ Thank you so much for helping to maintain this project!
 [22]: https://docs.npmjs.com/cli/v8/commands/npm-deprecate
 [23]:
   https://docs.npmjs.com/deprecating-and-undeprecating-packages-or-package-versions
-[24]: #manual-release-method-1-semi-automated
 [25]:
   https://github.com/conventional-changelog-archived-repos/conventional-changelog-angular/blob/ed32559941719a130bb0327f886d6a32a8cbc2ba/convention.md
 [26]: https://github.com/semantic-release/commit-analyzer
@@ -14384,19 +14358,19 @@ npm ci
 To release all packages in a repository:
 
 \`\`\`bash
-# Do a Turbo dry run first:
-npx turbo release --dry-run
-# Then do the actual Turbo-based release:
-npx turbo release
+# Do a dry run first if you're not absolutely sure all is as it should be:
+npx run project:release -- --dry-run
+# Then do the actual topological release:
+npx run project:release
 \`\`\`
 
-To release one or more specific packages:
+To release a specific package (without regard for topology):
 
 \`\`\`bash
-# Do a Turbo dry run first:
-npx turbo release --filter=pkg-1 --filter=pkg-2 --dry-run
-# Then do the actual Turbo-based release:
-npx turbo release --filter=pkg-1 --filter=pkg-2
+# Do a dry run first if you're not absolutely sure all is as it should be:
+npx -w specific-package-name-here run release -- --dry-run
+# Then do the actual topological release:
+npx -w specific-package-name-here run release
 \`\`\`
 
 #### Manual Release Method 2: By Hand
@@ -14407,11 +14381,11 @@ npx turbo release --filter=pkg-1 --filter=pkg-2
 > a release may result in a non-functional package being released if said
 > package depends on other packages in the project that have unreleased changes.
 >
-> [Turbo][24] solves this problem and should be preferred over building packages
-> by hand.
+> Symbiote's "project release" command solves this problem and should be
+> preferred over building packages individually.
 
-There are two ways to execute the release procedure by hand. The first is by
-leveraging the release script:
+There are two ways to execute the release procedure of a particular package by
+hand. The first is by leveraging the release script:
 
 \`\`\`bash
 # Do a symbiote dry run first:
@@ -14627,7 +14601,6 @@ Thank you so much for helping to maintain this project!
 [22]: https://docs.npmjs.com/cli/v8/commands/npm-deprecate
 [23]:
   https://docs.npmjs.com/deprecating-and-undeprecating-packages-or-package-versions
-[24]: #manual-release-method-1-semi-automated
 [25]:
   https://github.com/conventional-changelog-archived-repos/conventional-changelog-angular/blob/ed32559941719a130bb0327f886d6a32a8cbc2ba/convention.md
 [26]: https://github.com/semantic-release/commit-analyzer
@@ -14754,19 +14727,19 @@ npm ci
 To release all packages in a repository:
 
 \`\`\`bash
-# Do a Turbo dry run first:
-npx turbo release --dry-run
-# Then do the actual Turbo-based release:
-npx turbo release
+# Do a dry run first if you're not absolutely sure all is as it should be:
+npx run project:release -- --dry-run
+# Then do the actual topological release:
+npx run project:release
 \`\`\`
 
-To release one or more specific packages:
+To release a specific package (without regard for topology):
 
 \`\`\`bash
-# Do a Turbo dry run first:
-npx turbo release --filter=pkg-1 --filter=pkg-2 --dry-run
-# Then do the actual Turbo-based release:
-npx turbo release --filter=pkg-1 --filter=pkg-2
+# Do a dry run first if you're not absolutely sure all is as it should be:
+npx -w specific-package-name-here run release -- --dry-run
+# Then do the actual topological release:
+npx -w specific-package-name-here run release
 \`\`\`
 
 #### Manual Release Method 2: By Hand
@@ -14777,11 +14750,11 @@ npx turbo release --filter=pkg-1 --filter=pkg-2
 > a release may result in a non-functional package being released if said
 > package depends on other packages in the project that have unreleased changes.
 >
-> [Turbo][24] solves this problem and should be preferred over building packages
-> by hand.
+> Symbiote's "project release" command solves this problem and should be
+> preferred over building packages individually.
 
-There are two ways to execute the release procedure by hand. The first is by
-leveraging the release script:
+There are two ways to execute the release procedure of a particular package by
+hand. The first is by leveraging the release script:
 
 \`\`\`bash
 # Do a symbiote dry run first:
@@ -14997,7 +14970,6 @@ Thank you so much for helping to maintain this project!
 [22]: https://docs.npmjs.com/cli/v8/commands/npm-deprecate
 [23]:
   https://docs.npmjs.com/deprecating-and-undeprecating-packages-or-package-versions
-[24]: #manual-release-method-1-semi-automated
 [25]:
   https://github.com/conventional-changelog-archived-repos/conventional-changelog-angular/blob/ed32559941719a130bb0327f886d6a32a8cbc2ba/convention.md
 [26]: https://github.com/semantic-release/commit-analyzer
@@ -15124,19 +15096,19 @@ npm ci
 To release all packages in a repository:
 
 \`\`\`bash
-# Do a Turbo dry run first:
-npx turbo release --dry-run
-# Then do the actual Turbo-based release:
-npx turbo release
+# Do a dry run first if you're not absolutely sure all is as it should be:
+npx run project:release -- --dry-run
+# Then do the actual topological release:
+npx run project:release
 \`\`\`
 
-To release one or more specific packages:
+To release a specific package (without regard for topology):
 
 \`\`\`bash
-# Do a Turbo dry run first:
-npx turbo release --filter=pkg-1 --filter=pkg-2 --dry-run
-# Then do the actual Turbo-based release:
-npx turbo release --filter=pkg-1 --filter=pkg-2
+# Do a dry run first if you're not absolutely sure all is as it should be:
+npx -w specific-package-name-here run release -- --dry-run
+# Then do the actual topological release:
+npx -w specific-package-name-here run release
 \`\`\`
 
 #### Manual Release Method 2: By Hand
@@ -15147,11 +15119,11 @@ npx turbo release --filter=pkg-1 --filter=pkg-2
 > a release may result in a non-functional package being released if said
 > package depends on other packages in the project that have unreleased changes.
 >
-> [Turbo][24] solves this problem and should be preferred over building packages
-> by hand.
+> Symbiote's "project release" command solves this problem and should be
+> preferred over building packages individually.
 
-There are two ways to execute the release procedure by hand. The first is by
-leveraging the release script:
+There are two ways to execute the release procedure of a particular package by
+hand. The first is by leveraging the release script:
 
 \`\`\`bash
 # Do a symbiote dry run first:
@@ -15367,7 +15339,6 @@ Thank you so much for helping to maintain this project!
 [22]: https://docs.npmjs.com/cli/v8/commands/npm-deprecate
 [23]:
   https://docs.npmjs.com/deprecating-and-undeprecating-packages-or-package-versions
-[24]: #manual-release-method-1-semi-automated
 [25]:
   https://github.com/conventional-changelog-archived-repos/conventional-changelog-angular/blob/ed32559941719a130bb0327f886d6a32a8cbc2ba/convention.md
 [26]: https://github.com/semantic-release/commit-analyzer
@@ -15494,19 +15465,19 @@ npm ci
 To release all packages in a repository:
 
 \`\`\`bash
-# Do a Turbo dry run first:
-npx turbo release --dry-run
-# Then do the actual Turbo-based release:
-npx turbo release
+# Do a dry run first if you're not absolutely sure all is as it should be:
+npx run project:release -- --dry-run
+# Then do the actual topological release:
+npx run project:release
 \`\`\`
 
-To release one or more specific packages:
+To release a specific package (without regard for topology):
 
 \`\`\`bash
-# Do a Turbo dry run first:
-npx turbo release --filter=pkg-1 --filter=pkg-2 --dry-run
-# Then do the actual Turbo-based release:
-npx turbo release --filter=pkg-1 --filter=pkg-2
+# Do a dry run first if you're not absolutely sure all is as it should be:
+npx -w specific-package-name-here run release -- --dry-run
+# Then do the actual topological release:
+npx -w specific-package-name-here run release
 \`\`\`
 
 #### Manual Release Method 2: By Hand
@@ -15517,11 +15488,11 @@ npx turbo release --filter=pkg-1 --filter=pkg-2
 > a release may result in a non-functional package being released if said
 > package depends on other packages in the project that have unreleased changes.
 >
-> [Turbo][24] solves this problem and should be preferred over building packages
-> by hand.
+> Symbiote's "project release" command solves this problem and should be
+> preferred over building packages individually.
 
-There are two ways to execute the release procedure by hand. The first is by
-leveraging the release script:
+There are two ways to execute the release procedure of a particular package by
+hand. The first is by leveraging the release script:
 
 \`\`\`bash
 # Do a symbiote dry run first:
@@ -15737,7 +15708,6 @@ Thank you so much for helping to maintain this project!
 [22]: https://docs.npmjs.com/cli/v8/commands/npm-deprecate
 [23]:
   https://docs.npmjs.com/deprecating-and-undeprecating-packages-or-package-versions
-[24]: #manual-release-method-1-semi-automated
 [25]:
   https://github.com/conventional-changelog-archived-repos/conventional-changelog-angular/blob/ed32559941719a130bb0327f886d6a32a8cbc2ba/convention.md
 [26]: https://github.com/semantic-release/commit-analyzer
@@ -15864,19 +15834,19 @@ npm ci
 To release all packages in a repository:
 
 \`\`\`bash
-# Do a Turbo dry run first:
-npx turbo release --dry-run
-# Then do the actual Turbo-based release:
-npx turbo release
+# Do a dry run first if you're not absolutely sure all is as it should be:
+npx run project:release -- --dry-run
+# Then do the actual topological release:
+npx run project:release
 \`\`\`
 
-To release one or more specific packages:
+To release a specific package (without regard for topology):
 
 \`\`\`bash
-# Do a Turbo dry run first:
-npx turbo release --filter=pkg-1 --filter=pkg-2 --dry-run
-# Then do the actual Turbo-based release:
-npx turbo release --filter=pkg-1 --filter=pkg-2
+# Do a dry run first if you're not absolutely sure all is as it should be:
+npx -w specific-package-name-here run release -- --dry-run
+# Then do the actual topological release:
+npx -w specific-package-name-here run release
 \`\`\`
 
 #### Manual Release Method 2: By Hand
@@ -15887,11 +15857,11 @@ npx turbo release --filter=pkg-1 --filter=pkg-2
 > a release may result in a non-functional package being released if said
 > package depends on other packages in the project that have unreleased changes.
 >
-> [Turbo][24] solves this problem and should be preferred over building packages
-> by hand.
+> Symbiote's "project release" command solves this problem and should be
+> preferred over building packages individually.
 
-There are two ways to execute the release procedure by hand. The first is by
-leveraging the release script:
+There are two ways to execute the release procedure of a particular package by
+hand. The first is by leveraging the release script:
 
 \`\`\`bash
 # Do a symbiote dry run first:
@@ -16107,7 +16077,6 @@ Thank you so much for helping to maintain this project!
 [22]: https://docs.npmjs.com/cli/v8/commands/npm-deprecate
 [23]:
   https://docs.npmjs.com/deprecating-and-undeprecating-packages-or-package-versions
-[24]: #manual-release-method-1-semi-automated
 [25]:
   https://github.com/conventional-changelog-archived-repos/conventional-changelog-angular/blob/ed32559941719a130bb0327f886d6a32a8cbc2ba/convention.md
 [26]: https://github.com/semantic-release/commit-analyzer
@@ -16234,19 +16203,19 @@ npm ci
 To release all packages in a repository:
 
 \`\`\`bash
-# Do a Turbo dry run first:
-npx turbo release --dry-run
-# Then do the actual Turbo-based release:
-npx turbo release
+# Do a dry run first if you're not absolutely sure all is as it should be:
+npx run project:release -- --dry-run
+# Then do the actual topological release:
+npx run project:release
 \`\`\`
 
-To release one or more specific packages:
+To release a specific package (without regard for topology):
 
 \`\`\`bash
-# Do a Turbo dry run first:
-npx turbo release --filter=pkg-1 --filter=pkg-2 --dry-run
-# Then do the actual Turbo-based release:
-npx turbo release --filter=pkg-1 --filter=pkg-2
+# Do a dry run first if you're not absolutely sure all is as it should be:
+npx -w specific-package-name-here run release -- --dry-run
+# Then do the actual topological release:
+npx -w specific-package-name-here run release
 \`\`\`
 
 #### Manual Release Method 2: By Hand
@@ -16257,11 +16226,11 @@ npx turbo release --filter=pkg-1 --filter=pkg-2
 > a release may result in a non-functional package being released if said
 > package depends on other packages in the project that have unreleased changes.
 >
-> [Turbo][24] solves this problem and should be preferred over building packages
-> by hand.
+> Symbiote's "project release" command solves this problem and should be
+> preferred over building packages individually.
 
-There are two ways to execute the release procedure by hand. The first is by
-leveraging the release script:
+There are two ways to execute the release procedure of a particular package by
+hand. The first is by leveraging the release script:
 
 \`\`\`bash
 # Do a symbiote dry run first:
@@ -16477,7 +16446,6 @@ Thank you so much for helping to maintain this project!
 [22]: https://docs.npmjs.com/cli/v8/commands/npm-deprecate
 [23]:
   https://docs.npmjs.com/deprecating-and-undeprecating-packages-or-package-versions
-[24]: #manual-release-method-1-semi-automated
 [25]:
   https://github.com/conventional-changelog-archived-repos/conventional-changelog-angular/blob/ed32559941719a130bb0327f886d6a32a8cbc2ba/convention.md
 [26]: https://github.com/semantic-release/commit-analyzer
@@ -24471,17 +24439,17 @@ scope: this-package
     "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
     "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
+    "release:project": "symbiote project release --env NODE_NO_WARNINGS=1",
     "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs'",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage",
-    "turbo:init": "symbiote project init-turbo --env NODE_NO_WARNINGS=1 --multiversal",
     "build": "npm run build:dist --",
     "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
     "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1",
     "build:docs": "symbiote build docs --env NODE_NO_WARNINGS=1",
     "lint": "npm run lint:package --",
     "lint:package": "symbiote lint --env NODE_NO_WARNINGS=1 --hush",
-    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1 --not-multiversal",
     "test": "npm run test:package:unit --",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
     "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
@@ -24561,17 +24529,17 @@ scope: unlimited
     "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
     "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
+    "release:project": "symbiote project release --env NODE_NO_WARNINGS=1",
     "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs'",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage",
-    "turbo:init": "symbiote project init-turbo --env NODE_NO_WARNINGS=1 --multiversal",
     "build": "npm run build:dist --",
     "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
     "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1",
     "build:docs": "symbiote build docs --env NODE_NO_WARNINGS=1",
     "lint": "npm run lint:package --",
     "lint:package": "symbiote lint --env NODE_NO_WARNINGS=1 --hush",
-    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1 --not-multiversal",
     "test": "npm run test:package:unit --",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
     "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
@@ -24664,7 +24632,7 @@ scope: unlimited
     "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
     "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
-    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1 --not-multiversal",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "npm run test:package:unit --",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
@@ -24743,7 +24711,7 @@ scope: unlimited
     "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
     "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
-    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1 --not-multiversal",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "npm run test:package:unit --",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
@@ -24824,7 +24792,7 @@ scope: unlimited
     "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
     "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
-    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1 --not-multiversal",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "npm run test:package:unit --",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
@@ -24908,17 +24876,17 @@ scope: unlimited
     "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
     "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
+    "release:project": "symbiote project release --env NODE_NO_WARNINGS=1",
     "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs'",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage",
-    "turbo:init": "symbiote project init-turbo --env NODE_NO_WARNINGS=1 --multiversal",
     "build": "npm run build:dist --",
     "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
     "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1",
     "build:docs": "symbiote build docs --env NODE_NO_WARNINGS=1",
     "lint": "npm run lint:package --",
     "lint:package": "symbiote lint --env NODE_NO_WARNINGS=1 --hush",
-    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1 --not-multiversal",
     "test": "npm run test:package:unit --",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
     "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
@@ -25012,7 +24980,7 @@ scope: unlimited
     "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
     "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
-    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1 --not-multiversal",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "echo 'it works!'",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
@@ -25086,7 +25054,7 @@ scope: unlimited
     "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
     "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
-    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1 --not-multiversal",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "echo 'it works!'",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
@@ -25162,7 +25130,7 @@ scope: unlimited
     "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
     "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
-    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1 --not-multiversal",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "echo 'it works!'",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
@@ -25236,7 +25204,7 @@ scope: this-package
     "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
     "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
-    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1 --not-multiversal",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "echo 'it works!'",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
@@ -25315,10 +25283,10 @@ scope: unlimited
     "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope unlimited",
     "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
+    "release:project": "symbiote project release --env NODE_NO_WARNINGS=1",
     "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs'",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
-    "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage",
-    "turbo:init": "symbiote project init-turbo --env NODE_NO_WARNINGS=1 --not-multiversal"
+    "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage"
   }
 }
 "
@@ -25406,7 +25374,7 @@ scope: unlimited
     "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
     "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
-    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1 --not-multiversal",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "npm run test:package:unit --",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
@@ -25501,7 +25469,7 @@ scope: unlimited
     "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
     "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
-    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1 --not-multiversal",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "npm run test:package:unit --",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
@@ -25582,7 +25550,7 @@ scope: unlimited
     "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
     "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
-    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1 --not-multiversal",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "npm run test:package:unit --",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
@@ -25660,10 +25628,11 @@ scope: unlimited
     "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope unlimited",
     "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
+    "release:project": "symbiote project release --env NODE_NO_WARNINGS=1",
     "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs'",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage",
-    "turbo:init": "symbiote project init-turbo --env NODE_NO_WARNINGS=1 --not-multiversal"
+    "test": "echo 'it works!'"
   }
 }
 "
@@ -25738,7 +25707,7 @@ scope: unlimited
     "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
     "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
-    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1 --not-multiversal",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "echo 'it works!'",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
@@ -25823,7 +25792,7 @@ scope: unlimited
     "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
     "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
-    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1 --not-multiversal",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "echo 'it works!'",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
@@ -25899,7 +25868,7 @@ scope: unlimited
     "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
     "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
-    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1 --not-multiversal",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "echo 'it works!'",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
@@ -25941,7 +25910,8 @@ scope: unlimited
     "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
     "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
-    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1 --not-multiversal",
+    "release:project": "symbiote project release --env NODE_NO_WARNINGS=1",
     "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs'",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "echo 'it works!'",
@@ -26050,7 +26020,8 @@ scope: this-package
     "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
     "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
-    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1 --not-multiversal",
+    "release:project": "symbiote project release --env NODE_NO_WARNINGS=1",
     "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs'",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "npm run test:package:unit --",
@@ -26104,7 +26075,8 @@ scope: unlimited
     "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
     "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
-    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1 --not-multiversal",
+    "release:project": "symbiote project release --env NODE_NO_WARNINGS=1",
     "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs'",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "echo 'it works!'",
@@ -27018,37 +26990,6 @@ debug('exported config: %O', config);
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/test/setup.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/test/setup.ts
-scope: this-package
-⏶⏷⏶⏷⏶
-/**
- ** This file is automatically imported by Jest, and is responsible for
- **  bootstrapping the runtime for every test file.
- */
-
-// ? jest-extended will always come from @-xun/symbiote (i.e. transitively)
-// {@symbiote/notInvalid jest-extended}
-
-// ? https://github.com/jest-community/jest-extended#typescript
-import 'jest-extended';
-import 'jest-extended/all';
-"
-`;
-
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/test/util.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/test/util.ts
-scope: this-package
-⏶⏷⏶⏷⏶
-/**
- ** This file exports test utilities specific to this project and beyond what is
- ** exported by @-xun/test; these can be imported using the testversal aliases.
- */
-
-export * from '@-xun/test';
-"
-`;
-
 exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/packages/cli/test/end-to-end/.config.ts 1`] = `
 "key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/packages/cli/test/end-to-end/.config.ts
 scope: unlimited
@@ -27457,37 +27398,6 @@ scope: unlimited
 // * These tests ensure the exported interface under test functions as expected.
 
 test.todo('this');
-"
-`;
-
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/test/setup.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/test/setup.ts
-scope: unlimited
-⏶⏷⏶⏷⏶
-/**
- ** This file is automatically imported by Jest, and is responsible for
- **  bootstrapping the runtime for every test file.
- */
-
-// ? jest-extended will always come from @-xun/symbiote (i.e. transitively)
-// {@symbiote/notInvalid jest-extended}
-
-// ? https://github.com/jest-community/jest-extended#typescript
-import 'jest-extended';
-import 'jest-extended/all';
-"
-`;
-
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/test/util.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-hybridrepo/test/util.ts
-scope: unlimited
-⏶⏷⏶⏷⏶
-/**
- ** This file exports test utilities specific to this project and beyond what is
- ** exported by @-xun/test; these can be imported using the testversal aliases.
- */
-
-export * from '@-xun/test';
 "
 `;
 
@@ -28085,37 +27995,6 @@ export * from '@-xun/test';
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/setup.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/setup.ts
-scope: unlimited
-⏶⏷⏶⏷⏶
-/**
- ** This file is automatically imported by Jest, and is responsible for
- **  bootstrapping the runtime for every test file.
- */
-
-// ? jest-extended will always come from @-xun/symbiote (i.e. transitively)
-// {@symbiote/notInvalid jest-extended}
-
-// ? https://github.com/jest-community/jest-extended#typescript
-import 'jest-extended';
-import 'jest-extended/all';
-"
-`;
-
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo (scope=this-package): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/util.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/util.ts
-scope: unlimited
-⏶⏷⏶⏷⏶
-/**
- ** This file exports test utilities specific to this project and beyond what is
- ** exported by @-xun/test; these can be imported using the testversal aliases.
- */
-
-export * from '@-xun/test';
-"
-`;
-
 exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/end-to-end/.config.ts 1`] = `
 "key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/end-to-end/.config.ts
 scope: this-package
@@ -28213,37 +28092,6 @@ test.todo('this');
 exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo (with force): /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/util.ts 1`] = `
 "key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/util.ts
 scope: this-package
-⏶⏷⏶⏷⏶
-/**
- ** This file exports test utilities specific to this project and beyond what is
- ** exported by @-xun/test; these can be imported using the testversal aliases.
- */
-
-export * from '@-xun/test';
-"
-`;
-
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/setup.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/setup.ts
-scope: unlimited
-⏶⏷⏶⏷⏶
-/**
- ** This file is automatically imported by Jest, and is responsible for
- **  bootstrapping the runtime for every test file.
- */
-
-// ? jest-extended will always come from @-xun/symbiote (i.e. transitively)
-// {@symbiote/notInvalid jest-extended}
-
-// ? https://github.com/jest-community/jest-extended#typescript
-import 'jest-extended';
-import 'jest-extended/all';
-"
-`;
-
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/util.ts 1`] = `
-"key: /repos/symbiote/packages/project-utils/test/fixtures/dummy-repo/good-polyrepo-no-src-yes-default-env/test/util.ts
-scope: unlimited
 ⏶⏷⏶⏷⏶
 /**
  ** This file exports test utilities specific to this project and beyond what is
