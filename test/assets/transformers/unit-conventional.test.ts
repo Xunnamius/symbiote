@@ -129,6 +129,13 @@ it('appends commit short-hash and repo link to the end of commits of non-hidden 
             : `# ${commitTypeSections[type]?.section ?? ''}\n`;
 
           const subject_ = messageSplit.slice(1).join(':').trim().split('\n')[0];
+
+          if (type === 'revert' && !bodyAndFooter.includes('his reverts commit')) {
+            // ? Broken revert commits should not appear in changelog
+            expect(changelog).not.toInclude(subject_);
+            return;
+          }
+
           const subject = type === 'revert' ? `*${subject_}*` : subject_;
 
           const bullet =
@@ -893,7 +900,7 @@ it('does not linkify @string if it is a scoped package (including with hyphens)'
   );
 });
 
-it('parses default, customized, and malformed revert commits', async () => {
+it('parses default, customized, but not malformed/broken revert commits', async () => {
   expect.hasAssertions();
 
   await withMockedFixtureWrapper(
@@ -907,7 +914,10 @@ it('parses default, customized, and malformed revert commits', async () => {
           expect(changelog).toInclude('*"feat: default revert format"*');
           expect(changelog).toInclude('*Feat: custom revert format*');
           expect(changelog).toInclude('*"Feat(two): custom revert format 2"*');
-          expect(changelog).toInclude('*"feat(X): broken-but-still-supported revert"*');
+
+          expect(changelog).not.toInclude(
+            '*"feat(X): broken revert commit should not appear"*'
+          );
         }
       }
     },
@@ -965,15 +975,95 @@ it('removes xpipeline command suffixes from commit subjects', async () => {
           expect(changelog).toInclude('* Something else skip1\n');
           expect(changelog).toInclude('* **scope:** something else skip1 ([X]');
           expect(changelog).toInclude('* Something else skip2 ([X]');
+          // ? Multiple stacked together are illegal
           expect(changelog).toInclude(
-            '* Something other skip3 [CI SKIP][skip ci][sKiP cd][cd skip] ([X]'
+            String.raw`* Something other skip3 \[CI SKIP\]\[skip ci\]\[sKiP cd\]\[cd skip\] ([X]`
           );
           expect(changelog).toInclude('* Something other skip4 ([X]');
-          expect(changelog).toInclude('*"build(bore): include1 [skip cd]"*');
+          // ? Reverts are always shown as-is
+          expect(changelog).toInclude(String.raw`*"build(bore): include1 \[skip cd\]"*`);
         }
       }
     },
     generatePatchesForEnvironment11()
+  );
+});
+
+it('escapes characters considered special to markdown', async () => {
+  expect.hasAssertions();
+
+  await withMockedFixtureWrapper(
+    {
+      async test() {
+        {
+          const config = moduleExport(dummyModuleExportConfig);
+          const changelog = await runConventionalChangelog(config, {
+            outputUnreleased: true
+          });
+
+          expect(changelog).toInclude(String.raw`* **that:** escape test`);
+          expect(changelog).toInclude(
+            '* These \\[brackets\\] and these\\~tildes need to be \\~escaped\\~ and this\\~ too and \\~this but not ~~these~~ but yes this\\~\n'
+          );
+
+          expect(changelog).toInclude('* Something else skip1 escape me\\]\n');
+          expect(changelog).toInclude(
+            String.raw`* **scope:** something else skip1 escape me\] ([X]`
+          );
+
+          expect(changelog).toInclude(String.raw`* Something else to escape\[\] ([X]`);
+
+          expect(changelog).toInclude(
+            '* Do not `[[[escape``me[]]` or `*me*` but yes me\\[\\]\\]\\` ([X]'
+          );
+
+          expect(changelog).toInclude('* Do not `[escape]` this either ([X]');
+
+          expect(changelog).toInclude(
+            '* But do `escape`\\[\\[\\[me`and` also \\`\\*me\\*\\` `*not me*` but yes \\[\\]\\] me \\` ([X]'
+          );
+
+          expect(changelog).toInclude(
+            String.raw`* Escape the tilde in rejoinder\~5 and the \* in \*this\* ([X]`
+          );
+
+          expect(changelog).toInclude(
+            String.raw`* \# The previous # but none of \# the other #` + '\n'
+          );
+
+          expect(changelog).toInclude(
+            String.raw`* **this\~that:** escape the \~ in @-xun/debug\~dev ([X]`
+          );
+
+          expect(changelog).toInclude(String.raw`* *"fix(that\~this): escape \~"* ([X]`);
+
+          expect(changelog).toInclude(
+            '* Do not escape \\_any\\_ of the following as they are already escaped: \\* / ( ) \\] \\[ \\> \\< \\_ \\` \\~! ([X]'
+          );
+        }
+      }
+    },
+    generatePatchesForEnvironment12()
+  );
+});
+
+it('does not include revert commits with missing metadata (i.e. not created by "git revert")', async () => {
+  expect.hasAssertions();
+
+  await withMockedFixtureWrapper(
+    {
+      async test() {
+        {
+          const config = moduleExport(dummyModuleExportConfig);
+          const changelog = await runConventionalChangelog(config, {
+            outputUnreleased: true
+          });
+
+          expect(changelog).not.toInclude('SHOULD NOT BE INCLUDED IN CHANGELOG');
+        }
+      }
+    },
+    generatePatchesForEnvironment12()
   );
 });
 
@@ -1109,7 +1199,7 @@ function generatePatchesForEnvironment1(): TestEnvironmentPatch[] {
         'Fix(compile): avoid a bug\nBREAKING CHANGE: changes #55 #66, and #77 are huge.',
         'perf(ngOptions): make it faster\n closes #1, #2',
         'fix(changelog): proper issue links 1\n\nsee #1, other-fake-user/other-fake-repo#358, other-fake-user/other-fake-repo#853',
-        'revert(ngOptions): "feat(headstrong): bad commit"',
+        'revert: "feat(headstrong): bad commit"\nThis reverts commit 1234.',
         'fix(*): oops',
         'fix(changelog): proper issue links 2\n\nsee GH-1',
         'feat(awesome): address EXAMPLE-1 EXAMPLE-2',
@@ -1255,7 +1345,7 @@ function generatePatchesForEnvironment10(): TestEnvironmentPatch[] {
         'Revert "feat: default revert format\nThis reverts commit 1234.',
         'revert: feat: custom revert format\n\nThis reverts commit 5678.',
         'revert: "Feat(two): custom revert format 2"\nThis reverts commit 9101112.',
-        'revert: "feat(X): broken-but-still-supported revert"'
+        'revert: "feat(X): broken revert commit should not appear"'
       ],
       async callback({ context: { git, fs } }) {
         await fs.writeFile({
@@ -1281,9 +1371,11 @@ function generatePatchesForEnvironment11(): TestEnvironmentPatch[] {
         'feat: something else skip2 [cd skip]',
         'fix: something other skip3 [CI SKIP][skip ci][sKiP cd][cd skip]',
         'fix: something other skip4 [CI SKIP, skip ci, sKiP cd, cd skip]',
-        'revert: "build(bore): include1 [skip cd]"'
+        'build(bore): include1 [skip cd]'
       ],
       async callback({ context: { git, fs } }) {
+        await git.revert('HEAD');
+
         await fs.writeFile({
           path: 'package.json',
           data: stringifyJson({
@@ -1294,6 +1386,34 @@ function generatePatchesForEnvironment11(): TestEnvironmentPatch[] {
 
         return git.addAnnotatedTag('fake-pkg@1.1.1', 'fake-pkg@1.1.1');
       }
+    }
+  ]);
+}
+
+// * Note from 2025: welcome back :) If you're adding a
+// * generatePatchesForEnvironment13(), you might want to create a new tag
+// * (using the async callback style used above) to separate these patches from
+// * the patches in 13. Will probably require changes to the two tests that rely
+// * on "outputUnreleased: true" too.
+function generatePatchesForEnvironment12(): TestEnvironmentPatch[] {
+  return generatePatchesForEnvironment11().concat([
+    {
+      messages: [
+        'refactor(that): escape test\n\nBREAKING CHANGE: these [brackets] and these~tildes need to be ~escaped~ and this~\ntoo and \n~this but not ~~these~~ but yes this~',
+        'feat(scope)!: something else skip1 escape me]',
+        'feat: something else to escape[]',
+        'fix: do not `[[[escape``me[]]` or `*me*` but yes me[]]`',
+        'fix: do not `[escape]` this either',
+        'fix: but do `escape`[[[me`and` also \\`*me*\\` `*not me*` but yes []] me `',
+        'perf: escape the tilde in rejoinder~5 and the * in *this*',
+        'perf: escape\n\nBREAKING CHANGE:\n# The previous # but none of\n\\# the other #',
+        'feat(this~that): escape the ~ in @-xun/debug~dev',
+        'revert: "fix(that~this): escape ~"\nThis reverts commit 1234.',
+        'revert: "chore(this): SHOULD NOT BE INCLUDED IN CHANGELOG"\nThis reverts commit 1234.',
+        'revert: "style(this): SHOULD NOT BE INCLUDED IN CHANGELOG"\nThis reverts commit 1234.',
+        'revert: "refactor(this): SHOULD NOT BE INCLUDED IN CHANGELOG"\nThis reverts commit 1234.',
+        String.raw`build: do not escape _any_ of the following as they are already escaped: \* / ( ) \] \[ \> \< \_ \` \~!`
+      ]
     }
   ]);
 }
