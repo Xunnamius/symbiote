@@ -39,7 +39,7 @@ exports[`matches changelog snapshot when there are no semver tags in the repo 1`
 
 ### 🔥 Reverted
 
-* **ngoptions:** *"feat(headstrong): bad commit"* ([X](https://github.com/fake-user/fake-repo/commit/X))
+* *"feat(headstrong): bad commit"* ([X](https://github.com/fake-user/fake-repo/commit/X))
 
 "
 `;
@@ -60,7 +60,7 @@ exports[`matches changelog snapshot when there are semver tags in the repo 1`] =
 
 #### 🪄 Fixes
 
-* Something other skip3 [CI SKIP][skip ci][sKiP cd][cd skip] ([X](https://github.com/fake-user/fake-repo/commit/X))
+* Something other skip3 \\[CI SKIP\\]\\[skip ci\\]\\[sKiP cd\\]\\[cd skip\\] ([X](https://github.com/fake-user/fake-repo/commit/X))
 * Something other skip4 ([X](https://github.com/fake-user/fake-repo/commit/X))
 
 #### 🧙🏿 Refactored
@@ -69,7 +69,7 @@ exports[`matches changelog snapshot when there are semver tags in the repo 1`] =
 
 #### 🔥 Reverted
 
-* *"build(bore): include1 [skip cd]"* ([X](https://github.com/fake-user/fake-repo/commit/X))
+* *"build(bore): include1 \\[skip cd\\]"* ([X](https://github.com/fake-user/fake-repo/commit/X))
 
 ## fake-pkg[@1.1.0](https://github.com/fake-user/fake-repo/compare/fake-pkg@1.0.0...fake-pkg@1.1.0) (date)
 
@@ -78,7 +78,6 @@ exports[`matches changelog snapshot when there are semver tags in the repo 1`] =
 * *"feat: default revert format"* ([X](https://github.com/fake-user/fake-repo/commit/X))
 * *"feat: default revert format"* ([X](https://github.com/fake-user/fake-repo/commit/X))
 * *"Feat(two): custom revert format 2"* ([X](https://github.com/fake-user/fake-repo/commit/X))
-* *"feat(X): broken-but-still-supported revert"* ([X](https://github.com/fake-user/fake-repo/commit/X))
 * *Feat: custom revert format* ([X](https://github.com/fake-user/fake-repo/commit/X))
 
 ## fake-pkg[@1.0.0](https://github.com/fake-user/fake-repo/compare/fake-pkg@0.2.1...fake-pkg@1.0.0) (date)
@@ -195,7 +194,7 @@ exports[`matches changelog snapshot when there are semver tags in the repo 1`] =
 
 ### 🔥 Reverted
 
-* **ngoptions:** *"feat(headstrong): bad commit"* ([X](https://github.com/fake-user/fake-repo/commit/X))
+* *"feat(headstrong): bad commit"* ([X](https://github.com/fake-user/fake-repo/commit/X))
 
 "
 `;
