@@ -259,8 +259,8 @@ export const defaultIssuePrefixes = ['#'] as const;
  * lead to that type (feat, fix, ci) being included even if it is not present in
  * the below array.
  *
- * Valid commit types are alphanumeric and may contain an underscore (_) or dash
- * (-). Using characters other than these will lead to undefined behavior.
+ * Valid commit types are alphanumeric and may contain an underscore (`_`) or dash
+ * (`-`). **Using characters other than these will lead to undefined behavior.**
  */
 export const wellKnownCommitTypes: NonNullable<XchangelogSpec['types']> = [
   { type: 'feat', section: '✨ Features', hidden: false },
@@ -528,9 +528,7 @@ export function moduleExport({
 
         // ? Ignore any commits that have been reverted...
         if (commit.hash) {
-          // TODO: only keep reverter commits that reverted build/feat/fix/perf
-          // TODO: et cetera
-          // ? ... but keep reverter commits...
+          // ? ... but keep reverter commits (reverters come before reverted)...
           if (revertedCommitHashesSet.has(commit.hash)) {
             debug_('decision: commit discarded (reverted)');
             return null;
@@ -550,6 +548,9 @@ export function moduleExport({
               debug_('decision: commit discarded (probably irrelevant reverter)');
               return null;
             }
+          } else if (typeEntry?.type === 'revert') {
+            debug_('decision: commit discarded (revert commit is missing metadata)');
+            return null;
           }
         }
 
@@ -757,8 +758,7 @@ export function moduleExport({
     .map(({ type }) => escapeStringRegExp(type))
     .join('|');
 
-  // TODO: should probably just reuse breakingHeaderPattern, no?
-  const relevantHeaderPattern = new RegExp(
+  const relevantRevertCommitHeaderPattern = new RegExp(
     `(^(${nonHiddenKnownTypesPartialPattern ?? 'feat|fix'})\\W)|(^[^!(:]*(\\([^)]*\\))?!:)`,
     'i'
   );
@@ -774,7 +774,7 @@ export function moduleExport({
     : neverMatchAnythingPattern;
 
   debug('commitSectionOrder: %O', commitSectionOrder);
-  debug('relevantHeaderPattern: %O', relevantHeaderPattern);
+  debug('relevantRevertCommitHeaderPattern: %O', relevantRevertCommitHeaderPattern);
   debug('issuePattern: %O', issuePattern);
 
   // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
@@ -841,10 +841,11 @@ export function moduleExport({
   }
 
   /**
-   * Returns `true` if `header` describes an unremarkable commit.
+   * Returns `true` if `header` describes a commit that wouldn't have made it
+   * into the changelog anyway.
    */
   function isHeaderOfIrrelevantCommit(header: string) {
-    return !relevantHeaderPattern.test(header);
+    return !relevantRevertCommitHeaderPattern.test(header);
   }
 
   /**
