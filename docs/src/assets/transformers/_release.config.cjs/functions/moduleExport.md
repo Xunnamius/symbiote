@@ -6,9 +6,9 @@
 
 # Function: moduleExport()
 
-> **moduleExport**(`__namedParameters`): [`ReleaseConfig`](../interfaces/ReleaseConfig.md)
+> **moduleExport**(`__namedParameters`): [`WritableReleaseConfig`](../type-aliases/WritableReleaseConfig.md)
 
-Defined in: [src/assets/transformers/\_release.config.cjs.ts:95](https://github.com/Xunnamius/symbiote/blob/35578a044f8aaee7e61e5dd07c97ef12b7559e4c/src/assets/transformers/_release.config.cjs.ts#L95)
+Defined in: [src/assets/transformers/\_release.config.cjs.ts:108](https://github.com/Xunnamius/symbiote/blob/b951959a4a12ac484c8addc839f912c4e5767875/src/assets/transformers/_release.config.cjs.ts#L108)
 
 ## Parameters
 
@@ -18,7 +18,7 @@ Defined in: [src/assets/transformers/\_release.config.cjs.ts:95](https://github.
 
 ## Returns
 
-[`ReleaseConfig`](../interfaces/ReleaseConfig.md)
+[`WritableReleaseConfig`](../type-aliases/WritableReleaseConfig.md)
 
 ## See
 

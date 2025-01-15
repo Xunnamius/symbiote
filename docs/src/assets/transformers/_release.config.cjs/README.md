@@ -13,6 +13,7 @@
 ## Type Aliases
 
 - [PluginConfig](type-aliases/PluginConfig.md)
+- [WritableReleaseConfig](type-aliases/WritableReleaseConfig.md)
 
 ## Functions
 
