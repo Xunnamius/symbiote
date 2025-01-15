@@ -66,6 +66,8 @@ import type {
   VerifyConditionsContext
 } from 'semantic-release' with { 'resolution-mode': 'import' };
 
+import type { WritableDeep } from 'type-fest';
+
 const debug = createDebugLogger({
   namespace: `${globalDebuggerNamespace}:asset:release`
 });
@@ -76,6 +78,17 @@ const log = createGenericLogger({
 
 export type { ReleaseConfig };
 export { noSpecialInitialCommitIndicator };
+
+/**
+ * Writable xrelease (semantic-release) options.
+ *
+ * Can be used to set any core option or plugin options. Each option will take
+ * precedence over options configured in the configuration file and shareable
+ * configurations.
+ *
+ * @see {@link ReleaseConfig}
+ */
+export type WritableReleaseConfig = WritableDeep<ReleaseConfig>;
 
 /**
  * The custom configuration object expected by the custom semantic-release
@@ -100,7 +113,7 @@ export function moduleExport({
 }: Pick<PluginConfig, 'parserOpts' | 'writerOpts'> & {
   specialInitialCommit: string;
   projectMetadata: ProjectMetadata;
-}): ReleaseConfig {
+}): WritableReleaseConfig {
   debug('specialInitialCommit: %O', specialInitialCommit);
 
   const releaseSectionPath = toPath(
