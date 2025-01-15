@@ -8,7 +8,7 @@
 
 > `const` **wellKnownCommitTypes**: `NonNullable`\<`XchangelogSpec`\[`"types"`\]\>
 
-Defined in: [src/assets/transformers/\_conventional.config.cjs.ts:238](https://github.com/Xunnamius/symbiote/blob/e4a3480a34344acbb42f5fad75ae58e0064f0a51/src/assets/transformers/_conventional.config.cjs.ts#L238)
+Defined in: [src/assets/transformers/\_conventional.config.cjs.ts:265](https://github.com/Xunnamius/symbiote/blob/35578a044f8aaee7e61e5dd07c97ef12b7559e4c/src/assets/transformers/_conventional.config.cjs.ts#L265)
 
 These are the only conventional commit types supported by symbiote-based
 pipelines and are therefore considered "well known".
@@ -33,5 +33,5 @@ the implication being: not overwriting an internal type's configuration can
 lead to that type (feat, fix, ci) being included even if it is not present in
 the below array.
 
-Valid commit types are alphanumeric and may contain an underscore (_) or dash
-(-). Using characters other than these will lead to undefined behavior.
+Valid commit types are alphanumeric and may contain an underscore (`_`) or dash
+(`-`). **Using characters other than these will lead to undefined behavior.**
