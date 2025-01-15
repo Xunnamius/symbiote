@@ -52,6 +52,33 @@ patchProxy();
 patchSpawnChild();
 
 /**
+ * Does not escape symbols that are already escaped (with a preceding `\`).
+ *
+ * @see {@link escapeMarkdownString}
+ * @internal
+ */
+const markdownEscapeTargets = [
+  // ? Allowed except as the first character in a line
+  [/^#/gm, String.raw`\#`],
+  [/(?<=[^\\]|^)\*/g, String.raw`\*`],
+  // ? Allowed
+  //[/(?<=[^\\]|^)\//g, String.raw`\/`],
+  // ? Allowed
+  //[/(?<=[^\\]|^)\(/g, String.raw`\(`],
+  // ? Allowed
+  //[/(?<=[^\\]|^)\)/g, String.raw`\)`],
+  [/(?<=[^\\]|^)\[/g, String.raw`\[`],
+  [/(?<=[^\\]|^)\]/g, String.raw`\]`],
+  [/(?<=[^\\]|^)</g, '&lt;'],
+  [/(?<=[^\\]|^)>/g, '&gt;'],
+  [/(?<=[^\\]|^)_/g, String.raw`\_`],
+  // ? Allowed in pairs (facilitated by other logic), but escaped when by itself
+  [/(?<=[^\\]|^)`/g, '\\`'],
+  // ? Only escape tildes that are not preceded/followed by other tildes
+  [/(?<=[^~\\]|^)~(?=[^~]|$)/g, String.raw`\~`]
+] as const;
+
+/**
  * The location of the handlebars templates in relation to this file's location
  * on disk.
  */
@@ -485,6 +512,18 @@ export function moduleExport({
           commit.header = header;
         }
 
+        // ? Escape "invalid" markdown symbols in header, subject, and scope
+
+        commit.header = commit.header
+          ? escapeMarkdownString(commit.header)
+          : commit.header;
+
+        commit.subject = commit.subject
+          ? escapeMarkdownString(commit.subject)
+          : commit.subject;
+
+        commit.scope = commit.scope ? escapeMarkdownString(commit.scope) : commit.scope;
+
         // * Xpipeline command suffixes in commit bodies are deleted later
 
         // ? Ignore any commits that have been reverted...
@@ -539,6 +578,9 @@ export function moduleExport({
               note.text = updatedNoteText;
             }
 
+            // ? Escape "invalid" markdown symbols
+            note.text = escapeMarkdownString(note.text);
+
             const paragraphs = note.text
               .split('\n\n')
               .map((paragraph, index, noteTextBlocks) => {
@@ -581,7 +623,7 @@ export function moduleExport({
         } else debug_('decision: commit NOT discarded');
 
         if (typeEntry) commit.type = typeEntry.section;
-        if (commit.scope === '*') commit.scope = '';
+        if (commit.scope === '*' || commit.scope === String.raw`\*`) commit.scope = '';
         if (commit.hash) commit.shortHash = commit.hash.slice(0, 7);
 
         // ? Badly crafted reverts are all header and no subject
@@ -984,4 +1026,38 @@ function patchSpawnChild() {
   } as typeof spawn;
 
   dbg('patched child_process.spawn');
+}
+
+/**
+ * Make a string safe to use in a Markdown file.
+ *
+ * Inspired by https://github.com/kemitchell/markdown-escape.js/blob/119a7c1da98504235ef56d27c55209215f0a4583/index.js
+ *
+ * @internal
+ */
+function escapeMarkdownString(str: string) {
+  // ? Don't escape stuff in between backticks (`)
+  const protectedSections: string[] = [];
+  // ? "$!xunn-backtick-protected!$" but backwards
+  const protectionString = '$!detcetorp-kcitkcab-nnux!$';
+
+  const strWithProtection = str.replaceAll(/(?<=[^\\]|^)`.*?(?<=[^\\])`/g, (substr) => {
+    protectedSections.push(substr);
+    return protectionString;
+  });
+
+  // eslint-disable-next-line unicorn/no-array-reduce
+  const escapedStrWithProtection = markdownEscapeTargets.reduce(function (
+    escapedStr,
+    [replaceMatcher, replaceWith]
+  ) {
+    return escapedStr.replaceAll(replaceMatcher, replaceWith);
+  }, strWithProtection);
+
+  const protectedSectionsIterator = protectedSections.values();
+  const escapedStr = escapedStrWithProtection.replaceAll(protectionString, () =>
+    String(protectedSectionsIterator.next().value)
+  );
+
+  return escapedStr;
 }
