@@ -11,6 +11,7 @@ import os from 'node:os';
 import { run } from '@-xun/run';
 import { type ExecutionContext } from '@black-flag/core/util';
 import { createDebugLogger, createGenericLogger } from 'rejoinder';
+import { createGithubLogger } from 'rejoinder-github-actions';
 
 import { getInvocableExtendedHandler } from 'multiverse+bfe';
 
@@ -81,6 +82,10 @@ const generateNotesDebug = debug.extend('generateNotes');
 const successDebug = debug.extend('success');
 
 const pluginLog = log.extend('post-release');
+
+const ghaLog = createGithubLogger({
+  namespace: `${globalLoggerNamespace}:asset:release:post-release`
+});
 
 export type { ReleaseConfig };
 export { noSpecialInitialCommitIndicator };
@@ -519,9 +524,9 @@ export async function success(
 
   if (isDirty) {
     if (context.envCi.isCi) {
-      // TODO: replace with rejoinder-github-actions
-      process.stdout.write(
-        `::warning title=Repository left in unclean state::${ErrorMessage.ReleaseFinishedWithADirtyRepo()}.\n`
+      ghaLog(
+        'title=Repository left in unclean state',
+        ErrorMessage.ReleaseFinishedWithADirtyRepo()
       );
     }
 
