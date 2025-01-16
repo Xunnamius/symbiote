@@ -81,6 +81,7 @@ export default function command({
       // TODO (need to handle assetverse aliasing concerns (example in quiz-euphoriareign))
       // TODO (set special version of renovate command depending on preset used: basic, cli, lib, lib-esm, react, next)
       // TODO (adding a new package to a monorepo should be accompanied by a commit with a message indicating the creation of the new "stub" package, then a `npm install --force`, then a regeneration of the configuration files that contain the project's aliases, and then finally a `...@0.0.0-init` tag for the recently created "stub" package commit)
+      // TODO (let the user know that codecov flags need to be enabled manually)
 
       genericLogger([LogTag.IF_NOT_QUIETED], standardSuccessMessage);
     })

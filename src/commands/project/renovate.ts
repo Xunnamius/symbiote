@@ -779,10 +779,10 @@ ${SHORT_TAB}${SHORT_TAB} - Empty/unset variables in .env files will be ignored
 
 Due to the current limitations of GitHub's REST API, the following renovations are not able to be automated and should be configured manually:
 
-* Include "Releases" and remove "Packages" and "Deployments" sidebar sections
-* Enable sponsorships
-* Enable repository preservation (arctic code vault)
-* Enable discussions
+- Include "Releases" and remove "Packages" and "Deployments" sidebar sections
+- Enable sponsorships
+- Enable repository preservation (arctic code vault)
+- Enable discussions
 - Enable "private vulnerability reporting"
 - Enable "dependency graph"
 - Enable "dependabot" (i.e. "dependabot alerts" and "dependabot security updates")
