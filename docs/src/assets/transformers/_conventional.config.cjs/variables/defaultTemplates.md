@@ -8,7 +8,7 @@
 
 > `const` **defaultTemplates**: `object`
 
-Defined in: [src/assets/transformers/\_conventional.config.cjs.ts:283](https://github.com/Xunnamius/symbiote/blob/b951959a4a12ac484c8addc839f912c4e5767875/src/assets/transformers/_conventional.config.cjs.ts#L283)
+Defined in: [src/assets/transformers/\_conventional.config.cjs.ts:288](https://github.com/Xunnamius/symbiote/blob/5ae97ccbe27456f6fdcc9cdb8c1bf89ff370984a/src/assets/transformers/_conventional.config.cjs.ts#L288)
 
 Handlebars template data (not processed by our custom configuration).
 

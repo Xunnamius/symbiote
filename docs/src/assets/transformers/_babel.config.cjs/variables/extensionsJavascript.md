@@ -8,6 +8,6 @@
 
 > `const` **extensionsJavascript**: readonly \[`".js"`, `".mjs"`, `".cjs"`, `".jsx"`\]
 
-Defined in: [src/assets/transformers/\_babel.config.cjs.ts:125](https://github.com/Xunnamius/symbiote/blob/b951959a4a12ac484c8addc839f912c4e5767875/src/assets/transformers/_babel.config.cjs.ts#L125)
+Defined in: [src/assets/transformers/\_babel.config.cjs.ts:125](https://github.com/Xunnamius/symbiote/blob/5ae97ccbe27456f6fdcc9cdb8c1bf89ff370984a/src/assets/transformers/_babel.config.cjs.ts#L125)
 
 All known JavaScript file extensions supported by Babel.

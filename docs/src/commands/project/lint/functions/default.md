@@ -8,7 +8,7 @@
 
 > **default**(`__namedParameters`): `object`
 
-Defined in: [src/commands/project/lint.ts:34](https://github.com/Xunnamius/symbiote/blob/b951959a4a12ac484c8addc839f912c4e5767875/src/commands/project/lint.ts#L34)
+Defined in: [src/commands/project/lint.ts:34](https://github.com/Xunnamius/symbiote/blob/5ae97ccbe27456f6fdcc9cdb8c1bf89ff370984a/src/commands/project/lint.ts#L34)
 
 ## Parameters
 
