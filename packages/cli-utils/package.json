@@ -65,7 +65,7 @@
     "listr2": "^8.2.5"
   },
   "peerDependencies": {
-    "rejoinder-listr2": "^1.0.0"
+    "rejoinder-listr2": "^1.0.1"
   },
   "peerDependenciesMeta": {
     "rejoinder-listr2": {
