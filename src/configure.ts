@@ -35,6 +35,7 @@ import type { withGlobalBuilder } from 'universe:util.ts';
 
 const rootGenericLogger = createGenericLogger({ namespace: globalLoggerNamespace });
 const rootDebugLogger = createDebugLogger({ namespace: globalDebuggerNamespace });
+const cacheDebug = rootDebugLogger.extend('cache');
 
 export { $executionContext } from '@black-flag/core';
 
@@ -255,5 +256,5 @@ export const configureExecutionEpilogue = function (argv) {
 
 function reportFinalCacheStats() {
   const { clear: _, get: __, set: ___, ...stats } = cache;
-  rootDebugLogger.extend('cache')('final cache stats: %O', stats);
+  cacheDebug('final cache stats: %O', stats);
 }

@@ -76,6 +76,12 @@ const log = createGenericLogger({
   namespace: `${globalLoggerNamespace}:asset:release`
 });
 
+const verifyConditionsDebug = debug.extend('verifyConditions');
+const generateNotesDebug = debug.extend('generateNotes');
+const successDebug = debug.extend('success');
+
+const pluginLog = log.extend('post-release');
+
 export type { ReleaseConfig };
 export { noSpecialInitialCommitIndicator };
 
@@ -316,12 +322,11 @@ export function verifyConditions(
   pluginConfig: Partial<PluginConfig>,
   _context: VerifyConditionsContext
 ) {
-  const pluginDebug = debug.extend('verifyConditions');
-  pluginDebug('entered step function');
+  verifyConditionsDebug('entered step function');
 
-  pluginDebug('releaseSectionPath: %O', pluginConfig.releaseSectionPath);
-  pluginDebug('parserOpts: %O', pluginConfig.parserOpts);
-  pluginDebug('writerOpts: %O', pluginConfig.writerOpts);
+  verifyConditionsDebug('releaseSectionPath: %O', pluginConfig.releaseSectionPath);
+  verifyConditionsDebug('parserOpts: %O', pluginConfig.parserOpts);
+  verifyConditionsDebug('writerOpts: %O', pluginConfig.writerOpts);
 
   assert(
     pluginConfig.releaseSectionPath?.endsWith('.md'),
@@ -342,15 +347,14 @@ export async function generateNotes(
   { releaseSectionPath, parserOpts, writerOpts }: PluginConfig,
   context: GenerateNotesContext
 ): Promise<string> {
-  const pluginDebug = debug.extend('generateNotes');
-  pluginDebug('entered step function');
+  generateNotesDebug('entered step function');
 
   const {
     env: { SYMBIOTE_RELEASE_REBUILD_CHANGELOG }
   } = context;
 
   const shouldRebuildChangelog = SYMBIOTE_RELEASE_REBUILD_CHANGELOG !== 'false';
-  pluginDebug('shouldRebuildChangelog: %O', shouldRebuildChangelog);
+  generateNotesDebug('shouldRebuildChangelog: %O', shouldRebuildChangelog);
 
   const pseudoBfGlobalExecutionContext = await configureExecutionContext({
     commands: new Map(),
@@ -367,17 +371,19 @@ export async function generateNotes(
     '@semantic-release/release-notes-generator'
   );
 
-  pluginDebug('generating release notes with @semantic-release/release-notes-generator');
+  generateNotesDebug(
+    'generating release notes with @semantic-release/release-notes-generator'
+  );
 
   const rawNotes = await generateRawNotes({ parserOpts, writerOpts }, context);
 
-  pluginDebug('rawNotes: %O', rawNotes);
-  pluginDebug('writing generated notes out to: %O', releaseSectionPath);
+  generateNotesDebug('rawNotes: %O', rawNotes);
+  generateNotesDebug('writing generated notes out to: %O', releaseSectionPath);
 
   await writeFile(releaseSectionPath, rawNotes);
 
   if (shouldRebuildChangelog) {
-    pluginDebug('rebuilding changelog (calling out to symbiote api)');
+    generateNotesDebug('rebuilding changelog (calling out to symbiote api)');
 
     await buildChangelogHandler({
       [$executionContext]: pseudoBfGlobalExecutionContext,
@@ -398,12 +404,12 @@ export async function generateNotes(
       changelogFile: 'CHANGELOG.md'
     });
 
-    pluginDebug('symbiote api call completed successfully');
+    generateNotesDebug('symbiote api call completed successfully');
   } else {
-    pluginDebug('skipped rebuilding changelog');
+    generateNotesDebug('skipped rebuilding changelog');
   }
 
-  pluginDebug(
+  generateNotesDebug(
     `patching and formatting ${releaseSectionPath} (calling out to symbiote api)`
   );
 
@@ -425,14 +431,14 @@ export async function generateNotes(
     changelogFile: releaseSectionPath
   });
 
-  pluginDebug('symbiote api call completed successfully');
+  generateNotesDebug('symbiote api call completed successfully');
 
   const prettyTrimmedNotes = (await readFile(releaseSectionPath, 'utf8')).trim();
-  pluginDebug('prettyTrimmedNotes: %O', prettyTrimmedNotes);
+  generateNotesDebug('prettyTrimmedNotes: %O', prettyTrimmedNotes);
 
   // ? We don't really care if this succeeds or fails.
   void rmFile(releaseSectionPath, { force: true }).catch((error: unknown) => {
-    pluginDebug.warn(
+    generateNotesDebug.warn(
       'attempt to cleanup (delete) %O failed: %O',
       releaseSectionPath,
       error
@@ -465,9 +471,7 @@ export async function success(
   { projectRelativePackageLockPath }: PluginConfig,
   context: SuccessContext
 ) {
-  const pluginLog = log.extend('post-release');
-  const pluginDebug = debug.extend('success');
-  pluginDebug('entered step function');
+  successDebug('entered step function');
 
   const {
     env: { SYMBIOTE_RELEASE_WITH_FORCE }
@@ -475,13 +479,13 @@ export async function success(
 
   const wasReleasedWithForce = SYMBIOTE_RELEASE_WITH_FORCE === 'true';
 
-  pluginDebug('wasReleasedWithForce: %O', wasReleasedWithForce);
-  pluginDebug('projectRelativePackageLockPath: %O', projectRelativePackageLockPath);
+  successDebug('wasReleasedWithForce: %O', wasReleasedWithForce);
+  successDebug('projectRelativePackageLockPath: %O', projectRelativePackageLockPath);
 
-  pluginDebug('updating remote');
+  successDebug('updating remote');
   await run('git', ['fetch', '--prune']);
 
-  pluginDebug(
+  successDebug(
     'defensively committing any package-lock.json changes (errors will be ignored)'
   );
 
@@ -503,13 +507,13 @@ export async function success(
 
     pluginLog('Committed and pushed post-release metadata changes');
   } catch (error) {
-    pluginDebug.warn(
+    successDebug.warn(
       'attempt to commit post-release metadata changes failed (which might not be an issue): %O',
       error
     );
   }
 
-  pluginDebug('checking repository state');
+  successDebug('checking repository state');
 
   const { isDirty } = await determineRepoWorkingTreeDirty();
 

@@ -25,6 +25,10 @@ const globalDebug = createDebugLogger({
   namespace: `${rootPackageJsonName}:jest-setup`
 });
 
+const isolatedImportDebug = globalDebug.extend('isolated-import');
+const protectedImportFactoryDebug = globalDebug.extend('protected-import-factory');
+const cleanupDebug = globalDebug.extend('<cleanup>');
+
 globalDebug(`rootPackageJsonName: "${rootPackageJsonName}"`);
 globalDebug(`rootPackageJsonVersion: "${rootPackageJsonVersion}"`);
 
@@ -460,7 +464,7 @@ export function isolatedImport<T = unknown>(args: {
   // ? Cache-busting
   jest.isolateModules(() => {
     package_ = ((r) => {
-      globalDebug.extend('isolated-import')(
+      isolatedImportDebug(
         `performing isolated import of ${args.path}${
           args.useDefault ? ' (returning default by force)' : ''
         }`
@@ -511,7 +515,7 @@ export function protectedImportFactory(path: string) {
       if (expect && parameters?.expectedExitCode)
         expect(exitSpy).toHaveBeenCalledWith(parameters.expectedExitCode);
       else if (!expect)
-        globalDebug.extend('protected-import-factory')(
+        protectedImportFactoryDebug(
           'WARNING: "expect" object not found, so exit check was skipped'
         );
     });
@@ -1280,7 +1284,7 @@ export async function withMockedFixture<
       await fixture.setup?.(context);
     }
 
-    context.debug = globalDebug.extend('<cleanup>');
+    context.debug = cleanupDebug;
 
     for (const cleanupFn of cleanupFunctions.reverse()) {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any, @typescript-eslint/use-unknown-in-catch-callback-variable

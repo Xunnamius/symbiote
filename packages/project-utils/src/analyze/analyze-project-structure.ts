@@ -61,6 +61,7 @@ import { type ParametersNoFirst } from 'rootverse+project-utils:src/util.ts';
 import type { Merge, PackageJson, Promisable } from 'type-fest';
 
 const debug = debug_.extend('getProjectMetadata');
+const subrootDebug = debug.extend('subroot');
 const vercelProjectMetadataPath = '.vercel/project.json' as RelativePath;
 
 /**
@@ -399,7 +400,6 @@ function setSubrootPackagesAndCwdPackage(
   useCached: boolean,
   allowUnnamedPackages: boolean
 ): Promisable<void> {
-  const dbg = debug.extend('subroot');
   const projectRoot = projectMetadata.rootPackage.root;
   const { workspaces: workspaces_ } = projectMetadata.rootPackage.json;
 
@@ -435,7 +435,7 @@ function setSubrootPackagesAndCwdPackage(
 
         // TODO: maybe be redundant given package.json workspaces negated glob
         if (packageRoot.endsWith('.ignore')) {
-          dbg.warn('encountered explicitly ignored package at %O', packageRoot);
+          subrootDebug.warn('encountered explicitly ignored package at %O', packageRoot);
           continue;
         }
 
@@ -443,7 +443,11 @@ function setSubrootPackagesAndCwdPackage(
           try {
             return readXPackageJsonAtRoot.sync(packageRoot, { useCached });
           } catch (error) {
-            dbg.warn('encountered broken package at %O: %O', packageRoot, error);
+            subrootDebug.warn(
+              'encountered broken package at %O: %O',
+              packageRoot,
+              error
+            );
             subRootPackages.broken.push(packageRoot);
             return undefined;
           }
@@ -494,7 +498,10 @@ function setSubrootPackagesAndCwdPackage(
 
                 // TODO: maybe redundant w/ package.json workspaces negated glob
                 if (packageRoot.endsWith('.ignore')) {
-                  dbg.warn('encountered explicitly ignored package at %O', packageRoot);
+                  subrootDebug.warn(
+                    'encountered explicitly ignored package at %O',
+                    packageRoot
+                  );
                   return undefined;
                 }
 
@@ -502,7 +509,11 @@ function setSubrootPackagesAndCwdPackage(
                   try {
                     return await readXPackageJsonAtRoot(packageRoot, { useCached });
                   } catch (error) {
-                    dbg.warn('encountered broken package at %O: %O', packageRoot, error);
+                    subrootDebug.warn(
+                      'encountered broken package at %O: %O',
+                      packageRoot,
+                      error
+                    );
                     subRootPackages.broken.push(packageRoot);
                     return undefined;
                   }

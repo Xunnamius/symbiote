@@ -39,6 +39,12 @@ import type { EmptyObject, Entry, Promisable } from 'type-fest';
 // ! transformers, or in the stuff imported by them.
 
 const debug_ = createDebugLogger({ namespace: globalDebuggerNamespace });
+const gatherAssetsDebug = debug_.extend('gather-assets-transformer');
+const gatherAllAssetsDebug = debug_.extend('gather-assets-transformers');
+const makeTransformerDebug = debug_.extend('make-transformer');
+const compileTemplatesDebug = debug_.extend('compile-templates');
+const compileTemplateDebug = debug_.extend('compile-template');
+const configTemplateDebug = debug_.extend('config-template');
 
 /**
  * The Symbol represents an asset to be deleted and can be returned as the
@@ -370,11 +376,10 @@ export async function gatherAssetsFromTransformer({
   transformerContext: IncomingTransformerContext;
   options?: MakeTransformerOptions & GatherAssetsFromTransformerOptions;
 }): Promise<ReifiedAssets> {
-  const debug = debug_.extend('gather-asset');
   const { transformerFiletype: assetContainerFiletype = 'js', ...options } = _options;
 
-  debug('assetContainerFiletype: %O', assetContainerFiletype);
-  debug('transformerId: %O', transformerId);
+  gatherAssetsDebug('assetContainerFiletype: %O', assetContainerFiletype);
+  gatherAssetsDebug('transformerId: %O', transformerId);
 
   const transformerPath = toPath(
     directoryAssetTransformers,
@@ -382,7 +387,7 @@ export async function gatherAssetsFromTransformer({
   );
 
   return invokeTransformerAndReifyAssets({
-    debug,
+    debug: gatherAssetsDebug,
     options,
     transformerContext,
     transformerId,
@@ -405,7 +410,6 @@ export async function gatherAssetsFromAllTransformers({
   transformerContext: IncomingTransformerContext;
   options?: MakeTransformerOptions;
 }): Promise<ReifiedAssets> {
-  const debug = debug_.extend('gather-assets');
   const reifiedAssetPromises = [] as Promise<ReifiedAssets>[];
 
   for (const transformerBasename of await readdir(directoryAssetTransformers)) {
@@ -413,19 +417,22 @@ export async function gatherAssetsFromAllTransformers({
       transformerBasename.endsWith('.d.ts') ||
       (!transformerBasename.endsWith('.js') && !transformerBasename.endsWith('.ts'))
     ) {
-      debug('ignored potential transformer file (basename): %O', transformerBasename);
+      gatherAllAssetsDebug(
+        'ignored potential transformer file (basename): %O',
+        transformerBasename
+      );
       continue;
     }
 
     const transformerPath = toPath(directoryAssetTransformers, transformerBasename);
     const transformerId = transformerBasename.slice(1, -3);
 
-    debug('transformerBasename: %O', transformerBasename);
-    debug('transformerId: %O', transformerId);
+    gatherAllAssetsDebug('transformerBasename: %O', transformerBasename);
+    gatherAllAssetsDebug('transformerId: %O', transformerId);
 
     reifiedAssetPromises.push(
       invokeTransformerAndReifyAssets({
-        debug,
+        debug: gatherAllAssetsDebug,
         options,
         transformerContext,
         transformerId,
@@ -447,14 +454,12 @@ export async function gatherAssetsFromAllTransformers({
 export function makeTransformer(transform: Transform): TransformerContainer {
   return {
     async transformer(context, { trimContents } = {}) {
-      const debug = debug_.extend('make-transformer');
-
       return Object.fromEntries(
         (await transform(context)).map(({ path, generate: wrappedGenerate }) => {
           return [
             path,
             async function generate() {
-              debug.message('generating contents of asset: %O', path);
+              makeTransformerDebug.message('generating contents of asset: %O', path);
               let contents = await wrappedGenerate();
 
               if (typeof contents === 'string') {
@@ -496,10 +501,8 @@ export async function compileTemplates(
   templates: Record<AbsolutePath, RelativePath>,
   context: TransformerContext
 ): Promise<Asset[]> {
-  const debug = debug_.extend('compile-templates');
-
   const templatesEntries = Object.entries(templates) as Entry<typeof templates>[];
-  debug('templatesEntries: %O', templatesEntries);
+  compileTemplatesDebug('templatesEntries: %O', templatesEntries);
 
   return templatesEntries.map(([outputPath, inputPath]) => ({
     path: outputPath,
@@ -517,13 +520,11 @@ export async function compileTemplate(
   templatePath: RelativePath,
   context: TransformerContext
 ): Promise<string> {
-  const debug = debug_.extend('compile-template');
-
   const templatePathActual = toPath(directoryAssetTemplates, templatePath);
 
-  debug('retrieving template asset');
-  debug('templatePath: %O', templatePath);
-  debug('templatePathActual: %O', templatePathActual);
+  compileTemplateDebug('retrieving template asset');
+  compileTemplateDebug('templatePath: %O', templatePath);
+  compileTemplateDebug('templatePathActual: %O', templatePathActual);
 
   return compileTemplateInMemory(await readFile(templatePathActual), context);
 }
@@ -544,9 +545,7 @@ export function compileTemplateInMemory(
   rawTemplate: string,
   context: TransformerContext
 ): string {
-  const debug = debug_.extend('config-template');
-
-  debug(
+  configTemplateDebug(
     'compiling raw template from transformer %O (~%O bytes): %O',
     context.asset,
     rawTemplate.length,
@@ -561,7 +560,10 @@ export function compileTemplateInMemory(
         (_matchText, query: string | undefined, linkText: string | undefined) => {
           const actualValue = String(query ? getInObject(value, query.slice(1)) : value);
           // ! `value` may be sensitive, so do not output it in logs
-          debug('found and replaced %O template variable (link)', key + (query || ''));
+          configTemplateDebug(
+            'found and replaced %O template variable (link)',
+            key + (query || '')
+          );
           return linkText ? `[${linkText}](${actualValue})` : actualValue;
         }
       )
@@ -570,7 +572,7 @@ export function compileTemplateInMemory(
         (_matchText, query: string | undefined, defaultText: string) => {
           const actualValue = query ? getInObject(value, query.slice(1)) : value;
           // ! `value` may be sensitive, so do not output it in logs
-          debug(
+          configTemplateDebug(
             'found and replaced %O conditional template variable (default)',
             key + (query || '')
           );
@@ -582,7 +584,7 @@ export function compileTemplateInMemory(
         (_matchText, query: string | undefined, suffix: string) => {
           const actualValue = query ? getInObject(value, query.slice(1)) : value;
           // ! `value` may be sensitive, so do not output it in logs
-          debug(
+          configTemplateDebug(
             'found and replaced %O conditional template variable (concat)',
             key + (query || '')
           );
@@ -591,7 +593,7 @@ export function compileTemplateInMemory(
       );
   }, rawTemplate);
 
-  debug(
+  configTemplateDebug(
     'final compiled template size for transformer %O: ~%O bytes',
     context.asset,
     compiledTemplate.length

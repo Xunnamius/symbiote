@@ -32,6 +32,11 @@ const debug = createDebugLogger({
   namespace: `${globalDebuggerNamespace}:asset:conventional`
 });
 
+const transformDebug = debug.extend('writerOpts:transform');
+const generateOnDebug = debug.extend('writerOpts:generateOn');
+const patchProxyDebug = debug.extend('patchProxy');
+const patchSpawnChildDebug = debug.extend('patchSpawnChild');
+
 // ! Watch out for the dual package hazard! (relevant for symbiote local dev)
 const cubby = ((
   globalThis as typeof globalThis & {
@@ -471,8 +476,7 @@ export function moduleExport({
           cubby.proxiedTargets.get(commit_) as typeof commit_
         );
 
-        const debug_ = debug.extend('writerOpts:transform');
-        debug_('pre-transform commit: %O', commit);
+        transformDebug('pre-transform commit: %O', commit);
 
         // ? Scope should always be lowercase (or undefined)
         commit.scope = commit.scope?.toLowerCase();
@@ -492,7 +496,7 @@ export function moduleExport({
         if (commandStringSubjectMatch?.[2]) {
           const [, subject, commandStrings] = commandStringSubjectMatch;
 
-          debug_(
+          transformDebug(
             'updated commit subject; removed potential xpipeline command: %O',
             commandStrings
           );
@@ -504,7 +508,7 @@ export function moduleExport({
         if (commandStringHeaderMatch?.[2]) {
           const [, header, commandStrings] = commandStringHeaderMatch;
 
-          debug_(
+          transformDebug(
             'updated commit header; removed potential xpipeline command: %O',
             commandStrings
           );
@@ -530,7 +534,7 @@ export function moduleExport({
         if (commit.hash) {
           // ? ... but keep reverter commits (reverters come before reverted)...
           if (revertedCommitHashesSet.has(commit.hash)) {
-            debug_('decision: commit discarded (reverted)');
+            transformDebug('decision: commit discarded (reverted)');
             return null;
           }
 
@@ -545,11 +549,15 @@ export function moduleExport({
               !commit.revert.header ||
               isHeaderOfIrrelevantCommit(commit.revert.header)
             ) {
-              debug_('decision: commit discarded (probably irrelevant reverter)');
+              transformDebug(
+                'decision: commit discarded (probably irrelevant reverter)'
+              );
               return null;
             }
           } else if (typeEntry?.type === 'revert') {
-            debug_('decision: commit discarded (revert commit is missing metadata)');
+            transformDebug(
+              'decision: commit discarded (revert commit is missing metadata)'
+            );
             return null;
           }
         }
@@ -561,7 +569,7 @@ export function moduleExport({
         // ? always sentence-cased.
         commit.notes.forEach((note) => {
           if (note.text) {
-            debug_('saw BC notes for this commit; will likely keep commit');
+            transformDebug('saw BC notes for this commit; will likely keep commit');
 
             note.text = note.text.trim();
             const commandStringSubjectMatch = note.text.match(commandHeaderPattern);
@@ -571,7 +579,7 @@ export function moduleExport({
             // ? modifier in conventional commits.
             if (commandStringSubjectMatch?.[2]) {
               const [, updatedNoteText, commandStrings] = commandStringSubjectMatch;
-              debug_(
+              transformDebug(
                 'updated commit note; removed potential xpipeline command: %O',
                 commandStrings
               );
@@ -616,12 +624,12 @@ export function moduleExport({
 
         // ? Discard entries of unknown or hidden types if discard === true
         if (discard && (typeEntry === undefined || typeEntry.hidden)) {
-          debug_(
+          transformDebug(
             `decision: commit discarded (${typeEntry === undefined ? 'unknown' : 'hidden'} type)`
           );
 
           return null;
-        } else debug_('decision: commit NOT discarded');
+        } else transformDebug('decision: commit NOT discarded');
 
         if (typeEntry) commit.type = typeEntry.section;
         if (commit.scope === '*' || commit.scope === String.raw`\*`) commit.scope = '';
@@ -709,12 +717,11 @@ export function moduleExport({
           ({ prefix, issue }) => !issueReferencesInSubject.includes(`${prefix}${issue}`)
         );
 
-        debug_('transformed commit: %O', commit);
+        transformDebug('transformed commit: %O', commit);
         return commit;
       },
       generateOn(commit) {
-        const debug_ = debug.extend('writerOpts:generateOn');
-        debug_(`saw version: ${commit.version ?? 'N/A'}`);
+        generateOnDebug(`saw version: ${commit.version ?? 'N/A'}`);
 
         const decision = !!(
           commit.version &&
@@ -722,7 +729,10 @@ export function moduleExport({
           !semver.prerelease(commit.version)
         );
 
-        debug_('version block decision: %O', decision ? 'NEW block' : 'same block');
+        generateOnDebug(
+          'version block decision: %O',
+          decision ? 'NEW block' : 'same block'
+        );
         return decision;
       }
     },
@@ -961,10 +971,8 @@ function safeDeepClone<T>(o: T): T {
  * @internal
  */
 function patchProxy() {
-  const dbg = debug.extend('patchProxy');
-
   if (cubby.previousProxy) {
-    dbg('global Proxy class was already patched in this runtime');
+    patchProxyDebug('global Proxy class was already patched in this runtime');
     return;
   }
 
@@ -985,7 +993,7 @@ function patchProxy() {
     }
   } as typeof Proxy;
 
-  dbg('patched globalThis.Proxy');
+  patchProxyDebug('patched globalThis.Proxy');
 }
 
 /**
@@ -995,10 +1003,8 @@ function patchProxy() {
  * @internal
  */
 function patchSpawnChild() {
-  const dbg = debug.extend('patchSpawnChild');
-
   if (cubby.previousSpawnChild) {
-    dbg('global spawn function was already patched in this runtime');
+    patchSpawnChildDebug('global spawn function was already patched in this runtime');
     return;
   }
 
@@ -1026,7 +1032,7 @@ function patchSpawnChild() {
     return spawn(...args);
   } as typeof spawn;
 
-  dbg('patched child_process.spawn');
+  patchSpawnChildDebug('patched child_process.spawn');
 }
 
 /**
