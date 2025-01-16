@@ -1,4 +1,5 @@
 import { runProgram } from '@black-flag/core';
+import 'rejoinder-github-actions/activator';
 
 import { toAbsolutePath } from 'multiverse+project-utils:fs.ts';
 
