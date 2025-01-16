@@ -12,6 +12,8 @@ export const { transformer } = makeTransformer(function (context) {
       {
         path: toProjectAbsolutePath(codecovConfigProjectBase),
         generate: () => `
+codecov:
+  branch: main
 coverage:
   range: '75...100'
   status:

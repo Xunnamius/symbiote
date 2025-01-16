@@ -25,7 +25,8 @@ const dotEnvDefaultFileContents = `
 # Codecov test analysis token
 #
 # The token used during CI/CD to analyze and upload build artifact code quality
-# data to Codecov.
+# data to Codecov. NOTE THAT, alongside generating this token, you should take
+# the time to enable codecov's flags functionality if this is not a polyrepo.
 CODECOV_TOKEN=
 
 # GitHub deploy token (alias GH_TOKEN)
