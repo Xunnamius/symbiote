@@ -180,7 +180,7 @@
     "named-app-errors": "^4.0.2",
     "npm-check-updates": "^17.1.13",
     "prettier": "^3.4.2",
-    "rejoinder": "^1.2.0",
+    "rejoinder": "^1.2.1",
     "rejoinder-github-actions": "^1.0.0",
     "rejoinder-listr2": "^1.0.1",
     "remark-capitalize-headings": "^2.0.1",
