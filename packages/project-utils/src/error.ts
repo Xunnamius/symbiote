@@ -374,6 +374,12 @@ export const ErrorMessage = {
   },
   PathOutsideRoot(path: string) {
     return `path is outside of the project root: ${path}`;
+  },
+  DependencyCycle(involvedPackages: string[]) {
+    return `a dependency cycle was detected involving two or more of the following packages: ${involvedPackages.join(', ')}`;
+  },
+  IllegalPrivateDependency(dependent: string, dependency: string) {
+    return `the non-private package "${dependent}" cannot have the private dependency "${dependency}"`;
   }
 };
 
