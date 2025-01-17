@@ -1,5 +1,5 @@
 {
-  "name": "good-monorepo",
+  "name": "bad-monorepo-topological-private",
   "version": "0.0.0-monorepo",
   "private": true,
   "type": "commonjs",
@@ -13,7 +13,8 @@
   "scripts": {
     "test": "echo 'it works!'"
   },
-  "dependencies": {
-    "async": "^3.2.3"
+  "devDependencies": {
+    "async": "^3.2.3",
+    "@namespaced/pkg": "^1.0.0"
   }
 }

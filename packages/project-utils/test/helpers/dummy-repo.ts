@@ -96,6 +96,8 @@ export type Fixture = {
  */
 export type FixtureName =
   | 'badHybridrepoBadSpecifiers'
+  | 'badHybridrepoTopologicalCycle'
+  | 'badHybridrepoTopologicalPrivate'
   | 'badMonorepo'
   | 'badMonorepoDuplicateIdUnnamed'
   | 'badMonorepoDuplicateName'
@@ -103,6 +105,8 @@ export type FixtureName =
   | 'badMonorepoEmptyMdFiles'
   | 'badMonorepoNextjsProject'
   | 'badMonorepoNonPackageDir'
+  | 'badMonorepoTopologicalCycle'
+  | 'badMonorepoTopologicalPrivate'
   | 'badPolyrepo'
   | 'badPolyrepoBadType'
   | 'badPolyrepoConflictingAttributes'
@@ -115,6 +119,9 @@ export type FixtureName =
   | 'goodHybridrepoNotPrivate'
   | 'goodHybridrepoMultiversal'
   | 'goodHybridrepoSelfRef'
+  | 'goodHybridrepoTopological'
+  | 'goodHybridrepoTopologicalPrivate'
+  | 'goodHybridrepoTopologicalSelfRef'
   | 'goodMonorepo'
   | 'goodMonorepoNegatedPaths'
   | 'goodMonorepoNextjsProject'
@@ -126,11 +133,16 @@ export type FixtureName =
   | 'goodMonorepoWeirdYarn'
   | 'goodMonorepoWindows'
   | 'goodMonorepoNoSrc'
+  | 'goodMonorepoTopological'
+  | 'goodMonorepoTopologicalPrivate'
+  | 'goodMonorepoTopologicalSelfRef'
   | 'goodPolyrepo'
   | 'goodPolyrepoNextjsProject'
   | 'goodPolyrepoNoEnv'
   | 'goodPolyrepoNoSrcYesDefaultEnv'
   | 'goodPolyrepoOnlyDefaultEnv'
+  | 'goodPolyrepoTopologicalPrivate'
+  | 'goodPolyrepoTopologicalSelfRef'
   | 'repoThatDoesNotExist';
 
 /**
@@ -427,7 +439,7 @@ createFixture({
 createFixture({
   fixtureName: 'goodMonorepo',
   prototypeRoot: 'good-monorepo',
-  attributes: { cjs: true, monorepo: true },
+  attributes: { cjs: true, monorepo: true, private: true },
   namedPackageMapData: [
     { name: 'pkg-1', root: 'packages/pkg-1', attributes: { cjs: true, cli: true } },
     {
@@ -606,6 +618,258 @@ createFixture({
   fixtureName: 'goodPolyrepoNextjsProject',
   prototypeRoot: 'good-polyrepo-nextjs-project',
   attributes: { esm: true, polyrepo: true, nextjs: true }
+});
+
+createFixture({
+  fixtureName: 'badHybridrepoTopologicalCycle',
+  prototypeRoot: 'bad-hybridrepo-topological-cycle',
+  attributes: {
+    cjs: true,
+    monorepo: true,
+    hybridrepo: true
+  },
+  namedPackageMapData: [
+    { name: 'cli', root: 'packages/cli', attributes: { cjs: true, cli: true } },
+    {
+      name: 'public',
+      root: 'packages/public',
+      attributes: { cjs: true }
+    },
+    {
+      name: 'webpack',
+      root: 'packages/webpack',
+      attributes: { cjs: true }
+    }
+  ],
+  unnamedPackageMapData: []
+});
+
+createFixture({
+  fixtureName: 'badHybridrepoTopologicalPrivate',
+  prototypeRoot: 'bad-hybridrepo-topological-private',
+  attributes: {
+    cjs: true,
+    monorepo: true,
+    hybridrepo: true
+  },
+  namedPackageMapData: [
+    { name: 'cli', root: 'packages/cli', attributes: { cjs: true, cli: true } },
+    {
+      name: 'private',
+      root: 'packages/private',
+      attributes: { cjs: true, private: true }
+    },
+    {
+      name: 'webpack',
+      root: 'packages/webpack',
+      attributes: { cjs: true }
+    }
+  ],
+  unnamedPackageMapData: []
+});
+
+createFixture({
+  fixtureName: 'goodHybridrepoTopological',
+  prototypeRoot: 'good-hybridrepo-topological',
+  attributes: {
+    cjs: true,
+    monorepo: true,
+    hybridrepo: true
+  },
+  namedPackageMapData: [
+    { name: 'cli', root: 'packages/cli', attributes: { cjs: true, cli: true } },
+    {
+      name: 'public',
+      root: 'packages/public',
+      attributes: { cjs: true }
+    },
+    {
+      name: 'webpack',
+      root: 'packages/webpack',
+      attributes: { cjs: true }
+    }
+  ],
+  unnamedPackageMapData: []
+});
+
+createFixture({
+  fixtureName: 'goodHybridrepoTopologicalPrivate',
+  prototypeRoot: 'good-hybridrepo-topological-private',
+  attributes: {
+    cjs: true,
+    monorepo: true,
+    hybridrepo: true,
+    private: true
+  },
+  namedPackageMapData: [
+    {
+      name: 'cli',
+      root: 'packages/cli',
+      attributes: { cjs: true, cli: true, private: true }
+    },
+    {
+      name: 'private',
+      root: 'packages/private',
+      attributes: { cjs: true, private: true }
+    },
+    {
+      name: 'webpack',
+      root: 'packages/webpack',
+      attributes: { cjs: true }
+    }
+  ],
+  unnamedPackageMapData: []
+});
+
+createFixture({
+  fixtureName: 'goodHybridrepoTopologicalSelfRef',
+  prototypeRoot: 'good-hybridrepo-topological-self-ref',
+  attributes: {
+    cjs: true,
+    monorepo: true,
+    hybridrepo: true
+  },
+  namedPackageMapData: [
+    { name: 'cli', root: 'packages/cli', attributes: { cjs: true, cli: true } },
+    {
+      name: 'public',
+      root: 'packages/public',
+      attributes: { cjs: true }
+    },
+    {
+      name: 'webpack',
+      root: 'packages/webpack',
+      attributes: { cjs: true }
+    }
+  ],
+  unnamedPackageMapData: []
+});
+
+createFixture({
+  fixtureName: 'badMonorepoTopologicalCycle',
+  prototypeRoot: 'bad-monorepo-topological-cycle',
+  attributes: { cjs: true, monorepo: true, private: true },
+  namedPackageMapData: [
+    { name: 'pkg-1', root: 'packages/pkg-1', attributes: { cjs: true } },
+    { name: 'pkg-3', root: 'packages/pkg-3', attributes: { cjs: true } },
+    { name: 'pkg-4', root: 'packages/pkg-4', attributes: { cjs: true } },
+    { name: 'pkg-5', root: 'packages/pkg-5', attributes: { cjs: true } },
+    {
+      name: '@namespaced/pkg',
+      root: 'packages/pkg-2',
+      attributes: { cjs: true }
+    },
+    {
+      name: '@namespaced/importer',
+      root: 'packages/pkg-import',
+      attributes: { cjs: true }
+    }
+  ],
+  unnamedPackageMapData: []
+});
+
+createFixture({
+  fixtureName: 'badMonorepoTopologicalPrivate',
+  prototypeRoot: 'bad-monorepo-topological-private',
+  attributes: { cjs: true, monorepo: true, private: true },
+  namedPackageMapData: [
+    { name: 'pkg-1', root: 'packages/pkg-1', attributes: { cjs: true } },
+    { name: 'pkg-3', root: 'packages/pkg-3', attributes: { cjs: true } },
+    { name: 'pkg-4', root: 'packages/pkg-4', attributes: { cjs: true, private: true } },
+    { name: 'pkg-5', root: 'packages/pkg-5', attributes: { cjs: true } },
+    {
+      name: '@namespaced/pkg',
+      root: 'packages/pkg-2',
+      attributes: { cjs: true, private: true }
+    },
+    {
+      name: '@namespaced/importer',
+      root: 'packages/pkg-import',
+      attributes: { cjs: true, private: true }
+    }
+  ],
+  unnamedPackageMapData: []
+});
+
+createFixture({
+  fixtureName: 'goodMonorepoTopological',
+  prototypeRoot: 'good-monorepo-topological',
+  attributes: { cjs: true, monorepo: true, private: true },
+  namedPackageMapData: [
+    { name: 'pkg-1', root: 'packages/pkg-1', attributes: { cjs: true } },
+    { name: 'pkg-3', root: 'packages/pkg-3', attributes: { cjs: true } },
+    { name: 'pkg-4', root: 'packages/pkg-4', attributes: { cjs: true } },
+    { name: 'pkg-5', root: 'packages/pkg-5', attributes: { cjs: true } },
+    {
+      name: '@namespaced/pkg',
+      root: 'packages/pkg-2',
+      attributes: { cjs: true }
+    },
+    {
+      name: '@namespaced/importer',
+      root: 'packages/pkg-import',
+      attributes: { cjs: true }
+    }
+  ],
+  unnamedPackageMapData: []
+});
+
+createFixture({
+  fixtureName: 'goodMonorepoTopologicalPrivate',
+  prototypeRoot: 'good-monorepo-topological-private',
+  attributes: { cjs: true, monorepo: true, private: true },
+  namedPackageMapData: [
+    { name: 'pkg-1', root: 'packages/pkg-1', attributes: { cjs: true, private: true } },
+    { name: 'pkg-3', root: 'packages/pkg-3', attributes: { cjs: true, private: true } },
+    { name: 'pkg-4', root: 'packages/pkg-4', attributes: { cjs: true, private: true } },
+    { name: 'pkg-5', root: 'packages/pkg-5', attributes: { cjs: true, private: true } },
+    {
+      name: '@namespaced/pkg',
+      root: 'packages/pkg-2',
+      attributes: { cjs: true, private: true }
+    },
+    {
+      name: '@namespaced/importer',
+      root: 'packages/pkg-import',
+      attributes: { cjs: true, private: true }
+    }
+  ],
+  unnamedPackageMapData: []
+});
+
+createFixture({
+  fixtureName: 'goodMonorepoTopologicalSelfRef',
+  prototypeRoot: 'good-monorepo-topological-self-ref',
+  attributes: { cjs: true, monorepo: true, private: true },
+  namedPackageMapData: [
+    { name: 'pkg-1', root: 'packages/pkg-1', attributes: { cjs: true } },
+    { name: 'pkg-3', root: 'packages/pkg-3', attributes: { cjs: true } },
+    { name: 'pkg-4', root: 'packages/pkg-4', attributes: { cjs: true } },
+    { name: 'pkg-5', root: 'packages/pkg-5', attributes: { cjs: true } },
+    {
+      name: '@namespaced/pkg',
+      root: 'packages/pkg-2',
+      attributes: { cjs: true }
+    },
+    {
+      name: '@namespaced/importer',
+      root: 'packages/pkg-import',
+      attributes: { cjs: true }
+    }
+  ],
+  unnamedPackageMapData: []
+});
+
+createFixture({
+  fixtureName: 'goodPolyrepoTopologicalPrivate',
+  prototypeRoot: 'good-polyrepo-topological-private',
+  attributes: { cjs: true, polyrepo: true, private: true }
+});
+
+createFixture({
+  fixtureName: 'goodPolyrepoTopologicalSelfRef',
+  prototypeRoot: 'good-polyrepo-topological-self-ref',
+  attributes: { cjs: true, polyrepo: true }
 });
 
 /**
