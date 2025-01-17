@@ -221,7 +221,7 @@ export default function command({
                         currentArgument.length === 1 ||
                         ErrorMessage.OptionValueMustBeAloneWhenBaseline(
                           Test.Type,
-                          'test option'
+                          '--test option'
                         )
                       );
                     })

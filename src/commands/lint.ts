@@ -130,7 +130,7 @@ export default async function command({
                         currentArgument.length === 1 ||
                         ErrorMessage.OptionValueMustBeAloneWhenBaseline(
                           currentArgument[0],
-                          'linter'
+                          '--linter option'
                         )
                       );
                     })
