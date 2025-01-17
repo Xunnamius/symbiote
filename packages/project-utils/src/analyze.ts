@@ -7,6 +7,7 @@ export * from 'rootverse+project-utils:src/analyze/gather-pseudodecorator-entrie
 export * from 'rootverse+project-utils:src/analyze/generate-package-json-engine-maintained-node-versions.ts';
 export * from 'rootverse+project-utils:src/analyze/package-root-to-id.ts';
 export * from 'rootverse+project-utils:src/analyze/path-to-package.ts';
+export * from 'rootverse+project-utils:src/analyze/sort-packages-topologically.ts';
 
 export {
   isPackage,
