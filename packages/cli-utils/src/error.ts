@@ -27,8 +27,13 @@ export const ErrorMessage = {
   CommandDidNotComplete(command: string) {
     return `the "${command}" command did not complete`;
   },
-  IgnoredArguments(args: string[]) {
-    return `the following command arguments were ignored: ${args.join(', ')}`;
+  IgnoredOptions(args: string[]) {
+    return `the following command options were ignored: ${args.join(', ')}`;
+  },
+  BadOptionValue(name: string, value: unknown, context?: string) {
+    return `option "${name}" cannot have value "${String(value)}"${
+      context ? ` ${context}` : ''
+    }`;
   },
   RequiresMinArgs(name: string, min: number, given?: number, adjective?: string) {
     return `${name} requires at least ${min} ${adjective ? `${adjective} ` : ''}argument${min === 1 ? '' : 's'}${given ? `, saw ${given}` : ''}`;
