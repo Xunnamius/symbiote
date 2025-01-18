@@ -8,7 +8,7 @@
 
 > `const` **ErrorMessage**: `object`
 
-Defined in: [src/error.ts:63](https://github.com/Xunnamius/symbiote/blob/5ae97ccbe27456f6fdcc9cdb8c1bf89ff370984a/src/error.ts#L63)
+Defined in: [src/error.ts:63](https://github.com/Xunnamius/symbiote/blob/7f982952167d73373d4dffdf7657e7060cf032fe/src/error.ts#L63)
 
 A collection of possible error and warning messages.
 
@@ -201,30 +201,6 @@ punctuation and capitalization rules as the other error messages.
 
 `string`
 
-### ArgumentMustBeNonNegative()
-
-#### Parameters
-
-##### name
-
-`string`
-
-#### Returns
-
-`string`
-
-### ArgumentMustNotBeFalsy()
-
-#### Parameters
-
-##### name
-
-`string`
-
-#### Returns
-
-`string`
-
 ### AssetRetrievalFailed()
 
 #### Parameters
@@ -330,6 +306,26 @@ punctuation and capitalization rules as the other error messages.
 #### Parameters
 
 ##### path
+
+`string`
+
+#### Returns
+
+`string`
+
+### BadOptionValue()
+
+#### Parameters
+
+##### name
+
+`string`
+
+##### value
+
+`unknown`
+
+##### context?
 
 `string`
 
@@ -625,7 +621,7 @@ readonly `string`[]
 
 `string`
 
-### IgnoredArguments()
+### IgnoredOptions()
 
 #### Parameters
 
@@ -714,6 +710,30 @@ readonly `string`[]
 `string`
 
 ### NoCurrentBranch()
+
+#### Returns
+
+`string`
+
+### OptionMustBeNonNegative()
+
+#### Parameters
+
+##### name
+
+`string`
+
+#### Returns
+
+`string`
+
+### OptionMustNotBeFalsy()
+
+#### Parameters
+
+##### name
+
+`string`
 
 #### Returns
 
@@ -906,6 +926,12 @@ readonly `string`[]
 `string`
 
 ### TestingFailed()
+
+#### Returns
+
+`string`
+
+### TopologyRunScriptExecutionFailed()
 
 #### Returns
 

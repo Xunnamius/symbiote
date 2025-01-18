@@ -2,13 +2,13 @@
 
 ***
 
-[@-xun/symbiote](../../../../../README.md) / [src/commands/project/release](../README.md) / default
+[@-xun/symbiote](../../../../../README.md) / [src/commands/project/topology](../README.md) / default
 
 # Function: default()
 
 > **default**(`__namedParameters`): `object`
 
-Defined in: [src/commands/project/release.ts:28](https://github.com/Xunnamius/symbiote/blob/5ae97ccbe27456f6fdcc9cdb8c1bf89ff370984a/src/commands/project/release.ts#L28)
+Defined in: [src/commands/project/topology.ts:63](https://github.com/Xunnamius/symbiote/blob/7f982952167d73373d4dffdf7657e7060cf032fe/src/commands/project/topology.ts#L63)
 
 ## Parameters
 

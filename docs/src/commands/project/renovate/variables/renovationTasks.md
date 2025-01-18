@@ -8,7 +8,7 @@
 
 > `const` **renovationTasks**: `object`
 
-Defined in: [src/commands/project/renovate.ts:745](https://github.com/Xunnamius/symbiote/blob/5ae97ccbe27456f6fdcc9cdb8c1bf89ff370984a/src/commands/project/renovate.ts#L745)
+Defined in: [src/commands/project/renovate.ts:745](https://github.com/Xunnamius/symbiote/blob/7f982952167d73373d4dffdf7657e7060cf032fe/src/commands/project/renovate.ts#L745)
 
 ## Type declaration
 
@@ -947,10 +947,10 @@ ${string}${string} - Empty/unset variables in .env files will be ignored
 
 Due to the current limitations of GitHub's REST API, the following renovations are not able to be automated and should be configured manually:
 
-* Include "Releases" and remove "Packages" and "Deployments" sidebar sections
-* Enable sponsorships
-* Enable repository preservation (arctic code vault)
-* Enable discussions
+- Include "Releases" and remove "Packages" and "Deployments" sidebar sections
+- Enable sponsorships
+- Enable repository preservation (arctic code vault)
+- Enable discussions
 - Enable "private vulnerability reporting"
 - Enable "dependency graph"
 - Enable "dependabot" (i.e. "dependabot alerts" and "dependabot security updates")

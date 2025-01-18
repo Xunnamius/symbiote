@@ -8,7 +8,7 @@
 
 > **generateBaseXPackageJson**(...`__namedParameters`): `object`
 
-Defined in: [src/assets/transformers/\_package.json.ts:54](https://github.com/Xunnamius/symbiote/blob/5ae97ccbe27456f6fdcc9cdb8c1bf89ff370984a/src/assets/transformers/_package.json.ts#L54)
+Defined in: [src/assets/transformers/\_package.json.ts:54](https://github.com/Xunnamius/symbiote/blob/7f982952167d73373d4dffdf7657e7060cf032fe/src/assets/transformers/_package.json.ts#L54)
 
 ## Parameters
 
@@ -360,6 +360,19 @@ package's documentation (typically found under `docs/`).
 `symbiote build docs`
 ```
 
+#### scripts.build:topological
+
+> **build:topological**: `string` = `'symbiote project topology --run build --env NODE_NO_WARNINGS=1'`
+
+Run by users, symbiote, and related tooling when building, in topological
+order, production-ready distributables across all packages in the project.
+
+##### Example
+
+```ts
+`symbiote project topology --run build`
+```
+
 #### scripts.clean
 
 > **clean**: `string` = `'symbiote clean --env NODE_NO_WARNINGS=1'`
@@ -383,7 +396,8 @@ distributables to the appropriate remote system(s).
 ##### Example
 
 ```ts
-`symbiote deploy --target ssh --host prod.x.y.com --to-path /prod/some/path`
+`symbiote deploy --target ssh --host prod.x.y.com --to-path
+/prod/some/path`
 ```
 
 #### scripts.dev?
@@ -397,8 +411,8 @@ local development environment.
 
 > **format**: `string` = `'symbiote format --env NODE_NO_WARNINGS=1 --hush'`
 
-Run by users, symbiote, and related tooling when formatting the project
-or package.
+Run by users, symbiote, and related tooling when formatting the project or
+package.
 
 ##### Example
 
@@ -410,8 +424,8 @@ or package.
 
 > **info**: `string` = `'symbiote project info --env NODE_NO_WARNINGS=1'`
 
-Run by users, symbiote, and related tooling when printing information
-about the current project or package.
+Run by users, symbiote, and related tooling when printing information about
+the current project or package.
 
 ##### Example
 
@@ -445,8 +459,8 @@ This script is usually a reference to `npm run lint:package`.
 > **lint:package**: `string` = `'symbiote lint --env NODE_NO_WARNINGS=1 --hush'`
 
 Run by users, symbiote, and related tooling when linting all of the
-lintable files under the current package's root along with any other
-source files that comprise this package's build targets (see
+lintable files under the current package's root along with any other source
+files that comprise this package's build targets (see
 gatherPackageBuildTargets).
 
 ##### Example
@@ -459,8 +473,8 @@ gatherPackageBuildTargets).
 
 > **lint:packages**: `string`
 
-Run by users, symbiote, and related tooling when linting all lintable
-files in the entire project.
+Run by users, symbiote, and related tooling when linting all lintable files
+in the entire project.
 
 ##### Example
 
@@ -481,12 +495,25 @@ metadata, such as its file structure and configuration settings.
 `symbiote project lint`
 ```
 
+#### scripts.lint:topological
+
+> **lint:topological**: `string` = `'symbiote project topology --run lint --env NODE_NO_WARNINGS=1'`
+
+Run by users, symbiote, and related tooling when linting, in topological
+order, files belonging to packages across the project.
+
+##### Example
+
+```ts
+`symbiote project topology --run lint`
+```
+
 #### scripts.list-tasks
 
 > **list-tasks**: `string`
 
-Run by users, symbiote, and related tooling when printing information
-about available scripts in `package.json`.
+Run by users, symbiote, and related tooling when printing information about
+available scripts in `package.json`.
 
 ##### Example
 
@@ -624,8 +651,8 @@ Run **after** the package is published.
 
 > **release**: `string` = `'symbiote release --env NODE_NO_WARNINGS=1 --not-multiversal'`
 
-Run by users, symbiote, and related tooling when potentially releasing
-the next version of a package.
+Run by users, symbiote, and related tooling when potentially releasing the
+next version of a package.
 
 ##### Example
 
@@ -633,17 +660,17 @@ the next version of a package.
 `symbiote release --no-parallel --not-multiversal`
 ```
 
-#### scripts.release:project
+#### scripts.release:topological
 
-> **release:project**: `string` = `'symbiote project release --env NODE_NO_WARNINGS=1'`
+> **release:topological**: `string` = `'symbiote project topology --run release --env NODE_NO_WARNINGS=1'`
 
-Run by users, symbiote, and related tooling when running the npm "release"
-script for every package in the project in topological order.
+Run by users, symbiote, and related tooling when potentially releasing, in
+topological order, the next version of each package in the project.
 
 ##### Example
 
 ```ts
-`symbiote project release`
+`symbiote project topology --run release`
 ```
 
 #### scripts.renovate
@@ -657,8 +684,8 @@ goal of bringing the project up to date with latest best practices.
 ##### Example
 
 ```ts
-`symbiote project renovate
---github-reconfigure-repo --regenerate-assets --assets-preset basic`
+`symbiote project renovate --github-reconfigure-repo
+--regenerate-assets --assets-preset basic`
 ```
 
 #### scripts.restart?
@@ -690,9 +717,9 @@ Run with the `npm test` command.
 > **test:package:all**: `string` = `'symbiote test --env NODE_NO_WARNINGS=1 --coverage'`
 
 Run by users, symbiote, and related tooling when executing all possible
-tests against the current package. In a monorepo context, this script
-will also run the tests of any package that this package depends on
-(including transitive dependencies).
+tests against the current package. In a monorepo context, this script will
+also run the tests of any package that this package depends on (including
+transitive dependencies).
 
 ##### Example
 
@@ -704,10 +731,10 @@ will also run the tests of any package that this package depends on
 
 > **test:package:e2e**: `string` = `'symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end'`
 
-Run by users, symbiote, and related tooling when executing end-to-end
-tests against the current package. In a monorepo context, this script
-will also run the tests of any package that this package depends on
-(including transitive dependencies).
+Run by users, symbiote, and related tooling when executing end-to-end tests
+against the current package. In a monorepo context, this script will also
+run the tests of any package that this package depends on (including
+transitive dependencies).
 
 ##### Example
 
@@ -720,9 +747,9 @@ will also run the tests of any package that this package depends on
 > **test:package:integration**: `string` = `'symbiote test --env NODE_NO_WARNINGS=1 --tests integration'`
 
 Run by users, symbiote, and related tooling when executing integration
-tests against the current package. In a monorepo context, this script
-will also run the tests of any package that this package depends on
-(including transitive dependencies).
+tests against the current package. In a monorepo context, this script will
+also run the tests of any package that this package depends on (including
+transitive dependencies).
 
 ##### Example
 
@@ -735,9 +762,9 @@ will also run the tests of any package that this package depends on
 > **test:package:unit**: `string` = `'symbiote test --env NODE_NO_WARNINGS=1 --tests unit'`
 
 Run by users, symbiote, and related tooling when executing unit tests
-against the current package. In a monorepo context, this script
-will also run the tests of any package that this package depends on
-(including transitive dependencies).
+against the current package. In a monorepo context, this script will also
+run the tests of any package that this package depends on (including
+transitive dependencies).
 
 ##### Example
 
@@ -756,6 +783,19 @@ tests across the entire project.
 
 ```ts
 `symbiote test --scope unlimited --coverage`
+```
+
+#### scripts.test:topological
+
+> **test:topological**: `string` = `'symbiote project topology --run test --env NODE_NO_WARNINGS=1'`
+
+Run by users, symbiote, and related tooling when executing tests against
+packages, in topological order, across the entire project.
+
+##### Example
+
+```ts
+`symbiote project topology --run test`
 ```
 
 #### scripts.uninstall?

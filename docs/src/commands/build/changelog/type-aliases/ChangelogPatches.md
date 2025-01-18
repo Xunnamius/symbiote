@@ -8,7 +8,7 @@
 
 > **ChangelogPatches**: [`ChangelogPatch`](ChangelogPatch.md)[]
 
-Defined in: [src/commands/build/changelog.ts:84](https://github.com/Xunnamius/symbiote/blob/5ae97ccbe27456f6fdcc9cdb8c1bf89ff370984a/src/commands/build/changelog.ts#L84)
+Defined in: [src/commands/build/changelog.ts:84](https://github.com/Xunnamius/symbiote/blob/7f982952167d73373d4dffdf7657e7060cf032fe/src/commands/build/changelog.ts#L84)
 
 An array of zero or more [ChangelogPatch](ChangelogPatch.md)es.
 

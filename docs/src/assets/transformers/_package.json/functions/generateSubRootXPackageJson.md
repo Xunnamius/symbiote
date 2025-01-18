@@ -8,7 +8,7 @@
 
 > **generateSubRootXPackageJson**(...`__namedParameters`): `object`
 
-Defined in: [src/assets/transformers/\_package.json.ts:310](https://github.com/Xunnamius/symbiote/blob/5ae97ccbe27456f6fdcc9cdb8c1bf89ff370984a/src/assets/transformers/_package.json.ts#L310)
+Defined in: [src/assets/transformers/\_package.json.ts:333](https://github.com/Xunnamius/symbiote/blob/7f982952167d73373d4dffdf7657e7060cf032fe/src/assets/transformers/_package.json.ts#L333)
 
 ## Parameters
 
@@ -254,7 +254,7 @@ If set to `true`, a warning will be shown if package is installed locally. Usefu
 
 ### private?
 
-> `readonly` `optional` **private**: `boolean`
+> `readonly` `optional` **private**: `boolean` = `true`
 
 If set to `true`, then npm will refuse to publish it.
 
@@ -306,59 +306,21 @@ Selective version resolutions. Allows the definition of custom package versions 
 
 > `readonly` **scripts**: `object`
 
-#### scripts.build
+#### scripts.build?
 
-> `readonly` **build**: `string` = `'npm run build:dist --'`
+> `optional` **build**: `string`
 
-Run by users, symbiote, and related tooling when building the current
-package's production-ready distributables.
+#### scripts.build:changelog?
 
-This script is usually a reference to `npm run build:dist`.
+> `readonly` `optional` **build:changelog**: `string` = `buildChangelog`
 
-##### Example
+#### scripts.build:dist?
 
-```ts
-`npm run build:dist --`
-```
+> `readonly` `optional` **build:dist**: `string` = `buildDist`
 
-#### scripts.build:changelog
+#### scripts.build:docs?
 
-> `readonly` **build:changelog**: `string` = `'symbiote build changelog --env NODE_NO_WARNINGS=1'`
-
-Run by users, symbiote, and related tooling when building the current
-package's `CHANGELOG.md` file.
-
-##### Example
-
-```ts
-`symbiote build changelog`
-```
-
-#### scripts.build:dist
-
-> `readonly` **build:dist**: `string` = `'symbiote build distributables --env NODE_NO_WARNINGS=1'`
-
-Run by users, symbiote, and related tooling when building the current
-package's production-ready distributables.
-
-##### Example
-
-```ts
-`symbiote build distributables`
-```
-
-#### scripts.build:docs
-
-> `readonly` **build:docs**: `string` = `'symbiote build docs --env NODE_NO_WARNINGS=1'`
-
-Run by users, symbiote, and related tooling when building the current
-package's documentation (typically found under `docs/`).
-
-##### Example
-
-```ts
-`symbiote build docs`
-```
+> `readonly` `optional` **build:docs**: `string` = `buildDocs`
 
 #### scripts.clean
 
@@ -383,7 +345,8 @@ distributables to the appropriate remote system(s).
 ##### Example
 
 ```ts
-`symbiote deploy --target ssh --host prod.x.y.com --to-path /prod/some/path`
+`symbiote deploy --target ssh --host prod.x.y.com --to-path
+/prod/some/path`
 ```
 
 #### scripts.dev?
@@ -397,8 +360,8 @@ local development environment.
 
 > `readonly` **format**: `string` = `'symbiote format --env NODE_NO_WARNINGS=1 --hush'`
 
-Run by users, symbiote, and related tooling when formatting the project
-or package.
+Run by users, symbiote, and related tooling when formatting the project or
+package.
 
 ##### Example
 
@@ -410,8 +373,8 @@ or package.
 
 > `readonly` **info**: `string` = `'symbiote project info --env NODE_NO_WARNINGS=1'`
 
-Run by users, symbiote, and related tooling when printing information
-about the current project or package.
+Run by users, symbiote, and related tooling when printing information about
+the current project or package.
 
 ##### Example
 
@@ -445,8 +408,8 @@ This script is usually a reference to `npm run lint:package`.
 > `readonly` **lint:package**: `string` = `'symbiote lint --env NODE_NO_WARNINGS=1 --hush'`
 
 Run by users, symbiote, and related tooling when linting all of the
-lintable files under the current package's root along with any other
-source files that comprise this package's build targets (see
+lintable files under the current package's root along with any other source
+files that comprise this package's build targets (see
 gatherPackageBuildTargets).
 
 ##### Example
@@ -459,8 +422,8 @@ gatherPackageBuildTargets).
 
 > `readonly` **lint:packages**: `string`
 
-Run by users, symbiote, and related tooling when linting all lintable
-files in the entire project.
+Run by users, symbiote, and related tooling when linting all lintable files
+in the entire project.
 
 ##### Example
 
@@ -485,8 +448,8 @@ metadata, such as its file structure and configuration settings.
 
 > `readonly` **list-tasks**: `string`
 
-Run by users, symbiote, and related tooling when printing information
-about available scripts in `package.json`.
+Run by users, symbiote, and related tooling when printing information about
+available scripts in `package.json`.
 
 ##### Example
 
@@ -614,18 +577,9 @@ Run **before** bump the package version and before `version`.
 
 Run **after** the package is published.
 
-#### scripts.release
+#### scripts.release?
 
-> `readonly` **release**: `string` = `'symbiote release --env NODE_NO_WARNINGS=1 --not-multiversal'`
-
-Run by users, symbiote, and related tooling when potentially releasing
-the next version of a package.
-
-##### Example
-
-```ts
-`symbiote release --no-parallel --not-multiversal`
-```
+> `optional` **release**: `string`
 
 #### scripts.restart?
 
@@ -656,9 +610,9 @@ Run with the `npm test` command.
 > `readonly` **test:package:all**: `string` = `'symbiote test --env NODE_NO_WARNINGS=1 --coverage'`
 
 Run by users, symbiote, and related tooling when executing all possible
-tests against the current package. In a monorepo context, this script
-will also run the tests of any package that this package depends on
-(including transitive dependencies).
+tests against the current package. In a monorepo context, this script will
+also run the tests of any package that this package depends on (including
+transitive dependencies).
 
 ##### Example
 
@@ -670,10 +624,10 @@ will also run the tests of any package that this package depends on
 
 > `readonly` **test:package:e2e**: `string` = `'symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end'`
 
-Run by users, symbiote, and related tooling when executing end-to-end
-tests against the current package. In a monorepo context, this script
-will also run the tests of any package that this package depends on
-(including transitive dependencies).
+Run by users, symbiote, and related tooling when executing end-to-end tests
+against the current package. In a monorepo context, this script will also
+run the tests of any package that this package depends on (including
+transitive dependencies).
 
 ##### Example
 
@@ -686,9 +640,9 @@ will also run the tests of any package that this package depends on
 > `readonly` **test:package:integration**: `string` = `'symbiote test --env NODE_NO_WARNINGS=1 --tests integration'`
 
 Run by users, symbiote, and related tooling when executing integration
-tests against the current package. In a monorepo context, this script
-will also run the tests of any package that this package depends on
-(including transitive dependencies).
+tests against the current package. In a monorepo context, this script will
+also run the tests of any package that this package depends on (including
+transitive dependencies).
 
 ##### Example
 
@@ -701,9 +655,9 @@ will also run the tests of any package that this package depends on
 > `readonly` **test:package:unit**: `string` = `'symbiote test --env NODE_NO_WARNINGS=1 --tests unit'`
 
 Run by users, symbiote, and related tooling when executing unit tests
-against the current package. In a monorepo context, this script
-will also run the tests of any package that this package depends on
-(including transitive dependencies).
+against the current package. In a monorepo context, this script will also
+run the tests of any package that this package depends on (including
+transitive dependencies).
 
 ##### Example
 

@@ -8,7 +8,7 @@
 
 > **makeEslintFlatCompat**(`projectRoot`): `Promise`\<`FlatCompat`\>
 
-Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:872](https://github.com/Xunnamius/symbiote/blob/5ae97ccbe27456f6fdcc9cdb8c1bf89ff370984a/src/assets/transformers/_eslint.config.mjs.ts#L872)
+Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:872](https://github.com/Xunnamius/symbiote/blob/7f982952167d73373d4dffdf7657e7060cf032fe/src/assets/transformers/_eslint.config.mjs.ts#L872)
 
 Accepts an absolute path to the project root and returns a FlatCompat
 instance.
