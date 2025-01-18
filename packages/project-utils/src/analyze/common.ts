@@ -557,6 +557,13 @@ export type XPackageJsonScripts = {
    */
   'build:docs'?: string;
   /**
+   * Run by users, symbiote, and related tooling when building, in topological
+   * order, production-ready distributables across all packages in the project.
+   *
+   * @example `symbiote project topology --run build`
+   */
+  'build:topological'?: string;
+  /**
    * Run by users, symbiote, and related tooling when removing files from the
    * project or package that are ignored by git (with exceptions).
    *
@@ -567,19 +574,20 @@ export type XPackageJsonScripts = {
    * Run by users, symbiote, and related tooling when deploying built
    * distributables to the appropriate remote system(s).
    *
-   * @example `symbiote deploy --target ssh --host prod.x.y.com --to-path /prod/some/path`
+   * @example `symbiote deploy --target ssh --host prod.x.y.com --to-path
+   * /prod/some/path`
    */
   deploy?: string;
   /**
-   * Run by users, symbiote, and related tooling when formatting the project
-   * or package.
+   * Run by users, symbiote, and related tooling when formatting the project or
+   * package.
    *
    * @example `symbiote format --hush`
    */
   format?: string;
   /**
-   * Run by users, symbiote, and related tooling when printing information
-   * about the current project or package.
+   * Run by users, symbiote, and related tooling when printing information about
+   * the current project or package.
    *
    * @example `symbiote project info`
    */
@@ -595,16 +603,16 @@ export type XPackageJsonScripts = {
   lint?: string;
   /**
    * Run by users, symbiote, and related tooling when linting all of the
-   * lintable files under the current package's root along with any other
-   * source files that comprise this package's build targets (see
+   * lintable files under the current package's root along with any other source
+   * files that comprise this package's build targets (see
    * {@link gatherPackageBuildTargets}).
    *
    * @example `symbiote lint --scope this-package`
    */
   'lint:package'?: string;
   /**
-   * Run by users, symbiote, and related tooling when linting all lintable
-   * files in the entire project.
+   * Run by users, symbiote, and related tooling when linting all lintable files
+   * in the entire project.
    *
    * @example `symbiote lint --scope unlimited`
    */
@@ -617,12 +625,19 @@ export type XPackageJsonScripts = {
    */
   'lint:project'?: string;
   /**
-   * Run by users, symbiote, and related tooling when printing information
-   * about available scripts in `package.json`.
+   * Run by users, symbiote, and related tooling when printing information about
+   * available scripts in `package.json`.
    *
    * @example `symbiote list-tasks`
    */
   'list-tasks'?: string;
+  /**
+   * Run by users, symbiote, and related tooling when linting, in topological
+   * order, files belonging to packages across the project.
+   *
+   * @example `symbiote project topology --run lint`
+   */
+  'lint:topological'?: string;
   /**
    * Run by users, symbiote, and related tooling when preparing a fresh
    * development environment.
@@ -635,26 +650,26 @@ export type XPackageJsonScripts = {
    */
   prepare?: string;
   /**
-   * Run by users, symbiote, and related tooling when potentially releasing
-   * the next version of a package.
+   * Run by users, symbiote, and related tooling when potentially releasing the
+   * next version of a package.
    *
    * @example `symbiote release --no-parallel --not-multiversal`
    */
   release?: string;
   /**
-   * Run by users, symbiote, and related tooling when running the npm "release"
-   * script for every package in the project in topological order.
+   * Run by users, symbiote, and related tooling when potentially releasing, in
+   * topological order, the next version of each package in the project.
    *
-   * @example `symbiote project release`
+   * @example `symbiote project topology --run release`
    */
-  'release:project'?: string;
+  'release:topological'?: string;
   /**
    * Run by users, symbiote, and related tooling when manipulating a project's
    * _metadata_, such as its file structure and configuration settings, with the
    * goal of bringing the project up to date with latest best practices.
    *
-   * @example `symbiote project renovate
-   * --github-reconfigure-repo --regenerate-assets --assets-preset basic`
+   * @example `symbiote project renovate --github-reconfigure-repo
+   * --regenerate-assets --assets-preset basic`
    */
   renovate?: string;
   /**
@@ -673,48 +688,48 @@ export type XPackageJsonScripts = {
    */
   dev?: string;
   /**
-   * Run by users, symbiote, and related tooling  when executing unit tests
+   * Run by users, symbiote, and related tooling when executing unit tests
    * against the current package.
    *
-   * This script is usually a reference to `npm run test:package:unit`. See
-   * [the docs](https://docs.npmjs.com/cli/v9/using-npm/scripts#npm-test) for
-   * more information.
+   * This script is usually a reference to `npm run test:package:unit`. See [the
+   * docs](https://docs.npmjs.com/cli/v9/using-npm/scripts#npm-test) for more
+   * information.
    *
    * @example `npm run test:package:unit --`
    */
   test?: string;
   /**
    * Run by users, symbiote, and related tooling when executing all possible
-   * tests against the current package. In a monorepo context, this script
-   * will also run the tests of any package that this package depends on
-   * (including transitive dependencies).
+   * tests against the current package. In a monorepo context, this script will
+   * also run the tests of any package that this package depends on (including
+   * transitive dependencies).
    *
    * @example `symbiote test --scope this-package --coverage`
    */
   'test:package:all'?: string;
   /**
-   * Run by users, symbiote, and related tooling when executing end-to-end
-   * tests against the current package. In a monorepo context, this script
-   * will also run the tests of any package that this package depends on
-   * (including transitive dependencies).
+   * Run by users, symbiote, and related tooling when executing end-to-end tests
+   * against the current package. In a monorepo context, this script will also
+   * run the tests of any package that this package depends on (including
+   * transitive dependencies).
    *
    * @example `symbiote test --scope this-package --tests end-to-end`
    */
   'test:package:e2e'?: string;
   /**
    * Run by users, symbiote, and related tooling when executing integration
-   * tests against the current package. In a monorepo context, this script
-   * will also run the tests of any package that this package depends on
-   * (including transitive dependencies).
+   * tests against the current package. In a monorepo context, this script will
+   * also run the tests of any package that this package depends on (including
+   * transitive dependencies).
    *
    * @example `symbiote test --scope this-package --tests integration`
    */
   'test:package:integration'?: string;
   /**
    * Run by users, symbiote, and related tooling when executing unit tests
-   * against the current package. In a monorepo context, this script
-   * will also run the tests of any package that this package depends on
-   * (including transitive dependencies).
+   * against the current package. In a monorepo context, this script will also
+   * run the tests of any package that this package depends on (including
+   * transitive dependencies).
    *
    * @example `symbiote test --scope this-package --tests unit`
    */
@@ -726,6 +741,13 @@ export type XPackageJsonScripts = {
    * @example `symbiote test --scope unlimited --coverage`
    */
   'test:packages:all'?: string;
+  /**
+   * Run by users, symbiote, and related tooling when executing tests against
+   * packages, in topological order, across the entire project.
+   *
+   * @example `symbiote project topology --run test`
+   */
+  'test:topological'?: string;
 };
 
 /**

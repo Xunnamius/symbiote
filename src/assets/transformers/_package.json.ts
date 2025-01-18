@@ -145,6 +145,8 @@ export function generateBaseXPackageJson(
       'build:changelog': 'symbiote build changelog --env NODE_NO_WARNINGS=1',
       'build:dist': 'symbiote build distributables --env NODE_NO_WARNINGS=1',
       'build:docs': 'symbiote build docs --env NODE_NO_WARNINGS=1',
+      'build:topological':
+        'symbiote project topology --run build --env NODE_NO_WARNINGS=1',
       clean: 'symbiote clean --env NODE_NO_WARNINGS=1',
       format: 'symbiote format --env NODE_NO_WARNINGS=1 --hush',
       info: 'symbiote project info --env NODE_NO_WARNINGS=1',
@@ -152,10 +154,13 @@ export function generateBaseXPackageJson(
       'lint:package': 'symbiote lint --env NODE_NO_WARNINGS=1 --hush',
       'lint:packages': `symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope ${DefaultGlobalScope.Unlimited}`,
       'lint:project': 'symbiote project lint --env NODE_NO_WARNINGS=1',
+      'lint:topological':
+        'symbiote project topology --run lint --env NODE_NO_WARNINGS=1',
       'list-tasks': `symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope ${DefaultGlobalScope.ThisPackage}`,
       prepare: 'symbiote project prepare --env NODE_NO_WARNINGS=1',
       release: 'symbiote release --env NODE_NO_WARNINGS=1 --not-multiversal',
-      'release:project': 'symbiote project release --env NODE_NO_WARNINGS=1',
+      'release:topological':
+        'symbiote project topology --run release --env NODE_NO_WARNINGS=1',
       renovate: `symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset '${assetPresets.join(' ')}'`,
       start: 'symbiote start --env NODE_NO_WARNINGS=1 --',
       test: 'npm run test:package:unit --',
@@ -165,6 +170,8 @@ export function generateBaseXPackageJson(
         'symbiote test --env NODE_NO_WARNINGS=1 --tests integration',
       'test:package:unit': 'symbiote test --env NODE_NO_WARNINGS=1 --tests unit',
       'test:packages:all': `symbiote test --env NODE_NO_WARNINGS=1 --scope ${DefaultGlobalScope.Unlimited} --coverage`,
+      'test:topological':
+        'symbiote project topology --run test --env NODE_NO_WARNINGS=1',
       ...incomingPackageJson.scripts
     },
     engines: incomingPackageJson.engines ?? {
@@ -188,14 +195,26 @@ export function generatePolyrepoXPackageJson(
     preset
   ]: GeneratorParameters
 ) {
+  const {
+    scripts: {
+      'release:topological': _1,
+      'build:topological': _2,
+      'test:topological': _3,
+      'lint:topological': _4,
+      ...incomingBaseScripts
+    },
+    ...incomingBaseJson
+  } = generateBaseXPackageJson(
+    incomingPackageJson,
+    isHybridrepo,
+    repoUrl,
+    projectRelativePackageRoot,
+    preset
+  );
+
   return {
-    ...generateBaseXPackageJson(
-      incomingPackageJson,
-      isHybridrepo,
-      repoUrl,
-      projectRelativePackageRoot,
-      preset
-    ),
+    ...incomingBaseJson,
+    scripts: incomingBaseScripts,
     dependencies: incomingPackageJson.dependencies ?? {},
     devDependencies: incomingPackageJson.devDependencies ?? {
       '@-xun/symbiote': `^${symbioteVersion}`
@@ -220,6 +239,8 @@ export function generateNonHybridMonorepoProjectXPackageJson(
       'build:changelog': _2,
       'build:dist': _3,
       'build:docs': _4,
+      // 'clean': is overwritten below
+      // 'format': is overwritten below
       lint: _13,
       'lint:package': _6,
       // 'list-tasks': is overwritten below
@@ -246,7 +267,9 @@ export function generateNonHybridMonorepoProjectXPackageJson(
   incomingBaseScripts.format += scopeUnlimitedArg;
 
   return {
-    devDependencies: {},
+    devDependencies: incomingPackageJson.devDependencies ?? {
+      '@-xun/symbiote': `^${symbioteVersion}`
+    },
     workspaces: incomingPackageJson.workspaces ?? ['packages/*', '!packages/*.ignore*'],
     ...incomingBaseJson,
     name: incomingPackageJson.name.endsWith('-monorepo')
@@ -302,7 +325,7 @@ export function generateHybridrepoProjectXPackageJson(
       ...monorepoScripts,
       ...polyrepoScripts
     }
-    // ? "private" is preserved from generatePolyrepoXPackageJson
+    // ? "private" (if given) is preserved from generatePolyrepoXPackageJson
   } as const satisfies XPackageJsonHybridrepoRoot;
 }
 
@@ -321,7 +344,19 @@ export function generateSubRootXPackageJson(
     scripts: {
       prepare: _1,
       renovate: _2,
-      'release:project': _3,
+      'release:topological': _3,
+      'build:topological': _4,
+      'test:topological': _5,
+      'lint:topological': _6,
+
+      // ? Might get added back later (below)
+      build,
+      'build:changelog': buildChangelog,
+      'build:dist': buildDist,
+      // eslint-disable-next-line unicorn/prevent-abbreviations
+      'build:docs': buildDocs,
+      release,
+
       ...incomingBaseScripts
     },
     ...incomingBaseJson
@@ -334,8 +369,20 @@ export function generateSubRootXPackageJson(
   );
 
   return {
+    ...(isHybridrepo ? { private: true } : {}),
     ...incomingBaseJson,
-    scripts: { ...incomingBaseScripts }
+    scripts: {
+      ...(isHybridrepo
+        ? {}
+        : {
+            build,
+            'build:changelog': buildChangelog,
+            'build:dist': buildDist,
+            'build:docs': buildDocs,
+            release
+          }),
+      ...incomingBaseScripts
+    }
   } as const satisfies XPackageJsonSubRoot;
 }
 

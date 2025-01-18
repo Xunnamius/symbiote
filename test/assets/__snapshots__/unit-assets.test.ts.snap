@@ -24457,17 +24457,20 @@ scope: this-package
   "private": true,
   "dependencies": {},
   "scripts": {
+    "build:topological": "symbiote project topology --run build --env NODE_NO_WARNINGS=1",
     "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
     "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush",
     "info": "symbiote project info --env NODE_NO_WARNINGS=1",
     "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
     "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
+    "lint:topological": "symbiote project topology --run lint --env NODE_NO_WARNINGS=1",
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
     "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
-    "release:project": "symbiote project release --env NODE_NO_WARNINGS=1",
+    "release:topological": "symbiote project topology --run release --env NODE_NO_WARNINGS=1",
     "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs'",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage",
+    "test:topological": "symbiote project topology --run test --env NODE_NO_WARNINGS=1",
     "build": "npm run build:dist --",
     "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
     "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1",
@@ -24547,17 +24550,20 @@ scope: unlimited
   "private": true,
   "dependencies": {},
   "scripts": {
+    "build:topological": "symbiote project topology --run build --env NODE_NO_WARNINGS=1",
     "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
     "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush",
     "info": "symbiote project info --env NODE_NO_WARNINGS=1",
     "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
     "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
+    "lint:topological": "symbiote project topology --run lint --env NODE_NO_WARNINGS=1",
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
     "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
-    "release:project": "symbiote project release --env NODE_NO_WARNINGS=1",
+    "release:topological": "symbiote project topology --run release --env NODE_NO_WARNINGS=1",
     "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs'",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage",
+    "test:topological": "symbiote project topology --run test --env NODE_NO_WARNINGS=1",
     "build": "npm run build:dist --",
     "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
     "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1",
@@ -24881,17 +24887,20 @@ scope: unlimited
   "private": true,
   "dependencies": {},
   "scripts": {
+    "build:topological": "symbiote project topology --run build --env NODE_NO_WARNINGS=1",
     "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
     "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush",
     "info": "symbiote project info --env NODE_NO_WARNINGS=1",
     "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
     "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
+    "lint:topological": "symbiote project topology --run lint --env NODE_NO_WARNINGS=1",
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
     "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
-    "release:project": "symbiote project release --env NODE_NO_WARNINGS=1",
+    "release:topological": "symbiote project topology --run release --env NODE_NO_WARNINGS=1",
     "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs'",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage",
+    "test:topological": "symbiote project topology --run test --env NODE_NO_WARNINGS=1",
     "build": "npm run build:dist --",
     "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
     "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1",
@@ -25221,7 +25230,9 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> packa
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
-  "devDependencies": {},
+  "devDependencies": {
+    "@-xun/symbiote": "<latest>"
+  },
   "workspaces": [
     "packages/*",
     "!packages/*.ignore*"
@@ -25275,17 +25286,20 @@ scope: unlimited
   },
   "private": true,
   "scripts": {
+    "build:topological": "symbiote project topology --run build --env NODE_NO_WARNINGS=1",
     "clean": "symbiote clean --env NODE_NO_WARNINGS=1 --scope unlimited",
     "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
     "info": "symbiote project info --env NODE_NO_WARNINGS=1",
     "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
     "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
+    "lint:topological": "symbiote project topology --run lint --env NODE_NO_WARNINGS=1",
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope unlimited",
     "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
-    "release:project": "symbiote project release --env NODE_NO_WARNINGS=1",
+    "release:topological": "symbiote project topology --run release --env NODE_NO_WARNINGS=1",
     "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs'",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
-    "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage"
+    "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage",
+    "test:topological": "symbiote project topology --run test --env NODE_NO_WARNINGS=1"
   }
 }
 "
@@ -25567,7 +25581,9 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> packa
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
-  "devDependencies": {},
+  "devDependencies": {
+    "@-xun/symbiote": "<latest>"
+  },
   "workspaces": [
     "packages/*"
   ],
@@ -25620,17 +25636,20 @@ scope: unlimited
   },
   "private": true,
   "scripts": {
+    "build:topological": "symbiote project topology --run build --env NODE_NO_WARNINGS=1",
     "clean": "symbiote clean --env NODE_NO_WARNINGS=1 --scope unlimited",
     "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
     "info": "symbiote project info --env NODE_NO_WARNINGS=1",
     "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
     "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
+    "lint:topological": "symbiote project topology --run lint --env NODE_NO_WARNINGS=1",
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope unlimited",
     "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
-    "release:project": "symbiote project release --env NODE_NO_WARNINGS=1",
+    "release:topological": "symbiote project topology --run release --env NODE_NO_WARNINGS=1",
     "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs'",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage",
+    "test:topological": "symbiote project topology --run test --env NODE_NO_WARNINGS=1",
     "test": "echo 'it works!'"
   }
 }
@@ -25895,31 +25914,6 @@ scope: unlimited
   "exports": {
     ".": "./dist/index.js"
   },
-  "scripts": {
-    "build": "npm run build:dist --",
-    "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
-    "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1",
-    "build:docs": "symbiote build docs --env NODE_NO_WARNINGS=1",
-    "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
-    "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush",
-    "info": "symbiote project info --env NODE_NO_WARNINGS=1",
-    "lint": "npm run lint:package --",
-    "lint:package": "symbiote lint --env NODE_NO_WARNINGS=1 --hush",
-    "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
-    "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
-    "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
-    "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
-    "release": "symbiote release --env NODE_NO_WARNINGS=1 --not-multiversal",
-    "release:project": "symbiote project release --env NODE_NO_WARNINGS=1",
-    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs'",
-    "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
-    "test": "echo 'it works!'",
-    "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
-    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
-    "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
-    "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit",
-    "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage"
-  },
   "description": "TODO: set a description",
   "keywords": [],
   "homepage": "https://github.com/polyrepo-owner/repo-name#readme",
@@ -25951,6 +25945,30 @@ scope: unlimited
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
+  },
+  "scripts": {
+    "build": "npm run build:dist --",
+    "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
+    "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1",
+    "build:docs": "symbiote build docs --env NODE_NO_WARNINGS=1",
+    "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
+    "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush",
+    "info": "symbiote project info --env NODE_NO_WARNINGS=1",
+    "lint": "npm run lint:package --",
+    "lint:package": "symbiote lint --env NODE_NO_WARNINGS=1 --hush",
+    "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
+    "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
+    "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
+    "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1 --not-multiversal",
+    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs'",
+    "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
+    "test": "echo 'it works!'",
+    "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
+    "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit",
+    "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage"
   },
   "dependencies": {},
   "devDependencies": {
@@ -26005,6 +26023,13 @@ scope: this-package
     "/package.json",
     "/README.md"
   ],
+  "engines": {
+    "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
+  },
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
   "scripts": {
     "build": "npm run build:dist --",
     "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
@@ -26020,7 +26045,6 @@ scope: this-package
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
     "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
     "release": "symbiote release --env NODE_NO_WARNINGS=1 --not-multiversal",
-    "release:project": "symbiote project release --env NODE_NO_WARNINGS=1",
     "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs'",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "npm run test:package:unit --",
@@ -26029,13 +26053,6 @@ scope: this-package
     "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
     "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage"
-  },
-  "engines": {
-    "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
-  },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
   },
   "dependencies": {},
   "devDependencies": {
@@ -26059,31 +26076,6 @@ scope: unlimited
   },
   "exports": {
     ".": "./dist/index.js"
-  },
-  "scripts": {
-    "build": "npm run build:dist --",
-    "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
-    "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1",
-    "build:docs": "symbiote build docs --env NODE_NO_WARNINGS=1",
-    "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
-    "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush",
-    "info": "symbiote project info --env NODE_NO_WARNINGS=1",
-    "lint": "npm run lint:package --",
-    "lint:package": "symbiote lint --env NODE_NO_WARNINGS=1 --hush",
-    "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
-    "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
-    "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
-    "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
-    "release": "symbiote release --env NODE_NO_WARNINGS=1 --not-multiversal",
-    "release:project": "symbiote project release --env NODE_NO_WARNINGS=1",
-    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs'",
-    "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
-    "test": "echo 'it works!'",
-    "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
-    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
-    "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
-    "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit",
-    "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage"
   },
   "description": "TODO: set a description",
   "keywords": [],
@@ -26116,6 +26108,30 @@ scope: unlimited
   "publishConfig": {
     "access": "public",
     "registry": "https://registry.npmjs.org"
+  },
+  "scripts": {
+    "build": "npm run build:dist --",
+    "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
+    "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1",
+    "build:docs": "symbiote build docs --env NODE_NO_WARNINGS=1",
+    "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
+    "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush",
+    "info": "symbiote project info --env NODE_NO_WARNINGS=1",
+    "lint": "npm run lint:package --",
+    "lint:package": "symbiote lint --env NODE_NO_WARNINGS=1 --hush",
+    "lint:packages": "symbiote lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
+    "lint:project": "symbiote project lint --env NODE_NO_WARNINGS=1",
+    "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
+    "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1 --not-multiversal",
+    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset 'basic cli lib lib-esm lib-web react nextjs'",
+    "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
+    "test": "echo 'it works!'",
+    "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --coverage",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
+    "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit",
+    "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --scope unlimited --coverage"
   },
   "dependencies": {},
   "devDependencies": {
