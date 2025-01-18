@@ -235,6 +235,9 @@ export const ErrorMessage = {
   ReleaseFailedRepoRolledBack() {
     return '@-xun/release failed with a non-zero exit code. Act now to manually recover the repository to a stable state, if necessary';
   },
+  TopologyRunScriptExecutionFailed() {
+    return 'one or more scripts failed to complete';
+  },
   BadReleaseSectionPath() {
     return 'the @-xun/symbiote semantic-release plugin requires the "releaseSectionPath" option be a non-empty string ending with ".md"';
   },
