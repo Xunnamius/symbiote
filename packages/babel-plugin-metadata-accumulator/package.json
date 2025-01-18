@@ -69,12 +69,10 @@
   },
   "dependencies": {
     "@babel/core": "^7.26.0",
-    "@listr2/manager": "^2.0.13",
-    "@types/debug": "^4.1.12",
     "core-js": "^3.40.0",
-    "debug": "^4.4.0",
     "jsonc-parser": "^3.3.1",
     "named-app-errors": "^4.0.2",
+    "rejoinder": "^1.2.1",
     "type-fest": "^4.32.0"
   },
   "devDependencies": {
