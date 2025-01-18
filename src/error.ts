@@ -168,11 +168,11 @@ export const ErrorMessage = {
   MultipleConfigsWhenExpectingOnlyOne(filename1: string, filename2: string) {
     return `expected one configuration file but encountered multiple conflicting files: ${filename1} conflicts with ${filename2}`;
   },
-  ArgumentMustBeNonNegative(name: string) {
-    return `argument "${name}" must have a non-negative value`;
+  OptionMustBeNonNegative(name: string) {
+    return `option "${name}" must have a non-negative value`;
   },
-  ArgumentMustNotBeFalsy(name: string) {
-    return `argument "${name}" must have a non-empty (non-falsy) value`;
+  OptionMustNotBeFalsy(name: string) {
+    return `option "${name}" must have a non-empty (non-falsy) value`;
   },
   MarkdownNoUndefinedReferences() {
     return 'cannot continue with undefined references present in one or more Markdown files';

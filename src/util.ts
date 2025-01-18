@@ -1116,14 +1116,14 @@ export function checkIsNotNegative(argName: string) {
   return function (currentArg: unknown) {
     return (
       (typeof currentArg === 'number' && currentArg >= 0) ||
-      ErrorMessage.ArgumentMustBeNonNegative(argName)
+      ErrorMessage.OptionMustBeNonNegative(argName)
     );
   };
 }
 
 export function checkIsNotNil(argName: string) {
   return function (currentArg: unknown) {
-    return !!currentArg || ErrorMessage.ArgumentMustNotBeFalsy(argName);
+    return !!currentArg || ErrorMessage.OptionMustNotBeFalsy(argName);
   };
 }
 
