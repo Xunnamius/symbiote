@@ -344,13 +344,18 @@ export const ErrorMessage = {
       packageName: string | undefined,
       packageRoot: string
     ) {
-      return `⚠️🚧 Babel is configured to use core-js@${coreJsLibraryVersion} ("${
-        CORE_JS_LIBRARY_VERSION
-      }"), but the ${
-        packageName ? `"${packageName}"` : 'current'
-      } package is missing a semver-valid "core-js" field in its package.json "dependencies" object; saw: "${String(
-        cwdPackageCoreJsDependency
-      )}" in ${packageRoot}/package.json`;
+      return (
+        `Babel is configured to use core-js@${coreJsLibraryVersion} ("${
+          CORE_JS_LIBRARY_VERSION
+        }"), but the ${
+          packageName ? `"${packageName}"` : 'current'
+        } package is missing a semver-valid "core-js" field in its package.json "dependencies" object; if this package does not use core-js in its distributables, you may ignore this message` +
+        (cwdPackageCoreJsDependency
+          ? `\n  Saw "${String(
+              cwdPackageCoreJsDependency
+            )}" in ${packageRoot}/package.json`
+          : '')
+      );
     },
     BabelCorejsEgregiousPackageJsonFileInBuildOutput(
       originalSpecifier: string,
