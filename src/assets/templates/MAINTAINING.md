@@ -115,9 +115,9 @@ To release all packages in a repository:
 
 ```bash
 # Do a dry run first if you're not absolutely sure all is as it should be:
-npx run project:release -- --dry-run
+npx run release:topological -- --options --dry-run
 # Then do the actual topological release:
-npx run project:release
+npx run release:topological
 ```
 
 To release a specific package (without regard for topology):
@@ -137,7 +137,7 @@ npx -w specific-package-name-here run release
 > a release may result in a non-functional package being released if said
 > package depends on other packages in the project that have unreleased changes.
 >
-> Symbiote's "project release" command solves this problem and should be
+> Symbiote's "project topology" command solves this problem and should be
 > preferred over building packages individually.
 
 There are two ways to execute the release procedure of a particular package by
