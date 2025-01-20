@@ -79,6 +79,7 @@
     "build:changelog": "./node_modules/@-xun/symbiote/dist/src/cli.js build changelog --env NODE_NO_WARNINGS=1",
     "build:dist": "./node_modules/@-xun/symbiote/dist/src/cli.js build distributables --env NODE_NO_WARNINGS=1 --multiversal --exclude-internal-file .remarkrc.mjs",
     "build:docs": "./node_modules/@-xun/symbiote/dist/src/cli.js build docs --env NODE_NO_WARNINGS=1",
+    "build:topological": "symbiote project topology --run build --env NODE_NO_WARNINGS=1",
     "clean": "./node_modules/@-xun/symbiote/dist/src/cli.js clean --env NODE_NO_WARNINGS=1",
     "format": "./node_modules/@-xun/symbiote/dist/src/cli.js format --env NODE_NO_WARNINGS=1 --hush",
     "info": "./node_modules/@-xun/symbiote/dist/src/cli.js project info --env NODE_NO_WARNINGS=1",
@@ -86,9 +87,11 @@
     "lint:package": "./node_modules/@-xun/symbiote/dist/src/cli.js lint --env NODE_NO_WARNINGS=1 --hush",
     "lint:packages": "./node_modules/@-xun/symbiote/dist/src/cli.js lint --env NODE_NO_WARNINGS=1 --hush --scope unlimited",
     "lint:project": "./node_modules/@-xun/symbiote/dist/src/cli.js project lint --env NODE_NO_WARNINGS=1",
+    "lint:topological": "symbiote project topology --run lint --env NODE_NO_WARNINGS=1",
     "list-tasks": "./node_modules/@-xun/symbiote/dist/src/cli.js list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
     "prepare": "./node_modules/@-xun/symbiote/dist/src/cli.js project prepare --env NODE_NO_WARNINGS=1",
     "release": "./node_modules/@-xun/symbiote/dist/src/cli.js release --env NODE_NO_WARNINGS=1 --no-parallel",
+    "release:topological": "symbiote project topology --run release --env NODE_NO_WARNINGS=1",
     "renovate": "./node_modules/@-xun/symbiote/dist/src/cli.js project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset cli",
     "start": "./node_modules/@-xun/symbiote/dist/src/cli.js start --",
     "test": "npm run test:package:unit --",
@@ -96,7 +99,8 @@
     "test:package:e2e": "./node_modules/@-xun/symbiote/dist/src/cli.js test --env NODE_NO_WARNINGS=1 --tests end-to-end",
     "test:package:integration": "./node_modules/@-xun/symbiote/dist/src/cli.js test --env NODE_NO_WARNINGS=1 --tests integration",
     "test:package:unit": "./node_modules/@-xun/symbiote/dist/src/cli.js test --env NODE_NO_WARNINGS=1 --tests unit",
-    "test:packages:all": "./node_modules/@-xun/symbiote/dist/src/cli.js test --env NODE_NO_WARNINGS=1 --scope unlimited --env NODE_NO_WARNINGS=1 --coverage"
+    "test:packages:all": "./node_modules/@-xun/symbiote/dist/src/cli.js test --env NODE_NO_WARNINGS=1 --scope unlimited --env NODE_NO_WARNINGS=1 --coverage",
+    "test:topological": "symbiote project topology --run test --env NODE_NO_WARNINGS=1"
   },
   "dependencies": {
     "@-xun/changelog": "^1.0.0",
