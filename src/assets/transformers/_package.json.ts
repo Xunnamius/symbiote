@@ -1,5 +1,5 @@
-import { type Jsonifiable } from 'type-fest';
 import semver from 'semver';
+import { type Jsonifiable } from 'type-fest';
 
 import { LogTag } from 'multiverse+cli-utils:logging.ts';
 
