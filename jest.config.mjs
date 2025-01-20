@@ -43,6 +43,18 @@ function getJestAliases() {
     '^rootverse\\+project\\x2dutils:(.+)$': '<rootDir>/packages/project-utils/$1',
     '^rootverse\\+test\\x2dutils:(.+)$': '<rootDir>/packages/test-utils/$1',
     '^rootverse:(.+)$': '<rootDir>/$1',
+    '^universe\\+babel\\x2dplugin\\x2dmetadata\\x2daccumulator:(.+)$':
+      '<rootDir>/packages/babel-plugin-metadata-accumulator/src/$1',
+    '^universe\\+bfe:(.+)$': '<rootDir>/packages/bfe/src/$1',
+    '^universe\\+cli\\x2dutils:(.+)$': '<rootDir>/packages/cli-utils/src/$1',
+    '^universe\\+project\\x2dutils:(.+)$': '<rootDir>/packages/project-utils/src/$1',
+    '^universe\\+test\\x2dutils:(.+)$': '<rootDir>/packages/test-utils/src/$1',
+    '^universe\\+babel\\x2dplugin\\x2dmetadata\\x2daccumulator$':
+      '<rootDir>/packages/babel-plugin-metadata-accumulator/src/index.ts',
+    '^universe\\+bfe$': '<rootDir>/packages/bfe/src/index.ts',
+    '^universe\\+cli\\x2dutils$': '<rootDir>/packages/cli-utils/src/index.ts',
+    '^universe\\+project\\x2dutils$': '<rootDir>/packages/project-utils/src/index.ts',
+    '^universe\\+test\\x2dutils$': '<rootDir>/packages/test-utils/src/index.ts',
     '^universe:(.+)$': '<rootDir>/src/$1',
     '^universe$': '<rootDir>/src/index.ts',
     '^testverse\\+babel\\x2dplugin\\x2dmetadata\\x2daccumulator:(.+)$':

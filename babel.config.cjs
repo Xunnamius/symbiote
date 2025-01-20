@@ -50,6 +50,18 @@ function getBabelAliases() {
     '^rootverse\\+project\\x2dutils:(.+)$': './packages/project-utils/$1',
     '^rootverse\\+test\\x2dutils:(.+)$': './packages/test-utils/$1',
     '^rootverse:(.+)$': './$1',
+    '^universe\\+babel\\x2dplugin\\x2dmetadata\\x2daccumulator:(.+)$':
+      './packages/babel-plugin-metadata-accumulator/src/$1',
+    '^universe\\+bfe:(.+)$': './packages/bfe/src/$1',
+    '^universe\\+cli\\x2dutils:(.+)$': './packages/cli-utils/src/$1',
+    '^universe\\+project\\x2dutils:(.+)$': './packages/project-utils/src/$1',
+    '^universe\\+test\\x2dutils:(.+)$': './packages/test-utils/src/$1',
+    '^universe\\+babel\\x2dplugin\\x2dmetadata\\x2daccumulator$':
+      './packages/babel-plugin-metadata-accumulator/src/index.js',
+    '^universe\\+bfe$': './packages/bfe/src/index.js',
+    '^universe\\+cli\\x2dutils$': './packages/cli-utils/src/index.js',
+    '^universe\\+project\\x2dutils$': './packages/project-utils/src/index.js',
+    '^universe\\+test\\x2dutils$': './packages/test-utils/src/index.js',
     '^universe:(.+)$': './src/$1',
     '^universe$': './src/index.js',
     '^testverse\\+babel\\x2dplugin\\x2dmetadata\\x2daccumulator:(.+)$':

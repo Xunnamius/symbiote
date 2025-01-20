@@ -52,6 +52,22 @@ function getEslintAliases() {
     ['rootverse+project-utils:*', './packages/project-utils/*'],
     ['rootverse+test-utils:*', './packages/test-utils/*'],
     ['rootverse:*', './*'],
+    [
+      'universe+babel-plugin-metadata-accumulator:*',
+      './packages/babel-plugin-metadata-accumulator/src/*'
+    ],
+    ['universe+bfe:*', './packages/bfe/src/*'],
+    ['universe+cli-utils:*', './packages/cli-utils/src/*'],
+    ['universe+project-utils:*', './packages/project-utils/src/*'],
+    ['universe+test-utils:*', './packages/test-utils/src/*'],
+    [
+      'universe+babel-plugin-metadata-accumulator',
+      './packages/babel-plugin-metadata-accumulator/src/index.ts'
+    ],
+    ['universe+bfe', './packages/bfe/src/index.ts'],
+    ['universe+cli-utils', './packages/cli-utils/src/index.ts'],
+    ['universe+project-utils', './packages/project-utils/src/index.ts'],
+    ['universe+test-utils', './packages/test-utils/src/index.ts'],
     ['universe:*', './src/*'],
     ['universe', './src/index.ts'],
     [
