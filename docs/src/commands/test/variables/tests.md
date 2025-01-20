@@ -8,7 +8,7 @@
 
 > `const` **tests**: [`Test`](../enumerations/Test.md)[]
 
-Defined in: [src/commands/test.ts:127](https://github.com/Xunnamius/symbiote/blob/99b7edbb8da48599bbf2df3d7283dc44dcebb760/src/commands/test.ts#L127)
+Defined in: [src/commands/test.ts:127](https://github.com/Xunnamius/symbiote/blob/150bd8f520450f76cdfe81296a884f439e925685/src/commands/test.ts#L127)
 
 ## See
 
