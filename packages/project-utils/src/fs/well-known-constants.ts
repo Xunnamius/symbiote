@@ -236,6 +236,11 @@ export const packageJsonConfigPackageBase = 'package.json';
 export const dotEnvConfigPackageBase = '.env';
 
 /**
+ * The basename of the well-known istanbul/jest code coverage output file.
+ */
+export const lcovCoverageInfoPackageBase = 'lcov.info';
+
+/**
  * The basename of the well-known "default" Dotenv configuration file.
  */
 export const dotEnvDefaultConfigPackageBase = '.env.default';
