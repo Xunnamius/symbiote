@@ -8,5 +8,8 @@
   },
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "scripts": {
+    "build:dist": "symbiote build distributables --not-multiversal=false"
+  }
 }

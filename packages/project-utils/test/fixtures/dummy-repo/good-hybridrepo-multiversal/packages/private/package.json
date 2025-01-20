@@ -6,6 +6,7 @@
     ".": "./dist/index.js"
   },
   "scripts": {
-    "test": "echo 'it works!'"
+    "test": "echo 'it works!'",
+    "build:dist": "symbiote build distributables --multiversal=false"
   }
 }

@@ -417,10 +417,15 @@ createFixture({
     cli: true,
     private: true,
     vercel: true,
-    webpack: true
+    webpack: true,
+    multiversal: true
   },
   namedPackageMapData: [
-    { name: 'cli', root: 'packages/cli', attributes: { cjs: true, cli: true } },
+    {
+      name: 'cli',
+      root: 'packages/cli',
+      attributes: { cjs: true, cli: true, multiversal: true }
+    },
     {
       name: '@namespaced/webpack-common-config',
       root: 'packages/webpack',
