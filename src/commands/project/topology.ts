@@ -234,6 +234,7 @@ ${SHORT_TAB}${topology
                       scriptOptions.length ? ['--', ...scriptOptions] : []
                     ),
                     {
+                      ...(parallel ? { all: true } : { all: false, stdio: 'inherit' }),
                       logger: taskLogger,
                       scriptName: runScript,
                       cwd: packageRoot
