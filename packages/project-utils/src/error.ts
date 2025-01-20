@@ -2,6 +2,8 @@ import { isNativeError } from 'node:util/types';
 
 import { makeNamedError } from 'named-app-errors';
 
+import { directorySrcPackageBase } from 'multiverse+project-utils:fs/well-known-constants.ts';
+
 import { type WorkspacePackageName } from 'rootverse+project-utils:src/analyze/common.ts';
 
 import {
@@ -350,11 +352,11 @@ export const ErrorMessage = {
   SpecifierNotOkEmpty(specifier: string, path?: string) {
     return `encountered illegal import specifier "${specifier}": specifier cannot be empty${path ? ` in ${path}` : ''}`;
   },
-  SpecifierNotOkRelativeNotRootverse(specifier: string, path?: string) {
-    return `encountered illegal import specifier "${specifier}": prefer the rootverse alias over relative or absolute imports${path ? ` in ${path}` : ''}`;
+  SpecifierNotOkRelative(specifier: string, path?: string) {
+    return `encountered illegal import specifier "${specifier}": prefer (non-relative) alias imports over imports that include a relative or absolute path${path ? ` in ${path}` : ''}`;
   },
   SpecifierNotOkVerseNotAllowed(
-    verse: WellKnownImportAlias,
+    verse: WellKnownImportAlias | string,
     specifier: string,
     path?: string
   ) {
@@ -367,7 +369,18 @@ export const ErrorMessage = {
     return `encountered illegal import specifier "${specifier}": this specifier should be replaced with "${specifier.split(uriSchemeDelimiterUnescaped)[0]}" or the "index.ts" file renamed to something else${path ? ` in ${path}` : ''}`;
   },
   SpecifierNotOkSelfReferential(specifier: string, path?: string) {
-    return `encountered illegal import specifier "${specifier}": this specifier should be replaced with "rootverse${uriSchemeSubDelimiterUnescaped}${specifier.split(uriSchemeSubDelimiterUnescaped).at(-1)!.replace(uriSchemeDelimiterUnescaped, `${uriSchemeDelimiterUnescaped}src/`)}"${path ? ` in ${path}` : ''}`;
+    return ErrorMessage.SpecifierNotOkSuboptimal(
+      specifier,
+      `universe${uriSchemeSubDelimiterUnescaped}${specifier.split(uriSchemeSubDelimiterUnescaped).at(-1)!.replace(`${uriSchemeDelimiterUnescaped}${directorySrcPackageBase}/`, uriSchemeDelimiterUnescaped)}`,
+      path
+    );
+  },
+  SpecifierNotOkSuboptimal(
+    specifier: string,
+    replacement: string | undefined,
+    path?: string
+  ) {
+    return `encountered suboptimal import specifier "${specifier}": this specifier should be replaced with ${replacement ? `"${replacement}"` : 'something else or the import should be removed entirely'}${path ? ` in ${path}` : ''}`;
   },
   UnknownWorkspacePackageName(name: WorkspacePackageName) {
     return `this project has no workspace package named "${name}"`;
