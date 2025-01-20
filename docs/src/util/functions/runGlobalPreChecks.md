@@ -8,7 +8,7 @@
 
 > **runGlobalPreChecks**(`__namedParameters`): `Promise`\<\{ `projectMetadata`: `NonNullable`\<[`GlobalExecutionContext`](../../configure/type-aliases/GlobalExecutionContext.md)\[`"projectMetadata"`\]\>; \}\>
 
-Defined in: [src/util.ts:330](https://github.com/Xunnamius/symbiote/blob/e90857acb3d261d6e9bd248ab0e38c7f0e05d449/src/util.ts#L330)
+Defined in: [src/util.ts:330](https://github.com/Xunnamius/symbiote/blob/99b7edbb8da48599bbf2df3d7283dc44dcebb760/src/util.ts#L330)
 
 This function runs common checks against the runtime to ensure the
 environment is suitable for running symbiote.

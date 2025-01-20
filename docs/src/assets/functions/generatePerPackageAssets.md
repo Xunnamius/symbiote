@@ -8,7 +8,7 @@
 
 > **generatePerPackageAssets**(`transformerContext`, `adder`, `__namedParameters`): `Promise`\<[`Asset`](../type-aliases/Asset.md)[]\>
 
-Defined in: [src/assets.ts:672](https://github.com/Xunnamius/symbiote/blob/e90857acb3d261d6e9bd248ab0e38c7f0e05d449/src/assets.ts#L672)
+Defined in: [src/assets.ts:672](https://github.com/Xunnamius/symbiote/blob/99b7edbb8da48599bbf2df3d7283dc44dcebb760/src/assets.ts#L672)
 
 Takes a [TransformerContext](../type-aliases/TransformerContext.md) and an adder function and returns an array
 of [Asset](../type-aliases/Asset.md)s generated per each package in ProjectMetadata,
