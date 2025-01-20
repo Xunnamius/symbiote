@@ -186,7 +186,10 @@ Well-ordered topological execution is supported by a dependency graph derived fr
 
 ${SHORT_TAB}${topology
           .flatMap((packages) => {
-            return packages.map(({ json: { name } }) => `${packageCounter++}. ${name!}`);
+            return packages.map(
+              ({ json: { name, private: isPrivate } }) =>
+                `${packageCounter++}. ${isPrivate ? '[⚠️PRIVATE] ' : ''}${name!}`
+            );
           })
           .join(`\n${SHORT_TAB}`)}
 `
