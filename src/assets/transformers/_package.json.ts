@@ -143,7 +143,8 @@ export function generateBaseXPackageJson(
     scripts: {
       build: 'npm run build:dist --',
       'build:changelog': 'symbiote build changelog --env NODE_NO_WARNINGS=1',
-      'build:dist': 'symbiote build distributables --env NODE_NO_WARNINGS=1',
+      'build:dist':
+        'symbiote build distributables --env NODE_NO_WARNINGS=1 --not-multiversal',
       'build:docs': 'symbiote build docs --env NODE_NO_WARNINGS=1',
       'build:topological':
         'symbiote project topology --run build --env NODE_NO_WARNINGS=1',
@@ -158,7 +159,7 @@ export function generateBaseXPackageJson(
         'symbiote project topology --run lint --env NODE_NO_WARNINGS=1',
       'list-tasks': `symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope ${DefaultGlobalScope.ThisPackage}`,
       prepare: 'symbiote project prepare --env NODE_NO_WARNINGS=1',
-      release: 'symbiote release --env NODE_NO_WARNINGS=1 --not-multiversal',
+      release: 'symbiote release --env NODE_NO_WARNINGS=1',
       'release:topological':
         'symbiote project topology --run release --env NODE_NO_WARNINGS=1',
       renovate: `symbiote project renovate --env NODE_NO_WARNINGS=1 --hush --github-reconfigure-repo --regenerate-assets --assets-preset '${assetPresets.join(' ')}'`,
