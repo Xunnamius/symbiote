@@ -8,10 +8,10 @@ import {
   type ExtendedLogger
 } from 'rejoinder';
 
-import { TaskError } from 'rootverse+cli-utils:src/error.ts';
-import { type StandardExecutionContext } from 'rootverse+cli-utils:src/extensions.ts';
-import { LogTag, MAX_LOG_ERROR_ENTRIES } from 'rootverse+cli-utils:src/logging.ts';
-import { toFirstLowerCase, toSentenceCase } from 'rootverse+cli-utils:src/util.ts';
+import { TaskError } from 'universe+cli-utils:error.ts';
+import { type StandardExecutionContext } from 'universe+cli-utils:extensions.ts';
+import { LogTag, MAX_LOG_ERROR_ENTRIES } from 'universe+cli-utils:logging.ts';
+import { toFirstLowerCase, toSentenceCase } from 'universe+cli-utils:util.ts';
 
 import type {
   ConfigureErrorHandlingEpilogue,

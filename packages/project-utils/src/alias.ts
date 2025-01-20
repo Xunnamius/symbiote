@@ -3,15 +3,16 @@ import { extname } from 'node:path';
 import escapeStringRegExp from 'escape-string-regexp~4';
 import { type Arrayable } from 'type-fest';
 
-import { type GenericProjectMetadata } from 'rootverse+project-utils:src/analyze/common.ts';
+import { type WorkspacePackageId } from 'universe+project-utils';
+import { type GenericProjectMetadata } from 'universe+project-utils:analyze/common.ts';
 
 import {
   uriSchemeDelimiterEscaped,
   uriSchemeDelimiterUnescaped,
   uriSchemeSubDelimiterUnescaped
-} from 'rootverse+project-utils:src/constant.ts';
+} from 'universe+project-utils:constant.ts';
 
-import { ErrorMessage, ProjectError } from 'rootverse+project-utils:src/error.ts';
+import { ErrorMessage, ProjectError } from 'universe+project-utils:error.ts';
 
 import {
   directoryPackagesProjectBase,
@@ -21,9 +22,7 @@ import {
   toPath,
   toRelativePath,
   type RelativePath
-} from 'rootverse+project-utils:src/fs.ts';
-
-import { type WorkspacePackageId } from 'rootverse+project-utils:src/index.ts';
+} from 'universe+project-utils:fs.ts';
 
 export {
   uriSchemeDelimiterUnescaped as uriSchemeDelimiter,

@@ -5,9 +5,9 @@ import {
   debug as debug_,
   type GenericPackage,
   type PackageFiles
-} from 'rootverse+project-utils:src/analyze/common.ts';
+} from 'universe+project-utils:analyze/common.ts';
 
-import { cache, CacheScope } from 'rootverse+project-utils:src/cache.ts';
+import { cache, CacheScope } from 'universe+project-utils:cache.ts';
 
 import {
   deriveVirtualGitignoreLines,
@@ -16,12 +16,12 @@ import {
   toRelativePath,
   type AbsolutePath,
   type RelativePath
-} from 'rootverse+project-utils:src/fs.ts';
+} from 'universe+project-utils:fs.ts';
 
 import {
   type ParametersNoFirst,
   type SyncVersionOf
-} from 'rootverse+project-utils:src/util.ts';
+} from 'universe+project-utils:util.ts';
 
 import type { Promisable } from 'type-fest';
 

@@ -9,9 +9,9 @@ import { withMockedOutput } from 'multiverse+test-utils';
 import {
   makeStandardConfigureErrorHandlingEpilogue,
   makeStandardConfigureExecutionContext
-} from 'rootverse+cli-utils:src/configure.ts';
+} from 'universe+cli-utils:configure.ts';
 
-import { type StandardExecutionContext } from 'rootverse+cli-utils:src/extensions.ts';
+import { type StandardExecutionContext } from 'universe+cli-utils:extensions.ts';
 
 import type { PartialDeep } from 'type-fest';
 

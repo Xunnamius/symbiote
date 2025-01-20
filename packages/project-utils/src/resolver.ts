@@ -1,2 +1,2 @@
-export * from 'rootverse+project-utils:src/resolver/resolvers.ts';
-export * from 'rootverse+project-utils:src/resolver/flatten-package-json-subpath-map.ts';
+export * from 'universe+project-utils:resolver/resolvers.ts';
+export * from 'universe+project-utils:resolver/flatten-package-json-subpath-map.ts';

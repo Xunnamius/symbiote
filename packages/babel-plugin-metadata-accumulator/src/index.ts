@@ -15,7 +15,7 @@ import {
   type AbsolutePath
 } from 'multiverse+project-utils:fs/common.ts';
 
-import { ErrorMessage } from 'rootverse+babel-plugin-metadata-accumulator:src/error.ts';
+import { ErrorMessage } from 'universe+babel-plugin-metadata-accumulator:error.ts';
 
 import type { EmptyObject } from 'type-fest';
 

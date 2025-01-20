@@ -25,9 +25,9 @@ import { $artificiallyInvoked } from 'multiverse+bfe:symbols.ts';
 
 // ? Used in a comment for taskManager
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { type makeStandardConfigureExecutionContext } from 'rootverse+cli-utils:src/configure.ts';
-import { globalDebuggerNamespace } from 'rootverse+cli-utils:src/constant.ts';
-import { LogTag } from 'rootverse+cli-utils:src/logging.ts';
+import { type makeStandardConfigureExecutionContext } from 'universe+cli-utils:configure.ts';
+import { globalDebuggerNamespace } from 'universe+cli-utils:constant.ts';
+import { LogTag } from 'universe+cli-utils:logging.ts';
 
 import type { ListrManager } from 'rejoinder-listr2';
 import type { Entries } from 'type-fest';

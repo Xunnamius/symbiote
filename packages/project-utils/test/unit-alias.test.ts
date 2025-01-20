@@ -19,11 +19,11 @@ import {
   type RawAlias,
   type RawAliasMapping,
   type RawPath
-} from 'rootverse+project-utils:src/alias.ts';
+} from 'universe+project-utils:alias.ts';
 
-import { ErrorMessage } from 'rootverse+project-utils:src/error.ts';
+import { ErrorMessage } from 'universe+project-utils:error.ts';
 
-import type { ProjectMetadata } from 'rootverse+project-utils:src/index.ts';
+import type { ProjectMetadata } from 'universe+project-utils';
 
 const mockProjectRoot = '/path/to/root';
 

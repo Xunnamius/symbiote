@@ -3,7 +3,7 @@ import { dirname, isAbsolute, join, relative, resolve } from 'node:path';
 import { createDebugLogger } from 'rejoinder';
 import { type Tagged } from 'type-fest';
 
-import { globalDebuggerNamespace } from 'rootverse+project-utils:src/constant.ts';
+import { globalDebuggerNamespace } from 'universe+project-utils:constant.ts';
 
 /**
  * This type represents an absolute filesystem path. An absolute path is a

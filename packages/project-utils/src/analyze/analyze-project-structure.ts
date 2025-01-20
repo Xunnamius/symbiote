@@ -24,10 +24,10 @@ import {
   type RootPackage,
   type WorkspacePackage,
   type WorkspacePackageId
-} from 'rootverse+project-utils:src/analyze/common.ts';
+} from 'universe+project-utils:analyze/common.ts';
 
-import { packageRootToId } from 'rootverse+project-utils:src/analyze/package-root-to-id.ts';
-import { cache, CacheScope } from 'rootverse+project-utils:src/cache.ts';
+import { packageRootToId } from 'universe+project-utils:analyze/package-root-to-id.ts';
+import { cache, CacheScope } from 'universe+project-utils:cache.ts';
 
 import {
   DuplicatePackageIdError,
@@ -35,7 +35,7 @@ import {
   ErrorMessage,
   NotAGitRepositoryError,
   ProjectError
-} from 'rootverse+project-utils:src/error.ts';
+} from 'universe+project-utils:error.ts';
 
 import {
   deriveVirtualGitignoreLines,
@@ -54,9 +54,9 @@ import {
   webpackConfigProjectBase,
   type AbsolutePath,
   type RelativePath
-} from 'rootverse+project-utils:src/fs.ts';
+} from 'universe+project-utils:fs.ts';
 
-import { type ParametersNoFirst } from 'rootverse+project-utils:src/util.ts';
+import { type ParametersNoFirst } from 'universe+project-utils:util.ts';
 
 import type { Merge, PackageJson, Promisable } from 'type-fest';
 

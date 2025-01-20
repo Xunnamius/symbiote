@@ -6,25 +6,25 @@ import {
   type GenericPackage,
   type GenericProjectMetadata,
   type ProjectFiles
-} from 'rootverse+project-utils:src/analyze/common.ts';
+} from 'universe+project-utils:analyze/common.ts';
 
 import {
   cache,
   CacheScope,
   type ArrayNoLast,
   type FunctionToCacheParameters
-} from 'rootverse+project-utils:src/cache.ts';
+} from 'universe+project-utils:cache.ts';
 
-import { ErrorMessage, ProjectError } from 'rootverse+project-utils:src/error.ts';
+import { ErrorMessage, ProjectError } from 'universe+project-utils:error.ts';
 
 import {
   deriveVirtualPrettierignoreLines,
   toAbsolutePath,
   toRelativePath,
   type AbsolutePath
-} from 'rootverse+project-utils:src/fs.ts';
+} from 'universe+project-utils:fs.ts';
 
-import { type ParametersNoFirst } from 'rootverse+project-utils:src/util.ts';
+import { type ParametersNoFirst } from 'universe+project-utils:util.ts';
 
 import type { Promisable } from 'type-fest';
 

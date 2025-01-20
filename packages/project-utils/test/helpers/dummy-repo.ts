@@ -2,14 +2,14 @@ import { basename } from 'node:path';
 
 import { type LiteralUnion, type PackageJson } from 'type-fest';
 
-import * as fs from 'rootverse+project-utils:src/fs.ts';
-
 import {
   ProjectAttribute,
   type ProjectMetadata,
   type RootPackage,
   type WorkspacePackage
-} from 'rootverse+project-utils:src/index.ts';
+} from 'universe+project-utils';
+
+import * as fs from 'universe+project-utils:fs.ts';
 
 import type {
   GenericPackage,
@@ -18,7 +18,7 @@ import type {
   GenericWorkspacePackage,
   WorkspacePackageName,
   XPackageJson
-} from 'rootverse+project-utils:src/analyze/common.ts';
+} from 'universe+project-utils:analyze/common.ts';
 
 /**
  * Patch the package.json data returned by {@link fs.readXPackageJsonAtRoot} or
@@ -46,8 +46,8 @@ export function patchReadXPackageJsonAtRoot(
   }
 ) {
   const actualReadXPackageJsonAtRoot = jest.requireActual<
-    typeof import('rootverse+project-utils:src/fs.ts')
-  >('rootverse+project-utils:src/fs.ts').readXPackageJsonAtRoot;
+    typeof import('universe+project-utils:fs.ts')
+  >('universe+project-utils:fs.ts').readXPackageJsonAtRoot;
 
   jest
     .spyOn(fs, 'readXPackageJsonAtRoot')

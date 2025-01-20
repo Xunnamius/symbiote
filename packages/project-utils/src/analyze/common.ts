@@ -1,12 +1,12 @@
 import { createDebugLogger } from 'rejoinder';
 
-import { type MetadataImportsPrefix } from 'rootverse+project-utils:src/analyze.ts';
-import { globalDebuggerNamespace } from 'rootverse+project-utils:src/constant.ts';
+import { type MetadataImportsPrefix } from 'universe+project-utils:analyze.ts';
+import { globalDebuggerNamespace } from 'universe+project-utils:constant.ts';
 
 import {
   type AbsolutePath,
   type RelativePath
-} from 'rootverse+project-utils:src/fs/common.ts';
+} from 'universe+project-utils:fs/common.ts';
 
 import type { OmitIndexSignature, PackageJson } from 'type-fest';
 
@@ -18,12 +18,12 @@ import type {
   // ? Used in documentation
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   webpackConfigProjectBase
-} from 'rootverse+project-utils:src/fs/well-known-constants.ts';
+} from 'universe+project-utils:fs/well-known-constants.ts';
 
 // ? Used in documentation
 // @ts-expect-error: used in documentation
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-import type { sharedAttributeFileBase } from 'rootverse+project-utils:src/fs.ts';
+import type { sharedAttributeFileBase } from 'universe+project-utils:fs.ts';
 
 export const debug = createDebugLogger({
   namespace: `${globalDebuggerNamespace}:analyze`

@@ -5,7 +5,7 @@ import {
   withStandardBuilder,
   type StandardCommonCliArguments,
   type StandardExecutionContext
-} from 'rootverse+cli-utils:src/extensions.ts';
+} from 'universe+cli-utils:extensions.ts';
 
 const expectedStandardCommonCliArguments = {
   hush: {

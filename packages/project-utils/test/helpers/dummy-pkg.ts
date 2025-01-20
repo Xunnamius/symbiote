@@ -5,7 +5,7 @@ import { runNoRejectOnBadExit } from '@-xun/run';
 import { TrialError } from 'named-app-errors';
 import { resolve as resolverLibrary } from 'resolve.exports';
 
-import { toAbsolutePath, type AbsolutePath } from 'rootverse+project-utils:src/fs.ts';
+import { toAbsolutePath, type AbsolutePath } from 'universe+project-utils:fs.ts';
 
 import type { XPackageJson } from 'multiverse+project-utils:analyze.ts';
 

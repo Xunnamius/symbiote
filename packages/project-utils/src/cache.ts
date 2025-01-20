@@ -6,7 +6,7 @@ import {
   isPackage,
   isProjectMetadata,
   type GenericPackageJson
-} from 'rootverse+project-utils:src/analyze/common.ts';
+} from 'universe+project-utils:analyze/common.ts';
 
 import {
   type deriveVirtualGitignoreLines,
@@ -14,7 +14,7 @@ import {
   type isAccessible,
   type readJson,
   type readJsonc
-} from 'rootverse+project-utils:src/fs.ts';
+} from 'universe+project-utils:fs.ts';
 
 import type {
   AnalyzeProjectStructureOptions,
@@ -24,7 +24,7 @@ import type {
   gatherProjectFiles,
   gatherPseudodecoratorEntriesFromFiles,
   ProjectMetadata
-} from 'rootverse+project-utils:src/analyze.ts';
+} from 'universe+project-utils:analyze.ts';
 
 const internalCache = new Map<CacheScope, InternalScopedCache>();
 const cacheDebug = debug_.extend('cache');

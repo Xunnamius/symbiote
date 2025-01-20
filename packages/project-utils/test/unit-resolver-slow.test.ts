@@ -8,6 +8,12 @@ import { toss } from 'toss-expression';
 import { reconfigureJestGlobalsToSkipTestsInThisFileIfRequested } from 'multiverse+test-utils';
 
 import {
+  getDummyPackage,
+  resolveTargetWithNodeJs,
+  resolveTargetWithResolveExports
+} from 'rootverse+project-utils:test/helpers/dummy-pkg.ts';
+
+import {
   flattenPackageJsonSubpathMap,
   resolveEntryPointsFromExportsTarget,
   resolveEntryPointsFromImportsTarget,
@@ -19,13 +25,7 @@ import {
   type SubpathMapping,
   type SubpathMappings,
   type UnsafeFallbackOption
-} from 'rootverse+project-utils:src/resolver.ts';
-
-import {
-  getDummyPackage,
-  resolveTargetWithNodeJs,
-  resolveTargetWithResolveExports
-} from 'rootverse+project-utils:test/helpers/dummy-pkg.ts';
+} from 'universe+project-utils:resolver.ts';
 
 import type { XPackageJson } from 'multiverse+project-utils:analyze.ts';
 

@@ -7,8 +7,10 @@ import { toss } from 'toss-expression';
 
 import { asMockedFunction } from 'multiverse+test-utils';
 
-import { cache } from 'rootverse+project-utils:src/cache.ts';
-import { ErrorMessage } from 'rootverse+project-utils:src/error.ts';
+import { fixtures } from 'rootverse+project-utils:test/helpers/dummy-repo.ts';
+
+import { cache } from 'universe+project-utils:cache.ts';
+import { ErrorMessage } from 'universe+project-utils:error.ts';
 
 import {
   deriveVirtualGitignoreLines,
@@ -26,9 +28,7 @@ import {
   toRelativePath,
   type AbsolutePath,
   type RelativePath
-} from 'rootverse+project-utils:src/fs.ts';
-
-import { fixtures } from 'rootverse+project-utils:test/helpers/dummy-repo.ts';
+} from 'universe+project-utils:fs.ts';
 
 jest.mock('node:fs');
 jest.mock('node:fs/promises');

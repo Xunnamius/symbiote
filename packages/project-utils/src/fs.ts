@@ -1,10 +1,10 @@
-export * from 'rootverse+project-utils:src/fs/well-known-constants.ts';
-export * from 'rootverse+project-utils:src/fs/derive-virtual-gitignore-lines.ts';
-export * from 'rootverse+project-utils:src/fs/derive-virtual-prettierignore-lines.ts';
-export * from 'rootverse+project-utils:src/fs/is-accessible.ts';
-export * from 'rootverse+project-utils:src/fs/read-json.ts';
-export * from 'rootverse+project-utils:src/fs/read-jsonc.ts';
-export * from 'rootverse+project-utils:src/fs/read-xpackage-json-at-root.ts';
+export * from 'universe+project-utils:fs/well-known-constants.ts';
+export * from 'universe+project-utils:fs/derive-virtual-gitignore-lines.ts';
+export * from 'universe+project-utils:fs/derive-virtual-prettierignore-lines.ts';
+export * from 'universe+project-utils:fs/is-accessible.ts';
+export * from 'universe+project-utils:fs/read-json.ts';
+export * from 'universe+project-utils:fs/read-jsonc.ts';
+export * from 'universe+project-utils:fs/read-xpackage-json-at-root.ts';
 
 export {
   getCurrentWorkingDirectory,
@@ -18,4 +18,4 @@ export {
   type AbsolutePath,
   type Path,
   type RelativePath
-} from 'rootverse+project-utils:src/fs/common.ts';
+} from 'universe+project-utils:fs/common.ts';

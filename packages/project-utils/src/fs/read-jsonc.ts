@@ -4,14 +4,14 @@ import { readFile as readFileAsync } from 'node:fs/promises';
 
 import * as JSONC from 'jsonc-parser';
 
-import { cache, CacheScope } from 'rootverse+project-utils:src/cache.ts';
-import { ErrorMessage, ProjectError } from 'rootverse+project-utils:src/error.ts';
-import { type AbsolutePath } from 'rootverse+project-utils:src/fs.ts';
+import { cache, CacheScope } from 'universe+project-utils:cache.ts';
+import { ErrorMessage, ProjectError } from 'universe+project-utils:error.ts';
+import { type AbsolutePath } from 'universe+project-utils:fs.ts';
 
 import {
   type ParametersNoFirst,
   type SyncVersionOf
-} from 'rootverse+project-utils:src/util.ts';
+} from 'universe+project-utils:util.ts';
 
 import type { JsonValue, Promisable } from 'type-fest';
 

@@ -1,14 +1,14 @@
-import { XPackageJsonNotParsableError } from 'rootverse+project-utils:src/error.ts';
-import { readJson } from 'rootverse+project-utils:src/fs/read-json.ts';
-import { type AbsolutePath } from 'rootverse+project-utils:src/fs.ts';
+import { XPackageJsonNotParsableError } from 'universe+project-utils:error.ts';
+import { readJson } from 'universe+project-utils:fs/read-json.ts';
+import { type AbsolutePath } from 'universe+project-utils:fs.ts';
 
 import {
   type ParametersNoFirst,
   type SyncVersionOf
-} from 'rootverse+project-utils:src/util.ts';
+} from 'universe+project-utils:util.ts';
 
 import type { Promisable } from 'type-fest';
-import type { XPackageJson } from 'rootverse+project-utils:src/analyze.ts';
+import type { XPackageJson } from 'universe+project-utils:analyze.ts';
 
 /**
  * @see {@link readXPackageJsonAtRoot}

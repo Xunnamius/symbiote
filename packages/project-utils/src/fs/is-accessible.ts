@@ -2,12 +2,12 @@ import { accessSync } from 'node:fs';
 import { access as accessAsync, constants as fsConstants_ } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 
-import { cache, CacheScope } from 'rootverse+project-utils:src/cache.ts';
+import { cache, CacheScope } from 'universe+project-utils:cache.ts';
 
 import {
   type ParametersNoFirst,
   type SyncVersionOf
-} from 'rootverse+project-utils:src/util.ts';
+} from 'universe+project-utils:util.ts';
 
 import type { Promisable } from 'type-fest';
 

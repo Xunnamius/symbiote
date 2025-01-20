@@ -2,7 +2,7 @@ import assert from 'node:assert';
 
 import escapeStringRegExp from 'escape-string-regexp~4';
 
-import { ErrorMessage } from 'rootverse+project-utils:src/error.ts';
+import { ErrorMessage } from 'universe+project-utils:error.ts';
 
 type PotentialEntryPoint = {
   subpathActual: string;

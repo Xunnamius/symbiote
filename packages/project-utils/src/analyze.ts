@@ -1,13 +1,13 @@
-export * from 'rootverse+project-utils:src/analyze/analyze-project-structure.ts';
-export * from 'rootverse+project-utils:src/analyze/gather-project-files.ts';
-export * from 'rootverse+project-utils:src/analyze/gather-package-files.ts';
-export * from 'rootverse+project-utils:src/analyze/gather-package-build-targets.ts';
-export * from 'rootverse+project-utils:src/analyze/gather-import-entries-from-files.ts';
-export * from 'rootverse+project-utils:src/analyze/gather-pseudodecorator-entries-from-files.ts';
-export * from 'rootverse+project-utils:src/analyze/generate-package-json-engine-maintained-node-versions.ts';
-export * from 'rootverse+project-utils:src/analyze/package-root-to-id.ts';
-export * from 'rootverse+project-utils:src/analyze/path-to-package.ts';
-export * from 'rootverse+project-utils:src/analyze/sort-packages-topologically.ts';
+export * from 'universe+project-utils:analyze/analyze-project-structure.ts';
+export * from 'universe+project-utils:analyze/gather-project-files.ts';
+export * from 'universe+project-utils:analyze/gather-package-files.ts';
+export * from 'universe+project-utils:analyze/gather-package-build-targets.ts';
+export * from 'universe+project-utils:analyze/gather-import-entries-from-files.ts';
+export * from 'universe+project-utils:analyze/gather-pseudodecorator-entries-from-files.ts';
+export * from 'universe+project-utils:analyze/generate-package-json-engine-maintained-node-versions.ts';
+export * from 'universe+project-utils:analyze/package-root-to-id.ts';
+export * from 'universe+project-utils:analyze/path-to-package.ts';
+export * from 'universe+project-utils:analyze/sort-packages-topologically.ts';
 
 export {
   isPackage,
@@ -34,4 +34,4 @@ export {
   type XPackageJsonPolyrepoRoot,
   type XPackageJsonScripts,
   type XPackageJsonSubRoot
-} from 'rootverse+project-utils:src/analyze/common.ts';
+} from 'universe+project-utils:analyze/common.ts';

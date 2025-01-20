@@ -9,7 +9,7 @@ import {
   mapRawSpecifierToPath,
   mapRawSpecifierToRawAliasMapping,
   WellKnownImportAlias
-} from 'rootverse+project-utils:src/alias.ts';
+} from 'universe+project-utils:alias.ts';
 
 import {
   debug as debug_,
@@ -19,29 +19,29 @@ import {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   type Package,
   type PackageBuildTargets
-} from 'rootverse+project-utils:src/analyze/common.ts';
+} from 'universe+project-utils:analyze/common.ts';
 
 import {
   gatherImportEntriesFromFiles,
   type ImportSpecifiersEntry
-} from 'rootverse+project-utils:src/analyze/gather-import-entries-from-files.ts';
+} from 'universe+project-utils:analyze/gather-import-entries-from-files.ts';
 
-import { gatherPackageFiles } from 'rootverse+project-utils:src/analyze/gather-package-files.ts';
-import { pathToPackage } from 'rootverse+project-utils:src/analyze/path-to-package.ts';
-import { cache, CacheScope } from 'rootverse+project-utils:src/cache.ts';
-import { ErrorMessage, ProjectError } from 'rootverse+project-utils:src/error.ts';
+import { gatherPackageFiles } from 'universe+project-utils:analyze/gather-package-files.ts';
+import { pathToPackage } from 'universe+project-utils:analyze/path-to-package.ts';
+import { cache, CacheScope } from 'universe+project-utils:cache.ts';
+import { ErrorMessage, ProjectError } from 'universe+project-utils:error.ts';
 
 import {
   toPath,
   toRelativePath,
   type AbsolutePath,
   type RelativePath
-} from 'rootverse+project-utils:src/fs.ts';
+} from 'universe+project-utils:fs.ts';
 
 import {
   type ParametersNoFirst,
   type SyncVersionOf
-} from 'rootverse+project-utils:src/util.ts';
+} from 'universe+project-utils:util.ts';
 
 import type { Entries, Promisable, SetFieldType } from 'type-fest';
 

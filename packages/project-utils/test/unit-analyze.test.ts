@@ -6,16 +6,12 @@ import { toss } from 'toss-expression';
 import { type GenericProjectMetadata } from 'multiverse+project-utils:analyze/common.ts';
 import { asMockedFunction } from 'multiverse+test-utils';
 
-import { pathToPackage } from 'rootverse+project-utils:src/analyze/path-to-package.ts';
-import { sortPackagesTopologically } from 'rootverse+project-utils:src/analyze/sort-packages-topologically.ts';
-import { cache } from 'rootverse+project-utils:src/cache.ts';
-import { ErrorMessage } from 'rootverse+project-utils:src/error.ts';
-
 import {
-  toPath,
-  type AbsolutePath,
-  type RelativePath
-} from 'rootverse+project-utils:src/fs.ts';
+  fixtures,
+  fixtureToProjectMetadata,
+  patchReadXPackageJsonAtRoot,
+  type FixtureName
+} from 'rootverse+project-utils:test/helpers/dummy-repo.ts';
 
 import {
   analyzeProjectStructure,
@@ -36,14 +32,18 @@ import {
   type PackageBuildTargets,
   type ProjectMetadata,
   type WorkspacePackage
-} from 'rootverse+project-utils:src/index.ts';
+} from 'universe+project-utils';
+
+import { pathToPackage } from 'universe+project-utils:analyze/path-to-package.ts';
+import { sortPackagesTopologically } from 'universe+project-utils:analyze/sort-packages-topologically.ts';
+import { cache } from 'universe+project-utils:cache.ts';
+import { ErrorMessage } from 'universe+project-utils:error.ts';
 
 import {
-  fixtures,
-  fixtureToProjectMetadata,
-  patchReadXPackageJsonAtRoot,
-  type FixtureName
-} from 'rootverse+project-utils:test/helpers/dummy-repo.ts';
+  toPath,
+  type AbsolutePath,
+  type RelativePath
+} from 'universe+project-utils:fs.ts';
 
 jest.mock<typeof import('browserslist')>('browserslist', () => {
   return mockShouldReturnBrowserslistMock

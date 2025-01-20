@@ -1,7 +1,7 @@
 import { basename } from 'node:path';
 
-import { type WorkspacePackageId } from 'rootverse+project-utils:src/analyze.ts';
-import { type AbsolutePath } from 'rootverse+project-utils:src/fs.ts';
+import { type WorkspacePackageId } from 'universe+project-utils:analyze.ts';
+import { type AbsolutePath } from 'universe+project-utils:fs.ts';
 
 /**
  * Synchronously determine the package-id of a package in a monorepo from the

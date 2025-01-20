@@ -1,7 +1,7 @@
 import {
   type SubpathMapping,
   type SubpathMappings
-} from 'rootverse+project-utils:src/resolver/resolvers.ts';
+} from 'universe+project-utils:resolver/resolvers.ts';
 
 import type { PackageJson } from 'type-fest';
 

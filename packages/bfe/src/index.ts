@@ -26,15 +26,15 @@ import { type ParserConfigurationOptions } from 'yargs';
 // {@symbiote/notInvalid yargs}
 import makeVanillaYargs from 'yargs/yargs';
 
-import { globalDebuggerNamespace } from 'rootverse+bfe:src/constant.ts';
-import { ErrorMessage, type KeyValueEntry } from 'rootverse+bfe:src/error.ts';
+import { globalDebuggerNamespace } from 'universe+bfe:constant.ts';
+import { ErrorMessage, type KeyValueEntry } from 'universe+bfe:error.ts';
 
 import {
   $artificiallyInvoked,
   $canonical,
   $exists,
   $genesis
-} from 'rootverse+bfe:src/symbols.ts';
+} from 'universe+bfe:symbols.ts';
 
 import type {
   Entries,

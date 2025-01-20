@@ -16,16 +16,15 @@ import {
 import isEqual from 'lodash.isequal';
 import deepMerge from 'lodash.merge';
 
-import { ErrorMessage } from 'rootverse+bfe:src/error.ts';
-
 import {
   getInvocableExtendedHandler,
   withBuilderExtensions,
   withUsageExtensions,
   type AsStrictExecutionContext
-} from 'rootverse+bfe:src/index.ts';
+} from 'universe+bfe';
 
-import { $artificiallyInvoked, $exists } from 'rootverse+bfe:src/symbols.ts';
+import { ErrorMessage } from 'universe+bfe:error.ts';
+import { $artificiallyInvoked, $exists } from 'universe+bfe:symbols.ts';
 
 import type { PartialDeep } from 'type-fest';
 import type { ParserConfigurationOptions } from 'yargs';

@@ -3,11 +3,11 @@ import { readFile as readFileAsync } from 'node:fs/promises';
 
 import { runNoRejectOnBadExit } from '@-xun/run';
 
-import { cache, CacheScope } from 'rootverse+project-utils:src/cache.ts';
-import { ErrorMessage, ProjectError } from 'rootverse+project-utils:src/error.ts';
-import { debug as debug_ } from 'rootverse+project-utils:src/fs/common.ts';
-import { type AbsolutePath } from 'rootverse+project-utils:src/fs.ts';
-import { type ParametersNoFirst } from 'rootverse+project-utils:src/util.ts';
+import { cache, CacheScope } from 'universe+project-utils:cache.ts';
+import { ErrorMessage, ProjectError } from 'universe+project-utils:error.ts';
+import { debug as debug_ } from 'universe+project-utils:fs/common.ts';
+import { type AbsolutePath } from 'universe+project-utils:fs.ts';
+import { type ParametersNoFirst } from 'universe+project-utils:util.ts';
 
 import type { Promisable } from 'type-fest';
 

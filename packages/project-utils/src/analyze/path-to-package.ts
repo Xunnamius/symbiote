@@ -2,10 +2,10 @@ import {
   type GenericPackageJson,
   type Package,
   type ProjectMetadata
-} from 'rootverse+project-utils:src/analyze/common.ts';
+} from 'universe+project-utils:analyze/common.ts';
 
-import { ErrorMessage, ProjectError } from 'rootverse+project-utils:src/error.ts';
-import { type AbsolutePath } from 'rootverse+project-utils:src/fs.ts';
+import { ErrorMessage, ProjectError } from 'universe+project-utils:error.ts';
+import { type AbsolutePath } from 'universe+project-utils:fs.ts';
 
 /**
  * Synchronously resolve `path` to the first package that contains that path.

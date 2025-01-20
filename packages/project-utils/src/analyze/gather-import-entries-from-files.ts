@@ -9,15 +9,15 @@ import {
   type PluginAndAccumulator
 } from 'multiverse+babel-plugin-metadata-accumulator';
 
-import { debug as debug_ } from 'rootverse+project-utils:src/analyze/common.ts';
-import { cache, CacheScope } from 'rootverse+project-utils:src/cache.ts';
-import { ErrorMessage, ProjectError } from 'rootverse+project-utils:src/error.ts';
-import { type AbsolutePath } from 'rootverse+project-utils:src/fs.ts';
+import { debug as debug_ } from 'universe+project-utils:analyze/common.ts';
+import { cache, CacheScope } from 'universe+project-utils:cache.ts';
+import { ErrorMessage, ProjectError } from 'universe+project-utils:error.ts';
+import { type AbsolutePath } from 'universe+project-utils:fs.ts';
 
 import {
   type ParametersNoFirst,
   type SyncVersionOf
-} from 'rootverse+project-utils:src/util.ts';
+} from 'universe+project-utils:util.ts';
 
 import type { Promisable } from 'type-fest';
 

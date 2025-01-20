@@ -2,16 +2,16 @@ import { isNativeError } from 'node:util/types';
 
 import { makeNamedError } from 'named-app-errors';
 
-import { directorySrcPackageBase } from 'multiverse+project-utils:fs/well-known-constants.ts';
-
-import { type WorkspacePackageName } from 'rootverse+project-utils:src/analyze/common.ts';
+import { type WorkspacePackageName } from 'universe+project-utils:analyze/common.ts';
 
 import {
   uriSchemeDelimiterUnescaped,
   uriSchemeSubDelimiterUnescaped
-} from 'rootverse+project-utils:src/constant.ts';
+} from 'universe+project-utils:constant.ts';
 
-import type { WellKnownImportAlias } from 'rootverse+project-utils:src/alias.ts';
+import { directorySrcPackageBase } from 'universe+project-utils:fs/well-known-constants.ts';
+
+import type { WellKnownImportAlias } from 'universe+project-utils:alias.ts';
 
 // TODO: replace a lot of all that follows with the official package(s),
 // TODO: including the symbol use below. Symbols and stuff need to be auto-generated.
