@@ -46,6 +46,7 @@ import {
   directoryCoveragePackageBase,
   fsConstants,
   isAccessible,
+  lcovCoverageInfoPackageBase,
   toPath,
   xreleaseConfigProjectBase
 } from 'multiverse+project-utils:fs.ts';
@@ -1482,12 +1483,18 @@ const protoPostreleaseTasks: ProtoPostreleaseTask[][] = [
               flag,
               '--branch',
               currentBranch,
-              '--coverage-files-search-root-folder',
-              toPath(packageRoot, directoryCoveragePackageBase),
+              '--disable-search',
+              '--file',
+              toPath(
+                packageRoot,
+                directoryCoveragePackageBase,
+                lcovCoverageInfoPackageBase
+              ),
               ...(dryRun ? ['--dry-run'] : []),
               ...(force ? ['--handle-no-reports-found'] : [])
             ],
             {
+              cwd: projectRoot,
               logger: log,
               scriptName: 'codecov',
               stdout: isQuieted ? 'ignore' : 'inherit',
