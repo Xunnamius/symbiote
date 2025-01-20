@@ -386,7 +386,8 @@ export function generateSubRootXPackageJson(
             'build:docs': buildDocs,
             release
           }),
-      ...incomingBaseScripts
+      ...incomingBaseScripts,
+      ...incomingPackageJson.scripts
     }
   } as const satisfies XPackageJsonSubRoot;
 }
