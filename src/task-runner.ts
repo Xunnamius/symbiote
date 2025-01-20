@@ -10,6 +10,7 @@ export async function attemptToRunCommand(
   cmd: Parameters<typeof run>[0],
   cmdArgs: Parameters<typeof run>[1],
   {
+    all = true,
     reject = false,
     ...runConfig
   }: Parameters<typeof run>[2] & {
@@ -17,19 +18,21 @@ export async function attemptToRunCommand(
     logger: ExtendedLogger;
   }
 ) {
-  const { all: output, exitCode } = await run(cmd, cmdArgs, {
+  const config = {
     ...runConfig,
-    all: true,
     env: {
-      ...runConfig.env,
       DEBUG_COLORS: 'true',
       DEBUG_HIDE_DATE: 'true',
-      FORCE_COLOR: 'true'
+      FORCE_COLOR: 'true',
+      ...runConfig.env
     },
+    all,
     reject
-  });
+  };
 
-  if (output) {
+  const { all: output, exitCode } = await run(cmd, cmdArgs, config);
+
+  if (output !== undefined) {
     hardAssert(typeof output === 'string', ErrorMessage.GuruMeditation());
 
     runConfig.logger(
@@ -39,6 +42,12 @@ export async function attemptToRunCommand(
     );
 
     process.stdout.write(output + (output.endsWith('\n') ? '' : '\n'));
+  } else {
+    runConfig.logger(
+      [exitCode === 0 ? LogTag.IF_NOT_HUSHED : LogTag.IF_NOT_SILENCED],
+      `${exitCode === 0 ? '' : '❌ (failed) '}%O`,
+      runConfig.scriptName
+    );
   }
 
   return exitCode;
