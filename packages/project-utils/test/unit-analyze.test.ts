@@ -4196,6 +4196,20 @@ describe('::analyzeProjectStructure', () => {
       checkForExpectedPackages(result.subRootPackages, 'goodMonorepoWeirdAbsolute');
     });
 
+    it('sets multiversal attribute in multiversal hybridrepo', () => {
+      expect.hasAssertions();
+
+      const result = analyzeProjectStructure.sync({
+        cwd: fixtures.goodHybridrepoMultiversal.root,
+        useCached: true,
+        allowUnnamedPackages: true
+      });
+
+      expect(result.rootPackage.attributes).toStrictEqual(
+        fixtures.goodHybridrepoMultiversal.attributes
+      );
+    });
+
     it('normalizes workspace cwd to ignore non-directories', () => {
       expect.hasAssertions();
 
@@ -4864,6 +4878,20 @@ describe('::analyzeProjectStructure', () => {
 
       expect(result.cwdPackage).toBe(result.rootPackage);
       checkForExpectedPackages(result.subRootPackages, 'goodMonorepoWeirdAbsolute');
+    });
+
+    it('sets multiversal attribute in multiversal hybridrepo', async () => {
+      expect.hasAssertions();
+
+      const result = await analyzeProjectStructure({
+        cwd: fixtures.goodHybridrepoMultiversal.root,
+        useCached: true,
+        allowUnnamedPackages: true
+      });
+
+      expect(result.rootPackage.attributes).toStrictEqual(
+        fixtures.goodHybridrepoMultiversal.attributes
+      );
     });
 
     it('normalizes workspace cwd to ignore non-directories', async () => {

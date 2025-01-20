@@ -752,7 +752,13 @@ function getProjectAttributes(
   useCached: boolean
 ): Promisable<RootPackage['attributes']> {
   const attributes: RootPackage['attributes'] = { [repoType]: true };
-  const { type = 'commonjs', bin, private: private_ } = projectJson;
+
+  const {
+    type = 'commonjs',
+    bin,
+    private: private_,
+    scripts: { 'build:dist': buildScript = '' } = {}
+  } = projectJson;
 
   if (runSynchronously) {
     if (
@@ -869,6 +875,14 @@ function getProjectAttributes(
       );
     }
 
+    if (
+      (buildScript.includes('--multiversal') ||
+        buildScript.includes('--not-multiversal=false')) &&
+      !buildScript.includes('--multiversal=false')
+    ) {
+      attributes[WorkspaceAttribute.Multiversal] = true;
+    }
+
     if (type === 'module') {
       attributes[ProjectAttribute.Esm] = true;
     }
@@ -910,7 +924,12 @@ function getWorkspaceAttributes(
   useCached: boolean
 ): Promisable<WorkspacePackage['attributes']> {
   const attributes: WorkspacePackage['attributes'] = {};
-  const { type = 'commonjs', bin, private: private_ } = workspaceJson;
+  const {
+    type = 'commonjs',
+    bin,
+    private: private_,
+    scripts: { 'build:dist': buildScript = '' } = {}
+  } = workspaceJson;
 
   if (!['module', 'commonjs'].includes(type)) {
     throw new ProjectError(
@@ -918,6 +937,14 @@ function getWorkspaceAttributes(
         toPath(root, packageJsonConfigPackageBase)
       )
     );
+  }
+
+  if (
+    (buildScript.includes('--multiversal') ||
+      buildScript.includes('--not-multiversal=false')) &&
+    !buildScript.includes('--multiversal=false')
+  ) {
+    attributes[WorkspaceAttribute.Multiversal] = true;
   }
 
   if (type === 'module') {

@@ -159,7 +159,13 @@ export enum ProjectAttribute {
    * The root `package.json` file has a `workspaces` key and a `src` directory
    * exists at the project root.
    */
-  Hybridrepo = 'hybridrepo'
+  Hybridrepo = 'hybridrepo',
+  /**
+   * The root `package.json` file contains a `build:dist` script containing the
+   * string "--multiversal" or "--not-multiversal=false" and does not contain
+   * the string "--multiversal=false"
+   */
+  Multiversal = 'multiversal'
 }
 
 /**
@@ -202,7 +208,13 @@ export enum WorkspaceAttribute {
    * automatically included in the build distributables of some other unrelated
    * package.
    */
-  Shared = 'shared'
+  Shared = 'shared',
+  /**
+   * The workspace's `package.json` file contains a `build:dist` script
+   * containing the string "--multiversal" or "--not-multiversal=false" and does
+   * not contain the string "--multiversal=false"
+   */
+  Multiversal = 'multiversal'
 }
 
 /**
