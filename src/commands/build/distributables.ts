@@ -166,6 +166,8 @@ export type CustomCliArguments = GlobalCliArguments<DistributablesBuilderScope> 
   skipOutputValidityCheckFor?: (string | RegExp)[];
   skipOutputExtraneityCheckFor?: (string | RegExp)[];
   skipOutputBijectionCheckFor?: (string | RegExp)[];
+  multiversal: boolean;
+  allowRootverseNodeModules: boolean;
 };
 
 export default async function command({
@@ -182,12 +184,11 @@ export default async function command({
     // TODO: consider allowing Next.js projects as sub-roots / workspace packages
     isCwdTheProjectRoot && !!projectAttributes[ProjectAttribute.Next];
 
-  const [builder, withGlobalHandler] = withGlobalBuilder<CustomCliArguments>(
-    function (_blackFlag, _helpOrVersionSet, argv) {
-      const baseParameters: BfeBuilderObject<
-        CustomCliArguments,
-        GlobalExecutionContext
-      > = {
+  const [builder, withGlobalHandler] = withGlobalBuilder<
+    CustomCliArguments & { notMultiversal?: boolean }
+  >(function (_blackFlag, _helpOrVersionSet, argv) {
+    const baseParameters: BfeBuilderObject<CustomCliArguments, GlobalExecutionContext> =
+      {
         scope: { choices: distributablesBuilderScopes },
         'clean-output-dir': {
           alias: 'clean',
@@ -199,171 +200,186 @@ export default async function command({
         }
       };
 
-      const additionalParameters: BfeBuilderObject<
-        CustomCliArguments,
-        GlobalExecutionContext
-      > = {
-        'exclude-internal-files': {
-          alias: 'exclude-internal-file',
-          string: true,
-          array: true,
-          default: [],
-          description: 'Remove one or more files from internal build targets'
-        },
-        'generate-intermediates-for': {
-          string: true,
-          choices: intermediateTranspilationEnvironment,
-          description: 'Transpile into non-production-ready non-distributables',
-          conflicts: [
-            'skip-output-validity-checks-for',
-            'skip-output-extraneity-checks-for'
-          ],
-          implies: {
-            'generate-types': false,
-            'link-cli-into-bin': false,
-            'prepend-shebang': false,
-            'skip-output-checks': true
-          }
-        },
-        'generate-types': {
-          boolean: true,
-          description: 'Output TypeScript declaration files alongside distributables',
-          default: true,
-          conflicts: [
-            'skip-output-validity-checks-for',
-            'skip-output-extraneity-checks-for'
-          ],
-          subOptionOf: {
-            'generate-types': {
-              when: (generateTypes) => !generateTypes,
-              update: (oldConfig) => {
-                return {
-                  ...oldConfig,
-                  implies: { 'skip-output-checks': true },
-                  vacuousImplications: true
-                };
-              }
+    const additionalParameters: BfeBuilderObject<
+      CustomCliArguments,
+      GlobalExecutionContext
+    > = {
+      'exclude-internal-files': {
+        alias: 'exclude-internal-file',
+        string: true,
+        array: true,
+        default: [],
+        description: 'Remove one or more files from internal build targets'
+      },
+      'generate-intermediates-for': {
+        string: true,
+        choices: intermediateTranspilationEnvironment,
+        description: 'Transpile into non-production-ready non-distributables',
+        conflicts: [
+          'skip-output-validity-checks-for',
+          'skip-output-extraneity-checks-for'
+        ],
+        implies: {
+          'generate-types': false,
+          'link-cli-into-bin': false,
+          'prepend-shebang': false,
+          'skip-output-checks': true
+        }
+      },
+      'generate-types': {
+        boolean: true,
+        description: 'Output TypeScript declaration files alongside distributables',
+        default: true,
+        conflicts: [
+          'skip-output-validity-checks-for',
+          'skip-output-extraneity-checks-for'
+        ],
+        subOptionOf: {
+          'generate-types': {
+            when: (generateTypes) => !generateTypes,
+            update: (oldConfig) => {
+              return {
+                ...oldConfig,
+                implies: { 'skip-output-checks': true },
+                vacuousImplications: true
+              };
             }
           }
-        },
-        'include-external-files': {
-          alias: 'include-external-file',
-          string: true,
-          array: true,
-          default: [],
-          description: 'Add one or more files to external build targets'
-        },
-        'partial-filter': {
-          alias: 'partial',
-          string: true,
-          array: true,
-          default: [],
-          description: 'Only transpile absolute paths matching a RegExp filter',
-          coerce(partials: string[]) {
-            // ! These regular expressions can never use the global (g) flag
-            return partials.map((str) => new RegExp(str, 'u'));
-          },
-          implies: {
-            'clean-output-dir': false,
-            'link-cli-into-bin': false,
-            'prepend-shebang': false,
-            'skip-output-checks': true
-          }
-        },
-        'link-cli-into-bin': {
-          boolean: true,
-          description: 'Soft-link "bin" entries in package.json into node_modules/.bin',
-          default: true
-        },
-        'module-system': {
-          string: true,
-          choices: moduleSystems,
-          description: 'Which module system to transpile into',
-          default: ModuleSystem.Cjs
-        },
-        'output-extension': {
-          string: true,
-          description: 'Override automatic extension selection for transpiled output',
-          check: checkIsNotNil,
-          defaultDescription: 'derived from other arguments',
-          coerce(extension: string) {
-            extension = String(extension);
-            return extension.startsWith('.') ? extension : `.${extension}`;
-          }
-        },
-        'prepend-shebang': {
-          boolean: true,
-          description: 'Prepend a shebang to each "bin" distributable in package.json',
-          default: true
-        },
-        // TODO: consider an option that can reclassify a source as an asset
-        // 'reclassify-as-asset': { ... }
-        'skip-output-checks': {
-          alias: 'skip-output-check',
-          boolean: true,
-          description: 'Do not run consistency and integrity checks on build output',
-          default: false
-        },
-        'skip-output-validity-checks-for': {
-          alias: ['skip-output-validity-check-for', 'skip-invalid'],
-          string: true,
-          array: true,
-          description:
-            'Do not warn when a matching (via RegExp) package/dependency fails a build output validity check',
-          default: [],
-          implies: { 'skip-output-checks': false, 'generate-types': true },
-          coerce(strings: string[]) {
-            return strings.map((str) => {
-              return str.startsWith('^') || str.endsWith('$') ? new RegExp(str) : str;
-            });
-          }
-        },
-        'skip-output-extraneity-checks-for': {
-          alias: ['skip-output-extraneity-check-for', 'skip-extra'],
-          string: true,
-          array: true,
-          description:
-            'Do not warn when a matching (via RegExp) package/dependency fails a build output extraneity check',
-          default: [],
-          implies: { 'skip-output-checks': false, 'generate-types': true },
-          coerce(strings: string[]) {
-            return strings.map((str) => {
-              return str.startsWith('^') || str.endsWith('$') ? new RegExp(str) : str;
-            });
-          }
-        },
-        'skip-output-bijection-checks-for': {
-          alias: ['skip-output-bijection-check-for', 'skip-bijective'],
-          string: true,
-          array: true,
-          description:
-            'Do not attempt to scan matching (via RegExp) imports for bijective correctness',
-          default: [],
-          implies: { 'skip-output-checks': false, 'generate-types': true },
-          coerce(strings: string[]) {
-            return strings.map((str) => {
-              return str.startsWith('^') || str.endsWith('$') ? new RegExp(str) : str;
-            });
-          }
         }
-      };
-
-      // TODO: consider support for NextJs projects as sub-roots
-      if (isCwdANextJsPackage) {
-        Object.entries(additionalParameters).forEach(([name, parameter]) => {
-          parameter.defaultDescription = '❌ disabled in Next.js packages';
-          parameter.check = () => {
-            const isDefaulted = !(argv && name in argv);
-            const errorMessage = `--${name} cannot be used when building a Next.js package`;
-
-            return isDefaulted || errorMessage;
-          };
-        });
+      },
+      'include-external-files': {
+        alias: 'include-external-file',
+        string: true,
+        array: true,
+        default: [],
+        description: 'Add one or more files to external build targets'
+      },
+      'partial-filter': {
+        alias: 'partial',
+        string: true,
+        array: true,
+        default: [],
+        description: 'Only transpile absolute paths matching a RegExp filter',
+        coerce(partials: string[]) {
+          // ! These regular expressions can never use the global (g) flag
+          return partials.map((str) => new RegExp(str, 'u'));
+        },
+        implies: {
+          'clean-output-dir': false,
+          'link-cli-into-bin': false,
+          'prepend-shebang': false,
+          'skip-output-checks': true
+        }
+      },
+      'link-cli-into-bin': {
+        boolean: true,
+        description: 'Soft-link "bin" entries in package.json into node_modules/.bin',
+        default: true
+      },
+      'module-system': {
+        string: true,
+        choices: moduleSystems,
+        description: 'Which module system to transpile into',
+        default: ModuleSystem.Cjs
+      },
+      'output-extension': {
+        string: true,
+        description: 'Override automatic extension selection for transpiled output',
+        check: checkIsNotNil,
+        defaultDescription: 'derived from other arguments',
+        coerce(extension: string) {
+          extension = String(extension);
+          return extension.startsWith('.') ? extension : `.${extension}`;
+        }
+      },
+      'prepend-shebang': {
+        boolean: true,
+        description: 'Prepend a shebang to each "bin" distributable in package.json',
+        default: true
+      },
+      // TODO: consider an option that can reclassify a source as an asset
+      // 'reclassify-as-asset': { ... }
+      'skip-output-checks': {
+        alias: 'skip-output-check',
+        boolean: true,
+        description: 'Do not run consistency and integrity checks on build output',
+        default: false
+      },
+      'skip-output-validity-checks-for': {
+        alias: ['skip-output-validity-check-for', 'skip-invalid'],
+        string: true,
+        array: true,
+        description:
+          'Do not warn when a matching (via RegExp) package/dependency fails a build output validity check',
+        default: [],
+        implies: { 'skip-output-checks': false, 'generate-types': true },
+        coerce(strings: string[]) {
+          return strings.map((str) => {
+            return str.startsWith('^') || str.endsWith('$') ? new RegExp(str) : str;
+          });
+        }
+      },
+      'skip-output-extraneity-checks-for': {
+        alias: ['skip-output-extraneity-check-for', 'skip-extra'],
+        string: true,
+        array: true,
+        description:
+          'Do not warn when a matching (via RegExp) package/dependency fails a build output extraneity check',
+        default: [],
+        implies: { 'skip-output-checks': false, 'generate-types': true },
+        coerce(strings: string[]) {
+          return strings.map((str) => {
+            return str.startsWith('^') || str.endsWith('$') ? new RegExp(str) : str;
+          });
+        }
+      },
+      'skip-output-bijection-checks-for': {
+        alias: ['skip-output-bijection-check-for', 'skip-bijective'],
+        string: true,
+        array: true,
+        description:
+          'Do not attempt to scan matching (via RegExp) imports for bijective correctness',
+        default: [],
+        implies: { 'skip-output-checks': false, 'generate-types': true },
+        coerce(strings: string[]) {
+          return strings.map((str) => {
+            return str.startsWith('^') || str.endsWith('$') ? new RegExp(str) : str;
+          });
+        }
+      },
+      multiversal: {
+        boolean: true,
+        description: 'Enable project-wide cross-package "multiversal" import support',
+        default: argv?.notMultiversal !== undefined ? !argv.notMultiversal : false
+      },
+      'not-multiversal': {
+        boolean: true,
+        hidden: true,
+        conflicts: 'multiversal'
+      },
+      'allow-rootverse-node-modules': {
+        boolean: true,
+        description:
+          'allow precarious imports from node_modules using rootverse aliases',
+        default: false
       }
+    };
 
-      return Object.assign(baseParameters, additionalParameters);
+    // TODO: consider support for NextJs projects as sub-roots
+    if (isCwdANextJsPackage) {
+      Object.entries(additionalParameters).forEach(([name, parameter]) => {
+        parameter.defaultDescription = '❌ disabled in Next.js packages';
+        parameter.check = () => {
+          const isDefaulted = !(argv && name in argv);
+          const errorMessage = `--${name} cannot be used when building a Next.js package`;
+
+          return isDefaulted || errorMessage;
+        };
+      });
     }
-  );
+
+    return Object.assign(baseParameters, additionalParameters);
+  });
 
   return {
     aliases: ['dist'],
@@ -375,6 +391,8 @@ export default async function command({
 ${isCwdANextJsPackage ? "Note that the current working directory points to a Next.js package! When attempting to build such a package, this command will defer entirely to `next build`, which disables several of this command's options.\n\n" : ''}This command also performs lightweight validation of import specifiers and package entry points where appropriate to ensure baseline consistency, integrity, and well-formedness of build output.
 
 This validation can be tweaked with --skip-output-validity-checks-for, --skip-output-extraneity-checks-for, and --skip-output-bijection-checks-for. These flags suppresses errors and warnings for matching files, import specifiers, and/or package names when performing final build output checks. Each parameter accepts strings _and regular expressions_, the latter being strings that start with "^" or end with "$". Note that some specifiers are always skipped during extraneity checks, such as Node builtins. Also note that it is unnecessary to escape forward slashes (/) in regular expressions provided via these parameters.
+
+Provide --multiversal (or --not-multiversal) to further tweak import validation and other aspects of this command's support for so-called "multiversal imports". Multiversal imports are "interdependencies," or direct imports of files from other packages in the repository. By default, or when --not-multiversal is provided (or --multiversal=false), this command's multiversal capabilities are disabled; any use of "multiverse" imports, or imports that attempt to pull in files from outside of the package's root directory, will cause an error. On the other hand, providing --multiversal enables all multiversal capabilities, including multiverse imports.
 
 All package build targets are classified as either "source" ("sources," "source files") or "asset" ("assets," "asset files"). "Source" targets describe all the files to be transpiled while "assets" describe the remaining targets that are copied-through to the output directory without any modification. Currently, only TypeScript files (specifically, files ending in one of: ${extensionsTypescript.join(', ')}) are considered source files. Every other file is considered an asset.
 
@@ -413,6 +431,7 @@ Finally, note that, when attempting to build a Next.js package, this command wil
       silent: isSilenced,
       generateIntermediatesFor,
       outputExtension,
+      multiversal,
       // TODO: could probably make this easier by using a discriminated union
       // ? We need to make sure these aren't undefined...
       includeExternalFiles: includeExternalFiles_,
@@ -425,6 +444,7 @@ Finally, note that, when attempting to build a Next.js package, this command wil
       skipOutputValidityCheckFor: skipOutputValidityCheckFor_,
       skipOutputExtraneityCheckFor: skipOutputExtraneityCheckFor_,
       skipOutputBijectionCheckFor: skipOutputBijectionCheckFor_,
+      allowRootverseNodeModules: allowRootverseNodeModules_,
       partialFilter: partialFilter_
     }) {
       const handlerName = scriptBasename(scriptFullName);
@@ -465,6 +485,7 @@ Finally, note that, when attempting to build a Next.js package, this command wil
             stderr: isQuieted ? 'ignore' : 'inherit'
           });
         } else {
+          debug('multiversal: %O', multiversal);
           debug('includeExternalFiles: %O', includeExternalFiles_);
           debug('excludeInternalFiles: %O', excludeInternalFiles_);
           debug('generateTypes: %O', generateTypes_);
@@ -486,6 +507,7 @@ Finally, note that, when attempting to build a Next.js package, this command wil
             skipOutputBijectionCheckFor_
           );
           debug('partialFilter: %O', partialFilter_);
+          debug('allowRootverseNodeModules: %O', allowRootverseNodeModules_);
 
           if (generateIntermediatesFor) {
             genericLogger.warn(
@@ -574,6 +596,7 @@ Finally, note that, when attempting to build a Next.js package, this command wil
 
           const { targets: buildTargets, metadata: buildMetadata } =
             await gatherPackageBuildTargets(cwdPackage, {
+              allowMultiversalImports: multiversal,
               excludeInternalsPatterns: excludeInternalFiles,
               includeExternalsPatterns: includeExternalFiles,
               useCached: true
@@ -696,13 +719,13 @@ Finally, note that, when attempting to build a Next.js package, this command wil
 
 Metadata
 --------
-name      : ${packageName || '(unnamed)'}
-package-id: ${isWorkspacePackage(cwdPackage) ? cwdPackage.id : 'N/A (root package has no id)'}
-type      : ${projectMetadata.type} ${
+name       : ${packageName || '(unnamed)'}
+package-id : ${isWorkspacePackage(cwdPackage) ? cwdPackage.id : 'N/A (root package has no id)'}
+type       : ${projectMetadata.type} ${
               projectAttributes[ProjectAttribute.Hybridrepo] ? '(hybridrepo) ' : ''
             }${isCwdTheProjectRoot ? 'root package' : 'workspace package (sub-root)'}
-attributes: ${Object.keys(cwdPackage.attributes).join(', ')}
-prod ready: ${
+attributes : ${Object.keys(cwdPackage.attributes).join(', ')}
+prod ready : ${
               generateIntermediatesFor || partialFilters.length
                 ? `🛑 NO! (${[
                     generateIntermediatesFor &&
@@ -713,6 +736,7 @@ prod ready: ${
                     .join(', ')})`
                 : '🟩 yes'
             }
+multiversal: ${multiversal ? '🪐 yes' : '🌏 no'}
 
 build targets: ${_allBuildTargets.length} file${_allBuildTargets.length !== 1 ? 's' : ''}${
               isPartialBuild
@@ -1207,11 +1231,12 @@ distrib root: ${absoluteOutputDirPath}
              *
              * Also checks all of the package's TypeScript files to ensure all
              * required/imported NPM dependencies exist in `package.json`
-             * somewhere. Extraneous dependencies (dependencies in `package.json`
-             * that aren't required/imported by any TypeScript files nor exist in
-             * `nonExtraneousDependencies`) and missing dependencies (dependencies
-             * in `package.json` that aren't required/imported by any TypeScript
-             * files or in `nonExtraneousDependencies`) are reported.
+             * somewhere. Extraneous dependencies (dependencies in
+             * `package.json` that aren't required/imported by any TypeScript
+             * files nor exist in `nonExtraneousDependencies`) and missing
+             * dependencies (dependencies in `package.json` that aren't
+             * required/imported by any TypeScript files or in
+             * `nonExtraneousDependencies`) are reported.
              *
              * TODO: move some or most of this to project lint command later
              */
@@ -1260,9 +1285,7 @@ distrib root: ${absoluteOutputDirPath}
                   gatherImportEntriesFromFiles(allRelevantFiles, { useCached: true }),
                   gatherPseudodecoratorEntriesFromFiles(
                     allRelevantFilesPlusBuildTargets,
-                    {
-                      useCached: true
-                    }
+                    { useCached: true }
                   )
                 ]);
 
@@ -1782,10 +1805,14 @@ distrib root: ${absoluteOutputDirPath}
 
           for (const specifier of specifiers) {
             ensureRawSpecifierOk(wellKnownAliases, specifier, {
+              allowMultiversalImports: multiversal,
+              // ? Allow foreign universe imports in non-source typescript files
+              allowForeignUniversalImports: true,
               // ? Allow testverse imports in non-source typescript files
-              errorIfTestverseEncountered: false,
+              allowTestversalImports: true,
+              allowRootverseNodeModules: false,
               packageId: specifierPackageId,
-              path
+              containingFilePath: path
             });
           }
         }
