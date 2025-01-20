@@ -703,7 +703,11 @@ export function deriveScopeNarrowingPathspecs({
 
   const {
     targets: { external }
-  } = gatherPackageBuildTargets.sync(cwdPackage, { useCached: true });
+  } = gatherPackageBuildTargets.sync(cwdPackage, {
+    // ? We'll leave this decision to other layers of symbiote
+    allowMultiversalImports: true,
+    useCached: true
+  });
 
   const externals = external.normal.union(external.typeOnly);
   pathspecsWithoutSigMagic.push(...externals.values());

@@ -465,7 +465,10 @@ Provide --skip-slow-tests (or -x) to set the SYMBIOTE_TEST_JEST_SKIP_SLOW_TESTS 
         } else {
           const {
             targets: { external: externalBuildTargets_ }
-          } = await gatherPackageBuildTargets(cwdPackage, { useCached: true });
+          } = await gatherPackageBuildTargets(cwdPackage, {
+            allowMultiversalImports: true,
+            useCached: true
+          });
 
           const externalBuildTargets = externalBuildTargets_.normal;
 

@@ -334,7 +334,10 @@ Provide --allow-warning-comments to set the SYMBIOTE_LINT_ALLOW_WARNING_COMMENTS
               }
             ] = await Promise.all([
               gatherPackageFiles(cwdPackage, { useCached: true }),
-              gatherPackageBuildTargets(cwdPackage, { useCached: true })
+              gatherPackageBuildTargets(cwdPackage, {
+                allowMultiversalImports: true,
+                useCached: true
+              })
             ]);
 
             npxEslintArguments.push(
