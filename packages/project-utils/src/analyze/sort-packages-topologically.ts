@@ -40,7 +40,8 @@ export function sortPackagesTopologically(
   projectMetadata: ProjectMetadata<GenericPackageJson>,
   {
     includeDevDependencies = false,
-    allowPrivateDependencies = false
+    allowPrivateDependencies = false,
+    skipPrivateDependencies = true
   }: {
     /**
      * If `true`, each package's `package.json` `devDependencies` will be
@@ -51,14 +52,25 @@ export function sortPackagesTopologically(
     includeDevDependencies?: boolean;
     /**
      * If `false`, a package _without_ a `package.json` `private: true` field
-     * can never depend upon another package with a `package.json` `private: true`
-     * field. If such a relation is encountered, an error will be thrown.
+     * can never depend upon another package with a `package.json` `private:
+     * true` field. If such a relation is encountered, an error will be thrown.
      *
      * @default false
      */
     allowPrivateDependencies?: boolean;
+    /**
+     * If `true`, packages with a `package.json` `private: true` field will be
+     * skipped if no other packages in the repository depend on them.
+     *
+     * @default true
+     */
+    skipPrivateDependencies?: boolean;
   } = {}
 ): Package<GenericPackageJson>[][] {
+  debug('includeDevDependencies: %O', includeDevDependencies);
+  debug('allowPrivateDependencies: %O', allowPrivateDependencies);
+  debug('skipPrivateDependencies: %O', skipPrivateDependencies);
+
   const { rootPackage, subRootPackages } = projectMetadata;
 
   // * Construct the D(A)G
@@ -136,6 +148,8 @@ export function sortPackagesTopologically(
     debug('previousNodeCount: %O', previousNodeCount);
     debug('nodeCount: %O', nodeCount);
 
+    const isFirstIteration = previousNodeCount === -1;
+
     if (previousNodeCount === nodeCount) {
       // ? No nodes were deleted in the last iteration, meaning we've
       // ? encountered a cycle
@@ -148,6 +162,9 @@ export function sortPackagesTopologically(
       .filter(([, { outgoingDependencies }]) => outgoingDependencies.length === 0)
       .map(([deletedPackageName, deletedNode]) => {
         packageGraph.delete(deletedPackageName);
+
+        const numDependents = deletedNode.incomingDependents.length;
+
         deletedNode.incomingDependents.forEach((dependentNode) => {
           dependentNode.outgoingDependencies = dependentNode.outgoingDependencies.filter(
             (node) => node !== deletedNode
@@ -155,11 +172,26 @@ export function sortPackagesTopologically(
         });
 
         debug('deleted node %O from package graph: %O', deletedPackageName, deletedNode);
-        return deletedNode.package;
-      });
 
-    debug('pushed additional topology: %O', currentTopology);
-    topology.push(currentTopology);
+        if (
+          isFirstIteration &&
+          skipPrivateDependencies &&
+          deletedNode.package.json.private &&
+          numDependents === 0
+        ) {
+          debug('dropped node from topology result (reason: skipPrivateDependencies)');
+          return undefined;
+        } else {
+          debug('node will be added to topology result');
+          return deletedNode.package;
+        }
+      })
+      .filter((package_) => !!package_);
+
+    if (currentTopology.length) {
+      debug('pushed additional topology: %O', currentTopology);
+      topology.push(currentTopology);
+    }
   }
 
   debug('topology: %O', topology);

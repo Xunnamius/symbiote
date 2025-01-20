@@ -5496,7 +5496,9 @@ describe('::sortPackagesTopologically', () => {
 
       assert(packages);
 
-      expect(sortPackagesTopologically(projectMetadata)).toStrictEqual([
+      expect(
+        sortPackagesTopologically(projectMetadata, { skipPrivateDependencies: false })
+      ).toStrictEqual([
         [
           expect.objectContaining({ root: packages.get('public')!.root }),
           expect.objectContaining({ root: packages.get('webpack')!.root })
@@ -5512,7 +5514,9 @@ describe('::sortPackagesTopologically', () => {
 
       assert(packages);
 
-      expect(sortPackagesTopologically(projectMetadata)).toStrictEqual([
+      expect(
+        sortPackagesTopologically(projectMetadata, { skipPrivateDependencies: false })
+      ).toStrictEqual([
         [
           expect.objectContaining({ root: rootPackage.root }),
           expect.objectContaining({ root: packages.get('pkg-1')!.root })
@@ -5531,65 +5535,13 @@ describe('::sortPackagesTopologically', () => {
       const projectMetadata = fixtureToProjectMetadata('goodPolyrepo');
       const { rootPackage } = projectMetadata;
 
-      expect(sortPackagesTopologically(projectMetadata)).toStrictEqual([
-        [expect.objectContaining({ root: rootPackage.root })]
-      ]);
+      expect(
+        sortPackagesTopologically(projectMetadata, { skipPrivateDependencies: false })
+      ).toStrictEqual([[expect.objectContaining({ root: rootPackage.root })]]);
     }
   });
 
-  it('does the right thing when a package depends on itself', () => {
-    expect.hasAssertions();
-
-    {
-      const projectMetadata = fixtureToProjectMetadata(
-        'goodHybridrepoTopologicalSelfRef'
-      );
-      const { subRootPackages: packages, rootPackage } = projectMetadata;
-
-      assert(packages);
-
-      expect(sortPackagesTopologically(projectMetadata)).toStrictEqual([
-        [
-          expect.objectContaining({ root: packages.get('public')!.root }),
-          expect.objectContaining({ root: packages.get('webpack')!.root })
-        ],
-        [expect.objectContaining({ root: packages.get('cli')!.root })],
-        [expect.objectContaining({ root: rootPackage.root })]
-      ]);
-    }
-
-    {
-      const projectMetadata = fixtureToProjectMetadata('goodMonorepoTopologicalSelfRef');
-      const { subRootPackages: packages, rootPackage } = projectMetadata;
-
-      assert(packages);
-
-      expect(sortPackagesTopologically(projectMetadata)).toStrictEqual([
-        [
-          expect.objectContaining({ root: rootPackage.root }),
-          expect.objectContaining({ root: packages.get('pkg-1')!.root })
-        ],
-        [
-          expect.objectContaining({ root: packages.get('pkg-3')!.root }),
-          expect.objectContaining({ root: packages.get('@namespaced/pkg')!.root })
-        ],
-        [expect.objectContaining({ root: packages.get('pkg-4')!.root })],
-        [expect.objectContaining({ root: packages.get('pkg-5')!.root })],
-        [expect.objectContaining({ root: packages.get('@namespaced/importer')!.root })]
-      ]);
-    }
-
-    {
-      const projectMetadata = fixtureToProjectMetadata('goodPolyrepoTopologicalSelfRef');
-      const { rootPackage } = projectMetadata;
-
-      expect(sortPackagesTopologically(projectMetadata)).toStrictEqual([
-        [expect.objectContaining({ root: rootPackage.root })]
-      ]);
-    }
-  });
-
-  it('considers package.json dependencies and peerDependencies only unless includeDevDependencies is enabled', () => {
+  it('skips private packages that have no dependents unless skipPrivateDependencies is disabled', () => {
     expect.hasAssertions();
 
     {
@@ -5598,11 +5550,11 @@ describe('::sortPackagesTopologically', () => {
 
       assert(packages);
 
-      expect(
-        sortPackagesTopologically(projectMetadata, { includeDevDependencies: true })
-      ).toStrictEqual([
-        [expect.objectContaining({ root: packages.get('webpack')!.root })],
-        [expect.objectContaining({ root: packages.get('public')!.root })],
+      expect(sortPackagesTopologically(projectMetadata)).toStrictEqual([
+        [
+          expect.objectContaining({ root: packages.get('public')!.root }),
+          expect.objectContaining({ root: packages.get('webpack')!.root })
+        ],
         [expect.objectContaining({ root: packages.get('cli')!.root })],
         [expect.objectContaining({ root: rootPackage.root })]
       ]);
@@ -5610,22 +5562,17 @@ describe('::sortPackagesTopologically', () => {
 
     {
       const projectMetadata = fixtureToProjectMetadata('goodMonorepoTopological');
-      const { subRootPackages: packages, rootPackage } = projectMetadata;
+      const { subRootPackages: packages } = projectMetadata;
 
       assert(packages);
 
-      expect(
-        sortPackagesTopologically(projectMetadata, { includeDevDependencies: true })
-      ).toStrictEqual([
+      expect(sortPackagesTopologically(projectMetadata)).toStrictEqual([
         [expect.objectContaining({ root: packages.get('pkg-1')!.root })],
         [
           expect.objectContaining({ root: packages.get('pkg-3')!.root }),
           expect.objectContaining({ root: packages.get('@namespaced/pkg')!.root })
         ],
-        [
-          expect.objectContaining({ root: rootPackage.root }),
-          expect.objectContaining({ root: packages.get('pkg-4')!.root })
-        ],
+        [expect.objectContaining({ root: packages.get('pkg-4')!.root })],
         [expect.objectContaining({ root: packages.get('pkg-5')!.root })],
         [expect.objectContaining({ root: packages.get('@namespaced/importer')!.root })]
       ]);
@@ -5635,14 +5582,10 @@ describe('::sortPackagesTopologically', () => {
       const projectMetadata = fixtureToProjectMetadata('goodPolyrepo');
       const { rootPackage } = projectMetadata;
 
-      expect(
-        sortPackagesTopologically(projectMetadata, { includeDevDependencies: true })
-      ).toStrictEqual([[expect.objectContaining({ root: rootPackage.root })]]);
+      expect(sortPackagesTopologically(projectMetadata)).toStrictEqual([
+        [expect.objectContaining({ root: rootPackage.root })]
+      ]);
     }
-  });
-
-  it('does not throw when a dependency, peerDependency, or devDependency has "private: true" in its package.json when its dependent is also private', () => {
-    expect.hasAssertions();
 
     {
       const projectMetadata = fixtureToProjectMetadata(
@@ -5664,11 +5607,178 @@ describe('::sortPackagesTopologically', () => {
 
     {
       const projectMetadata = fixtureToProjectMetadata('goodMonorepoTopologicalPrivate');
-      const { subRootPackages: packages, rootPackage } = projectMetadata;
+      const { subRootPackages: packages } = projectMetadata;
 
       assert(packages);
 
       expect(sortPackagesTopologically(projectMetadata)).toStrictEqual([
+        [expect.objectContaining({ root: packages.get('pkg-1')!.root })],
+        [
+          expect.objectContaining({ root: packages.get('pkg-3')!.root }),
+          expect.objectContaining({ root: packages.get('@namespaced/pkg')!.root })
+        ],
+        [expect.objectContaining({ root: packages.get('pkg-4')!.root })],
+        [expect.objectContaining({ root: packages.get('pkg-5')!.root })],
+        [expect.objectContaining({ root: packages.get('@namespaced/importer')!.root })]
+      ]);
+    }
+
+    {
+      const projectMetadata = fixtureToProjectMetadata('goodPolyrepoTopologicalPrivate');
+
+      expect(sortPackagesTopologically(projectMetadata)).toStrictEqual([]);
+    }
+  });
+
+  it('does the right thing when a package depends on itself', () => {
+    expect.hasAssertions();
+
+    {
+      const projectMetadata = fixtureToProjectMetadata(
+        'goodHybridrepoTopologicalSelfRef'
+      );
+      const { subRootPackages: packages, rootPackage } = projectMetadata;
+
+      assert(packages);
+
+      expect(
+        sortPackagesTopologically(projectMetadata, { skipPrivateDependencies: false })
+      ).toStrictEqual([
+        [
+          expect.objectContaining({ root: packages.get('public')!.root }),
+          expect.objectContaining({ root: packages.get('webpack')!.root })
+        ],
+        [expect.objectContaining({ root: packages.get('cli')!.root })],
+        [expect.objectContaining({ root: rootPackage.root })]
+      ]);
+    }
+
+    {
+      const projectMetadata = fixtureToProjectMetadata('goodMonorepoTopologicalSelfRef');
+      const { subRootPackages: packages, rootPackage } = projectMetadata;
+
+      assert(packages);
+
+      expect(
+        sortPackagesTopologically(projectMetadata, { skipPrivateDependencies: false })
+      ).toStrictEqual([
+        [
+          expect.objectContaining({ root: rootPackage.root }),
+          expect.objectContaining({ root: packages.get('pkg-1')!.root })
+        ],
+        [
+          expect.objectContaining({ root: packages.get('pkg-3')!.root }),
+          expect.objectContaining({ root: packages.get('@namespaced/pkg')!.root })
+        ],
+        [expect.objectContaining({ root: packages.get('pkg-4')!.root })],
+        [expect.objectContaining({ root: packages.get('pkg-5')!.root })],
+        [expect.objectContaining({ root: packages.get('@namespaced/importer')!.root })]
+      ]);
+    }
+
+    {
+      const projectMetadata = fixtureToProjectMetadata('goodPolyrepoTopologicalSelfRef');
+      const { rootPackage } = projectMetadata;
+
+      expect(
+        sortPackagesTopologically(projectMetadata, { skipPrivateDependencies: false })
+      ).toStrictEqual([[expect.objectContaining({ root: rootPackage.root })]]);
+    }
+  });
+
+  it('considers package.json dependencies and peerDependencies only unless includeDevDependencies is enabled', () => {
+    expect.hasAssertions();
+
+    {
+      const projectMetadata = fixtureToProjectMetadata('goodHybridrepoTopological');
+      const { subRootPackages: packages, rootPackage } = projectMetadata;
+
+      assert(packages);
+
+      expect(
+        sortPackagesTopologically(projectMetadata, {
+          includeDevDependencies: true,
+          skipPrivateDependencies: false
+        })
+      ).toStrictEqual([
+        [expect.objectContaining({ root: packages.get('webpack')!.root })],
+        [expect.objectContaining({ root: packages.get('public')!.root })],
+        [expect.objectContaining({ root: packages.get('cli')!.root })],
+        [expect.objectContaining({ root: rootPackage.root })]
+      ]);
+    }
+
+    {
+      const projectMetadata = fixtureToProjectMetadata('goodMonorepoTopological');
+      const { subRootPackages: packages, rootPackage } = projectMetadata;
+
+      assert(packages);
+
+      expect(
+        sortPackagesTopologically(projectMetadata, {
+          includeDevDependencies: true,
+          skipPrivateDependencies: false
+        })
+      ).toStrictEqual([
+        [expect.objectContaining({ root: packages.get('pkg-1')!.root })],
+        [
+          expect.objectContaining({ root: packages.get('pkg-3')!.root }),
+          expect.objectContaining({ root: packages.get('@namespaced/pkg')!.root })
+        ],
+        [
+          expect.objectContaining({ root: rootPackage.root }),
+          expect.objectContaining({ root: packages.get('pkg-4')!.root })
+        ],
+        [expect.objectContaining({ root: packages.get('pkg-5')!.root })],
+        [expect.objectContaining({ root: packages.get('@namespaced/importer')!.root })]
+      ]);
+    }
+
+    {
+      const projectMetadata = fixtureToProjectMetadata('goodPolyrepo');
+      const { rootPackage } = projectMetadata;
+
+      expect(
+        sortPackagesTopologically(projectMetadata, {
+          includeDevDependencies: true,
+          skipPrivateDependencies: false
+        })
+      ).toStrictEqual([[expect.objectContaining({ root: rootPackage.root })]]);
+    }
+  });
+
+  it('does not throw when a dependency, peerDependency, or devDependency has "private: true" in its package.json when its dependent is also private', () => {
+    expect.hasAssertions();
+
+    {
+      const projectMetadata = fixtureToProjectMetadata(
+        'goodHybridrepoTopologicalPrivate'
+      );
+      const { subRootPackages: packages, rootPackage } = projectMetadata;
+
+      assert(packages);
+
+      expect(
+        sortPackagesTopologically(projectMetadata, { skipPrivateDependencies: true })
+      ).toStrictEqual([
+        [
+          expect.objectContaining({ root: packages.get('private')!.root }),
+          expect.objectContaining({ root: packages.get('webpack')!.root })
+        ],
+        [expect.objectContaining({ root: packages.get('cli')!.root })],
+        [expect.objectContaining({ root: rootPackage.root })]
+      ]);
+    }
+
+    {
+      const projectMetadata = fixtureToProjectMetadata('goodMonorepoTopologicalPrivate');
+      const { subRootPackages: packages, rootPackage } = projectMetadata;
+
+      assert(packages);
+
+      expect(
+        sortPackagesTopologically(projectMetadata, { skipPrivateDependencies: false })
+      ).toStrictEqual([
         [
           expect.objectContaining({ root: rootPackage.root }),
           expect.objectContaining({ root: packages.get('pkg-1')!.root })
@@ -5687,9 +5797,9 @@ describe('::sortPackagesTopologically', () => {
       const projectMetadata = fixtureToProjectMetadata('goodPolyrepoTopologicalPrivate');
       const { rootPackage } = projectMetadata;
 
-      expect(sortPackagesTopologically(projectMetadata)).toStrictEqual([
-        [expect.objectContaining({ root: rootPackage.root })]
-      ]);
+      expect(
+        sortPackagesTopologically(projectMetadata, { skipPrivateDependencies: false })
+      ).toStrictEqual([[expect.objectContaining({ root: rootPackage.root })]]);
     }
   });
 
@@ -5701,7 +5811,9 @@ describe('::sortPackagesTopologically', () => {
         'badHybridrepoTopologicalPrivate'
       );
 
-      expect(() => sortPackagesTopologically(projectMetadata)).toThrow(
+      expect(() =>
+        sortPackagesTopologically(projectMetadata, { skipPrivateDependencies: false })
+      ).toThrow(
         ErrorMessage.IllegalPrivateDependency(
           'bad-hybridrepo-topological-private',
           'private'
@@ -5712,9 +5824,9 @@ describe('::sortPackagesTopologically', () => {
     {
       const projectMetadata = fixtureToProjectMetadata('badMonorepoTopologicalPrivate');
 
-      expect(() => sortPackagesTopologically(projectMetadata)).toThrow(
-        ErrorMessage.IllegalPrivateDependency('pkg-5', 'pkg-4')
-      );
+      expect(() =>
+        sortPackagesTopologically(projectMetadata, { skipPrivateDependencies: false })
+      ).toThrow(ErrorMessage.IllegalPrivateDependency('pkg-5', 'pkg-4'));
     }
 
     {
@@ -5723,7 +5835,10 @@ describe('::sortPackagesTopologically', () => {
       );
 
       expect(() =>
-        sortPackagesTopologically(projectMetadata, { allowPrivateDependencies: true })
+        sortPackagesTopologically(projectMetadata, {
+          allowPrivateDependencies: true,
+          skipPrivateDependencies: false
+        })
       ).not.toThrow();
     }
 
@@ -5731,7 +5846,10 @@ describe('::sortPackagesTopologically', () => {
       const projectMetadata = fixtureToProjectMetadata('badMonorepoTopologicalPrivate');
 
       expect(() =>
-        sortPackagesTopologically(projectMetadata, { allowPrivateDependencies: true })
+        sortPackagesTopologically(projectMetadata, {
+          allowPrivateDependencies: true,
+          skipPrivateDependencies: false
+        })
       ).not.toThrow();
     }
   });
@@ -5742,7 +5860,9 @@ describe('::sortPackagesTopologically', () => {
     {
       const projectMetadata = fixtureToProjectMetadata('badHybridrepoTopologicalCycle');
 
-      expect(() => sortPackagesTopologically(projectMetadata)).toThrow(
+      expect(() =>
+        sortPackagesTopologically(projectMetadata, { skipPrivateDependencies: false })
+      ).toThrow(
         ErrorMessage.DependencyCycle([
           'bad-hybridrepo-topological-cycle',
           'cli',
@@ -5754,7 +5874,9 @@ describe('::sortPackagesTopologically', () => {
     {
       const projectMetadata = fixtureToProjectMetadata('badMonorepoTopologicalCycle');
 
-      expect(() => sortPackagesTopologically(projectMetadata)).toThrow(
+      expect(() =>
+        sortPackagesTopologically(projectMetadata, { skipPrivateDependencies: false })
+      ).toThrow(
         ErrorMessage.DependencyCycle([
           'pkg-1',
           'pkg-3',

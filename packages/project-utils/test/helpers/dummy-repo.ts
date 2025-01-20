@@ -718,6 +718,11 @@ createFixture({
       attributes: { cjs: true, private: true }
     },
     {
+      name: 'random',
+      root: 'packages/random',
+      attributes: { cjs: true, private: true }
+    },
+    {
       name: 'webpack',
       root: 'packages/webpack',
       attributes: { cjs: true }
