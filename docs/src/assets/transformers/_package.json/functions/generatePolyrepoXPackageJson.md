@@ -8,7 +8,7 @@
 
 > **generatePolyrepoXPackageJson**(...`__namedParameters`): `object`
 
-Defined in: [src/assets/transformers/\_package.json.ts:189](https://github.com/Xunnamius/symbiote/blob/7f982952167d73373d4dffdf7657e7060cf032fe/src/assets/transformers/_package.json.ts#L189)
+Defined in: [src/assets/transformers/\_package.json.ts:191](https://github.com/Xunnamius/symbiote/blob/a116b07afe112308bfdfdf94cf09246be76165ef/src/assets/transformers/_package.json.ts#L191)
 
 ## Parameters
 
@@ -332,7 +332,7 @@ package's `CHANGELOG.md` file.
 
 #### scripts.build:dist
 
-> **build:dist**: `string` = `'symbiote build distributables --env NODE_NO_WARNINGS=1'`
+> **build:dist**: `string` = `'symbiote build distributables --env NODE_NO_WARNINGS=1 --not-multiversal'`
 
 Run by users, symbiote, and related tooling when building the current
 package's production-ready distributables.
@@ -340,7 +340,7 @@ package's production-ready distributables.
 ##### Example
 
 ```ts
-`symbiote build distributables`
+`symbiote build distributables --not-multiversal`
 ```
 
 #### scripts.build:docs
@@ -619,7 +619,7 @@ Run **after** the package is published.
 
 #### scripts.release
 
-> **release**: `string` = `'symbiote release --env NODE_NO_WARNINGS=1 --not-multiversal'`
+> **release**: `string` = `'symbiote release --env NODE_NO_WARNINGS=1'`
 
 Run by users, symbiote, and related tooling when potentially releasing the
 next version of a package.
@@ -627,7 +627,7 @@ next version of a package.
 ##### Example
 
 ```ts
-`symbiote release --no-parallel --not-multiversal`
+`symbiote release --no-parallel`
 ```
 
 #### scripts.renovate

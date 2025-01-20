@@ -8,7 +8,7 @@
 
 > **generateHybridrepoProjectXPackageJson**(...`__namedParameters`): `object`
 
-Defined in: [src/assets/transformers/\_package.json.ts:291](https://github.com/Xunnamius/symbiote/blob/7f982952167d73373d4dffdf7657e7060cf032fe/src/assets/transformers/_package.json.ts#L291)
+Defined in: [src/assets/transformers/\_package.json.ts:296](https://github.com/Xunnamius/symbiote/blob/a116b07afe112308bfdfdf94cf09246be76165ef/src/assets/transformers/_package.json.ts#L296)
 
 ## Parameters
 
@@ -332,7 +332,7 @@ package's `CHANGELOG.md` file.
 
 #### scripts.build:dist
 
-> `readonly` **build:dist**: `string` = `'symbiote build distributables --env NODE_NO_WARNINGS=1'`
+> `readonly` **build:dist**: `string` = `'symbiote build distributables --env NODE_NO_WARNINGS=1 --not-multiversal'`
 
 Run by users, symbiote, and related tooling when building the current
 package's production-ready distributables.
@@ -340,7 +340,7 @@ package's production-ready distributables.
 ##### Example
 
 ```ts
-`symbiote build distributables`
+`symbiote build distributables --not-multiversal`
 ```
 
 #### scripts.build:docs
@@ -645,7 +645,7 @@ Run **after** the package is published.
 
 #### scripts.release
 
-> `readonly` **release**: `string` = `'symbiote release --env NODE_NO_WARNINGS=1 --not-multiversal'`
+> `readonly` **release**: `string` = `'symbiote release --env NODE_NO_WARNINGS=1'`
 
 Run by users, symbiote, and related tooling when potentially releasing the
 next version of a package.
@@ -653,7 +653,7 @@ next version of a package.
 ##### Example
 
 ```ts
-`symbiote release --no-parallel --not-multiversal`
+`symbiote release --no-parallel`
 ```
 
 #### scripts.release:topological

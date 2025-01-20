@@ -8,7 +8,7 @@
 
 > **makeDirectory**(`path`): `Promise`\<`void`\>
 
-Defined in: [src/util.ts:1067](https://github.com/Xunnamius/symbiote/blob/7f982952167d73373d4dffdf7657e7060cf032fe/src/util.ts#L1067)
+Defined in: [src/util.ts:1071](https://github.com/Xunnamius/symbiote/blob/a116b07afe112308bfdfdf94cf09246be76165ef/src/util.ts#L1071)
 
 ## Parameters
 

@@ -8,7 +8,7 @@
 
 > **generateNonHybridMonorepoProjectXPackageJson**(...`__namedParameters`): `object`
 
-Defined in: [src/assets/transformers/\_package.json.ts:226](https://github.com/Xunnamius/symbiote/blob/7f982952167d73373d4dffdf7657e7060cf032fe/src/assets/transformers/_package.json.ts#L226)
+Defined in: [src/assets/transformers/\_package.json.ts:228](https://github.com/Xunnamius/symbiote/blob/a116b07afe112308bfdfdf94cf09246be76165ef/src/assets/transformers/_package.json.ts#L228)
 
 ## Parameters
 
@@ -336,7 +336,7 @@ package's production-ready distributables.
 ##### Example
 
 ```ts
-`symbiote build distributables`
+`symbiote build distributables --not-multiversal`
 ```
 
 #### scripts.build:docs?
@@ -649,7 +649,7 @@ next version of a package.
 ##### Example
 
 ```ts
-`symbiote release --no-parallel --not-multiversal`
+`symbiote release --no-parallel`
 ```
 
 #### scripts.release:topological

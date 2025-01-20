@@ -8,7 +8,7 @@
 
 > `const` **ErrorMessage**: `object`
 
-Defined in: [src/error.ts:63](https://github.com/Xunnamius/symbiote/blob/7f982952167d73373d4dffdf7657e7060cf032fe/src/error.ts#L63)
+Defined in: [src/error.ts:63](https://github.com/Xunnamius/symbiote/blob/a116b07afe112308bfdfdf94cf09246be76165ef/src/error.ts#L63)
 
 A collection of possible error and warning messages.
 
@@ -1022,6 +1022,10 @@ readonly `string`[]
 `boolean`
 
 ###### monorepo
+
+`boolean`
+
+###### multiversal
 
 `boolean`
 
