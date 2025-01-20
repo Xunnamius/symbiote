@@ -17,9 +17,9 @@ export const globalDebuggerNamespace = 'xproject';
 export const uriSchemeDelimiterUnescaped = ':';
 
 /**
- * @see {@link uriSchemeDelimiterUnescaped}
- *
  * This delimiter is escaped for use in regular expressions.
+ *
+ * @see {@link uriSchemeDelimiterUnescaped}
  */
 export const uriSchemeDelimiterEscaped = ':';
 
@@ -37,8 +37,8 @@ export const uriSchemeDelimiterEscaped = ':';
 export const uriSchemeSubDelimiterUnescaped = '+';
 
 /**
- * @see {@link uriSchemeSubDelimiterUnescaped}
- *
  * This delimiter is escaped for use in regular expressions.
+ *
+ * @see {@link uriSchemeSubDelimiterUnescaped}
  */
 export const uriSchemeSubDelimiterEscaped = String.raw`\+`;

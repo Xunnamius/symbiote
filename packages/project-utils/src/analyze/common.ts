@@ -558,7 +558,7 @@ export type XPackageJsonScripts = {
    * Run by users, symbiote, and related tooling when building the current
    * package's production-ready distributables.
    *
-   * @example `symbiote build distributables`
+   * @example `symbiote build distributables --not-multiversal`
    */
   'build:dist'?: string;
   /**
@@ -665,7 +665,7 @@ export type XPackageJsonScripts = {
    * Run by users, symbiote, and related tooling when potentially releasing the
    * next version of a package.
    *
-   * @example `symbiote release --no-parallel --not-multiversal`
+   * @example `symbiote release --no-parallel`
    */
   release?: string;
   /**
