@@ -2547,6 +2547,7 @@ describe('::gatherPackageBuildTargets', () => {
               'packages/webpack/webpack.config.ts',
               'packages/private/src/lib/library.ts',
               'packages/webpack/src/webpack-lib.ts',
+              'packages/webpack/package.json',
               'packages/private/src/lib/library2.ts',
               'packages/webpack/src/webpack-lib2.ts'
             ] as RelativePath[]),
@@ -2579,6 +2580,14 @@ describe('::gatherPackageBuildTargets', () => {
                   prefixTypeOnlyImport
                 ])
               },
+              'multiverse+webpack': {
+                count: 2,
+                prefixes: new Set([
+                  prefixNormalImport,
+                  prefixExternalImport,
+                  prefixTypeOnlyImport
+                ])
+              },
               'rootverse+private': {
                 count: 4,
                 prefixes: new Set([
@@ -2600,8 +2609,8 @@ describe('::gatherPackageBuildTargets', () => {
               typeverse: {
                 count: 3,
                 prefixes: new Set([
-                  prefixTypeOnlyImport,
                   prefixNormalImport,
+                  prefixTypeOnlyImport,
                   prefixExternalImport
                 ])
               },
@@ -2610,6 +2619,22 @@ describe('::gatherPackageBuildTargets', () => {
                 prefixes: new Set([
                   prefixNormalImport,
                   prefixInternalImport,
+                  prefixTypeOnlyImport
+                ])
+              },
+              'universe+private': {
+                count: 2,
+                prefixes: new Set([
+                  prefixNormalImport,
+                  prefixExternalImport,
+                  prefixTypeOnlyImport
+                ])
+              },
+              'universe+webpack': {
+                count: 2,
+                prefixes: new Set([
+                  prefixNormalImport,
+                  prefixExternalImport,
                   prefixTypeOnlyImport
                 ])
               }
@@ -2681,7 +2706,7 @@ describe('::gatherPackageBuildTargets', () => {
       } satisfies PackageBuildTargets);
     });
 
-    it('returns expected build targets for multiversal hybridrepo sub-root package', () => {
+    it('returns expected build targets for multiversal hybridrepo sub-root "cli" package', () => {
       expect.hasAssertions();
 
       expect(
@@ -2698,7 +2723,9 @@ describe('::gatherPackageBuildTargets', () => {
               'packages/private/src/index.ts',
               'packages/private/src/lib/library.ts',
               'packages/webpack/src/webpack-lib.ts',
-              'packages/private/src/lib/library2.ts'
+              'packages/webpack/package.json',
+              'packages/private/src/lib/library2.ts',
+              'packages/private/package.json'
             ] as RelativePath[]),
             typeOnly: new Set(['types/global.ts', 'types/others.ts'] as RelativePath[])
           },
@@ -2709,6 +2736,10 @@ describe('::gatherPackageBuildTargets', () => {
             aliasCounts: {
               'multiverse+private': {
                 count: 2,
+                prefixes: new Set([prefixNormalImport, prefixInternalImport])
+              },
+              'multiverse+webpack': {
+                count: 1,
                 prefixes: new Set([prefixNormalImport, prefixInternalImport])
               },
               'rootverse+private': {
@@ -2722,10 +2753,14 @@ describe('::gatherPackageBuildTargets', () => {
               typeverse: {
                 count: 2,
                 prefixes: new Set([
-                  prefixTypeOnlyImport,
                   prefixNormalImport,
+                  prefixTypeOnlyImport,
                   prefixExternalImport
                 ])
+              },
+              'universe+private': {
+                count: 1,
+                prefixes: new Set([prefixNormalImport, prefixExternalImport])
               }
             },
             dependencyCounts: {
@@ -2755,7 +2790,7 @@ describe('::gatherPackageBuildTargets', () => {
       } satisfies PackageBuildTargets);
     });
 
-    it('does not consider self-referential rootverse imports as "external"', () => {
+    it('returns expected build targets for multiversal hybridrepo sub-root "private" package', () => {
       expect.hasAssertions();
 
       try {
@@ -2773,7 +2808,7 @@ describe('::gatherPackageBuildTargets', () => {
         ).toStrictEqual({
           targets: {
             external: {
-              normal: new Set([] as RelativePath[]),
+              normal: new Set(['packages/private/package.json'] as RelativePath[]),
               typeOnly: new Set(['types/global.ts', 'types/others.ts'] as RelativePath[])
             },
             internal: new Set([
@@ -2800,6 +2835,10 @@ describe('::gatherPackageBuildTargets', () => {
                     prefixInternalImport,
                     prefixExternalImport
                   ])
+                },
+                'universe+private': {
+                  count: 1,
+                  prefixes: new Set([prefixNormalImport, prefixInternalImport])
                 }
               },
               dependencyCounts: {
@@ -2824,7 +2863,7 @@ describe('::gatherPackageBuildTargets', () => {
       }
     });
 
-    it('does not consider self-referential rootverse imports as "external" even when the package id and package name diverge', () => {
+    it('returns expected build targets for multiversal hybridrepo sub-root "package-one" package (where package name differs from its id)', () => {
       expect.hasAssertions();
 
       expect(
@@ -2837,7 +2876,7 @@ describe('::gatherPackageBuildTargets', () => {
       ).toStrictEqual({
         targets: {
           external: {
-            normal: new Set([] as RelativePath[]),
+            normal: new Set(['packages/pkg-1/package.json'] as RelativePath[]),
             typeOnly: new Set([] as RelativePath[])
           },
           internal: new Set([
@@ -2849,6 +2888,10 @@ describe('::gatherPackageBuildTargets', () => {
           imports: {
             aliasCounts: {
               'rootverse+pkg-1': {
+                count: 1,
+                prefixes: new Set([prefixNormalImport, prefixInternalImport])
+              },
+              'universe+pkg-1': {
                 count: 1,
                 prefixes: new Set([prefixNormalImport, prefixInternalImport])
               }
@@ -2952,7 +2995,8 @@ describe('::gatherPackageBuildTargets', () => {
           external: {
             normal: new Set([
               'packages/private/src/index.ts',
-              'packages/private/src/lib/library2.ts'
+              'packages/private/src/lib/library2.ts',
+              'packages/private/package.json'
             ] as RelativePath[]),
             typeOnly: new Set([] as RelativePath[])
           },
@@ -2965,6 +3009,10 @@ describe('::gatherPackageBuildTargets', () => {
           imports: {
             aliasCounts: {
               'rootverse+private': {
+                count: 1,
+                prefixes: new Set([prefixNormalImport, prefixExternalImport])
+              },
+              'universe+private': {
                 count: 1,
                 prefixes: new Set([prefixNormalImport, prefixExternalImport])
               }
@@ -3001,7 +3049,8 @@ describe('::gatherPackageBuildTargets', () => {
           external: {
             normal: new Set([
               'packages/private/src/index.ts',
-              'packages/private/src/lib/library2.ts'
+              'packages/private/src/lib/library2.ts',
+              'packages/private/package.json'
             ] as RelativePath[]),
             typeOnly: new Set([] as RelativePath[])
           },
@@ -3014,6 +3063,10 @@ describe('::gatherPackageBuildTargets', () => {
           imports: {
             aliasCounts: {
               'rootverse+private': {
+                count: 1,
+                prefixes: new Set([prefixNormalImport, prefixExternalImport])
+              },
+              'universe+private': {
                 count: 1,
                 prefixes: new Set([prefixNormalImport, prefixExternalImport])
               }
@@ -3303,6 +3356,7 @@ describe('::gatherPackageBuildTargets', () => {
               'packages/webpack/webpack.config.ts',
               'packages/private/src/lib/library.ts',
               'packages/webpack/src/webpack-lib.ts',
+              'packages/webpack/package.json',
               'packages/private/src/lib/library2.ts',
               'packages/webpack/src/webpack-lib2.ts'
             ] as RelativePath[]),
@@ -3335,6 +3389,14 @@ describe('::gatherPackageBuildTargets', () => {
                   prefixTypeOnlyImport
                 ])
               },
+              'multiverse+webpack': {
+                count: 2,
+                prefixes: new Set([
+                  prefixNormalImport,
+                  prefixExternalImport,
+                  prefixTypeOnlyImport
+                ])
+              },
               'rootverse+private': {
                 count: 4,
                 prefixes: new Set([
@@ -3356,8 +3418,8 @@ describe('::gatherPackageBuildTargets', () => {
               typeverse: {
                 count: 3,
                 prefixes: new Set([
-                  prefixTypeOnlyImport,
                   prefixNormalImport,
+                  prefixTypeOnlyImport,
                   prefixExternalImport
                 ])
               },
@@ -3366,6 +3428,22 @@ describe('::gatherPackageBuildTargets', () => {
                 prefixes: new Set([
                   prefixNormalImport,
                   prefixInternalImport,
+                  prefixTypeOnlyImport
+                ])
+              },
+              'universe+private': {
+                count: 2,
+                prefixes: new Set([
+                  prefixNormalImport,
+                  prefixExternalImport,
+                  prefixTypeOnlyImport
+                ])
+              },
+              'universe+webpack': {
+                count: 2,
+                prefixes: new Set([
+                  prefixNormalImport,
+                  prefixExternalImport,
                   prefixTypeOnlyImport
                 ])
               }
@@ -3454,7 +3532,9 @@ describe('::gatherPackageBuildTargets', () => {
               'packages/private/src/index.ts',
               'packages/private/src/lib/library.ts',
               'packages/webpack/src/webpack-lib.ts',
-              'packages/private/src/lib/library2.ts'
+              'packages/webpack/package.json',
+              'packages/private/src/lib/library2.ts',
+              'packages/private/package.json'
             ] as RelativePath[]),
             typeOnly: new Set(['types/global.ts', 'types/others.ts'] as RelativePath[])
           },
@@ -3465,6 +3545,10 @@ describe('::gatherPackageBuildTargets', () => {
             aliasCounts: {
               'multiverse+private': {
                 count: 2,
+                prefixes: new Set([prefixNormalImport, prefixInternalImport])
+              },
+              'multiverse+webpack': {
+                count: 1,
                 prefixes: new Set([prefixNormalImport, prefixInternalImport])
               },
               'rootverse+private': {
@@ -3478,10 +3562,14 @@ describe('::gatherPackageBuildTargets', () => {
               typeverse: {
                 count: 2,
                 prefixes: new Set([
-                  prefixTypeOnlyImport,
                   prefixNormalImport,
+                  prefixTypeOnlyImport,
                   prefixExternalImport
                 ])
+              },
+              'universe+private': {
+                count: 1,
+                prefixes: new Set([prefixNormalImport, prefixExternalImport])
               }
             },
             dependencyCounts: {
@@ -3511,7 +3599,7 @@ describe('::gatherPackageBuildTargets', () => {
       } satisfies PackageBuildTargets);
     });
 
-    it('does not consider self-referential rootverse imports as "external"', async () => {
+    it('returns expected build targets for multiversal hybridrepo sub-root "private" package', async () => {
       expect.hasAssertions();
 
       try {
@@ -3529,7 +3617,7 @@ describe('::gatherPackageBuildTargets', () => {
         ).resolves.toStrictEqual({
           targets: {
             external: {
-              normal: new Set([] as RelativePath[]),
+              normal: new Set(['packages/private/package.json'] as RelativePath[]),
               typeOnly: new Set(['types/global.ts', 'types/others.ts'] as RelativePath[])
             },
             internal: new Set([
@@ -3556,6 +3644,10 @@ describe('::gatherPackageBuildTargets', () => {
                     prefixInternalImport,
                     prefixExternalImport
                   ])
+                },
+                'universe+private': {
+                  count: 1,
+                  prefixes: new Set([prefixNormalImport, prefixInternalImport])
                 }
               },
               dependencyCounts: {
@@ -3580,7 +3672,7 @@ describe('::gatherPackageBuildTargets', () => {
       }
     });
 
-    it('does not consider self-referential rootverse imports as "external" even when the package id and package name diverge', async () => {
+    it('returns expected build targets for multiversal hybridrepo sub-root "package-one" package (where package name differs from its id)', async () => {
       expect.hasAssertions();
 
       await expect(
@@ -3593,7 +3685,7 @@ describe('::gatherPackageBuildTargets', () => {
       ).resolves.toStrictEqual({
         targets: {
           external: {
-            normal: new Set([] as RelativePath[]),
+            normal: new Set(['packages/pkg-1/package.json'] as RelativePath[]),
             typeOnly: new Set([] as RelativePath[])
           },
           internal: new Set([
@@ -3605,6 +3697,10 @@ describe('::gatherPackageBuildTargets', () => {
           imports: {
             aliasCounts: {
               'rootverse+pkg-1': {
+                count: 1,
+                prefixes: new Set([prefixNormalImport, prefixInternalImport])
+              },
+              'universe+pkg-1': {
                 count: 1,
                 prefixes: new Set([prefixNormalImport, prefixInternalImport])
               }
@@ -3708,7 +3804,8 @@ describe('::gatherPackageBuildTargets', () => {
           external: {
             normal: new Set([
               'packages/private/src/index.ts',
-              'packages/private/src/lib/library2.ts'
+              'packages/private/src/lib/library2.ts',
+              'packages/private/package.json'
             ] as RelativePath[]),
             typeOnly: new Set([] as RelativePath[])
           },
@@ -3721,6 +3818,10 @@ describe('::gatherPackageBuildTargets', () => {
           imports: {
             aliasCounts: {
               'rootverse+private': {
+                count: 1,
+                prefixes: new Set([prefixNormalImport, prefixExternalImport])
+              },
+              'universe+private': {
                 count: 1,
                 prefixes: new Set([prefixNormalImport, prefixExternalImport])
               }
@@ -3757,7 +3858,8 @@ describe('::gatherPackageBuildTargets', () => {
           external: {
             normal: new Set([
               'packages/private/src/index.ts',
-              'packages/private/src/lib/library2.ts'
+              'packages/private/src/lib/library2.ts',
+              'packages/private/package.json'
             ] as RelativePath[]),
             typeOnly: new Set([] as RelativePath[])
           },
@@ -3770,6 +3872,10 @@ describe('::gatherPackageBuildTargets', () => {
           imports: {
             aliasCounts: {
               'rootverse+private': {
+                count: 1,
+                prefixes: new Set([prefixNormalImport, prefixExternalImport])
+              },
+              'universe+private': {
                 count: 1,
                 prefixes: new Set([prefixNormalImport, prefixExternalImport])
               }
