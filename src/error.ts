@@ -298,6 +298,9 @@ export const ErrorMessage = {
   DangerousRenovationRequiresForce(taskName: string) {
     return `renovation task "${taskName}" is DANGEROUS and therefore must be invoked with --force`;
   },
+  ActionAttemptedOnPrivatePackage(actionNoun: string) {
+    return `a ${actionNoun} was attempted on a package marked "private" in its package.json file; remove the "private" field or do not include this package in your release attempt`;
+  },
   ActionAttemptedWithADirtyRepo(actionNoun: string) {
     return `a ${actionNoun} was attempted but the working tree is in an unclean state; please commit or stash before trying again`;
   },

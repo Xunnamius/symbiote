@@ -887,9 +887,15 @@ const protoPrereleaseTasks: ProtoPrereleaseTask[][] = [
 
         const {
           cwdPackage: {
-            json: { name: cwdPackageName }
+            json: { name: cwdPackageName, private: isPackagePrivate }
           }
         } = projectMetadata;
+
+        // * Check if package is private
+
+        if (isPackagePrivate) {
+          problems.push(ErrorMessage.ActionAttemptedOnPrivatePackage('release'));
+        }
 
         hardAssert(cwdPackageName, ErrorMessage.GuruMeditation());
 
