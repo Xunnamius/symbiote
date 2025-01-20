@@ -1,4 +1,5 @@
 import { type Jsonifiable } from 'type-fest';
+import semver from 'semver';
 
 import { LogTag } from 'multiverse+cli-utils:logging.ts';
 
@@ -374,7 +375,9 @@ export function generateSubRootXPackageJson(
   );
 
   return {
-    ...(isHybridrepo ? { private: true } : {}),
+    ...(isHybridrepo && semver.lte(incomingPackageJson.version, '1.0.0')
+      ? { private: true }
+      : {}),
     ...incomingBaseJson,
     scripts: {
       ...(isHybridrepo
