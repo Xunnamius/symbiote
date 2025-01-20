@@ -4,7 +4,7 @@ import {
 } from 'multiverse+project-utils:alias.ts';
 
 import { isRootPackage } from 'multiverse+project-utils:analyze.ts';
-import { Tsconfig } from 'multiverse+project-utils:fs.ts';
+import { directoryPackagesProjectBase, Tsconfig } from 'multiverse+project-utils:fs.ts';
 
 import {
   generatePerPackageAssets,
@@ -64,8 +64,8 @@ ${makeGeneratedAliasesWarningComment(4)}
     "types/**/*",
     "src/**/*",
     "test/**/*",
-    "packages/*/src/**/*",
-    "packages/*/test/**/*"
+    "${directoryPackagesProjectBase}/*/src/**/*",
+    "${directoryPackagesProjectBase}/*/test/**/*"
   ],
   "exclude": [
     "**/dist/**/*",
@@ -116,8 +116,8 @@ ${makeGeneratedAliasesWarningComment(4)}
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
+    "${directoryPackagesProjectBase}/**/*",
+    "${directoryPackagesProjectBase}/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -170,8 +170,8 @@ ${makeGeneratedAliasesWarningComment(4)}
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
+    "${directoryPackagesProjectBase}/**/*",
+    "${directoryPackagesProjectBase}/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"
@@ -233,8 +233,8 @@ ${makeGeneratedAliasesWarningComment(4)}
     "**/dist/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
-    "packages/**/*",
-    "packages/**/.*",
+    "${directoryPackagesProjectBase}/**/*",
+    "${directoryPackagesProjectBase}/**/.*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
     "**/ignore.*"

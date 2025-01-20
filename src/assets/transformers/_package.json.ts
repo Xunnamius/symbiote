@@ -18,6 +18,7 @@ import { generatePackageJsonEngineMaintainedNodeVersions } from 'multiverse+proj
 import { ProjectError } from 'multiverse+project-utils:error.ts';
 
 import {
+  directoryPackagesProjectBase,
   packageJsonConfigPackageBase,
   toRelativePath,
   type AbsolutePath,
@@ -271,7 +272,10 @@ export function generateNonHybridMonorepoProjectXPackageJson(
     devDependencies: incomingPackageJson.devDependencies ?? {
       '@-xun/symbiote': `^${symbioteVersion}`
     },
-    workspaces: incomingPackageJson.workspaces ?? ['packages/*', '!packages/*.ignore*'],
+    workspaces: incomingPackageJson.workspaces ?? [
+      `${directoryPackagesProjectBase}/*`,
+      `!${directoryPackagesProjectBase}/*.ignore*`
+    ],
     ...incomingBaseJson,
     name: incomingPackageJson.name.endsWith('-monorepo')
       ? incomingPackageJson.name

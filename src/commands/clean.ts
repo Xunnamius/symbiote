@@ -12,7 +12,7 @@ import {
 } from 'multiverse+cli-utils:logging.ts';
 
 import { scriptBasename } from 'multiverse+cli-utils:util.ts';
-import { toPath } from 'multiverse+project-utils:fs.ts';
+import { directoryPackagesProjectBase, toPath } from 'multiverse+project-utils:fs.ts';
 
 import {
   DefaultGlobalScope,
@@ -44,7 +44,7 @@ export const defaultCleanExcludedPaths: string[] = [
   String.raw`(^|/)\.vercel/`,
   String.raw`(^|/)\.husky/`,
   String.raw`(^|/)next-env\.d\.ts$`,
-  String.raw`(^|/)packages/[^/]*\.ignore/`,
+  String.raw`(^|/)${directoryPackagesProjectBase}/[^/]*\.ignore/`,
   '(^|/)node_modules/',
   '(^|/)fixtures/',
   String.raw`(^|/)\.wiki/`
@@ -127,9 +127,7 @@ The default value for --exclude-paths includes the following regular expressions
       );
 
       if (scope === DefaultGlobalScope.ThisPackage) {
-        // TODO: perhaps replace this and other hardcoded "packages/" paths
-        // TODO: with workspace roots?
-        excludeRegExps.push(/^packages\//iu);
+        excludeRegExps.push(new RegExp(`^${directoryPackagesProjectBase}/`, 'iu'));
       }
 
       debug('excludePaths (final): %O', excludePaths);

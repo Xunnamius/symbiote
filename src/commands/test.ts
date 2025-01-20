@@ -25,6 +25,7 @@ import {
 } from 'multiverse+project-utils:analyze.ts';
 
 import {
+  directoryPackagesProjectBase,
   directoryTestPackageBase,
   jestConfigProjectBase,
   toPath,
@@ -457,8 +458,9 @@ Provide --skip-slow-tests (or -x) to set the SYMBIOTE_TEST_JEST_SKIP_SLOW_TESTS 
 
         if (scope === TesterScope.Unlimited) {
           if (collectCoverage) {
-            // TODO: do something about these hardcoded workspace paths...
-            npxJestArguments.push('--collectCoverageFrom=packages/*/src/**/*.ts?(x)');
+            npxJestArguments.push(
+              `--collectCoverageFrom=${directoryPackagesProjectBase}/*/src/**/*.ts?(x)`
+            );
           }
         } else {
           const {
@@ -503,8 +505,7 @@ Provide --skip-slow-tests (or -x) to set the SYMBIOTE_TEST_JEST_SKIP_SLOW_TESTS 
             const buildTargetPackage = allPackagesExceptCwd.find((package_) => {
               return 'relativeRoot' in package_
                 ? buildTargetPath.startsWith(package_.relativeRoot)
-                : // TODO: do something about these hardcoded workspace paths...
-                  !buildTargetPath.startsWith('packages/');
+                : !buildTargetPath.startsWith(`${directoryPackagesProjectBase}/`);
             });
 
             if (buildTargetPackage) {
