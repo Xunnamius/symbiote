@@ -171,7 +171,10 @@ Well-ordered topological execution is supported by a dependency graph derived fr
       debug('parallel: %O', parallel);
       debug('describe: %O', describe);
 
-      const topology = sortPackagesTopologically(projectMetadata);
+      const topology = sortPackagesTopologically(projectMetadata, {
+        skipPrivateDependencies: runScript === TopologyScript.Release
+      });
+
       debug('topology: %O', topology);
 
       let packageCounter = 1;
