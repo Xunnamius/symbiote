@@ -11,6 +11,7 @@ import { cache, CacheScope } from 'rootverse+project-utils:src/cache.ts';
 
 import {
   deriveVirtualGitignoreLines,
+  directoryPackagesProjectBase,
   toPath,
   toRelativePath,
   type AbsolutePath,
@@ -133,7 +134,7 @@ function gatherPackageFiles_(
   debug('otherGlob: %O', otherGlob);
 
   const packagesIgnore =
-    '/' + toRelativePath(projectRoot, toPath(packageRoot, 'packages'));
+    '/' + toRelativePath(projectRoot, toPath(packageRoot, directoryPackagesProjectBase));
 
   debug('packagesIgnore: %O', packagesIgnore);
 

@@ -14,8 +14,10 @@ import {
 import { ErrorMessage, ProjectError } from 'rootverse+project-utils:src/error.ts';
 
 import {
+  directoryPackagesProjectBase,
   directorySrcPackageBase,
   directoryTestPackageBase,
+  directoryTypesProjectBase,
   toPath,
   toRelativePath,
   type RelativePath
@@ -135,8 +137,12 @@ export type RawAlias = {
   group: WellKnownImportAlias;
   /**
    * A regular expression derived from `alias` that can be matched against
-   * specifier strings. Any RegExp control characters present in `alias` (e.g.
-   * "+", "*", "?") will be escaped.
+   * specifier strings. If this alias's `suffix` is `"open"`, the returned
+   * expression will include a single matching group containing the full
+   * specifier path without modification.
+   *
+   * Any RegExp control characters present in `alias` (e.g. "+", "*", "?") will
+   * be escaped.
    *
    * @see {@link rawAliasToRegExp}
    */
@@ -298,58 +304,22 @@ export function makeRawAliasMapping(
 export function generateRawAliasMap(
   projectMetadata: GenericProjectMetadata
 ): RawAliasMapping[] {
-  // TODO: need to take into account that projects with assets being imported
-  // TODO: via JS need their own aliases (assetverse) (perhaps this is a concern
-  // TODO: best handled at the symbiote project init/renovate level?)
-
-  // * Universe mappings only support root-level aliases (i.e. without
-  // * uriSchemeDelimiter)
-  const universeAliases: RawAliasMapping[] = [
-    makeRawAliasMapping(
-      {
-        alias: WellKnownImportAlias.Universe,
-        group: WellKnownImportAlias.Universe,
-        packageId: undefined
-      },
-      { path: toRelativePath(directorySrcPackageBase) }
-    ),
-    // ! Order matters here. Hence, less-specific goes ahead of more-specific.
-    makeRawAliasMapping(
-      {
-        alias: WellKnownImportAlias.Universe,
-        suffix: 'exact',
-        group: WellKnownImportAlias.Universe,
-        packageId: undefined
-      },
-      {
-        path: toRelativePath(toPath(directorySrcPackageBase, 'index')),
-        suffix: 'none',
-        extensionless: false
-      }
-    )
-  ];
+  // * Universe mappings support both root- and package- level, open and exact
+  // * aliases
+  const universeAliases: RawAliasMapping[] = [];
 
   // * Multiverse mappings only support package-level aliases (i.e. with
-  // * uriSchemeDelimiter)
+  // * uriSchemeSubDelimiter), both open and exact
   const multiverseAliases: RawAliasMapping[] = [];
 
-  // * Testverse mappings support both root- and package- level aliases
+  // * Testverse mappings support both root- and package- level open aliases
   const testverseAliases: RawAliasMapping[] = [];
 
-  // * Typeverse mappings only support root-level aliases (i.e. without
-  // * uriSchemeDelimiter)
-  const typeverseAliases: RawAliasMapping[] = [
-    makeRawAliasMapping(
-      {
-        alias: WellKnownImportAlias.Typeverse,
-        group: WellKnownImportAlias.Typeverse,
-        packageId: undefined
-      },
-      { path: toRelativePath('types') }
-    )
-  ];
+  // * Typeverse mappings only support root-level open aliases (i.e. without
+  // * uriSchemeSubDelimiter)
+  const typeverseAliases: RawAliasMapping[] = [];
 
-  // * Rootverse mappings support both root- and package- level aliases
+  // * Rootverse mappings support both root- and package- level open aliases
   const rootverseAliases: RawAliasMapping[] = [];
 
   const collator = new Intl.Collator(undefined, { numeric: true });
@@ -360,8 +330,21 @@ export function generateRawAliasMap(
     }
   );
 
+  // ! Order matters here due to string matching. Hence, non-root open suffix
+  // ! (below, in conditional) always goes first.
   if (subRootPackagesSorted) {
     subRootPackagesSorted.forEach(function ({ id, relativeRoot }) {
+      universeAliases.push(
+        makeRawAliasMapping(
+          {
+            alias: `${WellKnownImportAlias.Universe}${uriSchemeSubDelimiterUnescaped}${id}`,
+            group: WellKnownImportAlias.Universe,
+            packageId: id
+          },
+          { path: toPath(relativeRoot, directorySrcPackageBase) }
+        )
+      );
+
       multiverseAliases.push(
         makeRawAliasMapping(
           {
@@ -396,9 +379,25 @@ export function generateRawAliasMap(
       );
     });
 
-    // ! Order matters here due to string matching. Hence, open-suffix (above)
-    // ! goes ahead of these exact-suffix.
+    // ! Order matters here due to string matching. Hence, open suffix (above)
+    // ! goes ahead of non-root exact suffix (below, in loop).
     subRootPackagesSorted.forEach(function ({ id, relativeRoot }) {
+      universeAliases.push(
+        makeRawAliasMapping(
+          {
+            alias: `${WellKnownImportAlias.Universe}${uriSchemeSubDelimiterUnescaped}${id}`,
+            suffix: 'exact',
+            group: WellKnownImportAlias.Universe,
+            packageId: id
+          },
+          {
+            path: toPath(relativeRoot, directorySrcPackageBase, 'index'),
+            suffix: 'none',
+            extensionless: false
+          }
+        )
+      );
+
       multiverseAliases.push(
         makeRawAliasMapping(
           {
@@ -417,6 +416,32 @@ export function generateRawAliasMap(
     });
   }
 
+  // ! Order matters here due to string matching. Hence, open suffix (above) and
+  // ! non-root exact suffix (also above) goes ahead of root open suffix
+  // ! (below, always penultimate).
+
+  rootverseAliases.push(
+    makeRawAliasMapping(
+      {
+        alias: WellKnownImportAlias.Rootverse,
+        group: WellKnownImportAlias.Rootverse,
+        packageId: undefined
+      },
+      { path: toRelativePath('') }
+    )
+  );
+
+  universeAliases.push(
+    makeRawAliasMapping(
+      {
+        alias: WellKnownImportAlias.Universe,
+        group: WellKnownImportAlias.Universe,
+        packageId: undefined
+      },
+      { path: toRelativePath(directorySrcPackageBase) }
+    )
+  );
+
   testverseAliases.push(
     makeRawAliasMapping(
       {
@@ -428,16 +453,33 @@ export function generateRawAliasMap(
     )
   );
 
-  // ! Order matters here due to string matching. Hence, more specific
-  // ! open-suffix (above) goes ahead of less specific open-suffix.
-  rootverseAliases.push(
+  typeverseAliases.push(
     makeRawAliasMapping(
       {
-        alias: 'rootverse',
-        group: WellKnownImportAlias.Rootverse,
+        alias: WellKnownImportAlias.Typeverse,
+        group: WellKnownImportAlias.Typeverse,
         packageId: undefined
       },
-      { path: toRelativePath('') }
+      { path: toRelativePath(directoryTypesProjectBase) }
+    )
+  );
+
+  // ! Order matters here due to string matching. Hence, everything goes ahead
+  // ! of root exact suffix (below, always last).
+
+  universeAliases.push(
+    makeRawAliasMapping(
+      {
+        alias: WellKnownImportAlias.Universe,
+        suffix: 'exact',
+        group: WellKnownImportAlias.Universe,
+        packageId: undefined
+      },
+      {
+        path: toRelativePath(toPath(directorySrcPackageBase, 'index')),
+        suffix: 'none',
+        extensionless: false
+      }
     )
   );
 
@@ -676,21 +718,47 @@ export function ensureRawSpecifierOk(
   rawAliasMappings: Arrayable<RawAliasMapping>,
   specifier: string,
   {
+    allowMultiversalImports,
+    allowForeignUniversalImports,
+    allowTestversalImports,
+    allowRootverseNodeModules,
     packageId,
-    errorIfTestverseEncountered = true,
     extensionToAppend = '.ts',
-    path
+    containingFilePath
   }: {
     /**
-     * Since the testverse is never included in distributables, it should not
-     * appear as an import when we're building distributables (the default).
-     * However, this check can be disabled by passing
-     * `errorIfTestverseEncountered: false` if testverse specifiers are
-     * expected.
+     * Unless `true`, if a multiverse import not belonging to `packageId` is
+     * encountered, this function will throw.
      *
-     * @default true
+     * Note that multiversal testverse and typeverse imports, while technically
+     * multiversal imports, are _never_ governed by this property.
      */
-    errorIfTestverseEncountered?: boolean;
+    allowMultiversalImports: boolean;
+    /**
+     * Unless `true`, if `packageId` is defined and a universe import not
+     * belonging to `packageId` is encountered, this function will throw.
+     *
+     * Note that foreign universal imports are a type of multiversal import and
+     * as such are additionally governed by `allowMultiversalImports`.
+     */
+    allowForeignUniversalImports: boolean;
+    /**
+     * Unless `true`, if a testverse import is encountered, this function will
+     * throw.
+     *
+     * Note that multiversal testverse imports, while technically a type of
+     * multiversal import, are _never_ governed by `allowMultiversalImports`.
+     */
+    allowTestversalImports: boolean;
+    /**
+     * Unless `true`, if a rootverse import precariously referencing
+     * node_modules is encountered, this function will throw.
+     *
+     * Note that multiversal rootverse imports of node_modules are a type of
+     * multiversal import and as such are additionally governed by
+     * `allowMultiversalImports`.
+     */
+    allowRootverseNodeModules: boolean;
     /**
      * Since it is ill-advised to make universe imports from within a sub-root,
      * such imports should not be seen when we're building distributables for a
@@ -715,21 +783,23 @@ export function ensureRawSpecifierOk(
      */
     extensionToAppend?: string;
     /**
-     * A string that, if given, will be included in any exceptions thrown by
-     * this function.
+     * A string representing the file containing the alias that, if given, will
+     * be included in any exceptions thrown by this function.
      */
-    path?: string;
-  } = {}
+    containingFilePath?: string;
+  }
 ) {
   // ? Fail if it is empty
   if (!specifier) {
-    throw new ProjectError(ErrorMessage.SpecifierNotOkEmpty(specifier, path));
+    throw new ProjectError(
+      ErrorMessage.SpecifierNotOkEmpty(specifier, containingFilePath)
+    );
   }
 
   // ? Fail if it begins with ./ or ../ or / or is . or ..
   if (specifier.startsWith('/') || isLocalLookingRegExp.test(specifier)) {
     throw new ProjectError(
-      ErrorMessage.SpecifierNotOkRelativeNotRootverse(specifier, path)
+      ErrorMessage.SpecifierNotOkRelative(specifier, containingFilePath)
     );
   }
 
@@ -741,50 +811,199 @@ export function ensureRawSpecifierOk(
     return;
   }
 
-  // * We used to fail if packageId is defined and universe encountered, but
-  // * this decision was reconsidered since universe imports can be pulled in
-  // * from rootverse imports
+  const specifierPathComponent =
+    rawAlias.suffix === 'open' ? specifier.match(rawAlias.regExp)?.at(-1) : undefined;
 
-  // ? Fail if errorIfTestverseEncountered is true and testverse encountered
-  if (errorIfTestverseEncountered && rawAlias.group === WellKnownImportAlias.Testverse) {
+  // ? Fail if the path component begins with ./ or ../ or / or is . or ..
+  if (
+    specifierPathComponent &&
+    (specifierPathComponent.startsWith('/') ||
+      isLocalLookingRegExp.test(specifierPathComponent))
+  ) {
+    throw new ProjectError(
+      ErrorMessage.SpecifierNotOkRelative(specifier, containingFilePath)
+    );
+  }
+
+  const isForeign = packageId !== rawAlias.packageId;
+
+  const isMultiversal =
+    rawAlias.group === WellKnownImportAlias.Multiverse ||
+    (isForeign &&
+      (rawAlias.group === WellKnownImportAlias.Rootverse ||
+        rawAlias.group === WellKnownImportAlias.Universe));
+
+  const isTestversal =
+    rawAlias.group === WellKnownImportAlias.Testverse ||
+    (rawAlias.group === WellKnownImportAlias.Rootverse &&
+      specifierPathComponent?.startsWith(`${directoryTestPackageBase}/`));
+
+  const isTypeversal =
+    rawAlias.group === WellKnownImportAlias.Typeverse ||
+    (rawAlias.group === WellKnownImportAlias.Rootverse &&
+      rawAlias.packageId === undefined &&
+      specifierPathComponent?.startsWith(`${directoryTypesProjectBase}/`));
+
+  // ? Fail if allowForeignUniversalImports is false, universe encountered, and
+  // ? packageId does not match the alias's packageId
+  if (
+    !allowForeignUniversalImports &&
+    isForeign &&
+    rawAlias.group === WellKnownImportAlias.Universe
+  ) {
     throw new ProjectError(
       ErrorMessage.SpecifierNotOkVerseNotAllowed(
-        WellKnownImportAlias.Testverse,
+        `foreign ${rawAlias.group}` +
+          (rawAlias.packageId ? ` (${rawAlias.packageId})` : ''),
         specifier,
-        path
+        containingFilePath
       )
     );
   }
 
-  // ? Fail if the alias suffix is "open" & the specifier is missing an extension
-  if (rawAlias.suffix === 'open') {
-    const specifierPathComponent = specifier.match(rawAlias.regExp)?.at(-1);
-    if (specifierPathComponent && !extname(specifierPathComponent)) {
-      throw new ProjectError(
-        ErrorMessage.SpecifierNotOkMissingExtension(specifier, path)
-      );
-    }
+  // ? Fail if allowTestversalImports is false and testverse encountered
+  if (!allowTestversalImports && isTestversal) {
+    throw new ProjectError(
+      ErrorMessage.SpecifierNotOkVerseNotAllowed(
+        rawAlias.group === WellKnownImportAlias.Testverse
+          ? rawAlias.group
+          : `testversal ${rawAlias.group}`,
+        specifier,
+        containingFilePath
+      )
+    );
+  }
+
+  // ? Fail if multiverse or rootverse import used self-referentially
+  // ! This check should happen before the more generic isMultiversal check
+  if (isMultiversal && !isForeign) {
+    throw new ProjectError(
+      ErrorMessage.SpecifierNotOkSelfReferential(specifier, containingFilePath)
+    );
+  }
+
+  // ? Fail if allowMultiversalImports is false and multiversal import
+  // ? encountered
+  if (!allowMultiversalImports && isMultiversal && !isTypeversal && !isTestversal) {
+    throw new ProjectError(
+      ErrorMessage.SpecifierNotOkVerseNotAllowed(
+        rawAlias.group === WellKnownImportAlias.Multiverse
+          ? rawAlias.group
+          : `multiversal ${rawAlias.group}`,
+        specifier,
+        containingFilePath
+      )
+    );
+  }
+
+  // ? Fail if the alias suffix is "open" & the specifier is missing an
+  // ? extension
+  if (
+    rawAlias.suffix === 'open' &&
+    specifierPathComponent &&
+    !extname(specifierPathComponent)
+  ) {
+    throw new ProjectError(
+      ErrorMessage.SpecifierNotOkMissingExtension(specifier, containingFilePath)
+    );
   }
 
   // ? Fail if the specifier === "index.extensionToAppend"
   if (specifier.endsWith(`${uriSchemeDelimiterUnescaped}index${extensionToAppend}`)) {
-    throw new ProjectError(ErrorMessage.SpecifierNotOkUnnecessaryIndex(specifier, path));
+    throw new ProjectError(
+      ErrorMessage.SpecifierNotOkUnnecessaryIndex(specifier, containingFilePath)
+    );
   }
 
-  // ? Fail if packageId is defined and multiverse import used self-referentially
-  if (
-    packageId !== undefined &&
-    rawAlias.group === WellKnownImportAlias.Multiverse &&
-    rawAlias.packageId === packageId
-  ) {
-    throw new ProjectError(ErrorMessage.SpecifierNotOkSelfReferential(specifier, path));
+  // ? Fail if rootverse import used when another verse would be more optimal
+  if (specifierPathComponent && rawAlias.group === WellKnownImportAlias.Rootverse) {
+    const pathSplit = specifierPathComponent.split('/').slice(1).join('/');
+    const errorSuffix =
+      (rawAlias.packageId !== undefined
+        ? `${uriSchemeSubDelimiterUnescaped}${rawAlias.packageId}`
+        : '') + (pathSplit.length ? `${uriSchemeDelimiterUnescaped}${pathSplit}` : '');
+
+    if (specifierPathComponent.startsWith(`${directorySrcPackageBase}/`)) {
+      throw new ProjectError(
+        ErrorMessage.SpecifierNotOkSuboptimal(
+          specifier,
+          (isForeign ? WellKnownImportAlias.Multiverse : WellKnownImportAlias.Universe) +
+            errorSuffix,
+          containingFilePath
+        )
+      );
+    } else if (isTestversal) {
+      throw new ProjectError(
+        ErrorMessage.SpecifierNotOkSuboptimal(
+          specifier,
+          WellKnownImportAlias.Testverse + errorSuffix,
+          containingFilePath
+        )
+      );
+    } else if (isTypeversal) {
+      throw new ProjectError(
+        ErrorMessage.SpecifierNotOkSuboptimal(
+          specifier,
+          WellKnownImportAlias.Typeverse + errorSuffix,
+          containingFilePath
+        )
+      );
+    } else if (
+      rawAlias.packageId === undefined &&
+      specifierPathComponent.startsWith(`${directoryPackagesProjectBase}/`)
+    ) {
+      // ? Shadows the variable of the same name from the higher context
+      const pathSplit = specifierPathComponent
+        .split(`${directoryPackagesProjectBase}/`)
+        .at(-1)!
+        .split('/');
+
+      const derivedPackageId = pathSplit.at(0)!;
+      const verseHint = pathSplit.at(1);
+
+      // * By this point, we know the import isn't multiversal IF multiversal
+      // * is not allowed
+      const verse =
+        verseHint === directorySrcPackageBase
+          ? derivedPackageId === packageId
+            ? WellKnownImportAlias.Universe
+            : WellKnownImportAlias.Multiverse
+          : verseHint === directoryTestPackageBase
+            ? WellKnownImportAlias.Testverse
+            : WellKnownImportAlias.Rootverse;
+
+      throw new ProjectError(
+        ErrorMessage.SpecifierNotOkSuboptimal(
+          specifier,
+          (verse === WellKnownImportAlias.Multiverse && !allowMultiversalImports) ||
+            (verse === WellKnownImportAlias.Testverse && !allowTestversalImports)
+            ? undefined
+            : `${verse}${uriSchemeSubDelimiterUnescaped}${
+                derivedPackageId
+              }${uriSchemeDelimiterUnescaped}${pathSplit
+                .slice(verse === WellKnownImportAlias.Rootverse ? 1 : 2)
+                .join('/')}`,
+          containingFilePath
+        )
+      );
+    } else if (
+      !allowRootverseNodeModules &&
+      specifierPathComponent.startsWith('node_modules/')
+    ) {
+      throw new ProjectError(
+        ErrorMessage.SpecifierNotOkSuboptimal(specifier, undefined, containingFilePath)
+      );
+    }
   }
 }
 
 /**
  * Takes a {@link RawAlias} partial and returns a regular expression that can be
- * matched against specifier strings. Any RegExp control characters in `alias`
- * will be escaped.
+ * matched against specifier strings. If `suffix` is `"open"`, the returned
+ * expression will include a single matching group containing the full specifier
+ * path without modification.
+ *
+ * Any RegExp control characters in `alias` will be escaped.
  */
 export function rawAliasToRegExp({
   prefix,

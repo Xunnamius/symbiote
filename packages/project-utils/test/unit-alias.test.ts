@@ -238,6 +238,96 @@ const mockHybridrepoMappings = [
   ],
   [
     {
+      alias: 'universe+pkg-1',
+      prefix: 'exact',
+      suffix: 'open',
+      group: WellKnownImportAlias.Universe,
+      packageId: 'pkg-1'
+    },
+    {
+      path: 'path/to/packages/pkg-1/src' as RelativePath,
+      prefix: 'root',
+      suffix: 'open',
+      extensionless: true
+    }
+  ],
+  [
+    {
+      alias: 'universe+pkg-2',
+      prefix: 'exact',
+      suffix: 'open',
+      group: WellKnownImportAlias.Universe,
+      packageId: 'pkg-2'
+    },
+    {
+      path: 'path/to/packages/pkg-2/src' as RelativePath,
+      prefix: 'root',
+      suffix: 'open',
+      extensionless: true
+    }
+  ],
+  [
+    {
+      alias: 'universe+pkg-10',
+      prefix: 'exact',
+      suffix: 'open',
+      group: WellKnownImportAlias.Universe,
+      packageId: 'pkg-10'
+    },
+    {
+      path: 'path/to/packages/pkg-10/src' as RelativePath,
+      prefix: 'root',
+      suffix: 'open',
+      extensionless: true
+    }
+  ],
+  [
+    {
+      alias: 'universe+pkg-1',
+      prefix: 'exact',
+      suffix: 'exact',
+      group: WellKnownImportAlias.Universe,
+      packageId: 'pkg-1'
+    },
+    {
+      path: 'path/to/packages/pkg-1/src/index' as RelativePath,
+      prefix: 'root',
+      suffix: 'none',
+      extensionless: false
+    }
+  ],
+  [
+    {
+      alias: 'universe+pkg-2',
+      prefix: 'exact',
+      suffix: 'exact',
+      group: WellKnownImportAlias.Universe,
+      packageId: 'pkg-2'
+    },
+    {
+      path: 'path/to/packages/pkg-2/src/index' as RelativePath,
+      prefix: 'root',
+      suffix: 'none',
+      extensionless: false
+    }
+  ],
+  [
+    {
+      alias: 'universe+pkg-10',
+      prefix: 'exact',
+      suffix: 'exact',
+      group: WellKnownImportAlias.Universe,
+      packageId: 'pkg-10'
+    },
+    {
+      path: 'path/to/packages/pkg-10/src/index' as RelativePath,
+      prefix: 'root',
+      suffix: 'none',
+      extensionless: false
+    }
+  ],
+  [
+    {
       alias: 'universe',
       prefix: 'exact',
       suffix: 'open',
@@ -631,7 +721,7 @@ describe('::generateRawAliasMap', () => {
     ).toStrictEqual(mockPolyrepoMappings);
   });
 
-  it('translates monorepo metadata into a raw alias map ordered by reverse-specificity', async () => {
+  it('translates monorepo metadata into a raw alias map ordered by reverse semi-specificity', async () => {
     expect.hasAssertions();
 
     expect(
@@ -908,6 +998,141 @@ describe('::generateRawAliasMap', () => {
       ],
       [
         {
+          alias: 'universe+a',
+          prefix: 'exact',
+          suffix: 'open',
+          group: WellKnownImportAlias.Universe,
+          regExp: /^universe\+a:(.+)$/,
+          packageId: 'a'
+        },
+        { path: 'packages/a/src', prefix: 'root', suffix: 'open', extensionless: true }
+      ],
+      [
+        {
+          alias: 'universe+a1',
+          prefix: 'exact',
+          suffix: 'open',
+          group: WellKnownImportAlias.Universe,
+          regExp: /^universe\+a1:(.+)$/,
+          packageId: 'a1'
+        },
+        { path: 'packages/a1/src', prefix: 'root', suffix: 'open', extensionless: true }
+      ],
+      [
+        {
+          alias: 'universe+a2',
+          prefix: 'exact',
+          suffix: 'open',
+          group: WellKnownImportAlias.Universe,
+          regExp: /^universe\+a2:(.+)$/,
+          packageId: 'a2'
+        },
+        { path: 'packages/a2/src', prefix: 'root', suffix: 'open', extensionless: true }
+      ],
+      [
+        {
+          alias: 'universe+aa',
+          prefix: 'exact',
+          suffix: 'open',
+          group: WellKnownImportAlias.Universe,
+          regExp: /^universe\+aa:(.+)$/,
+          packageId: 'aa'
+        },
+        { path: 'packages/aa/src', prefix: 'root', suffix: 'open', extensionless: true }
+      ],
+      [
+        {
+          alias: 'universe+b2',
+          prefix: 'exact',
+          suffix: 'open',
+          group: WellKnownImportAlias.Universe,
+          regExp: /^universe\+b2:(.+)$/,
+          packageId: 'b2'
+        },
+        { path: 'packages/b2/src', prefix: 'root', suffix: 'open', extensionless: true }
+      ],
+      [
+        {
+          alias: 'universe+a',
+          prefix: 'exact',
+          suffix: 'exact',
+          group: WellKnownImportAlias.Universe,
+          regExp: /^universe\+a$/,
+          packageId: 'a'
+        },
+        {
+          path: 'packages/a/src/index',
+          prefix: 'root',
+          suffix: 'none',
+          extensionless: false
+        }
+      ],
+      [
+        {
+          alias: 'universe+a1',
+          prefix: 'exact',
+          suffix: 'exact',
+          group: WellKnownImportAlias.Universe,
+          regExp: /^universe\+a1$/,
+          packageId: 'a1'
+        },
+        {
+          path: 'packages/a1/src/index',
+          prefix: 'root',
+          suffix: 'none',
+          extensionless: false
+        }
+      ],
+      [
+        {
+          alias: 'universe+a2',
+          prefix: 'exact',
+          suffix: 'exact',
+          group: WellKnownImportAlias.Universe,
+          regExp: /^universe\+a2$/,
+          packageId: 'a2'
+        },
+        {
+          path: 'packages/a2/src/index',
+          prefix: 'root',
+          suffix: 'none',
+          extensionless: false
+        }
+      ],
+      [
+        {
+          alias: 'universe+aa',
+          prefix: 'exact',
+          suffix: 'exact',
+          group: WellKnownImportAlias.Universe,
+          regExp: /^universe\+aa$/,
+          packageId: 'aa'
+        },
+        {
+          path: 'packages/aa/src/index',
+          prefix: 'root',
+          suffix: 'none',
+          extensionless: false
+        }
+      ],
+      [
+        {
+          alias: 'universe+b2',
+          prefix: 'exact',
+          suffix: 'exact',
+          group: WellKnownImportAlias.Universe,
+          regExp: /^universe\+b2$/,
+          packageId: 'b2'
+        },
+        {
+          path: 'packages/b2/src/index',
+          prefix: 'root',
+          suffix: 'none',
+          extensionless: false
+        }
+      ],
+      [
+        {
           alias: 'universe',
           prefix: 'exact',
           suffix: 'open',
@@ -1024,6 +1249,12 @@ describe('::deriveAliasesForBabel', () => {
       '^rootverse\\+pkg\\x2d2:(.+)$': './path/to/packages/pkg-2/$1',
       '^rootverse\\+pkg\\x2d10:(.+)$': './path/to/packages/pkg-10/$1',
       '^rootverse:(.+)$': './$1',
+      '^universe\\+pkg\\x2d1:(.+)$': './path/to/packages/pkg-1/src/$1',
+      '^universe\\+pkg\\x2d2:(.+)$': './path/to/packages/pkg-2/src/$1',
+      '^universe\\+pkg\\x2d10:(.+)$': './path/to/packages/pkg-10/src/$1',
+      '^universe\\+pkg\\x2d1$': './path/to/packages/pkg-1/src/index.js',
+      '^universe\\+pkg\\x2d2$': './path/to/packages/pkg-2/src/index.js',
+      '^universe\\+pkg\\x2d10$': './path/to/packages/pkg-10/src/index.js',
       '^universe:(.+)$': './src/$1',
       '^universe$': './src/index.js',
       '^testverse\\+pkg\\x2d1:(.+)$': './path/to/packages/pkg-1/test/$1',
@@ -1051,6 +1282,12 @@ describe('::deriveAliasesForEslint', () => {
       ['rootverse+pkg-10:*', './path/to/packages/pkg-10/*'],
       // ! It's important aliases like this come AFTER more specific versions
       ['rootverse:*', './*'],
+      ['universe+pkg-1:*', './path/to/packages/pkg-1/src/*'],
+      ['universe+pkg-2:*', './path/to/packages/pkg-2/src/*'],
+      ['universe+pkg-10:*', './path/to/packages/pkg-10/src/*'],
+      ['universe+pkg-1', './path/to/packages/pkg-1/src/index.ts'],
+      ['universe+pkg-2', './path/to/packages/pkg-2/src/index.ts'],
+      ['universe+pkg-10', './path/to/packages/pkg-10/src/index.ts'],
       ['universe:*', './src/*'],
       // ! It's important aliases like this come AFTER the open-ended version
       ['universe', './src/index.ts'],
@@ -1081,8 +1318,14 @@ describe('::deriveAliasesForWebpack', () => {
       'rootverse+pkg-2:': `${mockProjectRoot}/path/to/packages/pkg-2/`,
       'rootverse+pkg-10:': `${mockProjectRoot}/path/to/packages/pkg-10/`,
       'rootverse:': `${mockProjectRoot}/`,
-      'universe:': `${mockProjectRoot}/src/`,
+      'universe+pkg-1:': `${mockProjectRoot}/path/to/packages/pkg-1/src/`,
+      'universe+pkg-2:': `${mockProjectRoot}/path/to/packages/pkg-2/src/`,
+      'universe+pkg-10:': `${mockProjectRoot}/path/to/packages/pkg-10/src/`,
+      'universe+pkg-1': `${mockProjectRoot}/path/to/packages/pkg-1/src/index.ts`,
+      'universe+pkg-2': `${mockProjectRoot}/path/to/packages/pkg-2/src/index.ts`,
+      'universe+pkg-10': `${mockProjectRoot}/path/to/packages/pkg-10/src/index.ts`,
       universe: `${mockProjectRoot}/src/index.ts`,
+      'universe:': `${mockProjectRoot}/src/`,
       'testverse+pkg-1:': `${mockProjectRoot}/path/to/packages/pkg-1/test/`,
       'testverse+pkg-2:': `${mockProjectRoot}/path/to/packages/pkg-2/test/`,
       'testverse+pkg-10:': `${mockProjectRoot}/path/to/packages/pkg-10/test/`,
@@ -1109,8 +1352,14 @@ describe('::deriveAliasesForNextJs', () => {
       'rootverse+pkg-2:': `${mockProjectRoot}/path/to/packages/pkg-2/`,
       'rootverse+pkg-10:': `${mockProjectRoot}/path/to/packages/pkg-10/`,
       'rootverse:': `${mockProjectRoot}/`,
-      'universe:': `${mockProjectRoot}/src/`,
+      'universe+pkg-1:': `${mockProjectRoot}/path/to/packages/pkg-1/src/`,
+      'universe+pkg-2:': `${mockProjectRoot}/path/to/packages/pkg-2/src/`,
+      'universe+pkg-10:': `${mockProjectRoot}/path/to/packages/pkg-10/src/`,
+      'universe+pkg-1': `${mockProjectRoot}/path/to/packages/pkg-1/src/index.ts`,
+      'universe+pkg-2': `${mockProjectRoot}/path/to/packages/pkg-2/src/index.ts`,
+      'universe+pkg-10': `${mockProjectRoot}/path/to/packages/pkg-10/src/index.ts`,
       universe: `${mockProjectRoot}/src/index.ts`,
+      'universe:': `${mockProjectRoot}/src/`,
       'testverse+pkg-1:': `${mockProjectRoot}/path/to/packages/pkg-1/test/`,
       'testverse+pkg-2:': `${mockProjectRoot}/path/to/packages/pkg-2/test/`,
       'testverse+pkg-10:': `${mockProjectRoot}/path/to/packages/pkg-10/test/`,
@@ -1135,8 +1384,14 @@ describe('::deriveAliasesForJest', () => {
       '^rootverse\\+pkg\\x2d2:(.+)$': '<rootDir>/path/to/packages/pkg-2/$1',
       '^rootverse\\+pkg\\x2d10:(.+)$': '<rootDir>/path/to/packages/pkg-10/$1',
       '^rootverse:(.+)$': '<rootDir>/$1',
-      '^universe:(.+)$': '<rootDir>/src/$1',
+      '^universe\\+pkg\\x2d1:(.+)$': '<rootDir>/path/to/packages/pkg-1/src/$1',
+      '^universe\\+pkg\\x2d2:(.+)$': '<rootDir>/path/to/packages/pkg-2/src/$1',
+      '^universe\\+pkg\\x2d10:(.+)$': '<rootDir>/path/to/packages/pkg-10/src/$1',
+      '^universe\\+pkg\\x2d1$': '<rootDir>/path/to/packages/pkg-1/src/index.ts',
+      '^universe\\+pkg\\x2d2$': '<rootDir>/path/to/packages/pkg-2/src/index.ts',
+      '^universe\\+pkg\\x2d10$': '<rootDir>/path/to/packages/pkg-10/src/index.ts',
       '^universe$': '<rootDir>/src/index.ts',
+      '^universe:(.+)$': '<rootDir>/src/$1',
       '^testverse\\+pkg\\x2d1:(.+)$': '<rootDir>/path/to/packages/pkg-1/test/$1',
       '^testverse\\+pkg\\x2d2:(.+)$': '<rootDir>/path/to/packages/pkg-2/test/$1',
       '^testverse\\+pkg\\x2d10:(.+)$': '<rootDir>/path/to/packages/pkg-10/test/$1',
@@ -1161,6 +1416,12 @@ describe('::deriveAliasesForTypeScript', () => {
       'rootverse+pkg-2:*': ['path/to/packages/pkg-2/*'],
       'rootverse+pkg-10:*': ['path/to/packages/pkg-10/*'],
       'rootverse:*': ['*'],
+      'universe+pkg-1:*': ['path/to/packages/pkg-1/src/*'],
+      'universe+pkg-2:*': ['path/to/packages/pkg-2/src/*'],
+      'universe+pkg-10:*': ['path/to/packages/pkg-10/src/*'],
+      'universe+pkg-1': ['path/to/packages/pkg-1/src/index.ts'],
+      'universe+pkg-2': ['path/to/packages/pkg-2/src/index.ts'],
+      'universe+pkg-10': ['path/to/packages/pkg-10/src/index.ts'],
       'universe:*': ['src/*'],
       universe: ['src/index.ts'],
       'testverse+pkg-1:*': ['path/to/packages/pkg-1/test/*'],
@@ -1465,29 +1726,45 @@ describe('::mapRawSpecifierToPath', () => {
 });
 
 describe('::ensureRawSpecifierOk', () => {
+  const defaultOptions: Parameters<typeof ensureRawSpecifierOk>[2] = {
+    allowForeignUniversalImports: true,
+    allowMultiversalImports: true,
+    allowRootverseNodeModules: true,
+    allowTestversalImports: true
+  };
+
   it('does not throw on valid specifiers', async () => {
     expect.hasAssertions();
 
     expect(() =>
-      ensureRawSpecifierOk(mockHybridrepoMappings, '@babel/core')
-    ).not.toThrow();
-
-    expect(() =>
-      ensureRawSpecifierOk(mockHybridrepoMappings, 'next-test-api-route-handler')
-    ).not.toThrow();
-
-    expect(() =>
-      ensureRawSpecifierOk(mockHybridrepoMappings, '@-xun/project-utils/resolver')
-    ).not.toThrow();
-
-    expect(() =>
-      ensureRawSpecifierOk(mockHybridrepoMappings, 'node:path')
+      ensureRawSpecifierOk(mockHybridrepoMappings, '@babel/core', defaultOptions)
     ).not.toThrow();
 
     expect(() =>
       ensureRawSpecifierOk(
         mockHybridrepoMappings,
-        'https://some-website.com/some/package'
+        'next-test-api-route-handler',
+        defaultOptions
+      )
+    ).not.toThrow();
+
+    expect(() =>
+      ensureRawSpecifierOk(
+        mockHybridrepoMappings,
+        '@-xun/project-utils/resolver',
+        defaultOptions
+      )
+    ).not.toThrow();
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'node:path', defaultOptions)
+    ).not.toThrow();
+
+    expect(() =>
+      ensureRawSpecifierOk(
+        mockHybridrepoMappings,
+        'https://some-website.com/some/package',
+        defaultOptions
       )
     ).not.toThrow();
   });
@@ -1513,134 +1790,126 @@ describe('::ensureRawSpecifierOk', () => {
       testSpecifier1
     )!;
 
-    expect(() => ensureRawSpecifierOk(typeverseMapping, testSpecifier1)).not.toThrow();
-    expect(() => ensureRawSpecifierOk(fakeMapping, testSpecifier1)).not.toThrow();
-    expect(() => ensureRawSpecifierOk(typeverseMapping, testSpecifier2)).not.toThrow();
+    expect(() =>
+      ensureRawSpecifierOk(typeverseMapping, testSpecifier1, defaultOptions)
+    ).not.toThrow();
+    expect(() =>
+      ensureRawSpecifierOk(fakeMapping, testSpecifier1, defaultOptions)
+    ).not.toThrow();
+    expect(() =>
+      ensureRawSpecifierOk(typeverseMapping, testSpecifier2, defaultOptions)
+    ).not.toThrow();
 
-    expect(() => ensureRawSpecifierOk(fakeMapping, testSpecifier2)).toThrow(
-      ErrorMessage.SpecifierNotOkMissingExtension(testSpecifier2)
-    );
+    expect(() =>
+      ensureRawSpecifierOk(fakeMapping, testSpecifier2, defaultOptions)
+    ).toThrow(ErrorMessage.SpecifierNotOkMissingExtension(testSpecifier2));
 
-    expect(() => ensureRawSpecifierOk(typeverseMapping, 'typeverse:global')).toThrow(
-      ErrorMessage.SpecifierNotOkMissingExtension('typeverse:global')
-    );
+    expect(() =>
+      ensureRawSpecifierOk(typeverseMapping, 'typeverse:global', defaultOptions)
+    ).toThrow(ErrorMessage.SpecifierNotOkMissingExtension('typeverse:global'));
   });
 
   it('throws if specifier is empty (with optional path info)', async () => {
     expect.hasAssertions();
 
-    expect(() => ensureRawSpecifierOk(mockHybridrepoMappings, '')).toThrow(
-      ErrorMessage.SpecifierNotOkEmpty('')
-    );
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, '', defaultOptions)
+    ).toThrow(ErrorMessage.SpecifierNotOkEmpty(''));
 
     expect(() =>
-      ensureRawSpecifierOk(mockHybridrepoMappings, '', { path: '/in/some/file.abc' })
+      ensureRawSpecifierOk(mockHybridrepoMappings, '', {
+        ...defaultOptions,
+        containingFilePath: '/in/some/file.abc'
+      })
     ).toThrow(ErrorMessage.SpecifierNotOkEmpty('', '/in/some/file.abc'));
   });
 
-  it('throws if specifier begins with "./" or "../" or "/" or equals "." or ".." (with optional path info)', async () => {
+  it('throws if specifier begins with "/" or "./" or "../" or "/" or equals "." or ".." (with optional path info)', async () => {
     expect.hasAssertions();
 
-    expect(() => ensureRawSpecifierOk(mockHybridrepoMappings, '.')).toThrow(
-      ErrorMessage.SpecifierNotOkRelativeNotRootverse('.')
-    );
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, '.', defaultOptions)
+    ).toThrow(ErrorMessage.SpecifierNotOkRelative('.'));
 
     expect(() =>
-      ensureRawSpecifierOk(mockHybridrepoMappings, '.', { path: '/in/some/file.abc' })
-    ).toThrow(ErrorMessage.SpecifierNotOkRelativeNotRootverse('.', '/in/some/file.abc'));
-
-    expect(() => ensureRawSpecifierOk(mockHybridrepoMappings, '..')).toThrow(
-      ErrorMessage.SpecifierNotOkRelativeNotRootverse('..')
-    );
+      ensureRawSpecifierOk(mockHybridrepoMappings, '.', {
+        ...defaultOptions,
+        containingFilePath: '/in/some/file.abc'
+      })
+    ).toThrow(ErrorMessage.SpecifierNotOkRelative('.', '/in/some/file.abc'));
 
     expect(() =>
-      ensureRawSpecifierOk(mockHybridrepoMappings, '..', { path: '/in/some/file.abc' })
-    ).toThrow(
-      ErrorMessage.SpecifierNotOkRelativeNotRootverse('..', '/in/some/file.abc')
-    );
+      ensureRawSpecifierOk(mockHybridrepoMappings, '..', defaultOptions)
+    ).toThrow(ErrorMessage.SpecifierNotOkRelative('..'));
 
-    expect(() => ensureRawSpecifierOk(mockHybridrepoMappings, './something.js')).toThrow(
-      ErrorMessage.SpecifierNotOkRelativeNotRootverse('./something.js')
-    );
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, '..', {
+        ...defaultOptions,
+        containingFilePath: '/in/some/file.abc'
+      })
+    ).toThrow(ErrorMessage.SpecifierNotOkRelative('..', '/in/some/file.abc'));
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, './something.js', defaultOptions)
+    ).toThrow(ErrorMessage.SpecifierNotOkRelative('./something.js'));
 
     expect(() =>
       ensureRawSpecifierOk(mockHybridrepoMappings, './something.js', {
-        path: '/in/some/file.abc'
+        ...defaultOptions,
+        containingFilePath: '/in/some/file.abc'
       })
     ).toThrow(
-      ErrorMessage.SpecifierNotOkRelativeNotRootverse(
-        './something.js',
-        '/in/some/file.abc'
-      )
+      ErrorMessage.SpecifierNotOkRelative('./something.js', '/in/some/file.abc')
     );
 
-    expect(() => ensureRawSpecifierOk(mockHybridrepoMappings, '../up.ts')).toThrow(
-      ErrorMessage.SpecifierNotOkRelativeNotRootverse('../up.ts')
-    );
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, '../up.ts', defaultOptions)
+    ).toThrow(ErrorMessage.SpecifierNotOkRelative('../up.ts'));
 
     expect(() =>
       ensureRawSpecifierOk(mockHybridrepoMappings, '../up.ts', {
-        path: '/in/some/file.abc'
+        ...defaultOptions,
+        containingFilePath: '/in/some/file.abc'
       })
-    ).toThrow(
-      ErrorMessage.SpecifierNotOkRelativeNotRootverse('../up.ts', '/in/some/file.abc')
-    );
+    ).toThrow(ErrorMessage.SpecifierNotOkRelative('../up.ts', '/in/some/file.abc'));
 
     expect(() =>
-      ensureRawSpecifierOk(mockHybridrepoMappings, '/bad-bad/not/good.ts')
-    ).toThrow(ErrorMessage.SpecifierNotOkRelativeNotRootverse('/bad-bad/not/good.ts'));
+      ensureRawSpecifierOk(
+        mockHybridrepoMappings,
+        '/bad-bad/not/good.ts',
+        defaultOptions
+      )
+    ).toThrow(ErrorMessage.SpecifierNotOkRelative('/bad-bad/not/good.ts'));
 
     expect(() =>
       ensureRawSpecifierOk(mockHybridrepoMappings, '/bad-bad/not/good.ts', {
-        path: '/in/some/file.abc'
+        ...defaultOptions,
+        containingFilePath: '/in/some/file.abc'
       })
     ).toThrow(
-      ErrorMessage.SpecifierNotOkRelativeNotRootverse(
-        '/bad-bad/not/good.ts',
-        '/in/some/file.abc'
-      )
-    );
-  });
-
-  it('throws if errorIfTestverseEncountered is true and testverse alias encountered (with optional path info)', async () => {
-    expect.hasAssertions();
-
-    expect(() =>
-      ensureRawSpecifierOk(mockHybridrepoMappings, 'rootverse+pkg-1:package.json', {
-        errorIfTestverseEncountered: true
-      })
-    ).not.toThrow();
-
-    expect(() =>
-      ensureRawSpecifierOk(mockHybridrepoMappings, 'testverse:setup.ts', {
-        errorIfTestverseEncountered: true,
-        path: '/in/some/file.abc'
-      })
-    ).toThrow(
-      ErrorMessage.SpecifierNotOkVerseNotAllowed(
-        WellKnownImportAlias.Testverse,
-        'testverse:setup.ts',
-        '/in/some/file.abc'
-      )
+      ErrorMessage.SpecifierNotOkRelative('/bad-bad/not/good.ts', '/in/some/file.abc')
     );
   });
 
   it('throws if the alias suffix is "open" and the specifier is missing an extension (with optional path info)', async () => {
     expect.hasAssertions();
 
-    expect(() => ensureRawSpecifierOk(mockHybridrepoMappings, 'universe')).not.toThrow();
-
     expect(() =>
-      ensureRawSpecifierOk(mockHybridrepoMappings, 'multiverse+pkg-1')
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'universe', defaultOptions)
     ).not.toThrow();
 
     expect(() =>
-      ensureRawSpecifierOk(mockHybridrepoMappings, 'universe:some/file')
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'multiverse+pkg-1', defaultOptions)
+    ).not.toThrow();
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'universe:some/file', defaultOptions)
     ).toThrow(ErrorMessage.SpecifierNotOkMissingExtension('universe:some/file'));
 
     expect(() =>
       ensureRawSpecifierOk(mockHybridrepoMappings, 'universe:some/file', {
-        path: '/in/some/file.abc'
+        ...defaultOptions,
+        containingFilePath: '/in/some/file.abc'
       })
     ).toThrow(
       ErrorMessage.SpecifierNotOkMissingExtension(
@@ -1650,12 +1919,17 @@ describe('::ensureRawSpecifierOk', () => {
     );
 
     expect(() =>
-      ensureRawSpecifierOk(mockHybridrepoMappings, 'multiverse+pkg-1:index')
+      ensureRawSpecifierOk(
+        mockHybridrepoMappings,
+        'multiverse+pkg-1:index',
+        defaultOptions
+      )
     ).toThrow(ErrorMessage.SpecifierNotOkMissingExtension('multiverse+pkg-1:index'));
 
     expect(() =>
       ensureRawSpecifierOk(mockHybridrepoMappings, 'multiverse+pkg-1:index', {
-        path: '/in/some/file.abc'
+        ...defaultOptions,
+        containingFilePath: '/in/some/file.abc'
       })
     ).toThrow(
       ErrorMessage.SpecifierNotOkMissingExtension(
@@ -1666,26 +1940,29 @@ describe('::ensureRawSpecifierOk', () => {
 
     expect(() =>
       ensureRawSpecifierOk(mockHybridrepoMappings, 'testverse:setup', {
-        errorIfTestverseEncountered: false
+        ...defaultOptions,
+        allowTestversalImports: true
       })
     ).toThrow(ErrorMessage.SpecifierNotOkMissingExtension('testverse:setup'));
 
     expect(() =>
       ensureRawSpecifierOk(mockHybridrepoMappings, 'testverse:setup', {
-        errorIfTestverseEncountered: false,
-        path: '/in/some/file.abc'
+        ...defaultOptions,
+        allowTestversalImports: true,
+        containingFilePath: '/in/some/file.abc'
       })
     ).toThrow(
       ErrorMessage.SpecifierNotOkMissingExtension('testverse:setup', '/in/some/file.abc')
     );
 
     expect(() =>
-      ensureRawSpecifierOk(mockHybridrepoMappings, 'typeverse:global')
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'typeverse:global', defaultOptions)
     ).toThrow(ErrorMessage.SpecifierNotOkMissingExtension('typeverse:global'));
 
     expect(() =>
       ensureRawSpecifierOk(mockHybridrepoMappings, 'typeverse:global', {
-        path: '/in/some/file.abc'
+        ...defaultOptions,
+        containingFilePath: '/in/some/file.abc'
       })
     ).toThrow(
       ErrorMessage.SpecifierNotOkMissingExtension(
@@ -1699,19 +1976,25 @@ describe('::ensureRawSpecifierOk', () => {
     expect.hasAssertions();
 
     expect(() =>
-      ensureRawSpecifierOk(mockHybridrepoMappings, 'multiverse+pkg-1:index.js')
+      ensureRawSpecifierOk(
+        mockHybridrepoMappings,
+        'multiverse+pkg-1:index.js',
+        defaultOptions
+      )
     ).not.toThrow();
 
     expect(() =>
       ensureRawSpecifierOk(mockHybridrepoMappings, 'multiverse+pkg-1:index.js', {
+        ...defaultOptions,
         extensionToAppend: '.js'
       })
     ).toThrow(ErrorMessage.SpecifierNotOkUnnecessaryIndex('multiverse+pkg-1:index.js'));
 
     expect(() =>
       ensureRawSpecifierOk(mockHybridrepoMappings, 'multiverse+pkg-1:index.js', {
+        ...defaultOptions,
         extensionToAppend: '.js',
-        path: '/in/some/file.abc'
+        containingFilePath: '/in/some/file.abc'
       })
     ).toThrow(
       ErrorMessage.SpecifierNotOkUnnecessaryIndex(
@@ -1721,12 +2004,17 @@ describe('::ensureRawSpecifierOk', () => {
     );
 
     expect(() =>
-      ensureRawSpecifierOk(mockHybridrepoMappings, 'multiverse+pkg-1:index.ts')
+      ensureRawSpecifierOk(
+        mockHybridrepoMappings,
+        'multiverse+pkg-1:index.ts',
+        defaultOptions
+      )
     ).toThrow(ErrorMessage.SpecifierNotOkUnnecessaryIndex('multiverse+pkg-1:index.ts'));
 
     expect(() =>
       ensureRawSpecifierOk(mockHybridrepoMappings, 'multiverse+pkg-1:index.ts', {
-        path: '/in/some/file.abc'
+        ...defaultOptions,
+        containingFilePath: '/in/some/file.abc'
       })
     ).toThrow(
       ErrorMessage.SpecifierNotOkUnnecessaryIndex(
@@ -1736,12 +2024,13 @@ describe('::ensureRawSpecifierOk', () => {
     );
 
     expect(() =>
-      ensureRawSpecifierOk(mockHybridrepoMappings, 'universe:index.ts')
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'universe:index.ts', defaultOptions)
     ).toThrow(ErrorMessage.SpecifierNotOkUnnecessaryIndex('universe:index.ts'));
 
     expect(() =>
       ensureRawSpecifierOk(mockHybridrepoMappings, 'universe:index.ts', {
-        path: '/in/some/file.abc'
+        ...defaultOptions,
+        containingFilePath: '/in/some/file.abc'
       })
     ).toThrow(
       ErrorMessage.SpecifierNotOkUnnecessaryIndex(
@@ -1752,14 +2041,16 @@ describe('::ensureRawSpecifierOk', () => {
 
     expect(() =>
       ensureRawSpecifierOk(mockHybridrepoMappings, 'testverse:index.ts', {
-        errorIfTestverseEncountered: false
+        ...defaultOptions,
+        allowTestversalImports: true
       })
     ).toThrow(ErrorMessage.SpecifierNotOkUnnecessaryIndex('testverse:index.ts'));
 
     expect(() =>
       ensureRawSpecifierOk(mockHybridrepoMappings, 'testverse:index.ts', {
-        errorIfTestverseEncountered: false,
-        path: '/in/some/file.abc'
+        ...defaultOptions,
+        allowTestversalImports: true,
+        containingFilePath: '/in/some/file.abc'
       })
     ).toThrow(
       ErrorMessage.SpecifierNotOkUnnecessaryIndex(
@@ -1769,12 +2060,13 @@ describe('::ensureRawSpecifierOk', () => {
     );
 
     expect(() =>
-      ensureRawSpecifierOk(mockHybridrepoMappings, 'typeverse:index.ts')
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'typeverse:index.ts', defaultOptions)
     ).toThrow(ErrorMessage.SpecifierNotOkUnnecessaryIndex('typeverse:index.ts'));
 
     expect(() =>
       ensureRawSpecifierOk(mockHybridrepoMappings, 'typeverse:index.ts', {
-        path: '/in/some/file.abc'
+        ...defaultOptions,
+        containingFilePath: '/in/some/file.abc'
       })
     ).toThrow(
       ErrorMessage.SpecifierNotOkUnnecessaryIndex(
@@ -1784,12 +2076,13 @@ describe('::ensureRawSpecifierOk', () => {
     );
 
     expect(() =>
-      ensureRawSpecifierOk(mockHybridrepoMappings, 'rootverse:index.ts')
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'rootverse:index.ts', defaultOptions)
     ).toThrow(ErrorMessage.SpecifierNotOkUnnecessaryIndex('rootverse:index.ts'));
 
     expect(() =>
       ensureRawSpecifierOk(mockHybridrepoMappings, 'rootverse:index.ts', {
-        path: '/in/some/file.abc'
+        ...defaultOptions,
+        containingFilePath: '/in/some/file.abc'
       })
     ).toThrow(
       ErrorMessage.SpecifierNotOkUnnecessaryIndex(
@@ -1804,20 +2097,23 @@ describe('::ensureRawSpecifierOk', () => {
 
     expect(() =>
       ensureRawSpecifierOk(mockHybridrepoMappings, 'multiverse+pkg-2', {
+        ...defaultOptions,
         packageId: 'pkg-1'
       })
     ).not.toThrow();
 
     expect(() =>
       ensureRawSpecifierOk(mockHybridrepoMappings, 'multiverse+pkg-1', {
+        ...defaultOptions,
         packageId: 'pkg-1'
       })
     ).toThrow(ErrorMessage.SpecifierNotOkSelfReferential('multiverse+pkg-1'));
 
     expect(() =>
       ensureRawSpecifierOk(mockHybridrepoMappings, 'multiverse+pkg-1', {
+        ...defaultOptions,
         packageId: 'pkg-1',
-        path: '/in/some/file.abc'
+        containingFilePath: '/in/some/file.abc'
       })
     ).toThrow(
       ErrorMessage.SpecifierNotOkSelfReferential('multiverse+pkg-1', '/in/some/file.abc')
@@ -1825,6 +2121,7 @@ describe('::ensureRawSpecifierOk', () => {
 
     expect(() =>
       ensureRawSpecifierOk(mockHybridrepoMappings, 'multiverse+pkg-1:something.ts', {
+        ...defaultOptions,
         packageId: 'pkg-1'
       })
     ).toThrow(
@@ -1833,8 +2130,9 @@ describe('::ensureRawSpecifierOk', () => {
 
     expect(() =>
       ensureRawSpecifierOk(mockHybridrepoMappings, 'multiverse+pkg-1:something.ts', {
+        ...defaultOptions,
         packageId: 'pkg-1',
-        path: '/in/some/file.abc'
+        containingFilePath: '/in/some/file.abc'
       })
     ).toThrow(
       ErrorMessage.SpecifierNotOkSelfReferential(
@@ -1847,7 +2145,7 @@ describe('::ensureRawSpecifierOk', () => {
       ensureRawSpecifierOk(
         mockHybridrepoMappings,
         'multiverse+pkg-1:something/wrong.ts',
-        { packageId: 'pkg-1' }
+        { ...defaultOptions, packageId: 'pkg-1' }
       )
     ).toThrow(
       ErrorMessage.SpecifierNotOkSelfReferential('multiverse+pkg-1:something/wrong.ts')
@@ -1857,7 +2155,11 @@ describe('::ensureRawSpecifierOk', () => {
       ensureRawSpecifierOk(
         mockHybridrepoMappings,
         'multiverse+pkg-1:something/wrong.ts',
-        { packageId: 'pkg-1', path: '/in/some/file.abc' }
+        {
+          ...defaultOptions,
+          packageId: 'pkg-1',
+          containingFilePath: '/in/some/file.abc'
+        }
       )
     ).toThrow(
       ErrorMessage.SpecifierNotOkSelfReferential(
@@ -1870,9 +2172,796 @@ describe('::ensureRawSpecifierOk', () => {
       ensureRawSpecifierOk(
         mockHybridrepoMappings,
         'multiverse+pkg-2:something/wrong.ts',
-        { packageId: 'pkg-1' }
+        { ...defaultOptions, packageId: 'pkg-1' }
       )
     ).not.toThrow();
+  });
+
+  it('throws if packageId is defined and rootverse import used self-referentially (with optional path info)', async () => {
+    expect.hasAssertions();
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'rootverse+pkg-2:src/cli.ts', {
+        ...defaultOptions,
+        packageId: 'pkg-2'
+      })
+    ).toThrow(ErrorMessage.SpecifierNotOkSelfReferential('rootverse+pkg-2:src/cli.ts'));
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'rootverse+pkg-2:src/cli.ts', {
+        ...defaultOptions,
+        packageId: 'pkg-2',
+        containingFilePath: 'some/path'
+      })
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkSelfReferential(
+        'rootverse+pkg-2:src/cli.ts',
+        'some/path'
+      )
+    );
+  });
+
+  it('throws if rootverse import is suboptimal or rootverse imports from node_modules and allowRootverseNodeModules is false (both with optional path info)', async () => {
+    expect.hasAssertions();
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'rootverse+pkg-2:not/src.ts', {
+        ...defaultOptions,
+        packageId: 'pkg-1'
+      })
+    ).not.toThrow();
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'rootverse+pkg-2:not/src.ts', {
+        ...defaultOptions,
+        packageId: 'pkg-2'
+      })
+    ).not.toThrow();
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'rootverse+pkg-2:not/src.ts', {
+        ...defaultOptions
+      })
+    ).not.toThrow();
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'rootverse:not/src.ts', {
+        ...defaultOptions
+      })
+    ).not.toThrow();
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'rootverse+pkg-2:src/test.ts', {
+        ...defaultOptions,
+        packageId: 'pkg-2'
+      })
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkSuboptimal(
+        'rootverse+pkg-2:src/test.ts',
+        'universe+pkg-2:test.ts'
+      )
+    );
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'rootverse+pkg-2:src/test.ts', {
+        ...defaultOptions,
+        packageId: 'pkg-1'
+      })
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkSuboptimal(
+        'rootverse+pkg-2:src/test.ts',
+        'multiverse+pkg-2:test.ts'
+      )
+    );
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'rootverse+pkg-2:src/test.ts', {
+        ...defaultOptions,
+        allowMultiversalImports: false,
+        packageId: 'pkg-1',
+        containingFilePath: '/some/path.ts'
+      })
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkVerseNotAllowed(
+        'multiversal rootverse',
+        'rootverse+pkg-2:src/test.ts',
+        '/some/path.ts'
+      )
+    );
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'rootverse+pkg-2:src/test.ts', {
+        ...defaultOptions,
+        allowMultiversalImports: false,
+        packageId: 'pkg-2',
+        containingFilePath: '/some/path.ts'
+      })
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkSuboptimal(
+        'rootverse+pkg-2:src/test.ts',
+        'universe+pkg-2:test.ts',
+        '/some/path.ts'
+      )
+    );
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'rootverse+pkg-2:src/test.ts', {
+        ...defaultOptions,
+        allowMultiversalImports: false,
+        packageId: 'pkg-1',
+        containingFilePath: '/some/path.ts'
+      })
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkVerseNotAllowed(
+        'multiversal rootverse',
+        'rootverse+pkg-2:src/test.ts',
+        '/some/path.ts'
+      )
+    );
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'rootverse+pkg-2:test/test.ts', {
+        ...defaultOptions,
+        allowMultiversalImports: false,
+        packageId: 'pkg-2'
+      })
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkSuboptimal(
+        'rootverse+pkg-2:test/test.ts',
+        'testverse+pkg-2:test.ts'
+      )
+    );
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'rootverse+pkg-2:test/test.ts', {
+        ...defaultOptions,
+        allowMultiversalImports: false,
+        packageId: 'pkg-1'
+      })
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkSuboptimal(
+        'rootverse+pkg-2:test/test.ts',
+        'testverse+pkg-2:test.ts'
+      )
+    );
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'rootverse+pkg-2:test/test.ts', {
+        ...defaultOptions,
+        allowMultiversalImports: false,
+        allowTestversalImports: false,
+        packageId: 'pkg-1'
+      })
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkVerseNotAllowed(
+        'testversal rootverse',
+        'rootverse+pkg-2:test/test.ts'
+      )
+    );
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'rootverse+pkg-2:test/test.ts', {
+        ...defaultOptions,
+        allowTestversalImports: false,
+        packageId: 'pkg-1'
+      })
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkVerseNotAllowed(
+        'testversal rootverse',
+        'rootverse+pkg-2:test/test.ts'
+      )
+    );
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'rootverse+pkg-2:test/test.ts', {
+        ...defaultOptions,
+        packageId: 'pkg-1'
+      })
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkSuboptimal(
+        'rootverse+pkg-2:test/test.ts',
+        'testverse+pkg-2:test.ts'
+      )
+    );
+
+    expect(() =>
+      // * Edge case: has an extension but provides no valid verse hint
+      // * Edge case: path component starts with valid verse hint, but isn't one
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'rootverse+pkg-2:test.ts', {
+        ...defaultOptions,
+        packageId: 'pkg-1'
+      })
+    ).not.toThrow();
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'rootverse:types/test.ts', {
+        ...defaultOptions,
+        packageId: 'pkg-1'
+      })
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkSuboptimal(
+        'rootverse:types/test.ts',
+        'typeverse:test.ts'
+      )
+    );
+
+    expect(() =>
+      // * Edge case: only the root rootverse can "access" the typeverse, so
+      // *            this is just a normal rootverse import
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'rootverse+pkg-2:types/test.ts', {
+        ...defaultOptions,
+        packageId: 'pkg-1'
+      })
+    ).not.toThrow();
+
+    expect(() =>
+      // * Edge case: only the root rootverse can "access" the "package-verse",
+      // *            so this is just a normal rootverse import
+      ensureRawSpecifierOk(
+        mockHybridrepoMappings,
+        'rootverse+pkg-2:packages/pkg-1/src/test.ts',
+        {
+          ...defaultOptions,
+          packageId: 'pkg-1'
+        }
+      )
+    ).not.toThrow();
+
+    expect(() =>
+      ensureRawSpecifierOk(
+        mockHybridrepoMappings,
+        'rootverse:packages/pkg-1/src/test.ts',
+        {
+          ...defaultOptions,
+          packageId: 'pkg-1',
+          containingFilePath: 'some/path'
+        }
+      )
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkSuboptimal(
+        'rootverse:packages/pkg-1/src/test.ts',
+        'universe+pkg-1:test.ts',
+        'some/path'
+      )
+    );
+
+    expect(() =>
+      ensureRawSpecifierOk(
+        mockHybridrepoMappings,
+        'rootverse:packages/pkg-1/src/test.ts',
+        {
+          ...defaultOptions,
+          packageId: 'pkg-2'
+        }
+      )
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkSuboptimal(
+        'rootverse:packages/pkg-1/src/test.ts',
+        'multiverse+pkg-1:test.ts'
+      )
+    );
+
+    expect(() =>
+      ensureRawSpecifierOk(
+        mockHybridrepoMappings,
+        'rootverse:packages/pkg-1/src/test.ts',
+        {
+          ...defaultOptions,
+          allowMultiversalImports: false,
+          packageId: 'pkg-2'
+        }
+      )
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkVerseNotAllowed(
+        'multiversal rootverse',
+        'rootverse:packages/pkg-1/src/test.ts'
+      )
+    );
+
+    expect(() =>
+      ensureRawSpecifierOk(
+        mockHybridrepoMappings,
+        'rootverse:packages/pkg-1/test/src.ts',
+        {
+          ...defaultOptions,
+          allowMultiversalImports: false,
+          // ? Doesn't do anything
+          allowTestversalImports: false,
+          packageId: 'pkg-2'
+        }
+      )
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkVerseNotAllowed(
+        'multiversal rootverse',
+        'rootverse:packages/pkg-1/test/src.ts'
+      )
+    );
+
+    expect(() =>
+      ensureRawSpecifierOk(
+        mockHybridrepoMappings,
+        'rootverse:packages/pkg-1/test/src.ts',
+        {
+          ...defaultOptions,
+          allowTestversalImports: false,
+          packageId: 'pkg-2'
+        }
+      )
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkSuboptimal(
+        'rootverse:packages/pkg-1/test/src.ts',
+        undefined
+      )
+    );
+
+    expect(() =>
+      ensureRawSpecifierOk(
+        mockHybridrepoMappings,
+        'rootverse:packages/pkg-1/test/src.ts',
+        {
+          ...defaultOptions,
+          packageId: 'pkg-2'
+        }
+      )
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkSuboptimal(
+        'rootverse:packages/pkg-1/test/src.ts',
+        'testverse+pkg-1:src.ts'
+      )
+    );
+
+    expect(() =>
+      ensureRawSpecifierOk(
+        mockHybridrepoMappings,
+        'rootverse:packages/pkg-1/test/src.ts',
+        {
+          ...defaultOptions,
+          packageId: 'pkg-1'
+        }
+      )
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkSuboptimal(
+        'rootverse:packages/pkg-1/test/src.ts',
+        'testverse+pkg-1:src.ts'
+      )
+    );
+
+    expect(() =>
+      ensureRawSpecifierOk(
+        mockHybridrepoMappings,
+        'rootverse:packages/pkg-1/src/dest.ts',
+        {
+          ...defaultOptions,
+          packageId: 'pkg-2'
+        }
+      )
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkSuboptimal(
+        'rootverse:packages/pkg-1/src/dest.ts',
+        'multiverse+pkg-1:dest.ts'
+      )
+    );
+
+    expect(() =>
+      ensureRawSpecifierOk(
+        mockHybridrepoMappings,
+        'rootverse:packages/pkg-1/src/dest.ts',
+        {
+          ...defaultOptions,
+          packageId: 'pkg-1'
+        }
+      )
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkSuboptimal(
+        'rootverse:packages/pkg-1/src/dest.ts',
+        'universe+pkg-1:dest.ts'
+      )
+    );
+
+    expect(() =>
+      ensureRawSpecifierOk(
+        mockHybridrepoMappings,
+        'rootverse:packages/pkg-1/src/dest.ts',
+        { ...defaultOptions }
+      )
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkSuboptimal(
+        'rootverse:packages/pkg-1/src/dest.ts',
+        'multiverse+pkg-1:dest.ts'
+      )
+    );
+
+    expect(() =>
+      ensureRawSpecifierOk(
+        mockHybridrepoMappings,
+        'rootverse:packages/pkg-1/test/dest.ts',
+        { ...defaultOptions }
+      )
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkSuboptimal(
+        'rootverse:packages/pkg-1/test/dest.ts',
+        'testverse+pkg-1:dest.ts'
+      )
+    );
+
+    expect(() =>
+      // * Edge case: multiversal testverse imports are always allowed unless
+      // * explicitly disallowed
+      ensureRawSpecifierOk(
+        mockHybridrepoMappings,
+        'rootverse:packages/pkg-1/test/dest.ts',
+        { ...defaultOptions, allowMultiversalImports: false }
+      )
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkSuboptimal(
+        'rootverse:packages/pkg-1/test/dest.ts',
+        'testverse+pkg-1:dest.ts'
+      )
+    );
+
+    expect(() =>
+      ensureRawSpecifierOk(
+        mockHybridrepoMappings,
+        'rootverse:packages/pkg-1/test/dest.ts',
+        {
+          ...defaultOptions,
+          allowMultiversalImports: false,
+          allowTestversalImports: false
+        }
+      )
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkSuboptimal(
+        'rootverse:packages/pkg-1/test/dest.ts',
+        undefined
+      )
+    );
+
+    expect(() =>
+      // * Edge case: self-referential
+      ensureRawSpecifierOk(
+        mockHybridrepoMappings,
+        'rootverse:packages/pkg-1/something/else.ts',
+        {
+          ...defaultOptions,
+          packageId: 'pkg-1'
+        }
+      )
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkSuboptimal(
+        'rootverse:packages/pkg-1/something/else.ts',
+        'rootverse+pkg-1:something/else.ts'
+      )
+    );
+
+    expect(() =>
+      ensureRawSpecifierOk(
+        mockHybridrepoMappings,
+        'rootverse:packages/pkg-1/something/else.ts',
+        { ...defaultOptions }
+      )
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkSuboptimal(
+        'rootverse:packages/pkg-1/something/else.ts',
+        'rootverse+pkg-1:something/else.ts'
+      )
+    );
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'rootverse:types/dest.ts', {
+        ...defaultOptions
+      })
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkSuboptimal(
+        'rootverse:types/dest.ts',
+        'typeverse:dest.ts'
+      )
+    );
+
+    expect(() =>
+      // * Edge case: something awful
+      ensureRawSpecifierOk(
+        mockHybridrepoMappings,
+        'rootverse:node_modules/something/awful/dist/src/index.js',
+        { ...defaultOptions, allowRootverseNodeModules: false }
+      )
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkSuboptimal(
+        'rootverse:node_modules/something/awful/dist/src/index.js',
+        undefined
+      )
+    );
+
+    expect(() =>
+      // * Edge case: something awful
+      ensureRawSpecifierOk(
+        mockHybridrepoMappings,
+        'rootverse:node_modules/something/awful/dist/src/index.js',
+        { ...defaultOptions, allowRootverseNodeModules: true }
+      )
+    ).not.toThrow();
+
+    expect(() =>
+      // * Edge case: something awful
+      ensureRawSpecifierOk(
+        mockHybridrepoMappings,
+        'rootverse+pkg-1:node_modules/something/awful/dist/src/index.js',
+        { ...defaultOptions, allowRootverseNodeModules: false }
+      )
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkSuboptimal(
+        'rootverse+pkg-1:node_modules/something/awful/dist/src/index.js',
+        undefined
+      )
+    );
+
+    expect(() =>
+      // * Edge case: something awful
+      ensureRawSpecifierOk(
+        mockHybridrepoMappings,
+        'rootverse+pkg-1:node_modules/something/awful/dist/src/index.js',
+        { ...defaultOptions, allowRootverseNodeModules: true }
+      )
+    ).not.toThrow();
+
+    expect(() =>
+      // * Edge case: something awful
+      ensureRawSpecifierOk(
+        mockHybridrepoMappings,
+        'rootverse:node_modules/something/awful/dist/src/index.js',
+        {
+          ...defaultOptions,
+          allowMultiversalImports: false,
+          allowRootverseNodeModules: true
+        }
+      )
+    ).not.toThrow();
+
+    expect(() =>
+      // * Edge case: something awful
+      ensureRawSpecifierOk(
+        mockHybridrepoMappings,
+        'rootverse+pkg-1:node_modules/something/awful/dist/src/index.js',
+        {
+          ...defaultOptions,
+          allowMultiversalImports: false,
+          allowRootverseNodeModules: true
+        }
+      )
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkVerseNotAllowed(
+        'multiversal rootverse',
+        'rootverse+pkg-1:node_modules/something/awful/dist/src/index.js'
+      )
+    );
+  });
+
+  it('throws if alias path begins with "/" or "./" or "../" or "/" or equals "." or ".." (with optional path info)', async () => {
+    expect.hasAssertions();
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'rootverse+pkg-2:../something.ts', {
+        ...defaultOptions,
+        packageId: 'pkg-1'
+      })
+    ).toThrow(ErrorMessage.SpecifierNotOkRelative('rootverse+pkg-2:../something.ts'));
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'rootverse+pkg-2:../something.ts', {
+        ...defaultOptions,
+        packageId: 'pkg-2',
+        containingFilePath: 'some/path'
+      })
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkRelative('rootverse+pkg-2:../something.ts', 'some/path')
+    );
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'rootverse:/something.ts', {
+        ...defaultOptions,
+        packageId: 'pkg-2',
+        containingFilePath: 'some/path'
+      })
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkRelative('rootverse:/something.ts', 'some/path')
+    );
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'universe:../something.ts', {
+        ...defaultOptions,
+        packageId: 'pkg-2'
+      })
+    ).toThrow(ErrorMessage.SpecifierNotOkRelative('universe:../something.ts'));
+  });
+
+  it('throws if allowMultiversalImports is false and multiversal and/or foreign universe import used regardless of packageId (with optional path info)', async () => {
+    expect.hasAssertions();
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'multiverse+pkg-1:types.ts', {
+        ...defaultOptions,
+        allowMultiversalImports: true,
+        containingFilePath: 'some/path'
+      })
+    ).not.toThrow();
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'multiverse+pkg-1:types.ts', {
+        ...defaultOptions,
+        allowMultiversalImports: false,
+        containingFilePath: 'some/path'
+      })
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkVerseNotAllowed(
+        'multiverse',
+        'multiverse+pkg-1:types.ts',
+        'some/path'
+      )
+    );
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'multiverse+pkg-2:types.ts', {
+        ...defaultOptions,
+        packageId: 'pkg-1',
+        allowMultiversalImports: true,
+        containingFilePath: 'some/path'
+      })
+    ).not.toThrow();
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'multiverse+pkg-2:types.ts', {
+        ...defaultOptions,
+        packageId: 'pkg-1',
+        allowMultiversalImports: false,
+        containingFilePath: 'some/path'
+      })
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkVerseNotAllowed(
+        'multiverse',
+        'multiverse+pkg-2:types.ts',
+        'some/path'
+      )
+    );
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'universe+pkg-1:types.ts', {
+        ...defaultOptions,
+        packageId: 'pkg-1',
+        allowMultiversalImports: true
+      })
+    ).not.toThrow();
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'universe+pkg-2:types.ts', {
+        ...defaultOptions,
+        packageId: 'pkg-1',
+        allowMultiversalImports: true
+      })
+    ).not.toThrow();
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'universe+pkg-2:types.ts', {
+        ...defaultOptions,
+        packageId: 'pkg-1',
+        allowMultiversalImports: false
+      })
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkVerseNotAllowed(
+        'multiversal universe',
+        'universe+pkg-2:types.ts'
+      )
+    );
+
+    expect(() =>
+      // * Edge case: allowMultiversalImports does not govern testversal
+      // * rootverse, so this should be "suboptimal," not "verse-not-allowed"
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'rootverse+pkg-2:test/types.ts', {
+        ...defaultOptions,
+        packageId: 'pkg-1',
+        allowMultiversalImports: false,
+        allowTestversalImports: true
+      })
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkSuboptimal(
+        'rootverse+pkg-2:test/types.ts',
+        'testverse+pkg-2:types.ts'
+      )
+    );
+  });
+
+  it('throws if allowForeignUniversalImports is false and foreign universe import used regardless of packageId (with optional path info)', async () => {
+    expect.hasAssertions();
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'universe+pkg-1:types.ts', {
+        ...defaultOptions,
+        packageId: 'pkg-1',
+        allowForeignUniversalImports: true
+      })
+    ).not.toThrow();
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'universe+pkg-2:types.ts', {
+        ...defaultOptions,
+        packageId: 'pkg-1',
+        allowForeignUniversalImports: false,
+        containingFilePath: './some/path.js'
+      })
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkVerseNotAllowed(
+        'foreign universe (pkg-2)',
+        'universe+pkg-2:types.ts',
+        './some/path.js'
+      )
+    );
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'universe+pkg-2:types.ts', {
+        ...defaultOptions,
+        allowForeignUniversalImports: false,
+        containingFilePath: './some/path.js'
+      })
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkVerseNotAllowed(
+        'foreign universe (pkg-2)',
+        'universe+pkg-2:types.ts',
+        './some/path.js'
+      )
+    );
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'universe:types.ts', {
+        ...defaultOptions,
+        packageId: 'pkg-1',
+        allowForeignUniversalImports: false
+      })
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkVerseNotAllowed('foreign universe', 'universe:types.ts')
+    );
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'universe:types.ts', {
+        ...defaultOptions,
+        allowForeignUniversalImports: false,
+        containingFilePath: './some/path.js'
+      })
+    ).not.toThrow();
+  });
+
+  it('throws if allowTestversalImports is false and testverse alias encountered (with optional path info)', async () => {
+    expect.hasAssertions();
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'rootverse+pkg-1:package.json', {
+        ...defaultOptions,
+        allowTestversalImports: true
+      })
+    ).not.toThrow();
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'testverse:setup.ts', {
+        ...defaultOptions,
+        allowTestversalImports: false,
+        containingFilePath: '/in/some/file.abc'
+      })
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkVerseNotAllowed(
+        WellKnownImportAlias.Testverse,
+        'testverse:setup.ts',
+        '/in/some/file.abc'
+      )
+    );
+
+    expect(() =>
+      ensureRawSpecifierOk(mockHybridrepoMappings, 'testverse:setup.ts', {
+        ...defaultOptions,
+        allowTestversalImports: false
+      })
+    ).toThrow(
+      ErrorMessage.SpecifierNotOkVerseNotAllowed(
+        WellKnownImportAlias.Testverse,
+        'testverse:setup.ts'
+      )
+    );
   });
 });
 

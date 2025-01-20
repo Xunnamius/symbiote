@@ -241,6 +241,12 @@ export const dotEnvConfigPackageBase = '.env';
 export const dotEnvDefaultConfigPackageBase = '.env.default';
 
 /**
+ * The basename of the well-known directory containing all sub-packages as
+ * direct subdirectories.
+ */
+export const directoryPackagesProjectBase = 'packages';
+
+/**
  * The basename of the well-known distributables output or "dist" directory.
  */
 export const directoryDistPackageBase = 'dist';

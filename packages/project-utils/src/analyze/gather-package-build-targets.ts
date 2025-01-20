@@ -97,6 +97,10 @@ export type GatherPackageBuildTargetsOptions = {
    */
   useCached: boolean;
   /**
+   * If `true`, multiversal import support will be enabled.
+   */
+  allowMultiversalImports: boolean;
+  /**
    * Exclude paths from the internals result with respect to the patterns in
    * `excludeInternalsPatterns`, which are interpreted according to gitignore
    * rules and _always_ relative to the _project_ (NEVER package or filesystem!)
@@ -126,8 +130,11 @@ function gatherPackageBuildTargets_(
   package_: GenericPackage,
   { useCached, ...cacheIdComponentsObject }: GatherPackageBuildTargetsOptions
 ): Promisable<PackageBuildTargets> {
-  const { excludeInternalsPatterns = [], includeExternalsPatterns = [] } =
-    cacheIdComponentsObject;
+  const {
+    allowMultiversalImports,
+    excludeInternalsPatterns = [],
+    includeExternalsPatterns = []
+  } = cacheIdComponentsObject;
 
   const { projectMetadata } = package_;
   const { rootPackage } = projectMetadata;
@@ -198,11 +205,12 @@ function gatherPackageBuildTargets_(
     );
 
     for (
-      let previousNormalDiff = new Set(packageSrcPaths.concat(additionalExternalPaths)),
+      let firstIteration = true,
+        previousNormalDiff = new Set(packageSrcPaths.concat(additionalExternalPaths)),
         // * Note that this can include any import kind, not just type-only
         previousTypeOnlyDiff = new Set<AbsolutePath>();
       previousNormalDiff.size !== 0 || previousTypeOnlyDiff.size !== 0;
-
+      firstIteration = false
     ) {
       seenNormalImportPaths = seenNormalImportPaths.union(previousNormalDiff);
       seenTypeOnlyImportPaths = seenTypeOnlyImportPaths.union(previousTypeOnlyDiff);
@@ -215,10 +223,10 @@ function gatherPackageBuildTargets_(
       ] = await Promise.all([
         gatherImportEntriesFromFiles(Array.from(previousNormalDiff.values()), {
           useCached
-        }).then((entries) => rawSpecifiersToTargetPaths(entries)),
+        }).then((entries) => rawSpecifiersToTargetPaths(entries, !firstIteration)),
         gatherImportEntriesFromFiles(Array.from(previousTypeOnlyDiff.values()), {
           useCached
-        }).then((entries) => rawSpecifiersToTargetPaths(entries))
+        }).then((entries) => rawSpecifiersToTargetPaths(entries, !firstIteration))
       ]);
 
       // * Note that these are relative to the **PROJECT ROOT**
@@ -283,11 +291,12 @@ function gatherPackageBuildTargets_(
     );
 
     for (
-      let previousNormalDiff = new Set(packageSrcPaths.concat(additionalExternalPaths)),
+      let firstIteration = true,
+        previousNormalDiff = new Set(packageSrcPaths.concat(additionalExternalPaths)),
         // * Note that this can include any import kind, not just type-only
         previousTypeOnlyDiff = new Set<AbsolutePath>();
       previousNormalDiff.size !== 0 || previousTypeOnlyDiff.size !== 0;
-
+      firstIteration = false
     ) {
       seenNormalImportPaths = seenNormalImportPaths.union(previousNormalDiff);
       seenTypeOnlyImportPaths = seenTypeOnlyImportPaths.union(previousTypeOnlyDiff);
@@ -299,12 +308,14 @@ function gatherPackageBuildTargets_(
         rawSpecifiersToTargetPaths(
           gatherImportEntriesFromFiles.sync(Array.from(previousNormalDiff.values()), {
             useCached
-          })
+          }),
+          !firstIteration
         ),
         rawSpecifiersToTargetPaths(
           gatherImportEntriesFromFiles.sync(Array.from(previousTypeOnlyDiff.values()), {
             useCached
-          })
+          }),
+          !firstIteration
         )
       ];
 
@@ -373,7 +384,10 @@ function gatherPackageBuildTargets_(
    * @see {@link PackageBuildTargets}
    */
   function rawSpecifiersToTargetPaths(
-    entries: ImportSpecifiersEntry[]
+    entries: ImportSpecifiersEntry[],
+    allowForeignUniversalImports: boolean,
+    // * We'll see if setting this to true becomes useful at some point...
+    allowRootverseNodeModules = false
   ): SetFieldType<ImportSpecifiersEntry[1], 'normal' | 'typeOnly', Set<AbsolutePath>> {
     const targetPaths: Parameters<typeof rawSpecifiersToTargetPaths_>[0] = {
       normal: [],
@@ -391,7 +405,9 @@ function gatherPackageBuildTargets_(
         specifiersPackage,
         targets.internal.has(relativeSpecifiersPath),
         targets.external.typeOnly.has(relativeSpecifiersPath),
-        targets.external.normal.has(relativeSpecifiersPath)
+        targets.external.normal.has(relativeSpecifiersPath),
+        allowForeignUniversalImports,
+        allowRootverseNodeModules
       );
     }
 
@@ -408,7 +424,9 @@ function gatherPackageBuildTargets_(
     specifiersPackage: GenericPackage,
     isInternal: boolean,
     isTypeOnly: boolean,
-    isNormal: boolean
+    isNormal: boolean,
+    allowForeignUniversalImports: boolean,
+    allowRootverseNodeModules: boolean
   ) {
     // TODO: consider optionally allowing files other than typescript to have
     // TODO: their raw specifiers checked
@@ -423,8 +441,12 @@ function gatherPackageBuildTargets_(
       for (const specifier of specifiers.values()) {
         if (comesFromTypescriptFile) {
           ensureRawSpecifierOk(wellKnownAliases, specifier, {
+            allowMultiversalImports,
+            allowForeignUniversalImports,
+            allowTestversalImports: false,
+            allowRootverseNodeModules,
             packageId: specifierPackageId,
-            path: specifiersPath
+            containingFilePath: specifiersPath
           });
         }
 
@@ -461,37 +483,32 @@ function gatherPackageBuildTargets_(
           addToCounterMetadata(aliasCounts, alias, prefixes);
 
           if (comesFromTypescriptFile) {
-            const isUniversal = group === WellKnownImportAlias.Universe;
-            const isMultiversal =
-              group === WellKnownImportAlias.Multiverse ||
-              group === WellKnownImportAlias.Rootverse ||
-              group === WellKnownImportAlias.Typeverse;
+            const versal = `${group.slice(0, -1)}al`;
+            const isOkVerse = [
+              WellKnownImportAlias.Universe,
+              WellKnownImportAlias.Multiverse,
+              WellKnownImportAlias.Rootverse,
+              WellKnownImportAlias.Typeverse
+            ].includes(group);
 
             const specifierResolvedPath = mapRawSpecifierToPath(
               rawAliasMapping,
               specifier
             );
+
             assert(specifierResolvedPath, ErrorMessage.GuruMeditation());
 
-            if (isMultiversal || isUniversal) {
+            if (isOkVerse) {
               targetPaths[importKind].push(specifierResolvedPath);
-            }
 
-            if (isMultiversal) {
               debug(
-                'multiversal target added: %O => %O',
-                specifier,
-                specifierResolvedPath
-              );
-            } else if (isUniversal) {
-              debug(
-                'universal target added: %O => %O',
+                `${versal} target added: %O => %O`,
                 specifier,
                 specifierResolvedPath
               );
             } else {
               debug.error(
-                `${group} target rejected: %O => %O`,
+                `${versal} target rejected: %O => %O`,
                 specifier,
                 specifierResolvedPath
               );

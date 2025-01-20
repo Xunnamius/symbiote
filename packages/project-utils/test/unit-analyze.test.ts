@@ -2490,7 +2490,7 @@ describe('::gatherPackageBuildTargets', () => {
       expect(
         gatherPackageBuildTargets.sync(
           fixtureToProjectMetadata('goodPolyrepo').rootPackage,
-          { useCached: true }
+          { allowMultiversalImports: true, useCached: true }
         )
       ).toStrictEqual({
         targets: {
@@ -2535,7 +2535,7 @@ describe('::gatherPackageBuildTargets', () => {
       expect(
         gatherPackageBuildTargets.sync(
           fixtureToProjectMetadata('goodHybridrepoMultiversal').rootPackage,
-          { useCached: true }
+          { allowMultiversalImports: true, useCached: true }
         )
       ).toStrictEqual({
         targets: {
@@ -2689,7 +2689,7 @@ describe('::gatherPackageBuildTargets', () => {
           fixtureToProjectMetadata('goodHybridrepoMultiversal').subRootPackages!.get(
             'cli'
           )!,
-          { useCached: true }
+          { allowMultiversalImports: true, useCached: true }
         )
       ).toStrictEqual({
         targets: {
@@ -2768,7 +2768,7 @@ describe('::gatherPackageBuildTargets', () => {
             fixtureToProjectMetadata('goodHybridrepoMultiversal').subRootPackages!.get(
               'private'
             )!,
-            { useCached: true }
+            { allowMultiversalImports: true, useCached: true }
           )
         ).toStrictEqual({
           targets: {
@@ -2832,7 +2832,7 @@ describe('::gatherPackageBuildTargets', () => {
           fixtureToProjectMetadata('goodHybridrepoSelfRef').subRootPackages!.get(
             'package-one'
           )!,
-          { useCached: true }
+          { allowMultiversalImports: true, useCached: true }
         )
       ).toStrictEqual({
         targets: {
@@ -2870,24 +2870,28 @@ describe('::gatherPackageBuildTargets', () => {
       const dummyMetadata = fixtureToProjectMetadata('goodPolyrepo');
       const packageBuildTargets = gatherPackageBuildTargets.sync(
         dummyMetadata.rootPackage,
-        {
-          useCached: false
-        }
+        { allowMultiversalImports: true, useCached: false }
       );
 
       expect(packageBuildTargets).toBe(
-        gatherPackageBuildTargets.sync(dummyMetadata.rootPackage, { useCached: true })
+        gatherPackageBuildTargets.sync(dummyMetadata.rootPackage, {
+          allowMultiversalImports: true,
+          useCached: true
+        })
       );
 
       const updatedPackageBuildTargets = gatherPackageBuildTargets.sync(
         dummyMetadata.rootPackage,
-        { useCached: false }
+        { allowMultiversalImports: true, useCached: false }
       );
 
       expect(updatedPackageBuildTargets).not.toBe(packageBuildTargets);
 
       expect(
-        gatherPackageBuildTargets.sync(dummyMetadata.rootPackage, { useCached: true })
+        gatherPackageBuildTargets.sync(dummyMetadata.rootPackage, {
+          allowMultiversalImports: true,
+          useCached: true
+        })
       ).toBe(updatedPackageBuildTargets);
     });
 
@@ -2895,8 +2899,12 @@ describe('::gatherPackageBuildTargets', () => {
       expect.hasAssertions();
 
       const { rootPackage } = fixtureToProjectMetadata('goodHybridrepo');
-      const result1 = gatherPackageBuildTargets.sync(rootPackage, { useCached: true });
+      const result1 = gatherPackageBuildTargets.sync(rootPackage, {
+        allowMultiversalImports: true,
+        useCached: true
+      });
       const result2 = gatherPackageBuildTargets.sync(rootPackage, {
+        allowMultiversalImports: true,
         excludeInternalsPatterns: ['/fake/exclude'],
         useCached: true
       });
@@ -2911,11 +2919,17 @@ describe('::gatherPackageBuildTargets', () => {
 
       expect(
         gatherPackageBuildTargets.sync(rootPackage, {
+          allowMultiversalImports: true,
           excludeInternalsPatterns: [],
           includeExternalsPatterns: [],
           useCached: true
         })
-      ).toStrictEqual(gatherPackageBuildTargets.sync(rootPackage, { useCached: true }));
+      ).toStrictEqual(
+        gatherPackageBuildTargets.sync(rootPackage, {
+          allowMultiversalImports: true,
+          useCached: true
+        })
+      );
     });
 
     it('respects includeExternalsPatterns relative to project root', () => {
@@ -2928,6 +2942,7 @@ describe('::gatherPackageBuildTargets', () => {
         gatherPackageBuildTargets.sync(
           subRootPackages.get('@namespaced/webpack-common-config')!,
           {
+            allowMultiversalImports: true,
             includeExternalsPatterns: ['packages/private/src/index.ts'],
             useCached: true
           }
@@ -2975,7 +2990,11 @@ describe('::gatherPackageBuildTargets', () => {
       expect(
         gatherPackageBuildTargets.sync(
           subRootPackages.get('@namespaced/webpack-common-config')!,
-          { includeExternalsPatterns: ['**/private/*/index.ts'], useCached: true }
+          {
+            allowMultiversalImports: true,
+            includeExternalsPatterns: ['**/private/*/index.ts'],
+            useCached: true
+          }
         )
       ).toStrictEqual({
         targets: {
@@ -3028,6 +3047,7 @@ describe('::gatherPackageBuildTargets', () => {
         gatherPackageBuildTargets.sync(
           subRootPackages.get('@namespaced/webpack-common-config')!,
           {
+            allowMultiversalImports: true,
             excludeInternalsPatterns: [
               'packages/webpack/src/webpack-lib.ts',
               'src/webpack-lib2.ts'
@@ -3066,7 +3086,11 @@ describe('::gatherPackageBuildTargets', () => {
       expect(
         gatherPackageBuildTargets.sync(
           subRootPackages.get('@namespaced/webpack-common-config')!,
-          { excludeInternalsPatterns: ['webpack-lib*'], useCached: true }
+          {
+            allowMultiversalImports: true,
+            excludeInternalsPatterns: ['webpack-lib*'],
+            useCached: true
+          }
         )
       ).toStrictEqual({
         metadata: { imports: { aliasCounts: {}, dependencyCounts: {} } },
@@ -3087,6 +3111,7 @@ describe('::gatherPackageBuildTargets', () => {
         gatherPackageBuildTargets.sync(
           subRootPackages.get('@namespaced/webpack-common-config')!,
           {
+            allowMultiversalImports: true,
             excludeInternalsPatterns: ['packages/webpack/src/webpack-lib2.ts'],
             includeExternalsPatterns: ['packages/webpack/src/webpack-lib2.ts'],
             useCached: true
@@ -3128,6 +3153,7 @@ describe('::gatherPackageBuildTargets', () => {
         gatherPackageBuildTargets.sync(
           subRootPackages.get('@namespaced/webpack-common-config')!,
           {
+            allowMultiversalImports: true,
             includeExternalsPatterns: ['packages/webpack/webpack.config.mjs'],
             useCached: true
           }
@@ -3207,7 +3233,7 @@ describe('::gatherPackageBuildTargets', () => {
       expect(() =>
         gatherPackageBuildTargets.sync(
           fixtureToProjectMetadata('badHybridrepoBadSpecifiers').rootPackage,
-          { useCached: true }
+          { allowMultiversalImports: true, useCached: true }
         )
       ).toThrow(ErrorMessage.SpecifierNotOkSelfReferential('multiverse+pkg-1:lib.ts'));
     });
@@ -3219,6 +3245,7 @@ describe('::gatherPackageBuildTargets', () => {
 
       await expect(
         gatherPackageBuildTargets(fixtureToProjectMetadata('goodPolyrepo').rootPackage, {
+          allowMultiversalImports: true,
           useCached: true
         })
       ).resolves.toStrictEqual({
@@ -3264,7 +3291,7 @@ describe('::gatherPackageBuildTargets', () => {
       await expect(
         gatherPackageBuildTargets(
           fixtureToProjectMetadata('goodHybridrepoMultiversal').rootPackage,
-          { useCached: true }
+          { allowMultiversalImports: true, useCached: true }
         )
       ).resolves.toStrictEqual({
         targets: {
@@ -3418,7 +3445,7 @@ describe('::gatherPackageBuildTargets', () => {
           fixtureToProjectMetadata('goodHybridrepoMultiversal').subRootPackages!.get(
             'cli'
           )!,
-          { useCached: true }
+          { allowMultiversalImports: true, useCached: true }
         )
       ).resolves.toStrictEqual({
         targets: {
@@ -3497,7 +3524,7 @@ describe('::gatherPackageBuildTargets', () => {
             fixtureToProjectMetadata('goodHybridrepoMultiversal').subRootPackages!.get(
               'private'
             )!,
-            { useCached: true }
+            { allowMultiversalImports: true, useCached: true }
           )
         ).resolves.toStrictEqual({
           targets: {
@@ -3561,7 +3588,7 @@ describe('::gatherPackageBuildTargets', () => {
           fixtureToProjectMetadata('goodHybridrepoSelfRef').subRootPackages!.get(
             'package-one'
           )!,
-          { useCached: true }
+          { allowMultiversalImports: true, useCached: true }
         )
       ).resolves.toStrictEqual({
         targets: {
@@ -3599,22 +3626,28 @@ describe('::gatherPackageBuildTargets', () => {
       const dummyMetadata = fixtureToProjectMetadata('goodPolyrepo');
       const packageBuildTargets = await gatherPackageBuildTargets(
         dummyMetadata.rootPackage,
-        { useCached: false }
+        { allowMultiversalImports: true, useCached: false }
       );
 
       expect(packageBuildTargets).toBe(
-        await gatherPackageBuildTargets(dummyMetadata.rootPackage, { useCached: true })
+        await gatherPackageBuildTargets(dummyMetadata.rootPackage, {
+          allowMultiversalImports: true,
+          useCached: true
+        })
       );
 
       const updatedPackageBuildTargets = await gatherPackageBuildTargets(
         dummyMetadata.rootPackage,
-        { useCached: false }
+        { allowMultiversalImports: true, useCached: false }
       );
 
       expect(updatedPackageBuildTargets).not.toBe(packageBuildTargets);
 
       await expect(
-        gatherPackageBuildTargets(dummyMetadata.rootPackage, { useCached: true })
+        gatherPackageBuildTargets(dummyMetadata.rootPackage, {
+          allowMultiversalImports: true,
+          useCached: true
+        })
       ).resolves.toBe(updatedPackageBuildTargets);
     });
 
@@ -3622,8 +3655,12 @@ describe('::gatherPackageBuildTargets', () => {
       expect.hasAssertions();
 
       const { rootPackage } = fixtureToProjectMetadata('goodHybridrepo');
-      const result1 = await gatherPackageBuildTargets(rootPackage, { useCached: true });
+      const result1 = await gatherPackageBuildTargets(rootPackage, {
+        allowMultiversalImports: true,
+        useCached: true
+      });
       const result2 = await gatherPackageBuildTargets(rootPackage, {
+        allowMultiversalImports: true,
         excludeInternalsPatterns: ['/fake/exclude'],
         useCached: true
       });
@@ -3638,12 +3675,16 @@ describe('::gatherPackageBuildTargets', () => {
 
       await expect(
         gatherPackageBuildTargets(rootPackage, {
+          allowMultiversalImports: true,
           excludeInternalsPatterns: [],
           includeExternalsPatterns: [],
           useCached: true
         })
       ).resolves.toStrictEqual(
-        await gatherPackageBuildTargets(rootPackage, { useCached: true })
+        await gatherPackageBuildTargets(rootPackage, {
+          allowMultiversalImports: true,
+          useCached: true
+        })
       );
     });
 
@@ -3657,6 +3698,7 @@ describe('::gatherPackageBuildTargets', () => {
         gatherPackageBuildTargets(
           subRootPackages.get('@namespaced/webpack-common-config')!,
           {
+            allowMultiversalImports: true,
             includeExternalsPatterns: ['packages/private/src/index.ts'],
             useCached: true
           }
@@ -3704,7 +3746,11 @@ describe('::gatherPackageBuildTargets', () => {
       await expect(
         gatherPackageBuildTargets(
           subRootPackages.get('@namespaced/webpack-common-config')!,
-          { includeExternalsPatterns: ['**/private/*/index.ts'], useCached: true }
+          {
+            allowMultiversalImports: true,
+            includeExternalsPatterns: ['**/private/*/index.ts'],
+            useCached: true
+          }
         )
       ).resolves.toStrictEqual({
         targets: {
@@ -3757,6 +3803,7 @@ describe('::gatherPackageBuildTargets', () => {
         gatherPackageBuildTargets(
           subRootPackages.get('@namespaced/webpack-common-config')!,
           {
+            allowMultiversalImports: true,
             excludeInternalsPatterns: [
               'packages/webpack/src/webpack-lib.ts',
               'src/webpack-lib2.ts'
@@ -3795,7 +3842,11 @@ describe('::gatherPackageBuildTargets', () => {
       await expect(
         gatherPackageBuildTargets(
           subRootPackages.get('@namespaced/webpack-common-config')!,
-          { excludeInternalsPatterns: ['webpack-lib*'], useCached: true }
+          {
+            allowMultiversalImports: true,
+            excludeInternalsPatterns: ['webpack-lib*'],
+            useCached: true
+          }
         )
       ).resolves.toStrictEqual({
         metadata: { imports: { aliasCounts: {}, dependencyCounts: {} } },
@@ -3816,6 +3867,7 @@ describe('::gatherPackageBuildTargets', () => {
         gatherPackageBuildTargets(
           subRootPackages.get('@namespaced/webpack-common-config')!,
           {
+            allowMultiversalImports: true,
             excludeInternalsPatterns: ['packages/webpack/src/webpack-lib2.ts'],
             includeExternalsPatterns: ['packages/webpack/src/webpack-lib2.ts'],
             useCached: true
@@ -3857,6 +3909,7 @@ describe('::gatherPackageBuildTargets', () => {
         gatherPackageBuildTargets(
           subRootPackages.get('@namespaced/webpack-common-config')!,
           {
+            allowMultiversalImports: true,
             includeExternalsPatterns: ['packages/webpack/webpack.config.mjs'],
             useCached: true
           }
@@ -3936,7 +3989,7 @@ describe('::gatherPackageBuildTargets', () => {
       await expect(
         gatherPackageBuildTargets(
           fixtureToProjectMetadata('badHybridrepoBadSpecifiers').rootPackage,
-          { useCached: true }
+          { allowMultiversalImports: true, useCached: true }
         )
       ).rejects.toThrow(
         ErrorMessage.SpecifierNotOkSelfReferential('multiverse+pkg-1:lib.ts')
