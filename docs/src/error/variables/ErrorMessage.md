@@ -8,7 +8,7 @@
 
 > `const` **ErrorMessage**: `object`
 
-Defined in: [src/error.ts:63](https://github.com/Xunnamius/symbiote/blob/a116b07afe112308bfdfdf94cf09246be76165ef/src/error.ts#L63)
+Defined in: [src/error.ts:63](https://github.com/Xunnamius/symbiote/blob/e90857acb3d261d6e9bd248ab0e38c7f0e05d449/src/error.ts#L63)
 
 A collection of possible error and warning messages.
 
@@ -170,6 +170,18 @@ punctuation and capitalization rules as the other error messages.
 \[`AbsolutePath`, `string`, `string`\][]
 
 ##### Returns
+
+`string`
+
+### ActionAttemptedOnPrivatePackage()
+
+#### Parameters
+
+##### actionNoun
+
+`string`
+
+#### Returns
 
 `string`
 

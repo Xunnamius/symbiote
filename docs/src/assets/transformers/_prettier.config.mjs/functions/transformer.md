@@ -8,7 +8,7 @@
 
 > **transformer**(`this`, `context`, `options`?): `Promise`\<[`ReifiedAssets`](../../../type-aliases/ReifiedAssets.md)\>
 
-Defined in: [src/assets/transformers/\_prettier.config.mjs.ts:31](https://github.com/Xunnamius/symbiote/blob/a116b07afe112308bfdfdf94cf09246be76165ef/src/assets/transformers/_prettier.config.mjs.ts#L31)
+Defined in: [src/assets/transformers/\_prettier.config.mjs.ts:31](https://github.com/Xunnamius/symbiote/blob/e90857acb3d261d6e9bd248ab0e38c7f0e05d449/src/assets/transformers/_prettier.config.mjs.ts#L31)
 
 ## Parameters
 
