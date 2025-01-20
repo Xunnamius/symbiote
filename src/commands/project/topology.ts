@@ -67,59 +67,69 @@ export default function command({
   projectMetadata: projectMetadata_,
   isUsingLocalInstallation
 }: AsStrictExecutionContext<GlobalExecutionContext>) {
-  const [builder, withGlobalHandler] = withGlobalBuilder<CustomCliArguments>({
-    scope: { choices: topologyScopes, default: TopologyScope.Unlimited },
-    describe: {
-      boolean: true,
-      description: "Describe this project's dependency topology then immediately exit",
-      conflicts: ['run-script', 'script-options', 'parallel'],
-      default: true
-    },
-    'run-script': {
-      alias: 'run',
-      string: true,
-      choices: topologyScripts,
-      description: 'The package.json script to execute',
-      conflicts: 'describe',
-      implies: { describe: false }
-    },
-    'script-options': {
-      alias: 'options',
-      array: true,
-      description: 'Command-line arguments passed through npm to the script being run',
-      default: [],
-      requires: 'run-script'
-    },
-    parallel: {
-      boolean: true,
-      default: true,
-      describe: 'Run scripts concurrently when possible',
-      requires: 'run-script',
-      subOptionOf: {
+  const [builder, withGlobalHandler] = withGlobalBuilder<CustomCliArguments>(
+    (blackFlag) => {
+      blackFlag.parserConfiguration({ 'unknown-options-as-args': true });
+
+      return {
+        scope: { choices: topologyScopes, default: TopologyScope.Unlimited },
+        describe: {
+          boolean: true,
+          description:
+            "Describe this project's dependency topology then immediately exit",
+          conflicts: ['run-script', 'script-options', 'parallel'],
+          default: true
+        },
         'run-script': {
-          when(runScript: TopologyScript) {
-            return [TopologyScript.Build, TopologyScript.Release].includes(runScript);
-          },
-          update(oldOptionConfig) {
-            return {
-              ...oldOptionConfig,
-              default: false,
-              check(parallel) {
-                return (
-                  !parallel ||
-                  ErrorMessage.BadOptionValue(
-                    '--parallel',
-                    parallel,
-                    `when "--run-script" is set to "${TopologyScript.Build}" or "${TopologyScript.Release}"`
-                  )
+          alias: 'run',
+          string: true,
+          choices: topologyScripts,
+          description: 'The package.json script to execute',
+          conflicts: 'describe',
+          implies: { describe: false }
+        },
+        'script-options': {
+          alias: 'options',
+          array: true,
+          description:
+            'Command-line arguments passed through npm to the script being run',
+          default: [],
+          requires: 'run-script'
+        },
+        parallel: {
+          boolean: true,
+          default: true,
+          describe: 'Run scripts concurrently when possible',
+          requires: 'run-script',
+          subOptionOf: {
+            'run-script': {
+              when(runScript: TopologyScript) {
+                return [TopologyScript.Build, TopologyScript.Release].includes(
+                  runScript
                 );
+              },
+              update(oldOptionConfig) {
+                return {
+                  ...oldOptionConfig,
+                  default: false,
+                  check(parallel) {
+                    return (
+                      !parallel ||
+                      ErrorMessage.BadOptionValue(
+                        '--parallel',
+                        parallel,
+                        `when "--run-script" is set to "${TopologyScript.Build}" or "${TopologyScript.Release}"`
+                      )
+                    );
+                  }
+                };
               }
-            };
+            }
           }
         }
-      }
+      };
     }
-  });
+  );
 
   return {
     builder,
