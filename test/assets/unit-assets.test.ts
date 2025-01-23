@@ -72,6 +72,7 @@ const dummyContext: IncomingTransformerContext = {
     'goodHybridrepo'
   ) as TransformerContext['projectMetadata'],
   additionalRawAliasMappings: [],
+  monorepoPackagesList: '- package-1\n- package-2\n- package-3',
 
   repoOwner: 'repo-owner',
   repoName: 'repo-name',

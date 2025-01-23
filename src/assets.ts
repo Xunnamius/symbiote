@@ -275,6 +275,11 @@ export type TransformerContext = {
    * aliases during content generation.
    */
   additionalRawAliasMappings: RawAliasMapping[];
+  /**
+   * A markdown list of the current packages in the repository, if it is a
+   * monorepo. Does not include the root package.
+   */
+  monorepoPackagesList: string;
 
   /**
    * The owner of the repository on GitHub or other service.
