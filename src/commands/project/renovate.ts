@@ -801,6 +801,7 @@ By default, this command will preserve the origin repository's pre-existing conf
       const {
         force,
         parallel,
+        quiet: isQuieted,
         [$executionContext]: { projectMetadata }
       } = argv;
 
@@ -1169,6 +1170,25 @@ By default, this command will preserve the origin repository's pre-existing conf
           throw firstError as Error;
         }
       }
+
+      log.newline([LogTag.IF_NOT_QUIETED]);
+
+      if (!isQuieted) {
+        process.stdout.write(
+          `⚠️🚧 The renovation completed successfully! But there are further tasks that must be completed manually:
+
+- Include "Releases" and remove "Packages" and "Deployments" sidebar sections
+- Enable sponsorships
+- Enable repository preservation (arctic code vault)
+- Enable discussions
+- Enable "private vulnerability reporting"
+- Enable "dependency graph"
+- Enable "dependabot" (i.e. "dependabot alerts" and "dependabot security updates")
+`
+        );
+      }
+
+      log.newline([LogTag.IF_NOT_QUIETED]);
 
       // ? Typescript wants this here because of our "as const" for some reason
       return undefined;
@@ -1842,7 +1862,13 @@ See the symbiote wiki documentation for more details on this command and all ava
     async run(argv_, { debug, log }) {
       const argv = argv_ as RenovationTaskArgv;
 
-      const { force, [$executionContext]: globalExecutionContext } = argv;
+      const {
+        force,
+        hush: isHushed,
+        silent: isSilenced,
+        quiet: isQuieted,
+        [$executionContext]: globalExecutionContext
+      } = argv;
 
       const { projectMetadata } = globalExecutionContext;
       const preset = argv.assetsPreset as AssetPreset;
@@ -2009,9 +2035,9 @@ See the symbiote wiki documentation for more details on this command and all ava
             _: [],
             env: [],
             scope: DefaultGlobalScope.Unlimited,
-            silent: true,
-            quiet: true,
-            hush: true,
+            silent: isSilenced,
+            quiet: isQuieted,
+            hush: isHushed,
             renumberReferences: false,
             skipIgnored: true,
             skipUnknown: false,
@@ -2089,7 +2115,15 @@ See the symbiote wiki documentation for more details on this command and all ava
     conflicts: ['full-deprecate', 'full-undeprecate', 'github-rename-root'],
     async run(argv_, { debug, log }) {
       const argv = argv_ as RenovationTaskArgv;
-      const { scope, [$executionContext]: globalExecutionContext } = argv;
+
+      const {
+        scope,
+        hush: isHushed,
+        silent: isSilenced,
+        quiet: isQuieted,
+        [$executionContext]: globalExecutionContext
+      } = argv;
+
       const { projectMetadata } = globalExecutionContext;
 
       hardAssert(projectMetadata, ErrorMessage.GuruMeditation());
@@ -2202,9 +2236,9 @@ See the symbiote wiki documentation for more details on this command and all ava
             env: [],
             scope: DefaultGlobalScope.Unlimited,
             files: [ourPackageJsonPath],
-            silent: true,
-            quiet: true,
-            hush: true,
+            silent: isSilenced,
+            quiet: isQuieted,
+            hush: isHushed,
             renumberReferences: false,
             skipIgnored: false,
             skipUnknown: false,
