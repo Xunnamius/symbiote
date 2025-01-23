@@ -8,7 +8,7 @@
 
 > **transformer**(`this`, `context`, `options`?): `Promise`\<[`ReifiedAssets`](../../../type-aliases/ReifiedAssets.md)\>
 
-Defined in: [src/assets/transformers/\_jest.config.mjs.ts:131](https://github.com/Xunnamius/symbiote/blob/da0014a3d8fa3571177d2af968ce57f9fecbb1ee/src/assets/transformers/_jest.config.mjs.ts#L131)
+Defined in: [src/assets/transformers/\_jest.config.mjs.ts:131](https://github.com/Xunnamius/symbiote/blob/62837922680f523ceb73c316fc4e6bbfb810fc1f/src/assets/transformers/_jest.config.mjs.ts#L131)
 
 ## Parameters
 

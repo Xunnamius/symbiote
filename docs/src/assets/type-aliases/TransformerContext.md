@@ -8,7 +8,7 @@
 
 > **TransformerContext**: `object`
 
-Defined in: [src/assets.ts:214](https://github.com/Xunnamius/symbiote/blob/da0014a3d8fa3571177d2af968ce57f9fecbb1ee/src/assets.ts#L214)
+Defined in: [src/assets.ts:214](https://github.com/Xunnamius/symbiote/blob/62837922680f523ceb73c316fc4e6bbfb810fc1f/src/assets.ts#L214)
 
 A union of well-known context keys passed directly to each transformer
 [Transformer](Transformer.md).
