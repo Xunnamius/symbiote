@@ -8,7 +8,7 @@
 
 > **generateNonHybridMonorepoProjectXPackageJson**(...`__namedParameters`): `object`
 
-Defined in: [src/assets/transformers/\_package.json.ts:229](https://github.com/Xunnamius/symbiote/blob/62837922680f523ceb73c316fc4e6bbfb810fc1f/src/assets/transformers/_package.json.ts#L229)
+Defined in: [src/assets/transformers/\_package.json.ts:229](https://github.com/Xunnamius/symbiote/blob/ec67adb5324eeca6085e3ddc4126fe7798bea916/src/assets/transformers/_package.json.ts#L229)
 
 ## Parameters
 
@@ -107,14 +107,6 @@ Indicates the structure of the package.
 > `readonly` `optional` **esnext**: `string` \| \{ `[moduleName: string]`: `undefined` \| `string`;  `browser`: `string`; `main`: `string`; \}
 
 A module ID with untranspiled code that is the primary entry point to the program.
-
-### exports
-
-> `readonly` **exports**: `string` \| (`string` \| `ExportConditions`)[] \| `ExportConditions` \| \{ `.`: \{ `default`: `string`; `types`: `string`; \}; `./commands/*`: \{ `default`: `string`; `types`: `string`; \}; `./configure`: \{ `default`: `string`; `types`: `string`; \}; `./package`: `string`; `./package.json`: `string`; \} \| \{ `.`: \{ `default`: `string`; `types`: `string`; \}; `./package`: `string`; `./package.json`: `string`; \}
-
-### files
-
-> `readonly` **files**: `string`[]
 
 ### flat?
 
@@ -249,32 +241,6 @@ If set to `true`, a warning will be shown if package is installed locally. Usefu
 ### private
 
 > `readonly` **private**: `true` = `true`
-
-### publishConfig
-
-> `readonly` **publishConfig**: `object`
-
-#### publishConfig.access
-
-> **access**: `"public"` \| `"restricted"` = `'public'`
-
-When publishing scoped packages, the access level defaults to restricted. If you want your scoped package to be publicly viewable (and installable) set `--access=public`. The only valid values for access are public and restricted. Unscoped packages always have an access level of public.
-
-#### publishConfig.registry
-
-> **registry**: `string` = `'https://registry.npmjs.org'`
-
-The base URL of the npm registry.
-
-Default: `'https://registry.npmjs.org/'`
-
-#### publishConfig.tag?
-
-> `readonly` `optional` **tag**: `string`
-
-The tag to publish the package under.
-
-Default: `'latest'`
 
 ### repository
 
@@ -815,10 +781,6 @@ Run **before** bump the package version.
 > `readonly` `optional` **types**: `string`
 
 Location of the bundled TypeScript declaration file.
-
-### typesVersions
-
-> `readonly` **typesVersions**: `Partial`\<`Record`\<`string`, `Partial`\<`Record`\<`string`, `string`[]\>\>\>\>
 
 ### typings?
 

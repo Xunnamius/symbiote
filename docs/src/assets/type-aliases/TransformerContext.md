@@ -8,7 +8,7 @@
 
 > **TransformerContext**: `object`
 
-Defined in: [src/assets.ts:214](https://github.com/Xunnamius/symbiote/blob/62837922680f523ceb73c316fc4e6bbfb810fc1f/src/assets.ts#L214)
+Defined in: [src/assets.ts:214](https://github.com/Xunnamius/symbiote/blob/ec67adb5324eeca6085e3ddc4126fe7798bea916/src/assets.ts#L214)
 
 A union of well-known context keys passed directly to each transformer
 [Transformer](Transformer.md).
@@ -92,6 +92,13 @@ files with replacer regions) in a potentially destructive way.
 > **log**: `ExtendedLogger`
 
 Global logging function.
+
+### monorepoPackagesList
+
+> **monorepoPackagesList**: `string`
+
+A markdown list of the current packages in the repository, if it is a
+monorepo. Does not include the root package.
 
 ### projectMetadata
 
