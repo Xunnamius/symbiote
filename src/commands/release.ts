@@ -1039,15 +1039,15 @@ const protoPrereleaseTasks: ProtoPrereleaseTask[][] = [
       emoji: '📦',
       npmScripts: ['build:dist', 'build'],
       helpDescription: 'symbiote build distributables'
-    },
+    }
+  ],
+  [
     {
       skippable: true,
       emoji: '📚',
       npmScripts: ['build:docs'],
       helpDescription: 'symbiote build documentation'
-    }
-  ],
-  [
+    },
     {
       skippable: true,
       emoji: '🔍',
