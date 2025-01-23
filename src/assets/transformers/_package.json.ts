@@ -256,6 +256,10 @@ export function generateNonHybridMonorepoProjectXPackageJson(
       ...incomingBaseScripts
     },
     dependencies: _11,
+    exports: _15,
+    typesVersions: _16,
+    files: _17,
+    publishConfig: _18,
     ...incomingBaseJson
   } = generateBaseXPackageJson(
     incomingPackageJson,
