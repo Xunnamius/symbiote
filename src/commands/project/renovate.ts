@@ -1878,7 +1878,8 @@ See the symbiote wiki documentation for more details on this command and all ava
 
       const {
         // * Since "this-package" is not supported, we can't use cwdPackage
-        rootPackage
+        rootPackage,
+        subRootPackages
       } = projectMetadata;
 
       const { root: projectRoot, json: projectJson } = rootPackage;
@@ -1906,6 +1907,16 @@ See the symbiote wiki documentation for more details on this command and all ava
           projectMetadata,
           { log, debug }
         ),
+        monorepoPackagesList:
+          subRootPackages
+            ?.values()
+            .map((package_) => {
+              return `- [${package_.json.name}](./${package_.relativeRoot}) — ${
+                package_.json.description || '<!-- TODO: description goes here -->'
+              }.`;
+            })
+            .toArray()
+            .join('\n') || '<!-- TODO: a list of packages goes here -->',
 
         repoOwner,
         repoName,
