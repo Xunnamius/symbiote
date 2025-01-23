@@ -1036,12 +1036,6 @@ const protoPrereleaseTasks: ProtoPrereleaseTask[][] = [
   [
     {
       skippable: true,
-      emoji: '🔍',
-      npmScripts: ['lint:package', 'lint'],
-      helpDescription: 'symbiote lint --scope=this-package'
-    },
-    {
-      skippable: true,
       emoji: '📦',
       npmScripts: ['build:dist', 'build'],
       helpDescription: 'symbiote build distributables'
@@ -1054,6 +1048,12 @@ const protoPrereleaseTasks: ProtoPrereleaseTask[][] = [
     }
   ],
   [
+    {
+      skippable: true,
+      emoji: '🔍',
+      npmScripts: ['lint:package', 'lint'],
+      helpDescription: 'symbiote lint --scope=this-package'
+    },
     {
       skippable: true,
       emoji: '🧪',
