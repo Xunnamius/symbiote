@@ -268,6 +268,12 @@ export const ErrorMessage = {
   CannotImportConventionalConfig(path: string) {
     return `failed to import conventional configuration file: ${path}`;
   },
+  CannotImportJestConfig(path: string) {
+    return `failed to import jest configuration file: ${path}`;
+  },
+  CannotExtractTestPathIgnorePatternsFromJestConfig() {
+    return `exported jest config object has non-array "testPathIgnorePatterns" property`;
+  },
   CannotImportTsconfig() {
     return `failed to locate a suitable tsconfig file`;
   },

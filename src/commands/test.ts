@@ -2,7 +2,7 @@
 import { setTimeout as delay } from 'node:timers/promises';
 
 import { runNoRejectOnBadExit } from '@-xun/run';
-import { type ChildConfiguration } from '@black-flag/core';
+import { CliError, type ChildConfiguration } from '@black-flag/core';
 import { SHORT_TAB } from 'rejoinder';
 
 import { type AsStrictExecutionContext } from 'multiverse+bfe';
@@ -434,8 +434,6 @@ Provide --skip-slow-tests (or -x) to set the SYMBIOTE_TEST_JEST_SKIP_SLOW_TESTS 
 
       // ! Test path patterns should begin with a slash (/)
       const jestTestPathPatterns: string[] = [];
-      const testPathIgnorePatterns: string[] = (await import(jestConfigFilePath))
-        .testPathIgnorePatterns;
       const isCwdTheProjectRoot = isRootPackage(cwdPackage);
       const npxJestArguments = ['jest'];
 
@@ -453,6 +451,29 @@ Provide --skip-slow-tests (or -x) to set the SYMBIOTE_TEST_JEST_SKIP_SLOW_TESTS 
           `--coverageDirectory=${toPath(packageRoot, 'coverage')}`
         );
       }
+
+      // ? Jest configs typically expect NODE_ENV to be "test"
+
+      const testPathIgnorePatterns = await (async function () {
+        const originalNodeEnv = process.env.NODE_ENV;
+        try {
+          process.env.NODE_ENV = 'test';
+          const jestConfig = await import(jestConfigFilePath);
+
+          softAssert(
+            Array.isArray(jestConfig?.default?.testPathIgnorePatterns),
+            ErrorMessage.CannotExtractTestPathIgnorePatternsFromJestConfig()
+          );
+
+          return jestConfig.default.testPathIgnorePatterns as string[];
+        } catch (error) {
+          throw new CliError(ErrorMessage.CannotImportJestConfig(jestConfigFilePath), {
+            cause: error
+          });
+        } finally {
+          process.env.NODE_ENV = originalNodeEnv;
+        }
+      })();
 
       const buildTargetPackages = new Set<Package>();
       const buildExtraneousPackages = new Set<Package>();
