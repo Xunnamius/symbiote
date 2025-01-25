@@ -48,8 +48,8 @@ export type CustomCliArguments = GlobalCliArguments<PreparationScope> & {
 };
 
 export default function command({
-  log,
-  debug_,
+  standardLog,
+  standardDebug,
   state,
   projectMetadata: projectMetadata_,
   isUsingLocalInstallation
@@ -109,26 +109,26 @@ This command runs all its tasks asynchronously and concurrently where possible. 
       runToCompletion
     }) {
       const handlerName = scriptBasename(scriptFullName);
-      const genericLogger = log.extend(handlerName);
-      const debug = debug_.extend(`handler-${handlerName}`);
+      const genericLogger = standardLog.extend(handlerName);
+      const debug = standardDebug.extend(`handler-${handlerName}`);
 
       debug('entered handler');
 
       try {
         await runGlobalPreChecks({
-          debug_,
+          standardDebug: standardDebug,
           projectMetadata_,
           scope
         });
       } catch (error) {
-        log.warn(
+        standardLog.warn(
           [LogTag.IF_NOT_HUSHED],
           'Global pre-checks failed for command %O with error: %O',
           scriptFullName,
           error
         );
 
-        log.warn(
+        standardLog.warn(
           [LogTag.IF_NOT_HUSHED],
           'Since this command can be triggered by package managers in ways that are hard to predict, this error will be suppressed and symbiote will exit vacuously (exit code 0)'
         );
@@ -140,7 +140,7 @@ This command runs all its tasks asynchronously and concurrently where possible. 
       const projectMetadata = projectMetadata_!;
       const { startTime } = state;
 
-      logStartTime({ log, startTime, isUsingLocalInstallation });
+      logStartTime({ standardLog, startTime, isUsingLocalInstallation });
       genericLogger([LogTag.IF_NOT_QUIETED], 'Preparing project...');
       genericLogger.newline([LogTag.IF_NOT_QUIETED]);
 

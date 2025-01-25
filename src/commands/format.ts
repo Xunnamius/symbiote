@@ -54,8 +54,8 @@ export type CustomCliArguments = GlobalCliArguments & {
 };
 
 export default function command({
-  log,
-  debug_,
+  standardLog,
+  standardDebug,
   state,
   projectMetadata: projectMetadata_,
   isUsingLocalInstallation
@@ -149,20 +149,20 @@ With respect to .prettierignore being the single source of truth for formatters:
       quiet: isQuieted
     }) {
       const handlerName = scriptBasename(scriptFullName);
-      const genericLogger = log.extend(handlerName);
-      const debug = debug_.extend(`handler-${handlerName}`);
+      const genericLogger = standardLog.extend(handlerName);
+      const debug = standardDebug.extend(`handler-${handlerName}`);
 
       debug('entered handler');
 
       const { projectMetadata } = await runGlobalPreChecks({
-        debug_,
+        standardDebug: standardDebug,
         projectMetadata_,
         scope
       });
 
       const { startTime } = state;
 
-      logStartTime({ log, startTime, isUsingLocalInstallation });
+      logStartTime({ standardLog, startTime, isUsingLocalInstallation });
 
       genericLogger(
         [LogTag.IF_NOT_QUIETED],
@@ -442,14 +442,14 @@ With respect to .prettierignore being the single source of truth for formatters:
           status.remark = null;
 
           if (sawMarkdownFilesOutsideProjectRoot && !wasArtificiallyInvoked) {
-            log.newline([LogTag.IF_NOT_SILENCED]);
+            standardLog.newline([LogTag.IF_NOT_SILENCED]);
 
-            log.warn(
+            standardLog.warn(
               [LogTag.IF_NOT_SILENCED],
               `one or more markdown files given via "--files" are outside of the project root. Therefore, remark will be invoked with "--rc-path" pointing to this project's root .remarkrc config file. A side effect of this is that non-root .remarkrc config files in subdirectories or elsewhere will be ignored`
             );
 
-            log.newline([LogTag.IF_NOT_SILENCED]);
+            standardLog.newline([LogTag.IF_NOT_SILENCED]);
           }
 
           // TODO: gain noticeable speedups by switching to node-only API instead

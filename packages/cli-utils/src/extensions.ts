@@ -43,11 +43,11 @@ export type StandardExecutionContext = ExecutionContext & {
   /**
    * The {@link ExtendedLogger} for the CLI (not Black Flag's).
    */
-  log: ExtendedLogger;
+  standardLog: ExtendedLogger;
   /**
    * The {@link ExtendedDebugger} for the CLI (not Black Flag's).
    */
-  debug_: ExtendedDebugger;
+  standardDebug: ExtendedDebugger;
   state: {
     /**
      * If `true`, the program should not output anything at all. It also implies
@@ -204,11 +204,11 @@ export function withStandardBuilder<
     )[];
   } = {}
 ): WithBuilderExtensionsReturnType<CustomCliArguments, CustomExecutionContext> {
-  const debug_ = createDebugLogger({
+  const wsbDebug = createDebugLogger({
     namespace: `${globalDebuggerNamespace}:withStandardBuilder`
   });
 
-  debug_('entered withStandardBuilder function');
+  wsbDebug('entered withStandardBuilder function');
 
   const extraOptionConfigurations = Object.fromEntries(
     additionalCommonOptions
@@ -224,7 +224,7 @@ export function withStandardBuilder<
       })
   );
 
-  debug_('extraOptionConfigurations: %O', extraOptionConfigurations);
+  wsbDebug('extraOptionConfigurations: %O', extraOptionConfigurations);
 
   const allCommonCliArguments: Partial<
     BfeBuilderObject<CustomCliArguments, CustomExecutionContext>
@@ -251,24 +251,24 @@ export function withStandardBuilder<
     ])
   );
 
-  debug_('allCommonOptionNames: %O', allCommonOptionNames);
-  debug_('allCommonCliArguments: %O', allCommonCliArguments);
+  wsbDebug('allCommonOptionNames: %O', allCommonOptionNames);
+  wsbDebug('allCommonCliArguments: %O', allCommonCliArguments);
 
   const [builder, withHandlerExtensions] = withBuilderExtensions<
     CustomCliArguments,
     CustomExecutionContext
   >(
     function builder(blackFlag, helpOrVersionSet, argv) {
-      debug_('entered withStandardBuilder::builder wrapper function');
-      debug_('calling customBuilder (if a function) and returning builder object');
+      wsbDebug('entered withStandardBuilder::builder wrapper function');
+      wsbDebug('calling customBuilder (if a function) and returning builder object');
 
       const customCliArguments =
         (typeof customBuilder === 'function'
           ? customBuilder(blackFlag, helpOrVersionSet, argv)
           : customBuilder) || {};
 
-      debug_('exited customBuilder (if a function) with builder object');
-      debug_('customCliArguments (pre-merge): %O', customCliArguments);
+      wsbDebug('exited customBuilder (if a function) with builder object');
+      wsbDebug('customCliArguments (pre-merge): %O', customCliArguments);
 
       // ? Merge incoming custom cli arguments over all computed common options
       for (const [option, argumentConfig] of Object.entries(customCliArguments)) {
@@ -281,7 +281,7 @@ export function withStandardBuilder<
         }
       }
 
-      debug_(
+      wsbDebug(
         'final customCliArguments (will be merged onto allCommonCliArguments): %O',
         customCliArguments
       );
@@ -294,11 +294,11 @@ export function withStandardBuilder<
     { commonOptions: allCommonOptionNames, disableAutomaticGrouping }
   );
 
-  debug_('exited withStandardBuilder function');
+  wsbDebug('exited withStandardBuilder function');
 
   return [
     function standardBuilder(blackFlag, helpOrVersionSet, rawArgv) {
-      const debug = debug_.extend('standardBuilder');
+      const debug = wsbDebug.extend('standardBuilder');
 
       debug('entered standardBuilder');
 

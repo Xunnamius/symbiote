@@ -282,8 +282,8 @@ export default function command(
   executionContext: AsStrictExecutionContext<GlobalExecutionContext>
 ) {
   const {
-    log,
-    debug_,
+    standardLog,
+    standardDebug,
     state,
     projectMetadata: projectMetadata_,
     isUsingLocalInstallation
@@ -311,7 +311,7 @@ export default function command(
       description: 'Do not exit until all tasks have finished running',
       default: true
     },
-    ...renovationTasksToBlackFlagOptions(debug_.extend('builder'))
+    ...renovationTasksToBlackFlagOptions(standardDebug.extend('builder'))
   });
 
   return {
@@ -341,22 +341,22 @@ ${printRenovationTasks()}`,
       const { $0: scriptFullName, scope, parallel, force, runToCompletion } = argv;
 
       const handlerName = scriptBasename(scriptFullName);
-      const genericLogger = log.extend(handlerName);
-      const debug = debug_.extend(`handler-${handlerName}`);
+      const genericLogger = standardLog.extend(handlerName);
+      const debug = standardDebug.extend(`handler-${handlerName}`);
 
       const camelize = (str: string) => str.replaceAll(/-./g, (x) => x[1].toUpperCase());
 
       debug('entered handler');
 
       const { projectMetadata } = await runGlobalPreChecks({
-        debug_,
+        standardDebug: standardDebug,
         projectMetadata_,
         scope
       });
 
       const { startTime } = state;
 
-      logStartTime({ log, startTime, isUsingLocalInstallation });
+      logStartTime({ standardLog, startTime, isUsingLocalInstallation });
 
       genericLogger(
         [LogTag.IF_NOT_QUIETED],
@@ -477,7 +477,7 @@ ${printRenovationTasks()}`,
           genericLogger.newline([LogTag.IF_NOT_SILENCED], 'alternate');
 
           for (const error of errors) {
-            log.error(
+            standardLog.error(
               [LogTag.IF_NOT_SILENCED],
               'Renovation task execution error:\n%O',
               error

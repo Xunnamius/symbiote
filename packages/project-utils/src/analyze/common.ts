@@ -25,7 +25,7 @@ import type {
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 import type { sharedAttributeFileBase } from 'universe+project-utils:fs.ts';
 
-export const debug = createDebugLogger({
+export const commonDebug = createDebugLogger({
   namespace: `${globalDebuggerNamespace}:analyze`
 });
 

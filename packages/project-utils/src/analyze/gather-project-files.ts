@@ -2,7 +2,7 @@ import { glob as globAsync, sync as globSync } from 'glob-gitignore';
 
 import {
   assignResultTo,
-  debug as debug_,
+  commonDebug,
   type GenericPackage,
   type GenericProjectMetadata,
   type ProjectFiles
@@ -28,7 +28,7 @@ import { type ParametersNoFirst } from 'universe+project-utils:util.ts';
 
 import type { Promisable } from 'type-fest';
 
-const debug = debug_.extend('gatherProjectFiles');
+const debug = commonDebug.extend('gatherProjectFiles');
 
 const packageJsonGlob = '**/package.json';
 const markdownGlob = '**/*.md';

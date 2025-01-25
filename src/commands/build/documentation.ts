@@ -37,8 +37,8 @@ export type CustomCliArguments = GlobalCliArguments<DocumentationBuilderScope> &
 };
 
 export default function command({
-  log,
-  debug_,
+  standardLog,
+  standardDebug,
   state,
   projectMetadata: projectMetadata_,
   isUsingLocalInstallation
@@ -90,15 +90,19 @@ export default function command({
       quiet: isQuieted
     }) {
       const handlerName = scriptBasename(scriptFullName);
-      const genericLogger = log.extend(handlerName);
-      const debug = debug_.extend(`handler-${handlerName}`);
+      const genericLogger = standardLog.extend(handlerName);
+      const debug = standardDebug.extend(`handler-${handlerName}`);
 
       debug('entered handler');
 
-      await runGlobalPreChecks({ debug_, projectMetadata_, scope });
+      await runGlobalPreChecks({
+        standardDebug: standardDebug,
+        projectMetadata_,
+        scope
+      });
       const { startTime } = state;
 
-      logStartTime({ log, startTime, isUsingLocalInstallation });
+      logStartTime({ standardLog, startTime, isUsingLocalInstallation });
       genericLogger([LogTag.IF_NOT_QUIETED], 'Generating documentation...');
 
       debug('scope (unused): %O', scope);

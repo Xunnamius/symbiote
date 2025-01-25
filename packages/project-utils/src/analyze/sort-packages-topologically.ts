@@ -4,7 +4,7 @@ import assert from 'node:assert';
 import { type Entries } from 'type-fest';
 
 import {
-  debug as debug_,
+  commonDebug,
   type GenericPackageJson,
   type Package,
   type ProjectMetadata
@@ -12,7 +12,7 @@ import {
 
 import { ErrorMessage, ProjectError } from 'universe+project-utils:error.ts';
 
-const debug = debug_.extend('sortPackagesTopologically');
+const debug = commonDebug.extend('sortPackagesTopologically');
 
 type PackageGraph = Map<string, PackageGraphNode>;
 

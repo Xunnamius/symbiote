@@ -29,8 +29,8 @@ describe('::makeStandardConfigureExecutionContext', () => {
       )({ a: 1, state: { b: 1 } } as any)
     ).toStrictEqual({
       a: 1,
-      log: 3,
-      debug_: 2,
+      standardLog: 3,
+      standardDebug: 2,
       state: {
         b: 1,
         isSilenced: false,
@@ -54,8 +54,8 @@ describe('::makeStandardConfigureExecutionContext', () => {
       )({ a: 1, state: { b: 1 } } as any)
     ).toStrictEqual({
       a: 1,
-      log: 3,
-      debug_: 2,
+      standardLog: 3,
+      standardDebug: 2,
       taskManager: expect.anything(),
       state: {
         b: 1,

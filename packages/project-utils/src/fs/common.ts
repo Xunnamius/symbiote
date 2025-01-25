@@ -31,7 +31,7 @@ export type RelativePath = Tagged<string, 'RelativePath'>;
  */
 export type Path = AbsolutePath | RelativePath;
 
-export const debug = createDebugLogger({
+export const commonDebug = createDebugLogger({
   namespace: `${globalDebuggerNamespace}:fs`
 });
 

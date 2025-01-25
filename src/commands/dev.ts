@@ -31,8 +31,8 @@ export const devScopes = Object.values(DevScope);
 export type CustomCliArguments = GlobalCliArguments<DevScope>;
 
 export default function command({
-  log,
-  debug_,
+  standardLog,
+  standardDebug,
   state,
   projectMetadata: projectMetadata_,
   isUsingLocalInstallation
@@ -47,20 +47,20 @@ export default function command({
     usage: withGlobalUsage(),
     handler: withGlobalHandler(async function ({ $0: scriptFullName, scope }) {
       const handlerName = scriptBasename(scriptFullName);
-      const genericLogger = log.extend(handlerName);
-      const debug = debug_.extend(`handler-${handlerName}`);
+      const genericLogger = standardLog.extend(handlerName);
+      const debug = standardDebug.extend(`handler-${handlerName}`);
 
       debug('entered handler');
 
       const { projectMetadata } = await runGlobalPreChecks({
-        debug_,
+        standardDebug: standardDebug,
         projectMetadata_,
         scope
       });
 
       const { startTime } = state;
 
-      logStartTime({ log, startTime, isUsingLocalInstallation });
+      logStartTime({ standardLog, startTime, isUsingLocalInstallation });
       genericLogger([LogTag.IF_NOT_QUIETED], 'Running project dev tools...');
 
       debug('scope (unused): %O', scope);

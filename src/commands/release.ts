@@ -294,8 +294,8 @@ export default function command(
   executionContext: AsStrictExecutionContext<GlobalExecutionContext>
 ) {
   const {
-    log,
-    debug_,
+    standardLog,
+    standardDebug,
     state,
     projectMetadata: projectMetadata_,
     isUsingLocalInstallation
@@ -467,8 +467,8 @@ WARNING: this command is NOT DESIGNED TO HANDLE CONCURRENT EXECUTION ON THE SAME
       } = argv;
 
       const handlerName = scriptBasename(scriptFullName);
-      const genericLogger = log.extend(handlerName);
-      const debug = debug_.extend(`handler-${handlerName}`);
+      const genericLogger = standardLog.extend(handlerName);
+      const debug = standardDebug.extend(`handler-${handlerName}`);
 
       debug('entered handler');
 
@@ -478,13 +478,17 @@ WARNING: this command is NOT DESIGNED TO HANDLE CONCURRENT EXECUTION ON THE SAME
 
       const {
         projectMetadata: { cwdPackage }
-      } = await runGlobalPreChecks({ debug_, projectMetadata_, scope });
+      } = await runGlobalPreChecks({
+        standardDebug: standardDebug,
+        projectMetadata_,
+        scope
+      });
 
       const { startTime } = state;
       const { json: cwdPackageJson } = cwdPackage;
       const { scripts: cwdPackageJsonScripts = {} } = cwdPackageJson;
 
-      logStartTime({ log, startTime, isUsingLocalInstallation });
+      logStartTime({ standardLog, startTime, isUsingLocalInstallation });
       genericLogger([LogTag.IF_NOT_QUIETED], 'Releasing project...');
 
       debug('scope (unused): %O', scope);
@@ -880,10 +884,10 @@ const protoPrereleaseTasks: ProtoPrereleaseTask[][] = [
       async run(
         { projectMetadata },
         { force },
-        { self: { id }, debug: debug_, log: log_ }
+        { self: { id }, debug: releaseDebug, log: log_ }
       ) {
         const problems: string[] = [];
-        const debug = debug_.extend('repo-valid');
+        const debug = releaseDebug.extend('repo-valid');
         const failLogger = log_.extend('repo-valid');
 
         const {

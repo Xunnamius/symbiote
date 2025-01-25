@@ -56,8 +56,8 @@ export type CustomCliArguments = GlobalCliArguments & {
 };
 
 export default function command({
-  log,
-  debug_,
+  standardLog,
+  standardDebug,
   state: { startTime },
   projectMetadata: projectMetadata_,
   isUsingLocalInstallation
@@ -100,8 +100,8 @@ The default value for --exclude-paths includes the following regular expressions
       force
     }) {
       const handlerName = scriptBasename(scriptFullName);
-      const genericLogger = log.extend(handlerName);
-      const debug = debug_.extend(`handler-${handlerName}`);
+      const genericLogger = standardLog.extend(handlerName);
+      const debug = standardDebug.extend(`handler-${handlerName}`);
 
       debug('entered handler');
 
@@ -110,9 +110,13 @@ The default value for --exclude-paths includes the following regular expressions
           cwdPackage: { root: packageRoot },
           rootPackage: { root: projectRoot }
         }
-      } = await runGlobalPreChecks({ debug_, projectMetadata_, scope });
+      } = await runGlobalPreChecks({
+        standardDebug: standardDebug,
+        projectMetadata_,
+        scope
+      });
 
-      logStartTime({ log, startTime, isUsingLocalInstallation });
+      logStartTime({ standardLog, startTime, isUsingLocalInstallation });
 
       genericLogger(
         [LogTag.IF_NOT_QUIETED],

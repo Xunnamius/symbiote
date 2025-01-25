@@ -12,7 +12,7 @@ import {
 } from 'universe+project-utils:alias.ts';
 
 import {
-  debug as debug_,
+  commonDebug,
   isWorkspacePackage,
   type GenericPackage,
   // ? Used in documentation
@@ -45,7 +45,7 @@ import {
 
 import type { Entries, Promisable, SetFieldType } from 'type-fest';
 
-const debug = debug_.extend('gatherPackageBuildTargets');
+const debug = commonDebug.extend('gatherPackageBuildTargets');
 
 /**
  * Prefixed to specifiers used in non-source files.

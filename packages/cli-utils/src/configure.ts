@@ -53,8 +53,8 @@ export async function makeStandardConfigureExecutionContext({
   return function (context) {
     return {
       ...context,
-      log: rootGenericLogger,
-      debug_: rootDebugLogger,
+      standardLog: rootGenericLogger,
+      standardDebug: rootDebugLogger,
       taskManager,
       state: {
         ...context.state,
@@ -80,10 +80,10 @@ export function makeStandardConfigureErrorHandlingEpilogue(): ConfigureErrorHand
     // ? Pretty print error output depending on how silent we're supposed to be
     if (message && !context.state.isSilenced) {
       if (context.state.didOutputHelpOrVersionText) {
-        context.log.newline([IF_NOT_SILENCED], 'alternate');
+        context.standardLog.newline([IF_NOT_SILENCED], 'alternate');
       }
 
-      context.log.error(
+      context.standardLog.error(
         [IF_NOT_SILENCED],
         `❌ Execution failed: ${toFirstLowerCase(message)}`
       );
@@ -133,10 +133,10 @@ export function makeStandardConfigureErrorHandlingEpilogue(): ConfigureErrorHand
         }
 
         if (causalStack.length) {
-          context.log.newline([IF_NOT_QUIETED], 'alternate');
-          context.log.error([IF_NOT_QUIETED], '❌ Causal stack:');
+          context.standardLog.newline([IF_NOT_QUIETED], 'alternate');
+          context.standardLog.error([IF_NOT_QUIETED], '❌ Causal stack:');
           causalStack.forEach((item) => {
-            context.log.error([IF_NOT_QUIETED], item);
+            context.standardLog.error([IF_NOT_QUIETED], item);
           });
         }
       }
@@ -146,14 +146,14 @@ export function makeStandardConfigureErrorHandlingEpilogue(): ConfigureErrorHand
         !context.state.isHushed &&
         context.taskManager.errors.length > 0
       ) {
-        context.log.newline([IF_NOT_HUSHED], 'alternate');
-        context.log.error([IF_NOT_HUSHED], '❌ Fatal task errors:');
+        context.standardLog.newline([IF_NOT_HUSHED], 'alternate');
+        context.standardLog.error([IF_NOT_HUSHED], '❌ Fatal task errors:');
 
         const { ListrErrorTypes } = await import('rejoinder-listr2');
 
         for (const taskError of context.taskManager.errors) {
           if (taskError.type !== ListrErrorTypes.HAS_FAILED_WITHOUT_ERROR) {
-            context.log.error(
+            context.standardLog.error(
               [IF_NOT_HUSHED],
               `${TAB}❗ ${toSentenceCase(taskError.message)}`
             );

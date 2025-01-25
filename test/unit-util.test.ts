@@ -39,7 +39,7 @@ describe('::runGlobalPreChecks', () => {
 
     await expect(
       runGlobalPreChecks({
-        debug_: dummyDebugger,
+        standardDebug: dummyDebugger,
         projectMetadata_: undefined,
         scope: DefaultGlobalScope.Unlimited
       })
@@ -56,7 +56,7 @@ describe('::runGlobalPreChecks', () => {
 
     await expect(
       runGlobalPreChecks({
-        debug_: dummyDebugger,
+        standardDebug: dummyDebugger,
         projectMetadata_: fakeProjectMetadata,
         scope: DefaultGlobalScope.Unlimited
       })
@@ -67,7 +67,7 @@ describe('::runGlobalPreChecks', () => {
     expect(
       (
         await runGlobalPreChecks({
-          debug_: dummyDebugger,
+          standardDebug: dummyDebugger,
           projectMetadata_: fakeProjectMetadata,
           scope: DefaultGlobalScope.Unlimited
         })
@@ -88,7 +88,7 @@ describe('::runGlobalPreChecks', () => {
       expect(
         (
           await runGlobalPreChecks({
-            debug_: dummyDebugger,
+            standardDebug: dummyDebugger,
             projectMetadata_: fakeProjectMetadata,
             scope: DefaultGlobalScope.ThisPackage
           })
@@ -106,7 +106,7 @@ describe('::runGlobalPreChecks', () => {
       expect(
         (
           await runGlobalPreChecks({
-            debug_: dummyDebugger,
+            standardDebug: dummyDebugger,
             projectMetadata_: fakeProjectMetadata,
             scope: DefaultGlobalScope.ThisPackage
           })
@@ -123,7 +123,7 @@ describe('::runGlobalPreChecks', () => {
 
       await expect(
         runGlobalPreChecks({
-          debug_: dummyDebugger,
+          standardDebug: dummyDebugger,
           projectMetadata_: fakeProjectMetadata,
           scope: DefaultGlobalScope.ThisPackage
         })

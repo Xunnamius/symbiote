@@ -5,13 +5,13 @@ import { runNoRejectOnBadExit } from '@-xun/run';
 
 import { cache, CacheScope } from 'universe+project-utils:cache.ts';
 import { ErrorMessage, ProjectError } from 'universe+project-utils:error.ts';
-import { debug as debug_ } from 'universe+project-utils:fs/common.ts';
+import { commonDebug } from 'universe+project-utils:fs/common.ts';
 import { type AbsolutePath } from 'universe+project-utils:fs.ts';
 import { type ParametersNoFirst } from 'universe+project-utils:util.ts';
 
 import type { Promisable } from 'type-fest';
 
-const debug = debug_.extend('deriveVirtualGitignoreLines');
+const debug = commonDebug.extend('deriveVirtualGitignoreLines');
 
 const alwaysIgnored = ['.git'];
 

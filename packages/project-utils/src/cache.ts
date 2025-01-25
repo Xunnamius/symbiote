@@ -2,7 +2,7 @@
 import { createHash } from 'node:crypto';
 
 import {
-  debug as debug_,
+  commonDebug,
   isPackage,
   isProjectMetadata,
   type GenericPackageJson
@@ -27,7 +27,7 @@ import type {
 } from 'universe+project-utils:analyze.ts';
 
 const internalCache = new Map<CacheScope, InternalScopedCache>();
-const cacheDebug = debug_.extend('cache');
+const cacheDebug = commonDebug.extend('cache');
 const cacheDebugHit = cacheDebug.extend('hit');
 
 type DefaultKeysToOmitFromCacheParameters = 'useCached';

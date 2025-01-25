@@ -38,13 +38,13 @@ import type { EmptyObject, Entry, Promisable } from 'type-fest';
 // ! Try not to use hardAssert, softAssert, or CliError here or in any
 // ! transformers, or in the stuff imported by them.
 
-const debug_ = createDebugLogger({ namespace: globalDebuggerNamespace });
-const gatherAssetsDebug = debug_.extend('gather-assets-transformer');
-const gatherAllAssetsDebug = debug_.extend('gather-assets-transformers');
-const makeTransformerDebug = debug_.extend('make-transformer');
-const compileTemplatesDebug = debug_.extend('compile-templates');
-const compileTemplateDebug = debug_.extend('compile-template');
-const configTemplateDebug = debug_.extend('config-template');
+const assetsDebug = createDebugLogger({ namespace: globalDebuggerNamespace });
+const gatherAssetsDebug = assetsDebug.extend('gather-assets-transformer');
+const gatherAllAssetsDebug = assetsDebug.extend('gather-assets-transformers');
+const makeTransformerDebug = assetsDebug.extend('make-transformer');
+const compileTemplatesDebug = assetsDebug.extend('compile-templates');
+const compileTemplateDebug = assetsDebug.extend('compile-template');
+const configTemplateDebug = assetsDebug.extend('config-template');
 
 /**
  * The Symbol represents an asset to be deleted and can be returned as the

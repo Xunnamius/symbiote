@@ -31,8 +31,8 @@ import {
 export type CustomCliArguments = GlobalCliArguments;
 
 export default function command({
-  log,
-  debug_,
+  standardLog,
+  standardDebug,
   state,
   projectMetadata: projectMetadata_,
   isUsingLocalInstallation
@@ -54,20 +54,20 @@ If this command is run with --scope=unlimited (the default) in a monorepo, and t
     ),
     handler: withGlobalHandler(async function ({ $0: scriptFullName, scope, _: args_ }) {
       const handlerName = scriptBasename(scriptFullName);
-      const genericLogger = log.extend(handlerName);
-      const debug = debug_.extend(`handler-${handlerName}`);
+      const genericLogger = standardLog.extend(handlerName);
+      const debug = standardDebug.extend(`handler-${handlerName}`);
 
       debug('entered handler');
 
       const { projectMetadata } = await runGlobalPreChecks({
-        debug_,
+        standardDebug: standardDebug,
         projectMetadata_,
         scope
       });
 
       const { startTime } = state;
 
-      logStartTime({ log, startTime, isUsingLocalInstallation });
+      logStartTime({ standardLog, startTime, isUsingLocalInstallation });
 
       debug('scope: %O', scope);
 

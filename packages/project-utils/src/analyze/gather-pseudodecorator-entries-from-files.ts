@@ -3,7 +3,7 @@ import { readFile as readFileAsync } from 'node:fs/promises';
 
 import isValidNpmPackageName from 'validate-npm-package-name';
 
-import { debug as debug_ } from 'universe+project-utils:analyze/common.ts';
+import { commonDebug } from 'universe+project-utils:analyze/common.ts';
 import { cache, CacheScope } from 'universe+project-utils:cache.ts';
 import { type AbsolutePath } from 'universe+project-utils:fs.ts';
 
@@ -14,7 +14,7 @@ import {
 
 import type { Promisable } from 'type-fest';
 
-const debug = debug_.extend('gatherPseudodecoratorEntriesFromFiles');
+const debug = commonDebug.extend('gatherPseudodecoratorEntriesFromFiles');
 
 const whitespace = /\s/;
 // ? We use this because strange package names like "-" are technically valid.

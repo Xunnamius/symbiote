@@ -152,8 +152,8 @@ export default function command(
   globalExecutionContext: AsStrictExecutionContext<GlobalExecutionContext>
 ) {
   const {
-    log,
-    debug_,
+    standardLog,
+    standardDebug,
     state,
     projectMetadata: projectMetadata_,
     isUsingLocalInstallation
@@ -240,13 +240,13 @@ Use --import-section-file to add a custom release section to the changelog. The 
       } = argv;
 
       const handlerName = scriptBasename(scriptFullName);
-      const genericLogger = log.extend(handlerName);
-      const debug = debug_.extend(`handler-${handlerName}`);
+      const genericLogger = standardLog.extend(handlerName);
+      const debug = standardDebug.extend(`handler-${handlerName}`);
 
       debug('entered handler');
 
       const { projectMetadata } = await runGlobalPreChecks({
-        debug_,
+        standardDebug: standardDebug,
         projectMetadata_,
         scope
       });
@@ -254,7 +254,7 @@ Use --import-section-file to add a custom release section to the changelog. The 
       const { startTime } = state;
 
       logStartTime({
-        log,
+        standardLog,
         startTime,
         isUsingLocalInstallation
       });
@@ -384,22 +384,22 @@ Use --import-section-file to add a custom release section to the changelog. The 
           // ! release order (latest first).
 
           async function* (source) {
-            const debug_ = debug.extend('tap1');
-            debug_('initialized tap1 on changelog section stream');
+            const tap1Debug = debug.extend('tap1');
+            tap1Debug('initialized tap1 on changelog section stream');
 
             source.setEncoding('utf8');
 
             if (additionalSection) {
               const { notes: additionalChunk } = additionalSection;
 
-              debug_('flushing additional section as first chunk');
+              tap1Debug('flushing additional section as first chunk');
               yield additionalChunk;
             }
 
             // ? We cast it to a string[] so currentChunk is typed correctly
             // eslint-disable-next-line @typescript-eslint/await-thenable
             for await (const currentChunk of source as unknown as string[]) {
-              debug_(
+              tap1Debug(
                 'passing through chunk: %O',
                 currentChunk.slice(0, chunkPreviewLength),
                 '...'
@@ -410,15 +410,15 @@ Use --import-section-file to add a custom release section to the changelog. The 
           },
 
           async function* (source) {
-            const debug_ = debug.extend('tap2');
-            debug_('initialized tap2 on changelog section stream');
+            const tap2Debug = debug.extend('tap2');
+            tap2Debug('initialized tap2 on changelog section stream');
 
             let isFirst = true;
 
             // ? We cast it to a string[] so currentChunk is typed correctly
             // eslint-disable-next-line @typescript-eslint/await-thenable
             for await (const chunk_ of source as unknown as string[]) {
-              debug_('saw chunk: %O', chunk_.slice(0, chunkPreviewLength), '...');
+              tap2Debug('saw chunk: %O', chunk_.slice(0, chunkPreviewLength), '...');
 
               const chunk =
                 outputUnreleased && isFirst
@@ -433,13 +433,13 @@ Use --import-section-file to add a custom release section to the changelog. The 
                   : chunk_;
 
               if (outputOrder === OutputOrder.Descending) {
-                debug_('descending sort order: chunk passed through as-is');
+                tap2Debug('descending sort order: chunk passed through as-is');
                 yield chunk;
               } else {
                 const isPatchChunk = chunk.startsWith('### ');
 
                 if (!isPatchChunk) {
-                  debug_('storybook sort order: non-patch chunk passed through');
+                  tap2Debug('storybook sort order: non-patch chunk passed through');
 
                   if (!skipTopmatter || !isFirst) {
                     yield '<br />\n\n';
@@ -447,7 +447,7 @@ Use --import-section-file to add a custom release section to the changelog. The 
 
                   yield chunk;
 
-                  debug_(
+                  tap2Debug(
                     'storybook sort order: %O patch chunks released',
                     withheldChangelogPatchSections.length
                   );
@@ -461,7 +461,7 @@ Use --import-section-file to add a custom release section to the changelog. The 
                     withheldChangelogPatchSections.length = 0;
                   }
                 } else {
-                  debug_('storybook sort order: patch chunk held');
+                  tap2Debug('storybook sort order: patch chunk held');
                   withheldChangelogPatchSections.push(chunk);
                   yield '';
                 }
@@ -471,7 +471,7 @@ Use --import-section-file to add a custom release section to the changelog. The 
             }
 
             if (withheldChangelogPatchSections.length) {
-              debug_(
+              tap2Debug(
                 'storybook sort order: %O patch chunks released (no non-patch available)',
                 withheldChangelogPatchSections.length
               );

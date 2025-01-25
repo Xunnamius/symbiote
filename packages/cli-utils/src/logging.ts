@@ -27,15 +27,15 @@ export enum LogTag {
  * Prints a timestamp indicating the beginning of execution.
  */
 export function logStartTime({
-  log: _log,
+  standardLog,
   startTime,
   isUsingLocalInstallation
 }: {
-  log: ExtendedLogger;
+  standardLog: ExtendedLogger;
   startTime: Date;
   isUsingLocalInstallation: boolean;
 }) {
-  _log.extend(isUsingLocalInstallation ? '🏠local' : '🌎GLOBAL')(
+  standardLog.extend(isUsingLocalInstallation ? '🏠local' : '🌎GLOBAL')(
     [LogTag.IF_NOT_QUIETED],
     // TODO: need to change this when cli-utils is moved out of symbiote
     `Execution of ${packageName}@${packageVersion} began on`,

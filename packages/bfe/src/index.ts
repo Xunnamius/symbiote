@@ -735,11 +735,11 @@ export function withBuilderExtensions<
     disableAutomaticGrouping = false
   }: WithBuilderExtensionsConfig<CustomCliArguments> = {}
 ): WithBuilderExtensionsReturnType<CustomCliArguments, CustomExecutionContext> {
-  const debug_ = createDebugLogger({
+  const wbeDebug = createDebugLogger({
     namespace: `${globalDebuggerNamespace}:withBuilderExtensions`
   });
 
-  debug_('entered withBuilderExtensions function');
+  wbeDebug('entered withBuilderExtensions function');
 
   // * Defined by second-pass builder; used by handler
   let optionsMetadata: OptionsMetadata | undefined = undefined;
@@ -763,11 +763,11 @@ export function withBuilderExtensions<
   let previousBfParserConfiguration: Partial<ParserConfigurationOptions> | undefined =
     undefined;
 
-  debug_('exited withBuilderExtensions function');
+  wbeDebug('exited withBuilderExtensions function');
 
   return [
     function builder(blackFlag, helpOrVersionSet, argv) {
-      const debug = debug_.extend('builder');
+      const debug = wbeDebug.extend('builder');
       const isFirstPass = !argv;
       const isSecondPass = !isFirstPass;
 

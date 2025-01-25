@@ -11,7 +11,7 @@ import {
 import { toss } from 'toss-expression';
 
 import {
-  debug as debug_,
+  commonDebug,
   ProjectAttribute,
   WorkspaceAttribute,
   type GenericPackage,
@@ -60,7 +60,7 @@ import { type ParametersNoFirst } from 'universe+project-utils:util.ts';
 
 import type { Merge, PackageJson, Promisable } from 'type-fest';
 
-const debug = debug_.extend('getProjectMetadata');
+const debug = commonDebug.extend('getProjectMetadata');
 const subrootDebug = debug.extend('subroot');
 const vercelProjectMetadataPath = '.vercel/project.json' as RelativePath;
 

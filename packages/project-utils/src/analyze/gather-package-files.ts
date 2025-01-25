@@ -2,7 +2,7 @@ import { glob as globAsync, sync as globSync } from 'glob-gitignore';
 
 import {
   assignResultTo,
-  debug as debug_,
+  commonDebug,
   type GenericPackage,
   type PackageFiles
 } from 'universe+project-utils:analyze/common.ts';
@@ -25,7 +25,7 @@ import {
 
 import type { Promisable } from 'type-fest';
 
-const debug = debug_.extend('gatherPackageFiles');
+const debug = commonDebug.extend('gatherPackageFiles');
 
 const rawDistGlob = 'dist/**/*';
 // eslint-disable-next-line unicorn/prevent-abbreviations

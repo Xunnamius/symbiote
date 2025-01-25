@@ -172,8 +172,8 @@ export type CustomCliArguments = GlobalCliArguments<DistributablesBuilderScope> 
 };
 
 export default async function command({
-  log,
-  debug_,
+  standardLog,
+  standardDebug,
   state,
   projectMetadata: projectMetadata_,
   isUsingLocalInstallation
@@ -459,14 +459,14 @@ Finally, note that, when attempting to build a Next.js package, this command wil
       partialFilter: partialFilter_
     }) {
       const handlerName = scriptBasename(scriptFullName);
-      const genericLogger = log.extend(handlerName);
-      const debug = debug_.extend(`handler-${handlerName}`);
-      const filterMatchLogger = log.extend('filtered');
+      const genericLogger = standardLog.extend(handlerName);
+      const debug = standardDebug.extend(`handler-${handlerName}`);
+      const filterMatchLogger = standardLog.extend('filtered');
 
       debug('entered handler');
 
       const { projectMetadata } = await runGlobalPreChecks({
-        debug_,
+        standardDebug: standardDebug,
         projectMetadata_,
         scope
       });
@@ -474,7 +474,7 @@ Finally, note that, when attempting to build a Next.js package, this command wil
       const { startTime } = state;
       let isBuildAlreadyOutput = false;
 
-      logStartTime({ log, startTime, isUsingLocalInstallation });
+      logStartTime({ standardLog, startTime, isUsingLocalInstallation });
 
       debug('scope (unused): %O', scope);
       debug('cleanOutputDir: %O', cleanOutputDir);

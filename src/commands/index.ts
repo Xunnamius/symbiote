@@ -21,7 +21,7 @@ export const rootScopes = Object.values(RootScope);
 export type CustomCliArguments = GlobalCliArguments<RootScope>;
 
 export default function command({
-  debug_
+  standardDebug
 }: AsStrictExecutionContext<GlobalExecutionContext>) {
   const [builder, withGlobalHandler] = withGlobalBuilder<CustomCliArguments>(
     { scope: { choices: rootScopes, default: RootScope.Unlimited } },
@@ -35,7 +35,7 @@ export default function command({
       "A collection of commands for interacting with Xunnamius's NPM-based projects",
     usage: withGlobalUsage(),
     handler: withGlobalHandler(function ({ $0: scriptFullName }) {
-      const debug = debug_.extend(`handler-${scriptBasename(scriptFullName)}`);
+      const debug = standardDebug.extend(`handler-${scriptBasename(scriptFullName)}`);
       debug('entered handler');
       throw new CommandNotImplementedError();
     })

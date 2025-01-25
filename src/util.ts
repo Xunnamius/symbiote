@@ -280,11 +280,11 @@ export function withGlobalBuilder<CustomCliArguments extends GlobalCliArguments<
       return withStandardHandlerExtensions(async function customGlobalHandler(argv) {
         const {
           env: envOverrides,
-          [$executionContext]: { debug_ }
+          [$executionContext]: { standardDebug }
           // ? Work around weirdness with BfeStrictArguments's OmitIndexSignature
         } = argv as Arguments<CustomCliArguments, GlobalExecutionContext>;
 
-        const debug = debug_.extend('handler-wrapper');
+        const debug = standardDebug.extend('handler-wrapper');
 
         debug('entered customHandler wrapper function');
 
@@ -328,17 +328,17 @@ export { withStandardUsage as withGlobalUsage };
  * returning it (or throwing a {@link CliError} if undefined).
  */
 export async function runGlobalPreChecks({
-  debug_,
+  standardDebug: standardDebug,
   projectMetadata_,
   scope
 }: {
-  debug_: GlobalExecutionContext['debug_'];
+  standardDebug: GlobalExecutionContext['standardDebug'];
   projectMetadata_: GlobalExecutionContext['projectMetadata'];
   scope: LiteralUnion<DefaultGlobalScope, string>;
 }): Promise<{
   projectMetadata: NonNullable<GlobalExecutionContext['projectMetadata']>;
 }> {
-  const debug = debug_.extend('pre-checks');
+  const debug = standardDebug.extend('pre-checks');
 
   assert(projectMetadata_, ErrorMessage.CannotRunOutsideRoot());
 
