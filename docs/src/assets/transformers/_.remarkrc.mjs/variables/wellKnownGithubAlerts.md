@@ -8,7 +8,7 @@
 
 > `const` **wellKnownGithubAlerts**: readonly \[`"[!NOTE]"`, `"[!TIP]"`, `"[!IMPORTANT]"`, `"[!WARNING]"`, `"[!CAUTION]"`\]
 
-Defined in: [src/assets/transformers/\_.remarkrc.mjs.ts:41](https://github.com/Xunnamius/symbiote/blob/5a6b8fdd6bad1753f065e8a0fabc20b629cd4120/src/assets/transformers/_.remarkrc.mjs.ts#L41)
+Defined in: [src/assets/transformers/\_.remarkrc.mjs.ts:41](https://github.com/Xunnamius/symbiote/blob/d83dccf3f06ef592d9b9bfba8a64236063675ad1/src/assets/transformers/_.remarkrc.mjs.ts#L41)
 
 We track these so that we may prevent mdast-util-markdown from mangling them
 with an escape character, which sometimes does not render properly on GitHub

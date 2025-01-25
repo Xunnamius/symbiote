@@ -8,7 +8,7 @@
 
 > `const` **devScopes**: [`ThisPackage`](../../../configure/enumerations/ThisPackageGlobalScope.md#thispackage)[]
 
-Defined in: [src/commands/dev.ts:29](https://github.com/Xunnamius/symbiote/blob/5a6b8fdd6bad1753f065e8a0fabc20b629cd4120/src/commands/dev.ts#L29)
+Defined in: [src/commands/dev.ts:29](https://github.com/Xunnamius/symbiote/blob/d83dccf3f06ef592d9b9bfba8a64236063675ad1/src/commands/dev.ts#L29)
 
 ## See
 

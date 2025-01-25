@@ -8,7 +8,7 @@
 
 > **generateNotes**(`__namedParameters`, `context`): `Promise`\<`string`\>
 
-Defined in: [src/assets/transformers/\_release.config.cjs.ts:351](https://github.com/Xunnamius/symbiote/blob/5a6b8fdd6bad1753f065e8a0fabc20b629cd4120/src/assets/transformers/_release.config.cjs.ts#L351)
+Defined in: [src/assets/transformers/\_release.config.cjs.ts:351](https://github.com/Xunnamius/symbiote/blob/d83dccf3f06ef592d9b9bfba8a64236063675ad1/src/assets/transformers/_release.config.cjs.ts#L351)
 
 This is a custom semantic-release plugin step that replaces
 `nextRelease.notes` with the version patched by symbiote.

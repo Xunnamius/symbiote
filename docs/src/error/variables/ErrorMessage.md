@@ -8,7 +8,7 @@
 
 > `const` **ErrorMessage**: `object`
 
-Defined in: [src/error.ts:63](https://github.com/Xunnamius/symbiote/blob/5a6b8fdd6bad1753f065e8a0fabc20b629cd4120/src/error.ts#L63)
+Defined in: [src/error.ts:63](https://github.com/Xunnamius/symbiote/blob/d83dccf3f06ef592d9b9bfba8a64236063675ad1/src/error.ts#L63)
 
 A collection of possible error and warning messages.
 
@@ -445,6 +445,12 @@ punctuation and capitalization rules as the other error messages.
 
 `string`
 
+### CannotExtractTestPathIgnorePatternsFromJestConfig()
+
+#### Returns
+
+`string`
+
 ### CannotGenerateCurrentPackagePathInUnlimitedScope()
 
 #### Parameters
@@ -458,6 +464,18 @@ punctuation and capitalization rules as the other error messages.
 `string`
 
 ### CannotImportConventionalConfig()
+
+#### Parameters
+
+##### path
+
+`string`
+
+#### Returns
+
+`string`
+
+### CannotImportJestConfig()
 
 #### Parameters
 

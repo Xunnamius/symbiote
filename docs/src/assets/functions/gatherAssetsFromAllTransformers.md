@@ -8,7 +8,7 @@
 
 > **gatherAssetsFromAllTransformers**(`__namedParameters`): `Promise`\<[`ReifiedAssets`](../type-aliases/ReifiedAssets.md)\>
 
-Defined in: [src/assets.ts:411](https://github.com/Xunnamius/symbiote/blob/5a6b8fdd6bad1753f065e8a0fabc20b629cd4120/src/assets.ts#L411)
+Defined in: [src/assets.ts:411](https://github.com/Xunnamius/symbiote/blob/d83dccf3f06ef592d9b9bfba8a64236063675ad1/src/assets.ts#L411)
 
 Retrieve all available assets conditioned on `transformerContext`. Since
 computing asset file contents are deferred until the generator function is

@@ -8,7 +8,7 @@
 
 > **LoadDotEnvSettings**: `object` & `Pick`\<`DotenvConfigOptions`, `"override"`\>
 
-Defined in: [src/util.ts:766](https://github.com/Xunnamius/symbiote/blob/5a6b8fdd6bad1753f065e8a0fabc20b629cd4120/src/util.ts#L766)
+Defined in: [src/util.ts:766](https://github.com/Xunnamius/symbiote/blob/d83dccf3f06ef592d9b9bfba8a64236063675ad1/src/util.ts#L766)
 
 ## Type declaration
 
