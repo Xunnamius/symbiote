@@ -427,7 +427,7 @@ ${printRenovationTasks()}`,
 
         debug('waiting for renovation tasks to finish running...');
 
-        // TODO: This task runner logic appears in at least four places in this
+        // TODO: This task runner logic appears in at least five places in this
         // TODO: code base alone. We need to make this into a package :)
 
         const errors: unknown[] = [];
