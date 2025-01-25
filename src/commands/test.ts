@@ -27,6 +27,7 @@ import {
 import {
   directoryPackagesProjectBase,
   directoryTestPackageBase,
+  isAccessible,
   jestConfigProjectBase,
   lcovCoverageInfoPackageBase,
   toPath,
@@ -34,8 +35,6 @@ import {
   Tsconfig,
   tstycheConfigProjectBase
 } from 'multiverse+project-utils:fs.ts';
-
-import { baseConfig } from 'universe:assets/transformers/_jest.config.mjs.ts';
 
 import {
   DefaultGlobalScope,
@@ -426,9 +425,17 @@ Provide --skip-slow-tests (or -x) to set the SYMBIOTE_TEST_JEST_SKIP_SLOW_TESTS 
 
       debug('env: %O', env);
 
+      const jestConfigFilePath = toPath(projectRoot, jestConfigProjectBase);
+
+      softAssert(
+        await isAccessible(jestConfigFilePath, { useCached: true }),
+        ErrorMessage.MissingConfigurationFile(jestConfigFilePath)
+      );
+
       // ! Test path patterns should begin with a slash (/)
       const jestTestPathPatterns: string[] = [];
-      const testPathIgnorePatterns: string[] = baseConfig().testPathIgnorePatterns;
+      const testPathIgnorePatterns: string[] = (await import(jestConfigFilePath))
+        .testPathIgnorePatterns;
       const isCwdTheProjectRoot = isRootPackage(cwdPackage);
       const npxJestArguments = ['jest'];
 

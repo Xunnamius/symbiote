@@ -74,7 +74,9 @@ export function baseConfig({
     // ? Minimum 2 concurrent tests executed at once; maximum of cpu cores - 1
     maxConcurrency: Math.max(cpus().length - 1, 2),
     verbose: false,
-    // ? This key is sometimes overridden on the CLI level by symbiote
+    // ? This key is sometimes overridden on the CLI level by symbiote, but it
+    // ? is okay so long as any customizations are defined in the appropriate
+    // ? jest configuration file
     testPathIgnorePatterns: [
       '/node_modules/',
       '/dist/',
