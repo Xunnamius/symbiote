@@ -14,7 +14,7 @@ import {
 } from '@babel/core';
 
 import { type ChildConfiguration } from '@black-flag/core';
-import { glob } from 'glob';
+import { glob as globAsync } from 'glob';
 import { SHORT_TAB } from 'rejoinder';
 import { rimraf as forceDeletePaths } from 'rimraf';
 import uniqueFilename from 'unique-filename';
@@ -160,8 +160,9 @@ export type CustomCliArguments = GlobalCliArguments<DistributablesBuilderScope> 
   generateIntermediatesFor?: IntermediateTranspilationEnvironment;
   outputExtension?: string;
   includeExternalFiles?: Path[];
-  partialFilter?: RegExp[];
   excludeInternalFiles?: Path[];
+  includeExternalAssets?: Path[];
+  partialFilter?: RegExp[];
   skipOutputChecks?: boolean;
   skipOutputValidityCheckFor?: (string | RegExp)[];
   skipOutputExtraneityCheckFor?: (string | RegExp)[];
@@ -204,6 +205,12 @@ export default async function command({
       CustomCliArguments,
       GlobalExecutionContext
     > = {
+      'allow-rootverse-node-modules': {
+        boolean: true,
+        description:
+          'allow precarious imports from node_modules using rootverse aliases',
+        default: false
+      },
       'exclude-internal-files': {
         alias: 'exclude-internal-file',
         string: true,
@@ -247,12 +254,50 @@ export default async function command({
           }
         }
       },
+      'include-external-assets': {
+        alias: 'include-external-asset',
+        string: true,
+        array: true,
+        default: [],
+        description: 'Add one or more files to external build assets'
+      },
       'include-external-files': {
         alias: 'include-external-file',
         string: true,
         array: true,
         default: [],
         description: 'Add one or more files to external build targets'
+      },
+      'link-cli-into-bin': {
+        boolean: true,
+        description: 'Soft-link "bin" entries in package.json into node_modules/.bin',
+        default: true
+      },
+      'module-system': {
+        string: true,
+        choices: moduleSystems,
+        description: 'Which module system to transpile into',
+        default: ModuleSystem.Cjs
+      },
+      multiversal: {
+        boolean: true,
+        description: 'Enable project-wide cross-package "multiversal" import support',
+        default: argv?.notMultiversal !== undefined ? !argv.notMultiversal : false
+      },
+      'not-multiversal': {
+        boolean: true,
+        hidden: true,
+        conflicts: 'multiversal'
+      },
+      'output-extension': {
+        string: true,
+        description: 'Override automatic extension selection for transpiled output',
+        check: checkIsNotNil,
+        defaultDescription: 'derived from other arguments',
+        coerce(extension: string) {
+          extension = String(extension);
+          return extension.startsWith('.') ? extension : `.${extension}`;
+        }
       },
       'partial-filter': {
         alias: 'partial',
@@ -271,34 +316,11 @@ export default async function command({
           'skip-output-checks': true
         }
       },
-      'link-cli-into-bin': {
-        boolean: true,
-        description: 'Soft-link "bin" entries in package.json into node_modules/.bin',
-        default: true
-      },
-      'module-system': {
-        string: true,
-        choices: moduleSystems,
-        description: 'Which module system to transpile into',
-        default: ModuleSystem.Cjs
-      },
-      'output-extension': {
-        string: true,
-        description: 'Override automatic extension selection for transpiled output',
-        check: checkIsNotNil,
-        defaultDescription: 'derived from other arguments',
-        coerce(extension: string) {
-          extension = String(extension);
-          return extension.startsWith('.') ? extension : `.${extension}`;
-        }
-      },
       'prepend-shebang': {
         boolean: true,
         description: 'Prepend a shebang to each "bin" distributable in package.json',
         default: true
       },
-      // TODO: consider an option that can reclassify a source as an asset
-      // 'reclassify-as-asset': { ... }
       'skip-output-checks': {
         alias: 'skip-output-check',
         boolean: true,
@@ -346,22 +368,6 @@ export default async function command({
             return str.startsWith('^') || str.endsWith('$') ? new RegExp(str) : str;
           });
         }
-      },
-      multiversal: {
-        boolean: true,
-        description: 'Enable project-wide cross-package "multiversal" import support',
-        default: argv?.notMultiversal !== undefined ? !argv.notMultiversal : false
-      },
-      'not-multiversal': {
-        boolean: true,
-        hidden: true,
-        conflicts: 'multiversal'
-      },
-      'allow-rootverse-node-modules': {
-        boolean: true,
-        description:
-          'allow precarious imports from node_modules using rootverse aliases',
-        default: false
       }
     };
 
@@ -394,13 +400,17 @@ This validation can be tweaked with --skip-output-validity-checks-for, --skip-ou
 
 Provide --multiversal (or --not-multiversal) to further tweak import validation and other aspects of this command's support for so-called "multiversal imports". Multiversal imports are "interdependencies," or direct imports of files from other packages in the repository. By default, or when --not-multiversal is provided (or --multiversal=false), this command's multiversal capabilities are disabled; any use of "multiverse" imports, or imports that attempt to pull in files from outside of the package's root directory, will cause an error. On the other hand, providing --multiversal enables all multiversal capabilities, including multiverse imports.
 
-All package build targets are classified as either "source" ("sources," "source files") or "asset" ("assets," "asset files"). "Source" targets describe all the files to be transpiled while "assets" describe the remaining targets that are copied-through to the output directory without any modification. Currently, only TypeScript files (specifically, files ending in one of: ${extensionsTypescript.join(', ')}) are considered source files. Every other file is considered an asset.
+All package build targets are classified as either "source" ("sources," "source files") or "asset" ("assets," "asset files"). Sources describe all the files to be transpiled while assets describe the remaining targets that are copied through to the output directory without any modification. Currently, only TypeScript files (specifically, files ending in one of: ${extensionsTypescript.join(', ')}) are considered sources. Every other file is considered an asset.
 
-All source and asset files are further classified as either "internal" or "external". Internal files or "internals" are all of the files within a package's source directory, i.e. "\${packageRoot}/src". One or more of these files can be excluded from transpilation with --exclude-internal-files. External files or "externals," on the other hand, are all of the files included in transpilation that are outside of the package's source directory, such as files from other packages in the project. One or more files can be added to the list of externals with --include-external-files.
+All source and asset files are further classified as either "internal" or "external". Internal files or "internals" are all of the files within a package's source directory, i.e. "\${packageRoot}/src". All relevant internals will be subject to import analysis (more on that below). One or more internals can be excluded from analysis and transpilation with --exclude-internal-files. External files or "externals," on the other hand, are all of the files outside of the package's source directory, such as files in neighboring directories or from other packages in the project. One or more files can be added to the list of externals with --include-external-files or --include-external-assets.
 
---include-external-files accepts one or more pattern strings that are interpreted according to normal glob rules, while --exclude-internal-files accepts one or more pattern strings that are interpreted according to gitignore glob rules. Both are relative to the project (NOT package!) root. For --exclude-internal-files specifically, this all means that seemingly absolute pattern strings like "/home/me/project/src/something.ts" are actually relative to the project (NOT filesystem!) root, and seemingly relative pattern strings like "*.mjs" may exclude files at any depth below the project root. See \`man gitignore\` for more details.
+--include-external-files and --include-external-assets both accept one or more pattern strings that are interpreted according to normal glob rules, while --exclude-internal-files accepts one or more pattern strings that are interpreted according to gitignore glob rules. All are relative to the project (NOT package!) root.
 
-At the beginning of the build process, a build manifest is generated. It lists metadata about the package being built, including its name, if it's production-ready, several important paths, and information about the build targets: (1) how many are classified as internal vs external, (2) how many are classified as asset vs source, (3) the number of project-wide import aliases used (including per-alias file counts), and (4) the number of npm package imports used (including per-package file counts).
+For --exclude-internal-files specifically, this all means that seemingly absolute pattern strings like "/home/me/project/src/something.ts" are actually relative to the project (NOT filesystem!) root, and seemingly relative pattern strings like "*.mjs" may exclude files at any depth below the project root. See \`man gitignore\` for more details.
+
+All internals, and all files provided by --include-external-files that are classified as sources, will have their imports recursively analyzed until a full import graph is generated. All sources encountered during analysis will be transpiled while all assets will be copied through as-is. On the other hand, all files provided by --include-external-assets that were not already encountered during import analysis will be classified as assets and will not be analyzed for imports nor generate any new sources.
+
+At the beginning of the build process, a build manifest is generated. It lists metadata about the package being built, including its name, if it's production-ready, if multiversal features are enabled, several important paths, and information about the build targets: (1) how many are classified as internal vs external, (2) how many are classified as asset vs source, (3) the number of project-wide import aliases used (including per-alias file counts), and (4) the number of npm package imports used (including per-package file counts).
 
 Alias and npm package import metadata is output with additional information in the form of the following "prefix tags":
 
@@ -436,6 +446,7 @@ Finally, note that, when attempting to build a Next.js package, this command wil
       // ? We need to make sure these aren't undefined...
       includeExternalFiles: includeExternalFiles_,
       excludeInternalFiles: excludeInternalFiles_,
+      includeExternalAssets: includeExternalAssets_,
       generateTypes: generateTypes_,
       linkCliIntoBin: linkCliIntoBin_,
       prependShebang: prependShebang_,
@@ -488,6 +499,7 @@ Finally, note that, when attempting to build a Next.js package, this command wil
           debug('multiversal: %O', multiversal);
           debug('includeExternalFiles: %O', includeExternalFiles_);
           debug('excludeInternalFiles: %O', excludeInternalFiles_);
+          debug('includeExternalAssets: %O', includeExternalAssets_);
           debug('generateTypes: %O', generateTypes_);
           debug('linkCliIntoBin: %O', linkCliIntoBin_);
           debug('prependShebang: %O', prependShebang_);
@@ -523,6 +535,7 @@ Finally, note that, when attempting to build a Next.js package, this command wil
 
           const includeExternalFiles = includeExternalFiles_;
           const excludeInternalFiles = excludeInternalFiles_;
+          const includeExternalAssets = includeExternalAssets_;
           const generateTypes = generateTypes_;
           const linkCliIntoBin = linkCliIntoBin_;
           const prependShebang = prependShebang_;
@@ -535,6 +548,7 @@ Finally, note that, when attempting to build a Next.js package, this command wil
 
           hardAssert(includeExternalFiles !== undefined, ErrorMessage.GuruMeditation());
           hardAssert(excludeInternalFiles !== undefined, ErrorMessage.GuruMeditation());
+          hardAssert(includeExternalAssets !== undefined, ErrorMessage.GuruMeditation());
           hardAssert(generateTypes !== undefined, ErrorMessage.GuruMeditation());
           hardAssert(linkCliIntoBin !== undefined, ErrorMessage.GuruMeditation());
           hardAssert(prependShebang !== undefined, ErrorMessage.GuruMeditation());
@@ -611,7 +625,7 @@ Finally, note that, when attempting to build a Next.js package, this command wil
           debug('build metadata: %O', buildMetadata);
 
           // * Note that this has not been filtered by partialFilters yet
-          const _allBuildTargets = Array.from(buildTargets.internal).concat(
+          const allBuildTargets_ = Array.from(buildTargets.internal).concat(
             Array.from(buildTargets.external.normal)
           );
 
@@ -625,7 +639,7 @@ Finally, note that, when attempting to build a Next.js package, this command wil
             });
 
             for (const filepath of testFiles) {
-              _allBuildTargets.push(toRelativePath(projectRoot, filepath));
+              allBuildTargets_.push(toRelativePath(projectRoot, filepath));
             }
           }
 
@@ -645,7 +659,7 @@ Finally, note that, when attempting to build a Next.js package, this command wil
 
           let outputNewlineAlready = false;
 
-          for (const target of _allBuildTargets) {
+          for (const target of allBuildTargets_) {
             // ? The current package's package.json file should never be
             // ? included in assets, even if it's explicitly imported
             const isTargetTheCurrentPackageJsonFile =
@@ -657,29 +671,7 @@ Finally, note that, when attempting to build a Next.js package, this command wil
                 target
               );
             } else {
-              if (
-                !partialFilters.length ||
-                partialFilters.some((filter) => {
-                  const absoluteTarget = toAbsolutePath(projectRoot, target);
-                  debug('absoluteTarget: %O', absoluteTarget);
-
-                  if (filter.test(absoluteTarget)) {
-                    if (!outputNewlineAlready) {
-                      filterMatchLogger.newline([LogTag.IF_NOT_HUSHED]);
-                    }
-
-                    debug('%O filter result: pass (matched %O)', target, filter);
-                    filterMatchLogger([LogTag.IF_NOT_HUSHED], 'matched: %O', target);
-
-                    outputNewlineAlready = true;
-                    return true;
-                  }
-                })
-              ) {
-                if (!partialFilters.length) {
-                  debug('%O filter result: pass (no filters)', target);
-                }
-
+              if (isTargetIncludedInPartialFilter(target)) {
                 allBuildTargets.push(target);
 
                 if (hasTypescriptExtension(target)) {
@@ -690,9 +682,30 @@ Finally, note that, when attempting to build a Next.js package, this command wil
                   debug('added %O as: ASSET', target);
                 }
               } else {
-                debug('%O filter result: fail (matched no filters)', target);
                 filteredOutBuildTargets.push(target);
               }
+            }
+          }
+
+          const additionalExternalAssets = Array.from(
+            new Set(
+              (await globAsync(includeExternalAssets, {
+                dot: true,
+                absolute: false,
+                nodir: true,
+                cwd: projectRoot
+              })) as RelativePath[]
+            ).difference(new Set(allBuildTargets_))
+          );
+
+          debug('initial additional asset targets: %O', additionalExternalAssets);
+
+          for (const target of additionalExternalAssets) {
+            if (isTargetIncludedInPartialFilter(target)) {
+              allBuildAssetTargets.push(target);
+              debug('added %O as: ASSET', target);
+            } else {
+              filteredOutBuildTargets.push(target);
             }
           }
 
@@ -738,7 +751,7 @@ prod ready : ${
             }
 multiversal: ${multiversal ? '🪐 yes' : '🌏 no'}
 
-build targets: ${_allBuildTargets.length} file${_allBuildTargets.length !== 1 ? 's' : ''}${
+build targets: ${allBuildTargets_.length} file${allBuildTargets_.length !== 1 ? 's' : ''}${
               isPartialBuild
                 ? ` (down to ${allBuildTargets.length} file${allBuildTargets.length !== 1 ? 's' : ''} after ${filteredOutBuildTargets.length} were filtered out)`
                 : ''
@@ -1390,7 +1403,7 @@ distrib root: ${absoluteOutputDirPath}
                           // ? tsc likes .d.ts files w/ extensionless imports,
                           // ? and, to it, .js etc and .d.ts are synonymous
                           (
-                            await glob(
+                            await globAsync(
                               absoluteSpecifier.replace(/\.js$/, '') +
                                 '{.d.ts,/index.d.ts}',
                               { dot: true }
@@ -1681,7 +1694,7 @@ distrib root: ${absoluteOutputDirPath}
                       .replaceAll(/\/\*(?!\*)/g, '/**/*')
                       .replaceAll(/(?<!\*)\*\//g, '*/**/');
 
-                    const realTargets = await glob(realTarget, {
+                    const realTargets = await globAsync(realTarget, {
                       dot: true,
                       nodir: true
                     });
@@ -1741,6 +1754,37 @@ distrib root: ${absoluteOutputDirPath}
                     : !!specifier.match(matcher)
                 );
             }
+          }
+
+          function isTargetIncludedInPartialFilter(target: RelativePath) {
+            if (partialFilters?.length) {
+              const absoluteTarget = toAbsolutePath(projectRoot, target);
+              debug('filtering: %O', absoluteTarget);
+
+              const inPartialFilter = partialFilters.some((filter) => {
+                if (filter.test(absoluteTarget)) {
+                  if (!outputNewlineAlready) {
+                    filterMatchLogger.newline([LogTag.IF_NOT_HUSHED]);
+                  }
+
+                  debug('filter result: pass (matched %O)', filter);
+                  filterMatchLogger([LogTag.IF_NOT_HUSHED], 'matched: %O', target);
+
+                  outputNewlineAlready = true;
+                  return true;
+                }
+              });
+
+              if (!inPartialFilter) {
+                debug('filter result: fail (matched no filters)');
+              }
+
+              return inPartialFilter;
+            } else {
+              debug('filter result: pass (no filters)');
+            }
+
+            return true;
           }
         }
 
