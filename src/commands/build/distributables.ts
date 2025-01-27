@@ -66,6 +66,7 @@ import { gatherPackageFiles } from 'multiverse+project-utils:analyze/gather-pack
 import {
   directoryDistPackageBase,
   directoryIntermediatesPackageBase,
+  directorySrcPackageBase,
   isAbsolutePath,
   isAccessible,
   toAbsolutePath,
@@ -1292,10 +1293,18 @@ distrib root: ${absoluteOutputDirPath}
                 )
               );
 
+              const packageRootDistSrcDir =
+                toPath(
+                  packageRoot,
+                  directoryDistPackageBase,
+                  'relativeRoot' in cwdPackage ? cwdPackage.relativeRoot : '',
+                  directorySrcPackageBase
+                ) + '/';
+
+              dbg('packageRootDistSrcDir: %O', packageRootDistSrcDir);
+
               const relevantDistFiles = distFiles.filter((path) => {
-                const shouldNotSkipPath = path.startsWith(
-                  toPath(projectRoot, directoryDistPackageBase) + '/'
-                );
+                const shouldNotSkipPath = path.startsWith(packageRootDistSrcDir);
 
                 if (!shouldNotSkipPath) {
                   dbg.warn('ignored (skipped) checking dist file: %O', path);
