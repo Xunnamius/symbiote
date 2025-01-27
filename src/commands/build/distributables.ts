@@ -1278,7 +1278,7 @@ distrib root: ${absoluteOutputDirPath}
                     );
 
                   if (shouldSkipPath) {
-                    dbg.warn('ignored (skipped) entire file: %O', path);
+                    dbg.warn('ignored (skipped) checking file: %O', path);
                   }
 
                   return !shouldSkipPath;
@@ -1292,9 +1292,30 @@ distrib root: ${absoluteOutputDirPath}
                 )
               );
 
+              const relevantDistFiles = distFiles.filter((path) => {
+                const shouldNotSkipPath = path.startsWith(
+                  toPath(projectRoot, directoryDistPackageBase) + '/'
+                );
+
+                if (!shouldNotSkipPath) {
+                  dbg.warn('ignored (skipped) checking dist file: %O', path);
+                }
+
+                return shouldNotSkipPath;
+              });
+
+              dbg('scanning %O non-dist files for imports', allRelevantFiles.length);
+
+              dbg(
+                'scanning %O files for pseudodecorators',
+                allRelevantFilesPlusBuildTargets.length
+              );
+
+              dbg('scanning %O dist files for imports', relevantDistFiles.length);
+
               const [distImportEntries, otherImportEntries, pseudodecoratorEntries] =
                 await Promise.all([
-                  gatherImportEntriesFromFiles(distFiles, { useCached: true }),
+                  gatherImportEntriesFromFiles(relevantDistFiles, { useCached: true }),
                   gatherImportEntriesFromFiles(allRelevantFiles, { useCached: true }),
                   gatherPseudodecoratorEntriesFromFiles(
                     allRelevantFilesPlusBuildTargets,
