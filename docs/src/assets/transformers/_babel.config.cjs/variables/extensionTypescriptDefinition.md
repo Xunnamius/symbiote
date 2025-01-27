@@ -8,7 +8,7 @@
 
 > `const` **extensionTypescriptDefinition**: `".d.ts"` = `'.d.ts'`
 
-Defined in: [src/assets/transformers/\_babel.config.cjs.ts:120](https://github.com/Xunnamius/symbiote/blob/450d03a1056a8788295047b24c95dce90c4543b9/src/assets/transformers/_babel.config.cjs.ts#L120)
+Defined in: [src/assets/transformers/\_babel.config.cjs.ts:120](https://github.com/Xunnamius/symbiote/blob/f7f4f11c068a86260d039b5e973f62c23a3c8079/src/assets/transformers/_babel.config.cjs.ts#L120)
 
 The known file extension for TypeScript definition files.
 

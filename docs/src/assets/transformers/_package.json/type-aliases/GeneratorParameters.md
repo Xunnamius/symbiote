@@ -8,4 +8,4 @@
 
 > **GeneratorParameters**: \[`Package`\[`"json"`\] & `Required`\<`Pick`\<`Package`\[`"json"`\], `"name"` \| `"version"` \| `"description"`\>\>, `boolean`, `string`, `RelativePath` \| `undefined`, [`AssetPreset`](../../../enumerations/AssetPreset.md) \| `undefined`\]
 
-Defined in: [src/assets/transformers/\_package.json.ts:44](https://github.com/Xunnamius/symbiote/blob/450d03a1056a8788295047b24c95dce90c4543b9/src/assets/transformers/_package.json.ts#L44)
+Defined in: [src/assets/transformers/\_package.json.ts:44](https://github.com/Xunnamius/symbiote/blob/f7f4f11c068a86260d039b5e973f62c23a3c8079/src/assets/transformers/_package.json.ts#L44)
