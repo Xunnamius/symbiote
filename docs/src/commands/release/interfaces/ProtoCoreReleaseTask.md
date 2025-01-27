@@ -6,7 +6,7 @@
 
 # Interface: ProtoCoreReleaseTask
 
-Defined in: [src/commands/release.ts:277](https://github.com/Xunnamius/symbiote/blob/f7f4f11c068a86260d039b5e973f62c23a3c8079/src/commands/release.ts#L277)
+Defined in: [src/commands/release.ts:277](https://github.com/Xunnamius/symbiote/blob/29281df9337a36c0ddbf254c8452a1b8a68bf1a8/src/commands/release.ts#L277)
 
 A partially defined release-`type` [ReleaseTask](../type-aliases/ReleaseTask.md).
 
@@ -20,7 +20,7 @@ A partially defined release-`type` [ReleaseTask](../type-aliases/ReleaseTask.md)
 
 > `optional` **actionDescription**: `string`
 
-Defined in: [src/commands/release.ts:229](https://github.com/Xunnamius/symbiote/blob/f7f4f11c068a86260d039b5e973f62c23a3c8079/src/commands/release.ts#L229)
+Defined in: [src/commands/release.ts:229](https://github.com/Xunnamius/symbiote/blob/29281df9337a36c0ddbf254c8452a1b8a68bf1a8/src/commands/release.ts#L229)
 
 The description reported to the user when the task is run.
 
@@ -38,7 +38,7 @@ The description reported to the user when the task is run.
 
 > `optional` **allowMissingNpmScripts**: `boolean`
 
-Defined in: [src/commands/release.ts:218](https://github.com/Xunnamius/symbiote/blob/f7f4f11c068a86260d039b5e973f62c23a3c8079/src/commands/release.ts#L218)
+Defined in: [src/commands/release.ts:218](https://github.com/Xunnamius/symbiote/blob/29281df9337a36c0ddbf254c8452a1b8a68bf1a8/src/commands/release.ts#L218)
 
 Whether the task will automatically fail if none of the scripts given in
 `npmScripts` exist in the package's `package.json`.
@@ -59,7 +59,7 @@ false
 
 > `optional` **emoji**: `""`
 
-Defined in: [src/commands/release.ts:281](https://github.com/Xunnamius/symbiote/blob/f7f4f11c068a86260d039b5e973f62c23a3c8079/src/commands/release.ts#L281)
+Defined in: [src/commands/release.ts:281](https://github.com/Xunnamius/symbiote/blob/29281df9337a36c0ddbf254c8452a1b8a68bf1a8/src/commands/release.ts#L281)
 
 ***
 
@@ -67,7 +67,7 @@ Defined in: [src/commands/release.ts:281](https://github.com/Xunnamius/symbiote/
 
 > **helpDescription**: `string`
 
-Defined in: [src/commands/release.ts:233](https://github.com/Xunnamius/symbiote/blob/f7f4f11c068a86260d039b5e973f62c23a3c8079/src/commands/release.ts#L233)
+Defined in: [src/commands/release.ts:233](https://github.com/Xunnamius/symbiote/blob/29281df9337a36c0ddbf254c8452a1b8a68bf1a8/src/commands/release.ts#L233)
 
 The description reported to the user when `--help` is called.
 
@@ -81,7 +81,7 @@ The description reported to the user when `--help` is called.
 
 > `optional` **io**: `StdoutStderrOptionCommon`\<`false`\>
 
-Defined in: [src/commands/release.ts:253](https://github.com/Xunnamius/symbiote/blob/f7f4f11c068a86260d039b5e973f62c23a3c8079/src/commands/release.ts#L253)
+Defined in: [src/commands/release.ts:253](https://github.com/Xunnamius/symbiote/blob/29281df9337a36c0ddbf254c8452a1b8a68bf1a8/src/commands/release.ts#L253)
 
 Determines how the process's `stdout` and `stdin` streams will be
 configured when executing [npmScripts](BaseProtoTask.md#npmscripts). Does not apply to `run` or
@@ -110,7 +110,7 @@ supplies `--hush`/`--quiet`/`--silent`.
 
 > `optional` **npmScripts**: `never`[]
 
-Defined in: [src/commands/release.ts:280](https://github.com/Xunnamius/symbiote/blob/f7f4f11c068a86260d039b5e973f62c23a3c8079/src/commands/release.ts#L280)
+Defined in: [src/commands/release.ts:280](https://github.com/Xunnamius/symbiote/blob/29281df9337a36c0ddbf254c8452a1b8a68bf1a8/src/commands/release.ts#L280)
 
 ***
 
@@ -118,7 +118,7 @@ Defined in: [src/commands/release.ts:280](https://github.com/Xunnamius/symbiote/
 
 > `optional` **run**: [`ProtoReleaseTaskRunner`](../type-aliases/ProtoReleaseTaskRunner.md)
 
-Defined in: [src/commands/release.ts:257](https://github.com/Xunnamius/symbiote/blob/f7f4f11c068a86260d039b5e973f62c23a3c8079/src/commands/release.ts#L257)
+Defined in: [src/commands/release.ts:257](https://github.com/Xunnamius/symbiote/blob/29281df9337a36c0ddbf254c8452a1b8a68bf1a8/src/commands/release.ts#L257)
 
 A function called when the task is triggered.
 
@@ -132,4 +132,4 @@ A function called when the task is triggered.
 
 > `optional` **skippable**: `false`
 
-Defined in: [src/commands/release.ts:279](https://github.com/Xunnamius/symbiote/blob/f7f4f11c068a86260d039b5e973f62c23a3c8079/src/commands/release.ts#L279)
+Defined in: [src/commands/release.ts:279](https://github.com/Xunnamius/symbiote/blob/29281df9337a36c0ddbf254c8452a1b8a68bf1a8/src/commands/release.ts#L279)

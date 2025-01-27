@@ -8,7 +8,7 @@
 
 > **importAdditionalRawAliasMappings**(`projectMetadata`, `outputFunctions`): `Promise`\<`RawAliasMapping`[]\>
 
-Defined in: [src/util.ts:969](https://github.com/Xunnamius/symbiote/blob/f7f4f11c068a86260d039b5e973f62c23a3c8079/src/util.ts#L969)
+Defined in: [src/util.ts:969](https://github.com/Xunnamius/symbiote/blob/29281df9337a36c0ddbf254c8452a1b8a68bf1a8/src/util.ts#L969)
 
 Used by renovate and init project-level commands to load additional raw
 aliases from import map files.
