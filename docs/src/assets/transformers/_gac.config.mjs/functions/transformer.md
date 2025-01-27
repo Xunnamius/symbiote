@@ -8,7 +8,7 @@
 
 > **transformer**(`this`, `context`, `options`?): `Promise`\<[`ReifiedAssets`](../../../type-aliases/ReifiedAssets.md)\>
 
-Defined in: [src/assets/transformers/\_gac.config.mjs.ts:13](https://github.com/Xunnamius/symbiote/blob/d83dccf3f06ef592d9b9bfba8a64236063675ad1/src/assets/transformers/_gac.config.mjs.ts#L13)
+Defined in: [src/assets/transformers/\_gac.config.mjs.ts:13](https://github.com/Xunnamius/symbiote/blob/450d03a1056a8788295047b24c95dce90c4543b9/src/assets/transformers/_gac.config.mjs.ts#L13)
 
 ## Parameters
 

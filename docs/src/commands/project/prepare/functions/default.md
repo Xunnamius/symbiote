@@ -8,7 +8,7 @@
 
 > **default**(`__namedParameters`): `object`
 
-Defined in: [src/commands/project/prepare.ts:50](https://github.com/Xunnamius/symbiote/blob/d83dccf3f06ef592d9b9bfba8a64236063675ad1/src/commands/project/prepare.ts#L50)
+Defined in: [src/commands/project/prepare.ts:50](https://github.com/Xunnamius/symbiote/blob/450d03a1056a8788295047b24c95dce90c4543b9/src/commands/project/prepare.ts#L50)
 
 ## Parameters
 
