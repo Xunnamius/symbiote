@@ -976,7 +976,7 @@ distrib root: ${absoluteOutputDirPath}
               return copyFile(from, to);
             }),
 
-            // * Transpile internals: ./* => ./dist/* or ./.transpiled/*
+            // * Transpile sources: ./* => ./dist/* or ./.transpiled/*
             ...allBuildSourceTargets.map(async (target) => {
               const sourcePath = toPath(projectRoot, target);
               const outputPath = toPath(
@@ -1824,14 +1824,13 @@ distrib root: ${absoluteOutputDirPath}
         const { cwdPackage } = projectMetadata;
         const wellKnownAliases = generateRawAliasMap(projectMetadata);
 
-        const { test: testFiles, other: otherFiles } = await gatherPackageFiles(
-          cwdPackage,
-          { useCached: true }
-        );
+        const { test: testFiles } = await gatherPackageFiles(cwdPackage, {
+          useCached: true
+        });
 
-        const nonSourceTypescriptFiles = testFiles
-          .concat(otherFiles)
-          .filter((path) => hasTypescriptExtension(path));
+        const nonSourceTypescriptFiles = testFiles.filter((path) =>
+          hasTypescriptExtension(path)
+        );
 
         // * From rawSpecifiersToExternalTargetPaths
         const nonSourceTypescriptEntries = gatherImportEntriesFromFiles.sync(
