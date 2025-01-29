@@ -593,6 +593,14 @@ Finally, note that, when attempting to build a Next.js package, this command wil
           debug('target package root: %O', packageRoot);
           debug('target package name: %O', packageName);
 
+          const projectRootTypesPathEndingWithSeparator =
+            toPath(projectRoot, directoryTypesProjectBase) + pathSeparator;
+
+          debug(
+            'projectRootTypesPathEndingWithSeparator: %O',
+            projectRootTypesPathEndingWithSeparator
+          );
+
           // * Skip checking Node builtins with "node:" prefix
           skipOutputValidityCheckFor.add(/^node:/);
 
@@ -627,7 +635,10 @@ Finally, note that, when attempting to build a Next.js package, this command wil
           // TODO: this needs to be split off into symbiote project lint along
           // TODO: with the other half of the bijection checks below. For now,
           // TODO: we'll keep them here in this command:
-          await lintNonSourceTypescriptFilesForSpecifierOk();
+          await lintNonSourceTypescriptFilesForSpecifierOk(
+            packageRoot,
+            projectRootTypesPathEndingWithSeparator
+          );
 
           debug('initial build targets: %O', buildTargets);
           debug('build metadata: %O', buildMetadata);
@@ -1897,17 +1908,28 @@ distrib root: ${absoluteOutputDirPath}
         }
       }
 
-      async function lintNonSourceTypescriptFilesForSpecifierOk() {
+      async function lintNonSourceTypescriptFilesForSpecifierOk(
+        packageRoot: string,
+        projectRootTypesPathEndingWithSeparator: string
+      ) {
         const { cwdPackage } = projectMetadata;
         const wellKnownAliases = generateRawAliasMap(projectMetadata);
 
-        const { test: testFiles } = await gatherPackageFiles(cwdPackage, {
-          useCached: true
-        });
-
-        const nonSourceTypescriptFiles = testFiles.filter((path) =>
-          hasTypescriptExtension(path)
+        const { test: testFiles, other: otherFiles } = await gatherPackageFiles(
+          cwdPackage,
+          { useCached: true }
         );
+
+        // ? Only consider otherFiles that are at the package root or types/
+        const nonSourceTypescriptFiles = testFiles
+          .concat(
+            otherFiles.filter(
+              (path) =>
+                path.startsWith(projectRootTypesPathEndingWithSeparator) ||
+                toDirname(path) === packageRoot
+            )
+          )
+          .filter((path) => hasTypescriptExtension(path));
 
         // * From rawSpecifiersToExternalTargetPaths
         const nonSourceTypescriptEntries = gatherImportEntriesFromFiles.sync(
