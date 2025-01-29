@@ -2,7 +2,7 @@
 /* eslint-disable unicorn/no-array-reduce */
 import { chmod, rename, stat, symlink } from 'node:fs/promises';
 import { builtinModules } from 'node:module';
-import { dirname, extname } from 'node:path';
+import { extname } from 'node:path';
 import { setTimeout as delay } from 'node:timers/promises';
 import { isNativeError } from 'node:util/types';
 
@@ -974,7 +974,7 @@ distrib root: ${absoluteOutputDirPath}
               const to = toPath(absoluteOutputDirPath, target);
 
               debug('copy-through asset: %O => %O', from, to);
-              return makeDirectory(dirname(to)).then(() => copyFile(from, to));
+              return makeDirectory(toDirname(to)).then(() => copyFile(from, to));
             }),
 
             // * Transpile sources: ./* => ./dist/* or ./.transpiled/*
