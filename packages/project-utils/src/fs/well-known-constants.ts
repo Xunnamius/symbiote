@@ -182,6 +182,8 @@ export const vercelConfigProjectBase = 'vercel.json';
 
 /**
  * The basename of the well-known generated types output directory.
+ *
+ * Never contains special regular expression characters.
  */
 export const directoryTypesProjectBase = 'types';
 
@@ -248,11 +250,15 @@ export const dotEnvDefaultConfigPackageBase = '.env.default';
 /**
  * The basename of the well-known directory containing all sub-packages as
  * direct subdirectories.
+ *
+ * Never contains special regular expression characters.
  */
 export const directoryPackagesProjectBase = 'packages';
 
 /**
  * The basename of the well-known distributables output or "dist" directory.
+ *
+ * Never contains special regular expression characters.
  */
 export const directoryDistPackageBase = 'dist';
 
@@ -263,21 +269,29 @@ export const directoryIntermediatesPackageBase = '.transpiled';
 
 /**
  * The basename of the well-known test coverage output directory.
+ *
+ * Never contains special regular expression characters.
  */
 export const directoryCoveragePackageBase = 'coverage';
 
 /**
  * The basename of the well-known source directory.
+ *
+ * Never contains special regular expression characters.
  */
 export const directorySrcPackageBase = 'src';
 
 /**
  * The basename of the well-known test directory.
+ *
+ * Never contains special regular expression characters.
  */
 export const directoryTestPackageBase = 'test';
 
 /**
  * The basename of the well-known generated documentation output directory.
+ *
+ * Never contains special regular expression characters.
  */
 export const directoryDocumentationPackageBase = 'docs';
 

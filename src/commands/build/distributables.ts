@@ -2,7 +2,7 @@
 /* eslint-disable unicorn/no-array-reduce */
 import { chmod, rename, stat, symlink } from 'node:fs/promises';
 import { builtinModules } from 'node:module';
-import { extname } from 'node:path';
+import { extname, sep as pathSeparator } from 'node:path';
 import { setTimeout as delay } from 'node:timers/promises';
 import { isNativeError } from 'node:util/types';
 
@@ -14,6 +14,7 @@ import {
 } from '@babel/core';
 
 import { type ChildConfiguration } from '@black-flag/core';
+import escapeStringRegexp from 'escape-string-regexp~4';
 import { glob as globAsync } from 'glob';
 import { SHORT_TAB } from 'rejoinder';
 import { rimraf as forceDeletePaths } from 'rimraf';
@@ -66,7 +67,10 @@ import { gatherPackageFiles } from 'multiverse+project-utils:analyze/gather-pack
 import {
   directoryDistPackageBase,
   directoryIntermediatesPackageBase,
+  directoryPackagesProjectBase,
   directorySrcPackageBase,
+  directoryTestPackageBase,
+  directoryTypesProjectBase,
   isAbsolutePath,
   isAccessible,
   toAbsolutePath,
@@ -85,6 +89,7 @@ import {
 
 import {
   extensionsTypescript,
+  hasExtensionAcceptedByBabel,
   hasTypescriptExtension
 } from 'universe:assets/transformers/_babel.config.cjs.ts';
 
@@ -397,13 +402,15 @@ export default async function command({
 
 ${isCwdANextJsPackage ? "Note that the current working directory points to a Next.js package! When attempting to build such a package, this command will defer entirely to `next build`, which disables several of this command's options.\n\n" : ''}This command also performs lightweight validation of import specifiers and package entry points where appropriate to ensure baseline consistency, integrity, and well-formedness of build output.
 
-This validation can be tweaked with --skip-output-validity-checks-for, --skip-output-extraneity-checks-for, and --skip-output-bijection-checks-for. These flags suppresses errors and warnings for matching files, import specifiers, and/or package names when performing final build output checks. Each parameter accepts strings _and regular expressions_, the latter being strings that start with "^" or end with "$". Note that some specifiers are always skipped during extraneity checks, such as Node builtins. Also note that it is unnecessary to escape forward slashes (/) in regular expressions provided via these parameters.
+This validation can be tweaked with --skip-output-validity-checks-for, --skip-output-extraneity-checks-for, and --skip-output-bijection-checks-for. These flags suppresses errors and warnings for matching files, import specifiers, and/or package names when performing final build output checks. Each parameter accepts strings _and regular expressions_, the latter being strings that start with "^" or end with "$".
+
+Note that (1) some specifiers are always skipped during extraneity checks, such as Node builtins, (2) it is unnecessary to escape forward slashes (/) in regular expressions provided via the --skip-* parameters, (3) --skip-output-bijection-checks-for cannot be used to skip pseudodecorator checks nor checks of built distributables, and (4) built distributables not within a relevant "${directorySrcPackageBase}" or "${directoryTypesProjectBase}" directory (under "${directoryDistPackageBase}")—as well as non-distributable JavaScript/TypeScript files that are not within "\${packageRoot}/${directorySrcPackageBase}" or "\${packageRoot}/${directoryTestPackageBase}", not multiversal imports (below), and not at the package root—are skipped during extraneity and validity checks.
 
 Provide --multiversal (or --not-multiversal) to further tweak import validation and other aspects of this command's support for so-called "multiversal imports". Multiversal imports are "interdependencies," or direct imports of files from other packages in the repository. By default, or when --not-multiversal is provided (or --multiversal=false), this command's multiversal capabilities are disabled; any use of "multiverse" imports, or imports that attempt to pull in files from outside of the package's root directory, will cause an error. On the other hand, providing --multiversal enables all multiversal capabilities, including multiverse imports.
 
 All package build targets are classified as either "source" ("sources," "source files") or "asset" ("assets," "asset files"). Sources describe all the files to be transpiled while assets describe the remaining targets that are copied through to the output directory without any modification. Currently, only TypeScript files (specifically, files ending in one of: ${extensionsTypescript.join(', ')}) are considered sources. Every other file is considered an asset.
 
-All source and asset files are further classified as either "internal" or "external". Internal files or "internals" are all of the files within a package's source directory, i.e. "\${packageRoot}/src". All relevant internals will be subject to import analysis (more on that below). One or more internals can be excluded from analysis and transpilation with --exclude-internal-files. External files or "externals," on the other hand, are all of the files outside of the package's source directory, such as files in neighboring directories or from other packages in the project. One or more files can be added to the list of externals with --include-external-files or --include-external-assets.
+All source and asset files are further classified as either "internal" or "external". Internal files or "internals" are all of the files within a package's source directory, i.e. "\${packageRoot}/${directorySrcPackageBase}". All relevant internals will be subject to import analysis (more on that below). One or more internals can be excluded from analysis and transpilation with --exclude-internal-files. External files or "externals," on the other hand, are all of the files outside of the package's source directory, such as files in neighboring directories or from other packages in the project that are imported by an internal (i.e. a "multiversal import"). One or more files can be added to the list of externals with --include-external-files or --include-external-assets.
 
 --include-external-files and --include-external-assets both accept one or more pattern strings that are interpreted according to normal glob rules, while --exclude-internal-files accepts one or more pattern strings that are interpreted according to gitignore glob rules. All are relative to the project (NOT package!) root.
 
@@ -1257,6 +1264,12 @@ distrib root: ${absoluteOutputDirPath}
             async function checkImportsDependenciesValidBijection() {
               const dbg = debug.extend('checkValidBijection');
 
+              // * The only files relevant to dependency bijection validation
+              // * are: the otherFiles under the types/ dir, the otherFiles that
+              // * are JavaScript/TypeScript and at the package root, the
+              // * distFiles that are under a relevant src/ dir, srcFiles, and
+              // * testFiles.
+
               const {
                 dist: distFiles,
                 other: otherFiles,
@@ -1267,7 +1280,22 @@ distrib root: ${absoluteOutputDirPath}
                 useCached: false
               });
 
-              const allRelevantFiles = otherFiles
+              const projectRootTypesPath =
+                toPath(projectRoot, directoryTypesProjectBase) + pathSeparator;
+
+              const relevantNonDistFilesToScanForImports = otherFiles
+                .filter((path) => {
+                  const shouldSkipPath =
+                    !path.startsWith(projectRootTypesPath) &&
+                    (toDirname(path) !== packageRoot ||
+                      !hasExtensionAcceptedByBabel(path));
+
+                  if (shouldSkipPath) {
+                    dbg.warn('ignored checking "other" file: %O', path);
+                  }
+
+                  return !shouldSkipPath;
+                })
                 .concat(srcFiles, testFiles)
                 .filter(function (path) {
                   const shouldSkipPath = skipOutputBijectionCheckFor
@@ -1279,55 +1307,72 @@ distrib root: ${absoluteOutputDirPath}
                     );
 
                   if (shouldSkipPath) {
-                    dbg.warn('ignored (skipped) checking file: %O', path);
+                    dbg.warn('ignored (explicitly skipped) checking file: %O', path);
                   }
 
                   return !shouldSkipPath;
                 });
 
-              const allRelevantFilesPlusBuildTargets = Array.from(
+              const filesToCheckForPseudodecorators = Array.from(
                 new Set(
-                  allRelevantFiles.concat(
+                  // ? Pseudodecorators can be in any file, not just the
+                  // ? "relevant" ones!
+                  otherFiles.concat(
+                    srcFiles,
+                    testFiles,
                     allBuildTargets.map((target) => toPath(projectRoot, target))
                   )
                 )
               );
 
-              const packageRootDistSrcDir =
-                toPath(
-                  packageRoot,
+              // ! Cannot use the global (g) flag
+              const isDistSrcRegExp = new RegExp(
+                `^${toPath(
+                  escapeStringRegexp(packageRoot),
                   directoryDistPackageBase,
-                  'relativeRoot' in cwdPackage ? cwdPackage.relativeRoot : '',
-                  directorySrcPackageBase
-                ) + '/';
+                  `(types|(${directoryPackagesProjectBase}`,
+                  `[^`,
+                  `]+${pathSeparator})?${directorySrcPackageBase})${pathSeparator}`
+                )}`
+              );
 
-              dbg('packageRootDistSrcDir: %O', packageRootDistSrcDir);
+              dbg('isDistSrcRegExp: %O', isDistSrcRegExp);
 
-              const relevantDistFiles = distFiles.filter((path) => {
-                const shouldNotSkipPath = path.startsWith(packageRootDistSrcDir);
+              const relevantDistFilesToScanForImports = distFiles.filter((path) => {
+                const shouldSkipPath = !isDistSrcRegExp.test(path);
 
-                if (!shouldNotSkipPath) {
-                  dbg.warn('ignored (skipped) checking dist file: %O', path);
+                if (shouldSkipPath) {
+                  dbg.warn('ignored checking "dist" file: %O', path);
                 }
 
-                return shouldNotSkipPath;
+                return !shouldSkipPath;
               });
 
-              dbg('scanning %O non-dist files for imports', allRelevantFiles.length);
+              dbg(
+                'scanning %O non-dist files for imports',
+                relevantNonDistFilesToScanForImports.length
+              );
+
+              dbg(
+                'scanning %O dist files for imports',
+                relevantDistFilesToScanForImports.length
+              );
 
               dbg(
                 'scanning %O files for pseudodecorators',
-                allRelevantFilesPlusBuildTargets.length
+                filesToCheckForPseudodecorators.length
               );
-
-              dbg('scanning %O dist files for imports', relevantDistFiles.length);
 
               const [distImportEntries, otherImportEntries, pseudodecoratorEntries] =
                 await Promise.all([
-                  gatherImportEntriesFromFiles(relevantDistFiles, { useCached: true }),
-                  gatherImportEntriesFromFiles(allRelevantFiles, { useCached: true }),
+                  gatherImportEntriesFromFiles(relevantDistFilesToScanForImports, {
+                    useCached: true
+                  }),
+                  gatherImportEntriesFromFiles(relevantNonDistFilesToScanForImports, {
+                    useCached: true
+                  }),
                   gatherPseudodecoratorEntriesFromFiles(
-                    allRelevantFilesPlusBuildTargets,
+                    filesToCheckForPseudodecorators,
                     { useCached: true }
                   )
                 ]);
@@ -1391,7 +1436,7 @@ distrib root: ${absoluteOutputDirPath}
 
                 for (const specifier of specifiers) {
                   if (shouldSkipCheckForSpecifier(specifier, 'invalid')) {
-                    dbg1.warn('ignored (skipped) specifier: %O', specifier);
+                    dbg1.warn('ignored (explicitly skipped) specifier: %O', specifier);
                     continue;
                   }
 
@@ -1462,7 +1507,7 @@ distrib root: ${absoluteOutputDirPath}
                     if (!prodDeps.has(packageName)) {
                       if (shouldSkipCheckForSpecifier(packageName, 'invalid')) {
                         dbg1.warn(
-                          'ignored (skipped) missing package specifier: %O <== %O',
+                          'ignored (explicitly skipped) missing package specifier: %O <== %O',
                           packageName,
                           specifier
                         );
@@ -1505,10 +1550,12 @@ distrib root: ${absoluteOutputDirPath}
 
                   if (
                     isAbsolutePath(specifier) ||
-                    isLocalLookingRegExp.test(specifier) ||
-                    shouldSkipCheckForSpecifier(specifier, 'invalid')
+                    isLocalLookingRegExp.test(specifier)
                   ) {
                     dbg2.warn('ignored (skipped) specifier: %O', specifier);
+                    continue;
+                  } else if (shouldSkipCheckForSpecifier(specifier, 'invalid')) {
+                    dbg2.warn('ignored (explicitly skipped) specifier: %O', specifier);
                     continue;
                   }
 
@@ -1521,7 +1568,7 @@ distrib root: ${absoluteOutputDirPath}
                   if (!allDeps.has(packageName)) {
                     if (shouldSkipCheckForSpecifier(packageName, 'invalid')) {
                       dbg2.warn(
-                        'ignored (skipped) missing package specifier: %O <== %O',
+                        'ignored (explicitly skipped) missing package specifier: %O <== %O',
                         packageName,
                         specifier
                       );
@@ -1546,7 +1593,7 @@ distrib root: ${absoluteOutputDirPath}
                 const dbg3 = dbg.extend('3-prod');
 
                 if (shouldSkipCheckForSpecifier(packageName, 'extraneous')) {
-                  dbg3.warn('ignored (skipped) dependency: %O', packageName);
+                  dbg3.warn('ignored (explicitly skipped) dependency: %O', packageName);
                   continue;
                 }
 
@@ -1572,7 +1619,7 @@ distrib root: ${absoluteOutputDirPath}
                 const dbg4 = dbg.extend('4-dev');
 
                 if (shouldSkipCheckForSpecifier(packageName, 'extraneous')) {
-                  dbg4.warn('ignored (skipped) dependency: %O', packageName);
+                  dbg4.warn('ignored (explicitly skipped) dependency: %O', packageName);
                   continue;
                 }
 
