@@ -108,7 +108,7 @@ export const CORE_JS_LIBRARY_VERSION = '3.40';
 export const NODE_LTS = 'maintained node versions';
 
 /**
- * All known TypeScript file extensions supported by Babel (except `.d.ts`).
+ * All known TypeScript file extensions supported by Babel (except {@link extensionTypescriptDefinition}).
  */
 export const extensionsTypescript = ['.ts', '.cts', '.mts', '.tsx'] as const;
 
@@ -132,7 +132,7 @@ export const extensionsJavascript = [
 
 /**
  * All possible extensions accepted by Babel using standard symbiote configs
- * (except `.d.ts`).
+ * (except {@link extensionTypescriptDefinition}).
  */
 export const extensionsAcceptedByBabel = [
   ...extensionsTypescript,
@@ -148,15 +148,12 @@ debug('extensionsAcceptedByBabel: %O', extensionsAcceptedByBabel);
 
 /**
  * Returns `true` if `path` points to a file with an extension accepted by Babel
- * (except `.d.ts`).
+ * (except {@link extensionTypescriptDefinition}).
  *
  * @see {@link extensionsAcceptedByBabel}
  */
 export function hasExtensionAcceptedByBabel(path: string) {
-  return extensionsAcceptedByBabel.some(
-    (extension) =>
-      path.endsWith(extension) && !path.endsWith(extensionTypescriptDefinition)
-  );
+  return extensionsAcceptedByBabel.some((extension) => path.endsWith(extension));
 }
 
 /**
@@ -166,10 +163,7 @@ export function hasExtensionAcceptedByBabel(path: string) {
  * @see {@link extensionsTypescript}
  */
 export function hasTypescriptExtension(path: string) {
-  return extensionsTypescript.some(
-    (extension) =>
-      path.endsWith(extension) && !path.endsWith(extensionTypescriptDefinition)
-  );
+  return extensionsTypescript.some((extension) => path.endsWith(extension));
 }
 
 /**
