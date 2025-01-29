@@ -131,8 +131,7 @@ export const extensionsJavascript = [
 ] as const;
 
 /**
- * All possible extensions accepted by Babel using standard symbiote configs
- * (except {@link extensionTypescriptDefinition}).
+ * All possible extensions accepted by Babel using standard symbiote configs.
  */
 export const extensionsAcceptedByBabel = [
   ...extensionsTypescript,
@@ -148,7 +147,7 @@ debug('extensionsAcceptedByBabel: %O', extensionsAcceptedByBabel);
 
 /**
  * Returns `true` if `path` points to a file with an extension accepted by Babel
- * (except {@link extensionTypescriptDefinition}).
+ * (including `.d.ts`).
  *
  * @see {@link extensionsAcceptedByBabel}
  */
@@ -157,8 +156,8 @@ export function hasExtensionAcceptedByBabel(path: string) {
 }
 
 /**
- * Returns `true` if `path` points to a file with a TypeScript extension (except
- * `.d.ts`).
+ * Returns `true` if `path` points to a file with a TypeScript extension
+ * (including `.d.ts`).
  *
  * @see {@link extensionsTypescript}
  */
