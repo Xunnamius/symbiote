@@ -54,6 +54,7 @@ export const topologyScripts = Object.values(TopologyScript);
 
 export type CustomCliArguments = GlobalCliArguments<TopologyScope> & {
   scriptOptions: string[];
+  skipPackages: string[];
   parallel: boolean;
 } & (
     | { describe: false; runScript: TopologyScript }
@@ -95,6 +96,13 @@ export default function command({
             'Command-line arguments passed through npm to the script being run',
           default: [],
           requires: 'run-script'
+        },
+        'skip-package': {
+          alias: ['skip', 'skip-packages'],
+          string: true,
+          array: true,
+          description: 'Exclude one or more packages (by name) from consideration',
+          default: []
         },
         parallel: {
           boolean: true,
@@ -147,6 +155,7 @@ Well-ordered topological execution is supported by a dependency graph derived fr
       scope,
       runScript,
       scriptOptions,
+      skipPackages,
       parallel,
       describe
     }) {
@@ -168,6 +177,7 @@ Well-ordered topological execution is supported by a dependency graph derived fr
       debug('scope (unused): %O', scope);
       debug('runScript: %O', runScript);
       debug('scriptOptions: %O', scriptOptions);
+      debug('skipPackages: %O', skipPackages);
       debug('parallel: %O', parallel);
       debug('describe: %O', describe);
 
@@ -188,7 +198,9 @@ ${SHORT_TAB}${topology
           .flatMap((packages) => {
             return packages.map(
               ({ json: { name, private: isPrivate } }) =>
-                `${packageCounter++}. ${isPrivate ? '[⚠️PRIVATE] ' : ''}${name!}`
+                `${packageCounter++}. ${isPrivate ? '[⚠️PRIVATE] ' : ''}${name!}${
+                  skipPackages.includes(name!) ? ' (will be skipped)' : ''
+                }`
             );
           })
           .join(`\n${SHORT_TAB}`)}
@@ -215,13 +227,20 @@ ${SHORT_TAB}${topology
                 json: { name: packageName },
                 root: packageRoot
               } = package_;
+
               assert(packageName, ErrorMessage.GuruMeditation());
 
+              const shouldSkip = skipPackages.includes(packageName);
               const hasTargetScript = !!package_.json.scripts?.[runScript];
               const taskLogger = genericLogger.extend(packageName);
 
               taskPromiseFunctions.push(async () => {
-                if (hasTargetScript) {
+                if (shouldSkip) {
+                  taskLogger.message(
+                    [LogTag.IF_NOT_SILENCED],
+                    '✖️ Skipped running script due to --skip-packages'
+                  );
+                } else if (hasTargetScript) {
                   taskLogger.message(
                     [LogTag.IF_NOT_SILENCED],
                     'Running script %O...',
