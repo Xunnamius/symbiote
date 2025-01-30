@@ -5,6 +5,7 @@ import { type Entries } from 'type-fest';
 
 import {
   commonDebug,
+  isRootPackage,
   type GenericPackageJson,
   type Package,
   type ProjectMetadata
@@ -25,7 +26,8 @@ type PackageGraphNode = {
 /**
  * Synchronously derive a directed graph representing the project's package
  * dependency topology and return said project's packages in a
- * topologically-ordered array.
+ * topologically-ordered array. The ordering is stable; packages of the same
+ * rank will always be returned in the same order.
  *
  * The returned array is 2-dimensional, with each index containing an array of
  * packages that depend upon those from the previous index. Dependency relations
@@ -84,6 +86,8 @@ export function sortPackagesTopologically(
     packageName,
     { package: package_, incomingDependents: [], outgoingDependencies: [] }
   ]);
+
+  // ! After this point, we assume all packages have names.
 
   const packageGraph: PackageGraph = new Map(packageGraphNodeEntries);
 
@@ -156,6 +160,7 @@ export function sortPackagesTopologically(
       throw new ProjectError(ErrorMessage.DependencyCycle(nodeNames));
     }
 
+    const collator = new Intl.Collator(undefined, { numeric: true });
     const currentTopology = packageGraph
       .entries()
       .toArray()
@@ -186,7 +191,15 @@ export function sortPackagesTopologically(
           return deletedNode.package;
         }
       })
-      .filter((package_) => !!package_);
+      .filter((package_) => !!package_)
+      .sort((packageA, packageB) => {
+        // ? Natural sort using latest ES6/7 features!
+        return isRootPackage(packageA)
+          ? -1
+          : isRootPackage(packageB)
+            ? 1
+            : collator.compare(packageA.json.name!, packageB.json.name!);
+      });
 
     if (currentTopology.length) {
       debug('pushed additional topology: %O', currentTopology);
