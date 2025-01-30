@@ -367,6 +367,8 @@ export function generateSubRootXPackageJson(
 
       ...incomingBaseScripts
     },
+    files,
+    publishConfig,
     ...incomingBaseJson
   } = generateBaseXPackageJson(
     incomingPackageJson,
@@ -381,7 +383,7 @@ export function generateSubRootXPackageJson(
     (isHybridrepo && semver.lte(incomingPackageJson.version, '0.0.0'));
 
   return {
-    ...(isPrivate ? { private: true } : {}),
+    ...(isPrivate ? { private: true } : { publishConfig, files }),
     ...incomingBaseJson,
     scripts: {
       ...(isPrivate
