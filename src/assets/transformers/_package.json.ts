@@ -376,13 +376,15 @@ export function generateSubRootXPackageJson(
     preset
   );
 
+  const isPrivate =
+    incomingBaseJson.private ||
+    (isHybridrepo && semver.lte(incomingPackageJson.version, '0.0.0'));
+
   return {
-    ...(isHybridrepo && semver.lte(incomingPackageJson.version, '0.0.0')
-      ? { private: true }
-      : {}),
+    ...(isPrivate ? { private: true } : {}),
     ...incomingBaseJson,
     scripts: {
-      ...(isHybridrepo
+      ...(isPrivate
         ? {}
         : {
             build,
@@ -523,7 +525,11 @@ export const { transformer } = makeTransformer(function (context) {
         name: packageJson.name,
         version:
           packageJson.version ??
-          (isNonHybridMonorepoRootPackage ? '0.0.0-monorepo' : '1.0.0'),
+          (isNonHybridMonorepoRootPackage
+            ? '0.0.0-monorepo'
+            : packageJson.private
+              ? '0.0.0-private'
+              : '1.0.0'),
         description:
           packageJson.description ??
           (isNonHybridMonorepoRootPackage
