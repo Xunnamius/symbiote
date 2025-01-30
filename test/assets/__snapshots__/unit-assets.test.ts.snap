@@ -238,7 +238,7 @@ good-hybridrepo-description
 
 <!-- symbiote-template-region-end -->
 
-good-hybridrepo-description
+good-hybridrepo-description.
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -16643,7 +16643,7 @@ good-hybridrepo-description
 
 <!-- symbiote-template-region-end -->
 
-good-hybridrepo-description
+good-hybridrepo-description.
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -16932,7 +16932,7 @@ good-hybridrepo-description
 
 <!-- symbiote-template-region-end -->
 
-good-hybridrepo-description
+good-hybridrepo-description.
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -17221,7 +17221,7 @@ TODO <!-- TODO: a brief description/blurb -->
 
 <!-- symbiote-template-region-end -->
 
-TODO <!-- TODO -->
+TODO <!-- TODO -->.
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -17487,7 +17487,7 @@ TODO <!-- TODO: a brief description/blurb -->
 
 <!-- symbiote-template-region-end -->
 
-TODO <!-- TODO -->
+TODO <!-- TODO -->.
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -17753,7 +17753,7 @@ TODO <!-- TODO: a brief description/blurb -->
 
 <!-- symbiote-template-region-end -->
 
-TODO <!-- TODO -->
+TODO <!-- TODO -->.
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -18019,7 +18019,7 @@ good-hybridrepo-description
 
 <!-- symbiote-template-region-end -->
 
-good-hybridrepo-description
+good-hybridrepo-description.
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -18308,7 +18308,7 @@ TODO <!-- TODO: a brief description/blurb -->
 
 <!-- symbiote-template-region-end -->
 
-TODO <!-- TODO -->
+TODO <!-- TODO -->.
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -18574,7 +18574,7 @@ TODO <!-- TODO: a brief description/blurb -->
 
 <!-- symbiote-template-region-end -->
 
-TODO <!-- TODO -->
+TODO <!-- TODO -->.
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -18840,7 +18840,7 @@ TODO <!-- TODO: a brief description/blurb -->
 
 <!-- symbiote-template-region-end -->
 
-TODO <!-- TODO -->
+TODO <!-- TODO -->.
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -19106,7 +19106,7 @@ TODO <!-- TODO: a brief description/blurb -->
 
 <!-- symbiote-template-region-end -->
 
-TODO <!-- TODO -->
+TODO <!-- TODO -->.
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -19509,7 +19509,7 @@ TODO <!-- TODO: a brief description/blurb -->
 
 <!-- symbiote-template-region-end -->
 
-TODO <!-- TODO -->
+TODO <!-- TODO -->.
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -19775,7 +19775,7 @@ TODO <!-- TODO: a brief description/blurb -->
 
 <!-- symbiote-template-region-end -->
 
-TODO <!-- TODO -->
+TODO <!-- TODO -->.
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -20041,7 +20041,7 @@ TODO <!-- TODO: a brief description/blurb -->
 
 <!-- symbiote-template-region-end -->
 
-TODO <!-- TODO -->
+TODO <!-- TODO -->.
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -20444,7 +20444,7 @@ TODO <!-- TODO: a brief description/blurb -->
 
 <!-- symbiote-template-region-end -->
 
-TODO <!-- TODO -->
+TODO <!-- TODO -->.
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -20710,7 +20710,7 @@ TODO <!-- TODO: a brief description/blurb -->
 
 <!-- symbiote-template-region-end -->
 
-TODO <!-- TODO -->
+TODO <!-- TODO -->.
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -20976,7 +20976,7 @@ TODO <!-- TODO: a brief description/blurb -->
 
 <!-- symbiote-template-region-end -->
 
-TODO <!-- TODO -->
+TODO <!-- TODO -->.
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -21242,7 +21242,7 @@ TODO <!-- TODO: a brief description/blurb -->
 
 <!-- symbiote-template-region-end -->
 
-TODO <!-- TODO -->
+TODO <!-- TODO -->.
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -21531,7 +21531,7 @@ TODO <!-- TODO: a brief description/blurb -->
 
 <!-- symbiote-template-region-end -->
 
-TODO <!-- TODO -->
+TODO <!-- TODO -->.
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -21820,7 +21820,7 @@ TODO <!-- TODO: a brief description/blurb -->
 
 <!-- symbiote-template-region-end -->
 
-TODO <!-- TODO -->
+TODO <!-- TODO -->.
 
 <!-- symbiote-template-region-start 3 -->
 
@@ -25133,7 +25133,6 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> packa
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
-  "private": true,
   "name": "cli",
   "version": "1.0.0",
   "description": "TODO: set a description",
@@ -25298,7 +25297,6 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> packa
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
-  "private": true,
   "dependencies": {
     "@namespaced/pkg": "^1.0.0"
   },
@@ -25470,7 +25468,6 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> packa
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
-  "private": true,
   "name": "cli",
   "version": "1.0.0",
   "type": "commonjs",
@@ -25562,10 +25559,10 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> packa
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
-  "private": true,
   "name": "private",
   "version": "1.0.0",
   "type": "commonjs",
+  "private": true,
   "exports": {
     ".": "./dist/index.js"
   },
@@ -25631,7 +25628,6 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> packa
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
-  "private": true,
   "name": "webpack",
   "version": "1.0.0",
   "type": "commonjs",
