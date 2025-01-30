@@ -230,6 +230,16 @@ export const configureExecutionContext = async function (context) {
     }
 
     isUsingLocalInstallation = isRunningFromWithinCurrentProject;
+  } else {
+    // ? No project metadata? Probably global.
+    standardContext.state.globalVersionOption = {
+      name: 'version',
+      description: defaultVersionTextDescription,
+      // ! INVARIANT: package version must ALWAYS come first and either be
+      // ! suffixed with at least one whitespace character or have no other
+      // ! characters following it!
+      text: String(packageVersion) + ' 🌎'
+    };
   }
 
   rootDebugLogger.message(
