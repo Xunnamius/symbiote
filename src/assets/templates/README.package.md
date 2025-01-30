@@ -31,7 +31,7 @@
 
 <!-- symbiote-template-region-end -->
 
-{{projectMetadata.cwdPackage.json.description|TODO <!-- TODO -->}}
+{{projectMetadata.cwdPackage.json.description|TODO <!-- TODO -->}}.
 
 <!-- symbiote-template-region-start 3 -->
 
