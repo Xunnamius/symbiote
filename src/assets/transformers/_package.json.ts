@@ -75,9 +75,7 @@ export function generateBaseXPackageJson(
     description: incomingPackageJson.description,
     keywords: incomingPackageJson.keywords || [],
     homepage: `${repoUrl}${packagePrefix ? `/tree/main${packagePrefix}` : ''}#readme`,
-    bugs: {
-      url: `${repoUrl}/issues`
-    },
+    bugs: { url: `${repoUrl}/issues` },
     repository: deriveJsonRepositoryValue(repoUrl),
     license: incomingPackageJson.license ?? 'MIT',
     author: incomingPackageJson.author ?? 'Xunnamius',
@@ -379,7 +377,7 @@ export function generateSubRootXPackageJson(
   );
 
   return {
-    ...(isHybridrepo && semver.lte(incomingPackageJson.version, '1.0.0')
+    ...(isHybridrepo && semver.lte(incomingPackageJson.version, '0.0.0')
       ? { private: true }
       : {}),
     ...incomingBaseJson,
