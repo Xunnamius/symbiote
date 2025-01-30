@@ -8,7 +8,7 @@
 
 > `const` **magicStringChooserBlockSplit**: `"✄------------✄-----------⏶-⏷-----------✄------------✄"` = `'✄------------✄-----------⏶-⏷-----------✄------------✄'`
 
-Defined in: [src/util.ts:242](https://github.com/Xunnamius/symbiote/blob/908c431db89704ad2ba40df41a9bf223c568ccfa/src/util.ts#L242)
+Defined in: [src/util.ts:242](https://github.com/Xunnamius/symbiote/blob/49eb9bd7563e40ea52da5a2140cfd27942428d9e/src/util.ts#L242)
 
 Magic string used to denote the end of one choice and the start of another in
 Markdown files processed by symbiote.
