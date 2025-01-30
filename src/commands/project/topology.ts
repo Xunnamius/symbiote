@@ -54,7 +54,7 @@ export const topologyScripts = Object.values(TopologyScript);
 
 export type CustomCliArguments = GlobalCliArguments<TopologyScope> & {
   scriptOptions: string[];
-  skipPackages: string[];
+  skipPackages: RegExp[];
   parallel: boolean;
 } & (
     | { describe: false; runScript: TopologyScript }
@@ -101,8 +101,12 @@ export default function command({
           alias: ['skip', 'skip-packages'],
           string: true,
           array: true,
-          description: 'Exclude one or more packages (by name) from consideration',
-          default: []
+          description: 'Exclude one or more packages (by name) via regular expression',
+          default: [],
+          coerce(expressions: string[]) {
+            // ! These regular expressions can never use the global (g) flag
+            return expressions.map((str) => new RegExp(str, 'u'));
+          }
         },
         parallel: {
           boolean: true,
@@ -199,7 +203,9 @@ ${SHORT_TAB}${topology
             return packages.map(
               ({ json: { name, private: isPrivate } }) =>
                 `${packageCounter++}. ${isPrivate ? '[⚠️PRIVATE] ' : ''}${name!}${
-                  skipPackages.includes(name!) ? ' (will be skipped)' : ''
+                  skipPackages.some((expr) => expr.test(name!))
+                    ? ' (will be skipped)'
+                    : ''
                 }`
             );
           })
@@ -230,7 +236,7 @@ ${SHORT_TAB}${topology
 
               assert(packageName, ErrorMessage.GuruMeditation());
 
-              const shouldSkip = skipPackages.includes(packageName);
+              const shouldSkip = skipPackages.some((expr) => expr.test(packageName));
               const hasTargetScript = !!package_.json.scripts?.[runScript];
               const taskLogger = genericLogger.extend(packageName);
 
