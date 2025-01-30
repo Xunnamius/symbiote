@@ -8,7 +8,7 @@
 
 > **default**(`globalExecutionContext`): `object`
 
-Defined in: [src/commands/project/index.ts:15](https://github.com/Xunnamius/symbiote/blob/d7d2a1c9c8d2f62647f000f449c77b564ff77421/src/commands/project/index.ts#L15)
+Defined in: [src/commands/project/index.ts:15](https://github.com/Xunnamius/symbiote/blob/908c431db89704ad2ba40df41a9bf223c568ccfa/src/commands/project/index.ts#L15)
 
 ## Parameters
 
