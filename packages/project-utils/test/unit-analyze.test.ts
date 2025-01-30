@@ -5522,8 +5522,8 @@ describe('::sortPackagesTopologically', () => {
           expect.objectContaining({ root: packages.get('pkg-1')!.root })
         ],
         [
-          expect.objectContaining({ root: packages.get('pkg-3')!.root }),
-          expect.objectContaining({ root: packages.get('@namespaced/pkg')!.root })
+          expect.objectContaining({ root: packages.get('@namespaced/pkg')!.root }),
+          expect.objectContaining({ root: packages.get('pkg-3')!.root })
         ],
         [expect.objectContaining({ root: packages.get('pkg-4')!.root })],
         [expect.objectContaining({ root: packages.get('pkg-5')!.root })],
@@ -5569,8 +5569,8 @@ describe('::sortPackagesTopologically', () => {
       expect(sortPackagesTopologically(projectMetadata)).toStrictEqual([
         [expect.objectContaining({ root: packages.get('pkg-1')!.root })],
         [
-          expect.objectContaining({ root: packages.get('pkg-3')!.root }),
-          expect.objectContaining({ root: packages.get('@namespaced/pkg')!.root })
+          expect.objectContaining({ root: packages.get('@namespaced/pkg')!.root }),
+          expect.objectContaining({ root: packages.get('pkg-3')!.root })
         ],
         [expect.objectContaining({ root: packages.get('pkg-4')!.root })],
         [expect.objectContaining({ root: packages.get('pkg-5')!.root })],
@@ -5614,8 +5614,8 @@ describe('::sortPackagesTopologically', () => {
       expect(sortPackagesTopologically(projectMetadata)).toStrictEqual([
         [expect.objectContaining({ root: packages.get('pkg-1')!.root })],
         [
-          expect.objectContaining({ root: packages.get('pkg-3')!.root }),
-          expect.objectContaining({ root: packages.get('@namespaced/pkg')!.root })
+          expect.objectContaining({ root: packages.get('@namespaced/pkg')!.root }),
+          expect.objectContaining({ root: packages.get('pkg-3')!.root })
         ],
         [expect.objectContaining({ root: packages.get('pkg-4')!.root })],
         [expect.objectContaining({ root: packages.get('pkg-5')!.root })],
@@ -5667,8 +5667,8 @@ describe('::sortPackagesTopologically', () => {
           expect.objectContaining({ root: packages.get('pkg-1')!.root })
         ],
         [
-          expect.objectContaining({ root: packages.get('pkg-3')!.root }),
-          expect.objectContaining({ root: packages.get('@namespaced/pkg')!.root })
+          expect.objectContaining({ root: packages.get('@namespaced/pkg')!.root }),
+          expect.objectContaining({ root: packages.get('pkg-3')!.root })
         ],
         [expect.objectContaining({ root: packages.get('pkg-4')!.root })],
         [expect.objectContaining({ root: packages.get('pkg-5')!.root })],
@@ -5722,8 +5722,8 @@ describe('::sortPackagesTopologically', () => {
       ).toStrictEqual([
         [expect.objectContaining({ root: packages.get('pkg-1')!.root })],
         [
-          expect.objectContaining({ root: packages.get('pkg-3')!.root }),
-          expect.objectContaining({ root: packages.get('@namespaced/pkg')!.root })
+          expect.objectContaining({ root: packages.get('@namespaced/pkg')!.root }),
+          expect.objectContaining({ root: packages.get('pkg-3')!.root })
         ],
         [
           expect.objectContaining({ root: rootPackage.root }),
@@ -5784,8 +5784,8 @@ describe('::sortPackagesTopologically', () => {
           expect.objectContaining({ root: packages.get('pkg-1')!.root })
         ],
         [
-          expect.objectContaining({ root: packages.get('pkg-3')!.root }),
-          expect.objectContaining({ root: packages.get('@namespaced/pkg')!.root })
+          expect.objectContaining({ root: packages.get('@namespaced/pkg')!.root }),
+          expect.objectContaining({ root: packages.get('pkg-3')!.root })
         ],
         [expect.objectContaining({ root: packages.get('pkg-4')!.root })],
         [expect.objectContaining({ root: packages.get('pkg-5')!.root })],
