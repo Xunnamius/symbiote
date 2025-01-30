@@ -25198,6 +25198,11 @@ scope: unlimited
     "registry": "https://registry.npmjs.org"
   },
   "scripts": {
+    "build": "npm run build:dist --",
+    "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
+    "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1 --not-multiversal",
+    "build:docs": "symbiote build docs --env NODE_NO_WARNINGS=1",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1",
     "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
     "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush",
     "info": "symbiote project info --env NODE_NO_WARNINGS=1",
@@ -25348,6 +25353,11 @@ scope: unlimited
     "registry": "https://registry.npmjs.org"
   },
   "scripts": {
+    "build": "npm run build:dist --",
+    "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
+    "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1 --not-multiversal",
+    "build:docs": "symbiote build docs --env NODE_NO_WARNINGS=1",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1",
     "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
     "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush",
     "info": "symbiote project info --env NODE_NO_WARNINGS=1",
@@ -25534,6 +25544,11 @@ scope: unlimited
     "registry": "https://registry.npmjs.org"
   },
   "scripts": {
+    "build": "npm run build:dist --",
+    "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
+    "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1 --not-multiversal",
+    "build:docs": "symbiote build docs --env NODE_NO_WARNINGS=1",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1",
     "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
     "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush",
     "info": "symbiote project info --env NODE_NO_WARNINGS=1",
@@ -25559,10 +25574,10 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> packa
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
+  "private": true,
   "name": "private",
   "version": "1.0.0",
   "type": "commonjs",
-  "private": true,
   "exports": {
     ".": "./dist/index.js"
   },
@@ -25674,6 +25689,11 @@ scope: unlimited
     "registry": "https://registry.npmjs.org"
   },
   "scripts": {
+    "build": "npm run build:dist --",
+    "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
+    "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1 --not-multiversal",
+    "build:docs": "symbiote build docs --env NODE_NO_WARNINGS=1",
+    "release": "symbiote release --env NODE_NO_WARNINGS=1",
     "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
     "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush",
     "info": "symbiote project info --env NODE_NO_WARNINGS=1",
