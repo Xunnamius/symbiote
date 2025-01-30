@@ -8,7 +8,7 @@
 
 > **TesterScope**: `object`
 
-Defined in: [src/commands/test.ts:116](https://github.com/Xunnamius/symbiote/blob/49eb9bd7563e40ea52da5a2140cfd27942428d9e/src/commands/test.ts#L116)
+Defined in: [src/commands/test.ts:116](https://github.com/Xunnamius/symbiote/blob/8fd852f7d3d2b033b941b077eff32144929c5b55/src/commands/test.ts#L116)
 
 The context in which to search for test files.
 
