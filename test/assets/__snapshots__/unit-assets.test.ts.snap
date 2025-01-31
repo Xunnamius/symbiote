@@ -25133,6 +25133,16 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> packa
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "/dist",
+    "/LICENSE",
+    "/package.json",
+    "/README.md"
+  ],
   "name": "cli",
   "version": "1.0.0",
   "description": "TODO: set a description",
@@ -25184,18 +25194,8 @@ scope: unlimited
   "bin": {
     "cli": "./dist/packages/cli/src/cli.js"
   },
-  "files": [
-    "/dist",
-    "/LICENSE",
-    "/package.json",
-    "/README.md"
-  ],
   "engines": {
     "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
-  },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -25263,18 +25263,8 @@ scope: unlimited
       ]
     }
   },
-  "files": [
-    "/dist",
-    "/LICENSE",
-    "/package.json",
-    "/README.md"
-  ],
   "engines": {
     "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
-  },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
   },
   "scripts": {
     "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
@@ -25302,6 +25292,16 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> packa
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "/dist",
+    "/LICENSE",
+    "/package.json",
+    "/README.md"
+  ],
   "dependencies": {
     "@namespaced/pkg": "^1.0.0"
   },
@@ -25339,18 +25339,8 @@ scope: unlimited
       ]
     }
   },
-  "files": [
-    "/dist",
-    "/LICENSE",
-    "/package.json",
-    "/README.md"
-  ],
   "engines": {
     "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
-  },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -25478,12 +25468,9 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> packa
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
-  "name": "cli",
-  "version": "1.0.0",
-  "type": "commonjs",
-  "bin": {
-    "cli": "./dist/packages/cli/src/cli.js",
-    "executable": "./dist/index.js"
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   },
   "files": [
     "/dist",
@@ -25491,6 +25478,13 @@ scope: unlimited
     "/package.json",
     "/README.md"
   ],
+  "name": "cli",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "bin": {
+    "cli": "./dist/packages/cli/src/cli.js",
+    "executable": "./dist/index.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hybridrepo-owner/repo-name.git"
@@ -25538,10 +25532,6 @@ scope: unlimited
   },
   "engines": {
     "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
-  },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -25604,18 +25594,8 @@ scope: unlimited
       ]
     }
   },
-  "files": [
-    "/dist",
-    "/LICENSE",
-    "/package.json",
-    "/README.md"
-  ],
   "engines": {
     "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
-  },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
   },
   "scripts": {
     "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
@@ -25643,11 +25623,9 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> packa
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
-  "name": "webpack",
-  "version": "1.0.0",
-  "type": "commonjs",
-  "exports": {
-    ".": "./dist/index.mjs"
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
   },
   "files": [
     "/dist",
@@ -25655,6 +25633,12 @@ scope: unlimited
     "/package.json",
     "/README.md"
   ],
+  "name": "webpack",
+  "version": "1.0.0",
+  "type": "commonjs",
+  "exports": {
+    ".": "./dist/index.mjs"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/hybridrepo-owner/repo-name.git"
@@ -25683,10 +25667,6 @@ scope: unlimited
   },
   "engines": {
     "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
-  },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -25719,6 +25699,16 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> packa
 scope: this-package
 ⏶⏷⏶⏷⏶
 {
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "/dist",
+    "/LICENSE",
+    "/package.json",
+    "/README.md"
+  ],
   "name": "pkg-1",
   "version": "1.0.0",
   "type": "commonjs",
@@ -25749,18 +25739,8 @@ scope: this-package
       ]
     }
   },
-  "files": [
-    "/dist",
-    "/LICENSE",
-    "/package.json",
-    "/README.md"
-  ],
   "engines": {
     "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
-  },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -25845,6 +25825,16 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> packa
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "/dist",
+    "/LICENSE",
+    "/package.json",
+    "/README.md"
+  ],
   "name": "pkg-1",
   "version": "1.0.0",
   "description": "TODO: set a description",
@@ -25896,18 +25886,8 @@ scope: unlimited
   "bin": {
     "pkg-1": "./dist/packages/pkg-1/src/cli.js"
   },
-  "files": [
-    "/dist",
-    "/LICENSE",
-    "/package.json",
-    "/README.md"
-  ],
   "engines": {
     "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
-  },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -25940,6 +25920,16 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> packa
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "/dist",
+    "/LICENSE",
+    "/package.json",
+    "/README.md"
+  ],
   "name": "@namespaced/pkg",
   "version": "1.0.0",
   "description": "TODO: set a description",
@@ -25991,18 +25981,8 @@ scope: unlimited
   "bin": {
     "pkg": "./dist/packages/pkg-2/src/cli.js"
   },
-  "files": [
-    "/dist",
-    "/LICENSE",
-    "/package.json",
-    "/README.md"
-  ],
   "engines": {
     "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
-  },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -26035,6 +26015,16 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> packa
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "/dist",
+    "/LICENSE",
+    "/package.json",
+    "/README.md"
+  ],
   "dependencies": {
     "@namespaced/pkg": "^1.0.0"
   },
@@ -26072,18 +26062,8 @@ scope: unlimited
       ]
     }
   },
-  "files": [
-    "/dist",
-    "/LICENSE",
-    "/package.json",
-    "/README.md"
-  ],
   "engines": {
     "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
-  },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -26168,6 +26148,16 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> packa
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "/dist",
+    "/LICENSE",
+    "/package.json",
+    "/README.md"
+  ],
   "name": "pkg-1",
   "version": "1.0.0",
   "type": "commonjs",
@@ -26206,18 +26196,8 @@ scope: unlimited
       ]
     }
   },
-  "files": [
-    "/dist",
-    "/LICENSE",
-    "/package.json",
-    "/README.md"
-  ],
   "engines": {
     "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
-  },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -26250,6 +26230,16 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> packa
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "/dist",
+    "/LICENSE",
+    "/package.json",
+    "/README.md"
+  ],
   "name": "@namespaced/pkg",
   "version": "1.0.0",
   "type": "commonjs",
@@ -26291,18 +26281,8 @@ scope: unlimited
       ]
     }
   },
-  "files": [
-    "/dist",
-    "/LICENSE",
-    "/package.json",
-    "/README.md"
-  ],
   "engines": {
     "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
-  },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -26335,6 +26315,16 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> packa
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "files": [
+    "/dist",
+    "/LICENSE",
+    "/package.json",
+    "/README.md"
+  ],
   "name": "@namespaced/importer",
   "version": "1.0.0",
   "type": "commonjs",
@@ -26367,18 +26357,8 @@ scope: unlimited
       ]
     }
   },
-  "files": [
-    "/dist",
-    "/LICENSE",
-    "/package.json",
-    "/README.md"
-  ],
   "engines": {
     "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
-  },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
   },
   "scripts": {
     "build": "npm run build:dist --",
