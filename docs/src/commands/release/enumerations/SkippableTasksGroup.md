@@ -6,7 +6,7 @@
 
 # Enumeration: SkippableTasksGroup
 
-Defined in: [src/commands/release.ts:113](https://github.com/Xunnamius/symbiote/blob/8fd852f7d3d2b033b941b077eff32144929c5b55/src/commands/release.ts#L113)
+Defined in: [src/commands/release.ts:113](https://github.com/Xunnamius/symbiote/blob/97e44b70bbc4b25fd28c3641586a9d18f95d8540/src/commands/release.ts#L113)
 
 Well-known names representing groups of tasks to be skipped when running the
 release process.
@@ -17,7 +17,7 @@ release process.
 
 > **AllManualPrereleaseTasks**: `"manual"`
 
-Defined in: [src/commands/release.ts:134](https://github.com/Xunnamius/symbiote/blob/8fd852f7d3d2b033b941b077eff32144929c5b55/src/commands/release.ts#L134)
+Defined in: [src/commands/release.ts:134](https://github.com/Xunnamius/symbiote/blob/97e44b70bbc4b25fd28c3641586a9d18f95d8540/src/commands/release.ts#L134)
 
 A string that can be passed to --skip-tasks representing all prerelease
 tasks that should be skipped when following "Manual Release Method 2" in
@@ -29,7 +29,7 @@ tasks that should be skipped when following "Manual Release Method 2" in
 
 > **AllPostReleaseTasks**: `"postrelease"`
 
-Defined in: [src/commands/release.ts:128](https://github.com/Xunnamius/symbiote/blob/8fd852f7d3d2b033b941b077eff32144929c5b55/src/commands/release.ts#L128)
+Defined in: [src/commands/release.ts:128](https://github.com/Xunnamius/symbiote/blob/97e44b70bbc4b25fd28c3641586a9d18f95d8540/src/commands/release.ts#L128)
 
 A string that can be passed to --skip-tasks representing all postrelease
 tasks.
@@ -40,7 +40,7 @@ tasks.
 
 > **AllPrereleaseTasks**: `"prerelease"`
 
-Defined in: [src/commands/release.ts:123](https://github.com/Xunnamius/symbiote/blob/8fd852f7d3d2b033b941b077eff32144929c5b55/src/commands/release.ts#L123)
+Defined in: [src/commands/release.ts:123](https://github.com/Xunnamius/symbiote/blob/97e44b70bbc4b25fd28c3641586a9d18f95d8540/src/commands/release.ts#L123)
 
 A string that can be passed to --skip-tasks representing all prerelease
 tasks.
@@ -51,7 +51,7 @@ tasks.
 
 > **AllTasks**: `"all"`
 
-Defined in: [src/commands/release.ts:118](https://github.com/Xunnamius/symbiote/blob/8fd852f7d3d2b033b941b077eff32144929c5b55/src/commands/release.ts#L118)
+Defined in: [src/commands/release.ts:118](https://github.com/Xunnamius/symbiote/blob/97e44b70bbc4b25fd28c3641586a9d18f95d8540/src/commands/release.ts#L118)
 
 A string that can be passed to --skip-tasks representing all prerelease and
 postrelease tasks.

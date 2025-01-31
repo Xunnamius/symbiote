@@ -8,7 +8,7 @@
 
 > **assertEnvironment**(): `Omit`\<`Parameters`\<*typeof* [`moduleExport`](moduleExport.md)\>\[`0`\], `"derivedAliases"`\>
 
-Defined in: [src/assets/transformers/\_jest.config.mjs.ts:190](https://github.com/Xunnamius/symbiote/blob/8fd852f7d3d2b033b941b077eff32144929c5b55/src/assets/transformers/_jest.config.mjs.ts#L190)
+Defined in: [src/assets/transformers/\_jest.config.mjs.ts:190](https://github.com/Xunnamius/symbiote/blob/97e44b70bbc4b25fd28c3641586a9d18f95d8540/src/assets/transformers/_jest.config.mjs.ts#L190)
 
 ## Returns
 

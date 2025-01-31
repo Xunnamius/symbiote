@@ -8,7 +8,7 @@
 
 > `const` **magicStringChooserBlockStart**: `"<!-- TODO: choose one of the following and --✄--delete--✄-- the others: -->"` = `'<!-- TODO: choose one of the following and --✄--delete--✄-- the others: -->'`
 
-Defined in: [src/util.ts:235](https://github.com/Xunnamius/symbiote/blob/8fd852f7d3d2b033b941b077eff32144929c5b55/src/util.ts#L235)
+Defined in: [src/util.ts:235](https://github.com/Xunnamius/symbiote/blob/97e44b70bbc4b25fd28c3641586a9d18f95d8540/src/util.ts#L235)
 
 Magic string used to denote the beginning of a chooser block in Markdown
 files processed by symbiote.
