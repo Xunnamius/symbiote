@@ -5929,7 +5929,7 @@ type CreateSharedTestContextOptions<MapType extends 'forward' | 'reverse'> = {
         /**
          * A target that should be resolved by Node.js's resolver in a single
          * invocation or an array of targets each of which should be resolved by
-         * their corresponding invocation of Node.js's  In the latter
+         * their corresponding invocation of Node.js's resolver. In the latter
          * form, the array must be the same size as `conditions`, `targets`,
          * etc.
          *

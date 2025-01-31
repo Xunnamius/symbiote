@@ -246,8 +246,9 @@ export type SubpathMappings = SubpathMapping[];
 /**
  * Given `target` and `conditions`, this function returns an array of zero or
  * more entry points that are guaranteed to resolve to `target` when the exact
- * `conditions` are present. This is done by reverse-mapping `target` using
- * `exports` from `package.json`. `exports` is assumed to be valid.
+ * `conditions` are active in the runtime. This is done by reverse-mapping
+ * `target` using `exports` from `package.json`. `exports` is assumed to be
+ * valid.
  *
  * Entry points are sorted in the order they're encountered with the caveat that
  * exact subpaths always come before subpath patterns. Note that, if `target`
@@ -297,8 +298,8 @@ export function resolveEntryPointsFromExportsTarget({
 /**
  * Given `entryPoint` and `conditions`, this function returns an array of zero
  * or more targets that `entryPoint` is guaranteed to resolve to when the exact
- * `conditions` are present. This is done by mapping `entryPoint` using
- * `exports` from `package.json`. `exports` is assumed to be valid.
+ * `conditions` are active in the runtime. This is done by mapping `entryPoint`
+ * using `exports` from `package.json`. `exports` is assumed to be valid.
  */
 export function resolveExportsTargetsFromEntryPoint({
   flattenedExports,
@@ -325,8 +326,9 @@ export function resolveExportsTargetsFromEntryPoint({
 /**
  * Given `target` and `conditions`, this function returns an array of zero or
  * more entry points that are guaranteed to resolve to `target` when the exact
- * `conditions` are present. This is done by reverse-mapping `target` using
- * `imports` from `package.json`. `imports` is assumed to be valid.
+ * `conditions` are active in the runtime. This is done by reverse-mapping
+ * `target` using `imports` from `package.json`. `imports` is assumed to be
+ * valid.
  *
  * Entry points are sorted in the order they're encountered with the caveat that
  * exact subpaths always come before subpath patterns. Note that, if `target`
@@ -376,8 +378,8 @@ export function resolveEntryPointsFromImportsTarget({
 /**
  * Given `entryPoint` and `conditions`, this function returns an array of zero
  * or more targets that `entryPoint` is guaranteed to resolve to when the exact
- * `conditions` are present. This is done by mapping `entryPoint` using
- * `imports` from `package.json`. `imports` is assumed to be valid.
+ * `conditions` are active in the runtime. This is done by mapping `entryPoint`
+ * using `imports` from `package.json`. `imports` is assumed to be valid.
  */
 export function resolveImportsTargetsFromEntryPoint({
   flattenedImports,
