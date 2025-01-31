@@ -53,6 +53,7 @@ export const topologyScopes = Object.values(TopologyScope);
 export const topologyScripts = Object.values(TopologyScript);
 
 export type CustomCliArguments = GlobalCliArguments<TopologyScope> & {
+  runToCompletion: boolean;
   scriptOptions: string[];
   skipPackages: RegExp[];
   parallel: boolean;
@@ -76,33 +77,38 @@ export default function command({
         scope: { choices: topologyScopes, default: TopologyScope.Unlimited },
         describe: {
           boolean: true,
+          default: true,
           description:
             "Describe this project's dependency topology then immediately exit",
-          conflicts: ['run-script', 'script-options', 'parallel'],
-          default: true
+          conflicts: ['run-script', 'run-to-completion', 'script-options', 'parallel']
         },
         'run-script': {
           alias: 'run',
           string: true,
           choices: topologyScripts,
-          description: 'The package.json script to execute',
+          description: 'The package.json script to run at each package',
           conflicts: 'describe',
           implies: { describe: false }
+        },
+        'run-to-completion': {
+          boolean: true,
+          default: false,
+          description: 'Do not exit until all scripts have finished running'
         },
         'script-options': {
           alias: 'options',
           array: true,
+          default: [],
           description:
             'Command-line arguments passed through npm to the script being run',
-          default: [],
           requires: 'run-script'
         },
         'skip-package': {
           alias: ['skip', 'skip-packages'],
           string: true,
           array: true,
-          description: 'Exclude one or more packages (by name) via regular expression',
           default: [],
+          description: 'Exclude one or more packages (by name) via regular expression',
           coerce(expressions: string[]) {
             // ! These regular expressions can never use the global (g) flag
             return expressions.map((str) => new RegExp(str, 'u'));
@@ -158,6 +164,7 @@ Well-ordered topological execution is supported by a dependency graph derived fr
       $0: scriptFullName,
       scope,
       runScript,
+      runToCompletion,
       scriptOptions,
       skipPackages,
       parallel,
@@ -180,6 +187,7 @@ Well-ordered topological execution is supported by a dependency graph derived fr
 
       debug('scope (unused): %O', scope);
       debug('runScript: %O', runScript);
+      debug('runToCompletion: %O', runToCompletion);
       debug('scriptOptions: %O', scriptOptions);
       debug('skipPackages: %O', skipPackages);
       debug('parallel: %O', parallel);
@@ -266,13 +274,18 @@ ${SHORT_TAB}${topology
                     }
                   );
 
-                  softAssert(
-                    scriptExitCode === 0,
-                    ErrorMessage.TopologyRunScriptExecutionFailed()
-                  );
+                  const succeeded = scriptExitCode === 0;
 
-                  taskLogger([LogTag.IF_NOT_HUSHED], '✅');
+                  if (!runToCompletion) {
+                    softAssert(
+                      succeeded,
+                      ErrorMessage.TopologyRunScriptExecutionFailed()
+                    );
+                  }
+
+                  taskLogger([LogTag.IF_NOT_HUSHED], succeeded ? '✅' : '❌');
                   taskLogger.newline([LogTag.IF_NOT_HUSHED]);
+                  taskLogger([LogTag.IF_NOT_HUSHED], '-------------------------');
                   taskLogger.newline([LogTag.IF_NOT_HUSHED]);
                 } else {
                   taskLogger.message(
