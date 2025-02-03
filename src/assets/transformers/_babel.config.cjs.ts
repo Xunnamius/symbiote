@@ -574,20 +574,15 @@ function doCoreJsVersionChecksAndReturnHardcodedVersion({
       );
     }
   } else {
-    if (process.env.NODE_ENV !== 'test') {
-      // * We don't throw an error here to be kind to the build process; this
-      // * error should be caught by post-build checks from "symbiote build"
-      log.warn(
-        [LogTag.IF_NOT_QUIETED],
-        ErrorMessage.specialized.BabelCorejsDependencyMissing(
-          coreJsLibraryVersion,
-          CORE_JS_LIBRARY_VERSION,
-          cwdPackageCoreJsDependency,
-          packageName,
-          packageRoot
-        )
-      );
-    }
+    debug.warn(
+      ErrorMessage.specialized.BabelCorejsDependencyMissing(
+        coreJsLibraryVersion,
+        CORE_JS_LIBRARY_VERSION,
+        cwdPackageCoreJsDependency,
+        packageName,
+        packageRoot
+      )
+    );
   }
 
   return CORE_JS_LIBRARY_VERSION;
