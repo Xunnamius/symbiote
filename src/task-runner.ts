@@ -34,23 +34,24 @@ export async function attemptToRunCommand(
 
   const { all: output, exitCode } = await run(cmd, cmdArgs, config);
 
-  if (shouldOutputResult && output !== undefined) {
-    hardAssert(typeof output === 'string', ErrorMessage.GuruMeditation());
+  if (shouldOutputResult) {
+    if (output !== undefined) {
+      hardAssert(typeof output === 'string', ErrorMessage.GuruMeditation());
 
-    runConfig.logger(
-      [exitCode === 0 ? LogTag.IF_NOT_HUSHED : LogTag.IF_NOT_SILENCED],
-      `${exitCode === 0 ? '' : '❌ (failed) '}%O output:`,
-      runConfig.scriptName
-    );
+      runConfig.logger(
+        [exitCode === 0 ? LogTag.IF_NOT_HUSHED : LogTag.IF_NOT_SILENCED],
+        `${exitCode === 0 ? '' : '❌ (failed) '}%O output:`,
+        runConfig.scriptName
+      );
 
-    process.stdout.write(output + (output.endsWith('\n') ? '' : '\n'));
-  } else {
-    runConfig.logger(
-      [exitCode === 0 ? LogTag.IF_NOT_HUSHED : LogTag.IF_NOT_SILENCED],
-      `${exitCode === 0 ? '' : '❌ (failed) '}%O`,
-      runConfig.scriptName,
-      output
-    );
+      process.stdout.write(output + (output.endsWith('\n') ? '' : '\n'));
+    } else {
+      runConfig.logger(
+        [exitCode === 0 ? LogTag.IF_NOT_HUSHED : LogTag.IF_NOT_SILENCED],
+        `${exitCode === 0 ? '' : '❌ (failed) '}%O`,
+        runConfig.scriptName
+      );
+    }
   }
 
   return exitCode;
