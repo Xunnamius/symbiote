@@ -508,10 +508,10 @@ export async function success(_: PluginConfig, context: SuccessContext) {
 
     await run('git', ['push'], sharedOptions);
 
-    pluginLog('Committed and pushed post-release repository changes');
+    pluginLog('Committed and pushed any existing post-release repository changes');
   } catch (error) {
     successDebug.warn(
-      'attempt to commit post-release repository changes failed (which might not be an issue): %O',
+      'attempt to commit any existing post-release repository changes failed (which is expected if none exist): %O',
       error
     );
   }
