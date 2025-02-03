@@ -8,7 +8,7 @@
 
 > **GlobalExecutionContext**: `StandardExecutionContext` & `object`
 
-Defined in: [src/configure.ts:42](https://github.com/Xunnamius/symbiote/blob/d10510b26b60a15206271bb6da7ebcd862e067c4/src/configure.ts#L42)
+Defined in: [src/configure.ts:42](https://github.com/Xunnamius/symbiote/blob/03d0f5ec06412a1a9df5554ab91ab42206eb76e6/src/configure.ts#L42)
 
 ## Type declaration
 
