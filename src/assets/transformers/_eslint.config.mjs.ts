@@ -136,6 +136,8 @@ function genericRules(
         pathGroupOverrides
       }
     ],
+    // ? Doesn't work well on files with export * from '...';
+    'import/export': 'off',
     'import/no-duplicates': ['warn', { 'prefer-inline': true }],
     'import/no-unresolved': ['error', { commonjs: true }],
     'import/no-empty-named-blocks': 'warn',
