@@ -241,7 +241,9 @@ export function moduleExport({
             'package.json',
             projectRelativePackageLockPath,
             'CHANGELOG.md',
-            'docs'
+            'docs',
+            'LICENSE',
+            'README.md'
           ],
           // ? Make sure we send out the patched release notes (i.e. changelog)
           message: `release: ${cwdPackageName}@<%= nextRelease.version %> [skip ci]\n\n<%= nextRelease.notes %>`
@@ -472,10 +474,7 @@ export async function generateNotes(
  * other) warning if the release pipeline ends with the repository in an unclean
  * state.
  */
-export async function success(
-  { projectRelativePackageLockPath }: PluginConfig,
-  context: SuccessContext
-) {
+export async function success(_: PluginConfig, context: SuccessContext) {
   successDebug('entered step function');
 
   const {
@@ -485,7 +484,6 @@ export async function success(
   const wasReleasedWithForce = SYMBIOTE_RELEASE_WITH_FORCE === 'true';
 
   successDebug('wasReleasedWithForce: %O', wasReleasedWithForce);
-  successDebug('projectRelativePackageLockPath: %O', projectRelativePackageLockPath);
 
   successDebug('updating remote');
   await run('git', ['fetch', '--prune']);
@@ -500,20 +498,20 @@ export async function success(
     const sharedOptions: Parameters<typeof run>[2] = { stdio: 'inherit' };
 
     await run('git', ['reset'], sharedOptions);
-    await run('git', ['add', projectRelativePackageLockPath], sharedOptions);
+    await run('git', ['add', '--all'], sharedOptions);
 
     await run(
       'git',
-      ['commit', '--no-verify', '-m', 'chore: commit post-release metadata changes'],
+      ['commit', '--no-verify', '-m', 'chore: commit post-release repository changes'],
       sharedOptions
     );
 
     await run('git', ['push'], sharedOptions);
 
-    pluginLog('Committed and pushed post-release metadata changes');
+    pluginLog('Committed and pushed post-release repository changes');
   } catch (error) {
     successDebug.warn(
-      'attempt to commit post-release metadata changes failed (which might not be an issue): %O',
+      'attempt to commit post-release repository changes failed (which might not be an issue): %O',
       error
     );
   }
