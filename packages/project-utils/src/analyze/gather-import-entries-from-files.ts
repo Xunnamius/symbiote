@@ -7,7 +7,7 @@ import {
   createMetadataAccumulatorPlugin,
   type Options as AccumulatorOptions,
   type PluginAndAccumulator
-} from 'multiverse+babel-plugin-metadata-accumulator';
+} from 'babel-plugin-metadata-accumulator';
 
 import { commonDebug } from 'universe+project-utils:analyze/common.ts';
 import { cache, CacheScope } from 'universe+project-utils:cache.ts';
