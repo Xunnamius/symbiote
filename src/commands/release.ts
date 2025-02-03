@@ -1193,7 +1193,14 @@ const protoReleaseTask: ProtoCoreReleaseTask = {
           '@-xun/release exited cleanly but NO new version release was detected!'
         );
 
-        await rollbackRepositoryToHead();
+        if (ci) {
+          log.message(
+            [LogTag.IF_NOT_SILENCED],
+            'no rollback performed due to --ci=true'
+          );
+        } else {
+          await rollbackRepositoryToHead();
+        }
 
         if (!dryRun) {
           // ? Will be handled specially further up the stack
@@ -1209,79 +1216,83 @@ const protoReleaseTask: ProtoCoreReleaseTask = {
         exitCode
       );
 
-      await rollbackRepositoryToHead();
+      if (ci) {
+        log.message([LogTag.IF_NOT_SILENCED], 'no rollback performed due to --ci=true');
+        throw new Error(ErrorMessage.ReleaseRunnerExecutionFailed());
+      } else {
+        await rollbackRepositoryToHead();
 
-      if (previousCommitSha !== currentCommitSha) {
-        if (dryRun) {
-          log
-            .extend('UNDEFINED BEHAVIOR')
-            .warn(
-              [LogTag.IF_NOT_SILENCED],
-              '--dry-run detected but a new commit was created?'
-            );
-        }
+        if (previousCommitSha !== currentCommitSha) {
+          if (dryRun) {
+            log
+              .extend('UNDEFINED BEHAVIOR')
+              .warn(
+                [LogTag.IF_NOT_SILENCED],
+                '--dry-run detected but a new commit was created?'
+              );
+          }
 
-        log.error(
-          [LogTag.IF_NOT_SILENCED],
-          '❗POTENTIALLY bad commit %O detected!',
-          currentCommitSha
-        );
-
-        log.warn(
-          [LogTag.IF_NOT_SILENCED],
-          'Rolling repository back further to %O',
-          previousCommitSha
-        );
-
-        const tagsToDelete = await run('git', [
-          'tag',
-          '--points-at',
-          currentCommitSha
-          // TODO: replace with "lines" when fixed in upstream @-xun/run
-        ]).then(({ stdout }) => stdout.split('\n').filter(Boolean));
-
-        debug('tagsToDelete: %O', tagsToDelete);
-
-        for (const tagToDelete of tagsToDelete) {
-          // eslint-disable-next-line no-await-in-loop
-          const { exitCode: gitTagDeleteExitCode } = await runNoRejectOnBadExit('git', [
-            'tag',
-            '--delete',
-            tagToDelete
-          ]);
+          log.error(
+            [LogTag.IF_NOT_SILENCED],
+            '❗POTENTIALLY bad commit %O detected!',
+            currentCommitSha
+          );
 
           log.warn(
             [LogTag.IF_NOT_SILENCED],
-            `${gitTagDeleteExitCode === 0 ? 'Deleted' : 'FAILED to delete'} local tag %O`,
-            tagToDelete
+            'Rolling repository back further to %O',
+            previousCommitSha
           );
+
+          const tagsToDelete = await run('git', [
+            'tag',
+            '--points-at',
+            currentCommitSha
+            // TODO: replace with "lines" when fixed in upstream @-xun/run
+          ]).then(({ stdout }) => stdout.split('\n').filter(Boolean));
+
+          debug('tagsToDelete: %O', tagsToDelete);
+
+          for (const tagToDelete of tagsToDelete) {
+            // eslint-disable-next-line no-await-in-loop
+            const { exitCode: gitTagDeleteExitCode } = await runNoRejectOnBadExit(
+              'git',
+              ['tag', '--delete', tagToDelete]
+            );
+
+            log.warn(
+              [LogTag.IF_NOT_SILENCED],
+              `${gitTagDeleteExitCode === 0 ? 'Deleted' : 'FAILED to delete'} local tag %O`,
+              tagToDelete
+            );
+          }
+
+          log.warn(
+            [LogTag.IF_NOT_SILENCED],
+            'Executing hard reset to %O',
+            previousCommitSha
+          );
+
+          await run('git', ['reset', '--hard', previousCommitSha], {
+            stdout: isQuieted ? 'ignore' : 'inherit',
+            stderr: isSilenced ? 'ignore' : 'inherit'
+          });
+
+          log([LogTag.IF_NOT_SILENCED], 'Local repository was rolled back successfully');
+
+          log.newline([LogTag.IF_NOT_SILENCED]);
+
+          log.message(
+            [LogTag.IF_NOT_SILENCED],
+            '⚠️🚧 Depending on how exactly the release failed, you must now do one of the following:\n\n1. If the release failed AFTER the package was published SUCCESSFULLY, then the failure was not so catastrophic. Run `git fetch --all && git pull --rebase` to catch this repo up to remote.\n\n2. If the release failed BEFORE the package could be published, or the publish step itself failed, then it is very likely you need to rollback the remote repository by hand. Run `git push --force` to rollback the remote repository. You may need to disable any protective rulesets. Finally, run `git push --delete your-remote your-tag` for each deleted local tag and relevant remote to complete the recovery process.'
+          );
+
+          log.newline([LogTag.IF_NOT_SILENCED]);
         }
 
-        log.warn(
-          [LogTag.IF_NOT_SILENCED],
-          'Executing hard reset to %O',
-          previousCommitSha
-        );
-
-        await run('git', ['reset', '--hard', previousCommitSha], {
-          stdout: isQuieted ? 'ignore' : 'inherit',
-          stderr: isSilenced ? 'ignore' : 'inherit'
-        });
-
-        log([LogTag.IF_NOT_SILENCED], 'Local repository was rolled back successfully');
-
-        log.newline([LogTag.IF_NOT_SILENCED]);
-
-        log.message(
-          [LogTag.IF_NOT_SILENCED],
-          '⚠️🚧 Depending on how exactly the release failed, you must now do one of the following:\n\n1. If the release failed AFTER the package was published SUCCESSFULLY, then the failure was not so catastrophic. Run `git fetch --all && git pull --rebase` to catch this repo up to remote.\n\n2. If the release failed BEFORE the package could be published, or the publish step itself failed, then it is very likely you need to rollback the remote repository by hand. Run `git push --force` to rollback the remote repository. You may need to disable any protective rulesets. Finally, run `git push --delete your-remote your-tag` for each deleted local tag and relevant remote to complete the recovery process.'
-        );
-
-        log.newline([LogTag.IF_NOT_SILENCED]);
+        // ? Will be wrapped in CliError further up the stack
+        throw new Error(ErrorMessage.ReleaseFailedRepoRolledBack());
       }
-
-      // ? Will be wrapped in CliError further up the stack
-      throw new Error(ErrorMessage.ReleaseFailedRepoRolledBack());
     }
 
     async function rollbackRepositoryToHead() {
