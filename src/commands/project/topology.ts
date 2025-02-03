@@ -250,12 +250,12 @@ ${SHORT_TAB}${topology
 
               taskPromiseFunctions.push(async () => {
                 if (shouldSkip) {
-                  taskLogger.message(
+                  taskLogger(
                     [LogTag.IF_NOT_SILENCED],
                     '✖️ Skipped running script due to --skip-packages'
                   );
                 } else if (hasTargetScript) {
-                  taskLogger.message(
+                  taskLogger(
                     [LogTag.IF_NOT_SILENCED],
                     'Running script %O...',
                     runScript
@@ -270,7 +270,8 @@ ${SHORT_TAB}${topology
                       ...(parallel ? { all: true } : { all: false, stdio: 'inherit' }),
                       logger: taskLogger,
                       scriptName: runScript,
-                      cwd: packageRoot
+                      cwd: packageRoot,
+                      shouldOutputResult: false
                     }
                   );
 
@@ -288,7 +289,7 @@ ${SHORT_TAB}${topology
                   taskLogger([LogTag.IF_NOT_HUSHED], '-------------------------');
                   taskLogger.newline([LogTag.IF_NOT_HUSHED]);
                 } else {
-                  taskLogger.message(
+                  taskLogger(
                     [LogTag.IF_NOT_SILENCED],
                     '✖️ Skipped running non-existent script %O',
                     runScript
