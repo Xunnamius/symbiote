@@ -8,7 +8,7 @@
 
 > **moduleExport**(): `object`
 
-Defined in: [src/assets/transformers/\_prettier.config.mjs.ts:10](https://github.com/Xunnamius/symbiote/blob/03d0f5ec06412a1a9df5554ab91ab42206eb76e6/src/assets/transformers/_prettier.config.mjs.ts#L10)
+Defined in: [src/assets/transformers/\_prettier.config.mjs.ts:10](https://github.com/Xunnamius/symbiote/blob/a0fabf117a4e10cf68aa181dc5bfba0344eaceea/src/assets/transformers/_prettier.config.mjs.ts#L10)
 
 ## Returns
 

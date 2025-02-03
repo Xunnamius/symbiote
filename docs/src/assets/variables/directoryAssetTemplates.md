@@ -8,7 +8,7 @@
 
 > `const` **directoryAssetTemplates**: `AbsolutePath`
 
-Defined in: [src/assets.ts:73](https://github.com/Xunnamius/symbiote/blob/03d0f5ec06412a1a9df5554ab91ab42206eb76e6/src/assets.ts#L73)
+Defined in: [src/assets.ts:73](https://github.com/Xunnamius/symbiote/blob/a0fabf117a4e10cf68aa181dc5bfba0344eaceea/src/assets.ts#L73)
 
 The directory containing asset templates.
 
