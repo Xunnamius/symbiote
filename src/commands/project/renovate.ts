@@ -1806,9 +1806,9 @@ Note that this command never deletes tags.`,
     longHelpDescription: `
 This renovation will regenerate one or more files in the project, each represented by an "asset". An asset is a collection mapping output paths to generated content. When writing out content to an output path, existing files are overwritten, missing files are created, and obsolete files are deleted.
 
-Provide --assets-preset (required) to specify which assets to regenerate. The parameter accepts one of the following presets: ${assetPresets.join(', ')}. The paths of assets included in the preset will be targeted for renovation except those paths matched by --skip-asset-paths.
+Provide --assets-preset to specify which assets to regenerate. Note that, in a monorepo context, this preset is applied "generally" across the entire project; heuristic analysis is used to determine which preset to apply per sub-package (see symbiote wiki for more details). The parameter accepts one of the following presets: ${assetPresets.join(', ')}. The paths of assets included in the preset will be targeted for renovation with respect to --exclude-asset-paths and --include-asset-paths, if provided.
 
-Use --skip-asset-paths to further narrow which files are regenerated. The parameter accepts regular expressions that are matched against the paths to be written out. Any paths matching one of the aforesaid regular expressions will have their contents discarded instead of written out.
+Use either --exclude-asset-paths or --include-asset-paths to further narrow which files are regenerated. These parameters accept regular expressions that are matched against paths (relative to the project root) to be written out. Any paths matching one of the regular expressions provided by --exclude-asset-paths, or not matching one of the regular expressions provided by --include-asset-paths, will have their contents discarded instead of written out. Providing both --exclude-asset-paths and --include-asset-paths in the same command will cause an error.
 
 This renovation attempts to import the "${aliasMapConfigProjectBase}" file if it exists at the root of the project. Use this file to provide additional \`RawAliasMapping[]\`s to include when regenerating files defining the project's import aliases. See the symbiote wiki documentation for further details.
 
@@ -1843,12 +1843,33 @@ See the symbiote wiki documentation for more details on this command and all ava
           }
         }
       },
-      'skip-asset-paths': {
-        alias: 'skip-asset-path',
+      'exclude-asset-paths': {
+        alias: ['exclude-asset-path', 'exclude', 'skip'],
         array: true,
         string: true,
         description: 'Skip regenerating assets matching a regular expression',
-        default: []
+        default: [],
+        conflicts: 'include-asset-paths',
+        implies: { hush: false },
+        looseImplications: true,
+        coerce(paths: string[]) {
+          // ! These regular expressions can never use the global (g) flag
+          return paths.map((str) => new RegExp(str, 'u'));
+        }
+      },
+      'include-asset-paths': {
+        alias: ['include-asset-path', 'include', 'only'],
+        array: true,
+        string: true,
+        description: 'Only regenerate assets matching a regular expression',
+        default: [],
+        conflicts: 'exclude-asset-paths',
+        implies: { hush: false },
+        looseImplications: true,
+        coerce(paths: string[]) {
+          // ! These regular expressions can never use the global (g) flag
+          return paths.map((str) => new RegExp(str, 'u'));
+        }
       }
     },
     // ? These renovations modify the filesystem, so only one can run at once
@@ -1872,7 +1893,8 @@ See the symbiote wiki documentation for more details on this command and all ava
 
       const { projectMetadata } = globalExecutionContext;
       const preset = argv.assetsPreset as AssetPreset;
-      const skipAssetPaths = argv.skipAssetPaths as RegExp[];
+      const excludeAssetPaths = argv.excludeAssetPaths as RegExp[];
+      const includeAssetPaths = argv.includeAssetPaths as RegExp[];
 
       hardAssert(projectMetadata, ErrorMessage.GuruMeditation());
 
@@ -1929,7 +1951,8 @@ See the symbiote wiki documentation for more details on this command and all ava
       };
 
       debug('preset: %O', preset);
-      debug('skipAssetPaths: %O', skipAssetPaths);
+      debug('excludeAssetPaths: %O', excludeAssetPaths);
+      debug('includeAssetPaths: %O', includeAssetPaths);
       debug('transformer context: %O', transformerContext);
 
       const reifiedAssetPathEntries = Object.entries(
@@ -1937,6 +1960,9 @@ See the symbiote wiki documentation for more details on this command and all ava
           transformerContext
         })
       );
+
+      let countAssetsSkipped = 0;
+      let countAssetsDeleted = 0;
 
       const results = await Promise.allSettled(
         reifiedAssetPathEntries.map(async function ([
@@ -1951,11 +1977,16 @@ See the symbiote wiki documentation for more details on this command and all ava
           debug('relativeOutputPath: %O', relativeOutputPath);
           debug('absoluteOutputParentPath: %O', absoluteOutputParentPath);
 
-          if (skipAssetPaths.some((r) => r.test(relativeOutputPath))) {
+          if (
+            includeAssetPaths.every((r) => !r.test(relativeOutputPath)) ||
+            excludeAssetPaths.some((r) => r.test(relativeOutputPath))
+          ) {
             debug(
-              'skipped asset due to --skip-asset-paths exclusion: %O',
+              'skipped asset due to path inclusion/exclusion: %O',
               absoluteOutputPath
             );
+
+            countAssetsSkipped += 1;
             log([LogTag.IF_NOT_QUIETED], `🟧 ${relativeOutputPath}`);
             return;
           }
@@ -1968,12 +1999,14 @@ See the symbiote wiki documentation for more details on this command and all ava
                 'deleting asset due to presence of $delete symbol: %O',
                 absoluteOutputPath
               );
+
               await rm(absoluteOutputPath, { force: true });
-              log([LogTag.IF_NOT_HUSHED], `🗑️ ${relativeOutputPath}`);
+              countAssetsDeleted += 1;
+              log([LogTag.IF_NOT_HUSHED], `🟥 ${relativeOutputPath}`);
             } else {
               await mkdir(absoluteOutputParentPath, { mode: 0o775, recursive: true });
               await writeFile(absoluteOutputPath, content);
-              log([LogTag.IF_NOT_HUSHED], `✅ ${relativeOutputPath}`);
+              log([LogTag.IF_NOT_HUSHED], `🟩 ${relativeOutputPath}`);
             }
           } catch (error) {
             debug.error('content generation failure: %O', error);
@@ -1989,9 +2022,11 @@ See the symbiote wiki documentation for more details on this command and all ava
 
       log.message(
         [LogTag.IF_NOT_QUIETED],
-        '%O/%O renovations succeeded',
+        '%O/%O renovations succeeded (%O skipped, %O deletions)',
         results.length - errorCount,
-        results.length
+        results.length,
+        countAssetsSkipped,
+        countAssetsDeleted
       );
 
       const formatHandler = await getInvocableExtendedHandler<
