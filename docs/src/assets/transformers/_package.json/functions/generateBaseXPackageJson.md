@@ -8,7 +8,7 @@
 
 > **generateBaseXPackageJson**(...`__namedParameters`): `object`
 
-Defined in: [src/assets/transformers/\_package.json.ts:56](https://github.com/Xunnamius/symbiote/blob/6cd9803a2f37849e57efc78412bcf20f1a002bf9/src/assets/transformers/_package.json.ts#L56)
+Defined in: [src/assets/transformers/\_package.json.ts:56](https://github.com/Xunnamius/symbiote/blob/f5dbcf226533401d9fc449ad30ae068d637c3138/src/assets/transformers/_package.json.ts#L56)
 
 ## Parameters
 
@@ -687,6 +687,10 @@ goal of bringing the project up to date with latest best practices.
 `symbiote project renovate --github-reconfigure-repo
 --regenerate-assets --assets-preset basic`
 ```
+
+#### scripts.renovate:aliases
+
+> `readonly` **renovate:aliases**: `` `symbiote project renovate --env NODE_NO_WARNINGS=1 --regenerate-assets --assets-preset '${string}' --only-aliases` ``
 
 #### scripts.restart?
 

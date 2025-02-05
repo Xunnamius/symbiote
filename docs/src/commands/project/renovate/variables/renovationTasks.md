@@ -8,7 +8,7 @@
 
 > `const` **renovationTasks**: `object`
 
-Defined in: [src/commands/project/renovate.ts:745](https://github.com/Xunnamius/symbiote/blob/6cd9803a2f37849e57efc78412bcf20f1a002bf9/src/commands/project/renovate.ts#L745)
+Defined in: [src/commands/project/renovate.ts:760](https://github.com/Xunnamius/symbiote/blob/f5dbcf226533401d9fc449ad30ae068d637c3138/src/commands/project/renovate.ts#L760)
 
 ## Type declaration
 
@@ -1926,9 +1926,9 @@ BfeBuilderObjectValueExtensions.implies
 > `readonly` **longHelpDescription**: `` `
 This renovation will regenerate one or more files in the project, each represented by an "asset". An asset is a collection mapping output paths to generated content. When writing out content to an output path, existing files are overwritten, missing files are created, and obsolete files are deleted.
 
-Provide --assets-preset (required) to specify which assets to regenerate. The parameter accepts one of the following presets: ${string}. The paths of assets included in the preset will be targeted for renovation except those paths matched by --skip-asset-paths.
+Provide --assets-preset to specify which assets to regenerate. Note that, in a monorepo context, this preset is applied "generally" across the entire project; heuristic analysis is used to determine which preset to apply per sub-package (see symbiote wiki for more details). The parameter accepts one of the following presets: ${string}. The paths of assets included in the preset will be targeted for renovation with respect to --exclude-asset-paths and --include-asset-paths/--only-aliases, if provided.
 
-Use --skip-asset-paths to further narrow which files are regenerated. The parameter accepts regular expressions that are matched against the paths to be written out. Any paths matching one of the aforesaid regular expressions will have their contents discarded instead of written out.
+Use either --exclude-asset-paths or --include-asset-paths to further narrow which files are regenerated. These parameters accept regular expressions that are matched against paths (relative to the project root) to be written out. Any paths matching one of the regular expressions provided by --exclude-asset-paths, or not matching one of the regular expressions provided by --include-asset-paths, will have their contents discarded instead of written out. Providing both --exclude-asset-paths and --include-asset-paths in the same command will cause an error.
 
 This renovation attempts to import the "alias.config.mjs" file if it exists at the root of the project. Use this file to provide additional `RawAliasMapping[]`s to include when regenerating files defining the project's import aliases. See the symbiote wiki documentation for further details.
 
@@ -1940,7 +1940,7 @@ Note that only certain Markdown files support regional replacements. See the sym
 
 After invoking this renovation, you should use your IDE's diff tools to compare and contrast the latest best practices with the project's current configuration setup.
 
-This renovation should be re-run each time a package is added to, or removed from, a symbiote-compliant monorepo but should NEVER be run in a CI environment or anywhere logs can be viewed publicly.
+This renovation should be re-run each time a package is added to, or removed from, a symbiote-compliant monorepo but should NEVER be run in a CI environment or anywhere logs can be viewed publicly. Project compliant with symbiote can use the "renovate:aliases" NPM script.
 
 See the symbiote wiki documentation for more details on this command and all available assets.
 ` ``
@@ -2387,29 +2387,141 @@ false
 
 BfeBuilderObjectValueExtensions.implies
 
-#### regenerate-assets.subOptions.skip-asset-paths
+#### regenerate-assets.subOptions.exclude-asset-paths
 
-> `readonly` **skip-asset-paths**: `object`
+> `readonly` **exclude-asset-paths**: `object`
 
-#### regenerate-assets.subOptions.skip-asset-paths.alias
+#### regenerate-assets.subOptions.exclude-asset-paths.alias
 
-> `readonly` **alias**: `"skip-asset-path"` = `'skip-asset-path'`
+> `readonly` **alias**: readonly \[`"exclude-asset-path"`, `"exclude"`, `"skip"`\]
 
-#### regenerate-assets.subOptions.skip-asset-paths.array
+#### regenerate-assets.subOptions.exclude-asset-paths.array
 
 > `readonly` **array**: `true` = `true`
 
-#### regenerate-assets.subOptions.skip-asset-paths.default
+#### regenerate-assets.subOptions.exclude-asset-paths.conflicts
+
+> `readonly` **conflicts**: \[`"include-asset-paths"`, `"only-aliases"`\]
+
+#### regenerate-assets.subOptions.exclude-asset-paths.default
 
 > `readonly` **default**: readonly \[\] = `[]`
 
-#### regenerate-assets.subOptions.skip-asset-paths.description
+#### regenerate-assets.subOptions.exclude-asset-paths.description
 
 > `readonly` **description**: `"Skip regenerating assets matching a regular expression"` = `'Skip regenerating assets matching a regular expression'`
 
-#### regenerate-assets.subOptions.skip-asset-paths.string
+#### regenerate-assets.subOptions.exclude-asset-paths.implies
+
+> `readonly` **implies**: `object`
+
+#### regenerate-assets.subOptions.exclude-asset-paths.implies.hush
+
+> `readonly` **hush**: `false` = `false`
+
+#### regenerate-assets.subOptions.exclude-asset-paths.looseImplications
+
+> `readonly` **looseImplications**: `true` = `true`
+
+#### regenerate-assets.subOptions.exclude-asset-paths.string
 
 > `readonly` **string**: `true` = `true`
+
+#### regenerate-assets.subOptions.exclude-asset-paths.coerce()
+
+##### Parameters
+
+###### paths
+
+`string`[]
+
+##### Returns
+
+`RegExp`[]
+
+#### regenerate-assets.subOptions.include-asset-paths
+
+> `readonly` **include-asset-paths**: `object`
+
+#### regenerate-assets.subOptions.include-asset-paths.alias
+
+> `readonly` **alias**: readonly \[`"include-asset-path"`, `"include"`, `"only"`\]
+
+#### regenerate-assets.subOptions.include-asset-paths.array
+
+> `readonly` **array**: `true` = `true`
+
+#### regenerate-assets.subOptions.include-asset-paths.conflicts
+
+> `readonly` **conflicts**: \[`"exclude-asset-paths"`, `"only-aliases"`\]
+
+#### regenerate-assets.subOptions.include-asset-paths.default
+
+> `readonly` **default**: readonly \[\] = `[]`
+
+#### regenerate-assets.subOptions.include-asset-paths.description
+
+> `readonly` **description**: `"Only regenerate assets matching a regular expression"` = `'Only regenerate assets matching a regular expression'`
+
+#### regenerate-assets.subOptions.include-asset-paths.implies
+
+> `readonly` **implies**: `object`
+
+#### regenerate-assets.subOptions.include-asset-paths.implies.hush
+
+> `readonly` **hush**: `false` = `false`
+
+#### regenerate-assets.subOptions.include-asset-paths.looseImplications
+
+> `readonly` **looseImplications**: `true` = `true`
+
+#### regenerate-assets.subOptions.include-asset-paths.string
+
+> `readonly` **string**: `true` = `true`
+
+#### regenerate-assets.subOptions.include-asset-paths.coerce()
+
+##### Parameters
+
+###### paths
+
+`string`[]
+
+##### Returns
+
+`RegExp`[]
+
+#### regenerate-assets.subOptions.only-aliases
+
+> `readonly` **only-aliases**: `object`
+
+#### regenerate-assets.subOptions.only-aliases.boolean
+
+> `readonly` **boolean**: `true` = `true`
+
+#### regenerate-assets.subOptions.only-aliases.conflicts
+
+> `readonly` **conflicts**: \[`"include-asset-paths"`, `"exclude-asset-paths"`\]
+
+#### regenerate-assets.subOptions.only-aliases.default
+
+> `readonly` **default**: `false` = `false`
+
+#### regenerate-assets.subOptions.only-aliases.description
+
+> `readonly` **description**: `"Only regenerate assets containing aliases"` = `'Only regenerate assets containing aliases'`
+
+#### regenerate-assets.subOptions.only-aliases.implies
+
+> `readonly` **implies**: `object`
+
+#### regenerate-assets.subOptions.only-aliases.implies.hush
+
+> `readonly` **hush**: `false` = `false`
+
+#### regenerate-assets.subOptions.only-aliases.looseImplications
+
+> `readonly` **looseImplications**: `true` = `true`
 
 #### regenerate-assets.supportedScopes
 
