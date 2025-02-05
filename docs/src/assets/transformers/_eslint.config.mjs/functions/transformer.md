@@ -8,7 +8,7 @@
 
 > **transformer**(`this`, `context`, `options`?): `Promise`\<[`ReifiedAssets`](../../../type-aliases/ReifiedAssets.md)\>
 
-Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:766](https://github.com/Xunnamius/symbiote/blob/a0fabf117a4e10cf68aa181dc5bfba0344eaceea/src/assets/transformers/_eslint.config.mjs.ts#L766)
+Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:766](https://github.com/Xunnamius/symbiote/blob/38551ad9267f0803213908dddfaadca3c136fc01/src/assets/transformers/_eslint.config.mjs.ts#L766)
 
 ## Parameters
 
