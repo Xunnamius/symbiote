@@ -39,7 +39,7 @@ if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ]; then
     echo
     echo 'husky-hook::pre-push: markdown files at HEAD with unmerged replacer regions:'
     echo
-    echo "$interestingMdFiles" | xargs -P 0 grep -i -H -l -F -e '-✄-' | prepend '  ⋗ '
+    echo "$interestingMdFiles" | xargs -P 0 grep -i -l -H -F -e '-✄-' | prepend '  ⋗ '
   fi
 
   echo
