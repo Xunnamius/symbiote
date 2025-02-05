@@ -8,7 +8,7 @@
 
 > `const` **projectInfoScopes**: [`DefaultGlobalScope`](../../../../configure/enumerations/DefaultGlobalScope.md)[]
 
-Defined in: [src/commands/project/info.ts:29](https://github.com/Xunnamius/symbiote/blob/38551ad9267f0803213908dddfaadca3c136fc01/src/commands/project/info.ts#L29)
+Defined in: [src/commands/project/info.ts:29](https://github.com/Xunnamius/symbiote/blob/6cd9803a2f37849e57efc78412bcf20f1a002bf9/src/commands/project/info.ts#L29)
 
 ## See
 
