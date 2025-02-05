@@ -85,8 +85,8 @@ export enum AssetPreset {
    * functional.
    *
    * This preset is the basis for all others and can be used on any
-   * symbiote-compliant project when returning only a subset of files are
-   * desired.
+   * symbiote-compliant project when targeting only a subset of files is desired
+   * (e.g. via `--include-asset-paths`/`--exclude-asset-paths` when renovating).
    *
    * See the symbiote wiki for details.
    */

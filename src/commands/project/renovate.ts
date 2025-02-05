@@ -1820,7 +1820,7 @@ Note that only certain Markdown files support regional replacements. See the sym
 
 After invoking this renovation, you should use your IDE's diff tools to compare and contrast the latest best practices with the project's current configuration setup.
 
-This renovation should be re-run each time a package is added to, or removed from, a symbiote-compliant monorepo but should NEVER be run in a CI environment or anywhere logs can be viewed publicly.
+This renovation should be re-run each time a package is added to, or removed from, a symbiote-compliant monorepo but should NEVER be run in a CI environment or anywhere logs can be viewed publicly. Project compliant with symbiote can use the "renovate:aliases" NPM script.
 
 See the symbiote wiki documentation for more details on this command and all available assets.
 `,
