@@ -104,6 +104,7 @@
   },
   "dependencies": {
     "@-xun/changelog": "^1.0.0",
+    "@-xun/jest": "^1.0.0",
     "@-xun/run": "^0.0.1",
     "@arethetypeswrong/cli": "^0.17.3",
     "@babel/cli": "^7.26.4",
