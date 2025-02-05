@@ -38,13 +38,19 @@ import { ProjectAttribute, type Package } from 'multiverse+project-utils:analyze
 
 import {
   aliasMapConfigProjectBase,
+  babelConfigProjectBase,
+  eslintConfigProjectBase,
   getCurrentWorkingDirectory,
   isAccessible,
+  jestConfigProjectBase,
+  nextjsConfigProjectBase,
   packageJsonConfigPackageBase,
   toAbsolutePath,
   toDirname,
   toPath,
-  toRelativePath
+  toRelativePath,
+  Tsconfig,
+  webpackConfigProjectBase
 } from 'multiverse+project-utils:fs.ts';
 
 import { version as packageVersion } from 'rootverse:package.json';
@@ -114,6 +120,15 @@ const RULESET_PROTECTION_PAUSE_MINUTES = 5;
 
 const defaultDescriptionEmoji = '⚡';
 const homepagePrefix = 'https://npm.im/';
+
+const assetsThatContainAliases = [
+  Tsconfig.ProjectBase,
+  jestConfigProjectBase,
+  nextjsConfigProjectBase,
+  webpackConfigProjectBase,
+  eslintConfigProjectBase,
+  babelConfigProjectBase
+];
 
 const standardProtectRuleset: NewRuleset = {
   name: 'standard-protect',
@@ -1806,7 +1821,7 @@ Note that this command never deletes tags.`,
     longHelpDescription: `
 This renovation will regenerate one or more files in the project, each represented by an "asset". An asset is a collection mapping output paths to generated content. When writing out content to an output path, existing files are overwritten, missing files are created, and obsolete files are deleted.
 
-Provide --assets-preset to specify which assets to regenerate. Note that, in a monorepo context, this preset is applied "generally" across the entire project; heuristic analysis is used to determine which preset to apply per sub-package (see symbiote wiki for more details). The parameter accepts one of the following presets: ${assetPresets.join(', ')}. The paths of assets included in the preset will be targeted for renovation with respect to --exclude-asset-paths and --include-asset-paths, if provided.
+Provide --assets-preset to specify which assets to regenerate. Note that, in a monorepo context, this preset is applied "generally" across the entire project; heuristic analysis is used to determine which preset to apply per sub-package (see symbiote wiki for more details). The parameter accepts one of the following presets: ${assetPresets.join(', ')}. The paths of assets included in the preset will be targeted for renovation with respect to --exclude-asset-paths and --include-asset-paths/--only-aliases, if provided.
 
 Use either --exclude-asset-paths or --include-asset-paths to further narrow which files are regenerated. These parameters accept regular expressions that are matched against paths (relative to the project root) to be written out. Any paths matching one of the regular expressions provided by --exclude-asset-paths, or not matching one of the regular expressions provided by --include-asset-paths, will have their contents discarded instead of written out. Providing both --exclude-asset-paths and --include-asset-paths in the same command will cause an error.
 
@@ -1849,7 +1864,7 @@ See the symbiote wiki documentation for more details on this command and all ava
         string: true,
         description: 'Skip regenerating assets matching a regular expression',
         default: [],
-        conflicts: 'include-asset-paths',
+        conflicts: ['include-asset-paths', 'only-aliases'],
         implies: { hush: false },
         looseImplications: true,
         coerce(paths: string[]) {
@@ -1863,13 +1878,21 @@ See the symbiote wiki documentation for more details on this command and all ava
         string: true,
         description: 'Only regenerate assets matching a regular expression',
         default: [],
-        conflicts: 'exclude-asset-paths',
+        conflicts: ['exclude-asset-paths', 'only-aliases'],
         implies: { hush: false },
         looseImplications: true,
         coerce(paths: string[]) {
           // ! These regular expressions can never use the global (g) flag
           return paths.map((str) => new RegExp(str, 'u'));
         }
+      },
+      'only-aliases': {
+        boolean: true,
+        description: 'Only regenerate assets containing aliases',
+        default: false,
+        conflicts: ['include-asset-paths', 'exclude-asset-paths'],
+        implies: { hush: false },
+        looseImplications: true
       }
     },
     // ? These renovations modify the filesystem, so only one can run at once
@@ -1893,8 +1916,17 @@ See the symbiote wiki documentation for more details on this command and all ava
 
       const { projectMetadata } = globalExecutionContext;
       const preset = argv.assetsPreset as AssetPreset;
+      const onlyAliases = argv.onlyAliases as boolean;
       const excludeAssetPaths = argv.excludeAssetPaths as RegExp[];
-      const includeAssetPaths = argv.includeAssetPaths as RegExp[];
+      const includeAssetPaths = onlyAliases
+        ? [
+            new RegExp(
+              `^(${assetsThatContainAliases
+                .map((path) => escapeStringRegexp(path))
+                .join('|')})$`
+            )
+          ]
+        : (argv.includeAssetPaths as RegExp[]);
 
       hardAssert(projectMetadata, ErrorMessage.GuruMeditation());
 
@@ -1951,6 +1983,7 @@ See the symbiote wiki documentation for more details on this command and all ava
       };
 
       debug('preset: %O', preset);
+      debug('onlyAliases: %O', onlyAliases);
       debug('excludeAssetPaths: %O', excludeAssetPaths);
       debug('includeAssetPaths: %O', includeAssetPaths);
       debug('transformer context: %O', transformerContext);
