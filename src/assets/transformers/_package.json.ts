@@ -163,6 +163,7 @@ export function generateBaseXPackageJson(
       'release:topological':
         'symbiote project topology --run release --env NODE_NO_WARNINGS=1',
       renovate: `symbiote project renovate --env NODE_NO_WARNINGS=1 --github-reconfigure-repo --regenerate-assets --assets-preset '${assetPresets.join(' ')}'`,
+      'renovate:aliases': `symbiote project renovate --env NODE_NO_WARNINGS=1 --regenerate-assets --assets-preset '${assetPresets.join(' ')}' --only-aliases`,
       start: 'symbiote start --env NODE_NO_WARNINGS=1 --',
       test: 'npm run test:package:unit --',
       'test:package:all': 'symbiote test --env NODE_NO_WARNINGS=1 --coverage',
@@ -352,6 +353,7 @@ export function generateSubRootXPackageJson(
     scripts: {
       prepare: _1,
       renovate: _2,
+      'renovate:aliases': _7,
       'release:topological': _3,
       'build:topological': _4,
       'test:topological': _5,
