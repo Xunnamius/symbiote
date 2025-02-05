@@ -1996,6 +1996,7 @@ See the symbiote wiki documentation for more details on this command and all ava
 
       let countAssetsSkipped = 0;
       let countAssetsDeleted = 0;
+      const isSkippingAssets = includeAssetPaths.length || excludeAssetPaths.length;
 
       const results = await Promise.allSettled(
         reifiedAssetPathEntries.map(async function ([
@@ -2011,8 +2012,9 @@ See the symbiote wiki documentation for more details on this command and all ava
           debug('absoluteOutputParentPath: %O', absoluteOutputParentPath);
 
           if (
-            includeAssetPaths.every((r) => !r.test(relativeOutputPath)) ||
-            excludeAssetPaths.some((r) => r.test(relativeOutputPath))
+            isSkippingAssets &&
+            (includeAssetPaths.every((r) => !r.test(relativeOutputPath)) ||
+              excludeAssetPaths.some((r) => r.test(relativeOutputPath)))
           ) {
             debug(
               'skipped asset due to path inclusion/exclusion: %O',
