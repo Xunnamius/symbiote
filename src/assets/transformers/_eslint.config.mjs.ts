@@ -219,11 +219,11 @@ function genericRules(
     // ? Now that eslint-plugin-import has our superpowers, let's split up
     // ? type-only imports and normal imports
     '@typescript-eslint/consistent-type-exports': [
-      'warn',
+      'error',
       { fixMixedExportsWithInlineTypeSpecifier: false }
     ],
     '@typescript-eslint/consistent-type-imports': [
-      'warn',
+      'error',
       { disallowTypeAnnotations: false, fixStyle: 'separate-type-imports' }
     ],
     // ? We need this because typescript-eslint gets confused when a type-only
