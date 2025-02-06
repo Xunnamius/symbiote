@@ -330,7 +330,10 @@ function genericRules(
           temp: false,
           req: false,
           res: false,
-          ctx: false
+          ctx: false,
+          num: false,
+          param: false,
+          params: false
         },
         ignore: [/stderr/i]
       }
