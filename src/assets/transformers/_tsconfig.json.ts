@@ -51,8 +51,14 @@ const tsconfigFiles = {
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "noEmit": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
+    "noErrorTruncation": true,
+    "noImplicitAny": true,
+    "noImplicitOverride": true,
+    "noUncheckedIndexedAccess": true,
+    // ? Disabled in favor of @typescript-eslint/no-unused-vars
+    "noUnusedLocals": false,
+    // ? Disabled in favor of @typescript-eslint/no-unused-vars
+    "noUnusedParameters": false,
 ${makeGeneratedAliasesWarningComment(4)}
     "paths": {derivedAliasesSourceSnippet},
     "resolveJsonModule": true,
