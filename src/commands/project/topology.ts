@@ -103,8 +103,8 @@ export default function command({
             'Command-line arguments passed through npm to the script being run',
           requires: 'run-script'
         },
-        'skip-package': {
-          alias: ['skip', 'skip-packages'],
+        'skip-packages': {
+          alias: ['skip', 'skip-package'],
           string: true,
           array: true,
           default: [],
