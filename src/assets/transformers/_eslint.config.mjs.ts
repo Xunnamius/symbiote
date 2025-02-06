@@ -138,7 +138,6 @@ function genericRules(
     ],
     // ? Doesn't work well on files with export * from '...';
     'import/export': 'off',
-    'import/no-duplicates': ['warn', { 'prefer-inline': true }],
     'import/no-unresolved': ['error', { commonjs: true }],
     'import/no-empty-named-blocks': 'warn',
     'import/first': 'warn',
@@ -147,6 +146,8 @@ function genericRules(
     'import/no-absolute-path': 'warn',
     'import/no-cycle': 'warn',
     'import/no-self-import': 'warn',
+    'import/no-duplicates': ['warn', { 'prefer-inline': false }],
+    'import/consistent-type-specifier-style': ['warn', 'prefer-top-level'],
     'import/order': [
       'warn',
       {
@@ -187,17 +188,25 @@ function genericRules(
     ],
 
     // * typescript-eslint
+    // ? Not really worth the complexity
     '@typescript-eslint/camelcase': 'off',
+    // ? Not really worth the complexity
+    '@typescript-eslint/naming-convention': 'off',
     // ? I am an enby of simple tastes, who does commonjs sometimes
     '@typescript-eslint/no-require-imports': 'off',
     // ? I will decide when I feel like using an interface
     '@typescript-eslint/consistent-type-definitions': 'off',
     // ? I will decide when I feel like using a Record
     '@typescript-eslint/consistent-indexed-object-style': 'off',
+    // ? I will decide when I feel like using an explicit return type
     '@typescript-eslint/explicit-function-return-type': 'off',
+    // ? I will decide when I feel like using an explicit return type
     '@typescript-eslint/explicit-module-boundary-types': 'off',
+    // ? Limit the power of ts comments
     '@typescript-eslint/prefer-ts-expect-error': 'warn',
+    // ? Sauce
     '@typescript-eslint/no-misused-promises': ['error'],
+    // ? Sauce
     '@typescript-eslint/no-floating-promises': ['error', { ignoreVoid: true }],
     // ? Force the powerful ts comments to come with a brief explanation
     '@typescript-eslint/ban-ts-comment': [
@@ -207,10 +216,19 @@ function genericRules(
         minimumDescriptionLength: 6
       }
     ],
+    // ? Now that eslint-plugin-import has our superpowers, let's split up
+    // ? type-only imports and normal imports
     '@typescript-eslint/consistent-type-exports': [
-      'error',
-      { fixMixedExportsWithInlineTypeSpecifier: true }
+      'warn',
+      { fixMixedExportsWithInlineTypeSpecifier: false }
     ],
+    '@typescript-eslint/consistent-type-imports': [
+      'warn',
+      { disallowTypeAnnotations: false, fixStyle: 'separate-type-imports' }
+    ],
+    // ? We need this because typescript-eslint gets confused when a type-only
+    // ? import is used in a doc comment but isn't imported with `import type`,
+    // ? which should be a warning/error (but typescript-eslint doesn't notice)
     '@typescript-eslint/no-unused-vars': [
       'warn',
       {
@@ -219,11 +237,6 @@ function genericRules(
         caughtErrorsIgnorePattern: String.raw`^ignored?\d*$`,
         caughtErrors: 'all'
       }
-    ],
-    // ? Make sure types are marked as such
-    '@typescript-eslint/consistent-type-imports': [
-      'error',
-      { disallowTypeAnnotations: false, fixStyle: 'inline-type-imports' }
     ],
     // ? I'll be good, I promise
     '@typescript-eslint/no-var-requires': 'off',
