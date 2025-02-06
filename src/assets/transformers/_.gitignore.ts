@@ -33,6 +33,7 @@ tmp
 
 # Ignore packaged files that probably shouldn't be committed
 *.tgz
+*.tar.gz
 
 # Ignore relevant build artifacts in any subdir (with exceptions)
 *.tsbuildinfo
