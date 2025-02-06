@@ -1,14 +1,14 @@
 // @ts-check
 'use strict';
 
-const { createDebugLogger } = require('rejoinder');
-
 const { deepMergeConfig } = require('@-xun/symbiote/assets');
 
 const {
   assertEnvironment,
   moduleExport
 } = require('@-xun/symbiote/assets/release.config.cjs');
+
+const { createDebugLogger } = require('rejoinder');
 
 const debug = createDebugLogger({ namespace: 'symbiote:config:release' });
 

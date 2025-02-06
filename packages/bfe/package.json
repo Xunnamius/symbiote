@@ -34,12 +34,6 @@
       ]
     }
   },
-  "files": [
-    "/dist",
-    "/LICENSE",
-    "/package.json",
-    "/README.md"
-  ],
   "scripts": {
     "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
     "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush",
@@ -70,9 +64,5 @@
   },
   "engines": {
     "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
-  },
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
   }
 }

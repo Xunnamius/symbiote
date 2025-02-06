@@ -1,11 +1,11 @@
 // @ts-check
 
-import { createDebugLogger } from 'rejoinder';
-
 import {
   assertEnvironment,
   moduleExport
 } from '@-xun/symbiote/assets/eslint.config.mjs';
+
+import { createDebugLogger } from 'rejoinder';
 
 const debug = createDebugLogger({ namespace: 'symbiote:config:eslint' });
 
@@ -29,31 +29,19 @@ function getEslintAliases() {
   return [
     ['multiverse+bfe:*', './packages/bfe/src/*'],
     ['multiverse+cli-utils:*', './packages/cli-utils/src/*'],
-    ['multiverse+project-utils:*', './packages/project-utils/src/*'],
-    ['multiverse+test-utils:*', './packages/test-utils/src/*'],
     ['multiverse+bfe', './packages/bfe/src/index.ts'],
     ['multiverse+cli-utils', './packages/cli-utils/src/index.ts'],
-    ['@-xun/project', './packages/project-utils/src/index.ts'],
-    ['multiverse+test-utils', './packages/test-utils/src/index.ts'],
     ['rootverse+bfe:*', './packages/bfe/*'],
     ['rootverse+cli-utils:*', './packages/cli-utils/*'],
-    ['rootverse+project-utils:*', './packages/project-utils/*'],
-    ['rootverse+test-utils:*', './packages/test-utils/*'],
     ['rootverse:*', './*'],
     ['universe+bfe:*', './packages/bfe/src/*'],
     ['universe+cli-utils:*', './packages/cli-utils/src/*'],
-    ['universe+project-utils:*', './packages/project-utils/src/*'],
-    ['universe+test-utils:*', './packages/test-utils/src/*'],
     ['universe+bfe', './packages/bfe/src/index.ts'],
     ['universe+cli-utils', './packages/cli-utils/src/index.ts'],
-    ['universe+project-utils', './packages/project-utils/src/index.ts'],
-    ['universe+test-utils', './packages/test-utils/src/index.ts'],
     ['universe:*', './src/*'],
     ['universe', './src/index.ts'],
     ['testverse+bfe:*', './packages/bfe/test/*'],
     ['testverse+cli-utils:*', './packages/cli-utils/test/*'],
-    ['testverse+project-utils:*', './packages/project-utils/test/*'],
-    ['testverse+test-utils:*', './packages/test-utils/test/*'],
     ['testverse:*', './test/*'],
     ['typeverse:*', './types/*']
   ];
