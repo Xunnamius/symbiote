@@ -1,3 +1,6 @@
+import { toPath } from '@-xun/fs';
+import { memoizer } from '@-xun/memoize';
+
 import {
   type ConfigureErrorHandlingEpilogue,
   type ConfigureExecutionContext,
@@ -19,11 +22,12 @@ import {
   type StandardExecutionContext
 } from 'multiverse+cli-utils:extensions.ts';
 
-import { analyzeProjectStructure } from 'multiverse+project-utils:analyze/analyze-project-structure.ts';
-import { type ProjectMetadata } from 'multiverse+project-utils:analyze/common.ts';
-import { cache } from 'multiverse+project-utils:cache.ts';
-import { isAccessible } from 'multiverse+project-utils:fs/is-accessible.ts';
-import { directoryDistPackageBase, toPath } from 'multiverse+project-utils:fs.ts';
+import {
+  analyzeProjectStructure,
+  directoryDistPackageBase,
+  isAccessible,
+  type ProjectMetadata
+} from '@-xun/project';
 
 import { version as packageVersion } from 'rootverse:package.json';
 
@@ -267,6 +271,6 @@ export const configureExecutionEpilogue = function (argv) {
 } as ConfigureExecutionEpilogue<GlobalExecutionContext>;
 
 function reportFinalCacheStats() {
-  const { clear: _, get: __, set: ___, ...stats } = cache;
+  const { clear: _1, get: _2, set: _3, ...stats } = memoizer;
   cacheDebug('final cache stats: %O', stats);
 }

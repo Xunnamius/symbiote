@@ -1,4 +1,4 @@
-import { postcssConfigProjectBase } from 'multiverse+project-utils:fs.ts';
+import { postcssConfigProjectBase } from '@-xun/project';
 
 import {
   generateRootOnlyAssets,

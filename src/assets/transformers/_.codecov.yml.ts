@@ -1,4 +1,4 @@
-import { codecovConfigProjectBase } from 'multiverse+project-utils:fs.ts';
+import { codecovConfigProjectBase } from '@-xun/project';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 

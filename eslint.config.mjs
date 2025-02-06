@@ -33,7 +33,7 @@ function getEslintAliases() {
     ['multiverse+test-utils:*', './packages/test-utils/src/*'],
     ['multiverse+bfe', './packages/bfe/src/index.ts'],
     ['multiverse+cli-utils', './packages/cli-utils/src/index.ts'],
-    ['multiverse+project-utils', './packages/project-utils/src/index.ts'],
+    ['@-xun/project', './packages/project-utils/src/index.ts'],
     ['multiverse+test-utils', './packages/test-utils/src/index.ts'],
     ['rootverse+bfe:*', './packages/bfe/*'],
     ['rootverse+cli-utils:*', './packages/cli-utils/*'],

@@ -2,6 +2,7 @@
 import { readdir } from 'node:fs/promises';
 import { pathToFileURL } from 'node:url';
 
+import { toAbsolutePath, toPath, type AbsolutePath, type RelativePath } from '@-xun/fs';
 import { CliError } from '@black-flag/core';
 import getInObject from 'lodash.get';
 import mergeWith from 'lodash.mergewith';
@@ -16,17 +17,9 @@ import {
   isRootPackage,
   ProjectAttribute,
   type Package,
-  type ProjectMetadata
-} from 'multiverse+project-utils';
-
-import { type RawAliasMapping } from 'multiverse+project-utils:alias.ts';
-
-import {
-  toAbsolutePath,
-  toPath,
-  type AbsolutePath,
-  type RelativePath
-} from 'multiverse+project-utils:fs.ts';
+  type ProjectMetadata,
+  type RawAliasMapping
+} from '@-xun/project';
 
 import { DefaultGlobalScope } from 'universe:configure.ts';
 import { globalDebuggerNamespace } from 'universe:constant.ts';

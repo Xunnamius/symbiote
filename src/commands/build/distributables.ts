@@ -6,6 +6,16 @@ import { extname, sep as pathSeparator } from 'node:path';
 import { setTimeout as delay } from 'node:timers/promises';
 import { isNativeError } from 'node:util/types';
 
+import {
+  isAbsolutePath,
+  toAbsolutePath,
+  toDirname,
+  toPath,
+  toRelativePath,
+  type Path,
+  type RelativePath
+} from '@-xun/fs';
+
 import { run, runNoRejectOnBadExit } from '@-xun/run';
 
 import {
@@ -14,6 +24,12 @@ import {
 } from '@babel/core';
 
 import { type ChildConfiguration } from '@black-flag/core';
+
+import {
+  flattenPackageJsonSubpathMap,
+  resolveExportsTargetsFromEntryPoint
+} from 'bidirectional-resolve';
+
 import escapeStringRegexp from 'escape-string-regexp~4';
 import { glob as globAsync } from 'glob';
 import { SHORT_TAB } from 'rejoinder';
@@ -32,60 +48,38 @@ import {
 import { scriptBasename } from 'multiverse+cli-utils:util.ts';
 
 import {
-  gatherImportEntriesFromFiles,
-  gatherPseudodecoratorEntriesFromFiles,
-  isRootPackage,
-  isWorkspacePackage,
-  pathToPackage,
-  ProjectAttribute,
-  PseudodecoratorTag,
-  WorkspaceAttribute,
-  type ImportSpecifier
-} from 'multiverse+project-utils';
-
-import {
-  ensureRawSpecifierOk,
-  generateRawAliasMap,
-  isLocalLookingRegExp,
-  mapRawSpecifierToPath,
-  mapRawSpecifierToRawAliasMapping
-} from 'multiverse+project-utils:alias.ts';
-
-import {
-  gatherPackageBuildTargets,
-  prefixAssetImport,
-  prefixExternalImport,
-  prefixInternalImport,
-  prefixNormalImport,
-  prefixTypeOnlyImport,
-  specifierToPackageName,
-  type MetadataImportsPrefix
-} from 'multiverse+project-utils:analyze/gather-package-build-targets.ts';
-
-import { gatherPackageFiles } from 'multiverse+project-utils:analyze/gather-package-files.ts';
-
-import {
   directoryDistPackageBase,
   directoryIntermediatesPackageBase,
   directoryPackagesProjectBase,
   directorySrcPackageBase,
   directoryTestPackageBase,
   directoryTypesProjectBase,
-  isAbsolutePath,
+  ensureRawSpecifierOk,
+  gatherImportEntriesFromFiles,
+  gatherPackageBuildTargets,
+  gatherPackageFiles,
+  gatherPseudodecoratorEntriesFromFiles,
+  generateRawAliasMap,
   isAccessible,
-  toAbsolutePath,
-  toDirname,
-  toPath,
-  toRelativePath,
+  isLocalLookingRegExp,
+  isRootPackage,
+  isWorkspacePackage,
+  mapRawSpecifierToPath,
+  mapRawSpecifierToRawAliasMapping,
+  pathToPackage,
+  prefixAssetImport,
+  prefixExternalImport,
+  prefixInternalImport,
+  prefixNormalImport,
+  prefixTypeOnlyImport,
+  ProjectAttribute,
+  PseudodecoratorTag,
+  specifierToPackageName,
   Tsconfig,
-  type Path,
-  type RelativePath
-} from 'multiverse+project-utils:fs.ts';
-
-import {
-  flattenPackageJsonSubpathMap,
-  resolveExportsTargetsFromEntryPoint
-} from 'multiverse+project-utils:resolver.ts';
+  WorkspaceAttribute,
+  type ImportSpecifier,
+  type MetadataImportsPrefix
+} from '@-xun/project';
 
 import {
   extensionsTypescript,

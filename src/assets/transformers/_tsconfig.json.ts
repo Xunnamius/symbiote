@@ -1,10 +1,10 @@
 import {
   deriveAliasesForTypeScript,
-  generateRawAliasMap
-} from 'multiverse+project-utils:alias.ts';
-
-import { isRootPackage } from 'multiverse+project-utils:analyze.ts';
-import { directoryPackagesProjectBase, Tsconfig } from 'multiverse+project-utils:fs.ts';
+  directoryPackagesProjectBase,
+  generateRawAliasMap,
+  isRootPackage,
+  Tsconfig
+} from '@-xun/project';
 
 import {
   generatePerPackageAssets,

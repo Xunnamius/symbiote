@@ -1,4 +1,4 @@
-import { browserslistrcConfigProjectBase } from 'multiverse+project-utils:fs.ts';
+import { browserslistrcConfigProjectBase } from '@-xun/project';
 
 import {
   AssetPreset,

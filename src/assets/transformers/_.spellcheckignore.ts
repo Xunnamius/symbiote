@@ -1,4 +1,4 @@
-import { spellcheckIgnoreConfigProjectBase } from 'multiverse+project-utils:fs.ts';
+import { spellcheckIgnoreConfigProjectBase } from '@-xun/project';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 

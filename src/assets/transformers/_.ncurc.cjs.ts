@@ -1,4 +1,4 @@
-import { ncuConfigProjectBase } from 'multiverse+project-utils:fs.ts';
+import { ncuConfigProjectBase } from '@-xun/project';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 import { globalDebuggerNamespace } from 'universe:constant.ts';

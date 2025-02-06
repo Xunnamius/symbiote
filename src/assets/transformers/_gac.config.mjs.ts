@@ -1,4 +1,4 @@
-import { gacConfigPackageBase } from 'multiverse+project-utils:fs.ts';
+import { gacConfigPackageBase } from '@-xun/project';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 import { globalDebuggerNamespace } from 'universe:constant.ts';

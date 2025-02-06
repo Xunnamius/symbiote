@@ -7,15 +7,11 @@ import {
   $type_ProjectError,
   isProjectError,
   ProjectError
-} from 'multiverse+project-utils:error.ts';
+} from '@-xun/project/error';
 
 import { DefaultGlobalScope } from 'universe:configure.ts';
 
-import type {
-  ImportSpecifier,
-  ProjectAttribute,
-  RootPackage
-} from 'multiverse+project-utils';
+import type { ImportSpecifier, ProjectAttribute, RootPackage } from '@-xun/project';
 
 export { TaskError } from 'multiverse+cli-utils:error.ts';
 

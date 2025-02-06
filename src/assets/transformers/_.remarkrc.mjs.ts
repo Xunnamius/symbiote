@@ -3,12 +3,12 @@ import { createDebugLogger } from 'rejoinder';
 
 import {
   analyzeProjectStructure,
+  remarkConfigProjectBase,
   type Package,
   type ProjectMetadata
-} from 'multiverse+project-utils:analyze.ts';
+} from '@-xun/project';
 
-import { ProjectError } from 'multiverse+project-utils:error.ts';
-import { remarkConfigProjectBase } from 'multiverse+project-utils:fs.ts';
+import { ProjectError } from '@-xun/project/error';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 import { globalDebuggerNamespace } from 'universe:constant.ts';

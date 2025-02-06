@@ -3,16 +3,9 @@
 
 import assert from 'node:assert';
 
-import { toSentenceCase } from 'multiverse+cli-utils:util.ts';
+import { dummyToProjectMetadata } from '@-xun/common-dummies/repositories';
 
-import {
-  dummyNpmPackageFixture,
-  gitRepositoryFixture,
-  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested,
-  withMockedFixture,
-  type FixtureContext,
-  type WithMockedFixtureOptions
-} from 'multiverse+test-utils';
+import { toSentenceCase } from 'multiverse+cli-utils:util.ts';
 
 import {
   moduleExport,
@@ -22,7 +15,13 @@ import {
 
 import { noSpecialInitialCommitIndicator, stringifyJson } from 'universe:util.ts';
 
-import { fixtureToProjectMetadata } from 'testverse+project-utils:helpers/dummy-repo.ts';
+import {
+  dummyNpmPackageFixture,
+  gitRepositoryFixture,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested,
+  withMockedFixtures,
+  type FixtureContext
+} from 'testverse:util.ts';
 
 import type {
   XchangelogConfig,
@@ -60,7 +59,7 @@ const dummyPackageJson = {
 
 const dummyModuleExportConfig = {
   configOverrides: {},
-  projectMetadata: fixtureToProjectMetadata('goodPolyrepo'),
+  projectMetadata: dummyToProjectMetadata('goodPolyrepo'),
   specialInitialCommit: noSpecialInitialCommitIndicator
 } as Parameters<typeof moduleExport>[0];
 
@@ -1130,7 +1129,7 @@ async function withMockedFixtureWrapper(
 
   config.options.initialFileContents['package.json'] = stringifyJson(dummyPackageJson);
 
-  return withMockedFixture({
+  return withMockedFixtures({
     ...config,
     async test(context) {
       const { git, fs, root } = context;

@@ -4,6 +4,15 @@ import fsSync from 'node:fs';
 import fs from 'node:fs/promises';
 import { pathToFileURL } from 'node:url';
 
+import {
+  getInitialWorkingDirectory,
+  toAbsolutePath,
+  toPath,
+  toRelativePath,
+  type AbsolutePath,
+  type RelativePath
+} from '@-xun/fs';
+
 import { runNoRejectOnBadExit } from '@-xun/run';
 
 import {
@@ -34,22 +43,6 @@ import {
 import { LogTag } from 'multiverse+cli-utils:logging.ts';
 
 import {
-  gatherPackageBuildTargets,
-  gatherPackageFiles,
-  // ? Used in documentation
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  WorkspaceAttribute
-} from 'multiverse+project-utils';
-
-import {
-  isRootPackage,
-  ProjectAttribute,
-  type GenericProjectMetadata,
-  type Package,
-  type ProjectMetadata
-} from 'multiverse+project-utils:analyze/common.ts';
-
-import {
   aliasMapConfigProjectBase,
   directoryDocumentationPackageBase,
   directorySrcPackageBase,
@@ -58,14 +51,21 @@ import {
   dotEnvConfigProjectBase,
   dotEnvDefaultConfigPackageBase,
   dotEnvDefaultConfigProjectBase,
-  getInitialWorkingDirectory,
+  gatherPackageBuildTargets,
+  gatherPackageFiles,
+  isRootPackage,
   markdownReadmePackageBase,
-  toAbsolutePath,
-  toPath,
-  toRelativePath,
-  type AbsolutePath,
-  type RelativePath
-} from 'multiverse+project-utils:fs.ts';
+  ProjectAttribute,
+  // ? Used in documentation
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  WorkspaceAttribute,
+  type GenericProjectMetadata,
+  type Package,
+  type ProjectMetadata,
+  type RawAlias,
+  type RawAliasMapping,
+  type RawPath
+} from '@-xun/project';
 
 import {
   DefaultGlobalScope,
@@ -78,13 +78,6 @@ import { globalDebuggerNamespace } from 'universe:constant.ts';
 import { ErrorMessage } from 'universe:error.ts';
 
 import type { Jsonifiable, LiteralUnion, Merge } from 'type-fest';
-
-import type {
-  RawAlias,
-  RawAliasMapping,
-  RawPath
-} from 'multiverse+project-utils:alias.ts';
-
 import type { TransformerContext } from 'universe:assets.ts';
 
 /**

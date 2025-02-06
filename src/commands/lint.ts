@@ -1,3 +1,4 @@
+import { toPath, toRelativePath } from '@-xun/fs';
 import { runNoRejectOnBadExit, type run, type Subprocess } from '@-xun/run';
 import { CliError, type ChildConfiguration } from '@black-flag/core';
 
@@ -13,20 +14,15 @@ import {
 import { scriptBasename } from 'multiverse+cli-utils:util.ts';
 
 import {
+  directorySrcPackageBase,
+  directoryTestPackageBase,
   gatherPackageBuildTargets,
   gatherPackageFiles,
   gatherProjectFiles,
-  isRootPackage
-} from 'multiverse+project-utils';
-
-import {
-  directorySrcPackageBase,
-  directoryTestPackageBase,
   isAccessible,
-  toPath,
-  toRelativePath,
+  isRootPackage,
   Tsconfig
-} from 'multiverse+project-utils:fs.ts';
+} from '@-xun/project';
 
 import {
   DefaultGlobalScope as LinterScope,

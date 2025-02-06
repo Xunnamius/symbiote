@@ -1,4 +1,4 @@
-import { prettierIgnoreConfigProjectBase } from 'multiverse+project-utils:fs.ts';
+import { prettierIgnoreConfigProjectBase } from '@-xun/project';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 

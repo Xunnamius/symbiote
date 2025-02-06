@@ -1,4 +1,4 @@
-import { directoryTestPackageBase, isAccessible } from 'multiverse+project-utils:fs.ts';
+import { directoryTestPackageBase, isAccessible } from '@-xun/project';
 
 import {
   generatePerPackageAssets,

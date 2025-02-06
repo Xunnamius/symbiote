@@ -1,4 +1,4 @@
-import { gitignoreConfigProjectBase } from 'multiverse+project-utils:fs.ts';
+import { gitignoreConfigProjectBase } from '@-xun/project';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 

@@ -23,17 +23,17 @@ import {
 
 import { $artificiallyInvoked } from 'multiverse+bfe:symbols.ts';
 
-import type {
-  // ? Used in documentation
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  makeStandardConfigureExecutionContext
-} from 'universe+cli-utils:configure.ts';
-
 import { globalDebuggerNamespace } from 'universe+cli-utils:constant.ts';
 import { LogTag } from 'universe+cli-utils:logging.ts';
 
 import type { ListrManager } from 'rejoinder-listr2';
 import type { Entries } from 'type-fest';
+
+import type {
+  // ? Used in documentation
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  makeStandardConfigureExecutionContext
+} from 'universe+cli-utils:configure.ts';
 
 export { withUsageExtensions as withStandardUsage } from 'multiverse+bfe';
 

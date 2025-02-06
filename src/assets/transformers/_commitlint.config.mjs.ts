@@ -1,4 +1,4 @@
-import { commitlintConfigProjectBase } from 'multiverse+project-utils:fs.ts';
+import { commitlintConfigProjectBase } from '@-xun/project';
 
 import { wellKnownCommitTypes } from 'universe:assets/transformers/_conventional.config.cjs.ts';
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';

@@ -1,10 +1,14 @@
+import { toRelativePath, type AbsolutePath, type RelativePath } from '@-xun/fs';
 import semver from 'semver';
 import { type Jsonifiable } from 'type-fest';
 
 import { LogTag } from 'multiverse+cli-utils:logging.ts';
 
 import {
+  directoryPackagesProjectBase,
+  generatePackageJsonEngineMaintainedNodeVersions,
   isRootPackage,
+  packageJsonConfigPackageBase,
   ProjectAttribute,
   WorkspaceAttribute,
   type Package,
@@ -13,18 +17,9 @@ import {
   type XPackageJsonMonorepoRoot,
   type XPackageJsonPolyrepoRoot,
   type XPackageJsonSubRoot
-} from 'multiverse+project-utils:analyze/common.ts';
+} from '@-xun/project';
 
-import { generatePackageJsonEngineMaintainedNodeVersions } from 'multiverse+project-utils:analyze/generate-package-json-engine-maintained-node-versions.ts';
-import { ProjectError } from 'multiverse+project-utils:error.ts';
-
-import {
-  directoryPackagesProjectBase,
-  packageJsonConfigPackageBase,
-  toRelativePath,
-  type AbsolutePath,
-  type RelativePath
-} from 'multiverse+project-utils:fs.ts';
+import { ProjectError } from '@-xun/project/error';
 
 import { version as symbioteVersion } from 'rootverse:package.json';
 

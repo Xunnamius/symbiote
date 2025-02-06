@@ -1,8 +1,6 @@
-import {
-  directoryVscodeProjectBase,
-  toRelativePath,
-  type AbsolutePath
-} from 'multiverse+project-utils:fs.ts';
+import { toRelativePath, type AbsolutePath } from '@-xun/fs';
+
+import { directoryVscodeProjectBase } from '@-xun/project';
 
 import {
   compileTemplates,

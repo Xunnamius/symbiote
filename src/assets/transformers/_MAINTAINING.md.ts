@@ -1,8 +1,7 @@
 /* eslint-disable unicorn/filename-case */
-import {
-  markdownMaintainingProjectBase,
-  type RelativePath
-} from 'multiverse+project-utils:fs.ts';
+import { type RelativePath } from '@-xun/fs';
+
+import { markdownMaintainingProjectBase } from '@-xun/project';
 
 import {
   compileTemplate,

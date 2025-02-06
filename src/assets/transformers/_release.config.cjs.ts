@@ -8,6 +8,7 @@ import crypto from 'node:crypto';
 import { readFile, rm as rmFile, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 
+import { toAbsolutePath, toPath, toRelativePath } from '@-xun/fs';
 import { run } from '@-xun/run';
 import { type ExecutionContext } from '@black-flag/core/util';
 import { createDebugLogger, createGenericLogger } from 'rejoinder';
@@ -18,18 +19,12 @@ import { getInvocableExtendedHandler } from 'multiverse+bfe';
 import {
   analyzeProjectStructure,
   isRootPackage,
-  type ProjectMetadata
-} from 'multiverse+project-utils:analyze.ts';
-
-import { ProjectError } from 'multiverse+project-utils:error.ts';
-
-import {
-  toAbsolutePath,
-  toPath,
-  toRelativePath,
   xchangelogConfigProjectBase,
-  xreleaseConfigProjectBase
-} from 'multiverse+project-utils:fs.ts';
+  xreleaseConfigProjectBase,
+  type ProjectMetadata
+} from '@-xun/project';
+
+import { ProjectError } from '@-xun/project/error';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 

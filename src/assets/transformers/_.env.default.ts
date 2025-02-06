@@ -1,11 +1,12 @@
+import { toRelativePath } from '@-xun/fs';
+
 import { LogTag } from 'multiverse+cli-utils:logging.ts';
 
 import {
   dotEnvConfigPackageBase,
   dotEnvDefaultConfigPackageBase,
-  isAccessible,
-  toRelativePath
-} from 'multiverse+project-utils:fs.ts';
+  isAccessible
+} from '@-xun/project';
 
 import { generateRootOnlyAssets, makeTransformer, type Asset } from 'universe:assets.ts';
 import { readFile } from 'universe:util.ts';

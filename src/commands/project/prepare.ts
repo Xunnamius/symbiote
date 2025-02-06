@@ -1,5 +1,6 @@
 import { pathToFileURL } from 'node:url';
 
+import { getCurrentWorkingDirectory, toAbsolutePath, type AbsolutePath } from '@-xun/fs';
 import { runWithInheritedIo } from '@-xun/run';
 import { CliError, type ChildConfiguration } from '@black-flag/core';
 
@@ -12,15 +13,8 @@ import {
 } from 'multiverse+cli-utils:logging.ts';
 
 import { scriptBasename } from 'multiverse+cli-utils:util.ts';
-import { isRootPackage } from 'multiverse+project-utils:analyze.ts';
 
-import {
-  getCurrentWorkingDirectory,
-  isAccessible,
-  postNpmInstallPackageBase,
-  toAbsolutePath,
-  type AbsolutePath
-} from 'multiverse+project-utils:fs.ts';
+import { isAccessible, isRootPackage, postNpmInstallPackageBase } from '@-xun/project';
 
 import {
   UnlimitedGlobalScope as PreparationScope,
@@ -195,6 +189,7 @@ This command runs all its tasks asynchronously and concurrently where possible. 
             genericLogger(
               [LogTag.IF_NOT_HUSHED],
               'Executing %O initialization task',
+              // {@symbiote/notExtraneous husky}
               'husky'
             );
 

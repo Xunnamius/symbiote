@@ -1,6 +1,7 @@
 /* eslint-disable no-await-in-loop */
 import { setTimeout as delay } from 'node:timers/promises';
 
+import { toPath, toRelativePath } from '@-xun/fs';
 import { runNoRejectOnBadExit } from '@-xun/run';
 import { CliError, type ChildConfiguration } from '@black-flag/core';
 import { SHORT_TAB } from 'rejoinder';
@@ -15,26 +16,21 @@ import {
 } from 'multiverse+cli-utils:logging.ts';
 
 import { scriptBasename } from 'multiverse+cli-utils:util.ts';
-import { isRootPackage } from 'multiverse+project-utils:analyze/common.ts';
-
-import {
-  gatherPackageBuildTargets,
-  gatherProjectFiles,
-  ProjectAttribute,
-  type Package
-} from 'multiverse+project-utils:analyze.ts';
 
 import {
   directoryPackagesProjectBase,
   directoryTestPackageBase,
+  gatherPackageBuildTargets,
+  gatherProjectFiles,
   isAccessible,
+  isRootPackage,
   jestConfigProjectBase,
   lcovCoverageInfoPackageBase,
-  toPath,
-  toRelativePath,
+  ProjectAttribute,
   Tsconfig,
-  tstycheConfigProjectBase
-} from 'multiverse+project-utils:fs.ts';
+  tstycheConfigProjectBase,
+  type Package
+} from '@-xun/project';
 
 import {
   DefaultGlobalScope,

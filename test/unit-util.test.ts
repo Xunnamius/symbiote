@@ -2,19 +2,18 @@
 
 import nodeFs from 'node:fs/promises';
 
+import { dummyToProjectMetadata } from '@-xun/common-dummies/repositories';
+import { getInitialWorkingDirectory, type AbsolutePath } from '@-xun/fs';
 import * as xrun from '@-xun/run';
 import { createDebugLogger } from 'rejoinder';
-
-import { type ProjectMetadata } from 'multiverse+project-utils:analyze.ts';
 
 import {
   dotEnvConfigPackageBase,
   dotEnvConfigProjectBase,
   dotEnvDefaultConfigPackageBase,
   dotEnvDefaultConfigProjectBase,
-  getInitialWorkingDirectory,
-  type AbsolutePath
-} from 'multiverse+project-utils:fs.ts';
+  type ProjectMetadata
+} from '@-xun/project';
 
 import { type TransformerContext } from 'universe:assets.ts';
 import { DefaultGlobalScope } from 'universe:configure.ts';
@@ -27,8 +26,6 @@ import {
   replaceRegionsRespectively,
   runGlobalPreChecks
 } from 'universe:util.ts';
-
-import { fixtureToProjectMetadata } from 'testverse+project-utils:helpers/dummy-repo.ts';
 
 const dummyDebugger = createDebugLogger({ namespace: 'fake' });
 dummyDebugger.enabled = false;
@@ -79,7 +76,7 @@ describe('::runGlobalPreChecks', () => {
     expect.hasAssertions();
 
     {
-      const fakeProjectMetadata = fixtureToProjectMetadata(
+      const fakeProjectMetadata = dummyToProjectMetadata(
         'goodPolyrepo'
       ) as ProjectMetadata;
 
@@ -97,7 +94,7 @@ describe('::runGlobalPreChecks', () => {
     }
 
     {
-      const fakeProjectMetadata = fixtureToProjectMetadata(
+      const fakeProjectMetadata = dummyToProjectMetadata(
         'goodHybridrepo'
       ) as ProjectMetadata;
 
@@ -115,7 +112,7 @@ describe('::runGlobalPreChecks', () => {
     }
 
     {
-      const fakeProjectMetadata = fixtureToProjectMetadata(
+      const fakeProjectMetadata = dummyToProjectMetadata(
         'goodMonorepo'
       ) as ProjectMetadata;
 
@@ -596,16 +593,14 @@ describe('::deriveScopeNarrowingPathspecs', () => {
   it('returns no pathspecs for polyrepo', async () => {
     expect.hasAssertions();
 
-    const projectMetadata = fixtureToProjectMetadata('goodPolyrepo') as ProjectMetadata;
+    const projectMetadata = dummyToProjectMetadata('goodPolyrepo') as ProjectMetadata;
     expect(deriveScopeNarrowingPathspecs({ projectMetadata })).toStrictEqual([]);
   });
 
   it('returns expected pathspecs for hybridrepo with root cwdPackage', async () => {
     expect.hasAssertions();
 
-    const projectMetadata = fixtureToProjectMetadata(
-      'goodHybridrepo'
-    ) as ProjectMetadata;
+    const projectMetadata = dummyToProjectMetadata('goodHybridrepo') as ProjectMetadata;
 
     expect(deriveScopeNarrowingPathspecs({ projectMetadata })).toStrictEqual([
       ':(top,glob)src',
@@ -625,7 +620,7 @@ describe('::deriveScopeNarrowingPathspecs', () => {
   it('returns expected pathspecs for hybridrepo with non-root cwdPackage', async () => {
     expect.hasAssertions();
 
-    const projectMetadata = fixtureToProjectMetadata(
+    const projectMetadata = dummyToProjectMetadata(
       'goodHybridrepo',
       'cli'
     ) as ProjectMetadata;
@@ -642,7 +637,7 @@ describe('::deriveScopeNarrowingPathspecs', () => {
   it('returns expected pathspecs for non-hybrid monorepo with non-root cwdPackage', async () => {
     expect.hasAssertions();
 
-    const projectMetadata = fixtureToProjectMetadata(
+    const projectMetadata = dummyToProjectMetadata(
       'goodMonorepo',
       'pkg-1'
     ) as ProjectMetadata;
@@ -658,7 +653,7 @@ describe('::deriveScopeNarrowingPathspecs', () => {
   it('throws for non-hybrid monorepo with root cwdPackage', async () => {
     expect.hasAssertions();
 
-    const projectMetadata = fixtureToProjectMetadata('goodMonorepo') as ProjectMetadata;
+    const projectMetadata = dummyToProjectMetadata('goodMonorepo') as ProjectMetadata;
 
     expect(() => deriveScopeNarrowingPathspecs({ projectMetadata })).toThrow(
       ErrorMessage.GuruMeditation()

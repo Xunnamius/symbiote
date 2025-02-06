@@ -11,7 +11,7 @@ import {
   isWorkspacePackage,
   ProjectAttribute,
   WorkspaceAttribute
-} from 'multiverse+project-utils';
+} from '@-xun/project';
 
 import {
   DefaultGlobalScope,

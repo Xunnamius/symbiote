@@ -2,6 +2,7 @@ import { createWriteStream } from 'node:fs';
 import { pipeline } from 'node:stream/promises';
 import { pathToFileURL } from 'node:url';
 
+import { toPath, type Path } from '@-xun/fs';
 import { CliError, type ChildConfiguration } from '@black-flag/core';
 import escapeStringRegexp from 'escape-string-regexp~4';
 import { valid as isValidSemver } from 'semver';
@@ -22,15 +23,13 @@ import {
 } from 'multiverse+cli-utils:logging.ts';
 
 import { scriptBasename } from 'multiverse+cli-utils:util.ts';
-import { isRootPackage } from 'multiverse+project-utils:analyze.ts';
 
 import {
   changelogPatchConfigPackageBase,
   changelogPatchConfigProjectBase,
-  toPath,
-  xchangelogConfigProjectBase,
-  type Path
-} from 'multiverse+project-utils:fs.ts';
+  isRootPackage,
+  xchangelogConfigProjectBase
+} from '@-xun/project';
 
 import { defaultChangelogTopmatter } from 'universe:assets/transformers/_conventional.config.cjs.ts';
 

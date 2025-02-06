@@ -8,6 +8,7 @@ import { isNativeError } from 'node:util/types';
 // ? Patches global Proxy and spawn functions; see documentation for details
 import '@-xun/symbiote/assets/conventional.config.cjs';
 
+import { toPath } from '@-xun/fs';
 import { run, runNoRejectOnBadExit, type RunOptions } from '@-xun/run';
 import { CliError, type ChildConfiguration } from '@black-flag/core';
 
@@ -37,19 +38,15 @@ import {
 import { scriptBasename } from 'multiverse+cli-utils:util.ts';
 
 import {
-  type ProjectMetadata,
-  type XPackageJson
-} from 'multiverse+project-utils:analyze.ts';
-
-import {
   codecovConfigProjectBase,
   directoryCoveragePackageBase,
   fsConstants,
   isAccessible,
   lcovCoverageInfoPackageBase,
-  toPath,
-  xreleaseConfigProjectBase
-} from 'multiverse+project-utils:fs.ts';
+  xreleaseConfigProjectBase,
+  type ProjectMetadata,
+  type XPackageJson
+} from '@-xun/project';
 
 import {
   default as renovate,

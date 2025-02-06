@@ -13,7 +13,8 @@ import {
 } from 'multiverse+cli-utils:logging.ts';
 
 import { scriptBasename } from 'multiverse+cli-utils:util.ts';
-import { ProjectAttribute } from 'multiverse+project-utils';
+
+import { ProjectAttribute } from '@-xun/project';
 
 import {
   ThisPackageGlobalScope as DeployScope,

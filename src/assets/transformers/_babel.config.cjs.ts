@@ -4,6 +4,21 @@
 import assert from 'node:assert';
 import { statSync } from 'node:fs';
 
+import {
+  getCurrentWorkingDirectory,
+  toAbsolutePath,
+  toDirname,
+  toPath,
+  toRelativePath,
+  type AbsolutePath,
+  type RelativePath
+} from '@-xun/fs';
+
+import {
+  flattenPackageJsonSubpathMap,
+  resolveEntryPointsFromExportsTarget
+} from 'bidirectional-resolve';
+
 import escapeStringRegexp from 'escape-string-regexp~4';
 import findUp from 'find-up~5';
 import { createDebugLogger, createGenericLogger } from 'rejoinder';
@@ -12,30 +27,15 @@ import semver from 'semver';
 import { LogTag } from 'multiverse+cli-utils:logging.ts';
 
 import {
+  babelConfigProjectBase,
   deriveAliasesForBabel,
   generateRawAliasMap,
-  isLocalLookingRegExp
-} from 'multiverse+project-utils:alias.ts';
-
-import { ProjectError } from 'multiverse+project-utils:error.ts';
-
-import {
-  babelConfigProjectBase,
-  getCurrentWorkingDirectory,
+  isLocalLookingRegExp,
   packageJsonConfigPackageBase,
-  readXPackageJsonAtRoot,
-  toAbsolutePath,
-  toDirname,
-  toPath,
-  toRelativePath,
-  type AbsolutePath,
-  type RelativePath
-} from 'multiverse+project-utils:fs.ts';
+  readXPackageJsonAtRoot
+} from '@-xun/project';
 
-import {
-  flattenPackageJsonSubpathMap,
-  resolveEntryPointsFromExportsTarget
-} from 'multiverse+project-utils:resolver.ts';
+import { ProjectError } from '@-xun/project/error';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 

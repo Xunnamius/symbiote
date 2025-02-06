@@ -6,7 +6,8 @@ import { type AsStrictExecutionContext } from 'multiverse+bfe';
 import { softAssert } from 'multiverse+cli-utils:error.ts';
 import { logStartTime, LogTag } from 'multiverse+cli-utils:logging.ts';
 import { scriptBasename } from 'multiverse+cli-utils:util.ts';
-import { ProjectAttribute } from 'multiverse+project-utils';
+
+import { ProjectAttribute } from '@-xun/project';
 
 import {
   ThisPackageGlobalScope as DevScope,

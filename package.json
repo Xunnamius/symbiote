@@ -105,7 +105,9 @@
   },
   "dependencies": {
     "@-xun/changelog": "^1.0.0",
+    "@-xun/fs": "^1.0.0",
     "@-xun/jest": "^1.1.0",
+    "@-xun/memoize": "^1.1.0",
     "@-xun/project": "^1.0.1",
     "@-xun/run": "^0.0.1",
     "@arethetypeswrong/cli": "^0.17.3",
@@ -144,16 +146,13 @@
     "@types/node": "^22.13.1",
     "@types/react": "^19.0.8",
     "@types/semver": "^7.5.8",
-    "@types/validate-npm-package-name": "^4.0.2",
     "@types/yargs": "^17.0.33",
     "all-contributors-cli": "^6.26.1",
     "askpassword": "^2.0.2",
     "babel-jest": "next",
     "babel-plugin-explicit-exports-references": "^1.0.2",
-    "babel-plugin-metadata-accumulator": "^1.0.0",
     "babel-plugin-transform-rewrite-imports": "^1.5.3",
     "bidirectional-resolve": "^1.0.1",
-    "browserslist": "^4.24.4",
     "confusing-browser-globals": "^1.0.11",
     "core-js": "^3.40.0",
     "doctoc": "^2.2.1",
@@ -175,7 +174,6 @@
     "jest-circus": "30.0.0-alpha.6",
     "jest-extended": "^4.0.2",
     "jest-silent-reporter": "^0.6.0",
-    "jsonc-parser": "^3.3.1",
     "libsodium-wrappers": "^0.7.15",
     "lint-staged": "^15.4.3",
     "lodash.camelcase": "^4.3.0",
@@ -250,10 +248,10 @@
     "typescript": "^5.7.3",
     "typescript-eslint": "^8.23.0",
     "unified-engine": "^11.2.2",
-    "unique-filename": "^4.0.0",
-    "validate-npm-package-name": "^6.0.0"
+    "unique-filename": "^4.0.0"
   },
   "devDependencies": {
+    "@-xun/common-dummies": "^1.0.2",
     "@-xun/symbiote": "^2.20.0"
   },
   "engines": {

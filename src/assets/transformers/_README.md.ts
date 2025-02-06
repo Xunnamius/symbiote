@@ -1,12 +1,13 @@
 /* eslint-disable unicorn/filename-case */
-import { isRootPackage, ProjectAttribute } from 'multiverse+project-utils:analyze.ts';
+import { type RelativePath } from '@-xun/fs';
 
 import {
   isAccessible,
+  isRootPackage,
   markdownLicensePackageBase,
   markdownReadmePackageBase,
-  type RelativePath
-} from 'multiverse+project-utils:fs.ts';
+  ProjectAttribute
+} from '@-xun/project';
 
 import {
   compileTemplate,

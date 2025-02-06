@@ -4,14 +4,14 @@ import { type ExecutionContext } from '@black-flag/core/util';
 import { ListrErrorTypes } from 'listr2';
 import { createDebugLogger, createGenericLogger, TAB } from 'rejoinder';
 
-import { withMockedOutput } from 'multiverse+test-utils';
-
 import {
   makeStandardConfigureErrorHandlingEpilogue,
   makeStandardConfigureExecutionContext
 } from 'universe+cli-utils:configure.ts';
 
 import { type StandardExecutionContext } from 'universe+cli-utils:extensions.ts';
+
+import { withMockedOutput } from 'testverse:util.ts';
 
 import type { PartialDeep } from 'type-fest';
 

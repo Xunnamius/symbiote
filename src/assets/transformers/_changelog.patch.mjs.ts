@@ -1,7 +1,4 @@
-import {
-  changelogPatchConfigPackageBase,
-  isAccessible
-} from 'multiverse+project-utils:fs.ts';
+import { changelogPatchConfigPackageBase, isAccessible } from '@-xun/project';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 

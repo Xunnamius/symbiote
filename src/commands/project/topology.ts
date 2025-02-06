@@ -13,7 +13,8 @@ import {
 } from 'multiverse+cli-utils:logging.ts';
 
 import { scriptBasename } from 'multiverse+cli-utils:util.ts';
-import { sortPackagesTopologically } from 'multiverse+project-utils:analyze.ts';
+
+import { sortPackagesTopologically } from '@-xun/project';
 
 import {
   UnlimitedGlobalScope as TopologyScope,

@@ -1,4 +1,4 @@
-import { tailwindConfigProjectBase } from 'multiverse+project-utils:fs.ts';
+import { tailwindConfigProjectBase } from '@-xun/project';
 
 import {
   generateRootOnlyAssets,

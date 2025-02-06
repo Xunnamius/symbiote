@@ -1,7 +1,6 @@
-import {
-  directoryHuskyProjectBase,
-  toRelativePath
-} from 'multiverse+project-utils:fs.ts';
+import { toRelativePath } from '@-xun/fs';
+
+import { directoryHuskyProjectBase } from '@-xun/project';
 
 import {
   compileTemplates,

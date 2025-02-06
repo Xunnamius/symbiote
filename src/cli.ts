@@ -1,7 +1,7 @@
+import { toAbsolutePath } from '@-xun/fs';
 import { runProgram } from '@black-flag/core';
-import 'rejoinder-github-actions/activator';
 
-import { toAbsolutePath } from 'multiverse+project-utils:fs.ts';
+import 'rejoinder-github-actions/activator';
 
 import type { GlobalExecutionContext } from 'universe:configure.ts';
 

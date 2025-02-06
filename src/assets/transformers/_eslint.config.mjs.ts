@@ -3,6 +3,13 @@
 import assert from 'node:assert';
 import { pathToFileURL } from 'node:url';
 
+import {
+  getCurrentWorkingDirectory,
+  toAbsolutePath,
+  toPath,
+  type AbsolutePath
+} from '@-xun/fs';
+
 import { fixupConfigRules } from '@eslint/compat';
 import eslintJs from '@eslint/js';
 import restrictedGlobals from 'confusing-browser-globals';
@@ -23,24 +30,17 @@ import {
 
 import {
   deriveAliasesForEslint,
-  generateRawAliasMap,
-  uriSchemeDelimiter,
-  uriSchemeSubDelimiter
-} from 'multiverse+project-utils:alias.ts';
-
-import { generatePackageJsonEngineMaintainedNodeVersions } from 'multiverse+project-utils:analyze.ts';
-import { ProjectError } from 'multiverse+project-utils:error.ts';
-
-import {
   eslintConfigProjectBase,
-  getCurrentWorkingDirectory,
+  generatePackageJsonEngineMaintainedNodeVersions,
+  generateRawAliasMap,
   isAccessible,
   packageJsonConfigPackageBase,
-  toAbsolutePath,
-  toPath,
   Tsconfig,
-  type AbsolutePath
-} from 'multiverse+project-utils:fs.ts';
+  uriSchemeDelimiter,
+  uriSchemeSubDelimiter
+} from '@-xun/project';
+
+import { ProjectError } from '@-xun/project/error';
 
 import { makeTransformer } from 'universe:assets.ts';
 

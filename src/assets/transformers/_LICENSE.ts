@@ -1,9 +1,8 @@
 /* eslint-disable unicorn/filename-case */
 
-import {
-  markdownLicensePackageBase,
-  type RelativePath
-} from 'multiverse+project-utils:fs.ts';
+import { type RelativePath } from '@-xun/fs';
+
+import { markdownLicensePackageBase } from '@-xun/project';
 
 import {
   compileTemplate,

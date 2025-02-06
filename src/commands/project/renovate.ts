@@ -1,6 +1,14 @@
 import { mkdir, rename as renamePath, rm } from 'node:fs/promises';
 import path from 'node:path';
 
+import {
+  getCurrentWorkingDirectory,
+  toAbsolutePath,
+  toDirname,
+  toPath,
+  toRelativePath
+} from '@-xun/fs';
+
 import { run } from '@-xun/run';
 import { CliError, type ChildConfiguration } from '@black-flag/core';
 import escapeStringRegexp from 'escape-string-regexp~4';
@@ -34,24 +42,20 @@ import {
 } from 'multiverse+cli-utils:logging.ts';
 
 import { scriptBasename } from 'multiverse+cli-utils:util.ts';
-import { ProjectAttribute, type Package } from 'multiverse+project-utils:analyze.ts';
 
 import {
   aliasMapConfigProjectBase,
   babelConfigProjectBase,
   eslintConfigProjectBase,
-  getCurrentWorkingDirectory,
   isAccessible,
   jestConfigProjectBase,
   nextjsConfigProjectBase,
   packageJsonConfigPackageBase,
-  toAbsolutePath,
-  toDirname,
-  toPath,
-  toRelativePath,
+  ProjectAttribute,
   Tsconfig,
-  webpackConfigProjectBase
-} from 'multiverse+project-utils:fs.ts';
+  webpackConfigProjectBase,
+  type Package
+} from '@-xun/project';
 
 import { version as packageVersion } from 'rootverse:package.json';
 

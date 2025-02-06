@@ -1,4 +1,4 @@
-import { directorySrcPackageBase, isAccessible } from 'multiverse+project-utils:fs.ts';
+import { directorySrcPackageBase, isAccessible } from '@-xun/project';
 
 import { generatePerPackageAssets, makeTransformer } from 'universe:assets.ts';
 

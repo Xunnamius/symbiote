@@ -1,7 +1,6 @@
-import {
-  directoryGithubConfigProjectBase,
-  toRelativePath
-} from 'multiverse+project-utils:fs.ts';
+import { toRelativePath } from '@-xun/fs';
+
+import { directoryGithubConfigProjectBase } from '@-xun/project';
 
 import {
   compileTemplates,

@@ -1,4 +1,4 @@
-import { directoryTypesProjectBase, isAccessible } from 'multiverse+project-utils:fs.ts';
+import { directoryTypesProjectBase, isAccessible } from '@-xun/project';
 
 import { generateRootOnlyAssets, makeTransformer, type Asset } from 'universe:assets.ts';
 

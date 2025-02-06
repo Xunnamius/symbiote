@@ -5,11 +5,11 @@ import { createDebugLogger } from 'rejoinder';
 
 import {
   deriveAliasesForJest,
-  generateRawAliasMap
-} from 'multiverse+project-utils:alias.ts';
+  generateRawAliasMap,
+  jestConfigProjectBase
+} from '@-xun/project';
 
-import { ProjectError } from 'multiverse+project-utils:error.ts';
-import { jestConfigProjectBase } from 'multiverse+project-utils:fs.ts';
+import { ProjectError } from '@-xun/project/error';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 

@@ -1,4 +1,4 @@
-import { nextjsConfigProjectBase } from 'multiverse+project-utils:fs.ts';
+import { nextjsConfigProjectBase } from '@-xun/project';
 
 import {
   AssetPreset,

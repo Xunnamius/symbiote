@@ -1,4 +1,4 @@
-import { tstycheConfigProjectBase } from 'multiverse+project-utils:fs.ts';
+import { tstycheConfigProjectBase } from '@-xun/project';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 import { stringifyJson } from 'universe:util.ts';

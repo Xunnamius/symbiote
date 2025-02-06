@@ -1,4 +1,4 @@
-import { vercelConfigProjectBase } from 'multiverse+project-utils:fs.ts';
+import { vercelConfigProjectBase } from '@-xun/project';
 
 import {
   AssetPreset,

@@ -1,4 +1,4 @@
-import { editorConfigProjectBase } from 'multiverse+project-utils:fs.ts';
+import { editorConfigProjectBase } from '@-xun/project';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 

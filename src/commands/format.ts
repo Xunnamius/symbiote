@@ -1,5 +1,6 @@
 import { basename } from 'node:path';
 
+import { toAbsolutePath, toPath, toRelativePath, type AbsolutePath } from '@-xun/fs';
 import { run, runNoRejectOnBadExit } from '@-xun/run';
 import { CliError, type ChildConfiguration } from '@black-flag/core';
 import { glob } from 'glob-gitignore';
@@ -17,16 +18,13 @@ import {
 } from 'multiverse+cli-utils:logging.ts';
 
 import { scriptBasename } from 'multiverse+cli-utils:util.ts';
-import { gatherProjectFiles, isRootPackage } from 'multiverse+project-utils';
 
 import {
   deriveVirtualPrettierignoreLines,
-  remarkConfigProjectBase,
-  toAbsolutePath,
-  toPath,
-  toRelativePath,
-  type AbsolutePath
-} from 'multiverse+project-utils:fs.ts';
+  gatherProjectFiles,
+  isRootPackage,
+  remarkConfigProjectBase
+} from '@-xun/project';
 
 import {
   DefaultGlobalScope,

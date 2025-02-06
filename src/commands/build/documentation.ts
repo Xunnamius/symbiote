@@ -10,7 +10,8 @@ import {
 } from 'multiverse+cli-utils:logging.ts';
 
 import { scriptBasename } from 'multiverse+cli-utils:util.ts';
-import { Tsconfig } from 'multiverse+project-utils:fs.ts';
+
+import { Tsconfig } from '@-xun/project';
 
 import {
   ThisPackageGlobalScope as DocumentationBuilderScope,

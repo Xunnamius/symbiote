@@ -2,6 +2,8 @@
 
 import { readdirSync } from 'node:fs';
 
+import { dummyToProjectMetadata } from '@-xun/common-dummies/repositories';
+import { toAbsolutePath, toPath, type AbsolutePath, type RelativePath } from '@-xun/fs';
 import { createDebugLogger, createGenericLogger } from 'rejoinder';
 
 import {
@@ -12,12 +14,10 @@ import {
   eslintConfigProjectBase,
   jestConfigProjectBase,
   packageJsonConfigPackageBase,
-  toAbsolutePath,
-  toPath,
   Tsconfig,
-  type AbsolutePath,
-  type RelativePath
-} from 'multiverse+project-utils:fs.ts';
+  type ProjectMetadata,
+  type RawAlias
+} from '@-xun/project';
 
 import { parsePackageJsonRepositoryIntoOwnerAndRepo } from 'universe:assets/transformers/_package.json.ts';
 
@@ -50,11 +50,7 @@ import {
   magicStringChooserBlockStart
 } from 'universe:util.ts';
 
-import { fixtureToProjectMetadata } from 'testverse+project-utils:helpers/dummy-repo.ts';
-
 import type { Merge } from 'type-fest';
-import type { RawAlias } from 'multiverse+project-utils:alias.ts';
-import type { ProjectMetadata } from 'multiverse+project-utils:analyze.ts';
 
 const dummyContext: IncomingTransformerContext = {
   log: createGenericLogger({ namespace: 'unit-assets-dummy-context' }),
@@ -68,7 +64,7 @@ const dummyContext: IncomingTransformerContext = {
   forceOverwritePotentiallyDestructive: false,
   scope: DefaultGlobalScope.Unlimited,
   assetPreset: undefined,
-  projectMetadata: fixtureToProjectMetadata(
+  projectMetadata: dummyToProjectMetadata(
     'goodHybridrepo'
   ) as TransformerContext['projectMetadata'],
   additionalRawAliasMappings: [],
@@ -144,7 +140,7 @@ describe('::gatherAssetsFromTransformer', () => {
         test('generates expected assets for polyrepo', async () => {
           expect.hasAssertions();
 
-          const projectMetadata = fixtureToProjectMetadata(
+          const projectMetadata = dummyToProjectMetadata(
             'goodPolyrepoNoSrcYesDefaultEnv',
             'self'
           ) as TransformerContext['projectMetadata'];
@@ -165,7 +161,7 @@ describe('::gatherAssetsFromTransformer', () => {
         test('generates expected assets for polyrepo (scope=this-package)', async () => {
           expect.hasAssertions();
 
-          const projectMetadata = fixtureToProjectMetadata(
+          const projectMetadata = dummyToProjectMetadata(
             'goodPolyrepoNoSrcYesDefaultEnv',
             'self'
           ) as TransformerContext['projectMetadata'];
@@ -187,7 +183,7 @@ describe('::gatherAssetsFromTransformer', () => {
         test('generates expected assets for polyrepo (with force)', async () => {
           expect.hasAssertions();
 
-          const projectMetadata = fixtureToProjectMetadata(
+          const projectMetadata = dummyToProjectMetadata(
             'goodPolyrepoNoSrcYesDefaultEnv',
             'self'
           ) as TransformerContext['projectMetadata'];
@@ -209,7 +205,7 @@ describe('::gatherAssetsFromTransformer', () => {
         test('generates expected assets at non-hybrid monorepo', async () => {
           expect.hasAssertions();
 
-          const projectMetadata = fixtureToProjectMetadata(
+          const projectMetadata = dummyToProjectMetadata(
             'goodMonorepoNoSrc',
             'pkg-1'
           ) as TransformerContext['projectMetadata'];
@@ -232,7 +228,7 @@ describe('::gatherAssetsFromTransformer', () => {
         test('generates expected assets at non-hybrid monorepo (scope=this-package)', async () => {
           expect.hasAssertions();
 
-          const projectMetadata = fixtureToProjectMetadata(
+          const projectMetadata = dummyToProjectMetadata(
             'goodMonorepoNoSrc',
             'pkg-1'
           ) as TransformerContext['projectMetadata'];
@@ -256,7 +252,7 @@ describe('::gatherAssetsFromTransformer', () => {
         test('generates expected assets at non-hybrid monorepo (with force)', async () => {
           expect.hasAssertions();
 
-          const projectMetadata = fixtureToProjectMetadata(
+          const projectMetadata = dummyToProjectMetadata(
             'goodMonorepoNoSrc',
             'pkg-1'
           ) as TransformerContext['projectMetadata'];
@@ -280,7 +276,7 @@ describe('::gatherAssetsFromTransformer', () => {
         test('generates expected assets at hybridrepo', async () => {
           expect.hasAssertions();
 
-          const projectMetadata = fixtureToProjectMetadata(
+          const projectMetadata = dummyToProjectMetadata(
             'goodHybridrepo',
             'self'
           ) as TransformerContext['projectMetadata'];
@@ -303,7 +299,7 @@ describe('::gatherAssetsFromTransformer', () => {
         test('generates expected assets at hybridrepo (scope=this-package)', async () => {
           expect.hasAssertions();
 
-          const projectMetadata = fixtureToProjectMetadata(
+          const projectMetadata = dummyToProjectMetadata(
             'goodHybridrepo',
             'self'
           ) as TransformerContext['projectMetadata'];
@@ -327,7 +323,7 @@ describe('::gatherAssetsFromTransformer', () => {
         test('generates expected assets at hybridrepo (with force)', async () => {
           expect.hasAssertions();
 
-          const projectMetadata = fixtureToProjectMetadata(
+          const projectMetadata = dummyToProjectMetadata(
             'goodHybridrepo',
             'self'
           ) as TransformerContext['projectMetadata'];
@@ -357,7 +353,7 @@ describe('::gatherAssetsFromTransformer', () => {
         expect.hasAssertions();
 
         {
-          const projectMetadata = fixtureToProjectMetadata(
+          const projectMetadata = dummyToProjectMetadata(
             // * Has .env, no .env.default
             'goodPolyrepo'
           ) as TransformerContext['projectMetadata'];
@@ -385,7 +381,7 @@ describe('::gatherAssetsFromTransformer', () => {
         }
 
         {
-          const projectMetadata = fixtureToProjectMetadata(
+          const projectMetadata = dummyToProjectMetadata(
             // * Has .env, no .env.default
             'goodPolyrepo'
           ) as TransformerContext['projectMetadata'];
@@ -414,7 +410,7 @@ describe('::gatherAssetsFromTransformer', () => {
         }
 
         {
-          const projectMetadata = fixtureToProjectMetadata(
+          const projectMetadata = dummyToProjectMetadata(
             // * Has .env and .env.default
             'goodPolyrepoNoSrcYesDefaultEnv'
           ) as TransformerContext['projectMetadata'];
@@ -434,7 +430,7 @@ describe('::gatherAssetsFromTransformer', () => {
         }
 
         {
-          const projectMetadata = fixtureToProjectMetadata(
+          const projectMetadata = dummyToProjectMetadata(
             // * Has .env and .env.default
             'goodPolyrepoNoSrcYesDefaultEnv'
           ) as TransformerContext['projectMetadata'];
@@ -486,7 +482,7 @@ describe('::gatherAssetsFromTransformer', () => {
         }
 
         {
-          const projectMetadata = fixtureToProjectMetadata(
+          const projectMetadata = dummyToProjectMetadata(
             // * Has no .env, no .env.default
             'goodPolyrepoNoEnv'
           ) as TransformerContext['projectMetadata'];
@@ -514,7 +510,7 @@ describe('::gatherAssetsFromTransformer', () => {
         }
 
         {
-          const projectMetadata = fixtureToProjectMetadata(
+          const projectMetadata = dummyToProjectMetadata(
             // * Has no .env, no .env.default
             'goodPolyrepoNoEnv'
           ) as TransformerContext['projectMetadata'];
@@ -543,7 +539,7 @@ describe('::gatherAssetsFromTransformer', () => {
         }
 
         {
-          const projectMetadata = fixtureToProjectMetadata(
+          const projectMetadata = dummyToProjectMetadata(
             // * Has .env.default, no .env
             'goodPolyrepoOnlyDefaultEnv'
           ) as TransformerContext['projectMetadata'];
@@ -569,7 +565,7 @@ describe('::gatherAssetsFromTransformer', () => {
         }
 
         {
-          const projectMetadata = fixtureToProjectMetadata(
+          const projectMetadata = dummyToProjectMetadata(
             // * Has .env.default, no .env
             'goodPolyrepoOnlyDefaultEnv'
           ) as TransformerContext['projectMetadata'];
@@ -663,7 +659,7 @@ describe('::gatherAssetsFromTransformer', () => {
         {
           const transformerContext = {
             ...dummyContext,
-            projectMetadata: fixtureToProjectMetadata('goodPolyrepo')
+            projectMetadata: dummyToProjectMetadata('goodPolyrepo')
           } as IncomingTransformerContext;
 
           const assets = await gatherAssetsFromTransformer({
@@ -691,7 +687,7 @@ describe('::gatherAssetsFromTransformer', () => {
         {
           const transformerContext = {
             ...dummyContext,
-            projectMetadata: fixtureToProjectMetadata('goodHybridrepo')
+            projectMetadata: dummyToProjectMetadata('goodHybridrepo')
           } as IncomingTransformerContext;
 
           const assets = await gatherAssetsFromTransformer({
@@ -720,7 +716,7 @@ describe('::gatherAssetsFromTransformer', () => {
       it('maintains existing "irrelevant" fields unless --force is used', async () => {
         expect.hasAssertions();
 
-        const projectMetadata = fixtureToProjectMetadata('goodPolyrepo');
+        const projectMetadata = dummyToProjectMetadata('goodPolyrepo');
 
         const dependencies = {
           dependencies: { a: '1' },
@@ -782,7 +778,7 @@ describe('::gatherAssetsFromTransformer', () => {
       it('maintains existing "irrelevant" scripts unless --force is used', async () => {
         expect.hasAssertions();
 
-        const projectMetadata = fixtureToProjectMetadata('goodPolyrepo');
+        const projectMetadata = dummyToProjectMetadata('goodPolyrepo');
 
         const scripts = {
           some: 'script',
@@ -844,7 +840,7 @@ describe('::gatherAssetsFromTransformer', () => {
         {
           // * Tests use a hybridrepo without a pre-existing "private" field
 
-          const projectMetadata = fixtureToProjectMetadata(
+          const projectMetadata = dummyToProjectMetadata(
             'goodHybridrepoNotPrivate',
             'cli'
           );
@@ -912,7 +908,7 @@ describe('::gatherAssetsFromTransformer', () => {
         {
           // * Tests use a hybridrepo WITH a pre-existing "private" field
 
-          const projectMetadata = fixtureToProjectMetadata('goodHybridrepo', 'cli');
+          const projectMetadata = dummyToProjectMetadata('goodHybridrepo', 'cli');
 
           projectMetadata.rootPackage.json = {
             ...projectMetadata.rootPackage.json,
@@ -991,7 +987,7 @@ describe('::gatherAssetsFromTransformer', () => {
 
       const transformerContext = {
         ...dummyContext,
-        projectMetadata: fixtureToProjectMetadata('goodPolyrepo'),
+        projectMetadata: dummyToProjectMetadata('goodPolyrepo'),
         additionalRawAliasMappings: [
           [
             {
@@ -1095,7 +1091,7 @@ describe('::gatherAssetsFromAllTransformers', () => {
       test('generates expected assets for polyrepo', async () => {
         expect.hasAssertions();
 
-        const projectMetadata = fixtureToProjectMetadata(
+        const projectMetadata = dummyToProjectMetadata(
           'goodPolyrepoNoSrcYesDefaultEnv',
           'self'
         ) as TransformerContext['projectMetadata'];
@@ -1119,7 +1115,7 @@ describe('::gatherAssetsFromAllTransformers', () => {
       test('generates expected assets at non-hybrid monorepo', async () => {
         expect.hasAssertions();
 
-        const projectMetadata = fixtureToProjectMetadata(
+        const projectMetadata = dummyToProjectMetadata(
           'goodMonorepoNoSrc',
           'pkg-1'
         ) as TransformerContext['projectMetadata'];
@@ -1143,7 +1139,7 @@ describe('::gatherAssetsFromAllTransformers', () => {
       test('generates expected assets at hybridrepo', async () => {
         expect.hasAssertions();
 
-        const projectMetadata = fixtureToProjectMetadata(
+        const projectMetadata = dummyToProjectMetadata(
           'goodHybridrepo',
           'self'
         ) as TransformerContext['projectMetadata'];
@@ -1440,7 +1436,7 @@ describe('::generatePerPackageAssets', () => {
     expect.hasAssertions();
 
     {
-      const dummyProjectMetadata = fixtureToProjectMetadata(
+      const dummyProjectMetadata = dummyToProjectMetadata(
         'goodPolyrepo'
       ) as TransformerContext['projectMetadata'];
 
@@ -1465,7 +1461,7 @@ describe('::generatePerPackageAssets', () => {
     }
 
     {
-      const dummyProjectMetadata = fixtureToProjectMetadata(
+      const dummyProjectMetadata = dummyToProjectMetadata(
         'goodHybridrepo'
       ) as TransformerContext['projectMetadata'];
 
@@ -1503,7 +1499,7 @@ describe('::generatePerPackageAssets', () => {
     }
 
     {
-      const dummyProjectMetadata = fixtureToProjectMetadata(
+      const dummyProjectMetadata = dummyToProjectMetadata(
         'goodMonorepo'
       ) as TransformerContext['projectMetadata'];
 
@@ -1543,7 +1539,7 @@ describe('::generatePerPackageAssets', () => {
   it('calls adder function on all possible packages when includeRootPackageInNonHybridMonorepo=true and scope=unlimited', async () => {
     expect.hasAssertions();
 
-    const dummyProjectMetadata = fixtureToProjectMetadata(
+    const dummyProjectMetadata = dummyToProjectMetadata(
       'goodMonorepo'
     ) as TransformerContext['projectMetadata'];
 
@@ -1584,7 +1580,7 @@ describe('::generatePerPackageAssets', () => {
   it('calls adder function on cwdPackage only when scope=this-package', async () => {
     expect.hasAssertions();
 
-    const dummyProjectMetadata = fixtureToProjectMetadata(
+    const dummyProjectMetadata = dummyToProjectMetadata(
       'goodMonorepo',
       'pkg-1'
     ) as TransformerContext['projectMetadata'];
@@ -1618,7 +1614,7 @@ describe('::generatePerPackageAssets', () => {
   it('calls adder function with correct transformerContext.projectMetadata.cwdPackage', async () => {
     expect.hasAssertions();
 
-    const dummyProjectMetadata = fixtureToProjectMetadata(
+    const dummyProjectMetadata = dummyToProjectMetadata(
       'goodMonorepo'
     ) as TransformerContext['projectMetadata'];
 
@@ -1698,7 +1694,7 @@ describe('::generatePerPackageAssets', () => {
   it('calls adder function with correct transformerContext.codecovFlag', async () => {
     expect.hasAssertions();
 
-    const dummyProjectMetadata = fixtureToProjectMetadata(
+    const dummyProjectMetadata = dummyToProjectMetadata(
       'goodMonorepo'
     ) as TransformerContext['projectMetadata'];
 
@@ -1798,7 +1794,7 @@ describe('::generateRootOnlyAssets', () => {
     expect.hasAssertions();
 
     {
-      const dummyProjectMetadata = fixtureToProjectMetadata(
+      const dummyProjectMetadata = dummyToProjectMetadata(
         'goodPolyrepo'
       ) as TransformerContext['projectMetadata'];
 
@@ -1821,7 +1817,7 @@ describe('::generateRootOnlyAssets', () => {
     }
 
     {
-      const dummyProjectMetadata = fixtureToProjectMetadata(
+      const dummyProjectMetadata = dummyToProjectMetadata(
         'goodPolyrepo'
       ) as TransformerContext['projectMetadata'];
 
@@ -1849,7 +1845,7 @@ describe('::generateRootOnlyAssets', () => {
     }
 
     {
-      const dummyProjectMetadata = fixtureToProjectMetadata(
+      const dummyProjectMetadata = dummyToProjectMetadata(
         'goodHybridrepo'
       ) as TransformerContext['projectMetadata'];
 
@@ -1872,7 +1868,7 @@ describe('::generateRootOnlyAssets', () => {
     }
 
     {
-      const dummyProjectMetadata = fixtureToProjectMetadata(
+      const dummyProjectMetadata = dummyToProjectMetadata(
         'goodHybridrepo'
       ) as TransformerContext['projectMetadata'];
 
@@ -1900,7 +1896,7 @@ describe('::generateRootOnlyAssets', () => {
     }
 
     {
-      const dummyProjectMetadata = fixtureToProjectMetadata(
+      const dummyProjectMetadata = dummyToProjectMetadata(
         'goodHybridrepo',
         'private'
       ) as TransformerContext['projectMetadata'];
@@ -1921,7 +1917,7 @@ describe('::generateRootOnlyAssets', () => {
     }
 
     {
-      const dummyProjectMetadata = fixtureToProjectMetadata(
+      const dummyProjectMetadata = dummyToProjectMetadata(
         'goodMonorepo'
       ) as TransformerContext['projectMetadata'];
 
@@ -1944,7 +1940,7 @@ describe('::generateRootOnlyAssets', () => {
     }
 
     {
-      const dummyProjectMetadata = fixtureToProjectMetadata(
+      const dummyProjectMetadata = dummyToProjectMetadata(
         'goodMonorepo'
       ) as TransformerContext['projectMetadata'];
 
@@ -1972,7 +1968,7 @@ describe('::generateRootOnlyAssets', () => {
     }
 
     {
-      const dummyProjectMetadata = fixtureToProjectMetadata(
+      const dummyProjectMetadata = dummyToProjectMetadata(
         'goodMonorepo',
         'pkg-1'
       ) as TransformerContext['projectMetadata'];

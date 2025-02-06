@@ -1,4 +1,4 @@
-import { allContributorsConfigProjectBase } from 'multiverse+project-utils:fs.ts';
+import { allContributorsConfigProjectBase } from '@-xun/project';
 
 import {
   generateRootOnlyAssets,

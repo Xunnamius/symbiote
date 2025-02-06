@@ -1,4 +1,4 @@
-import { gitattributesConfigProjectBase } from 'multiverse+project-utils:fs.ts';
+import { gitattributesConfigProjectBase } from '@-xun/project';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 

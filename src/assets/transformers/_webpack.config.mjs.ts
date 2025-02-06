@@ -1,4 +1,4 @@
-import { webpackConfigProjectBase } from 'multiverse+project-utils:fs.ts';
+import { webpackConfigProjectBase } from '@-xun/project';
 
 import {
   AssetPreset,
