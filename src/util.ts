@@ -682,10 +682,14 @@ export function deriveScopeNarrowingPathspecs({
         .concat(
           // ? Always exclude the README.md file
           toRelativePath(markdownReadmePackageBase),
-          (rootPackage.json.files || []).map((file) => {
-            return (file.startsWith('/') ? file.slice(1) : file) as RelativePath;
+          (rootPackage.json.files || []).map((path) => {
+            // ? Ignore negated paths
+            if (!path.startsWith('!')) {
+              return (path.startsWith('/') ? path.slice(1) : path) as RelativePath;
+            }
           })
         )
+        .filter((path) => !!path)
         // ? We're going by gitignore rules, so preceding / means project root
         // ? unlike when dealing with signature/pathspec magic
         .map((path) => '/' + path)
