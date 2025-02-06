@@ -8,7 +8,7 @@
 
 > **transformer**(`this`, `context`, `options`?): `Promise`\<[`ReifiedAssets`](../../../type-aliases/ReifiedAssets.md)\>
 
-Defined in: [src/assets/transformers/\_tstyche.config.json.ts:6](https://github.com/Xunnamius/symbiote/blob/f5dbcf226533401d9fc449ad30ae068d637c3138/src/assets/transformers/_tstyche.config.json.ts#L6)
+Defined in: [src/assets/transformers/\_tstyche.config.json.ts:6](https://github.com/Xunnamius/symbiote/blob/32027a085b8c7c4a98bb8de413916d57db0fd040/src/assets/transformers/_tstyche.config.json.ts#L6)
 
 ## Parameters
 

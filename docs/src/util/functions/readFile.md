@@ -8,7 +8,7 @@
 
 > **readFile**(`path`): `Promise`\<`string`\>
 
-Defined in: [src/util.ts:1038](https://github.com/Xunnamius/symbiote/blob/f5dbcf226533401d9fc449ad30ae068d637c3138/src/util.ts#L1038)
+Defined in: [src/util.ts:1025](https://github.com/Xunnamius/symbiote/blob/32027a085b8c7c4a98bb8de413916d57db0fd040/src/util.ts#L1025)
 
 ## Parameters
 

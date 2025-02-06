@@ -6,7 +6,7 @@
 
 # Enumeration: Linter
 
-Defined in: [src/commands/lint.ts:46](https://github.com/Xunnamius/symbiote/blob/f5dbcf226533401d9fc449ad30ae068d637c3138/src/commands/lint.ts#L46)
+Defined in: [src/commands/lint.ts:42](https://github.com/Xunnamius/symbiote/blob/32027a085b8c7c4a98bb8de413916d57db0fd040/src/commands/lint.ts#L42)
 
 ## Enumeration Members
 
@@ -14,7 +14,7 @@ Defined in: [src/commands/lint.ts:46](https://github.com/Xunnamius/symbiote/blob
 
 > **All**: `"all"`
 
-Defined in: [src/commands/lint.ts:50](https://github.com/Xunnamius/symbiote/blob/f5dbcf226533401d9fc449ad30ae068d637c3138/src/commands/lint.ts#L50)
+Defined in: [src/commands/lint.ts:46](https://github.com/Xunnamius/symbiote/blob/32027a085b8c7c4a98bb8de413916d57db0fd040/src/commands/lint.ts#L46)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [src/commands/lint.ts:50](https://github.com/Xunnamius/symbiote/blob
 
 > **Eslint**: `"eslint"`
 
-Defined in: [src/commands/lint.ts:48](https://github.com/Xunnamius/symbiote/blob/f5dbcf226533401d9fc449ad30ae068d637c3138/src/commands/lint.ts#L48)
+Defined in: [src/commands/lint.ts:44](https://github.com/Xunnamius/symbiote/blob/32027a085b8c7c4a98bb8de413916d57db0fd040/src/commands/lint.ts#L44)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [src/commands/lint.ts:48](https://github.com/Xunnamius/symbiote/blob
 
 > **Remark**: `"remark"`
 
-Defined in: [src/commands/lint.ts:49](https://github.com/Xunnamius/symbiote/blob/f5dbcf226533401d9fc449ad30ae068d637c3138/src/commands/lint.ts#L49)
+Defined in: [src/commands/lint.ts:45](https://github.com/Xunnamius/symbiote/blob/32027a085b8c7c4a98bb8de413916d57db0fd040/src/commands/lint.ts#L45)
 
 ***
 
@@ -38,4 +38,4 @@ Defined in: [src/commands/lint.ts:49](https://github.com/Xunnamius/symbiote/blob
 
 > **Tsc**: `"tsc"`
 
-Defined in: [src/commands/lint.ts:47](https://github.com/Xunnamius/symbiote/blob/f5dbcf226533401d9fc449ad30ae068d637c3138/src/commands/lint.ts#L47)
+Defined in: [src/commands/lint.ts:43](https://github.com/Xunnamius/symbiote/blob/32027a085b8c7c4a98bb8de413916d57db0fd040/src/commands/lint.ts#L43)

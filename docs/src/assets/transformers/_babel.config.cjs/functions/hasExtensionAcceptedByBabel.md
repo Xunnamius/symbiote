@@ -8,7 +8,7 @@
 
 > **hasExtensionAcceptedByBabel**(`path`): `boolean`
 
-Defined in: [src/assets/transformers/\_babel.config.cjs.ts:154](https://github.com/Xunnamius/symbiote/blob/f5dbcf226533401d9fc449ad30ae068d637c3138/src/assets/transformers/_babel.config.cjs.ts#L154)
+Defined in: [src/assets/transformers/\_babel.config.cjs.ts:153](https://github.com/Xunnamius/symbiote/blob/32027a085b8c7c4a98bb8de413916d57db0fd040/src/assets/transformers/_babel.config.cjs.ts#L153)
 
 Returns `true` if `path` points to a file with an extension accepted by Babel
 (including `.d.ts`).

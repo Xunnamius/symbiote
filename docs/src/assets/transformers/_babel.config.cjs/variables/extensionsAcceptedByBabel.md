@@ -8,6 +8,6 @@
 
 > `const` **extensionsAcceptedByBabel**: readonly \[`".ts"`, `".cts"`, `".mts"`, `".tsx"`, `".js"`, `".mjs"`, `".cjs"`, `".jsx"`\]
 
-Defined in: [src/assets/transformers/\_babel.config.cjs.ts:136](https://github.com/Xunnamius/symbiote/blob/f5dbcf226533401d9fc449ad30ae068d637c3138/src/assets/transformers/_babel.config.cjs.ts#L136)
+Defined in: [src/assets/transformers/\_babel.config.cjs.ts:135](https://github.com/Xunnamius/symbiote/blob/32027a085b8c7c4a98bb8de413916d57db0fd040/src/assets/transformers/_babel.config.cjs.ts#L135)
 
 All possible extensions accepted by Babel using standard symbiote configs.

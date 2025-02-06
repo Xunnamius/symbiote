@@ -10,7 +10,7 @@
 
 > **asMocked**\<`T`\>(`options`?): [`MaybeMockedDeep`](../../../types/jest.patched/namespaces/jest/type-aliases/MaybeMockedDeep.md)\<`T`\>
 
-Defined in: node\_modules/@-xun/jest/dist/packages/jest/src/index.d.ts:45
+Defined in: node\_modules/@-xun/jest/dist/packages/jest/src/index.d.ts:46
 
 Return a function representing `T` but wrapped with Jest mock definitions.
 Pass `{shallow: true}` as the only parameter to disable the deep mocking of
@@ -50,7 +50,7 @@ expect(mockRepresentingMyFunctionType.mock.calls[0][0]).toBe(42);
 
 > **asMocked**\<`T`\>(`options`): [`MaybeMocked`](../../../types/jest.patched/namespaces/jest/type-aliases/MaybeMocked.md)\<`T`\>
 
-Defined in: node\_modules/@-xun/jest/dist/packages/jest/src/index.d.ts:64
+Defined in: node\_modules/@-xun/jest/dist/packages/jest/src/index.d.ts:65
 
 Return a function representing `T` but wrapped (shallowly) with Jest mock
 definitions.
@@ -89,7 +89,7 @@ expect(mockRepresentingMyFunctionType.mock.calls[0][0]).toBe(42);
 
 > **asMocked**\<`T`\>(`source`, `options`?): [`MaybeMockedDeep`](../../../types/jest.patched/namespaces/jest/type-aliases/MaybeMockedDeep.md)\<`T`\>
 
-Defined in: node\_modules/@-xun/jest/dist/packages/jest/src/index.d.ts:81
+Defined in: node\_modules/@-xun/jest/dist/packages/jest/src/index.d.ts:82
 
 Wrap the non-nullish `source` with Jest mock definitions. Pass `{shallow:
 true}` as the second parameter to disable the default deep mocking behavior.
@@ -130,7 +130,7 @@ expect(mockMyFunction.mock.calls[0][0]).toBe(42);
 
 > **asMocked**\<`T`\>(`source`, `options`): [`MaybeMocked`](../../../types/jest.patched/namespaces/jest/type-aliases/MaybeMocked.md)\<`T`\>
 
-Defined in: node\_modules/@-xun/jest/dist/packages/jest/src/index.d.ts:97
+Defined in: node\_modules/@-xun/jest/dist/packages/jest/src/index.d.ts:98
 
 Shallowly wrap the non-nullish `source` with Jest mock definitions.
 
@@ -170,7 +170,7 @@ expect(mockMyFunction.mock.calls[0][0]).toBe(42);
 
 > **asMocked**\<`T`\>(...`args`): [`MaybeMockedDeep`](../../../types/jest.patched/namespaces/jest/type-aliases/MaybeMockedDeep.md)\<`T`\> \| [`MaybeMocked`](../../../types/jest.patched/namespaces/jest/type-aliases/MaybeMocked.md)\<`T`\>
 
-Defined in: node\_modules/@-xun/jest/dist/packages/jest/src/index.d.ts:114
+Defined in: node\_modules/@-xun/jest/dist/packages/jest/src/index.d.ts:115
 
 Wrap the non-nullish `source` (or `T` itself is `source` is omitted) with
 Jest mock definitions.

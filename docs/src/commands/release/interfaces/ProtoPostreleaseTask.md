@@ -6,7 +6,7 @@
 
 # Interface: ProtoPostreleaseTask
 
-Defined in: [src/commands/release.ts:270](https://github.com/Xunnamius/symbiote/blob/f5dbcf226533401d9fc449ad30ae068d637c3138/src/commands/release.ts#L270)
+Defined in: [src/commands/release.ts:258](https://github.com/Xunnamius/symbiote/blob/32027a085b8c7c4a98bb8de413916d57db0fd040/src/commands/release.ts#L258)
 
 A partially defined postrelease-`type` [ReleaseTask](../type-aliases/ReleaseTask.md).
 
@@ -20,7 +20,7 @@ A partially defined postrelease-`type` [ReleaseTask](../type-aliases/ReleaseTask
 
 > `optional` **actionDescription**: `string`
 
-Defined in: [src/commands/release.ts:229](https://github.com/Xunnamius/symbiote/blob/f5dbcf226533401d9fc449ad30ae068d637c3138/src/commands/release.ts#L229)
+Defined in: [src/commands/release.ts:217](https://github.com/Xunnamius/symbiote/blob/32027a085b8c7c4a98bb8de413916d57db0fd040/src/commands/release.ts#L217)
 
 The description reported to the user when the task is run.
 
@@ -38,7 +38,7 @@ The description reported to the user when the task is run.
 
 > `optional` **allowMissingNpmScripts**: `boolean`
 
-Defined in: [src/commands/release.ts:218](https://github.com/Xunnamius/symbiote/blob/f5dbcf226533401d9fc449ad30ae068d637c3138/src/commands/release.ts#L218)
+Defined in: [src/commands/release.ts:206](https://github.com/Xunnamius/symbiote/blob/32027a085b8c7c4a98bb8de413916d57db0fd040/src/commands/release.ts#L206)
 
 Whether the task will automatically fail if none of the scripts given in
 `npmScripts` exist in the package's `package.json`.
@@ -59,7 +59,7 @@ false
 
 > `optional` **emoji**: `string`
 
-Defined in: [src/commands/release.ts:238](https://github.com/Xunnamius/symbiote/blob/f5dbcf226533401d9fc449ad30ae068d637c3138/src/commands/release.ts#L238)
+Defined in: [src/commands/release.ts:226](https://github.com/Xunnamius/symbiote/blob/32027a085b8c7c4a98bb8de413916d57db0fd040/src/commands/release.ts#L226)
 
 A symbol that will be placed before symbiote output text concerning this
 task.
@@ -74,7 +74,7 @@ task.
 
 > **helpDescription**: `string`
 
-Defined in: [src/commands/release.ts:233](https://github.com/Xunnamius/symbiote/blob/f5dbcf226533401d9fc449ad30ae068d637c3138/src/commands/release.ts#L233)
+Defined in: [src/commands/release.ts:221](https://github.com/Xunnamius/symbiote/blob/32027a085b8c7c4a98bb8de413916d57db0fd040/src/commands/release.ts#L221)
 
 The description reported to the user when `--help` is called.
 
@@ -88,7 +88,7 @@ The description reported to the user when `--help` is called.
 
 > `optional` **io**: `StdoutStderrOptionCommon`\<`false`\>
 
-Defined in: [src/commands/release.ts:253](https://github.com/Xunnamius/symbiote/blob/f5dbcf226533401d9fc449ad30ae068d637c3138/src/commands/release.ts#L253)
+Defined in: [src/commands/release.ts:241](https://github.com/Xunnamius/symbiote/blob/32027a085b8c7c4a98bb8de413916d57db0fd040/src/commands/release.ts#L241)
 
 Determines how the process's `stdout` and `stdin` streams will be
 configured when executing [npmScripts](BaseProtoTask.md#npmscripts). Does not apply to `run` or
@@ -117,7 +117,7 @@ supplies `--hush`/`--quiet`/`--silent`.
 
 > `optional` **npmScripts**: (`"version"` \| `"prepublish"` \| `"prepare"` \| `"prepublishOnly"` \| `"prepack"` \| `"postpack"` \| `"publish"` \| `"postpublish"` \| `"preinstall"` \| `"install"` \| `"postinstall"` \| `"preuninstall"` \| `"uninstall"` \| `"postuninstall"` \| `"preversion"` \| `"postversion"` \| `"pretest"` \| `"test"` \| `"posttest"` \| `"prestop"` \| `"stop"` \| `"poststop"` \| `"prestart"` \| `"start"` \| `"poststart"` \| `"prerestart"` \| `"restart"` \| `"postrestart"` \| `"build"` \| `"build:changelog"` \| `"build:dist"` \| `"build:docs"` \| `"build:topological"` \| `"clean"` \| `"deploy"` \| `"format"` \| `"info"` \| `"lint"` \| `"lint:package"` \| `"lint:packages"` \| `"lint:project"` \| `"list-tasks"` \| `"lint:topological"` \| `"release"` \| `"release:topological"` \| `"renovate"` \| `"dev"` \| `"test:package:all"` \| `"test:package:e2e"` \| `"test:package:integration"` \| `"test:package:unit"` \| `"test:packages:all"` \| `"test:topological"`)[]
 
-Defined in: [src/commands/release.ts:223](https://github.com/Xunnamius/symbiote/blob/f5dbcf226533401d9fc449ad30ae068d637c3138/src/commands/release.ts#L223)
+Defined in: [src/commands/release.ts:211](https://github.com/Xunnamius/symbiote/blob/32027a085b8c7c4a98bb8de413916d57db0fd040/src/commands/release.ts#L211)
 
 Run only the first NPM script in `npmScripts` that is found in the
 package's `package.json`.
@@ -132,7 +132,7 @@ package's `package.json`.
 
 > `optional` **run**: [`ProtoReleaseTaskRunner`](../type-aliases/ProtoReleaseTaskRunner.md)
 
-Defined in: [src/commands/release.ts:257](https://github.com/Xunnamius/symbiote/blob/f5dbcf226533401d9fc449ad30ae068d637c3138/src/commands/release.ts#L257)
+Defined in: [src/commands/release.ts:245](https://github.com/Xunnamius/symbiote/blob/32027a085b8c7c4a98bb8de413916d57db0fd040/src/commands/release.ts#L245)
 
 A function called when the task is triggered.
 
@@ -146,7 +146,7 @@ A function called when the task is triggered.
 
 > **skippable**: `boolean`
 
-Defined in: [src/commands/release.ts:211](https://github.com/Xunnamius/symbiote/blob/f5dbcf226533401d9fc449ad30ae068d637c3138/src/commands/release.ts#L211)
+Defined in: [src/commands/release.ts:199](https://github.com/Xunnamius/symbiote/blob/32027a085b8c7c4a98bb8de413916d57db0fd040/src/commands/release.ts#L199)
 
 Whether the task can be skipped by the user or not.
 
@@ -160,4 +160,4 @@ Whether the task can be skipped by the user or not.
 
 > `optional` **type**: `"post"`
 
-Defined in: [src/commands/release.ts:271](https://github.com/Xunnamius/symbiote/blob/f5dbcf226533401d9fc449ad30ae068d637c3138/src/commands/release.ts#L271)
+Defined in: [src/commands/release.ts:259](https://github.com/Xunnamius/symbiote/blob/32027a085b8c7c4a98bb8de413916d57db0fd040/src/commands/release.ts#L259)

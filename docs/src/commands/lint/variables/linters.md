@@ -8,7 +8,7 @@
 
 > `const` **linters**: [`Linter`](../enumerations/Linter.md)[]
 
-Defined in: [src/commands/lint.ts:56](https://github.com/Xunnamius/symbiote/blob/f5dbcf226533401d9fc449ad30ae068d637c3138/src/commands/lint.ts#L56)
+Defined in: [src/commands/lint.ts:52](https://github.com/Xunnamius/symbiote/blob/32027a085b8c7c4a98bb8de413916d57db0fd040/src/commands/lint.ts#L52)
 
 ## See
 
