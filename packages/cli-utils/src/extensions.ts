@@ -23,9 +23,12 @@ import {
 
 import { $artificiallyInvoked } from 'multiverse+bfe:symbols.ts';
 
-// ? Used in a comment for taskManager
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import { type makeStandardConfigureExecutionContext } from 'universe+cli-utils:configure.ts';
+import type {
+  // ? Used in documentation
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  makeStandardConfigureExecutionContext
+} from 'universe+cli-utils:configure.ts';
+
 import { globalDebuggerNamespace } from 'universe+cli-utils:constant.ts';
 import { LogTag } from 'universe+cli-utils:logging.ts';
 

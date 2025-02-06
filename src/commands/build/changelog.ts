@@ -360,9 +360,8 @@ Use --import-section-file to add a custom release section to the changelog. The 
           debug('importing additional release section from: %O', importSectionFile);
 
           const additionalSectionNotes = await readFile(importSectionFile);
-          const additionalSectionVersion = additionalSectionNotes
-            .match(extractVersionRegExp)
-            ?.at(1);
+          const additionalSectionVersion =
+            additionalSectionNotes.match(extractVersionRegExp)?.[1];
 
           softAssert(
             additionalSectionVersion && isValidSemver(additionalSectionVersion),

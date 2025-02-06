@@ -120,8 +120,8 @@ it('appends commit short-hash and repo link to the end of commits of non-hidden 
           const messageSplit_ = messageSplit[0].split('(');
 
           const [type, scope] = [
-            messageSplit_.at(0)?.trim() ?? '',
-            messageSplit_.at(1)?.trim().slice(0, -1)
+            messageSplit_[0]?.trim() ?? '',
+            messageSplit_[1]?.trim().slice(0, -1)
           ];
 
           const sectionHeading = isBreaking

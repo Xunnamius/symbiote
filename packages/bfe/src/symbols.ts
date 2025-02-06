@@ -1,6 +1,8 @@
-// ? Used in the comment for $artificiallyInvoked
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import type { getInvocableExtendedHandler } from 'universe+bfe';
+import type {
+  // ? Used in documentation
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  getInvocableExtendedHandler
+} from 'universe+bfe';
 
 /**
  * Represents any value for the given argument.

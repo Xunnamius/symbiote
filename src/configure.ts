@@ -29,9 +29,11 @@ import { version as packageVersion } from 'rootverse:package.json';
 
 import { globalDebuggerNamespace, globalLoggerNamespace } from 'universe:constant.ts';
 
-// ? Used in documentation
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import type { withGlobalBuilder } from 'universe:util.ts';
+import type {
+  // ? Used in documentation
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  withGlobalBuilder
+} from 'universe:util.ts';
 
 const rootGenericLogger = createGenericLogger({ namespace: globalLoggerNamespace });
 const rootDebugLogger = createDebugLogger({ namespace: globalDebuggerNamespace });

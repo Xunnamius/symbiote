@@ -625,7 +625,7 @@ function makeDistReplacerEntry(
     function ({ filepath: inputPath_, capturingGroups }) {
       const inputPath = toAbsolutePath(inputPath_);
       const originalSpecifier = capturingGroups[0];
-      const specifierTargetWithOldExtension = capturingGroups.at(1);
+      const specifierTargetWithOldExtension = capturingGroups[1];
       const specifierSubRootPrefix = (
         isCwdPackageTheRootPackage ? '' : toRelativePath(projectRoot, packageRoot)
       ) as RelativePath;
@@ -880,8 +880,7 @@ function makeDistReplacerEntry(
                   );
                 }
 
-                knownEntrypoints[specifierTargetOutputPath] = entrypoints
-                  .at(0)
+                knownEntrypoints[specifierTargetOutputPath] = entrypoints[0]
                   // ? Replace first dot with the package's node_modules name
                   ?.replace('.', packageName) as RelativePath;
 
