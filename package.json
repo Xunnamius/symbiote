@@ -252,7 +252,7 @@
   },
   "devDependencies": {
     "@-xun/common-dummies": "^1.0.2",
-    "@-xun/symbiote": "^2.20.0"
+    "@-xun/symbiote": "^2.21.0"
   },
   "engines": {
     "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
