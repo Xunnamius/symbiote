@@ -1,7 +1,5 @@
+import { Tsconfig } from '@-xun/project';
 import { run } from '@-xun/run';
-import { type ChildConfiguration } from '@black-flag/core';
-
-import { type AsStrictExecutionContext } from 'multiverse+bfe';
 
 import {
   logStartTime,
@@ -11,13 +9,7 @@ import {
 
 import { scriptBasename } from 'multiverse+cli-utils:util.ts';
 
-import { Tsconfig } from '@-xun/project';
-
-import {
-  ThisPackageGlobalScope as DocumentationBuilderScope,
-  type GlobalCliArguments,
-  type GlobalExecutionContext
-} from 'universe:configure.ts';
+import { ThisPackageGlobalScope as DocumentationBuilderScope } from 'universe:configure.ts';
 
 import {
   checkArrayNotEmpty,
@@ -25,6 +17,10 @@ import {
   withGlobalBuilder,
   withGlobalUsage
 } from 'universe:util.ts';
+
+import type { ChildConfiguration } from '@black-flag/core';
+import type { AsStrictExecutionContext } from 'multiverse+bfe';
+import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:configure.ts';
 
 /**
  * @see {@link DocumentationBuilderScope}

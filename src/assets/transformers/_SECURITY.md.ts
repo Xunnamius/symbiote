@@ -1,6 +1,4 @@
 /* eslint-disable unicorn/filename-case */
-import { type RelativePath } from '@-xun/fs';
-
 import { markdownSecurityProjectBase } from '@-xun/project';
 
 import {
@@ -8,6 +6,8 @@ import {
   generateRootOnlyAssets,
   makeTransformer
 } from 'universe:assets.ts';
+
+import type { RelativePath } from '@-xun/fs';
 
 export const { transformer } = makeTransformer(function (context) {
   const { toProjectAbsolutePath } = context;

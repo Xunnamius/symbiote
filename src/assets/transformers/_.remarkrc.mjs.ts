@@ -1,19 +1,13 @@
+import { analyzeProjectStructure, remarkConfigProjectBase } from '@-xun/project';
+import { ProjectError } from '@-xun/project/error';
 import escapeStringRegExp from 'escape-string-regexp~4';
 import { createDebugLogger } from 'rejoinder';
-
-import {
-  analyzeProjectStructure,
-  remarkConfigProjectBase,
-  type Package,
-  type ProjectMetadata
-} from '@-xun/project';
-
-import { ProjectError } from '@-xun/project/error';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 import { globalDebuggerNamespace } from 'universe:constant.ts';
 import { ErrorMessage } from 'universe:error.ts';
 
+import type { Package, ProjectMetadata } from '@-xun/project';
 import type { Options as MdastUtilToMarkdownOptions } from 'mdast-util-to-markdown' with { 'resolution-mode': 'import' };
 import type { Options as UnifiedEngineOptions } from 'unified-engine' with { 'resolution-mode': 'import' };
 

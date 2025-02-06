@@ -1,6 +1,4 @@
 /* eslint-disable unicorn/filename-case */
-import { type RelativePath } from '@-xun/fs';
-
 import { markdownArchitectureProjectBase } from '@-xun/project';
 
 import {
@@ -11,6 +9,8 @@ import {
 } from 'universe:assets.ts';
 
 import { replaceRegionsRespectively } from 'universe:util.ts';
+
+import type { RelativePath } from '@-xun/fs';
 
 export const { transformer } = makeTransformer(function (context) {
   const { toProjectAbsolutePath, assetPreset } = context;

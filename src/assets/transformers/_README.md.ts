@@ -1,5 +1,4 @@
 /* eslint-disable unicorn/filename-case */
-import { type RelativePath } from '@-xun/fs';
 
 import {
   isAccessible,
@@ -14,14 +13,16 @@ import {
   generatePerPackageAssets,
   generateRootOnlyAssets,
   libAssetPresets,
-  makeTransformer,
-  type TransformerContext
+  makeTransformer
 } from 'universe:assets.ts';
 
 import {
   makeReplacerRegionIdMatcherRegExp,
   replaceRegionsRespectively
 } from 'universe:util.ts';
+
+import type { RelativePath } from '@-xun/fs';
+import type { TransformerContext } from 'universe:assets.ts';
 
 export const { transformer } = makeTransformer(async function (context) {
   const {

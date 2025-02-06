@@ -2,30 +2,21 @@
 import { readdir } from 'node:fs/promises';
 import { pathToFileURL } from 'node:url';
 
-import { toAbsolutePath, toPath, type AbsolutePath, type RelativePath } from '@-xun/fs';
+import { toAbsolutePath, toPath } from '@-xun/fs';
+import { isRootPackage, ProjectAttribute } from '@-xun/project';
 import { CliError } from '@black-flag/core';
 import getInObject from 'lodash.get';
 import mergeWith from 'lodash.mergewith';
-
-import {
-  createDebugLogger,
-  type ExtendedDebugger,
-  type ExtendedLogger
-} from 'rejoinder';
-
-import {
-  isRootPackage,
-  ProjectAttribute,
-  type Package,
-  type ProjectMetadata,
-  type RawAliasMapping
-} from '@-xun/project';
+import { createDebugLogger } from 'rejoinder';
 
 import { DefaultGlobalScope } from 'universe:configure.ts';
 import { globalDebuggerNamespace } from 'universe:constant.ts';
 import { ErrorMessage } from 'universe:error.ts';
 import { deriveCodecovPackageFlag, readFile } from 'universe:util.ts';
 
+import type { AbsolutePath, RelativePath } from '@-xun/fs';
+import type { Package, ProjectMetadata, RawAliasMapping } from '@-xun/project';
+import type { ExtendedDebugger, ExtendedLogger } from 'rejoinder';
 import type { EmptyObject, Entry, Promisable } from 'type-fest';
 
 // ! Try not to use hardAssert, softAssert, or CliError here or in any

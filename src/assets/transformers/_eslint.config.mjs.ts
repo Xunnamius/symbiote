@@ -3,30 +3,7 @@
 import assert from 'node:assert';
 import { pathToFileURL } from 'node:url';
 
-import {
-  getCurrentWorkingDirectory,
-  toAbsolutePath,
-  toPath,
-  type AbsolutePath
-} from '@-xun/fs';
-
-import { fixupConfigRules } from '@eslint/compat';
-import eslintJs from '@eslint/js';
-import restrictedGlobals from 'confusing-browser-globals';
-import { flatConfigs as eslintPluginImportFlatConfigs } from 'eslint-plugin-import';
-import eslintPluginJest from 'eslint-plugin-jest';
-import eslintPluginNode from 'eslint-plugin-n';
-import eslintPluginUnicorn from 'eslint-plugin-unicorn';
-import jsGlobals from 'globals';
-import { createDebugLogger, createGenericLogger } from 'rejoinder';
-import { toss } from 'toss-expression';
-
-import {
-  config as makeTsEslintConfig,
-  configs as eslintTsConfigs,
-  parser as eslintTsParser,
-  type Config
-} from 'typescript-eslint';
+import { getCurrentWorkingDirectory, toAbsolutePath, toPath } from '@-xun/fs';
 
 import {
   deriveAliasesForEslint,
@@ -41,6 +18,22 @@ import {
 } from '@-xun/project';
 
 import { ProjectError } from '@-xun/project/error';
+import { fixupConfigRules } from '@eslint/compat';
+import eslintJs from '@eslint/js';
+import restrictedGlobals from 'confusing-browser-globals';
+import { flatConfigs as eslintPluginImportFlatConfigs } from 'eslint-plugin-import';
+import eslintPluginJest from 'eslint-plugin-jest';
+import eslintPluginNode from 'eslint-plugin-n';
+import eslintPluginUnicorn from 'eslint-plugin-unicorn';
+import jsGlobals from 'globals';
+import { createDebugLogger, createGenericLogger } from 'rejoinder';
+import { toss } from 'toss-expression';
+
+import {
+  config as makeTsEslintConfig,
+  configs as eslintTsConfigs,
+  parser as eslintTsParser
+} from 'typescript-eslint';
 
 import { makeTransformer } from 'universe:assets.ts';
 
@@ -58,7 +51,9 @@ import {
   extensionsTypescript
 } from '@-xun/symbiote/assets/babel.config.cjs';
 
+import type { AbsolutePath } from '@-xun/fs';
 import type { PackageJson } from 'type-fest';
+import type { Config } from 'typescript-eslint';
 
 const debug = createDebugLogger({
   namespace: `${globalDebuggerNamespace}:asset:eslint`
@@ -547,7 +542,9 @@ export function moduleExport({
 
   // eslint-disable-next-line unicorn/no-array-reduce
   const pathGroups = derivedAliases.reduce<PathGroup[]>((groups, [alias]) => {
-    const verse = alias.split(uriSchemeDelimiter)[0].split(uriSchemeSubDelimiter)[0];
+    assert(alias, ErrorMessage.GuruMeditation());
+
+    const verse = alias.split(uriSchemeDelimiter)[0]!.split(uriSchemeSubDelimiter)[0]!;
     const previousVerse = groups.at(-1)?.[$scheme];
 
     // ? Collapse imports from the same scheme (verse) into the same block
@@ -573,6 +570,8 @@ export function moduleExport({
   // eslint-disable-next-line unicorn/no-array-reduce
   const pathGroupOverrides = derivedAliases.reduce<PathGroupOverride[]>(
     (overrides, [alias]) => {
+      assert(alias, ErrorMessage.GuruMeditation());
+
       // ? We're only interested in enforcing extensions on specifiers with paths
       if (alias.includes(uriSchemeDelimiter)) {
         const schemeAndPath = alias.replace('*', '{*,*/**}');
@@ -696,7 +695,7 @@ export function moduleExport({
         }
       } satisfies EslintConfig
     ].flatMap((configs) =>
-      overwriteProperty(configs, 'files', [
+      overwriteProperty(configs!, 'files', [
         `**/*.{${toCommaSeparatedExtensionList(extensionsTsAndJs)}}`
       ])
     ),
@@ -947,7 +946,7 @@ export function legacyExtendsFactory(
 ) {
   return function (extension: string, name: string) {
     return {
-      ...fixupConfigRules(flatCompat.extends(extension)[0])[0],
+      ...fixupConfigRules(flatCompat.extends(extension)[0]!)[0],
       name
     } as EslintConfig;
   };

@@ -1,33 +1,18 @@
 import { isNativeError } from 'node:util/types';
 
-import {
-  CliError,
-  FrameworkExitCode,
-  isCliError,
-  type Arguments,
-  type Configuration,
-  type ImportedConfigurationModule
-} from '@black-flag/core';
-
-import {
-  CommandNotImplementedError,
-  type EffectorProgram,
-  type ExecutionContext,
-  type FrameworkArguments
-} from '@black-flag/core/util';
-
+import { CliError, FrameworkExitCode, isCliError } from '@black-flag/core';
+import { CommandNotImplementedError } from '@black-flag/core/util';
 import toCamelCase from 'lodash.camelcase';
 import clone from 'lodash.clone';
 import cloneDeepWith from 'lodash.clonedeepwith';
 import isEqual from 'lodash.isequal';
 import { createDebugLogger } from 'rejoinder';
-import { type ParserConfigurationOptions } from 'yargs';
 // ? Black Flag will always come with its own yargs dependency
 // {@symbiote/notInvalid yargs}
 import makeVanillaYargs from 'yargs/yargs';
 
 import { globalDebuggerNamespace } from 'universe+bfe:constant.ts';
-import { ErrorMessage, type KeyValueEntry } from 'universe+bfe:error.ts';
+import { ErrorMessage } from 'universe+bfe:error.ts';
 
 import {
   $artificiallyInvoked,
@@ -37,12 +22,27 @@ import {
 } from 'universe+bfe:symbols.ts';
 
 import type {
+  Arguments,
+  Configuration,
+  ImportedConfigurationModule
+} from '@black-flag/core';
+
+import type {
+  EffectorProgram,
+  ExecutionContext,
+  FrameworkArguments
+} from '@black-flag/core/util';
+
+import type {
   Entries,
   LiteralUnion,
   OmitIndexSignature,
   Promisable,
   StringKeyOf
 } from 'type-fest';
+
+import type { ParserConfigurationOptions } from 'yargs';
+import type { KeyValueEntry } from 'universe+bfe:error.ts';
 
 /**
  * Internal metadata derived from analysis of a {@link BfeBuilderObject}.
@@ -1276,7 +1276,7 @@ export function withBuilderExtensions<
       expandOptionNameAndAliasesWithRespectToParserConfiguration({
         option: defaultedOption,
         // ? We know these are defined due to the hard assert above
-        aliases: previousBfBuilderObject![defaultedOption].alias,
+        aliases: previousBfBuilderObject![defaultedOption]!.alias,
         parserConfiguration: previousBfParserConfiguration!
         // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
       }).forEach((expandedName) => delete argv[expandedName]);
@@ -1644,7 +1644,7 @@ function analyzeBuilderObject<
 
       Object.entries(canonicalNormalizedImplications).forEach(
         ([impliedOption, impliedValue]) => {
-          const { alias: impliedOptionAliases } = builderObject[impliedOption];
+          const { alias: impliedOptionAliases } = builderObject[impliedOption]!;
 
           // ? Unlike the others, defaults and implies contain their expansions
           expandOptionNameAndAliasesWithRespectToParserConfiguration({

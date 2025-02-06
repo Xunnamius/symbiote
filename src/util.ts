@@ -8,39 +8,8 @@ import {
   getInitialWorkingDirectory,
   toAbsolutePath,
   toPath,
-  toRelativePath,
-  type AbsolutePath,
-  type RelativePath
+  toRelativePath
 } from '@-xun/fs';
-
-import { runNoRejectOnBadExit } from '@-xun/run';
-
-import {
-  $executionContext,
-  CliError,
-  FrameworkExitCode,
-  type Arguments
-} from '@black-flag/core';
-
-import {
-  config as _loadDotEnv,
-  type DotenvConfigOptions,
-  type DotenvParseOutput,
-  type DotenvPopulateInput
-} from 'dotenv';
-
-import {
-  createDebugLogger,
-  type ExtendedDebugger,
-  type ExtendedLogger
-} from 'rejoinder';
-
-import {
-  withStandardBuilder,
-  withStandardUsage
-} from 'multiverse+cli-utils:extensions.ts';
-
-import { LogTag } from 'multiverse+cli-utils:logging.ts';
 
 import {
   aliasMapConfigProjectBase,
@@ -58,27 +27,48 @@ import {
   ProjectAttribute,
   // ? Used in documentation
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  WorkspaceAttribute,
-  type GenericProjectMetadata,
-  type Package,
-  type ProjectMetadata,
-  type RawAlias,
-  type RawAliasMapping,
-  type RawPath
+  WorkspaceAttribute
 } from '@-xun/project';
 
-import {
-  DefaultGlobalScope,
-  globalCliArguments,
-  type GlobalCliArguments,
-  type GlobalExecutionContext
-} from 'universe:configure.ts';
+import { runNoRejectOnBadExit } from '@-xun/run';
+import { $executionContext, CliError, FrameworkExitCode } from '@black-flag/core';
+import { config as _loadDotEnv } from 'dotenv';
+import { createDebugLogger } from 'rejoinder';
 
+import {
+  withStandardBuilder,
+  withStandardUsage
+} from 'multiverse+cli-utils:extensions.ts';
+
+import { LogTag } from 'multiverse+cli-utils:logging.ts';
+
+import { DefaultGlobalScope, globalCliArguments } from 'universe:configure.ts';
 import { globalDebuggerNamespace } from 'universe:constant.ts';
 import { ErrorMessage } from 'universe:error.ts';
 
+import type { AbsolutePath, RelativePath } from '@-xun/fs';
+
+import type {
+  GenericProjectMetadata,
+  Package,
+  ProjectMetadata,
+  RawAlias,
+  RawAliasMapping,
+  RawPath
+} from '@-xun/project';
+
+import type { Arguments } from '@black-flag/core';
+
+import type {
+  DotenvConfigOptions,
+  DotenvParseOutput,
+  DotenvPopulateInput
+} from 'dotenv';
+
+import type { ExtendedDebugger, ExtendedLogger } from 'rejoinder';
 import type { Jsonifiable, LiteralUnion, Merge } from 'type-fest';
 import type { TransformerContext } from 'universe:assets.ts';
+import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:configure.ts';
 
 /**
  * An array of project-root-relative glob magics matching paths that belong
@@ -533,7 +523,7 @@ export async function replaceRegionsRespectively({
           .matchAll(refDefMatcherRegExp)
           .map((r) => toRefDefMapping(r))
           // ? We only care about our "named" refs and not numeric refs
-          .filter(([ref]) => beginsWithAlphaRegExp.test(ref))
+          .filter(([ref]) => beginsWithAlphaRegExp.test(ref!))
       );
 
       debug('currentRefDefsMap: %O', currentRefDefsMap);
@@ -671,7 +661,7 @@ export function deriveScopeNarrowingPathspecs({
 
     const { other: relevantProjectRootPaths } = gatherPackageFiles.sync(rootPackage, {
       useCached: true,
-      ignore: globPathsExclusiveToRootPackage
+      ignore: (globPathsExclusiveToRootPackage as (RelativePath | undefined)[])
         .concat(
           // ? Always exclude the README.md file
           toRelativePath(markdownReadmePackageBase),
@@ -682,7 +672,7 @@ export function deriveScopeNarrowingPathspecs({
             }
           })
         )
-        .filter((path) => !!path)
+        .filter((path): path is RelativePath => !!path)
         // ? We're going by gitignore rules, so preceding / means project root
         // ? unlike when dealing with signature/pathspec magic
         .map((path) => '/' + path)
@@ -1231,5 +1221,5 @@ export async function isGitReferenceMoreRecent(ref: string, moreRecentThan: stri
 }
 
 function toRefDefMapping([refDef, ref]: RegExpMatchArray) {
-  return [ref, refDef.trim()] as const;
+  return [ref!, refDef.trim()] as const;
 }

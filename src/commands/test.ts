@@ -2,20 +2,6 @@
 import { setTimeout as delay } from 'node:timers/promises';
 
 import { toPath, toRelativePath } from '@-xun/fs';
-import { runNoRejectOnBadExit } from '@-xun/run';
-import { CliError, type ChildConfiguration } from '@black-flag/core';
-import { SHORT_TAB } from 'rejoinder';
-
-import { type AsStrictExecutionContext } from 'multiverse+bfe';
-import { softAssert } from 'multiverse+cli-utils:error.ts';
-
-import {
-  logStartTime,
-  LogTag,
-  standardSuccessMessage
-} from 'multiverse+cli-utils:logging.ts';
-
-import { scriptBasename } from 'multiverse+cli-utils:util.ts';
 
 import {
   directoryPackagesProjectBase,
@@ -28,16 +14,24 @@ import {
   lcovCoverageInfoPackageBase,
   ProjectAttribute,
   Tsconfig,
-  tstycheConfigProjectBase,
-  type Package
+  tstycheConfigProjectBase
 } from '@-xun/project';
 
-import {
-  DefaultGlobalScope,
-  type GlobalCliArguments,
-  type GlobalExecutionContext
-} from 'universe:configure.ts';
+import { runNoRejectOnBadExit } from '@-xun/run';
+import { CliError } from '@black-flag/core';
+import { SHORT_TAB } from 'rejoinder';
 
+import { softAssert } from 'multiverse+cli-utils:error.ts';
+
+import {
+  logStartTime,
+  LogTag,
+  standardSuccessMessage
+} from 'multiverse+cli-utils:logging.ts';
+
+import { scriptBasename } from 'multiverse+cli-utils:util.ts';
+
+import { DefaultGlobalScope } from 'universe:configure.ts';
 import { ErrorMessage } from 'universe:error.ts';
 
 import {
@@ -46,6 +40,11 @@ import {
   runGlobalPreChecks,
   withGlobalBuilder
 } from 'universe:util.ts';
+
+import type { Package } from '@-xun/project';
+import type { ChildConfiguration } from '@black-flag/core';
+import type { AsStrictExecutionContext } from 'multiverse+bfe';
+import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:configure.ts';
 
 // TODO: delete me when you see me (unless test-utils is still under packages/)
 // {@symbiote/notExtraneous simple-git}

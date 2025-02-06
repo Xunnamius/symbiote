@@ -9,10 +9,19 @@ import {
   toAbsolutePath,
   toDirname,
   toPath,
-  toRelativePath,
-  type AbsolutePath,
-  type RelativePath
+  toRelativePath
 } from '@-xun/fs';
+
+import {
+  babelConfigProjectBase,
+  deriveAliasesForBabel,
+  generateRawAliasMap,
+  isLocalLookingRegExp,
+  packageJsonConfigPackageBase,
+  readXPackageJsonAtRoot
+} from '@-xun/project';
+
+import { ProjectError } from '@-xun/project/error';
 
 import {
   flattenPackageJsonSubpathMap,
@@ -26,17 +35,6 @@ import semver from 'semver';
 
 import { LogTag } from 'multiverse+cli-utils:logging.ts';
 
-import {
-  babelConfigProjectBase,
-  deriveAliasesForBabel,
-  generateRawAliasMap,
-  isLocalLookingRegExp,
-  packageJsonConfigPackageBase,
-  readXPackageJsonAtRoot
-} from '@-xun/project';
-
-import { ProjectError } from '@-xun/project/error';
-
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 
 import {
@@ -48,6 +46,7 @@ import {
 import { ErrorMessage } from 'universe:error.ts';
 import { stringifyJson } from 'universe:util.ts';
 
+import type { AbsolutePath, RelativePath } from '@-xun/fs';
 import type { TransformOptions as BabelConfig } from '@babel/core';
 import type { Options as BabelPresetEnvConfig } from '@babel/preset-env';
 
@@ -629,6 +628,8 @@ function makeDistReplacerEntry(
       const specifierSubRootPrefix = (
         isCwdPackageTheRootPackage ? '' : toRelativePath(projectRoot, packageRoot)
       ) as RelativePath;
+
+      assert(originalSpecifier, ErrorMessage.GuruMeditation());
 
       const inputFileOutputPathWithOldExtension =
         type === 'source'

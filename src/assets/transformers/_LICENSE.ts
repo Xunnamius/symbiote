@@ -1,7 +1,5 @@
 /* eslint-disable unicorn/filename-case */
 
-import { type RelativePath } from '@-xun/fs';
-
 import { markdownLicensePackageBase } from '@-xun/project';
 
 import {
@@ -10,6 +8,8 @@ import {
   libAssetPresets,
   makeTransformer
 } from 'universe:assets.ts';
+
+import type { RelativePath } from '@-xun/fs';
 
 export const { transformer } = makeTransformer(function (context) {
   const { assetPreset } = context;

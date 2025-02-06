@@ -3,8 +3,7 @@
 import { readdirSync } from 'node:fs';
 
 import { dummyToProjectMetadata } from '@-xun/common-dummies/repositories';
-import { toAbsolutePath, toPath, type AbsolutePath, type RelativePath } from '@-xun/fs';
-import { createDebugLogger, createGenericLogger } from 'rejoinder';
+import { toAbsolutePath, toPath } from '@-xun/fs';
 
 import {
   allContributorsConfigProjectBase,
@@ -14,10 +13,10 @@ import {
   eslintConfigProjectBase,
   jestConfigProjectBase,
   packageJsonConfigPackageBase,
-  Tsconfig,
-  type ProjectMetadata,
-  type RawAlias
+  Tsconfig
 } from '@-xun/project';
+
+import { createDebugLogger, createGenericLogger } from 'rejoinder';
 
 import { parsePackageJsonRepositoryIntoOwnerAndRepo } from 'universe:assets/transformers/_package.json.ts';
 
@@ -32,12 +31,7 @@ import {
   gatherAssetsFromTransformer,
   generatePerPackageAssets,
   generateRootOnlyAssets,
-  makeTransformer,
-  type Asset,
-  type AssetPreset,
-  type IncomingTransformerContext,
-  type ReifiedAssets,
-  type TransformerContext
+  makeTransformer
 } from 'universe:assets.ts';
 
 import { DefaultGlobalScope } from 'universe:configure.ts';
@@ -50,7 +44,17 @@ import {
   magicStringChooserBlockStart
 } from 'universe:util.ts';
 
+import type { AbsolutePath, RelativePath } from '@-xun/fs';
+import type { ProjectMetadata, RawAlias } from '@-xun/project';
 import type { Merge } from 'type-fest';
+
+import type {
+  Asset,
+  AssetPreset,
+  IncomingTransformerContext,
+  ReifiedAssets,
+  TransformerContext
+} from 'universe:assets.ts';
 
 const dummyContext: IncomingTransformerContext = {
   log: createGenericLogger({ namespace: 'unit-assets-dummy-context' }),
@@ -113,8 +117,8 @@ describe('::gatherAssetsFromTransformer', () => {
       await import('universe:assets/transformers/_.all-contributorsrc.ts')
     ).transformer({ ...transformerContext, asset: allContributorsConfigProjectBase });
 
-    await expect(assets[dummyAbsolutePath]()).resolves.toStrictEqual(
-      await expectedAssets[dummyAbsolutePath]()
+    await expect(assets[dummyAbsolutePath]!()).resolves.toStrictEqual(
+      await expectedAssets[dummyAbsolutePath]!()
     );
   });
 
@@ -376,7 +380,7 @@ describe('::gatherAssetsFromTransformer', () => {
           await expect(
             assets[
               toPath(projectMetadata.rootPackage.root, dotEnvDefaultConfigProjectBase)
-            ]()
+            ]!()
           ).resolves.toMatchSnapshot('.env=yes,.end.default=no,force=no');
         }
 
@@ -399,13 +403,13 @@ describe('::gatherAssetsFromTransformer', () => {
           });
 
           await expect(
-            assets[toPath(projectMetadata.rootPackage.root, dotEnvConfigProjectBase)]()
+            assets[toPath(projectMetadata.rootPackage.root, dotEnvConfigProjectBase)]!()
           ).resolves.toMatchSnapshot('.env=yes,.end.default=no,force=yes');
 
           await expect(
             assets[
               toPath(projectMetadata.rootPackage.root, dotEnvDefaultConfigProjectBase)
-            ]()
+            ]!()
           ).resolves.toMatchSnapshot('.env=yes,.end.default=no,force=yes');
         }
 
@@ -448,7 +452,7 @@ describe('::gatherAssetsFromTransformer', () => {
           });
 
           await expect(
-            assets[toPath(projectMetadata.rootPackage.root, dotEnvConfigProjectBase)]()
+            assets[toPath(projectMetadata.rootPackage.root, dotEnvConfigProjectBase)]!()
           ).resolves.toMatchInlineSnapshot(`
             "FAKE_SECRET=fake_value
             FAKE_SECRET_2=fake-string-thing
@@ -465,7 +469,7 @@ describe('::gatherAssetsFromTransformer', () => {
           await expect(
             assets[
               toPath(projectMetadata.rootPackage.root, dotEnvDefaultConfigProjectBase)
-            ]()
+            ]!()
           ).resolves.toMatchInlineSnapshot(`
             "# shellcheck disable=all
 
@@ -499,13 +503,13 @@ describe('::gatherAssetsFromTransformer', () => {
           });
 
           await expect(
-            assets[toPath(projectMetadata.rootPackage.root, dotEnvConfigProjectBase)]()
+            assets[toPath(projectMetadata.rootPackage.root, dotEnvConfigProjectBase)]!()
           ).resolves.toMatchSnapshot('.env=no,.end.default=no,force=no');
 
           await expect(
             assets[
               toPath(projectMetadata.rootPackage.root, dotEnvDefaultConfigProjectBase)
-            ]()
+            ]!()
           ).resolves.toMatchSnapshot('.env=no,.end.default=no,force=no');
         }
 
@@ -528,13 +532,13 @@ describe('::gatherAssetsFromTransformer', () => {
           });
 
           await expect(
-            assets[toPath(projectMetadata.rootPackage.root, dotEnvConfigProjectBase)]()
+            assets[toPath(projectMetadata.rootPackage.root, dotEnvConfigProjectBase)]!()
           ).resolves.toMatchSnapshot('.env=no,.end.default=no,force=yes');
 
           await expect(
             assets[
               toPath(projectMetadata.rootPackage.root, dotEnvDefaultConfigProjectBase)
-            ]()
+            ]!()
           ).resolves.toMatchSnapshot('.env=no,.end.default=no,force=yes');
         }
 
@@ -560,7 +564,7 @@ describe('::gatherAssetsFromTransformer', () => {
           ]);
 
           await expect(
-            assets[toPath(projectMetadata.rootPackage.root, dotEnvConfigProjectBase)]()
+            assets[toPath(projectMetadata.rootPackage.root, dotEnvConfigProjectBase)]!()
           ).resolves.toMatchSnapshot('.env=no,.end.default=yes,force=no');
         }
 
@@ -583,13 +587,13 @@ describe('::gatherAssetsFromTransformer', () => {
           });
 
           await expect(
-            assets[toPath(projectMetadata.rootPackage.root, dotEnvConfigProjectBase)]()
+            assets[toPath(projectMetadata.rootPackage.root, dotEnvConfigProjectBase)]!()
           ).resolves.toMatchSnapshot('.env=no,.end.default=yes,force=yes');
 
           await expect(
             assets[
               toPath(projectMetadata.rootPackage.root, dotEnvDefaultConfigProjectBase)
-            ]()
+            ]!()
           ).resolves.toMatchSnapshot('.env=no,.end.default=yes,force=yes');
         }
       });
@@ -673,7 +677,7 @@ describe('::gatherAssetsFromTransformer', () => {
           );
 
           expect(
-            JSON.parse((await assets[dummyAbsolutePath]()) as string)
+            JSON.parse((await assets[dummyAbsolutePath]!()) as string)
           ).toStrictEqual(
             expect.objectContaining({
               repository: {
@@ -701,7 +705,7 @@ describe('::gatherAssetsFromTransformer', () => {
           );
 
           expect(
-            JSON.parse((await assets[dummyAbsolutePath]()) as string)
+            JSON.parse((await assets[dummyAbsolutePath]!()) as string)
           ).toStrictEqual(
             expect.objectContaining({
               repository: {
@@ -748,7 +752,7 @@ describe('::gatherAssetsFromTransformer', () => {
           );
 
           expect(
-            JSON.parse((await assets[dummyAbsolutePath]()) as string)
+            JSON.parse((await assets[dummyAbsolutePath]!()) as string)
           ).toMatchObject(dependencies);
         }
 
@@ -770,7 +774,7 @@ describe('::gatherAssetsFromTransformer', () => {
           );
 
           expect(
-            JSON.parse((await assets[dummyAbsolutePath]()) as string)
+            JSON.parse((await assets[dummyAbsolutePath]!()) as string)
           ).toMatchObject(dependencies);
         }
       });
@@ -807,7 +811,7 @@ describe('::gatherAssetsFromTransformer', () => {
           );
 
           expect(
-            JSON.parse((await assets[dummyAbsolutePath]()) as string)
+            JSON.parse((await assets[dummyAbsolutePath]!()) as string)
           ).toMatchObject({ scripts });
         }
 
@@ -829,7 +833,7 @@ describe('::gatherAssetsFromTransformer', () => {
           );
 
           expect(
-            JSON.parse((await assets[dummyAbsolutePath]()) as string)
+            JSON.parse((await assets[dummyAbsolutePath]!()) as string)
           ).not.toMatchObject({ scripts });
         }
       });
@@ -866,11 +870,11 @@ describe('::gatherAssetsFromTransformer', () => {
             );
 
             expect(
-              JSON.parse((await assets[dummyProjectJsonPath]()) as string)
+              JSON.parse((await assets[dummyProjectJsonPath]!()) as string)
             ).not.toHaveProperty('private');
 
             expect(
-              JSON.parse((await assets[dummyPackageJsonPath]()) as string)
+              JSON.parse((await assets[dummyPackageJsonPath]!()) as string)
             ).not.toHaveProperty('private');
           }
 
@@ -896,11 +900,11 @@ describe('::gatherAssetsFromTransformer', () => {
             );
 
             expect(
-              JSON.parse((await assets[dummyProjectJsonPath]()) as string)
+              JSON.parse((await assets[dummyProjectJsonPath]!()) as string)
             ).not.toHaveProperty('private');
 
             expect(
-              JSON.parse((await assets[dummyPackageJsonPath]()) as string)
+              JSON.parse((await assets[dummyPackageJsonPath]!()) as string)
             ).not.toHaveProperty('private');
           }
         }
@@ -941,11 +945,11 @@ describe('::gatherAssetsFromTransformer', () => {
             );
 
             expect(
-              JSON.parse((await assets[dummyProjectJsonPath]()) as string)
+              JSON.parse((await assets[dummyProjectJsonPath]!()) as string)
             ).toHaveProperty('private', true);
 
             expect(
-              JSON.parse((await assets[dummyPackageJsonPath]()) as string)
+              JSON.parse((await assets[dummyPackageJsonPath]!()) as string)
             ).toHaveProperty('private', true);
           }
 
@@ -971,11 +975,11 @@ describe('::gatherAssetsFromTransformer', () => {
             );
 
             expect(
-              JSON.parse((await assets[dummyProjectJsonPath]()) as string)
+              JSON.parse((await assets[dummyProjectJsonPath]!()) as string)
             ).toHaveProperty('private', true);
 
             expect(
-              JSON.parse((await assets[dummyPackageJsonPath]()) as string)
+              JSON.parse((await assets[dummyPackageJsonPath]!()) as string)
             ).toHaveProperty('private', true);
           }
         }
@@ -1018,7 +1022,7 @@ describe('::gatherAssetsFromTransformer', () => {
         const dummyAbsolutePath =
           dummyContext.toProjectAbsolutePath(babelConfigProjectBase);
 
-        await expect(assets[dummyAbsolutePath]()).resolves.toInclude(
+        await expect(assets[dummyAbsolutePath]!()).resolves.toInclude(
           '"^finalverse$": "./the/final/verse"'
         );
       }
@@ -1034,7 +1038,7 @@ describe('::gatherAssetsFromTransformer', () => {
           eslintConfigProjectBase
         );
 
-        await expect(assets[dummyAbsolutePath]()).resolves.toInclude(
+        await expect(assets[dummyAbsolutePath]!()).resolves.toInclude(
           '["finalverse", "./the/final/verse"]'
         );
       }
@@ -1049,7 +1053,7 @@ describe('::gatherAssetsFromTransformer', () => {
         const dummyAbsolutePath =
           dummyContext.toProjectAbsolutePath(jestConfigProjectBase);
 
-        await expect(assets[dummyAbsolutePath]()).resolves.toInclude(
+        await expect(assets[dummyAbsolutePath]!()).resolves.toInclude(
           '"^finalverse$": "<rootDir>/the/final/verse"'
         );
       }
@@ -1065,7 +1069,7 @@ describe('::gatherAssetsFromTransformer', () => {
           Tsconfig.ProjectBase
         );
 
-        await expect(assets[dummyAbsolutePath]()).resolves.toInclude(
+        await expect(assets[dummyAbsolutePath]!()).resolves.toInclude(
           '"finalverse": ["the/final/verse"]'
         );
       }
@@ -1318,7 +1322,7 @@ describe('::makeTransformer', () => {
     const context = { asset: 'name' } as TransformerContext;
     const assets = await transformer(context);
 
-    await expect(assets[path]()).resolves.toStrictEqual(JSON.stringify(context) + '\n');
+    await expect(assets[path]!()).resolves.toStrictEqual(JSON.stringify(context) + '\n');
   });
 
   describe('::TransformerOptions', () => {
@@ -1347,8 +1351,8 @@ describe('::makeTransformer', () => {
         const assets = await transformer(context, { trimContents: 'start' });
 
         await expect(toAssetsMap(assets)).resolves.toStrictEqual({
-          file1: files[0].generate().trimStart(),
-          file2: files[1].generate().trimStart()
+          file1: files[0]!.generate().trimStart(),
+          file2: files[1]!.generate().trimStart()
         });
       });
 
@@ -1359,8 +1363,8 @@ describe('::makeTransformer', () => {
         const assets = await transformer(context, { trimContents: 'end' });
 
         await expect(toAssetsMap(assets)).resolves.toStrictEqual({
-          file1: files[0].generate().trimEnd(),
-          file2: files[1].generate().trimEnd()
+          file1: files[0]!.generate().trimEnd(),
+          file2: files[1]!.generate().trimEnd()
         });
       });
 
@@ -1371,8 +1375,8 @@ describe('::makeTransformer', () => {
         const assets = await transformer(context, { trimContents: 'both' });
 
         await expect(toAssetsMap(assets)).resolves.toStrictEqual({
-          file1: files[0].generate().trim(),
-          file2: files[1].generate().trim()
+          file1: files[0]!.generate().trim(),
+          file2: files[1]!.generate().trim()
         });
       });
 
@@ -1387,8 +1391,8 @@ describe('::makeTransformer', () => {
           });
 
           await expect(toAssetsMap(assets)).resolves.toStrictEqual({
-            file1: files[0].generate().trim() + '\n',
-            file2: files[1].generate().trim() + '\n'
+            file1: files[0]!.generate().trim() + '\n',
+            file2: files[1]!.generate().trim() + '\n'
           });
         }
 
@@ -1396,8 +1400,8 @@ describe('::makeTransformer', () => {
           const assets = await transformer(context);
 
           await expect(toAssetsMap(assets)).resolves.toStrictEqual({
-            file1: files[0].generate().trim() + '\n',
-            file2: files[1].generate().trim() + '\n'
+            file1: files[0]!.generate().trim() + '\n',
+            file2: files[1]!.generate().trim() + '\n'
           });
         }
       });
@@ -1409,8 +1413,8 @@ describe('::makeTransformer', () => {
         const assets = await transformer(context, { trimContents: false });
 
         await expect(toAssetsMap(assets)).resolves.toStrictEqual({
-          file1: files[0].generate(),
-          file2: files[1].generate()
+          file1: files[0]!.generate(),
+          file2: files[1]!.generate()
         });
       });
     });

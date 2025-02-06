@@ -1,10 +1,13 @@
-import { $executionContext, type Arguments } from '@black-flag/core';
+import { $executionContext } from '@black-flag/core';
 import { isCommandNotImplementedError } from '@black-flag/core/util';
 
-import {
-  withStandardBuilder,
-  type StandardCommonCliArguments,
-  type StandardExecutionContext
+import { withStandardBuilder } from 'universe+cli-utils:extensions.ts';
+
+import type { Arguments } from '@black-flag/core';
+
+import type {
+  StandardCommonCliArguments,
+  StandardExecutionContext
 } from 'universe+cli-utils:extensions.ts';
 
 const expectedStandardCommonCliArguments = {

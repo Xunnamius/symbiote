@@ -2,36 +2,37 @@ import { toPath } from '@-xun/fs';
 import { memoizer } from '@-xun/memoize';
 
 import {
-  type ConfigureErrorHandlingEpilogue,
-  type ConfigureExecutionContext,
-  type ConfigureExecutionEpilogue
-} from '@black-flag/core';
+  analyzeProjectStructure,
+  directoryDistPackageBase,
+  isAccessible
+} from '@-xun/project';
 
 import { defaultVersionTextDescription } from '@black-flag/core/util';
 import { createDebugLogger, createGenericLogger } from 'rejoinder';
-
-import { type BfeBuilderObject } from 'multiverse+bfe';
 
 import {
   makeStandardConfigureErrorHandlingEpilogue,
   makeStandardConfigureExecutionContext
 } from 'multiverse+cli-utils:configure.ts';
 
-import {
-  type StandardCommonCliArguments,
-  type StandardExecutionContext
-} from 'multiverse+cli-utils:extensions.ts';
-
-import {
-  analyzeProjectStructure,
-  directoryDistPackageBase,
-  isAccessible,
-  type ProjectMetadata
-} from '@-xun/project';
-
 import { version as packageVersion } from 'rootverse:package.json';
 
 import { globalDebuggerNamespace, globalLoggerNamespace } from 'universe:constant.ts';
+
+import type { ProjectMetadata } from '@-xun/project';
+
+import type {
+  ConfigureErrorHandlingEpilogue,
+  ConfigureExecutionContext,
+  ConfigureExecutionEpilogue
+} from '@black-flag/core';
+
+import type { BfeBuilderObject } from 'multiverse+bfe';
+
+import type {
+  StandardCommonCliArguments,
+  StandardExecutionContext
+} from 'multiverse+cli-utils:extensions.ts';
 
 import type {
   // ? Used in documentation

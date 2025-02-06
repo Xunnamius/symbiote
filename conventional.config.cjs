@@ -1,12 +1,12 @@
 // @ts-check
 'use strict';
 
+const { createDebugLogger } = require('rejoinder');
+
 const {
   assertEnvironment,
   moduleExport
 } = require('@-xun/symbiote/assets/conventional.config.cjs');
-
-const { createDebugLogger } = require('rejoinder');
 
 const debug = createDebugLogger({ namespace: 'symbiote:config:conventional' });
 

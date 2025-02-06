@@ -1,7 +1,6 @@
 import assert from 'node:assert';
 import { chmod, mkdir, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
-import { type ReadableStream } from 'node:stream/web';
 import { setTimeout as delay } from 'node:timers/promises';
 import { isNativeError } from 'node:util/types';
 
@@ -9,24 +8,22 @@ import { isNativeError } from 'node:util/types';
 import '@-xun/symbiote/assets/conventional.config.cjs';
 
 import { toPath } from '@-xun/fs';
-import { run, runNoRejectOnBadExit, type RunOptions } from '@-xun/run';
-import { CliError, type ChildConfiguration } from '@black-flag/core';
 
 import {
-  SHORT_TAB,
-  SINGLE_SPACE,
-  type ExtendedDebugger,
-  type ExtendedLogger
-} from 'rejoinder';
+  codecovConfigProjectBase,
+  directoryCoveragePackageBase,
+  fsConstants,
+  isAccessible,
+  lcovCoverageInfoPackageBase,
+  xreleaseConfigProjectBase
+} from '@-xun/project';
 
+import { run, runNoRejectOnBadExit } from '@-xun/run';
+import { CliError } from '@black-flag/core';
+import { SHORT_TAB, SINGLE_SPACE } from 'rejoinder';
 import semver from 'semver';
-import { type Merge, type OmitIndexSignature, type StringKeyOf } from 'type-fest';
 
-import {
-  getInvocableExtendedHandler,
-  type AsStrictExecutionContext
-} from 'multiverse+bfe';
-
+import { getInvocableExtendedHandler } from 'multiverse+bfe';
 import { hardAssert, softAssert } from 'multiverse+cli-utils:error.ts';
 
 import {
@@ -37,27 +34,11 @@ import {
 
 import { scriptBasename } from 'multiverse+cli-utils:util.ts';
 
-import {
-  codecovConfigProjectBase,
-  directoryCoveragePackageBase,
-  fsConstants,
-  isAccessible,
-  lcovCoverageInfoPackageBase,
-  xreleaseConfigProjectBase,
-  type ProjectMetadata,
-  type XPackageJson
-} from '@-xun/project';
-
-import {
-  default as renovate,
-  type CustomCliArguments as RenovateCliArguments
-} from 'universe:commands/project/renovate.ts';
+import { default as renovate } from 'universe:commands/project/renovate.ts';
 
 import {
   DefaultGlobalScope,
-  ThisPackageGlobalScope as ReleaseScope,
-  type GlobalCliArguments,
-  type GlobalExecutionContext
+  ThisPackageGlobalScope as ReleaseScope
 } from 'universe:configure.ts';
 
 import { ErrorMessage } from 'universe:error.ts';
@@ -75,6 +56,16 @@ import {
   withGlobalBuilder,
   withGlobalUsage
 } from 'universe:util.ts';
+
+import type { ReadableStream } from 'node:stream/web';
+import type { ProjectMetadata, XPackageJson } from '@-xun/project';
+import type { RunOptions } from '@-xun/run';
+import type { ChildConfiguration } from '@black-flag/core';
+import type { ExtendedDebugger, ExtendedLogger } from 'rejoinder';
+import type { Merge, OmitIndexSignature, StringKeyOf } from 'type-fest';
+import type { AsStrictExecutionContext } from 'multiverse+bfe';
+import type { CustomCliArguments as RenovateCliArguments } from 'universe:commands/project/renovate.ts';
+import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:configure.ts';
 
 const releaseEmoji = '🚀';
 const nestedTaskDepth = 2;
@@ -432,7 +423,7 @@ Task #${findTaskByDescription(/sync-deps/).id} runs the equivalent of \`symbiote
 
 Task #${findTaskByDescription(/codecov/i).id}, a postrelease task that uploads test coverage data to Codecov, is only performed if (1) coverage data already exists (see task #${findTaskByDescription(/symbiote test/).id}) and (2) a ${codecovConfigProjectBase} configuration file exists at the project root. An error will be thrown if no coverage data exists unless --force is provided. The task will be skipped if no configuration file exists. When uploading coverage data, the package's name and current branch are used to derive one or more flags (https://docs.codecov.com/docs/flags). Codecov uses flags to map reports to specific packages in its UI and coverage badges. See the symbiote wiki for details on flag semantics and usage.
 
-Running \`symbiote release\` will usually execute all prerelease and postrelease tasks. Provide --skip-tasks=task-id (where "task-id" is a valid task number) to skip running a specific task, --skip-tasks=prerelease to skip running tasks #${firstSkippablePrereleaseTaskId}-${prereleaseTasks.at(-1)!.id}, --skip-tasks=postrelease to skip running tasks #${postreleaseTasks[0].id} and above, or --skip-tasks=all to skip running all skippable prerelease and postrelease tasks.
+Running \`symbiote release\` will usually execute all prerelease and postrelease tasks. Provide --skip-tasks=task-id (where "task-id" is a valid task number) to skip running a specific task, --skip-tasks=prerelease to skip running tasks #${firstSkippablePrereleaseTaskId}-${prereleaseTasks.at(-1)!.id}, --skip-tasks=postrelease to skip running tasks #${postreleaseTasks[0]!.id} and above, or --skip-tasks=all to skip running all skippable prerelease and postrelease tasks.
 
 There is also --skip-tasks=${SkippableTasksGroup.AllManualPrereleaseTasks}, which will skip running tasks ${firstSkippablePrereleaseTaskId} through ${lastSchedulerPurviewTaskId}. This is useful when symbiote is being managed by a task scheduling tool like Turbo or Lage.
 

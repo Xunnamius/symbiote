@@ -1,15 +1,17 @@
 import { toRelativePath } from '@-xun/fs';
 
-import { LogTag } from 'multiverse+cli-utils:logging.ts';
-
 import {
   dotEnvConfigPackageBase,
   dotEnvDefaultConfigPackageBase,
   isAccessible
 } from '@-xun/project';
 
-import { generateRootOnlyAssets, makeTransformer, type Asset } from 'universe:assets.ts';
+import { LogTag } from 'multiverse+cli-utils:logging.ts';
+
+import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 import { readFile } from 'universe:util.ts';
+
+import type { Asset } from 'universe:assets.ts';
 
 // {@symbiote/notExtraneous dotenv-cli}
 
@@ -264,7 +266,7 @@ function dotEnvFileToVariablesSet(
     contents
       .split('\n')
       .filter((str) => startsWithAlphaNumeric.test(str) && str.includes('='))
-      .map((str) => (withValues ? str : str.split('=')[0]))
+      .map((str) => (withValues ? str : str.split('=')[0]!))
   );
 }
 

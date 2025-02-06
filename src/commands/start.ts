@@ -1,11 +1,3 @@
-import { runWithInheritedIo } from '@-xun/run';
-import { CliError, type ChildConfiguration } from '@black-flag/core';
-
-import { type AsStrictExecutionContext } from 'multiverse+bfe';
-import { softAssert } from 'multiverse+cli-utils:error.ts';
-import { logStartTime, LogTag } from 'multiverse+cli-utils:logging.ts';
-import { scriptBasename } from 'multiverse+cli-utils:util.ts';
-
 import {
   gatherProjectFiles,
   isWorkspacePackage,
@@ -13,12 +5,14 @@ import {
   WorkspaceAttribute
 } from '@-xun/project';
 
-import {
-  DefaultGlobalScope,
-  type GlobalCliArguments,
-  type GlobalExecutionContext
-} from 'universe:configure.ts';
+import { runWithInheritedIo } from '@-xun/run';
+import { CliError } from '@black-flag/core';
 
+import { softAssert } from 'multiverse+cli-utils:error.ts';
+import { logStartTime, LogTag } from 'multiverse+cli-utils:logging.ts';
+import { scriptBasename } from 'multiverse+cli-utils:util.ts';
+
+import { DefaultGlobalScope } from 'universe:configure.ts';
 import { ErrorMessage } from 'universe:error.ts';
 
 import {
@@ -27,6 +21,10 @@ import {
   withGlobalBuilder,
   withGlobalUsage
 } from 'universe:util.ts';
+
+import type { ChildConfiguration } from '@black-flag/core';
+import type { AsStrictExecutionContext } from 'multiverse+bfe';
+import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:configure.ts';
 
 export type CustomCliArguments = GlobalCliArguments;
 
@@ -113,7 +111,7 @@ If this command is run with --scope=unlimited (the default) in a monorepo, and t
             [LogTag.IF_NOT_QUIETED],
             passControlMessage(`CLI (first CLI-enabled sub-root package)`)
           );
-          await runWithInheritedIo(atAnyRoot[0], args);
+          await runWithInheritedIo(atAnyRoot[0]!, args);
         }
         // ? Otherwise, if no CLIs available, check if we're a Next.js project
         else if (projectAttributes[ProjectAttribute.Next]) {

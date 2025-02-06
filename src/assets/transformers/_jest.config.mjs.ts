@@ -1,8 +1,5 @@
 import { cpus } from 'node:os';
 
-import { type Config } from 'jest';
-import { createDebugLogger } from 'rejoinder';
-
 import {
   deriveAliasesForJest,
   generateRawAliasMap,
@@ -10,6 +7,7 @@ import {
 } from '@-xun/project';
 
 import { ProjectError } from '@-xun/project/error';
+import { createDebugLogger } from 'rejoinder';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 
@@ -20,6 +18,8 @@ import {
 
 import { ErrorMessage } from 'universe:error.ts';
 import { stringifyJson } from 'universe:util.ts';
+
+import type { Config } from 'jest';
 
 const debug = createDebugLogger({
   namespace: `${globalDebuggerNamespace}:asset:jest`

@@ -3,19 +3,18 @@
 import nodeFs from 'node:fs/promises';
 
 import { dummyToProjectMetadata } from '@-xun/common-dummies/repositories';
-import { getInitialWorkingDirectory, type AbsolutePath } from '@-xun/fs';
-import * as xrun from '@-xun/run';
-import { createDebugLogger } from 'rejoinder';
+import { getInitialWorkingDirectory } from '@-xun/fs';
 
 import {
   dotEnvConfigPackageBase,
   dotEnvConfigProjectBase,
   dotEnvDefaultConfigPackageBase,
-  dotEnvDefaultConfigProjectBase,
-  type ProjectMetadata
+  dotEnvDefaultConfigProjectBase
 } from '@-xun/project';
 
-import { type TransformerContext } from 'universe:assets.ts';
+import * as xrun from '@-xun/run';
+import { createDebugLogger } from 'rejoinder';
+
 import { DefaultGlobalScope } from 'universe:configure.ts';
 import { ErrorMessage } from 'universe:error.ts';
 
@@ -26,6 +25,10 @@ import {
   replaceRegionsRespectively,
   runGlobalPreChecks
 } from 'universe:util.ts';
+
+import type { AbsolutePath } from '@-xun/fs';
+import type { ProjectMetadata } from '@-xun/project';
+import type { TransformerContext } from 'universe:assets.ts';
 
 const dummyDebugger = createDebugLogger({ namespace: 'fake' });
 dummyDebugger.enabled = false;

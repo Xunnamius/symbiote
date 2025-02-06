@@ -1,6 +1,6 @@
-import { type ExtendedLogger } from 'rejoinder';
-
 import { name as packageName, version as packageVersion } from 'rootverse:package.json';
+
+import type { ExtendedLogger } from 'rejoinder';
 
 /**
  * Hard-coded maximum reporting depth of the causal stack when fatal errors

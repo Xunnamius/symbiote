@@ -9,40 +9,6 @@ import {
   toRelativePath
 } from '@-xun/fs';
 
-import { run } from '@-xun/run';
-import { CliError, type ChildConfiguration } from '@black-flag/core';
-import escapeStringRegexp from 'escape-string-regexp~4';
-import libsodium from 'libsodium-wrappers';
-import getInObject from 'lodash.get';
-
-import {
-  SHORT_TAB,
-  SINGLE_SPACE,
-  type ExtendedDebugger,
-  type ExtendedLogger
-} from 'rejoinder';
-
-import semver from 'semver';
-
-import {
-  getInvocableExtendedHandler,
-  type AsStrictExecutionContext,
-  type BfeBuilderObject,
-  type BfeBuilderObjectValue,
-  type BfeCheckFunction,
-  type BfeStrictArguments
-} from 'multiverse+bfe';
-
-import { hardAssert, softAssert } from 'multiverse+cli-utils:error.ts';
-
-import {
-  logStartTime,
-  LogTag,
-  standardSuccessMessage
-} from 'multiverse+cli-utils:logging.ts';
-
-import { scriptBasename } from 'multiverse+cli-utils:util.ts';
-
 import {
   aliasMapConfigProjectBase,
   babelConfigProjectBase,
@@ -53,9 +19,27 @@ import {
   packageJsonConfigPackageBase,
   ProjectAttribute,
   Tsconfig,
-  webpackConfigProjectBase,
-  type Package
+  webpackConfigProjectBase
 } from '@-xun/project';
+
+import { run } from '@-xun/run';
+import { CliError } from '@black-flag/core';
+import escapeStringRegexp from 'escape-string-regexp~4';
+import libsodium from 'libsodium-wrappers';
+import getInObject from 'lodash.get';
+import { SHORT_TAB, SINGLE_SPACE } from 'rejoinder';
+import semver from 'semver';
+
+import { getInvocableExtendedHandler } from 'multiverse+bfe';
+import { hardAssert, softAssert } from 'multiverse+cli-utils:error.ts';
+
+import {
+  logStartTime,
+  LogTag,
+  standardSuccessMessage
+} from 'multiverse+cli-utils:logging.ts';
+
+import { scriptBasename } from 'multiverse+cli-utils:util.ts';
 
 import { version as packageVersion } from 'rootverse:package.json';
 
@@ -68,22 +52,15 @@ import {
 import {
   $delete,
   assetPresets,
-  gatherAssetsFromAllTransformers,
-  type AssetPreset,
-  type IncomingTransformerContext
+  gatherAssetsFromAllTransformers
 } from 'universe:assets.ts';
 
-import {
-  default as format,
-  type CustomCliArguments as FormatCliArguments
-} from 'universe:commands/format.ts';
+import { default as format } from 'universe:commands/format.ts';
 
 import {
   $executionContext,
   DefaultGlobalScope,
-  DefaultGlobalScope as ProjectRenovateScope,
-  type GlobalCliArguments,
-  type GlobalExecutionContext
+  DefaultGlobalScope as ProjectRenovateScope
 } from 'universe:configure.ts';
 
 import { ErrorMessage } from 'universe:error.ts';
@@ -106,8 +83,23 @@ import {
   writeFile
 } from 'universe:util.ts';
 
+import type { Package } from '@-xun/project';
+import type { ChildConfiguration } from '@black-flag/core';
 import type { RestEndpointMethodTypes } from '@octokit/rest' with { 'resolution-mode': 'import' };
+import type { ExtendedDebugger, ExtendedLogger } from 'rejoinder';
 import type { CamelCasedProperties, KeysOfUnion, Merge } from 'type-fest';
+
+import type {
+  AsStrictExecutionContext,
+  BfeBuilderObject,
+  BfeBuilderObjectValue,
+  BfeCheckFunction,
+  BfeStrictArguments
+} from 'multiverse+bfe';
+
+import type { AssetPreset, IncomingTransformerContext } from 'universe:assets.ts';
+import type { CustomCliArguments as FormatCliArguments } from 'universe:commands/format.ts';
+import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:configure.ts';
 
 type NewRuleset = Merge<
   RestEndpointMethodTypes['repos']['createRepoRuleset']['parameters'],
@@ -363,7 +355,8 @@ ${printRenovationTasks()}`,
       const genericLogger = standardLog.extend(handlerName);
       const debug = standardDebug.extend(`handler-${handlerName}`);
 
-      const camelize = (str: string) => str.replaceAll(/-./g, (x) => x[1].toUpperCase());
+      const camelize = (str: string) =>
+        str.replaceAll(/-./g, (x) => x[1]!.toUpperCase());
 
       debug('entered handler');
 

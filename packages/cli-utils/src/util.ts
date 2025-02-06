@@ -44,7 +44,7 @@ export function scriptBasename(scriptFullName: string) {
  */
 export function interpolateTemplate(template: string, context: Record<string, string>) {
   Object.keys(context).forEach((key) => {
-    template = template.replaceAll(new RegExp(`{{${key}}}`, 'g'), context[key]);
+    template = template.replaceAll(new RegExp(`{{${key}}}`, 'g'), context[key]!);
   });
 
   return template;

@@ -1,5 +1,4 @@
-import { toRelativePath, type AbsolutePath } from '@-xun/fs';
-
+import { toRelativePath } from '@-xun/fs';
 import { directoryVscodeProjectBase } from '@-xun/project';
 
 import {
@@ -9,6 +8,8 @@ import {
 } from 'universe:assets.ts';
 
 import { readFile } from 'universe:util.ts';
+
+import type { AbsolutePath } from '@-xun/fs';
 
 const endsWithExampleJsonRegExp = /\.example\.json$/;
 
@@ -42,7 +43,7 @@ export const { transformer } = makeTransformer(function (context) {
       if (force) {
         templates.push({ path: existingContentsPath, generate });
       } else {
-        templates[index].generate = async function () {
+        templates[index]!.generate = async function () {
           const existingContents = await readIn(existingContentsPath);
 
           debug('existingContentsPath: %O', existingContentsPath);

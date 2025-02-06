@@ -19,8 +19,7 @@ import {
   dummyNpmPackageFixture,
   gitRepositoryFixture,
   reconfigureJestGlobalsToSkipTestsInThisFileIfRequested,
-  withMockedFixtures,
-  type FixtureContext
+  withMockedFixtures
 } from 'testverse:util.ts';
 
 import type {
@@ -29,6 +28,7 @@ import type {
 } from '@-xun/changelog' with { 'resolution-mode': 'import' };
 
 import type { Merge, Promisable, SetParameterType } from 'type-fest';
+import type { FixtureContext } from 'testverse:util.ts';
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true });
 

@@ -1,6 +1,8 @@
 import { directoryTypesProjectBase, isAccessible } from '@-xun/project';
 
-import { generateRootOnlyAssets, makeTransformer, type Asset } from 'universe:assets.ts';
+import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
+
+import type { Asset } from 'universe:assets.ts';
 
 export const { transformer } = makeTransformer(function (context) {
   const { toProjectAbsolutePath } = context;

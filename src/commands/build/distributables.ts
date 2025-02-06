@@ -11,41 +11,8 @@ import {
   toAbsolutePath,
   toDirname,
   toPath,
-  toRelativePath,
-  type Path,
-  type RelativePath
+  toRelativePath
 } from '@-xun/fs';
-
-import { run, runNoRejectOnBadExit } from '@-xun/run';
-
-import {
-  loadOptions as loadBabelOptions,
-  transformFileAsync as babelTransformAsync
-} from '@babel/core';
-
-import { type ChildConfiguration } from '@black-flag/core';
-
-import {
-  flattenPackageJsonSubpathMap,
-  resolveExportsTargetsFromEntryPoint
-} from 'bidirectional-resolve';
-
-import escapeStringRegexp from 'escape-string-regexp~4';
-import { glob as globAsync } from 'glob';
-import { SHORT_TAB } from 'rejoinder';
-import { rimraf as forceDeletePaths } from 'rimraf';
-import uniqueFilename from 'unique-filename';
-
-import { type AsStrictExecutionContext, type BfeBuilderObject } from 'multiverse+bfe';
-import { hardAssert, softAssert } from 'multiverse+cli-utils:error.ts';
-
-import {
-  logStartTime,
-  LogTag,
-  standardSuccessMessage
-} from 'multiverse+cli-utils:logging.ts';
-
-import { scriptBasename } from 'multiverse+cli-utils:util.ts';
 
 import {
   directoryDistPackageBase,
@@ -76,10 +43,36 @@ import {
   PseudodecoratorTag,
   specifierToPackageName,
   Tsconfig,
-  WorkspaceAttribute,
-  type ImportSpecifier,
-  type MetadataImportsPrefix
+  WorkspaceAttribute
 } from '@-xun/project';
+
+import { run, runNoRejectOnBadExit } from '@-xun/run';
+
+import {
+  loadOptions as loadBabelOptions,
+  transformFileAsync as babelTransformAsync
+} from '@babel/core';
+
+import {
+  flattenPackageJsonSubpathMap,
+  resolveExportsTargetsFromEntryPoint
+} from 'bidirectional-resolve';
+
+import escapeStringRegexp from 'escape-string-regexp~4';
+import { glob as globAsync } from 'glob';
+import { SHORT_TAB } from 'rejoinder';
+import { rimraf as forceDeletePaths } from 'rimraf';
+import uniqueFilename from 'unique-filename';
+
+import { hardAssert, softAssert } from 'multiverse+cli-utils:error.ts';
+
+import {
+  logStartTime,
+  LogTag,
+  standardSuccessMessage
+} from 'multiverse+cli-utils:logging.ts';
+
+import { scriptBasename } from 'multiverse+cli-utils:util.ts';
 
 import {
   extensionsTypescript,
@@ -88,12 +81,7 @@ import {
 } from 'universe:assets/transformers/_babel.config.cjs.ts';
 
 import { TesterScope } from 'universe:commands/test.ts';
-
-import {
-  ThisPackageGlobalScope as DistributablesBuilderScope,
-  type GlobalCliArguments,
-  type GlobalExecutionContext
-} from 'universe:configure.ts';
+import { ThisPackageGlobalScope as DistributablesBuilderScope } from 'universe:configure.ts';
 
 import {
   BuildOutputCheckError,
@@ -111,6 +99,12 @@ import {
   withGlobalUsage,
   writeFile
 } from 'universe:util.ts';
+
+import type { Path, RelativePath } from '@-xun/fs';
+import type { ImportSpecifier, MetadataImportsPrefix } from '@-xun/project';
+import type { ChildConfiguration } from '@black-flag/core';
+import type { AsStrictExecutionContext, BfeBuilderObject } from 'multiverse+bfe';
+import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:configure.ts';
 
 const standardNodeShebang = '#!/usr/bin/env node\n';
 const nodeModulesRelativeBinDir = `node_modules/.bin`;

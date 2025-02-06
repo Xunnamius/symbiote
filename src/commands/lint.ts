@@ -1,17 +1,4 @@
 import { toPath, toRelativePath } from '@-xun/fs';
-import { runNoRejectOnBadExit, type run, type Subprocess } from '@-xun/run';
-import { CliError, type ChildConfiguration } from '@black-flag/core';
-
-import { type AsStrictExecutionContext } from 'multiverse+bfe';
-import { hardAssert, softAssert } from 'multiverse+cli-utils:error.ts';
-
-import {
-  logStartTime,
-  LogTag,
-  standardSuccessMessage
-} from 'multiverse+cli-utils:logging.ts';
-
-import { scriptBasename } from 'multiverse+cli-utils:util.ts';
 
 import {
   directorySrcPackageBase,
@@ -24,12 +11,20 @@ import {
   Tsconfig
 } from '@-xun/project';
 
-import {
-  DefaultGlobalScope as LinterScope,
-  type GlobalCliArguments,
-  type GlobalExecutionContext
-} from 'universe:configure.ts';
+import { runNoRejectOnBadExit } from '@-xun/run';
+import { CliError } from '@black-flag/core';
 
+import { hardAssert, softAssert } from 'multiverse+cli-utils:error.ts';
+
+import {
+  logStartTime,
+  LogTag,
+  standardSuccessMessage
+} from 'multiverse+cli-utils:logging.ts';
+
+import { scriptBasename } from 'multiverse+cli-utils:util.ts';
+
+import { DefaultGlobalScope as LinterScope } from 'universe:configure.ts';
 import { ErrorMessage } from 'universe:error.ts';
 
 import {
@@ -38,6 +33,11 @@ import {
   withGlobalBuilder,
   withGlobalUsage
 } from 'universe:util.ts';
+
+import type { run, Subprocess } from '@-xun/run';
+import type { ChildConfiguration } from '@black-flag/core';
+import type { AsStrictExecutionContext } from 'multiverse+bfe';
+import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:configure.ts';
 
 export enum Linter {
   Tsc = 'tsc',
@@ -125,7 +125,7 @@ export default async function command({
                       return (
                         currentArgument.length === 1 ||
                         ErrorMessage.OptionValueMustBeAloneWhenBaseline(
-                          currentArgument[0],
+                          currentArgument[0]!,
                           '--linter option'
                         )
                       );

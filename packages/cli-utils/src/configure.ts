@@ -1,15 +1,8 @@
 import { isNativeError } from 'node:util/types';
 
-import {
-  disableLoggers,
-  LoggerType,
-  TAB,
-  type ExtendedDebugger,
-  type ExtendedLogger
-} from 'rejoinder';
+import { disableLoggers, LoggerType, TAB } from 'rejoinder';
 
 import { TaskError } from 'universe+cli-utils:error.ts';
-import { type StandardExecutionContext } from 'universe+cli-utils:extensions.ts';
 import { LogTag, MAX_LOG_ERROR_ENTRIES } from 'universe+cli-utils:logging.ts';
 import { toFirstLowerCase, toSentenceCase } from 'universe+cli-utils:util.ts';
 
@@ -17,6 +10,9 @@ import type {
   ConfigureErrorHandlingEpilogue,
   ConfigureExecutionContext
 } from '@black-flag/core';
+
+import type { ExtendedDebugger, ExtendedLogger } from 'rejoinder';
+import type { StandardExecutionContext } from 'universe+cli-utils:extensions.ts';
 
 const { IF_NOT_SILENCED, IF_NOT_QUIETED, IF_NOT_HUSHED } = LogTag;
 

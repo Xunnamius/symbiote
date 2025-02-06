@@ -1,17 +1,12 @@
-/* eslint-disable @typescript-eslint/no-unnecessary-condition */ // <-- broken
+// <-- broken
 /* eslint-disable @typescript-eslint/restrict-template-expressions */
 /* eslint-disable unicorn/prevent-abbreviations */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { setTimeout as delay } from 'node:timers/promises';
 import { isNativeError } from 'node:util/types';
 
-import { $executionContext, isCliError, type Arguments } from '@black-flag/core';
-
-import {
-  isCommandNotImplementedError,
-  type ExecutionContext
-} from '@black-flag/core/util';
-
+import { $executionContext, isCliError } from '@black-flag/core';
+import { isCommandNotImplementedError } from '@black-flag/core/util';
 // TODO: switch to es-toolkit over lodash?
 import isEqual from 'lodash.isequal';
 import deepMerge from 'lodash.merge';
@@ -19,15 +14,17 @@ import deepMerge from 'lodash.merge';
 import {
   getInvocableExtendedHandler,
   withBuilderExtensions,
-  withUsageExtensions,
-  type AsStrictExecutionContext
+  withUsageExtensions
 } from 'universe+bfe';
 
 import { ErrorMessage } from 'universe+bfe:error.ts';
 import { $artificiallyInvoked, $exists } from 'universe+bfe:symbols.ts';
 
+import type { Arguments } from '@black-flag/core';
+import type { ExecutionContext } from '@black-flag/core/util';
 import type { PartialDeep } from 'type-fest';
 import type { ParserConfigurationOptions } from 'yargs';
+import type { AsStrictExecutionContext } from 'universe+bfe';
 
 describe('::withBuilderExtensions', () => {
   describe('"requires" configuration', () => {

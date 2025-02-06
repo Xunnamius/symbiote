@@ -1,10 +1,11 @@
 import { run } from '@-xun/run';
-import { type ExtendedLogger } from 'rejoinder';
 
 import { hardAssert } from 'multiverse+cli-utils:error.ts';
 import { LogTag } from 'multiverse+cli-utils:logging.ts';
 
 import { ErrorMessage } from 'universe:error.ts';
+
+import type { ExtendedLogger } from 'rejoinder';
 
 export async function attemptToRunCommand(
   cmd: Parameters<typeof run>[0],

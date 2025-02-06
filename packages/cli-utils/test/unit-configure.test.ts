@@ -1,6 +1,4 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { type Arguments } from '@black-flag/core';
-import { type ExecutionContext } from '@black-flag/core/util';
 import { ListrErrorTypes } from 'listr2';
 import { createDebugLogger, createGenericLogger, TAB } from 'rejoinder';
 
@@ -9,11 +7,12 @@ import {
   makeStandardConfigureExecutionContext
 } from 'universe+cli-utils:configure.ts';
 
-import { type StandardExecutionContext } from 'universe+cli-utils:extensions.ts';
-
 import { withMockedOutput } from 'testverse:util.ts';
 
+import type { Arguments } from '@black-flag/core';
+import type { ExecutionContext } from '@black-flag/core/util';
 import type { PartialDeep } from 'type-fest';
+import type { StandardExecutionContext } from 'universe+cli-utils:extensions.ts';
 
 const namespace = { namespace: 'test' };
 

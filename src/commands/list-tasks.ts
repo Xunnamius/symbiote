@@ -1,7 +1,3 @@
-import { type ChildConfiguration } from '@black-flag/core';
-
-import { type AsStrictExecutionContext } from 'multiverse+bfe';
-
 import {
   logStartTime,
   LogTag,
@@ -10,17 +6,17 @@ import {
 
 import { scriptBasename } from 'multiverse+cli-utils:util.ts';
 
-import {
-  DefaultGlobalScope,
-  type GlobalCliArguments,
-  type GlobalExecutionContext
-} from 'universe:configure.ts';
+import { DefaultGlobalScope } from 'universe:configure.ts';
 
 import {
   runGlobalPreChecks,
   withGlobalBuilder,
   withGlobalUsage
 } from 'universe:util.ts';
+
+import type { ChildConfiguration } from '@black-flag/core';
+import type { AsStrictExecutionContext } from 'multiverse+bfe';
+import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:configure.ts';
 
 const frontmatter = `\n⮞  `;
 

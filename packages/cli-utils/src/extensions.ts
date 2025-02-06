@@ -1,33 +1,29 @@
 import { $executionContext } from '@black-flag/core';
-
-import {
-  CommandNotImplementedError,
-  type ExecutionContext
-} from '@black-flag/core/util';
+import { CommandNotImplementedError } from '@black-flag/core/util';
 
 import {
   createDebugLogger,
   disableLoggingByTag,
   enableLoggingByTag,
-  getDisabledTags,
-  type ExtendedDebugger,
-  type ExtendedLogger
+  getDisabledTags
 } from 'rejoinder';
 
-import {
-  withBuilderExtensions,
-  type BfeBuilderObject,
-  type WithBuilderExtensionsConfig,
-  type WithBuilderExtensionsReturnType
-} from 'multiverse+bfe';
-
+import { withBuilderExtensions } from 'multiverse+bfe';
 import { $artificiallyInvoked } from 'multiverse+bfe:symbols.ts';
 
 import { globalDebuggerNamespace } from 'universe+cli-utils:constant.ts';
 import { LogTag } from 'universe+cli-utils:logging.ts';
 
+import type { ExecutionContext } from '@black-flag/core/util';
+import type { ExtendedDebugger, ExtendedLogger } from 'rejoinder';
 import type { ListrManager } from 'rejoinder-listr2';
 import type { Entries } from 'type-fest';
+
+import type {
+  BfeBuilderObject,
+  WithBuilderExtensionsConfig,
+  WithBuilderExtensionsReturnType
+} from 'multiverse+bfe';
 
 import type {
   // ? Used in documentation

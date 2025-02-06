@@ -1,13 +1,13 @@
-import { makeNamedError } from 'named-app-errors';
-
-import { ErrorMessage as UpstreamErrorMessage } from 'multiverse+cli-utils:error.ts';
-
 import {
   $type,
   $type_ProjectError,
   isProjectError,
   ProjectError
 } from '@-xun/project/error';
+
+import { makeNamedError } from 'named-app-errors';
+
+import { ErrorMessage as UpstreamErrorMessage } from 'multiverse+cli-utils:error.ts';
 
 import { DefaultGlobalScope } from 'universe:configure.ts';
 
@@ -36,7 +36,7 @@ export function isBuildOutputCheckError(
  */
 export class BuildOutputCheckError extends ProjectError {
   // TODO: this prop should be added by makeNamedError or whatever other fn
-  [$type] = [$type_BuildOutputCheckError, $type_ProjectError];
+  override [$type] = [$type_BuildOutputCheckError, $type_ProjectError];
   /**
    * Represents encountering a project that is not a git repository.
    */

@@ -1,9 +1,9 @@
 import assert from 'node:assert';
 
-import { CliError, type ChildConfiguration } from '@black-flag/core';
+import { sortPackagesTopologically } from '@-xun/project';
+import { CliError } from '@black-flag/core';
 import { SHORT_TAB } from 'rejoinder';
 
-import { type AsStrictExecutionContext } from 'multiverse+bfe';
 import { softAssert } from 'multiverse+cli-utils:error.ts';
 
 import {
@@ -14,14 +14,7 @@ import {
 
 import { scriptBasename } from 'multiverse+cli-utils:util.ts';
 
-import { sortPackagesTopologically } from '@-xun/project';
-
-import {
-  UnlimitedGlobalScope as TopologyScope,
-  type GlobalCliArguments,
-  type GlobalExecutionContext
-} from 'universe:configure.ts';
-
+import { UnlimitedGlobalScope as TopologyScope } from 'universe:configure.ts';
 import { ErrorMessage } from 'universe:error.ts';
 import { attemptToRunCommand } from 'universe:task-runner.ts';
 
@@ -30,6 +23,10 @@ import {
   withGlobalBuilder,
   withGlobalUsage
 } from 'universe:util.ts';
+
+import type { ChildConfiguration } from '@black-flag/core';
+import type { AsStrictExecutionContext } from 'multiverse+bfe';
+import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:configure.ts';
 
 export type { RawAliasMapperArray, RawAliasMapperFunction } from 'universe:util.ts';
 

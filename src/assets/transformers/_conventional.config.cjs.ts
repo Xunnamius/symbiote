@@ -1,6 +1,7 @@
 import assert from 'node:assert';
 import childProcess from 'node:child_process';
 
+import { analyzeProjectStructure, xchangelogConfigProjectBase } from '@-xun/project';
 import escapeStringRegExp from 'escape-string-regexp~4';
 import clone from 'lodash.clone';
 import cloneDeepWith from 'lodash.clonedeepwith';
@@ -9,12 +10,6 @@ import { createDebugLogger } from 'rejoinder';
 import semver from 'semver';
 
 import { interpolateTemplate, toSentenceCase } from 'multiverse+cli-utils:util.ts';
-
-import {
-  analyzeProjectStructure,
-  xchangelogConfigProjectBase,
-  type ProjectMetadata
-} from '@-xun/project';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 import { globalDebuggerNamespace } from 'universe:constant.ts';
@@ -31,6 +26,8 @@ import type {
   XchangelogConfig,
   XchangelogSpec
 } from '@-xun/changelog' with { 'resolution-mode': 'import' };
+
+import type { ProjectMetadata } from '@-xun/project';
 
 const debug = createDebugLogger({
   namespace: `${globalDebuggerNamespace}:asset:conventional`
@@ -505,7 +502,7 @@ export function moduleExport({
             commandStrings
           );
 
-          commit.subject = subject;
+          commit.subject = subject!;
         }
 
         // ? Delete xpipeline command suffixes from the headers of commits
@@ -517,7 +514,7 @@ export function moduleExport({
             commandStrings
           );
 
-          commit.header = header;
+          commit.header = header!;
         }
 
         // ? Escape "invalid" markdown symbols in header, subject, and scope
@@ -588,7 +585,7 @@ export function moduleExport({
                 commandStrings
               );
 
-              note.text = updatedNoteText;
+              note.text = updatedNoteText!;
             }
 
             // ? Escape "invalid" markdown symbols
@@ -849,6 +846,7 @@ export function moduleExport({
 
       if (match && notes.length === 0) {
         const noteText = match[3]; // ? Commit subject becomes BC note text
+        assert(noteText !== undefined, ErrorMessage.GuruMeditation());
         notes.push({ text: noteText, title: noteTitleForBreakingChange });
       }
     }

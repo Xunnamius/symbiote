@@ -1,8 +1,6 @@
-import { toRelativePath, type AbsolutePath, type RelativePath } from '@-xun/fs';
-import semver from 'semver';
-import { type Jsonifiable } from 'type-fest';
+import assert from 'node:assert';
 
-import { LogTag } from 'multiverse+cli-utils:logging.ts';
+import { toRelativePath } from '@-xun/fs';
 
 import {
   directoryPackagesProjectBase,
@@ -10,16 +8,13 @@ import {
   isRootPackage,
   packageJsonConfigPackageBase,
   ProjectAttribute,
-  WorkspaceAttribute,
-  type Package,
-  type XPackageJson,
-  type XPackageJsonHybridrepoRoot,
-  type XPackageJsonMonorepoRoot,
-  type XPackageJsonPolyrepoRoot,
-  type XPackageJsonSubRoot
+  WorkspaceAttribute
 } from '@-xun/project';
 
 import { ProjectError } from '@-xun/project/error';
+import semver from 'semver';
+
+import { LogTag } from 'multiverse+cli-utils:logging.ts';
 
 import { version as symbioteVersion } from 'rootverse:package.json';
 
@@ -28,13 +23,26 @@ import {
   assetPresets,
   compileTemplateInMemory,
   generatePerPackageAssets,
-  makeTransformer,
-  type TransformerContext
+  makeTransformer
 } from 'universe:assets.ts';
 
 import { DefaultGlobalScope } from 'universe:configure.ts';
 import { ErrorMessage } from 'universe:error.ts';
 import { stringifyJson } from 'universe:util.ts';
+
+import type { AbsolutePath, RelativePath } from '@-xun/fs';
+
+import type {
+  Package,
+  XPackageJson,
+  XPackageJsonHybridrepoRoot,
+  XPackageJsonMonorepoRoot,
+  XPackageJsonPolyrepoRoot,
+  XPackageJsonSubRoot
+} from '@-xun/project';
+
+import type { Jsonifiable } from 'type-fest';
+import type { TransformerContext } from 'universe:assets.ts';
 
 export type GeneratorParameters = [
   json: Package['json'] &
@@ -412,6 +420,7 @@ export function parsePackageJsonRepositoryIntoOwnerAndRepo({
 
     if (match) {
       const [, owner, repo] = match;
+      assert(owner && repo, ErrorMessage.GuruMeditation());
       return { owner, repo };
     }
   }

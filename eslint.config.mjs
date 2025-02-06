@@ -1,11 +1,11 @@
 // @ts-check
 
+import { createDebugLogger } from 'rejoinder';
+
 import {
   assertEnvironment,
   moduleExport
 } from '@-xun/symbiote/assets/eslint.config.mjs';
-
-import { createDebugLogger } from 'rejoinder';
 
 const debug = createDebugLogger({ namespace: 'symbiote:config:eslint' });
 
