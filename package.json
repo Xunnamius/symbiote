@@ -105,7 +105,8 @@
   },
   "dependencies": {
     "@-xun/changelog": "^1.0.0",
-    "@-xun/jest": "^1.0.0",
+    "@-xun/jest": "^1.1.0",
+    "@-xun/project": "^1.0.1",
     "@-xun/run": "^0.0.1",
     "@arethetypeswrong/cli": "^0.17.3",
     "@babel/cli": "^7.26.4",
@@ -151,6 +152,7 @@
     "babel-plugin-explicit-exports-references": "^1.0.2",
     "babel-plugin-metadata-accumulator": "^1.0.0",
     "babel-plugin-transform-rewrite-imports": "^1.5.3",
+    "bidirectional-resolve": "^1.0.1",
     "browserslist": "^4.24.4",
     "confusing-browser-globals": "^1.0.11",
     "core-js": "^3.40.0",
