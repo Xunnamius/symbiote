@@ -8,7 +8,7 @@
 
 > `const` **assetPresets**: [`AssetPreset`](../enumerations/AssetPreset.md)[]
 
-Defined in: [src/assets.ts:129](https://github.com/Xunnamius/symbiote/blob/32027a085b8c7c4a98bb8de413916d57db0fd040/src/assets.ts#L129)
+Defined in: [src/assets.ts:129](https://github.com/Xunnamius/symbiote/blob/385866d2602d36dd6b86c7f4511dc3df19a6ef56/src/assets.ts#L129)
 
 ## See
 

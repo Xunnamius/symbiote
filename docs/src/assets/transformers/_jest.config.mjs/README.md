@@ -20,3 +20,4 @@
 - [baseConfig](functions/baseConfig.md)
 - [moduleExport](functions/moduleExport.md)
 - [transformer](functions/transformer.md)
+- [transformSelectEsmPackagesToCjs](functions/transformSelectEsmPackagesToCjs.md)

@@ -6,9 +6,9 @@
 
 # Function: moduleExport()
 
-> **moduleExport**(`__namedParameters`): `object`
+> **moduleExport**(`__namedParameters`): [`JestConfig`](../type-aliases/JestConfig.md)
 
-Defined in: [src/assets/transformers/\_jest.config.mjs.ts:106](https://github.com/Xunnamius/symbiote/blob/32027a085b8c7c4a98bb8de413916d57db0fd040/src/assets/transformers/_jest.config.mjs.ts#L106)
+Defined in: [src/assets/transformers/\_jest.config.mjs.ts:107](https://github.com/Xunnamius/symbiote/blob/385866d2602d36dd6b86c7f4511dc3df19a6ef56/src/assets/transformers/_jest.config.mjs.ts#L107)
 
 ## Parameters
 
@@ -33,59 +33,7 @@ as `1` while entirely skipping tests from files with names containing
 
 ## Returns
 
-`object`
-
-### clearMocks
-
-> **clearMocks**: `true` = `true`
-
-### maxConcurrency
-
-> **maxConcurrency**: `number`
-
-### moduleNameMapper
-
-> **moduleNameMapper**: `object`
-
-#### Index Signature
-
-\[`k`: `string`\]: `string`
-
-### modulePathIgnorePatterns
-
-> **modulePathIgnorePatterns**: \[`"/test/fixtures/"`, `"/.transpiled/"`, `string`\]
-
-### resetMocks
-
-> **resetMocks**: `true` = `true`
-
-### restoreMocks
-
-> **restoreMocks**: `true` = `true`
-
-### setupFilesAfterEnv
-
-> **setupFilesAfterEnv**: \[`"./test/setup.ts"`\]
-
-### testEnvironment
-
-> **testEnvironment**: `"node"` = `'node'`
-
-### testPathIgnorePatterns
-
-> **testPathIgnorePatterns**: \[`"/node_modules/"`, `"/dist/"`, `"/src/"`, `"/.transpiled/"`, `string`, `string`\]
-
-### testRunner
-
-> **testRunner**: `"jest-circus/runner"` = `'jest-circus/runner'`
-
-### testTimeout
-
-> **testTimeout**: `number`
-
-### verbose
-
-> **verbose**: `false` = `false`
+[`JestConfig`](../type-aliases/JestConfig.md)
 
 ## See
 
