@@ -402,7 +402,10 @@ function jestRules(): NonNullable<EslintConfig['rules']> {
     'jest/require-hook': [
       'error',
       {
-        allowedFunctionCalls: ['reconfigureJestGlobalsToSkipTestsInThisFileIfRequested']
+        allowedFunctionCalls: [
+          'reconfigureJestGlobalsToSkipTestsInThisFileIfRequested',
+          'debug'
+        ]
       }
     ],
 
