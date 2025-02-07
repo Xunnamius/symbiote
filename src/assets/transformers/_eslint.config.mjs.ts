@@ -247,12 +247,12 @@ function genericRules(
     '@typescript-eslint/no-unsafe-member-access': 'off',
     // ? I'll be good, I promise
     '@typescript-eslint/no-unsafe-return': 'off',
-    // ? Numbers are fine.
+    // ? Numbers and booleans are fine.
     '@typescript-eslint/restrict-template-expressions': [
       'warn',
       {
         allowAny: false,
-        allowBoolean: false,
+        allowBoolean: true,
         allowNullish: false,
         allowNumber: true,
         allowRegExp: false
