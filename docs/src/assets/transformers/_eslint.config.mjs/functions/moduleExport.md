@@ -8,7 +8,7 @@
 
 > **moduleExport**(`__namedParameters`): [`EslintConfig`](../type-aliases/EslintConfig.md)[]
 
-Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:509](https://github.com/Xunnamius/symbiote/blob/ee28fd25e233e1ad9b7043e0faa8defae74dbe7b/src/assets/transformers/_eslint.config.mjs.ts#L509)
+Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:509](https://github.com/Xunnamius/symbiote/blob/b82f5db0ddf304d345bd71e41da6d798adaa5156/src/assets/transformers/_eslint.config.mjs.ts#L509)
 
 ## Parameters
 

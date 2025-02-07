@@ -8,7 +8,7 @@
 
 > **moduleExport**(`__namedParameters`): [`JestConfig`](../type-aliases/JestConfig.md)
 
-Defined in: [src/assets/transformers/\_jest.config.mjs.ts:113](https://github.com/Xunnamius/symbiote/blob/ee28fd25e233e1ad9b7043e0faa8defae74dbe7b/src/assets/transformers/_jest.config.mjs.ts#L113)
+Defined in: [src/assets/transformers/\_jest.config.mjs.ts:117](https://github.com/Xunnamius/symbiote/blob/b82f5db0ddf304d345bd71e41da6d798adaa5156/src/assets/transformers/_jest.config.mjs.ts#L117)
 
 ## Parameters
 

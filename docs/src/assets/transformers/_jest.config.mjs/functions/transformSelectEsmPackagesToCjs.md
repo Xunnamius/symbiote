@@ -6,9 +6,9 @@
 
 # Function: transformSelectEsmPackagesToCjs()
 
-> **transformSelectEsmPackagesToCjs**(`config`, `packageNames`, `packageNamesRegExp`?): `void`
+> **transformSelectEsmPackagesToCjs**(`config`, `packageNames`): `void`
 
-Defined in: [src/assets/transformers/\_jest.config.mjs.ts:254](https://github.com/Xunnamius/symbiote/blob/ee28fd25e233e1ad9b7043e0faa8defae74dbe7b/src/assets/transformers/_jest.config.mjs.ts#L254)
+Defined in: [src/assets/transformers/\_jest.config.mjs.ts:259](https://github.com/Xunnamius/symbiote/blob/b82f5db0ddf304d345bd71e41da6d798adaa5156/src/assets/transformers/_jest.config.mjs.ts#L259)
 
 This function prepends a single regular expression _pattern string_ to
 [JestConfig.transformIgnorePatterns](transformSelectEsmPackagesToCjs.md#transformignorepatterns) in `config`. This will result in
@@ -19,19 +19,20 @@ no transpilation) in every other case.
 This is useful when, for instance, an ESM package needs to be mocked via a
 top-level import.
 
-This function engages in some light monkey patching of jest internals to
+This function engages in some heavy monkey patching of jest internals to
 prevent jest from complaining (i.e. `Must use import to load ES Module...`)
 that these packages are ESM when `--experimental-vm-modules` is enabled in
-the runtime. Therefore, this function should be invoked only after all other
-changes to `config` have been made.
+the runtime. Therefore, this function should be invoked only once, only in
+`jest.config.mjs`, and only after all other changes to `config` have been
+made.
 
 Note that package names will have any special characters (in the context of
 regular expressions) escaped. If you wish to supply a regular expression as a
-package name, use `packageNamesRegExp`. However, be aware that (1) only the
-RegExp.source of custom regular expressions is used (wrapped in
-parentheses) and (2) the syntax of any custom regular expressions must not
-clash with the expression that encloses them or the behavior of this function
-becomes undefined.
+package name, pass a RegExp instance to `packageNames`. However, be
+aware that (1) only the RegExp.source of custom regular expressions
+is used (wrapped in parentheses) and (2) the syntax of any custom regular
+expressions must not clash with the expression that encloses them or the
+behavior of this function becomes undefined.
 
 Also note that, if yarn pnp support is desired (which is enabled by default
 in jest but disabled when using this function), you must ensure the following
@@ -588,10 +589,6 @@ transformIgnorePatterns: [String.raw`\.pnp\.[^/]+$`]
 ### packageNames
 
 `string`[]
-
-### packageNamesRegExp?
-
-`RegExp`[]
 
 ## Returns
 
