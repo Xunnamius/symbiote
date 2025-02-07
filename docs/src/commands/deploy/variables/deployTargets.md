@@ -8,7 +8,7 @@
 
 > `const` **deployTargets**: [`DeployTarget`](../enumerations/DeployTarget.md)[]
 
-Defined in: [src/commands/deploy.ts:38](https://github.com/Xunnamius/symbiote/blob/baed18cf2f0c1f93d21647c3399a412c1e0a2c32/src/commands/deploy.ts#L38)
+Defined in: [src/commands/deploy.ts:38](https://github.com/Xunnamius/symbiote/blob/ee28fd25e233e1ad9b7043e0faa8defae74dbe7b/src/commands/deploy.ts#L38)
 
 ## See
 

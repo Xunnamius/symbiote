@@ -8,7 +8,7 @@
 
 > **default**(`globalExecutionContext`): `Promise`\<\{ `aliases`: `never`[]; `builder`: `BfeBuilderFunction`\<`StandardCommonCliArguments` & `object` & `object` & `object`, [`GlobalExecutionContext`](../../../configure/type-aliases/GlobalExecutionContext.md)\>; `description`: `string`; `handler`: (`argv`) => `Promisable`\<`void`\>; `usage`: `string`; \}\>
 
-Defined in: [src/commands/build/index.ts:11](https://github.com/Xunnamius/symbiote/blob/baed18cf2f0c1f93d21647c3399a412c1e0a2c32/src/commands/build/index.ts#L11)
+Defined in: [src/commands/build/index.ts:11](https://github.com/Xunnamius/symbiote/blob/ee28fd25e233e1ad9b7043e0faa8defae74dbe7b/src/commands/build/index.ts#L11)
 
 ## Parameters
 
