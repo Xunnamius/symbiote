@@ -19,13 +19,13 @@ import {
 import { ErrorMessage } from 'universe:error.ts';
 import { stringifyJson } from 'universe:util.ts';
 
-import type { Config } from 'jest';
+import type { Config as JestConfig } from 'jest';
 
 const debug = createDebugLogger({
   namespace: `${globalDebuggerNamespace}:asset:jest`
 });
 
-export type { Config as JestConfig };
+export type { JestConfig };
 
 /**
  * {@symbiote/notExtraneous
@@ -97,7 +97,7 @@ export function baseConfig({
       '/.transpiled/',
       String.raw`/([^/\\]*\.ignore(\.[^/\\]+)?(/|$))|/(ignore\.[^/\\]+(/|$))`
     ]
-  } as const satisfies Config;
+  } as const satisfies JestConfig;
 }
 
 /**
@@ -117,7 +117,7 @@ export function moduleExport({
    * `-slow.`.
    */
   skipSlowTestsLevel: number;
-}) {
+}): JestConfig {
   debug('moduleNameMapper: %O', moduleNameMapper);
   debug('isDebugging: %O', isDebugging);
 
