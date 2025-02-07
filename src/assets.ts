@@ -602,7 +602,7 @@ export type MergeWithCustomizer = Parameters<typeof mergeWith<unknown, unknown>>
  */
 export function deepMergeConfig<ConfigurationType>(
   originalConfiguration: ConfigurationType,
-  overwrites: ConfigurationType | Record<string, unknown> | EmptyObject = {},
+  overwrites: ConfigurationType | EmptyObject = {},
   customReplacer?: MergeWithCustomizer
 ): ConfigurationType {
   return mergeWith({}, originalConfiguration, overwrites, customReplacer);
