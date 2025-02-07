@@ -7,6 +7,7 @@ import {
 } from '@-xun/project';
 
 import { ProjectError } from '@-xun/project/error';
+import escapeStringRegexp from 'escape-string-regexp~4';
 import { createDebugLogger } from 'rejoinder';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
@@ -208,4 +209,30 @@ export function assertEnvironment(): Omit<
   const skipSlowTestsLevel = Number(process.env.SYMBIOTE_TEST_JEST_SKIP_SLOW_TESTS) || 0;
 
   return { isDebugging, skipSlowTestsLevel };
+}
+
+/**
+ * This function generates several regular expression _pattern strings_ meant to
+ * be supplied as the value of {@link JestConfig.transformIgnorePatterns} in a
+ * jest configuration object. This will result in any packages with names
+ * matching `packageNames` being transpiled into CJS on the fly while preserving
+ * jest's default behavior (i.e. no transpilation) in every other case.
+ *
+ * This is useful when, for instance, an ESM package needs to be mocked via a
+ * top-level import.
+ *
+ * Note that package names will have any special characters (in the context of
+ * regular expressions) escaped.
+ *
+ * @see https://jestjs.io/docs/configuration#transformignorepatterns-arraystring
+ */
+export function transformSelectEsmPackagesToCjs(
+  packageNames: string[]
+): JestConfig['transformIgnorePatterns'] {
+  return [
+    `/node_modules/(?!(${packageNames
+      .map((name) => escapeStringRegexp(name))
+      .join('|')})/)`,
+    String.raw`\.pnp\.[^\/]+$`
+  ];
 }
