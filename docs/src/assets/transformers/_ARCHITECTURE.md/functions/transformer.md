@@ -8,7 +8,7 @@
 
 > **transformer**(`this`, `context`, `options`?): `Promise`\<[`ReifiedAssets`](../../../type-aliases/ReifiedAssets.md)\>
 
-Defined in: [src/assets/transformers/\_ARCHITECTURE.md.ts:15](https://github.com/Xunnamius/symbiote/blob/48e09e2e30168e7f5b981dba3e3d2806204a176e/src/assets/transformers/_ARCHITECTURE.md.ts#L15)
+Defined in: [src/assets/transformers/\_ARCHITECTURE.md.ts:15](https://github.com/Xunnamius/symbiote/blob/baed18cf2f0c1f93d21647c3399a412c1e0a2c32/src/assets/transformers/_ARCHITECTURE.md.ts#L15)
 
 ## Parameters
 

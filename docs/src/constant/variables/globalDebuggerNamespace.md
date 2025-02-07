@@ -8,6 +8,6 @@
 
 > `const` **globalDebuggerNamespace**: `"symbiote"` = `globalCliName`
 
-Defined in: [src/constant.ts:14](https://github.com/Xunnamius/symbiote/blob/48e09e2e30168e7f5b981dba3e3d2806204a176e/src/constant.ts#L14)
+Defined in: [src/constant.ts:14](https://github.com/Xunnamius/symbiote/blob/baed18cf2f0c1f93d21647c3399a412c1e0a2c32/src/constant.ts#L14)
 
 The CLI-wide namespace that appears in debugger output.
