@@ -8,7 +8,7 @@
 
 > `const` **ErrorMessage**: `object`
 
-Defined in: [src/error.ts:59](https://github.com/Xunnamius/symbiote/blob/385866d2602d36dd6b86c7f4511dc3df19a6ef56/src/error.ts#L59)
+Defined in: [src/error.ts:59](https://github.com/Xunnamius/symbiote/blob/48e09e2e30168e7f5b981dba3e3d2806204a176e/src/error.ts#L59)
 
 A collection of possible error and warning messages.
 
@@ -669,6 +669,18 @@ readonly `string`[]
 
 `string`
 
+### JestChangelogMonkeyPatchFailedToTake()
+
+#### Parameters
+
+##### error
+
+`unknown`
+
+#### Returns
+
+`string`
+
 ### LintingFailed()
 
 #### Returns
@@ -698,18 +710,6 @@ readonly `string`[]
 #### Parameters
 
 ##### variableName
-
-`string`
-
-#### Returns
-
-`string`
-
-### MonkeyPatchFailedToTake()
-
-#### Parameters
-
-##### filename
 
 `string`
 
@@ -1082,6 +1082,18 @@ readonly `string`[]
 ##### preposition
 
 `string` = `'with'`
+
+#### Returns
+
+`string`
+
+### XChangelogMonkeyPatchFailedToTake()
+
+#### Parameters
+
+##### filename
+
+`string`
 
 #### Returns
 

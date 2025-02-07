@@ -8,7 +8,7 @@
 
 > **checkIsNotNegative**(`argName`): (`currentArg`) => `string` \| `true`
 
-Defined in: [src/util.ts:1106](https://github.com/Xunnamius/symbiote/blob/385866d2602d36dd6b86c7f4511dc3df19a6ef56/src/util.ts#L1106)
+Defined in: [src/util.ts:1106](https://github.com/Xunnamius/symbiote/blob/48e09e2e30168e7f5b981dba3e3d2806204a176e/src/util.ts#L1106)
 
 ## Parameters
 
