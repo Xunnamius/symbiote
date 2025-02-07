@@ -117,7 +117,7 @@ function genericRules(
       {
         selector: "MemberExpression[object.name='process'][property.name='cwd']",
         message:
-          'Use `getCurrentWorkingDirectory` or `getInitialWorkingDirectory` from @-xun/js-utils instead of `process.cwd`'
+          'Use `getCurrentWorkingDirectory` or `getInitialWorkingDirectory` from @-xun/fs instead of `process.cwd`'
       }
     ],
 
