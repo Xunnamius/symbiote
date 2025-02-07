@@ -1,5 +1,7 @@
 import { cpus } from 'node:os';
 
+import { getInitialWorkingDirectory, toPath } from '@-xun/fs';
+
 import {
   deriveAliasesForJest,
   generateRawAliasMap,
@@ -25,6 +27,10 @@ import type { Config as JestConfig } from 'jest';
 const debug = createDebugLogger({
   namespace: `${globalDebuggerNamespace}:asset:jest`
 });
+
+const monkeyPatchDebug = debug.extend('jest-patched');
+const nodeModulesPattern = '/node_modules/';
+const $wasPatched = Symbol.for('@xunnamius:jest-monkey-patch');
 
 export type { JestConfig };
 
@@ -212,27 +218,105 @@ export function assertEnvironment(): Omit<
 }
 
 /**
- * This function generates several regular expression _pattern strings_ meant to
- * be supplied as the value of {@link JestConfig.transformIgnorePatterns} in a
- * jest configuration object. This will result in any packages with names
- * matching `packageNames` being transpiled into CJS on the fly while preserving
- * jest's default behavior (i.e. no transpilation) in every other case.
+ * This function prepends a single regular expression _pattern string_ to
+ * {@link JestConfig.transformIgnorePatterns} in `config`. This will result in
+ * any packages _within `node_modules`_ with names matching `packageNames` being
+ * transpiled into CJS on the fly while preserving jest's default behavior (i.e.
+ * no transpilation) in every other case.
  *
  * This is useful when, for instance, an ESM package needs to be mocked via a
  * top-level import.
  *
+ * This function engages in some light monkey patching of jest internals to
+ * prevent jest from complaining (i.e. `Must use import to load ES Module...`)
+ * that these packages are ESM when `--experimental-vm-modules` is enabled in
+ * the runtime. Therefore, this function should be invoked only after all other
+ * changes to `config` have been made.
+ *
  * Note that package names will have any special characters (in the context of
- * regular expressions) escaped.
+ * regular expressions) escaped. If you wish to supply a regular expression as a
+ * package name, use `packageNamesRegExp`. However, be aware that (1) only the
+ * {@link RegExp.source} of custom regular expressions is used (wrapped in
+ * parentheses) and (2) the syntax of any custom regular expressions must not
+ * clash with the expression that encloses them or the behavior of this function
+ * becomes undefined.
+ *
+ * Also note that, if yarn pnp support is desired (which is enabled by default
+ * in jest but disabled when using this function), you must ensure the following
+ * is present in `config` before invoking this function:
+ *
+ * ```typescript
+ * transformIgnorePatterns: [String.raw`\.pnp\.[^\/]+$`]
+ * ```
  *
  * @see https://jestjs.io/docs/configuration#transformignorepatterns-arraystring
  */
 export function transformSelectEsmPackagesToCjs(
-  packageNames: string[]
-): JestConfig['transformIgnorePatterns'] {
-  return [
+  config: JestConfig,
+  packageNames: string[],
+  packageNamesRegExp?: RegExp[]
+): void {
+  const transformIgnorePatterns = [
     `/node_modules/(?!(${packageNames
       .map((name) => escapeStringRegexp(name))
+      .concat(packageNamesRegExp?.map((regexp) => `(${regexp.source})`) || [])
       .join('|')})/)`,
-    String.raw`\.pnp\.[^\/]+$`
+    ...(config.transformIgnorePatterns || [])
   ];
+
+  config.transformIgnorePatterns = transformIgnorePatterns;
+
+  const transformIgnoreRegExps = transformIgnorePatterns.map(
+    (pattern) => new RegExp(pattern)
+  );
+
+  const moduleJestResolvePath = toPath(
+    getInitialWorkingDirectory(),
+    'node_modules',
+    'jest-resolve',
+    'build',
+    'shouldLoadAsEsm'
+  );
+
+  monkeyPatchDebug('transformIgnoreRegExps: %O', transformIgnoreRegExps);
+  monkeyPatchDebug('moduleJestResolvePath: %O', moduleJestResolvePath);
+
+  try {
+    const moduleJestResolve = require(moduleJestResolvePath);
+
+    if (!moduleJestResolve[$wasPatched]) {
+      const originalFn = moduleJestResolve?.default;
+
+      if (originalFn) {
+        moduleJestResolve.default = (...args: unknown[]) => {
+          const path = args[0];
+
+          if (typeof path === 'string') {
+            if (
+              // ? Only apply the patch to paths coming from /node_modules/
+              path.includes(nodeModulesPattern) &&
+              // ? Only apply the patch to paths NOT matching ignored targets
+              transformIgnoreRegExps.every((pattern) => !pattern.test(path))
+            ) {
+              monkeyPatchDebug.message('forcing jest to assume file is CJS: %O', path);
+              return false;
+            }
+          } else {
+            throw new TypeError('unstable_shouldLoadAsEsm function is missing');
+          }
+
+          return originalFn(...args);
+        };
+
+        moduleJestResolve[$wasPatched] = true;
+        monkeyPatchDebug('monkey patched jest resolver');
+      } else {
+        throw new Error('unstable_shouldLoadAsEsm function is missing');
+      }
+    } else {
+      monkeyPatchDebug('skipped monkey patching jest resolver: already patched');
+    }
+  } catch (error) {
+    throw new Error(ErrorMessage.JestChangelogMonkeyPatchFailedToTake(error));
+  }
 }

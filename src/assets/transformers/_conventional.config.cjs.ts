@@ -470,7 +470,7 @@ export function moduleExport({
       transform(commit_, context) {
         assert(
           cubby.proxiedTargets.has(commit_),
-          ErrorMessage.MonkeyPatchFailedToTake(__filename)
+          ErrorMessage.XChangelogMonkeyPatchFailedToTake(__filename)
         );
 
         const commit = safeDeepClone(

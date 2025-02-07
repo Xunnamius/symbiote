@@ -133,8 +133,11 @@ export const ErrorMessage = {
   CleanCalledWithoutForce() {
     return 'no deletions were performed (try again with --force)';
   },
-  MonkeyPatchFailedToTake(filename: string) {
+  XChangelogMonkeyPatchFailedToTake(filename: string) {
     return `failed to acquire the patched global Proxy class in ${filename}`;
+  },
+  JestChangelogMonkeyPatchFailedToTake(error: unknown) {
+    return `unable to monkey patch jest resolver: ${String(error)}`;
   },
   WrongProjectAttributes(
     expected: ProjectAttribute[],
