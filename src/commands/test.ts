@@ -32,6 +32,7 @@ import {
 import { scriptBasename } from 'multiverse+cli-utils:util.ts';
 
 import { DefaultGlobalScope } from 'universe:configure.ts';
+import { tstycheTargetRegExp } from 'universe:constant.ts';
 import { ErrorMessage } from 'universe:error.ts';
 
 import {
@@ -46,8 +47,6 @@ import type { ChildConfiguration } from '@black-flag/core';
 import type { AsStrictExecutionContext } from 'multiverse+bfe';
 import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:configure.ts';
 
-// ! Cannot use the global (g) flag
-const tstycheTargetRegExp = /(^|\/)type(-.*)?\.test\.tsx?$/;
 const tstycheVacuousSuccessMessage =
   'Tstyche tests vacuously succeeded: no "type*?.test.tsx?" files were found';
 
@@ -162,7 +161,7 @@ export default function command({
           array: true,
           choices: tests,
           description: 'Which kinds of test to run',
-          default: allActualLocalTests,
+          default: [Test.AllLocal],
           check: checkArrayNotEmpty('--tests'),
           coerce(tests: Test[]) {
             return Array.from(

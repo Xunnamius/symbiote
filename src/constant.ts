@@ -14,6 +14,12 @@ export const globalLoggerNamespace = globalCliName;
 export const globalDebuggerNamespace = globalCliName;
 
 /**
+ * A regular expression matching any tstyche test file.
+ */
+// ! Cannot use the global (g) flag
+export const tstycheTargetRegExp = /(^|\/)type(-.*)?\.test\.tsx?$/;
+
+/**
  * The comment injected before each batch of auto-generated aliases.
  */
 export function makeGeneratedAliasesWarningComment(spaces: number) {

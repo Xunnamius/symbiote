@@ -18,7 +18,8 @@ import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 
 import {
   globalDebuggerNamespace,
-  makeGeneratedAliasesWarningComment
+  makeGeneratedAliasesWarningComment,
+  tstycheTargetRegExp
 } from 'universe:constant.ts';
 
 import { ErrorMessage } from 'universe:error.ts';
@@ -94,7 +95,7 @@ export function baseConfig({
       '/src/',
       '/.transpiled/',
       String.raw`/([^/\\]*\.ignore(\.[^/\\]+)?(/|$))|/(ignore\.[^/\\]+(/|$))`,
-      String.raw`/type-.*\.test\.(c|m)?tsx?`
+      tstycheTargetRegExp.source
     ],
     setupFilesAfterEnv: ['./test/setup.ts'],
     // ? This is computed dynamically by symbiote
