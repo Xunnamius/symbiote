@@ -8,7 +8,7 @@
 
 > **hasTypescriptExtension**(`path`): `boolean`
 
-Defined in: [src/assets/transformers/\_babel.config.cjs.ts:163](https://github.com/Xunnamius/symbiote/blob/559506ed93a747d618979a74bc2b1db446959ba9/src/assets/transformers/_babel.config.cjs.ts#L163)
+Defined in: [src/assets/transformers/\_babel.config.cjs.ts:163](https://github.com/Xunnamius/symbiote/blob/93db40a191a3211953c897ee68551b6408725320/src/assets/transformers/_babel.config.cjs.ts#L163)
 
 Returns `true` if `path` points to a file with a TypeScript extension
 (including `.d.ts`).
