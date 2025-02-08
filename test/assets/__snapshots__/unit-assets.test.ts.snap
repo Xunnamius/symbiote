@@ -673,12 +673,13 @@ exports[`::gatherAssetsFromAllTransformers preset: basic generates expected asse
   "prettier.config.mjs",
   "release.config.cjs",
   "packages/webpack/src/index.ts",
-  "packages/webpack/test/unit-x.test.ts",
+  "packages/webpack/test/unit.test.ts",
+  "packages/webpack/test/type.test.ts",
   "packages/webpack/test/integration/.config.ts",
   "packages/webpack/test/integration/integration-node-smoke.test.ts",
   "packages/webpack/test/integration/integration-client.test.ts",
   "packages/webpack/test/end-to-end/.config.ts",
-  "packages/webpack/test/end-to-end/e2e-x.test.ts",
+  "packages/webpack/test/end-to-end/e2e.test.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
   "tsc.package.types.json",
@@ -751,24 +752,27 @@ exports[`::gatherAssetsFromAllTransformers preset: basic generates expected asse
   "packages/pkg-import/src/index.ts",
   "test/util.ts",
   "test/setup.ts",
-  "packages/pkg-1/test/unit-x.test.ts",
+  "packages/pkg-1/test/unit.test.ts",
+  "packages/pkg-1/test/type.test.ts",
   "packages/pkg-1/test/integration/.config.ts",
   "packages/pkg-1/test/integration/integration-node-smoke.test.ts",
   "packages/pkg-1/test/integration/integration-client.test.ts",
   "packages/pkg-1/test/end-to-end/.config.ts",
-  "packages/pkg-1/test/end-to-end/e2e-x.test.ts",
-  "packages/pkg-2/test/unit-x.test.ts",
+  "packages/pkg-1/test/end-to-end/e2e.test.ts",
+  "packages/pkg-2/test/unit.test.ts",
+  "packages/pkg-2/test/type.test.ts",
   "packages/pkg-2/test/integration/.config.ts",
   "packages/pkg-2/test/integration/integration-node-smoke.test.ts",
   "packages/pkg-2/test/integration/integration-client.test.ts",
   "packages/pkg-2/test/end-to-end/.config.ts",
-  "packages/pkg-2/test/end-to-end/e2e-x.test.ts",
-  "packages/pkg-import/test/unit-x.test.ts",
+  "packages/pkg-2/test/end-to-end/e2e.test.ts",
+  "packages/pkg-import/test/unit.test.ts",
+  "packages/pkg-import/test/type.test.ts",
   "packages/pkg-import/test/integration/.config.ts",
   "packages/pkg-import/test/integration/integration-node-smoke.test.ts",
   "packages/pkg-import/test/integration/integration-client.test.ts",
   "packages/pkg-import/test/end-to-end/.config.ts",
-  "packages/pkg-import/test/end-to-end/e2e-x.test.ts",
+  "packages/pkg-import/test/end-to-end/e2e.test.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
   "packages/pkg-1/tsc.package.types.json",
@@ -893,12 +897,13 @@ exports[`::gatherAssetsFromAllTransformers preset: cli generates expected assets
   "prettier.config.mjs",
   "release.config.cjs",
   "packages/webpack/src/index.ts",
-  "packages/webpack/test/unit-x.test.ts",
+  "packages/webpack/test/unit.test.ts",
+  "packages/webpack/test/type.test.ts",
   "packages/webpack/test/integration/.config.ts",
   "packages/webpack/test/integration/integration-node-smoke.test.ts",
   "packages/webpack/test/integration/integration-client.test.ts",
   "packages/webpack/test/end-to-end/.config.ts",
-  "packages/webpack/test/end-to-end/e2e-x.test.ts",
+  "packages/webpack/test/end-to-end/e2e.test.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
   "tsc.package.types.json",
@@ -979,24 +984,27 @@ exports[`::gatherAssetsFromAllTransformers preset: cli generates expected assets
   "packages/pkg-import/src/index.ts",
   "test/util.ts",
   "test/setup.ts",
-  "packages/pkg-1/test/unit-x.test.ts",
+  "packages/pkg-1/test/unit.test.ts",
+  "packages/pkg-1/test/type.test.ts",
   "packages/pkg-1/test/integration/.config.ts",
   "packages/pkg-1/test/integration/integration-node-smoke.test.ts",
   "packages/pkg-1/test/integration/integration-client.test.ts",
   "packages/pkg-1/test/end-to-end/.config.ts",
-  "packages/pkg-1/test/end-to-end/e2e-x.test.ts",
-  "packages/pkg-2/test/unit-x.test.ts",
+  "packages/pkg-1/test/end-to-end/e2e.test.ts",
+  "packages/pkg-2/test/unit.test.ts",
+  "packages/pkg-2/test/type.test.ts",
   "packages/pkg-2/test/integration/.config.ts",
   "packages/pkg-2/test/integration/integration-node-smoke.test.ts",
   "packages/pkg-2/test/integration/integration-client.test.ts",
   "packages/pkg-2/test/end-to-end/.config.ts",
-  "packages/pkg-2/test/end-to-end/e2e-x.test.ts",
-  "packages/pkg-import/test/unit-x.test.ts",
+  "packages/pkg-2/test/end-to-end/e2e.test.ts",
+  "packages/pkg-import/test/unit.test.ts",
+  "packages/pkg-import/test/type.test.ts",
   "packages/pkg-import/test/integration/.config.ts",
   "packages/pkg-import/test/integration/integration-node-smoke.test.ts",
   "packages/pkg-import/test/integration/integration-client.test.ts",
   "packages/pkg-import/test/end-to-end/.config.ts",
-  "packages/pkg-import/test/end-to-end/e2e-x.test.ts",
+  "packages/pkg-import/test/end-to-end/e2e.test.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
   "packages/pkg-1/tsc.package.types.json",
@@ -1130,12 +1138,13 @@ exports[`::gatherAssetsFromAllTransformers preset: default (no preset) generates
   "release.config.cjs",
   "packages/webpack/src/index.ts",
   "tailwind.config.mjs",
-  "packages/webpack/test/unit-x.test.ts",
+  "packages/webpack/test/unit.test.ts",
+  "packages/webpack/test/type.test.ts",
   "packages/webpack/test/integration/.config.ts",
   "packages/webpack/test/integration/integration-node-smoke.test.ts",
   "packages/webpack/test/integration/integration-client.test.ts",
   "packages/webpack/test/end-to-end/.config.ts",
-  "packages/webpack/test/end-to-end/e2e-x.test.ts",
+  "packages/webpack/test/end-to-end/e2e.test.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
   "tsc.package.types.json",
@@ -1222,24 +1231,27 @@ exports[`::gatherAssetsFromAllTransformers preset: default (no preset) generates
   "tailwind.config.mjs",
   "test/util.ts",
   "test/setup.ts",
-  "packages/pkg-1/test/unit-x.test.ts",
+  "packages/pkg-1/test/unit.test.ts",
+  "packages/pkg-1/test/type.test.ts",
   "packages/pkg-1/test/integration/.config.ts",
   "packages/pkg-1/test/integration/integration-node-smoke.test.ts",
   "packages/pkg-1/test/integration/integration-client.test.ts",
   "packages/pkg-1/test/end-to-end/.config.ts",
-  "packages/pkg-1/test/end-to-end/e2e-x.test.ts",
-  "packages/pkg-2/test/unit-x.test.ts",
+  "packages/pkg-1/test/end-to-end/e2e.test.ts",
+  "packages/pkg-2/test/unit.test.ts",
+  "packages/pkg-2/test/type.test.ts",
   "packages/pkg-2/test/integration/.config.ts",
   "packages/pkg-2/test/integration/integration-node-smoke.test.ts",
   "packages/pkg-2/test/integration/integration-client.test.ts",
   "packages/pkg-2/test/end-to-end/.config.ts",
-  "packages/pkg-2/test/end-to-end/e2e-x.test.ts",
-  "packages/pkg-import/test/unit-x.test.ts",
+  "packages/pkg-2/test/end-to-end/e2e.test.ts",
+  "packages/pkg-import/test/unit.test.ts",
+  "packages/pkg-import/test/type.test.ts",
   "packages/pkg-import/test/integration/.config.ts",
   "packages/pkg-import/test/integration/integration-node-smoke.test.ts",
   "packages/pkg-import/test/integration/integration-client.test.ts",
   "packages/pkg-import/test/end-to-end/.config.ts",
-  "packages/pkg-import/test/end-to-end/e2e-x.test.ts",
+  "packages/pkg-import/test/end-to-end/e2e.test.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
   "packages/pkg-1/tsc.package.types.json",
@@ -1377,12 +1389,13 @@ exports[`::gatherAssetsFromAllTransformers preset: lib generates expected assets
   "prettier.config.mjs",
   "release.config.cjs",
   "packages/webpack/src/index.ts",
-  "packages/webpack/test/unit-x.test.ts",
+  "packages/webpack/test/unit.test.ts",
+  "packages/webpack/test/type.test.ts",
   "packages/webpack/test/integration/.config.ts",
   "packages/webpack/test/integration/integration-node-smoke.test.ts",
   "packages/webpack/test/integration/integration-client.test.ts",
   "packages/webpack/test/end-to-end/.config.ts",
-  "packages/webpack/test/end-to-end/e2e-x.test.ts",
+  "packages/webpack/test/end-to-end/e2e.test.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
   "tsc.package.types.json",
@@ -1463,24 +1476,27 @@ exports[`::gatherAssetsFromAllTransformers preset: lib generates expected assets
   "packages/pkg-import/src/index.ts",
   "test/util.ts",
   "test/setup.ts",
-  "packages/pkg-1/test/unit-x.test.ts",
+  "packages/pkg-1/test/unit.test.ts",
+  "packages/pkg-1/test/type.test.ts",
   "packages/pkg-1/test/integration/.config.ts",
   "packages/pkg-1/test/integration/integration-node-smoke.test.ts",
   "packages/pkg-1/test/integration/integration-client.test.ts",
   "packages/pkg-1/test/end-to-end/.config.ts",
-  "packages/pkg-1/test/end-to-end/e2e-x.test.ts",
-  "packages/pkg-2/test/unit-x.test.ts",
+  "packages/pkg-1/test/end-to-end/e2e.test.ts",
+  "packages/pkg-2/test/unit.test.ts",
+  "packages/pkg-2/test/type.test.ts",
   "packages/pkg-2/test/integration/.config.ts",
   "packages/pkg-2/test/integration/integration-node-smoke.test.ts",
   "packages/pkg-2/test/integration/integration-client.test.ts",
   "packages/pkg-2/test/end-to-end/.config.ts",
-  "packages/pkg-2/test/end-to-end/e2e-x.test.ts",
-  "packages/pkg-import/test/unit-x.test.ts",
+  "packages/pkg-2/test/end-to-end/e2e.test.ts",
+  "packages/pkg-import/test/unit.test.ts",
+  "packages/pkg-import/test/type.test.ts",
   "packages/pkg-import/test/integration/.config.ts",
   "packages/pkg-import/test/integration/integration-node-smoke.test.ts",
   "packages/pkg-import/test/integration/integration-client.test.ts",
   "packages/pkg-import/test/end-to-end/.config.ts",
-  "packages/pkg-import/test/end-to-end/e2e-x.test.ts",
+  "packages/pkg-import/test/end-to-end/e2e.test.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
   "packages/pkg-1/tsc.package.types.json",
@@ -1610,12 +1626,13 @@ exports[`::gatherAssetsFromAllTransformers preset: lib-esm generates expected as
   "prettier.config.mjs",
   "release.config.cjs",
   "packages/webpack/src/index.ts",
-  "packages/webpack/test/unit-x.test.ts",
+  "packages/webpack/test/unit.test.ts",
+  "packages/webpack/test/type.test.ts",
   "packages/webpack/test/integration/.config.ts",
   "packages/webpack/test/integration/integration-node-smoke.test.ts",
   "packages/webpack/test/integration/integration-client.test.ts",
   "packages/webpack/test/end-to-end/.config.ts",
-  "packages/webpack/test/end-to-end/e2e-x.test.ts",
+  "packages/webpack/test/end-to-end/e2e.test.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
   "tsc.package.types.json",
@@ -1696,24 +1713,27 @@ exports[`::gatherAssetsFromAllTransformers preset: lib-esm generates expected as
   "packages/pkg-import/src/index.ts",
   "test/util.ts",
   "test/setup.ts",
-  "packages/pkg-1/test/unit-x.test.ts",
+  "packages/pkg-1/test/unit.test.ts",
+  "packages/pkg-1/test/type.test.ts",
   "packages/pkg-1/test/integration/.config.ts",
   "packages/pkg-1/test/integration/integration-node-smoke.test.ts",
   "packages/pkg-1/test/integration/integration-client.test.ts",
   "packages/pkg-1/test/end-to-end/.config.ts",
-  "packages/pkg-1/test/end-to-end/e2e-x.test.ts",
-  "packages/pkg-2/test/unit-x.test.ts",
+  "packages/pkg-1/test/end-to-end/e2e.test.ts",
+  "packages/pkg-2/test/unit.test.ts",
+  "packages/pkg-2/test/type.test.ts",
   "packages/pkg-2/test/integration/.config.ts",
   "packages/pkg-2/test/integration/integration-node-smoke.test.ts",
   "packages/pkg-2/test/integration/integration-client.test.ts",
   "packages/pkg-2/test/end-to-end/.config.ts",
-  "packages/pkg-2/test/end-to-end/e2e-x.test.ts",
-  "packages/pkg-import/test/unit-x.test.ts",
+  "packages/pkg-2/test/end-to-end/e2e.test.ts",
+  "packages/pkg-import/test/unit.test.ts",
+  "packages/pkg-import/test/type.test.ts",
   "packages/pkg-import/test/integration/.config.ts",
   "packages/pkg-import/test/integration/integration-node-smoke.test.ts",
   "packages/pkg-import/test/integration/integration-client.test.ts",
   "packages/pkg-import/test/end-to-end/.config.ts",
-  "packages/pkg-import/test/end-to-end/e2e-x.test.ts",
+  "packages/pkg-import/test/end-to-end/e2e.test.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
   "packages/pkg-1/tsc.package.types.json",
@@ -1844,12 +1864,13 @@ exports[`::gatherAssetsFromAllTransformers preset: lib-web generates expected as
   "prettier.config.mjs",
   "release.config.cjs",
   "packages/webpack/src/index.ts",
-  "packages/webpack/test/unit-x.test.ts",
+  "packages/webpack/test/unit.test.ts",
+  "packages/webpack/test/type.test.ts",
   "packages/webpack/test/integration/.config.ts",
   "packages/webpack/test/integration/integration-node-smoke.test.ts",
   "packages/webpack/test/integration/integration-client.test.ts",
   "packages/webpack/test/end-to-end/.config.ts",
-  "packages/webpack/test/end-to-end/e2e-x.test.ts",
+  "packages/webpack/test/end-to-end/e2e.test.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
   "tsc.package.types.json",
@@ -1931,24 +1952,27 @@ exports[`::gatherAssetsFromAllTransformers preset: lib-web generates expected as
   "packages/pkg-import/src/index.ts",
   "test/util.ts",
   "test/setup.ts",
-  "packages/pkg-1/test/unit-x.test.ts",
+  "packages/pkg-1/test/unit.test.ts",
+  "packages/pkg-1/test/type.test.ts",
   "packages/pkg-1/test/integration/.config.ts",
   "packages/pkg-1/test/integration/integration-node-smoke.test.ts",
   "packages/pkg-1/test/integration/integration-client.test.ts",
   "packages/pkg-1/test/end-to-end/.config.ts",
-  "packages/pkg-1/test/end-to-end/e2e-x.test.ts",
-  "packages/pkg-2/test/unit-x.test.ts",
+  "packages/pkg-1/test/end-to-end/e2e.test.ts",
+  "packages/pkg-2/test/unit.test.ts",
+  "packages/pkg-2/test/type.test.ts",
   "packages/pkg-2/test/integration/.config.ts",
   "packages/pkg-2/test/integration/integration-node-smoke.test.ts",
   "packages/pkg-2/test/integration/integration-client.test.ts",
   "packages/pkg-2/test/end-to-end/.config.ts",
-  "packages/pkg-2/test/end-to-end/e2e-x.test.ts",
-  "packages/pkg-import/test/unit-x.test.ts",
+  "packages/pkg-2/test/end-to-end/e2e.test.ts",
+  "packages/pkg-import/test/unit.test.ts",
+  "packages/pkg-import/test/type.test.ts",
   "packages/pkg-import/test/integration/.config.ts",
   "packages/pkg-import/test/integration/integration-node-smoke.test.ts",
   "packages/pkg-import/test/integration/integration-client.test.ts",
   "packages/pkg-import/test/end-to-end/.config.ts",
-  "packages/pkg-import/test/end-to-end/e2e-x.test.ts",
+  "packages/pkg-import/test/end-to-end/e2e.test.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
   "packages/pkg-1/tsc.package.types.json",
@@ -2075,12 +2099,13 @@ exports[`::gatherAssetsFromAllTransformers preset: nextjs generates expected ass
   "release.config.cjs",
   "packages/webpack/src/index.ts",
   "tailwind.config.mjs",
-  "packages/webpack/test/unit-x.test.ts",
+  "packages/webpack/test/unit.test.ts",
+  "packages/webpack/test/type.test.ts",
   "packages/webpack/test/integration/.config.ts",
   "packages/webpack/test/integration/integration-node-smoke.test.ts",
   "packages/webpack/test/integration/integration-client.test.ts",
   "packages/webpack/test/end-to-end/.config.ts",
-  "packages/webpack/test/end-to-end/e2e-x.test.ts",
+  "packages/webpack/test/end-to-end/e2e.test.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
   "tsc.package.types.json",
@@ -2159,24 +2184,27 @@ exports[`::gatherAssetsFromAllTransformers preset: nextjs generates expected ass
   "tailwind.config.mjs",
   "test/util.ts",
   "test/setup.ts",
-  "packages/pkg-1/test/unit-x.test.ts",
+  "packages/pkg-1/test/unit.test.ts",
+  "packages/pkg-1/test/type.test.ts",
   "packages/pkg-1/test/integration/.config.ts",
   "packages/pkg-1/test/integration/integration-node-smoke.test.ts",
   "packages/pkg-1/test/integration/integration-client.test.ts",
   "packages/pkg-1/test/end-to-end/.config.ts",
-  "packages/pkg-1/test/end-to-end/e2e-x.test.ts",
-  "packages/pkg-2/test/unit-x.test.ts",
+  "packages/pkg-1/test/end-to-end/e2e.test.ts",
+  "packages/pkg-2/test/unit.test.ts",
+  "packages/pkg-2/test/type.test.ts",
   "packages/pkg-2/test/integration/.config.ts",
   "packages/pkg-2/test/integration/integration-node-smoke.test.ts",
   "packages/pkg-2/test/integration/integration-client.test.ts",
   "packages/pkg-2/test/end-to-end/.config.ts",
-  "packages/pkg-2/test/end-to-end/e2e-x.test.ts",
-  "packages/pkg-import/test/unit-x.test.ts",
+  "packages/pkg-2/test/end-to-end/e2e.test.ts",
+  "packages/pkg-import/test/unit.test.ts",
+  "packages/pkg-import/test/type.test.ts",
   "packages/pkg-import/test/integration/.config.ts",
   "packages/pkg-import/test/integration/integration-node-smoke.test.ts",
   "packages/pkg-import/test/integration/integration-client.test.ts",
   "packages/pkg-import/test/end-to-end/.config.ts",
-  "packages/pkg-import/test/end-to-end/e2e-x.test.ts",
+  "packages/pkg-import/test/end-to-end/e2e.test.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
   "packages/pkg-1/tsc.package.types.json",
@@ -2304,12 +2332,13 @@ exports[`::gatherAssetsFromAllTransformers preset: react generates expected asse
   "release.config.cjs",
   "packages/webpack/src/index.ts",
   "tailwind.config.mjs",
-  "packages/webpack/test/unit-x.test.ts",
+  "packages/webpack/test/unit.test.ts",
+  "packages/webpack/test/type.test.ts",
   "packages/webpack/test/integration/.config.ts",
   "packages/webpack/test/integration/integration-node-smoke.test.ts",
   "packages/webpack/test/integration/integration-client.test.ts",
   "packages/webpack/test/end-to-end/.config.ts",
-  "packages/webpack/test/end-to-end/e2e-x.test.ts",
+  "packages/webpack/test/end-to-end/e2e.test.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
   "tsc.package.types.json",
@@ -2385,24 +2414,27 @@ exports[`::gatherAssetsFromAllTransformers preset: react generates expected asse
   "tailwind.config.mjs",
   "test/util.ts",
   "test/setup.ts",
-  "packages/pkg-1/test/unit-x.test.ts",
+  "packages/pkg-1/test/unit.test.ts",
+  "packages/pkg-1/test/type.test.ts",
   "packages/pkg-1/test/integration/.config.ts",
   "packages/pkg-1/test/integration/integration-node-smoke.test.ts",
   "packages/pkg-1/test/integration/integration-client.test.ts",
   "packages/pkg-1/test/end-to-end/.config.ts",
-  "packages/pkg-1/test/end-to-end/e2e-x.test.ts",
-  "packages/pkg-2/test/unit-x.test.ts",
+  "packages/pkg-1/test/end-to-end/e2e.test.ts",
+  "packages/pkg-2/test/unit.test.ts",
+  "packages/pkg-2/test/type.test.ts",
   "packages/pkg-2/test/integration/.config.ts",
   "packages/pkg-2/test/integration/integration-node-smoke.test.ts",
   "packages/pkg-2/test/integration/integration-client.test.ts",
   "packages/pkg-2/test/end-to-end/.config.ts",
-  "packages/pkg-2/test/end-to-end/e2e-x.test.ts",
-  "packages/pkg-import/test/unit-x.test.ts",
+  "packages/pkg-2/test/end-to-end/e2e.test.ts",
+  "packages/pkg-import/test/unit.test.ts",
+  "packages/pkg-import/test/type.test.ts",
   "packages/pkg-import/test/integration/.config.ts",
   "packages/pkg-import/test/integration/integration-node-smoke.test.ts",
   "packages/pkg-import/test/integration/integration-client.test.ts",
   "packages/pkg-import/test/end-to-end/.config.ts",
-  "packages/pkg-import/test/end-to-end/e2e-x.test.ts",
+  "packages/pkg-import/test/end-to-end/e2e.test.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
   "packages/pkg-1/tsc.package.types.json",
@@ -27710,8 +27742,8 @@ export {};
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/cli/test/end-to-end/e2e-x.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/cli/test/end-to-end/e2e-x.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/cli/test/end-to-end/e2e.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/cli/test/end-to-end/e2e.test.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // * These tests run through the entire process of acquiring this software,
@@ -27766,11 +27798,21 @@ test.todo('this');
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/cli/test/unit-x.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/cli/test/unit-x.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/cli/test/type.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/cli/test/type.test.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
-// * These tests ensure the exported interface under test functions as expected.
+// * These tests ensure the exported types under test function as expected.
+
+test.todo('this');
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/cli/test/unit.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/cli/test/unit.test.ts
+scope: unlimited
+⏶⏷⏶⏷⏶
+// * These tests ensure the exported interfaces under test function as expected.
 
 test.todo('this');
 "
@@ -27786,8 +27828,8 @@ export {};
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/private/test/end-to-end/e2e-x.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/private/test/end-to-end/e2e-x.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/private/test/end-to-end/e2e.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/private/test/end-to-end/e2e.test.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // * These tests run through the entire process of acquiring this software,
@@ -27842,11 +27884,21 @@ test.todo('this');
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/private/test/unit-x.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/private/test/unit-x.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/private/test/type.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/private/test/type.test.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
-// * These tests ensure the exported interface under test functions as expected.
+// * These tests ensure the exported types under test function as expected.
+
+test.todo('this');
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/private/test/unit.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/private/test/unit.test.ts
+scope: unlimited
+⏶⏷⏶⏷⏶
+// * These tests ensure the exported interfaces under test function as expected.
 
 test.todo('this');
 "
@@ -27862,8 +27914,8 @@ export {};
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/test/end-to-end/e2e-x.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/test/end-to-end/e2e-x.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/test/end-to-end/e2e.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/test/end-to-end/e2e.test.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // * These tests run through the entire process of acquiring this software,
@@ -27918,11 +27970,21 @@ test.todo('this');
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/test/unit-x.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/test/unit-x.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/test/type.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/test/type.test.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
-// * These tests ensure the exported interface under test functions as expected.
+// * These tests ensure the exported types under test function as expected.
+
+test.todo('this');
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/test/unit.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/test/unit.test.ts
+scope: unlimited
+⏶⏷⏶⏷⏶
+// * These tests ensure the exported interfaces under test function as expected.
 
 test.todo('this');
 "
@@ -27938,8 +28000,8 @@ export {};
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/test/end-to-end/e2e-x.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/test/end-to-end/e2e-x.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/test/end-to-end/e2e.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/test/end-to-end/e2e.test.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // * These tests run through the entire process of acquiring this software,
@@ -28012,11 +28074,21 @@ import 'jest-extended/all';
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/test/unit-x.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/test/unit-x.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/test/type.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/test/type.test.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
-// * These tests ensure the exported interface under test functions as expected.
+// * These tests ensure the exported types under test function as expected.
+
+test.todo('this');
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/test/unit.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/test/unit.test.ts
+scope: unlimited
+⏶⏷⏶⏷⏶
+// * These tests ensure the exported interfaces under test function as expected.
 
 test.todo('this');
 "
@@ -28048,8 +28120,8 @@ export {};
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/test/end-to-end/e2e-x.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/test/end-to-end/e2e-x.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/test/end-to-end/e2e.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/test/end-to-end/e2e.test.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // * These tests run through the entire process of acquiring this software,
@@ -28104,11 +28176,21 @@ test.todo('this');
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/test/unit-x.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/test/unit-x.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/test/type.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/test/type.test.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
-// * These tests ensure the exported interface under test functions as expected.
+// * These tests ensure the exported types under test function as expected.
+
+test.todo('this');
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/test/unit.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/test/unit.test.ts
+scope: unlimited
+⏶⏷⏶⏷⏶
+// * These tests ensure the exported interfaces under test function as expected.
 
 test.todo('this');
 "
@@ -28124,8 +28206,8 @@ export {};
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo (scope=this-package): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/end-to-end/e2e-x.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/end-to-end/e2e-x.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo (scope=this-package): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/end-to-end/e2e.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/end-to-end/e2e.test.ts
 scope: this-package
 ⏶⏷⏶⏷⏶
 // * These tests run through the entire process of acquiring this software,
@@ -28180,11 +28262,21 @@ test.todo('this');
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo (scope=this-package): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/unit-x.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/unit-x.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo (scope=this-package): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/type.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/type.test.ts
 scope: this-package
 ⏶⏷⏶⏷⏶
-// * These tests ensure the exported interface under test functions as expected.
+// * These tests ensure the exported types under test function as expected.
+
+test.todo('this');
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo (scope=this-package): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/unit.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/unit.test.ts
+scope: this-package
+⏶⏷⏶⏷⏶
+// * These tests ensure the exported interfaces under test function as expected.
 
 test.todo('this');
 "
@@ -28200,8 +28292,8 @@ export {};
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/end-to-end/e2e-x.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/end-to-end/e2e-x.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/end-to-end/e2e.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/end-to-end/e2e.test.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // * These tests run through the entire process of acquiring this software,
@@ -28256,11 +28348,21 @@ test.todo('this');
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/unit-x.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/unit-x.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/type.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/type.test.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
-// * These tests ensure the exported interface under test functions as expected.
+// * These tests ensure the exported types under test function as expected.
+
+test.todo('this');
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/unit.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/unit.test.ts
+scope: unlimited
+⏶⏷⏶⏷⏶
+// * These tests ensure the exported interfaces under test function as expected.
 
 test.todo('this');
 "
@@ -28276,8 +28378,8 @@ export {};
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/test/end-to-end/e2e-x.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/test/end-to-end/e2e-x.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/test/end-to-end/e2e.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/test/end-to-end/e2e.test.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // * These tests run through the entire process of acquiring this software,
@@ -28332,11 +28434,21 @@ test.todo('this');
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/test/unit-x.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/test/unit-x.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/test/type.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/test/type.test.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
-// * These tests ensure the exported interface under test functions as expected.
+// * These tests ensure the exported types under test function as expected.
+
+test.todo('this');
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/test/unit.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/test/unit.test.ts
+scope: unlimited
+⏶⏷⏶⏷⏶
+// * These tests ensure the exported interfaces under test function as expected.
 
 test.todo('this');
 "
@@ -28352,8 +28464,8 @@ export {};
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/test/end-to-end/e2e-x.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/test/end-to-end/e2e-x.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/test/end-to-end/e2e.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/test/end-to-end/e2e.test.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // * These tests run through the entire process of acquiring this software,
@@ -28408,11 +28520,21 @@ test.todo('this');
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/test/unit-x.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/test/unit-x.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/test/type.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/test/type.test.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
-// * These tests ensure the exported interface under test functions as expected.
+// * These tests ensure the exported types under test function as expected.
+
+test.todo('this');
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/test/unit.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/test/unit.test.ts
+scope: unlimited
+⏶⏷⏶⏷⏶
+// * These tests ensure the exported interfaces under test function as expected.
 
 test.todo('this');
 "
@@ -28462,8 +28584,8 @@ export {};
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/end-to-end/e2e-x.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/end-to-end/e2e-x.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/end-to-end/e2e.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/end-to-end/e2e.test.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // * These tests run through the entire process of acquiring this software,
@@ -28518,11 +28640,21 @@ test.todo('this');
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/unit-x.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/unit-x.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/type.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/type.test.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
-// * These tests ensure the exported interface under test functions as expected.
+// * These tests ensure the exported types under test function as expected.
+
+test.todo('this');
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/unit.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/unit.test.ts
+scope: unlimited
+⏶⏷⏶⏷⏶
+// * These tests ensure the exported interfaces under test function as expected.
 
 test.todo('this');
 "
@@ -28538,8 +28670,8 @@ export {};
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/test/end-to-end/e2e-x.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/test/end-to-end/e2e-x.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/test/end-to-end/e2e.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/test/end-to-end/e2e.test.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // * These tests run through the entire process of acquiring this software,
@@ -28594,11 +28726,21 @@ test.todo('this');
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/test/unit-x.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/test/unit-x.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/test/type.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/test/type.test.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
-// * These tests ensure the exported interface under test functions as expected.
+// * These tests ensure the exported types under test function as expected.
+
+test.todo('this');
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/test/unit.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/test/unit.test.ts
+scope: unlimited
+⏶⏷⏶⏷⏶
+// * These tests ensure the exported interfaces under test function as expected.
 
 test.todo('this');
 "
@@ -28614,8 +28756,8 @@ export {};
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/test/end-to-end/e2e-x.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/test/end-to-end/e2e-x.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/test/end-to-end/e2e.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/test/end-to-end/e2e.test.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // * These tests run through the entire process of acquiring this software,
@@ -28670,11 +28812,21 @@ test.todo('this');
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/test/unit-x.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/test/unit-x.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/test/type.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/test/type.test.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
-// * These tests ensure the exported interface under test functions as expected.
+// * These tests ensure the exported types under test function as expected.
+
+test.todo('this');
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/test/unit.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/test/unit.test.ts
+scope: unlimited
+⏶⏷⏶⏷⏶
+// * These tests ensure the exported interfaces under test function as expected.
 
 test.todo('this');
 "
@@ -28724,8 +28876,8 @@ export {};
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/test/end-to-end/e2e-x.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/test/end-to-end/e2e-x.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/test/end-to-end/e2e.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/test/end-to-end/e2e.test.ts
 scope: this-package
 ⏶⏷⏶⏷⏶
 // * These tests run through the entire process of acquiring this software,
@@ -28798,11 +28950,21 @@ import 'jest-extended/all';
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/test/unit-x.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/test/unit-x.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/test/type.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/test/type.test.ts
 scope: this-package
 ⏶⏷⏶⏷⏶
-// * These tests ensure the exported interface under test functions as expected.
+// * These tests ensure the exported types under test function as expected.
+
+test.todo('this');
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/test/unit.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/test/unit.test.ts
+scope: this-package
+⏶⏷⏶⏷⏶
+// * These tests ensure the exported interfaces under test function as expected.
 
 test.todo('this');
 "
@@ -31800,6 +31962,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tstyc
 scope: this-package
 ⏶⏷⏶⏷⏶
 {
+  "//": "{@symbiote/notInvalid tstyche}",
   "$schema": "https://tstyche.org/schemas/config.json",
   "testFileMatch": [
     "**/type.test.ts",
@@ -31818,6 +31981,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tstyc
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
+  "//": "{@symbiote/notInvalid tstyche}",
   "$schema": "https://tstyche.org/schemas/config.json",
   "testFileMatch": [
     "**/type.test.ts",
@@ -31836,6 +32000,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tstyc
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
+  "//": "{@symbiote/notInvalid tstyche}",
   "$schema": "https://tstyche.org/schemas/config.json",
   "testFileMatch": [
     "**/type.test.ts",
@@ -31854,6 +32019,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tstyc
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
+  "//": "{@symbiote/notInvalid tstyche}",
   "$schema": "https://tstyche.org/schemas/config.json",
   "testFileMatch": [
     "**/type.test.ts",
@@ -31872,6 +32038,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tstyc
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
+  "//": "{@symbiote/notInvalid tstyche}",
   "$schema": "https://tstyche.org/schemas/config.json",
   "testFileMatch": [
     "**/type.test.ts",
@@ -31890,6 +32057,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tstyc
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
+  "//": "{@symbiote/notInvalid tstyche}",
   "$schema": "https://tstyche.org/schemas/config.json",
   "testFileMatch": [
     "**/type.test.ts",
@@ -31908,6 +32076,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tstyc
 scope: this-package
 ⏶⏷⏶⏷⏶
 {
+  "//": "{@symbiote/notInvalid tstyche}",
   "$schema": "https://tstyche.org/schemas/config.json",
   "testFileMatch": [
     "**/type.test.ts",
@@ -31926,6 +32095,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tstyc
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
+  "//": "{@symbiote/notInvalid tstyche}",
   "$schema": "https://tstyche.org/schemas/config.json",
   "testFileMatch": [
     "**/type.test.ts",
