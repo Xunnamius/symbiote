@@ -59,9 +59,17 @@ import 'jest-extended/all';`
       if (force || !(await isAccessible(outputDir, { useCached: true }))) {
         return [
           {
-            path: toProjectAbsolutePath(outputDir, 'unit-x.test.ts'),
+            path: toProjectAbsolutePath(outputDir, 'unit.test.ts'),
             generate: () => /*js*/ `
-// * These tests ensure the exported interface under test functions as expected.
+// * These tests ensure the exported interfaces under test function as expected.
+
+test.todo('this');`
+          },
+
+          {
+            path: toProjectAbsolutePath(outputDir, 'type.test.ts'),
+            generate: () => /*js*/ `
+// * These tests ensure the exported types under test function as expected.
 
 test.todo('this');`
           },
@@ -81,7 +89,7 @@ export {};`
             ),
             generate: () => /*js*/ `
 // * These brutally minimal "smoke" tests ensure this software can be invoked
-// * and, when it is, exits cleanly.
+// * and, when it is, exits cleanly. Functionality testing is not the goal here.
 
 test.todo('this');`
           },
@@ -126,7 +134,7 @@ export {};`
 test.todo('this');`
           },
           {
-            path: toProjectAbsolutePath(outputDir, 'end-to-end', 'e2e-x.test.ts'),
+            path: toProjectAbsolutePath(outputDir, 'end-to-end', 'e2e.test.ts'),
             generate: () => /*js*/ `
 // * These tests run through the entire process of acquiring this software,
 // * using its features, and dealing with its error conditions across a variety
