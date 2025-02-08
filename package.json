@@ -106,7 +106,7 @@
   "dependencies": {
     "@-xun/changelog": "^1.0.0",
     "@-xun/fs": "^1.0.0",
-    "@-xun/jest": "^1.1.0",
+    "@-xun/jest": "^1.1.1",
     "@-xun/memoize": "^1.1.0",
     "@-xun/project": "^1.0.1",
     "@-xun/run": "^0.0.1",
@@ -251,7 +251,7 @@
   },
   "devDependencies": {
     "@-xun/common-dummies": "^1.0.2",
-    "@-xun/symbiote": "^2.23.3"
+    "@-xun/symbiote": "^2.23.4"
   },
   "engines": {
     "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
