@@ -8,4 +8,4 @@
 
 > **CustomCliArguments**: [`GlobalCliArguments`](../../../configure/type-aliases/GlobalCliArguments.md)\<[`ThisPackageGlobalScope`](../../../configure/enumerations/ThisPackageGlobalScope.md)\>
 
-Defined in: [src/commands/dev.ts:29](https://github.com/Xunnamius/symbiote/blob/b82f5db0ddf304d345bd71e41da6d798adaa5156/src/commands/dev.ts#L29)
+Defined in: [src/commands/dev.ts:29](https://github.com/Xunnamius/symbiote/blob/9de5a7b290875af95f8ef5a319559df825226df8/src/commands/dev.ts#L29)

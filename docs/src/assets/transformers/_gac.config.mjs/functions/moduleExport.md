@@ -8,7 +8,7 @@
 
 > **moduleExport**(): `object`
 
-Defined in: [src/assets/transformers/\_gac.config.mjs.ts:7](https://github.com/Xunnamius/symbiote/blob/b82f5db0ddf304d345bd71e41da6d798adaa5156/src/assets/transformers/_gac.config.mjs.ts#L7)
+Defined in: [src/assets/transformers/\_gac.config.mjs.ts:7](https://github.com/Xunnamius/symbiote/blob/9de5a7b290875af95f8ef5a319559df825226df8/src/assets/transformers/_gac.config.mjs.ts#L7)
 
 ## Returns
 

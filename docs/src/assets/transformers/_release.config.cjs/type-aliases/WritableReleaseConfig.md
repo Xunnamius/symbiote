@@ -8,7 +8,7 @@
 
 > **WritableReleaseConfig**: `WritableDeep`\<[`ReleaseConfig`](../interfaces/ReleaseConfig.md)\>
 
-Defined in: [src/assets/transformers/\_release.config.cjs.ts:98](https://github.com/Xunnamius/symbiote/blob/b82f5db0ddf304d345bd71e41da6d798adaa5156/src/assets/transformers/_release.config.cjs.ts#L98)
+Defined in: [src/assets/transformers/\_release.config.cjs.ts:98](https://github.com/Xunnamius/symbiote/blob/9de5a7b290875af95f8ef5a319559df825226df8/src/assets/transformers/_release.config.cjs.ts#L98)
 
 Writable xrelease (semantic-release) options.
 
