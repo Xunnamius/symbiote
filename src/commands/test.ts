@@ -47,8 +47,7 @@ import type { ChildConfiguration } from '@black-flag/core';
 import type { AsStrictExecutionContext } from 'multiverse+bfe';
 import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:configure.ts';
 
-const tstycheVacuousSuccessMessage =
-  'Tstyche tests vacuously succeeded: no "type*?.test.tsx?" files were found';
+const tstycheVacuousSuccessMessage = `Tstyche tests vacuously succeeded: no files found matching ${tstycheTargetRegExp.toString()}`;
 
 /**
  * Which kind of test to run.
