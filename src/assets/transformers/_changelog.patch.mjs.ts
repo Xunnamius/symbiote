@@ -8,6 +8,7 @@ export const { transformer } = makeTransformer(function (context) {
   // * Only the root package gets these files
   return generateRootOnlyAssets(context, async function () {
     const path = toProjectAbsolutePath(changelogPatchConfigPackageBase);
+    // ? Only create this file if it doesn't already exist
     const patchAlreadyExists = await isAccessible(path, { useCached: true });
 
     return patchAlreadyExists
