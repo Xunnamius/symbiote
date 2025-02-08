@@ -89,6 +89,7 @@ export const { transformer } = makeTransformer(function (context) {
 
   // * Only the root package gets these files
   return generateRootOnlyAssets(context, async function () {
+    // ? Only create these files if they don't already exist
     const [doesDefaultsFileAlreadyExist, doesSecretsFileAlreadyExist] =
       await Promise.all([
         isAccessible(defaultsFilePath, { useCached: true }),
