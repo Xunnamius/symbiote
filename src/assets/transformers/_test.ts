@@ -85,7 +85,7 @@ export {};`
             path: toProjectAbsolutePath(
               outputDir,
               'integration',
-              'integration-node-smoke.test.ts'
+              'integration-smoke.test.ts'
             ),
             generate: () => /*js*/ `
 // * These brutally minimal "smoke" tests ensure this software can be invoked
@@ -115,23 +115,6 @@ test.todo('this');`
 // * Configuration state and metadata shared among all end-to-end tests.
 
 export {};`
-          },
-          {
-            path: toProjectAbsolutePath(
-              outputDir,
-              'integration',
-              'integration-node-smoke.test.ts'
-            ),
-            generate: () => /*js*/ `
-// * These are relatively-simple "smoke" tests to ensure this software is
-// * fetchable/installable/executable and exits cleanly when run within the
-// * runtimes we support (e.g. the currently maintained node versions).
-// *
-// * Typically, these tests involve the use of deep mock fixtures and/or Docker
-// * containers, and are built to run in GitHub Actions CI pipelines; some can
-// * also be run locally.
-
-test.todo('this');`
           },
           {
             path: toProjectAbsolutePath(outputDir, 'end-to-end', 'e2e.test.ts'),
