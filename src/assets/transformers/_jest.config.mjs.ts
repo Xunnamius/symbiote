@@ -231,10 +231,12 @@ export function assertEnvironment(): Omit<
  * This is useful when, for instance, an ESM package needs to be mocked via a
  * top-level import.
  *
- * This function engages in some heavy monkey patching of jest internals to
- * prevent jest from complaining (i.e. `Must use import to load ES Module...`)
- * that these packages are ESM when `--experimental-vm-modules` is enabled in
- * the runtime. Therefore, this function should be invoked only once, only in
+ * This function engages in some heavy (but safe and
+ * corruption-resistant/recoverable) monkey patching of jest internals to
+ * prevent jest from complaining with `Must use import to load ES Module...`
+ * when attempting to load the provided ESM packages while
+ * `--experimental-vm-modules` is enabled in the runtime. Therefore, this
+ * function should be invoked as few times as possible, only in
  * `jest.config.mjs`, and only after all other changes to `config` have been
  * made.
  *
