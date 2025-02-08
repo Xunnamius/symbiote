@@ -19,7 +19,9 @@ export const { transformer } = makeTransformer(function (context) {
               '**/type.test.tsx',
               '**/type-*.test.ts',
               '**/type-*.test.tsx'
-            ]
+            ],
+            rejectAnyType: true,
+            rejectNeverType: true
           })
       }
     ];
