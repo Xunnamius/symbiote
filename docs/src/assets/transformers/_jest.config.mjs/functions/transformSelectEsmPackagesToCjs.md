@@ -8,7 +8,7 @@
 
 > **transformSelectEsmPackagesToCjs**(`config`, `packageNames`): `void`
 
-Defined in: [src/assets/transformers/\_jest.config.mjs.ts:259](https://github.com/Xunnamius/symbiote/blob/9de5a7b290875af95f8ef5a319559df825226df8/src/assets/transformers/_jest.config.mjs.ts#L259)
+Defined in: [src/assets/transformers/\_jest.config.mjs.ts:264](https://github.com/Xunnamius/symbiote/blob/559506ed93a747d618979a74bc2b1db446959ba9/src/assets/transformers/_jest.config.mjs.ts#L264)
 
 This function prepends a single regular expression _pattern string_ to
 [JestConfig.transformIgnorePatterns](transformSelectEsmPackagesToCjs.md#transformignorepatterns) in `config`. This will result in
@@ -19,10 +19,12 @@ no transpilation) in every other case.
 This is useful when, for instance, an ESM package needs to be mocked via a
 top-level import.
 
-This function engages in some heavy monkey patching of jest internals to
-prevent jest from complaining (i.e. `Must use import to load ES Module...`)
-that these packages are ESM when `--experimental-vm-modules` is enabled in
-the runtime. Therefore, this function should be invoked only once, only in
+This function engages in some heavy (but safe and
+corruption-resistant/recoverable) monkey patching of jest internals to
+prevent jest from complaining with `Must use import to load ES Module...`
+when attempting to load the provided ESM packages while
+`--experimental-vm-modules` is enabled in the runtime. Therefore, this
+function should be invoked as few times as possible, only in
 `jest.config.mjs`, and only after all other changes to `config` have been
 made.
 

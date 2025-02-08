@@ -8,7 +8,7 @@
 
 > **generateBaseXPackageJson**(...`__namedParameters`): `object`
 
-Defined in: [src/assets/transformers/\_package.json.ts:59](https://github.com/Xunnamius/symbiote/blob/9de5a7b290875af95f8ef5a319559df825226df8/src/assets/transformers/_package.json.ts#L59)
+Defined in: [src/assets/transformers/\_package.json.ts:59](https://github.com/Xunnamius/symbiote/blob/559506ed93a747d618979a74bc2b1db446959ba9/src/assets/transformers/_package.json.ts#L59)
 
 ## Parameters
 
@@ -718,7 +718,7 @@ Run with the `npm test` command.
 
 #### scripts.test:package:all
 
-> **test:package:all**: `string` = `'symbiote test --env NODE_NO_WARNINGS=1 --coverage'`
+> **test:package:all**: `string` = `'symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --coverage'`
 
 Run by users, symbiote, and related tooling when executing all possible
 tests against the current package. In a monorepo context, this script will
@@ -763,7 +763,7 @@ transitive dependencies).
 
 #### scripts.test:package:unit
 
-> **test:package:unit**: `string` = `'symbiote test --env NODE_NO_WARNINGS=1 --tests unit'`
+> **test:package:unit**: `string` = `'symbiote test --env NODE_NO_WARNINGS=1 --tests unit type'`
 
 Run by users, symbiote, and related tooling when executing unit tests
 against the current package. In a monorepo context, this script will also

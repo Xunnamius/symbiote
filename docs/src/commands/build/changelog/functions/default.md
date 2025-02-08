@@ -8,7 +8,7 @@
 
 > **default**(`globalExecutionContext`): `object`
 
-Defined in: [src/commands/build/changelog.ts:146](https://github.com/Xunnamius/symbiote/blob/9de5a7b290875af95f8ef5a319559df825226df8/src/commands/build/changelog.ts#L146)
+Defined in: [src/commands/build/changelog.ts:146](https://github.com/Xunnamius/symbiote/blob/559506ed93a747d618979a74bc2b1db446959ba9/src/commands/build/changelog.ts#L146)
 
 ## Parameters
 

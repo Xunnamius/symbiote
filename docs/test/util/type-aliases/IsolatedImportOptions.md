@@ -8,7 +8,7 @@
 
 > **IsolatedImportOptions**: `object`
 
-Defined in: node\_modules/@-xun/test-mock-import/dist/packages/test-mock-import/src/index.d.ts:4
+Defined in: node\_modules/@-xun/test-mock-import/dist/packages/test-mock-import/src/index.d.ts:5
 
 ## Type declaration
 

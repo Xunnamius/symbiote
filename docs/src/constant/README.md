@@ -11,6 +11,7 @@
 - [globalCliName](variables/globalCliName.md)
 - [globalDebuggerNamespace](variables/globalDebuggerNamespace.md)
 - [globalLoggerNamespace](variables/globalLoggerNamespace.md)
+- [tstycheTargetRegExp](variables/tstycheTargetRegExp.md)
 
 ## Functions
 

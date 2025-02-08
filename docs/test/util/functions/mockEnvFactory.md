@@ -8,7 +8,7 @@
 
 > **mockEnvFactory**(`factorySimulatedEnv`, `factoryOptions`): (`test`, `simulatedEnv`?, `options`?) => `Promise`\<`void`\>
 
-Defined in: node\_modules/@-xun/test-mock-env/dist/packages/test-mock-env/src/index.d.ts:40
+Defined in: node\_modules/@-xun/test-mock-env/dist/packages/test-mock-env/src/index.d.ts:42
 
 Return a function that, when invoked, returns a pre-configured
 [withMockedEnv](withMockedEnv.md) function.
