@@ -13,6 +13,7 @@ export const { transformer } = makeTransformer(function (context) {
         path: toProjectAbsolutePath(tstycheConfigProjectBase),
         generate: () =>
           stringifyJson({
+            '//': '{@symbiote/notInvalid tstyche}',
             $schema: 'https://tstyche.org/schemas/config.json',
             testFileMatch: [
               '**/type.test.ts',
