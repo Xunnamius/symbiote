@@ -94,6 +94,8 @@ export function baseConfig({
       '/dist/',
       '/src/',
       '/.transpiled/',
+      '/test/fixtures/',
+      '<rootDir>/dummies/',
       String.raw`/([^/\\]*\.ignore(\.[^/\\]+)?(/|$))|/(ignore\.[^/\\]+(/|$))`,
       tstycheTargetRegExp.source
     ],
