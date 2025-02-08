@@ -46,13 +46,10 @@ import type { ChildConfiguration } from '@black-flag/core';
 import type { AsStrictExecutionContext } from 'multiverse+bfe';
 import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:configure.ts';
 
-// TODO: delete me when you see me (unless test-utils is still under packages/)
-// {@symbiote/notExtraneous simple-git}
-
 // ! Cannot use the global (g) flag
-const tstycheTargetRegExp = /(^|\/)type-.*\.test\.(m|c)?tsx?$/;
+const tstycheTargetRegExp = /(^|\/)type(-.*)?\.test\.tsx?$/;
 const tstycheVacuousSuccessMessage =
-  'Tstyche tests vacuously succeeded: no "type-*.test.tsx?" files were found';
+  'Tstyche tests vacuously succeeded: no "type*?.test.tsx?" files were found';
 
 /**
  * Which kind of test to run.

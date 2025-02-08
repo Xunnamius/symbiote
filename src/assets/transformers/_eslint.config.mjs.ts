@@ -769,7 +769,10 @@ export function moduleExport({
       ...eslintPluginJestAll,
       name: '@-xun/symbiote:jest',
       files: [`**/*.test.{${toCommaSeparatedExtensionList(extensionsTsAndJs)}}`],
-      ignores: [`**/type-*.test.{${toCommaSeparatedExtensionList(extensionsTsAndJs)}}`],
+      ignores: [
+        `**/type.test.{${toCommaSeparatedExtensionList(extensionsTsAndJs)}}`,
+        `**/type-*.test.{${toCommaSeparatedExtensionList(extensionsTsAndJs)}}`
+      ],
       rules: {
         ...eslintPluginJestAll.rules,
         ...jestRules()

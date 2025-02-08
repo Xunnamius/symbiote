@@ -14,7 +14,12 @@ export const { transformer } = makeTransformer(function (context) {
         generate: () =>
           stringifyJson({
             $schema: 'https://tstyche.org/schemas/config.json',
-            testFileMatch: ['**/type-*.test.ts', '**/type-*.test.tsx']
+            testFileMatch: [
+              '**/type.test.ts',
+              '**/type.test.tsx',
+              '**/type-*.test.ts',
+              '**/type-*.test.tsx'
+            ]
           })
       }
     ];
