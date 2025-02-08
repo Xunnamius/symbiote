@@ -169,12 +169,13 @@ export function generateBaseXPackageJson(
       'renovate:aliases': `symbiote project renovate --env NODE_NO_WARNINGS=1 --regenerate-assets --assets-preset '${assetPresets.join(' ')}' --only-aliases`,
       start: 'symbiote start --env NODE_NO_WARNINGS=1 --',
       test: 'npm run test:package:unit --',
-      'test:package:all': 'symbiote test --env NODE_NO_WARNINGS=1 --coverage',
+      'test:package:all':
+        'symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --coverage',
       'test:package:e2e': 'symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end',
       'test:package:integration':
         'symbiote test --env NODE_NO_WARNINGS=1 --tests integration',
-      'test:package:unit': 'symbiote test --env NODE_NO_WARNINGS=1 --tests unit',
-      'test:packages:all': `symbiote test --env NODE_NO_WARNINGS=1 --scope ${DefaultGlobalScope.Unlimited} --coverage`,
+      'test:package:unit': 'symbiote test --env NODE_NO_WARNINGS=1 --tests unit type',
+      'test:packages:all': `symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --scope ${DefaultGlobalScope.Unlimited} --coverage`,
       'test:topological':
         'symbiote project topology --run test --env NODE_NO_WARNINGS=1',
       ...incomingPackageJson.scripts
