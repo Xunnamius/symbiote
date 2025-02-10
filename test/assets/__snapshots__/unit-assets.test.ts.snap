@@ -676,7 +676,7 @@ exports[`::gatherAssetsFromAllTransformers preset: basic generates expected asse
   "packages/webpack/test/unit.test.ts",
   "packages/webpack/test/type.test.ts",
   "packages/webpack/test/integration/.config.ts",
-  "packages/webpack/test/integration/integration-node-smoke.test.ts",
+  "packages/webpack/test/integration/integration-smoke.test.ts",
   "packages/webpack/test/integration/integration-client.test.ts",
   "packages/webpack/test/end-to-end/.config.ts",
   "packages/webpack/test/end-to-end/e2e.test.ts",
@@ -755,21 +755,21 @@ exports[`::gatherAssetsFromAllTransformers preset: basic generates expected asse
   "packages/pkg-1/test/unit.test.ts",
   "packages/pkg-1/test/type.test.ts",
   "packages/pkg-1/test/integration/.config.ts",
-  "packages/pkg-1/test/integration/integration-node-smoke.test.ts",
+  "packages/pkg-1/test/integration/integration-smoke.test.ts",
   "packages/pkg-1/test/integration/integration-client.test.ts",
   "packages/pkg-1/test/end-to-end/.config.ts",
   "packages/pkg-1/test/end-to-end/e2e.test.ts",
   "packages/pkg-2/test/unit.test.ts",
   "packages/pkg-2/test/type.test.ts",
   "packages/pkg-2/test/integration/.config.ts",
-  "packages/pkg-2/test/integration/integration-node-smoke.test.ts",
+  "packages/pkg-2/test/integration/integration-smoke.test.ts",
   "packages/pkg-2/test/integration/integration-client.test.ts",
   "packages/pkg-2/test/end-to-end/.config.ts",
   "packages/pkg-2/test/end-to-end/e2e.test.ts",
   "packages/pkg-import/test/unit.test.ts",
   "packages/pkg-import/test/type.test.ts",
   "packages/pkg-import/test/integration/.config.ts",
-  "packages/pkg-import/test/integration/integration-node-smoke.test.ts",
+  "packages/pkg-import/test/integration/integration-smoke.test.ts",
   "packages/pkg-import/test/integration/integration-client.test.ts",
   "packages/pkg-import/test/end-to-end/.config.ts",
   "packages/pkg-import/test/end-to-end/e2e.test.ts",
@@ -900,7 +900,7 @@ exports[`::gatherAssetsFromAllTransformers preset: cli generates expected assets
   "packages/webpack/test/unit.test.ts",
   "packages/webpack/test/type.test.ts",
   "packages/webpack/test/integration/.config.ts",
-  "packages/webpack/test/integration/integration-node-smoke.test.ts",
+  "packages/webpack/test/integration/integration-smoke.test.ts",
   "packages/webpack/test/integration/integration-client.test.ts",
   "packages/webpack/test/end-to-end/.config.ts",
   "packages/webpack/test/end-to-end/e2e.test.ts",
@@ -987,21 +987,21 @@ exports[`::gatherAssetsFromAllTransformers preset: cli generates expected assets
   "packages/pkg-1/test/unit.test.ts",
   "packages/pkg-1/test/type.test.ts",
   "packages/pkg-1/test/integration/.config.ts",
-  "packages/pkg-1/test/integration/integration-node-smoke.test.ts",
+  "packages/pkg-1/test/integration/integration-smoke.test.ts",
   "packages/pkg-1/test/integration/integration-client.test.ts",
   "packages/pkg-1/test/end-to-end/.config.ts",
   "packages/pkg-1/test/end-to-end/e2e.test.ts",
   "packages/pkg-2/test/unit.test.ts",
   "packages/pkg-2/test/type.test.ts",
   "packages/pkg-2/test/integration/.config.ts",
-  "packages/pkg-2/test/integration/integration-node-smoke.test.ts",
+  "packages/pkg-2/test/integration/integration-smoke.test.ts",
   "packages/pkg-2/test/integration/integration-client.test.ts",
   "packages/pkg-2/test/end-to-end/.config.ts",
   "packages/pkg-2/test/end-to-end/e2e.test.ts",
   "packages/pkg-import/test/unit.test.ts",
   "packages/pkg-import/test/type.test.ts",
   "packages/pkg-import/test/integration/.config.ts",
-  "packages/pkg-import/test/integration/integration-node-smoke.test.ts",
+  "packages/pkg-import/test/integration/integration-smoke.test.ts",
   "packages/pkg-import/test/integration/integration-client.test.ts",
   "packages/pkg-import/test/end-to-end/.config.ts",
   "packages/pkg-import/test/end-to-end/e2e.test.ts",
@@ -1141,7 +1141,7 @@ exports[`::gatherAssetsFromAllTransformers preset: default (no preset) generates
   "packages/webpack/test/unit.test.ts",
   "packages/webpack/test/type.test.ts",
   "packages/webpack/test/integration/.config.ts",
-  "packages/webpack/test/integration/integration-node-smoke.test.ts",
+  "packages/webpack/test/integration/integration-smoke.test.ts",
   "packages/webpack/test/integration/integration-client.test.ts",
   "packages/webpack/test/end-to-end/.config.ts",
   "packages/webpack/test/end-to-end/e2e.test.ts",
@@ -1234,21 +1234,21 @@ exports[`::gatherAssetsFromAllTransformers preset: default (no preset) generates
   "packages/pkg-1/test/unit.test.ts",
   "packages/pkg-1/test/type.test.ts",
   "packages/pkg-1/test/integration/.config.ts",
-  "packages/pkg-1/test/integration/integration-node-smoke.test.ts",
+  "packages/pkg-1/test/integration/integration-smoke.test.ts",
   "packages/pkg-1/test/integration/integration-client.test.ts",
   "packages/pkg-1/test/end-to-end/.config.ts",
   "packages/pkg-1/test/end-to-end/e2e.test.ts",
   "packages/pkg-2/test/unit.test.ts",
   "packages/pkg-2/test/type.test.ts",
   "packages/pkg-2/test/integration/.config.ts",
-  "packages/pkg-2/test/integration/integration-node-smoke.test.ts",
+  "packages/pkg-2/test/integration/integration-smoke.test.ts",
   "packages/pkg-2/test/integration/integration-client.test.ts",
   "packages/pkg-2/test/end-to-end/.config.ts",
   "packages/pkg-2/test/end-to-end/e2e.test.ts",
   "packages/pkg-import/test/unit.test.ts",
   "packages/pkg-import/test/type.test.ts",
   "packages/pkg-import/test/integration/.config.ts",
-  "packages/pkg-import/test/integration/integration-node-smoke.test.ts",
+  "packages/pkg-import/test/integration/integration-smoke.test.ts",
   "packages/pkg-import/test/integration/integration-client.test.ts",
   "packages/pkg-import/test/end-to-end/.config.ts",
   "packages/pkg-import/test/end-to-end/e2e.test.ts",
@@ -1392,7 +1392,7 @@ exports[`::gatherAssetsFromAllTransformers preset: lib generates expected assets
   "packages/webpack/test/unit.test.ts",
   "packages/webpack/test/type.test.ts",
   "packages/webpack/test/integration/.config.ts",
-  "packages/webpack/test/integration/integration-node-smoke.test.ts",
+  "packages/webpack/test/integration/integration-smoke.test.ts",
   "packages/webpack/test/integration/integration-client.test.ts",
   "packages/webpack/test/end-to-end/.config.ts",
   "packages/webpack/test/end-to-end/e2e.test.ts",
@@ -1479,21 +1479,21 @@ exports[`::gatherAssetsFromAllTransformers preset: lib generates expected assets
   "packages/pkg-1/test/unit.test.ts",
   "packages/pkg-1/test/type.test.ts",
   "packages/pkg-1/test/integration/.config.ts",
-  "packages/pkg-1/test/integration/integration-node-smoke.test.ts",
+  "packages/pkg-1/test/integration/integration-smoke.test.ts",
   "packages/pkg-1/test/integration/integration-client.test.ts",
   "packages/pkg-1/test/end-to-end/.config.ts",
   "packages/pkg-1/test/end-to-end/e2e.test.ts",
   "packages/pkg-2/test/unit.test.ts",
   "packages/pkg-2/test/type.test.ts",
   "packages/pkg-2/test/integration/.config.ts",
-  "packages/pkg-2/test/integration/integration-node-smoke.test.ts",
+  "packages/pkg-2/test/integration/integration-smoke.test.ts",
   "packages/pkg-2/test/integration/integration-client.test.ts",
   "packages/pkg-2/test/end-to-end/.config.ts",
   "packages/pkg-2/test/end-to-end/e2e.test.ts",
   "packages/pkg-import/test/unit.test.ts",
   "packages/pkg-import/test/type.test.ts",
   "packages/pkg-import/test/integration/.config.ts",
-  "packages/pkg-import/test/integration/integration-node-smoke.test.ts",
+  "packages/pkg-import/test/integration/integration-smoke.test.ts",
   "packages/pkg-import/test/integration/integration-client.test.ts",
   "packages/pkg-import/test/end-to-end/.config.ts",
   "packages/pkg-import/test/end-to-end/e2e.test.ts",
@@ -1629,7 +1629,7 @@ exports[`::gatherAssetsFromAllTransformers preset: lib-esm generates expected as
   "packages/webpack/test/unit.test.ts",
   "packages/webpack/test/type.test.ts",
   "packages/webpack/test/integration/.config.ts",
-  "packages/webpack/test/integration/integration-node-smoke.test.ts",
+  "packages/webpack/test/integration/integration-smoke.test.ts",
   "packages/webpack/test/integration/integration-client.test.ts",
   "packages/webpack/test/end-to-end/.config.ts",
   "packages/webpack/test/end-to-end/e2e.test.ts",
@@ -1716,21 +1716,21 @@ exports[`::gatherAssetsFromAllTransformers preset: lib-esm generates expected as
   "packages/pkg-1/test/unit.test.ts",
   "packages/pkg-1/test/type.test.ts",
   "packages/pkg-1/test/integration/.config.ts",
-  "packages/pkg-1/test/integration/integration-node-smoke.test.ts",
+  "packages/pkg-1/test/integration/integration-smoke.test.ts",
   "packages/pkg-1/test/integration/integration-client.test.ts",
   "packages/pkg-1/test/end-to-end/.config.ts",
   "packages/pkg-1/test/end-to-end/e2e.test.ts",
   "packages/pkg-2/test/unit.test.ts",
   "packages/pkg-2/test/type.test.ts",
   "packages/pkg-2/test/integration/.config.ts",
-  "packages/pkg-2/test/integration/integration-node-smoke.test.ts",
+  "packages/pkg-2/test/integration/integration-smoke.test.ts",
   "packages/pkg-2/test/integration/integration-client.test.ts",
   "packages/pkg-2/test/end-to-end/.config.ts",
   "packages/pkg-2/test/end-to-end/e2e.test.ts",
   "packages/pkg-import/test/unit.test.ts",
   "packages/pkg-import/test/type.test.ts",
   "packages/pkg-import/test/integration/.config.ts",
-  "packages/pkg-import/test/integration/integration-node-smoke.test.ts",
+  "packages/pkg-import/test/integration/integration-smoke.test.ts",
   "packages/pkg-import/test/integration/integration-client.test.ts",
   "packages/pkg-import/test/end-to-end/.config.ts",
   "packages/pkg-import/test/end-to-end/e2e.test.ts",
@@ -1867,7 +1867,7 @@ exports[`::gatherAssetsFromAllTransformers preset: lib-web generates expected as
   "packages/webpack/test/unit.test.ts",
   "packages/webpack/test/type.test.ts",
   "packages/webpack/test/integration/.config.ts",
-  "packages/webpack/test/integration/integration-node-smoke.test.ts",
+  "packages/webpack/test/integration/integration-smoke.test.ts",
   "packages/webpack/test/integration/integration-client.test.ts",
   "packages/webpack/test/end-to-end/.config.ts",
   "packages/webpack/test/end-to-end/e2e.test.ts",
@@ -1955,21 +1955,21 @@ exports[`::gatherAssetsFromAllTransformers preset: lib-web generates expected as
   "packages/pkg-1/test/unit.test.ts",
   "packages/pkg-1/test/type.test.ts",
   "packages/pkg-1/test/integration/.config.ts",
-  "packages/pkg-1/test/integration/integration-node-smoke.test.ts",
+  "packages/pkg-1/test/integration/integration-smoke.test.ts",
   "packages/pkg-1/test/integration/integration-client.test.ts",
   "packages/pkg-1/test/end-to-end/.config.ts",
   "packages/pkg-1/test/end-to-end/e2e.test.ts",
   "packages/pkg-2/test/unit.test.ts",
   "packages/pkg-2/test/type.test.ts",
   "packages/pkg-2/test/integration/.config.ts",
-  "packages/pkg-2/test/integration/integration-node-smoke.test.ts",
+  "packages/pkg-2/test/integration/integration-smoke.test.ts",
   "packages/pkg-2/test/integration/integration-client.test.ts",
   "packages/pkg-2/test/end-to-end/.config.ts",
   "packages/pkg-2/test/end-to-end/e2e.test.ts",
   "packages/pkg-import/test/unit.test.ts",
   "packages/pkg-import/test/type.test.ts",
   "packages/pkg-import/test/integration/.config.ts",
-  "packages/pkg-import/test/integration/integration-node-smoke.test.ts",
+  "packages/pkg-import/test/integration/integration-smoke.test.ts",
   "packages/pkg-import/test/integration/integration-client.test.ts",
   "packages/pkg-import/test/end-to-end/.config.ts",
   "packages/pkg-import/test/end-to-end/e2e.test.ts",
@@ -2102,7 +2102,7 @@ exports[`::gatherAssetsFromAllTransformers preset: nextjs generates expected ass
   "packages/webpack/test/unit.test.ts",
   "packages/webpack/test/type.test.ts",
   "packages/webpack/test/integration/.config.ts",
-  "packages/webpack/test/integration/integration-node-smoke.test.ts",
+  "packages/webpack/test/integration/integration-smoke.test.ts",
   "packages/webpack/test/integration/integration-client.test.ts",
   "packages/webpack/test/end-to-end/.config.ts",
   "packages/webpack/test/end-to-end/e2e.test.ts",
@@ -2187,21 +2187,21 @@ exports[`::gatherAssetsFromAllTransformers preset: nextjs generates expected ass
   "packages/pkg-1/test/unit.test.ts",
   "packages/pkg-1/test/type.test.ts",
   "packages/pkg-1/test/integration/.config.ts",
-  "packages/pkg-1/test/integration/integration-node-smoke.test.ts",
+  "packages/pkg-1/test/integration/integration-smoke.test.ts",
   "packages/pkg-1/test/integration/integration-client.test.ts",
   "packages/pkg-1/test/end-to-end/.config.ts",
   "packages/pkg-1/test/end-to-end/e2e.test.ts",
   "packages/pkg-2/test/unit.test.ts",
   "packages/pkg-2/test/type.test.ts",
   "packages/pkg-2/test/integration/.config.ts",
-  "packages/pkg-2/test/integration/integration-node-smoke.test.ts",
+  "packages/pkg-2/test/integration/integration-smoke.test.ts",
   "packages/pkg-2/test/integration/integration-client.test.ts",
   "packages/pkg-2/test/end-to-end/.config.ts",
   "packages/pkg-2/test/end-to-end/e2e.test.ts",
   "packages/pkg-import/test/unit.test.ts",
   "packages/pkg-import/test/type.test.ts",
   "packages/pkg-import/test/integration/.config.ts",
-  "packages/pkg-import/test/integration/integration-node-smoke.test.ts",
+  "packages/pkg-import/test/integration/integration-smoke.test.ts",
   "packages/pkg-import/test/integration/integration-client.test.ts",
   "packages/pkg-import/test/end-to-end/.config.ts",
   "packages/pkg-import/test/end-to-end/e2e.test.ts",
@@ -2335,7 +2335,7 @@ exports[`::gatherAssetsFromAllTransformers preset: react generates expected asse
   "packages/webpack/test/unit.test.ts",
   "packages/webpack/test/type.test.ts",
   "packages/webpack/test/integration/.config.ts",
-  "packages/webpack/test/integration/integration-node-smoke.test.ts",
+  "packages/webpack/test/integration/integration-smoke.test.ts",
   "packages/webpack/test/integration/integration-client.test.ts",
   "packages/webpack/test/end-to-end/.config.ts",
   "packages/webpack/test/end-to-end/e2e.test.ts",
@@ -2417,21 +2417,21 @@ exports[`::gatherAssetsFromAllTransformers preset: react generates expected asse
   "packages/pkg-1/test/unit.test.ts",
   "packages/pkg-1/test/type.test.ts",
   "packages/pkg-1/test/integration/.config.ts",
-  "packages/pkg-1/test/integration/integration-node-smoke.test.ts",
+  "packages/pkg-1/test/integration/integration-smoke.test.ts",
   "packages/pkg-1/test/integration/integration-client.test.ts",
   "packages/pkg-1/test/end-to-end/.config.ts",
   "packages/pkg-1/test/end-to-end/e2e.test.ts",
   "packages/pkg-2/test/unit.test.ts",
   "packages/pkg-2/test/type.test.ts",
   "packages/pkg-2/test/integration/.config.ts",
-  "packages/pkg-2/test/integration/integration-node-smoke.test.ts",
+  "packages/pkg-2/test/integration/integration-smoke.test.ts",
   "packages/pkg-2/test/integration/integration-client.test.ts",
   "packages/pkg-2/test/end-to-end/.config.ts",
   "packages/pkg-2/test/end-to-end/e2e.test.ts",
   "packages/pkg-import/test/unit.test.ts",
   "packages/pkg-import/test/type.test.ts",
   "packages/pkg-import/test/integration/.config.ts",
-  "packages/pkg-import/test/integration/integration-node-smoke.test.ts",
+  "packages/pkg-import/test/integration/integration-smoke.test.ts",
   "packages/pkg-import/test/integration/integration-client.test.ts",
   "packages/pkg-import/test/end-to-end/.config.ts",
   "packages/pkg-import/test/end-to-end/e2e.test.ts",
@@ -27782,17 +27782,12 @@ test.todo('this');
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/cli/test/integration/integration-node-smoke.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/cli/test/integration/integration-node-smoke.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/cli/test/integration/integration-smoke.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/cli/test/integration/integration-smoke.test.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
-// * These are relatively-simple "smoke" tests to ensure this software is
-// * fetchable/installable/executable and exits cleanly when run within the
-// * runtimes we support (e.g. the currently maintained node versions).
-// *
-// * Typically, these tests involve the use of deep mock fixtures and/or Docker
-// * containers, and are built to run in GitHub Actions CI pipelines; some can
-// * also be run locally.
+// * These brutally minimal "smoke" tests ensure this software can be invoked
+// * and, when it is, exits cleanly. Functionality testing is not the goal here.
 
 test.todo('this');
 "
@@ -27868,17 +27863,12 @@ test.todo('this');
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/private/test/integration/integration-node-smoke.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/private/test/integration/integration-node-smoke.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/private/test/integration/integration-smoke.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/private/test/integration/integration-smoke.test.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
-// * These are relatively-simple "smoke" tests to ensure this software is
-// * fetchable/installable/executable and exits cleanly when run within the
-// * runtimes we support (e.g. the currently maintained node versions).
-// *
-// * Typically, these tests involve the use of deep mock fixtures and/or Docker
-// * containers, and are built to run in GitHub Actions CI pipelines; some can
-// * also be run locally.
+// * These brutally minimal "smoke" tests ensure this software can be invoked
+// * and, when it is, exits cleanly. Functionality testing is not the goal here.
 
 test.todo('this');
 "
@@ -27954,17 +27944,12 @@ test.todo('this');
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/test/integration/integration-node-smoke.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/test/integration/integration-node-smoke.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/test/integration/integration-smoke.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/test/integration/integration-smoke.test.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
-// * These are relatively-simple "smoke" tests to ensure this software is
-// * fetchable/installable/executable and exits cleanly when run within the
-// * runtimes we support (e.g. the currently maintained node versions).
-// *
-// * Typically, these tests involve the use of deep mock fixtures and/or Docker
-// * containers, and are built to run in GitHub Actions CI pipelines; some can
-// * also be run locally.
+// * These brutally minimal "smoke" tests ensure this software can be invoked
+// * and, when it is, exits cleanly. Functionality testing is not the goal here.
 
 test.todo('this');
 "
@@ -28040,17 +28025,12 @@ test.todo('this');
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/test/integration/integration-node-smoke.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/test/integration/integration-node-smoke.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/test/integration/integration-smoke.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/test/integration/integration-smoke.test.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
-// * These are relatively-simple "smoke" tests to ensure this software is
-// * fetchable/installable/executable and exits cleanly when run within the
-// * runtimes we support (e.g. the currently maintained node versions).
-// *
-// * Typically, these tests involve the use of deep mock fixtures and/or Docker
-// * containers, and are built to run in GitHub Actions CI pipelines; some can
-// * also be run locally.
+// * These brutally minimal "smoke" tests ensure this software can be invoked
+// * and, when it is, exits cleanly. Functionality testing is not the goal here.
 
 test.todo('this');
 "
@@ -28160,17 +28140,12 @@ test.todo('this');
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/test/integration/integration-node-smoke.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/test/integration/integration-node-smoke.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at hybridrepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/test/integration/integration-smoke.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/test/integration/integration-smoke.test.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
-// * These are relatively-simple "smoke" tests to ensure this software is
-// * fetchable/installable/executable and exits cleanly when run within the
-// * runtimes we support (e.g. the currently maintained node versions).
-// *
-// * Typically, these tests involve the use of deep mock fixtures and/or Docker
-// * containers, and are built to run in GitHub Actions CI pipelines; some can
-// * also be run locally.
+// * These brutally minimal "smoke" tests ensure this software can be invoked
+// * and, when it is, exits cleanly. Functionality testing is not the goal here.
 
 test.todo('this');
 "
@@ -28246,17 +28221,12 @@ test.todo('this');
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo (scope=this-package): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/integration/integration-node-smoke.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/integration/integration-node-smoke.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo (scope=this-package): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/integration/integration-smoke.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/integration/integration-smoke.test.ts
 scope: this-package
 ⏶⏷⏶⏷⏶
-// * These are relatively-simple "smoke" tests to ensure this software is
-// * fetchable/installable/executable and exits cleanly when run within the
-// * runtimes we support (e.g. the currently maintained node versions).
-// *
-// * Typically, these tests involve the use of deep mock fixtures and/or Docker
-// * containers, and are built to run in GitHub Actions CI pipelines; some can
-// * also be run locally.
+// * These brutally minimal "smoke" tests ensure this software can be invoked
+// * and, when it is, exits cleanly. Functionality testing is not the goal here.
 
 test.todo('this');
 "
@@ -28332,17 +28302,12 @@ test.todo('this');
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/integration/integration-node-smoke.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/integration/integration-node-smoke.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/integration/integration-smoke.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/integration/integration-smoke.test.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
-// * These are relatively-simple "smoke" tests to ensure this software is
-// * fetchable/installable/executable and exits cleanly when run within the
-// * runtimes we support (e.g. the currently maintained node versions).
-// *
-// * Typically, these tests involve the use of deep mock fixtures and/or Docker
-// * containers, and are built to run in GitHub Actions CI pipelines; some can
-// * also be run locally.
+// * These brutally minimal "smoke" tests ensure this software can be invoked
+// * and, when it is, exits cleanly. Functionality testing is not the goal here.
 
 test.todo('this');
 "
@@ -28418,17 +28383,12 @@ test.todo('this');
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/test/integration/integration-node-smoke.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/test/integration/integration-node-smoke.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/test/integration/integration-smoke.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/test/integration/integration-smoke.test.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
-// * These are relatively-simple "smoke" tests to ensure this software is
-// * fetchable/installable/executable and exits cleanly when run within the
-// * runtimes we support (e.g. the currently maintained node versions).
-// *
-// * Typically, these tests involve the use of deep mock fixtures and/or Docker
-// * containers, and are built to run in GitHub Actions CI pipelines; some can
-// * also be run locally.
+// * These brutally minimal "smoke" tests ensure this software can be invoked
+// * and, when it is, exits cleanly. Functionality testing is not the goal here.
 
 test.todo('this');
 "
@@ -28504,17 +28464,12 @@ test.todo('this');
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/test/integration/integration-node-smoke.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/test/integration/integration-node-smoke.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/test/integration/integration-smoke.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/test/integration/integration-smoke.test.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
-// * These are relatively-simple "smoke" tests to ensure this software is
-// * fetchable/installable/executable and exits cleanly when run within the
-// * runtimes we support (e.g. the currently maintained node versions).
-// *
-// * Typically, these tests involve the use of deep mock fixtures and/or Docker
-// * containers, and are built to run in GitHub Actions CI pipelines; some can
-// * also be run locally.
+// * These brutally minimal "smoke" tests ensure this software can be invoked
+// * and, when it is, exits cleanly. Functionality testing is not the goal here.
 
 test.todo('this');
 "
@@ -28624,17 +28579,12 @@ test.todo('this');
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/integration/integration-node-smoke.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/integration/integration-node-smoke.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/integration/integration-smoke.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/integration/integration-smoke.test.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
-// * These are relatively-simple "smoke" tests to ensure this software is
-// * fetchable/installable/executable and exits cleanly when run within the
-// * runtimes we support (e.g. the currently maintained node versions).
-// *
-// * Typically, these tests involve the use of deep mock fixtures and/or Docker
-// * containers, and are built to run in GitHub Actions CI pipelines; some can
-// * also be run locally.
+// * These brutally minimal "smoke" tests ensure this software can be invoked
+// * and, when it is, exits cleanly. Functionality testing is not the goal here.
 
 test.todo('this');
 "
@@ -28710,17 +28660,12 @@ test.todo('this');
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/test/integration/integration-node-smoke.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/test/integration/integration-node-smoke.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/test/integration/integration-smoke.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/test/integration/integration-smoke.test.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
-// * These are relatively-simple "smoke" tests to ensure this software is
-// * fetchable/installable/executable and exits cleanly when run within the
-// * runtimes we support (e.g. the currently maintained node versions).
-// *
-// * Typically, these tests involve the use of deep mock fixtures and/or Docker
-// * containers, and are built to run in GitHub Actions CI pipelines; some can
-// * also be run locally.
+// * These brutally minimal "smoke" tests ensure this software can be invoked
+// * and, when it is, exits cleanly. Functionality testing is not the goal here.
 
 test.todo('this');
 "
@@ -28796,17 +28741,12 @@ test.todo('this');
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/test/integration/integration-node-smoke.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/test/integration/integration-node-smoke.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/test/integration/integration-smoke.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/test/integration/integration-smoke.test.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
-// * These are relatively-simple "smoke" tests to ensure this software is
-// * fetchable/installable/executable and exits cleanly when run within the
-// * runtimes we support (e.g. the currently maintained node versions).
-// *
-// * Typically, these tests involve the use of deep mock fixtures and/or Docker
-// * containers, and are built to run in GitHub Actions CI pipelines; some can
-// * also be run locally.
+// * These brutally minimal "smoke" tests ensure this software can be invoked
+// * and, when it is, exits cleanly. Functionality testing is not the goal here.
 
 test.todo('this');
 "
@@ -28916,17 +28856,12 @@ test.todo('this');
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/test/integration/integration-node-smoke.test.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/test/integration/integration-node-smoke.test.ts
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> test generates expected assets for polyrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/test/integration/integration-smoke.test.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/test/integration/integration-smoke.test.ts
 scope: this-package
 ⏶⏷⏶⏷⏶
-// * These are relatively-simple "smoke" tests to ensure this software is
-// * fetchable/installable/executable and exits cleanly when run within the
-// * runtimes we support (e.g. the currently maintained node versions).
-// *
-// * Typically, these tests involve the use of deep mock fixtures and/or Docker
-// * containers, and are built to run in GitHub Actions CI pipelines; some can
-// * also be run locally.
+// * These brutally minimal "smoke" tests ensure this software can be invoked
+// * and, when it is, exits cleanly. Functionality testing is not the goal here.
 
 test.todo('this');
 "
