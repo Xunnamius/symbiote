@@ -121,6 +121,16 @@ export const ErrorMessage = {
   CannotUseIgnoresWithPathsOutsideProjectRoot() {
     return 'cannot use ignore functionality (like --skip-ignored) when one or more --files paths are outside of the project root';
   },
+  CannotStatOutputTarget(outputTarget: string) {
+    return `failed to stat output target: ${outputTarget}
+
+This error typically occurs when TypeScript's compiler generates a bad path in a definition file. That usually happens when your source is relying on non-portable type inference when exporting types, such as that of a function with a return type that is not trivially inferable. If the output target points to a file within a package under node_modules in a monorepo, you may attempt the following:
+
+  1. Un-hoist the package using @-xun/no-hoist or by moving it under the affected package's node_modules directory.
+  2. Run the build process again. TypeScript should now alert you to the cause of the issue.
+  3. Fix the issue.
+  4. Remove the un-hoist workaround if desired.`;
+  },
   CliProjectHasBadBinConfig() {
     return 'this project appears to be a CLI project but has one or more poorly configured "bin" entries in package.json';
   },

@@ -749,7 +749,17 @@ function makeDistReplacerEntry(
         if (!(specifierTargetOutputPath in knownEntrypoints)) {
           dbgResolver('cache miss; resolution to package entry point will be attempted');
 
-          const isDir = statSync(specifierTargetOutputPath).isDirectory();
+          const isDir = (() => {
+            try {
+              return statSync(specifierTargetOutputPath).isDirectory();
+            } catch (error) {
+              throw new ProjectError(
+                ErrorMessage.CannotStatOutputTarget(specifierTargetOutputPath),
+                { cause: error }
+              );
+            }
+          })();
+
           const packageJsonPath = findUp.sync('package.json', {
             cwd: isDir ? specifierTargetOutputPath : toDirname(specifierTargetOutputPath)
           }) as AbsolutePath | undefined;
