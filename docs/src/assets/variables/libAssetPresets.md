@@ -8,7 +8,7 @@
 
 > `const` **libAssetPresets**: (`undefined` \| [`AssetPreset`](../enumerations/AssetPreset.md))[]
 
-Defined in: [src/assets.ts:136](https://github.com/Xunnamius/symbiote/blob/93db40a191a3211953c897ee68551b6408725320/src/assets.ts#L136)
+Defined in: [src/assets.ts:136](https://github.com/Xunnamius/symbiote/blob/ea9edf73ee9a095bf3bea5793333d39906fa49d1/src/assets.ts#L136)
 
 The presets for libraries and library-like projects (such as
 [AssetPreset.Cli](../enumerations/AssetPreset.md#cli)). Also includes `undefined`, signifying a lack of
