@@ -31897,8 +31897,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tstyc
 scope: this-package
 ⏶⏷⏶⏷⏶
 {
-  "//": "{@symbiote/notInvalid tstyche}",
-  "$schema": "https://tstyche.org/schemas/config.json",
+  "$schema": "https://tstyche.org/schemas/config.json#{@symbiote/notInvalid tstyche}",
   "testFileMatch": [
     "**/type.test.ts",
     "**/type.test.tsx",
@@ -31916,8 +31915,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tstyc
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
-  "//": "{@symbiote/notInvalid tstyche}",
-  "$schema": "https://tstyche.org/schemas/config.json",
+  "$schema": "https://tstyche.org/schemas/config.json#{@symbiote/notInvalid tstyche}",
   "testFileMatch": [
     "**/type.test.ts",
     "**/type.test.tsx",
@@ -31935,8 +31933,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tstyc
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
-  "//": "{@symbiote/notInvalid tstyche}",
-  "$schema": "https://tstyche.org/schemas/config.json",
+  "$schema": "https://tstyche.org/schemas/config.json#{@symbiote/notInvalid tstyche}",
   "testFileMatch": [
     "**/type.test.ts",
     "**/type.test.tsx",
@@ -31954,8 +31951,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tstyc
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
-  "//": "{@symbiote/notInvalid tstyche}",
-  "$schema": "https://tstyche.org/schemas/config.json",
+  "$schema": "https://tstyche.org/schemas/config.json#{@symbiote/notInvalid tstyche}",
   "testFileMatch": [
     "**/type.test.ts",
     "**/type.test.tsx",
@@ -31973,8 +31969,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tstyc
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
-  "//": "{@symbiote/notInvalid tstyche}",
-  "$schema": "https://tstyche.org/schemas/config.json",
+  "$schema": "https://tstyche.org/schemas/config.json#{@symbiote/notInvalid tstyche}",
   "testFileMatch": [
     "**/type.test.ts",
     "**/type.test.tsx",
@@ -31992,8 +31987,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tstyc
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
-  "//": "{@symbiote/notInvalid tstyche}",
-  "$schema": "https://tstyche.org/schemas/config.json",
+  "$schema": "https://tstyche.org/schemas/config.json#{@symbiote/notInvalid tstyche}",
   "testFileMatch": [
     "**/type.test.ts",
     "**/type.test.tsx",
@@ -32011,8 +32005,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tstyc
 scope: this-package
 ⏶⏷⏶⏷⏶
 {
-  "//": "{@symbiote/notInvalid tstyche}",
-  "$schema": "https://tstyche.org/schemas/config.json",
+  "$schema": "https://tstyche.org/schemas/config.json#{@symbiote/notInvalid tstyche}",
   "testFileMatch": [
     "**/type.test.ts",
     "**/type.test.tsx",
@@ -32030,8 +32023,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tstyc
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
-  "//": "{@symbiote/notInvalid tstyche}",
-  "$schema": "https://tstyche.org/schemas/config.json",
+  "$schema": "https://tstyche.org/schemas/config.json#{@symbiote/notInvalid tstyche}",
   "testFileMatch": [
     "**/type.test.ts",
     "**/type.test.tsx",
