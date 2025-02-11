@@ -8,7 +8,7 @@
 
 ## Call Signature
 
-> **spyOn**\<`T`, `Key`, `A`, `Value`\>(`object`, `method`, `accessType`): `A` *extends* [`SetAccessor`](../type-aliases/SetAccessor.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`void`, \[`Value`\]\> : `A` *extends* [`GetAccessor`](../type-aliases/GetAccessor.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`Value`, \[\]\> : `Value` *extends* [`Constructor`](../type-aliases/Constructor.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`InstanceType`\<`Value`\>, [`ConstructorArgsType`](../type-aliases/ConstructorArgsType.md)\<`Value`\>\> : `Value` *extends* [`Func`](../type-aliases/Func.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`ReturnType`\<`Value`\>, [`ArgsType`](../type-aliases/ArgsType.md)\<`Value`\>\> : `never`
+> **spyOn**\<`T`, `Key`, `A`, `Value`\>(`object`, `method`, `accessType`): `A` *extends* `"set"` ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`void`, \[`Value`\], `any`\> : `A` *extends* `"get"` ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`Value`, \[\], `any`\> : `Value` *extends* [`Constructor`](../type-aliases/Constructor.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`InstanceType`\<`Value`\<`Value`\>\>, [`ConstructorArgsType`](../type-aliases/ConstructorArgsType.md)\<`Value`\<`Value`\>\>, `any`\> : `Value` *extends* [`Func`](../type-aliases/Func.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`ReturnType`\<`Value`\<`Value`\>\>, [`ArgsType`](../type-aliases/ArgsType.md)\<`Value`\<`Value`\>\>, `any`\> : `never`
 
 Defined in: node\_modules/@types/jest/index.d.ts:389
 
@@ -43,7 +43,7 @@ other test libraries.
 
 ### Returns
 
-`A` *extends* [`SetAccessor`](../type-aliases/SetAccessor.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`void`, \[`Value`\]\> : `A` *extends* [`GetAccessor`](../type-aliases/GetAccessor.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`Value`, \[\]\> : `Value` *extends* [`Constructor`](../type-aliases/Constructor.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`InstanceType`\<`Value`\>, [`ConstructorArgsType`](../type-aliases/ConstructorArgsType.md)\<`Value`\>\> : `Value` *extends* [`Func`](../type-aliases/Func.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`ReturnType`\<`Value`\>, [`ArgsType`](../type-aliases/ArgsType.md)\<`Value`\>\> : `never`
+`A` *extends* `"set"` ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`void`, \[`Value`\], `any`\> : `A` *extends* `"get"` ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`Value`, \[\], `any`\> : `Value` *extends* [`Constructor`](../type-aliases/Constructor.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`InstanceType`\<`Value`\<`Value`\>\>, [`ConstructorArgsType`](../type-aliases/ConstructorArgsType.md)\<`Value`\<`Value`\>\>, `any`\> : `Value` *extends* [`Func`](../type-aliases/Func.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`ReturnType`\<`Value`\<`Value`\>\>, [`ArgsType`](../type-aliases/ArgsType.md)\<`Value`\<`Value`\>\>, `any`\> : `never`
 
 ### Example
 
@@ -64,7 +64,7 @@ test('plays video', () => {
 
 ## Call Signature
 
-> **spyOn**\<`T`, `M`\>(`object`, `method`): [`ConstructorProperties`](../type-aliases/ConstructorProperties.md)\<`Required`\<`T`\>\>\[`M`\] *extends* (...`args`) => `any` ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`InstanceType`\<[`ConstructorProperties`](../type-aliases/ConstructorProperties.md)\<`Required`\<`T`\>\>\[`M`\]\>, [`ConstructorArgsType`](../type-aliases/ConstructorArgsType.md)\<[`ConstructorProperties`](../type-aliases/ConstructorProperties.md)\<`Required`\<`T`\>\>\[`M`\]\>\> : `never`
+> **spyOn**\<`T`, `M`\>(`object`, `method`): [`ConstructorProperties`](../type-aliases/ConstructorProperties.md)\<`Required`\<`T`\>\>\[`M`\] *extends* (...`args`) => `any` ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`InstanceType`\<`any`\[`any`\]\>, [`ConstructorArgsType`](../type-aliases/ConstructorArgsType.md)\<`any`\[`any`\]\>, `any`\> : `never`
 
 Defined in: node\_modules/@types/jest/index.d.ts:403
 
@@ -91,7 +91,7 @@ other test libraries.
 
 ### Returns
 
-[`ConstructorProperties`](../type-aliases/ConstructorProperties.md)\<`Required`\<`T`\>\>\[`M`\] *extends* (...`args`) => `any` ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`InstanceType`\<[`ConstructorProperties`](../type-aliases/ConstructorProperties.md)\<`Required`\<`T`\>\>\[`M`\]\>, [`ConstructorArgsType`](../type-aliases/ConstructorArgsType.md)\<[`ConstructorProperties`](../type-aliases/ConstructorProperties.md)\<`Required`\<`T`\>\>\[`M`\]\>\> : `never`
+[`ConstructorProperties`](../type-aliases/ConstructorProperties.md)\<`Required`\<`T`\>\>\[`M`\] *extends* (...`args`) => `any` ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`InstanceType`\<`any`\[`any`\]\>, [`ConstructorArgsType`](../type-aliases/ConstructorArgsType.md)\<`any`\[`any`\]\>, `any`\> : `never`
 
 ### Example
 
@@ -112,7 +112,7 @@ test('plays video', () => {
 
 ## Call Signature
 
-> **spyOn**\<`T`, `M`\>(`object`, `method`): [`FunctionProperties`](../type-aliases/FunctionProperties.md)\<`Required`\<`T`\>\>\[`M`\] *extends* [`Func`](../type-aliases/Func.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`ReturnType`\<[`FunctionProperties`](../type-aliases/FunctionProperties.md)\<`Required`\<`T`\>\>\[`M`\]\>, [`ArgsType`](../type-aliases/ArgsType.md)\<[`FunctionProperties`](../type-aliases/FunctionProperties.md)\<`Required`\<`T`\>\>\[`M`\]\>\> : `never`
+> **spyOn**\<`T`, `M`\>(`object`, `method`): [`FunctionProperties`](../type-aliases/FunctionProperties.md)\<`Required`\<`T`\>\>\[`M`\] *extends* [`Func`](../type-aliases/Func.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`ReturnType`\<`any`\[`any`\]\>, [`ArgsType`](../type-aliases/ArgsType.md)\<`any`\[`any`\]\>, `any`\> : `never`
 
 Defined in: node\_modules/@types/jest/index.d.ts:411
 
@@ -139,7 +139,7 @@ other test libraries.
 
 ### Returns
 
-[`FunctionProperties`](../type-aliases/FunctionProperties.md)\<`Required`\<`T`\>\>\[`M`\] *extends* [`Func`](../type-aliases/Func.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`ReturnType`\<[`FunctionProperties`](../type-aliases/FunctionProperties.md)\<`Required`\<`T`\>\>\[`M`\]\>, [`ArgsType`](../type-aliases/ArgsType.md)\<[`FunctionProperties`](../type-aliases/FunctionProperties.md)\<`Required`\<`T`\>\>\[`M`\]\>\> : `never`
+[`FunctionProperties`](../type-aliases/FunctionProperties.md)\<`Required`\<`T`\>\>\[`M`\] *extends* [`Func`](../type-aliases/Func.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`ReturnType`\<`any`\[`any`\]\>, [`ArgsType`](../type-aliases/ArgsType.md)\<`any`\[`any`\]\>, `any`\> : `never`
 
 ### Example
 

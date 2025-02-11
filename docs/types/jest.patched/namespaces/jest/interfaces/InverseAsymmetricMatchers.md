@@ -1559,7 +1559,7 @@ Note: Required Jest version >=23
 
 ##### mock
 
-[`MockInstance`](MockInstance.md)\<`any`[]\>
+[`MockInstance`](MockInstance.md)\<`any`, `any`[]\>
 
 ##### failIfNoFirstInvocation?
 
@@ -1589,7 +1589,7 @@ Note: Required Jest version >=23
 
 ##### mock
 
-[`MockInstance`](MockInstance.md)\<`any`[]\>
+[`MockInstance`](MockInstance.md)\<`any`, `any`[]\>
 
 ##### failIfNoSecondInvocation?
 

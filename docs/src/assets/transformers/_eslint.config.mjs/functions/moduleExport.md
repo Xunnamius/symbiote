@@ -6,9 +6,9 @@
 
 # Function: moduleExport()
 
-> **moduleExport**(`__namedParameters`): [`EslintConfig`](../type-aliases/EslintConfig.md)[]
+> **moduleExport**(`__namedParameters`): `Config`[]
 
-Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:509](https://github.com/Xunnamius/symbiote/blob/ea9edf73ee9a095bf3bea5793333d39906fa49d1/src/assets/transformers/_eslint.config.mjs.ts#L509)
+Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:509](https://github.com/Xunnamius/symbiote/blob/0240ff85261f41befe2983f7e894edff74495bad/src/assets/transformers/_eslint.config.mjs.ts#L509)
 
 ## Parameters
 
@@ -32,4 +32,4 @@ Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:509](https://github.
 
 ## Returns
 
-[`EslintConfig`](../type-aliases/EslintConfig.md)[]
+`Config`[]

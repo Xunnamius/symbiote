@@ -8,10 +8,10 @@
 
 > **transformSelectEsmPackagesToCjs**(`config`, `packageNames`): `void`
 
-Defined in: [src/assets/transformers/\_jest.config.mjs.ts:264](https://github.com/Xunnamius/symbiote/blob/ea9edf73ee9a095bf3bea5793333d39906fa49d1/src/assets/transformers/_jest.config.mjs.ts#L264)
+Defined in: [src/assets/transformers/\_jest.config.mjs.ts:264](https://github.com/Xunnamius/symbiote/blob/0240ff85261f41befe2983f7e894edff74495bad/src/assets/transformers/_jest.config.mjs.ts#L264)
 
 This function prepends a single regular expression _pattern string_ to
-[JestConfig.transformIgnorePatterns](transformSelectEsmPackagesToCjs.md#transformignorepatterns) in `config`. This will result in
+[JestConfig.transformIgnorePatterns](moduleExport.md#transformignorepatterns) in `config`. This will result in
 any packages _within `node_modules`_ with names matching `packageNames` being
 transpiled into CJS on the fly while preserving jest's default behavior (i.e.
 no transpilation) in every other case.
@@ -48,63 +48,63 @@ transformIgnorePatterns: [String.raw`\.pnp\.[^/]+$`]
 
 ### config
 
-#### automock
+#### automock?
 
 `boolean`
 
-#### bail
+#### bail?
 
 `number` \| `boolean`
 
-#### cache
+#### cache?
 
 `boolean`
 
-#### cacheDirectory
+#### cacheDirectory?
 
 `string`
 
-#### changedFilesWithAncestor
+#### changedFilesWithAncestor?
 
 `boolean`
 
-#### changedSince
+#### changedSince?
 
 `string`
 
-#### ci
+#### ci?
 
 `boolean`
 
-#### clearMocks
+#### clearMocks?
 
 `boolean`
 
-#### collectCoverage
+#### collectCoverage?
 
 `boolean`
 
-#### collectCoverageFrom
+#### collectCoverageFrom?
 
 `string`[]
 
-#### coverageDirectory
+#### coverageDirectory?
 
 `string`
 
-#### coveragePathIgnorePatterns
+#### coveragePathIgnorePatterns?
 
 `string`[]
 
-#### coverageProvider
+#### coverageProvider?
 
 `"babel"` \| `"v8"`
 
-#### coverageReporters
+#### coverageReporters?
 
 (`"json"` \| `"clover"` \| `"cobertura"` \| `"html-spa"` \| `"html"` \| `"json-summary"` \| `"lcov"` \| `"lcovonly"` \| `"none"` \| `"teamcity"` \| `"text"` \| `"text-lcov"` \| `"text-summary"` \| \[`"json"` \| `"clover"` \| `"cobertura"` \| `"html-spa"` \| `"html"` \| `"json-summary"` \| `"lcov"` \| `"lcovonly"` \| `"none"` \| `"teamcity"` \| `"text"` \| `"text-lcov"` \| `"text-summary"`, \{\}\])[]
 
-#### coverageThreshold
+#### coverageThreshold?
 
 \{ `[path: string]`: `object`;  `global`: \{ `branches`: `number`; `functions`: `number`; `lines`: `number`; `statements`: `number`; \}; \}
 
@@ -112,479 +112,479 @@ transformIgnorePatterns: [String.raw`\.pnp\.[^/]+$`]
 
 \{ `branches`: `number`; `functions`: `number`; `lines`: `number`; `statements`: `number`; \}
 
-#### coverageThreshold.global.branches
+#### coverageThreshold.global.branches?
 
 `number`
 
-#### coverageThreshold.global.functions
+#### coverageThreshold.global.functions?
 
 `number`
 
-#### coverageThreshold.global.lines
+#### coverageThreshold.global.lines?
 
 `number`
 
-#### coverageThreshold.global.statements
+#### coverageThreshold.global.statements?
 
 `number`
 
-#### dependencyExtractor
+#### dependencyExtractor?
 
 `string`
 
-#### detectLeaks
+#### detectLeaks?
 
 `boolean`
 
-#### detectOpenHandles
+#### detectOpenHandles?
 
 `boolean`
 
-#### displayName
+#### displayName?
 
 `string` \| \{ `color`: `"black"` \| `"red"` \| `"green"` \| `"yellow"` \| `"blue"` \| `"magenta"` \| `"cyan"` \| `"white"` \| `"gray"` \| `"grey"` \| `"blackBright"` \| `"redBright"` \| `"greenBright"` \| `"yellowBright"` \| `"blueBright"` \| `"magentaBright"` \| `"cyanBright"` \| `"whiteBright"`; `name`: `string`; \}
 
-#### errorOnDeprecated
+#### errorOnDeprecated?
 
 `boolean`
 
-#### expand
+#### expand?
 
 `boolean`
 
-#### extensionsToTreatAsEsm
+#### extensionsToTreatAsEsm?
 
 `string`[]
 
-#### fakeTimers
+#### fakeTimers?
 
 \{ enableGlobally?: boolean \| undefined; \} & (\{ advanceTimers?: number \| boolean \| undefined; doNotFake?: ("Date" \| "hrtime" \| "nextTick" \| "performance" \| "queueMicrotask" \| "requestAnimationFrame" \| "cancelAnimationFrame" \| "requestIdleCallback" \| "cancelIdleCallback" \| "setImmediate" \| "clearImmediate" \| "setInterval" \| "clearInterval" \| "setTimeout" \| "clearTimeout")\[\] \| undefined; now?: number \| undefined; timerLimit?: number \| undefined; legacyFakeTimers?: false \| undefined; \} \| \{ legacyFakeTimers?: true \| undefined; \})
 
-#### filter
+#### filter?
 
 `string`
 
-#### findRelatedTests
+#### findRelatedTests?
 
 `boolean`
 
-#### forceCoverageMatch
+#### forceCoverageMatch?
 
 `string`[]
 
-#### forceExit
+#### forceExit?
 
 `boolean`
 
-#### globals
+#### globals?
 
 \{\}
 
-#### globalSetup
+#### globalSetup?
 
 `null` \| `string`
 
-#### globalTeardown
+#### globalTeardown?
 
 `null` \| `string`
 
-#### haste
+#### haste?
 
 \{ `computeSha1`: `boolean`; `defaultPlatform`: `null` \| `string`; `enableSymlinks`: `boolean`; `forceNodeFilesystemAPI`: `boolean`; `hasteImplModulePath`: `string`; `hasteMapModulePath`: `string`; `platforms`: `string`[]; `retainAllFiles`: `boolean`; `throwOnModuleCollision`: `boolean`; \}
 
-#### haste.computeSha1
+#### haste.computeSha1?
 
 `boolean`
 
-#### haste.defaultPlatform
+#### haste.defaultPlatform?
 
 `null` \| `string`
 
-#### haste.enableSymlinks
+#### haste.enableSymlinks?
 
 `boolean`
 
-#### haste.forceNodeFilesystemAPI
+#### haste.forceNodeFilesystemAPI?
 
 `boolean`
 
-#### haste.hasteImplModulePath
+#### haste.hasteImplModulePath?
 
 `string`
 
-#### haste.hasteMapModulePath
+#### haste.hasteMapModulePath?
 
 `string`
 
-#### haste.platforms
+#### haste.platforms?
 
 `string`[]
 
-#### haste.retainAllFiles
+#### haste.retainAllFiles?
 
 `boolean`
 
-#### haste.throwOnModuleCollision
+#### haste.throwOnModuleCollision?
 
 `boolean`
 
-#### id
+#### id?
 
 `string`
 
-#### injectGlobals
+#### injectGlobals?
 
 `boolean`
 
-#### json
+#### json?
 
 `boolean`
 
-#### lastCommit
+#### lastCommit?
 
 `boolean`
 
-#### listTests
+#### listTests?
 
 `boolean`
 
-#### logHeapUsage
+#### logHeapUsage?
 
 `boolean`
 
-#### maxConcurrency
+#### maxConcurrency?
 
 `number`
 
-#### maxWorkers
+#### maxWorkers?
 
 `string` \| `number`
 
-#### moduleDirectories
+#### moduleDirectories?
 
 `string`[]
 
-#### moduleFileExtensions
+#### moduleFileExtensions?
 
 `string`[]
 
-#### moduleNameMapper
+#### moduleNameMapper?
 
 \{\}
 
-#### modulePathIgnorePatterns
+#### modulePathIgnorePatterns?
 
 `string`[]
 
-#### modulePaths
+#### modulePaths?
 
 `string`[]
 
-#### noStackTrace
+#### noStackTrace?
 
 `boolean`
 
-#### notify
+#### notify?
 
 `boolean`
 
-#### notifyMode
+#### notifyMode?
 
 `string`
 
-#### onlyChanged
+#### onlyChanged?
 
 `boolean`
 
-#### onlyFailures
+#### onlyFailures?
 
 `boolean`
 
-#### openHandlesTimeout
+#### openHandlesTimeout?
 
 `number`
 
-#### outputFile
+#### outputFile?
 
 `string`
 
-#### passWithNoTests
+#### passWithNoTests?
 
 `boolean`
 
-#### preset
+#### preset?
 
 `null` \| `string`
 
-#### prettierPath
+#### prettierPath?
 
 `null` \| `string`
 
-#### projects
+#### projects?
 
 (`string` \| \{\})[]
 
-#### randomize
+#### randomize?
 
 `boolean`
 
-#### replname
+#### replname?
 
 `null` \| `string`
 
-#### reporters
+#### reporters?
 
 (`string` \| \[`string`, \{\}\])[]
 
-#### resetMocks
+#### resetMocks?
 
 `boolean`
 
-#### resetModules
+#### resetModules?
 
 `boolean`
 
-#### resolver
+#### resolver?
 
 `null` \| `string`
 
-#### restoreMocks
+#### restoreMocks?
 
 `boolean`
 
-#### rootDir
+#### rootDir?
 
 `string`
 
-#### roots
+#### roots?
 
 `string`[]
 
-#### runner
+#### runner?
 
 `string`
 
-#### runTestsByPath
+#### runTestsByPath?
 
 `boolean`
 
-#### runtime
+#### runtime?
 
 `string`
 
-#### sandboxInjectedGlobals
+#### sandboxInjectedGlobals?
 
 `string`[]
 
-#### setupFiles
+#### setupFiles?
 
 `string`[]
 
-#### setupFilesAfterEnv
+#### setupFilesAfterEnv?
 
 `string`[]
 
-#### showSeed
+#### showSeed?
 
 `boolean`
 
-#### silent
+#### silent?
 
 `boolean`
 
-#### skipFilter
+#### skipFilter?
 
 `boolean`
 
-#### skipNodeResolution
+#### skipNodeResolution?
 
 `boolean`
 
-#### slowTestThreshold
+#### slowTestThreshold?
 
 `number`
 
-#### snapshotFormat
+#### snapshotFormat?
 
 \{ `callToJSON`: `boolean`; `compareKeys`: `null`; `escapeRegex`: `boolean`; `escapeString`: `boolean`; `highlight`: `boolean`; `indent`: `number`; `maxDepth`: `number`; `maxWidth`: `number`; `min`: `boolean`; `printBasicPrototype`: `boolean`; `printFunctionName`: `boolean`; `theme`: \{ `comment`: `string`; `content`: `string`; `prop`: `string`; `tag`: `string`; `value`: `string`; \}; \}
 
-#### snapshotFormat.callToJSON
+#### snapshotFormat.callToJSON?
 
 `boolean`
 
-#### snapshotFormat.compareKeys
+#### snapshotFormat.compareKeys?
 
 `null`
 
-#### snapshotFormat.escapeRegex
+#### snapshotFormat.escapeRegex?
 
 `boolean`
 
-#### snapshotFormat.escapeString
+#### snapshotFormat.escapeString?
 
 `boolean`
 
-#### snapshotFormat.highlight
+#### snapshotFormat.highlight?
 
 `boolean`
 
-#### snapshotFormat.indent
+#### snapshotFormat.indent?
 
 `number`
 
-#### snapshotFormat.maxDepth
+#### snapshotFormat.maxDepth?
 
 `number`
 
-#### snapshotFormat.maxWidth
+#### snapshotFormat.maxWidth?
 
 `number`
 
-#### snapshotFormat.min
+#### snapshotFormat.min?
 
 `boolean`
 
-#### snapshotFormat.printBasicPrototype
+#### snapshotFormat.printBasicPrototype?
 
 `boolean`
 
-#### snapshotFormat.printFunctionName
+#### snapshotFormat.printFunctionName?
 
 `boolean`
 
-#### snapshotFormat.theme
+#### snapshotFormat.theme?
 
 \{ `comment`: `string`; `content`: `string`; `prop`: `string`; `tag`: `string`; `value`: `string`; \}
 
-#### snapshotFormat.theme.comment
+#### snapshotFormat.theme.comment?
 
 `string`
 
-#### snapshotFormat.theme.content
+#### snapshotFormat.theme.content?
 
 `string`
 
-#### snapshotFormat.theme.prop
+#### snapshotFormat.theme.prop?
 
 `string`
 
-#### snapshotFormat.theme.tag
+#### snapshotFormat.theme.tag?
 
 `string`
 
-#### snapshotFormat.theme.value
+#### snapshotFormat.theme.value?
 
 `string`
 
-#### snapshotResolver
+#### snapshotResolver?
 
 `string`
 
-#### snapshotSerializers
+#### snapshotSerializers?
 
 `string`[]
 
-#### testEnvironment
+#### testEnvironment?
 
 `string`
 
-#### testEnvironmentOptions
+#### testEnvironmentOptions?
 
 \{\}
 
-#### testFailureExitCode
+#### testFailureExitCode?
 
 `number`
 
-#### testLocationInResults
+#### testLocationInResults?
 
 `boolean`
 
-#### testMatch
+#### testMatch?
 
 `string`[]
 
-#### testNamePattern
+#### testNamePattern?
 
 `string`
 
-#### testPathIgnorePatterns
+#### testPathIgnorePatterns?
 
 `string`[]
 
-#### testRegex
+#### testRegex?
 
 `string` \| `string`[]
 
-#### testResultsProcessor
+#### testResultsProcessor?
 
 `string`
 
-#### testRunner
+#### testRunner?
 
 `string`
 
-#### testSequencer
+#### testSequencer?
 
 `string`
 
-#### testTimeout
+#### testTimeout?
 
 `number`
 
-#### transform
+#### transform?
 
 \{\}
 
-#### transformIgnorePatterns
+#### transformIgnorePatterns?
 
 `string`[]
 
-#### unmockedModulePathPatterns
+#### unmockedModulePathPatterns?
 
 `string`[]
 
-#### updateSnapshot
+#### updateSnapshot?
 
 `boolean`
 
-#### useStderr
+#### useStderr?
 
 `boolean`
 
-#### verbose
+#### verbose?
 
 `boolean`
 
-#### waitNextEventLoopTurnForUnhandledRejectionEvents
+#### waitNextEventLoopTurnForUnhandledRejectionEvents?
 
 `boolean`
 
-#### watch
+#### watch?
 
 `boolean`
 
-#### watchAll
+#### watchAll?
 
 `boolean`
 
-#### watchman
+#### watchman?
 
 `boolean`
 
-#### watchPathIgnorePatterns
+#### watchPathIgnorePatterns?
 
 `string`[]
 
-#### watchPlugins
+#### watchPlugins?
 
 (`string` \| \[`string`, `unknown`\])[]
 
-#### workerIdleMemoryLimit
+#### workerIdleMemoryLimit?
 
 `string` \| `number`
 
-#### workerThreads
+#### workerThreads?
 
 `boolean`
 

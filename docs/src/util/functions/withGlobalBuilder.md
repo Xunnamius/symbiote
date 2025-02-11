@@ -6,9 +6,9 @@
 
 # Function: withGlobalBuilder()
 
-> **withGlobalBuilder**\<`CustomCliArguments`\>(...`__namedParameters`): `ReturnType`\<*typeof* `withStandardBuilder`\>
+> **withGlobalBuilder**\<`CustomCliArguments`\>(...`__namedParameters`): `WithBuilderExtensionsReturnType`\<`CustomCliArguments`\>
 
-Defined in: [src/util.ts:244](https://github.com/Xunnamius/symbiote/blob/ea9edf73ee9a095bf3bea5793333d39906fa49d1/src/util.ts#L244)
+Defined in: [src/util.ts:244](https://github.com/Xunnamius/symbiote/blob/0240ff85261f41befe2983f7e894edff74495bad/src/util.ts#L244)
 
 A version of withStandardBuilder that expects `CustomCliArguments` to
 extend [GlobalCliArguments](../../configure/type-aliases/GlobalCliArguments.md) and implements any related global handler
@@ -30,4 +30,4 @@ function semi-deep merges various common option configurations.
 
 ## Returns
 
-`ReturnType`\<*typeof* `withStandardBuilder`\>
+`WithBuilderExtensionsReturnType`\<`CustomCliArguments`\>

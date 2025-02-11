@@ -6,9 +6,9 @@
 
 # Function: moduleExport()
 
-> **moduleExport**(`__namedParameters`): [`WritableReleaseConfig`](../type-aliases/WritableReleaseConfig.md)
+> **moduleExport**(`__namedParameters`): `WritableObjectDeep`
 
-Defined in: [src/assets/transformers/\_release.config.cjs.ts:115](https://github.com/Xunnamius/symbiote/blob/ea9edf73ee9a095bf3bea5793333d39906fa49d1/src/assets/transformers/_release.config.cjs.ts#L115)
+Defined in: [src/assets/transformers/\_release.config.cjs.ts:115](https://github.com/Xunnamius/symbiote/blob/0240ff85261f41befe2983f7e894edff74495bad/src/assets/transformers/_release.config.cjs.ts#L115)
 
 ## Parameters
 
@@ -18,7 +18,7 @@ Defined in: [src/assets/transformers/\_release.config.cjs.ts:115](https://github
 
 ## Returns
 
-[`WritableReleaseConfig`](../type-aliases/WritableReleaseConfig.md)
+`WritableObjectDeep`
 
 ## See
 

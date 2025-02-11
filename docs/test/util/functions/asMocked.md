@@ -27,7 +27,7 @@ This is a more powerful version of Jest's own [jest.mocked](../../../types/jest.
 
 #### options?
 
-##### shallow
+##### shallow?
 
 `false`
 

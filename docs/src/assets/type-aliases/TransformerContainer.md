@@ -8,7 +8,7 @@
 
 > **TransformerContainer**: `object`
 
-Defined in: [src/assets.ts:187](https://github.com/Xunnamius/symbiote/blob/ea9edf73ee9a095bf3bea5793333d39906fa49d1/src/assets.ts#L187)
+Defined in: [src/assets.ts:187](https://github.com/Xunnamius/symbiote/blob/0240ff85261f41befe2983f7e894edff74495bad/src/assets.ts#L187)
 
 An object containing a [Transformer](Transformer.md) and related context/helpers.
 

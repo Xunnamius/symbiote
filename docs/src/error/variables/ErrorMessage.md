@@ -8,7 +8,7 @@
 
 > `const` **ErrorMessage**: `object`
 
-Defined in: [src/error.ts:59](https://github.com/Xunnamius/symbiote/blob/ea9edf73ee9a095bf3bea5793333d39906fa49d1/src/error.ts#L59)
+Defined in: [src/error.ts:59](https://github.com/Xunnamius/symbiote/blob/0240ff85261f41befe2983f7e894edff74495bad/src/error.ts#L59)
 
 A collection of possible error and warning messages.
 
@@ -1047,47 +1047,47 @@ readonly `string`[]
 
 ##### actual
 
-###### cjs
+###### cjs?
 
 `boolean`
 
-###### cli
+###### cli?
 
 `boolean`
 
-###### esm
+###### esm?
 
 `boolean`
 
-###### hybridrepo
+###### hybridrepo?
 
 `boolean`
 
-###### monorepo
+###### monorepo?
 
 `boolean`
 
-###### multiversal
+###### multiversal?
 
 `boolean`
 
-###### nextjs
+###### nextjs?
 
 `boolean`
 
-###### polyrepo
+###### polyrepo?
 
 `boolean`
 
-###### private
+###### private?
 
 `boolean`
 
-###### vercel
+###### vercel?
 
 `boolean`
 
-###### webpack
+###### webpack?
 
 `boolean`
 

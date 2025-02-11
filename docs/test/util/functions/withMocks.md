@@ -21,18 +21,18 @@ Wraps [withMockedArgv](withMockedArgv.md) + [withMockedEnv](withMockedEnv.md) wi
 
 ### \_\_namedParameters?
 
-#### options
+#### options?
 
-\{ `passthrough`: (`"log"` \| `"stdout"` \| `"stderr"` \| `"info"` \| `"warn"` \| `"error"`)[]; `passthroughDebugEnv`: `boolean`; `passthroughOutputIfDebugging`: `boolean`; `replaceEntireArgv`: `boolean`; `replaceEntireEnv`: `boolean`; \}
+\{ `passthrough`: (`"log"` \| `"error"` \| `"warn"` \| `"stdout"` \| `"stderr"` \| `"info"`)[]; `passthroughDebugEnv`: `boolean`; `passthroughOutputIfDebugging`: `boolean`; `replaceEntireArgv`: `boolean`; `replaceEntireEnv`: `boolean`; \}
 
-#### options.passthrough
+#### options.passthrough?
 
-(`"log"` \| `"stdout"` \| `"stderr"` \| `"info"` \| `"warn"` \| `"error"`)[]
+(`"log"` \| `"error"` \| `"warn"` \| `"stdout"` \| `"stderr"` \| `"info"`)[]
 
 Call [jest.SpyInstance.mockRestore](../../../types/jest.patched/namespaces/jest/interfaces/SpyInstance.md#mockrestore) on one or more output functions
 currently being spied upon.
 
-#### options.passthroughDebugEnv
+#### options.passthroughDebugEnv?
 
 `boolean`
 
@@ -46,7 +46,7 @@ as-is to the underlying environment mock even when `replaceEntireEnv` is
 true
 ```
 
-#### options.passthroughOutputIfDebugging
+#### options.passthroughOutputIfDebugging?
 
 `boolean`
 
@@ -60,7 +60,7 @@ debug output to make it to the screen.
 true
 ```
 
-#### options.replaceEntireArgv
+#### options.replaceEntireArgv?
 
 `boolean`
 
@@ -74,7 +74,7 @@ replaced.
 false
 ```
 
-#### options.replaceEntireEnv
+#### options.replaceEntireEnv?
 
 `boolean`
 
@@ -90,11 +90,11 @@ including `process.env.DEBUG_COLORS`.
 undefined
 ```
 
-#### simulatedArgv
+#### simulatedArgv?
 
 `string`[]
 
-#### simulatedEnv
+#### simulatedEnv?
 
 `Record`\<`string`, `string`\>
 

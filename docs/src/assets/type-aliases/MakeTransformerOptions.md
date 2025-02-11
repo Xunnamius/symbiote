@@ -8,7 +8,7 @@
 
 > **MakeTransformerOptions**: `object`
 
-Defined in: [src/assets.ts:306](https://github.com/Xunnamius/symbiote/blob/ea9edf73ee9a095bf3bea5793333d39906fa49d1/src/assets.ts#L306)
+Defined in: [src/assets.ts:306](https://github.com/Xunnamius/symbiote/blob/0240ff85261f41befe2983f7e894edff74495bad/src/assets.ts#L306)
 
 Options to tweak the runtime of [makeTransformer](../functions/makeTransformer.md).
 

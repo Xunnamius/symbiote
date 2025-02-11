@@ -70,7 +70,7 @@ Provides access to the mock's metadata
 
 ### getMockImplementation()
 
-> **getMockImplementation**(): `undefined` \| (...`args`) => `ReturnType`\<`T`\>
+> **getMockImplementation**(): `undefined` \| (...`args`) => `ReturnType`
 
 Defined in: node\_modules/@types/jest/index.d.ts:1357
 
@@ -78,7 +78,7 @@ Returns the function that was set as the implementation of the mock (using mockI
 
 #### Returns
 
-`undefined` \| (...`args`) => `ReturnType`\<`T`\>
+`undefined` \| (...`args`) => `ReturnType`
 
 #### Inherited from
 
@@ -144,7 +144,7 @@ Note: `jest.fn(implementation)` is a shorthand for `jest.fn().mockImplementation
 
 ##### fn?
 
-(...`args`) => `ReturnType`\<`T`\>
+(...`args`) => `ReturnType`
 
 #### Returns
 
@@ -169,7 +169,7 @@ Can be chained so that multiple function calls produce different results.
 
 ##### fn
 
-(...`args`) => `ReturnType`\<`T`\>
+(...`args`) => `ReturnType`
 
 #### Returns
 
@@ -443,7 +443,7 @@ Accepts a value that will be returned whenever the mock function is called.
 
 ##### value
 
-`ReturnType`\<`T`\>
+`ReturnType`
 
 #### Returns
 
@@ -479,7 +479,7 @@ successive calls to the mock function return different values. When there are no
 
 ##### value
 
-`ReturnType`\<`T`\>
+`ReturnType`
 
 #### Returns
 
@@ -518,7 +518,7 @@ then restores its previous implementation.
 
 ###### fn
 
-(...`args`) => `ReturnType`\<`T`\>
+(...`args`) => `ReturnType`
 
 ###### callback
 
@@ -550,7 +550,7 @@ then restores its previous implementation.
 
 ###### fn
 
-(...`args`) => `ReturnType`\<`T`\>
+(...`args`) => `ReturnType`
 
 ###### callback
 

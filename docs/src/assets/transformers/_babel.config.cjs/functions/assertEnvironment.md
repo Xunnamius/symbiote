@@ -6,9 +6,9 @@
 
 # Function: assertEnvironment()
 
-> **assertEnvironment**(`__namedParameters`): `Omit`\<`Parameters`\<*typeof* [`moduleExport`](moduleExport.md)\>\[`0`\], `"derivedAliases"`\>
+> **assertEnvironment**(`__namedParameters`): `Omit`\<\{ `derivedAliases`: \{\}; `packageRoot`: `AbsolutePath`; `projectRoot`: `AbsolutePath`; \}, `"derivedAliases"`\>
 
-Defined in: [src/assets/transformers/\_babel.config.cjs.ts:462](https://github.com/Xunnamius/symbiote/blob/ea9edf73ee9a095bf3bea5793333d39906fa49d1/src/assets/transformers/_babel.config.cjs.ts#L462)
+Defined in: [src/assets/transformers/\_babel.config.cjs.ts:462](https://github.com/Xunnamius/symbiote/blob/0240ff85261f41befe2983f7e894edff74495bad/src/assets/transformers/_babel.config.cjs.ts#L462)
 
 ## Parameters
 
@@ -20,7 +20,7 @@ Defined in: [src/assets/transformers/\_babel.config.cjs.ts:462](https://github.c
 
 ## Returns
 
-`Omit`\<`Parameters`\<*typeof* [`moduleExport`](moduleExport.md)\>\[`0`\], `"derivedAliases"`\>
+`Omit`\<\{ `derivedAliases`: \{\}; `packageRoot`: `AbsolutePath`; `projectRoot`: `AbsolutePath`; \}, `"derivedAliases"`\>
 
 ## See
 

@@ -8,7 +8,7 @@
 
 > **withGlobalUsage**(`altDescription`, `__namedParameters`): `string`
 
-Defined in: [packages/bfe/src/index.ts:1296](https://github.com/Xunnamius/symbiote/blob/ea9edf73ee9a095bf3bea5793333d39906fa49d1/packages/bfe/src/index.ts#L1296)
+Defined in: [packages/bfe/src/index.ts:1296](https://github.com/Xunnamius/symbiote/blob/0240ff85261f41befe2983f7e894edff74495bad/packages/bfe/src/index.ts#L1296)
 
 Generate command usage text consistently yet flexibly.
 
@@ -23,7 +23,7 @@ Defaults to: `Usage: $000\n\n${altDescription}` where `altDescription` is
 
 ### \_\_namedParameters
 
-#### appendPeriod
+#### appendPeriod?
 
 `boolean` = `true`
 
@@ -36,7 +36,7 @@ period is only appended if one is not already appended.
 true
 ```
 
-#### includeOptions
+#### includeOptions?
 
 `boolean` = `prependNewlines`
 
@@ -48,7 +48,7 @@ Whether the string `' [...options]'` will be appended to the first line of usage
 options.prependNewlines
 ```
 
-#### prependNewlines
+#### prependNewlines?
 
 `boolean` = `true`
 
@@ -60,7 +60,7 @@ Whether newlines will be prepended to `altDescription` or not.
 true
 ```
 
-#### trim
+#### trim?
 
 `boolean` = `true`
 

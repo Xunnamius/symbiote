@@ -21,7 +21,7 @@ This only works with jest-circus!
 
 ### options?
 
-#### logErrorsBeforeRetry
+#### logErrorsBeforeRetry?
 
 `boolean`
 

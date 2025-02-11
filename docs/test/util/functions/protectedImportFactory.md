@@ -34,7 +34,7 @@ specific exit code.
 
 #### factoryOptions?
 
-##### expectedExitCode
+##### expectedExitCode?
 
 `number`
 
