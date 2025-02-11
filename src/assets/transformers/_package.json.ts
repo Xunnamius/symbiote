@@ -165,8 +165,8 @@ export function generateBaseXPackageJson(
       release: 'symbiote release --env NODE_NO_WARNINGS=1',
       'release:topological':
         'symbiote project topology --run release --env NODE_NO_WARNINGS=1',
-      renovate: `symbiote project renovate --env NODE_NO_WARNINGS=1 --github-reconfigure-repo --regenerate-assets --assets-preset '${assetPresets.join(' ')}'`,
-      'renovate:aliases': `symbiote project renovate --env NODE_NO_WARNINGS=1 --regenerate-assets --assets-preset '${assetPresets.join(' ')}' --only-aliases`,
+      renovate: `symbiote project renovate --env NODE_NO_WARNINGS=1 --github-reconfigure-repo --regenerate-assets --assets-preset ${assetPresets.join(' ')}`,
+      'renovate:aliases': `symbiote project renovate --env NODE_NO_WARNINGS=1 --regenerate-assets --assets-preset ${assetPresets.join(' ')} --only-aliases`,
       start: 'symbiote start --env NODE_NO_WARNINGS=1 --',
       test: 'npm run test:package:unit --',
       'test:package:all':
