@@ -631,7 +631,9 @@ Provide --skip-slow-tests (or -x) to set the SYMBIOTE_TEST_JEST_SKIP_SLOW_TESTS 
             (path) =>
               path.startsWith(packageRoot + '/') && tstycheTargetRegExp.test(path)
           )
-          .map((path) => toRelativePath(packageRoot, path) as string);
+
+          // ? tstyche needs paths to be relative to the PROJECT root
+          .map((path) => toRelativePath(projectRoot, path) as string);
 
         debug('tstycheTargetRelativePaths: %O', tstycheTargetRelativePaths);
 
@@ -640,7 +642,7 @@ Provide --skip-slow-tests (or -x) to set the SYMBIOTE_TEST_JEST_SKIP_SLOW_TESTS 
       }
 
       npxTstycheArguments.push(...testerOptions);
-      // ? We don't need to limit the test path patterns (e.g. with a
+      // ? We don't need to limit jest's test path patterns (e.g. with a
       // ? relativeRoot prefix) since (1) we use a denylist approach instead via
       // ? --testPathIgnorePatterns and (2) these patterns are regular
       // ? expressions so they aren't root relative and match at any depth
