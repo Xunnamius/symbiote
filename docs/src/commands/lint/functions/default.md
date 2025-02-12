@@ -8,7 +8,7 @@
 
 > **default**(`__namedParameters`): `Promise`\<\{ `builder`: `BfeBuilderFunction`\<[`CustomCliArguments`](../type-aliases/CustomCliArguments.md), [`GlobalExecutionContext`](../../../configure/type-aliases/GlobalExecutionContext.md)\>; `description`: `string`; `handler`: (`argv`) => `Promisable`\<`void`\>; `usage`: `string`; \}\>
 
-Defined in: [src/commands/lint.ts:70](https://github.com/Xunnamius/symbiote/blob/0240ff85261f41befe2983f7e894edff74495bad/src/commands/lint.ts#L70)
+Defined in: [src/commands/lint.ts:70](https://github.com/Xunnamius/symbiote/blob/77d17fb695645e232d8cbbf34928a6f01fd29047/src/commands/lint.ts#L70)
 
 ## Parameters
 

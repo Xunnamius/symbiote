@@ -8,7 +8,7 @@
 
 > **transformSelectEsmPackagesToCjs**(`config`, `packageNames`): `void`
 
-Defined in: [src/assets/transformers/\_jest.config.mjs.ts:264](https://github.com/Xunnamius/symbiote/blob/0240ff85261f41befe2983f7e894edff74495bad/src/assets/transformers/_jest.config.mjs.ts#L264)
+Defined in: [src/assets/transformers/\_jest.config.mjs.ts:264](https://github.com/Xunnamius/symbiote/blob/77d17fb695645e232d8cbbf34928a6f01fd29047/src/assets/transformers/_jest.config.mjs.ts#L264)
 
 This function prepends a single regular expression _pattern string_ to
 [JestConfig.transformIgnorePatterns](moduleExport.md#transformignorepatterns) in `config`. This will result in

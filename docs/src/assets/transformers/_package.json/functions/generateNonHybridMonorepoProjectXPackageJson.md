@@ -8,7 +8,7 @@
 
 > **generateNonHybridMonorepoProjectXPackageJson**(...`__namedParameters`): `object`
 
-Defined in: [src/assets/transformers/\_package.json.ts:232](https://github.com/Xunnamius/symbiote/blob/0240ff85261f41befe2983f7e894edff74495bad/src/assets/transformers/_package.json.ts#L232)
+Defined in: [src/assets/transformers/\_package.json.ts:232](https://github.com/Xunnamius/symbiote/blob/77d17fb695645e232d8cbbf34928a6f01fd29047/src/assets/transformers/_package.json.ts#L232)
 
 ## Parameters
 
@@ -648,7 +648,7 @@ goal of bringing the project up to date with latest best practices.
 
 #### scripts.renovate:aliases
 
-> `readonly` **renovate:aliases**: `` `symbiote project renovate --env NODE_NO_WARNINGS=1 --regenerate-assets --assets-preset '${string}' --only-aliases` ``
+> `readonly` **renovate:aliases**: `` `symbiote project renovate --env NODE_NO_WARNINGS=1 --regenerate-assets --assets-preset ${string} --only-aliases` ``
 
 #### scripts.restart?
 

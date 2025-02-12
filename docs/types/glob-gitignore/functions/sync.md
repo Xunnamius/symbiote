@@ -8,7 +8,7 @@
 
 > **sync**(`patterns`, `options`): `string`[]
 
-Defined in: [types/glob-gitignore.d.ts:18](https://github.com/Xunnamius/symbiote/blob/0240ff85261f41befe2983f7e894edff74495bad/types/glob-gitignore.d.ts#L18)
+Defined in: [types/glob-gitignore.d.ts:18](https://github.com/Xunnamius/symbiote/blob/77d17fb695645e232d8cbbf34928a6f01fd29047/types/glob-gitignore.d.ts#L18)
 
 ## Parameters
 

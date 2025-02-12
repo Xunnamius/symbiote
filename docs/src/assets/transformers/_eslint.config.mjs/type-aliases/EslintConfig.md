@@ -8,4 +8,4 @@
 
 > **EslintConfig**: `Extract`\<`Config`, `unknown`[]\>\[`number`\]
 
-Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:79](https://github.com/Xunnamius/symbiote/blob/0240ff85261f41befe2983f7e894edff74495bad/src/assets/transformers/_eslint.config.mjs.ts#L79)
+Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:79](https://github.com/Xunnamius/symbiote/blob/77d17fb695645e232d8cbbf34928a6f01fd29047/src/assets/transformers/_eslint.config.mjs.ts#L79)
