@@ -8,7 +8,7 @@
 
 > **assertEnvironment**(`__namedParameters`): `Omit`\<\{ `derivedAliases`: \{\}; `packageRoot`: `AbsolutePath`; `projectRoot`: `AbsolutePath`; \}, `"derivedAliases"`\>
 
-Defined in: [src/assets/transformers/\_babel.config.cjs.ts:462](https://github.com/Xunnamius/symbiote/blob/c3f7fbdb0b36164c8890b842485989d2e0a3c698/src/assets/transformers/_babel.config.cjs.ts#L462)
+Defined in: [src/assets/transformers/\_babel.config.cjs.ts:462](https://github.com/Xunnamius/symbiote/blob/177b18c16bd1c04c96d8c434ec7a45a66c3f0201/src/assets/transformers/_babel.config.cjs.ts#L462)
 
 ## Parameters
 
