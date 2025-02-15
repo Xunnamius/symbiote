@@ -264,6 +264,11 @@ export type TransformerContext = {
    * monorepo. Does not include the root package.
    */
   monorepoPackagesList: string;
+  /**
+   * The "lint" npm command used in husky scripts. This command will be
+   * different for monorepos (including hybridrepos) than it is for polyrepos.
+   */
+  lintNpmScript: string;
 
   /**
    * The owner of the repository on GitHub or other service.

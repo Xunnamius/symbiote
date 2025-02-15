@@ -1968,6 +1968,9 @@ See the symbiote wiki documentation for more details on this command and all ava
             })
             .toArray()
             .join('\n') || '<!-- TODO: a list of packages goes here -->',
+        lintNpmScript: rootPackage.attributes.monorepo
+          ? 'lint:packages'
+          : 'lint:package',
 
         repoOwner,
         repoName,
