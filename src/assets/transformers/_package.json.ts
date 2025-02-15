@@ -176,6 +176,7 @@ export function generateBaseXPackageJson(
         'symbiote test --env NODE_NO_WARNINGS=1 --tests integration',
       'test:package:unit': 'symbiote test --env NODE_NO_WARNINGS=1 --tests unit type',
       'test:packages:all': `symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --scope ${DefaultGlobalScope.Unlimited} --coverage`,
+      'test:packages:all:unit': `symbiote test --env NODE_NO_WARNINGS=1 --tests unit --scope ${DefaultGlobalScope.Unlimited} --coverage`,
       'test:topological':
         'symbiote project topology --run test --env NODE_NO_WARNINGS=1',
       ...incomingPackageJson.scripts
@@ -362,6 +363,7 @@ export function generateSubRootXPackageJson(
       'build:topological': _4,
       'test:topological': _5,
       'lint:topological': _6,
+      'test:packages:all:unit': _8,
 
       // ? Might get added back later (below)
       build,

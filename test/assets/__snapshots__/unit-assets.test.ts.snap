@@ -25250,6 +25250,7 @@ scope: this-package
     "renovate:aliases": "symbiote project renovate --env NODE_NO_WARNINGS=1 --regenerate-assets --assets-preset basic cli lib lib-esm lib-web react nextjs --only-aliases",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage",
+    "test:packages:all:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit --scope unlimited --coverage",
     "test:topological": "symbiote project topology --run test --env NODE_NO_WARNINGS=1",
     "build": "npm run build:dist --",
     "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
@@ -25344,6 +25345,7 @@ scope: unlimited
     "renovate:aliases": "symbiote project renovate --env NODE_NO_WARNINGS=1 --regenerate-assets --assets-preset basic cli lib lib-esm lib-web react nextjs --only-aliases",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage",
+    "test:packages:all:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit --scope unlimited --coverage",
     "test:topological": "symbiote project topology --run test --env NODE_NO_WARNINGS=1",
     "build": "npm run build:dist --",
     "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
@@ -25680,6 +25682,7 @@ scope: unlimited
     "renovate:aliases": "symbiote project renovate --env NODE_NO_WARNINGS=1 --regenerate-assets --assets-preset basic cli lib lib-esm lib-web react nextjs --only-aliases",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage",
+    "test:packages:all:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit --scope unlimited --coverage",
     "test:topological": "symbiote project topology --run test --env NODE_NO_WARNINGS=1",
     "build": "npm run build:dist --",
     "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
@@ -26050,6 +26053,7 @@ scope: unlimited
     "renovate:aliases": "symbiote project renovate --env NODE_NO_WARNINGS=1 --regenerate-assets --assets-preset basic cli lib lib-esm lib-web react nextjs --only-aliases",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage",
+    "test:packages:all:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit --scope unlimited --coverage",
     "test:topological": "symbiote project topology --run test --env NODE_NO_WARNINGS=1"
   }
 }
@@ -26373,6 +26377,7 @@ scope: unlimited
     "renovate:aliases": "symbiote project renovate --env NODE_NO_WARNINGS=1 --regenerate-assets --assets-preset basic cli lib lib-esm lib-web react nextjs --only-aliases",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage",
+    "test:packages:all:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit --scope unlimited --coverage",
     "test:topological": "symbiote project topology --run test --env NODE_NO_WARNINGS=1",
     "test": "echo 'it works!'"
   }
@@ -26693,7 +26698,8 @@ scope: unlimited
     "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
     "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
     "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit type",
-    "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage"
+    "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage",
+    "test:packages:all:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit --scope unlimited --coverage"
   },
   "dependencies": {},
   "devDependencies": {
@@ -26778,7 +26784,8 @@ scope: this-package
     "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
     "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
     "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit type",
-    "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage"
+    "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage",
+    "test:packages:all:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit --scope unlimited --coverage"
   },
   "dependencies": {},
   "devDependencies": {
@@ -26858,7 +26865,8 @@ scope: unlimited
     "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
     "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
     "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit type",
-    "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage"
+    "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage",
+    "test:packages:all:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit --scope unlimited --coverage"
   },
   "dependencies": {},
   "devDependencies": {
