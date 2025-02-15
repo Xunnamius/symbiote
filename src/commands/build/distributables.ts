@@ -1315,11 +1315,16 @@ distrib root: ${absoluteOutputDirPath}
               const filesToCheckForPseudodecorators = Array.from(
                 new Set(
                   // ? Pseudodecorators can be in any file, not just the
-                  // ? "relevant" ones!
+                  // ? "relevant" ones! For monorepos, this must include root
+                  // ? package "other" files too.
                   otherFiles.concat(
                     srcFiles,
                     testFiles,
-                    allBuildTargets.map((target) => toPath(projectRoot, target))
+                    allBuildTargets.map((target) => toPath(projectRoot, target)),
+                    isRootPackage(cwdPackage)
+                      ? []
+                      : (await gatherPackageFiles(rootPackage, { useCached: true }))
+                          .other
                   )
                 )
               );
