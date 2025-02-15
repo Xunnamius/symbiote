@@ -73,7 +73,9 @@ const dummyContext: IncomingTransformerContext = {
   ) as TransformerContext['projectMetadata'],
   additionalRawAliasMappings: [],
   monorepoPackagesList: '- package-1\n- package-2\n- package-3',
+
   lintNpmScript: 'lint:package',
+  testNpmScript: 'test',
 
   repoOwner: 'repo-owner',
   repoName: 'repo-name',
