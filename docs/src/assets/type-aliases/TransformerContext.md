@@ -8,7 +8,7 @@
 
 > **TransformerContext**: `object`
 
-Defined in: [src/assets.ts:198](https://github.com/Xunnamius/symbiote/blob/177b18c16bd1c04c96d8c434ec7a45a66c3f0201/src/assets.ts#L198)
+Defined in: [src/assets.ts:198](https://github.com/Xunnamius/symbiote/blob/1d06f9ec4e479041c7ca032d17fcdd92ac8edf8e/src/assets.ts#L198)
 
 A union of well-known context keys passed directly to each transformer
 [Transformer](Transformer.md).
@@ -142,6 +142,14 @@ The scope to consider when determining which assets to return.
 > **shouldDeriveAliases**: `boolean`
 
 Whether or not to derive aliases and inject them into the configuration.
+
+### testNpmScript
+
+> **testNpmScript**: `string`
+
+The "test" npm command used in husky scripts. This command will be
+different for monorepos (not including hybridrepos) than it is for
+polyrepos and hybridrepos.
 
 ### toPackageAbsolutePath()
 

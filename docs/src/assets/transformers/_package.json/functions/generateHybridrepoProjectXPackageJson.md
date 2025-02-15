@@ -8,7 +8,7 @@
 
 > **generateHybridrepoProjectXPackageJson**(...`__namedParameters`): `object`
 
-Defined in: [src/assets/transformers/\_package.json.ts:304](https://github.com/Xunnamius/symbiote/blob/177b18c16bd1c04c96d8c434ec7a45a66c3f0201/src/assets/transformers/_package.json.ts#L304)
+Defined in: [src/assets/transformers/\_package.json.ts:305](https://github.com/Xunnamius/symbiote/blob/1d06f9ec4e479041c7ca032d17fcdd92ac8edf8e/src/assets/transformers/_package.json.ts#L305)
 
 ## Parameters
 
@@ -784,6 +784,10 @@ tests across the entire project.
 ```ts
 `symbiote test --scope unlimited --coverage`
 ```
+
+#### scripts.test:packages:all:unit
+
+> `readonly` **test:packages:all:unit**: `"symbiote test --env NODE_NO_WARNINGS=1 --tests unit --scope unlimited --coverage"`
 
 #### scripts.test:topological
 

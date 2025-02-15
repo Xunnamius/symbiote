@@ -8,7 +8,7 @@
 
 > **makeGeneratedAliasesWarningComment**(`spaces`): `string`
 
-Defined in: [src/constant.ts:25](https://github.com/Xunnamius/symbiote/blob/177b18c16bd1c04c96d8c434ec7a45a66c3f0201/src/constant.ts#L25)
+Defined in: [src/constant.ts:25](https://github.com/Xunnamius/symbiote/blob/1d06f9ec4e479041c7ca032d17fcdd92ac8edf8e/src/constant.ts#L25)
 
 The comment injected before each batch of auto-generated aliases.
 

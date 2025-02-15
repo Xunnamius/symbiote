@@ -8,7 +8,7 @@
 
 > `const` **rootScopes**: [`Unlimited`](../../configure/enumerations/UnlimitedGlobalScope.md#unlimited)[]
 
-Defined in: [src/commands/index.ts:16](https://github.com/Xunnamius/symbiote/blob/177b18c16bd1c04c96d8c434ec7a45a66c3f0201/src/commands/index.ts#L16)
+Defined in: [src/commands/index.ts:16](https://github.com/Xunnamius/symbiote/blob/1d06f9ec4e479041c7ca032d17fcdd92ac8edf8e/src/commands/index.ts#L16)
 
 ## See
 

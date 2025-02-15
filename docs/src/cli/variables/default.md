@@ -8,6 +8,6 @@
 
 > **default**: `Promise`\<`undefined` \| `NullArguments` \| `Arguments`\<[`GlobalExecutionContext`](../../configure/type-aliases/GlobalExecutionContext.md)\>\>
 
-Defined in: [src/cli.ts:11](https://github.com/Xunnamius/symbiote/blob/177b18c16bd1c04c96d8c434ec7a45a66c3f0201/src/cli.ts#L11)
+Defined in: [src/cli.ts:11](https://github.com/Xunnamius/symbiote/blob/1d06f9ec4e479041c7ca032d17fcdd92ac8edf8e/src/cli.ts#L11)
 
 This is the simple CLI entry point executed directly by node.

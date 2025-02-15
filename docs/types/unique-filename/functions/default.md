@@ -8,7 +8,7 @@
 
 > **default**(`dir`, `filePrefix`?, `uniqStr`?): `string`
 
-Defined in: [types/unique-filename.d.ts:2](https://github.com/Xunnamius/symbiote/blob/177b18c16bd1c04c96d8c434ec7a45a66c3f0201/types/unique-filename.d.ts#L2)
+Defined in: [types/unique-filename.d.ts:2](https://github.com/Xunnamius/symbiote/blob/1d06f9ec4e479041c7ca032d17fcdd92ac8edf8e/types/unique-filename.d.ts#L2)
 
 ## Parameters
 
