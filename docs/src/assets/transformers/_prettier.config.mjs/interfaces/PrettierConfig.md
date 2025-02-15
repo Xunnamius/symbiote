@@ -133,11 +133,31 @@ Which end of line characters to apply.
 
 ***
 
+### experimentalOperatorPosition?
+
+> `optional` **experimentalOperatorPosition**: `"start"` \| `"end"`
+
+Defined in: node\_modules/prettier/index.d.ts:436
+
+Where to print operators when binary expressions wrap lines.
+
+#### Default
+
+```ts
+"end"
+```
+
+#### Inherited from
+
+`Options.experimentalOperatorPosition`
+
+***
+
 ### experimentalTernaries?
 
 > `optional` **experimentalTernaries**: `boolean`
 
-Defined in: node\_modules/prettier/index.d.ts:437
+Defined in: node\_modules/prettier/index.d.ts:442
 
 Use curious ternaries, with the question mark after the condition, instead
 of on the same line as the consequent.
@@ -223,7 +243,7 @@ false
 
 > `optional` **jsxBracketSameLine**: `boolean`
 
-Defined in: node\_modules/prettier/index.d.ts:443
+Defined in: node\_modules/prettier/index.d.ts:448
 
 Put the `>` of a multi-line JSX element at the end of the last line instead of being alone on the next line.
 

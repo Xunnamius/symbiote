@@ -418,7 +418,7 @@ This feature is best used alongside the "test"/"include"/"exclude" options to pr
 
 ### parserOpts?
 
-> `optional` **parserOpts**: `null` \| `ParserOptions`
+> `optional` **parserOpts**: `null` \| `Partial`\<`Options`\>
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:288
 
