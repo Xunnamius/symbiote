@@ -8,7 +8,7 @@
 
 > **assertEnvironment**(`__namedParameters`): `Omit`\<`Pick`\<[`PluginConfig`](../type-aliases/PluginConfig.md), `"parserOpts"` \| `"writerOpts"`\> & `object`, `"derivedAliases"`\>
 
-Defined in: [src/assets/transformers/\_release.config.cjs.ts:296](https://github.com/Xunnamius/symbiote/blob/1d06f9ec4e479041c7ca032d17fcdd92ac8edf8e/src/assets/transformers/_release.config.cjs.ts#L296)
+Defined in: [src/assets/transformers/\_release.config.cjs.ts:296](https://github.com/Xunnamius/symbiote/blob/261741e26a03ae661b506c3872cb86af79a07f11/src/assets/transformers/_release.config.cjs.ts#L296)
 
 ## Parameters
 

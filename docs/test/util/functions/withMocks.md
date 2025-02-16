@@ -8,7 +8,7 @@
 
 > **withMocks**(`fn`, `__namedParameters`?): `Promise`\<`void`\>
 
-Defined in: node\_modules/@-xun/jest/dist/packages/jest/src/index.d.ts:170
+Defined in: node\_modules/@-xun/jest/dist/packages/jest/src/index.d.ts:171
 
 Wraps [withMockedArgv](withMockedArgv.md) + [withMockedEnv](withMockedEnv.md) with
 [withMockedExit](withMockedExit.md) + [withMockedOutput](withMockedOutput.md).
@@ -29,8 +29,15 @@ Wraps [withMockedArgv](withMockedArgv.md) + [withMockedEnv](withMockedEnv.md) wi
 
 (`"log"` \| `"error"` \| `"warn"` \| `"stdout"` \| `"stderr"` \| `"info"`)[]
 
-Call [jest.SpyInstance.mockRestore](../../../types/jest.patched/namespaces/jest/interfaces/SpyInstance.md#mockrestore) on one or more output functions
-currently being spied upon.
+Prevent mocking the implementation of one or more output spies, allowing
+output to be passed through to the original function. Said spies will
+remain functional.
+
+**Default**
+
+```ts
+[]
+```
 
 #### options.passthroughDebugEnv?
 
@@ -78,11 +85,19 @@ false
 
 `boolean`
 
-By default, the `process.env` object (**except `process.env.DEBUG_COLORS`,
-if it exists**) is emptied and re-hydrated with `newEnv`. Setting `replace`
-to `false` will cause `newEnv` to be appended instead. Setting `replace` to
-`true` will cause `newEnv` to replace the _entire_ `process.env` object,
-including `process.env.DEBUG_COLORS`.
+By default, all environment variables in the `process.env` object are
+deleted before the object is re-hydrated with `newEnv`.
+
+Two environment variables, if present, are exempt from deletion:
+`process.env.DEBUG` and `process.env.DEBUG_COLORS`.
+
+Setting `replace` to `false` will cause `newEnv` to be merged on top of
+`process.env` instead of replacing it. Setting `replace` to `true` will
+cause `newEnv` to replace the _entire_ `process.env` object, including
+`process.env.DEBUG_COLORS`.
+
+Note that `process.env.DEBUG` is unaffected by this option (see
+[MockedEnvOptions.passthroughDebugEnv](../type-aliases/MockedEnvOptions.md#passthroughdebugenv) instead).
 
 **Default**
 
