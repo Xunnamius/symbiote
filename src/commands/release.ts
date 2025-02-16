@@ -1232,12 +1232,11 @@ const protoReleaseTask: ProtoCoreReleaseTask = {
             previousCommitSha
           );
 
-          const tagsToDelete = await run('git', [
-            'tag',
-            '--points-at',
-            currentCommitSha
-            // TODO: replace with "lines" when fixed in upstream @-xun/run
-          ]).then(({ stdout }) => stdout.split('\n').filter(Boolean));
+          const { stdout: tagsToDelete } = await run(
+            'git',
+            ['tag', '--points-at', currentCommitSha],
+            { lines: true }
+          );
 
           debug('tagsToDelete: %O', tagsToDelete);
 

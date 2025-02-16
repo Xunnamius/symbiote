@@ -2447,12 +2447,12 @@ async function createAliasTags(
         debug('shouldCreateNewAliasTag: %O', shouldCreateNewAliasTag);
 
         if (shouldCreateNewAliasTag) {
-          // eslint-disable-next-line no-await-in-loop
-          const oldTagCommitterDate = await run('git', [
-            'show',
-            `${oldTag}^{}`,
-            '--format=%aD'
-          ]).then(({ stdout }) => stdout.trim().split('\n')[0]);
+          const {
+            stdout: [oldTagCommitterDate]
+            // eslint-disable-next-line no-await-in-loop
+          } = await run('git', ['show', `${oldTag}^{}`, '--format=%aD'], {
+            lines: true
+          });
 
           debug('oldTagCommitterDate: %O', oldTagCommitterDate);
           softAssert(oldTagCommitterDate, ErrorMessage.GuruMeditation());

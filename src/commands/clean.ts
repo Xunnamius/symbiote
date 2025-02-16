@@ -140,20 +140,18 @@ The default value for --exclude-paths includes the following regular expressions
 
       debug('cleanTargetRoot: %O', cleanTargetRoot);
 
-      const ignoredPaths = (
-        await run(
-          'git',
-          [
-            'ls-files',
-            '--exclude-standard',
-            '--ignored',
-            '--others',
-            // ? Git will include trailing slash for directories :)
-            '--directory'
-          ],
-          { cwd: cleanTargetRoot }
-        )
-      ).stdout.split('\n');
+      const { stdout: ignoredPaths } = await run(
+        'git',
+        [
+          'ls-files',
+          '--exclude-standard',
+          '--ignored',
+          '--others',
+          // ? Git will include trailing slash for directories :)
+          '--directory'
+        ],
+        { cwd: cleanTargetRoot, lines: true }
+      );
 
       debug('raw ignored paths: %O', ignoredPaths);
 
