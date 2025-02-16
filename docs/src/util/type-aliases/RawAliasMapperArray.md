@@ -8,7 +8,7 @@
 
 > **RawAliasMapperArray**: \[`Merge`\<`RawAlias`, \{ `group`: `string`; \}\>, `Merge`\<`RawPath`, \{ `path`: `string`; \}\>\][]
 
-Defined in: [src/util.ts:122](https://github.com/Xunnamius/symbiote/blob/261741e26a03ae661b506c3872cb86af79a07f11/src/util.ts#L122)
+Defined in: [src/util.ts:122](https://github.com/Xunnamius/symbiote/blob/726d79e4b4249d13e12a53938af9a921099a47e6/src/util.ts#L122)
 
 An array of RawAliasMappings.
 
