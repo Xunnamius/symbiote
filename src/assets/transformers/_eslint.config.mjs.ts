@@ -296,7 +296,7 @@ function genericRules(
 
     // * unicorn
     'unicorn/no-keyword-prefix': 'warn',
-    'unicorn/no-instanceof-array': 'warn',
+    'unicorn/no-instanceof-builtin-object': 'warn',
     'unicorn/prefer-string-replace-all': 'warn',
     // ? Handled by integration tests
     'unicorn/prefer-module': 'off',
