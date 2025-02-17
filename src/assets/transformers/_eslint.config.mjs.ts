@@ -24,7 +24,6 @@ import restrictedGlobals from 'confusing-browser-globals';
 import { flatConfigs as eslintPluginImportFlatConfigs } from 'eslint-plugin-import';
 import eslintPluginJest from 'eslint-plugin-jest';
 import eslintPluginNode from 'eslint-plugin-n';
-import eslintPluginUnicorn from 'eslint-plugin-unicorn';
 import jsGlobals from 'globals';
 import { createDebugLogger, createGenericLogger } from 'rejoinder';
 import { toss } from 'toss-expression';
@@ -507,7 +506,7 @@ const globals = {
   ...jsGlobals.node
 };
 
-export function moduleExport({
+export async function moduleExport({
   cwdTsconfigFile,
   derivedAliases,
   packageJsonEnginesNode,
@@ -517,13 +516,15 @@ export function moduleExport({
   cwdTsconfigFile: AbsolutePath;
   shouldAllowTodoComments: boolean;
   derivedAliases: ReturnType<typeof deriveAliasesForEslint>;
-}): EslintConfig[] {
+}): Promise<EslintConfig[]> {
   debug('cwdTsconfigFile: %O', cwdTsconfigFile);
   debug('packageJsonEnginesNode: %O', packageJsonEnginesNode);
   debug('shouldAllowTodoComments: %O', shouldAllowTodoComments);
 
+  const eslintPluginUnicorn = await import('eslint-plugin-unicorn');
+
   const eslintPluginUnicornRecommended =
-    eslintPluginUnicorn.configs?.['flat/recommended'];
+    eslintPluginUnicorn.default.configs?.['flat/recommended'];
 
   assert(eslintPluginUnicornRecommended);
 
@@ -821,7 +822,7 @@ import { createDebugLogger } from 'rejoinder';
 
 const debug = createDebugLogger({ namespace: '${globalDebuggerNamespace}:config:eslint' });
 
-const config = moduleExport({
+const config = await moduleExport({
   derivedAliases: getEslintAliases(),
   ...(await assertEnvironment())
 });
