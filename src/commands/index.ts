@@ -1,13 +1,13 @@
-import { CommandNotImplementedError } from '@black-flag/core/util';
+import { CommandNotImplementedError } from '@-xun/cli/util';
 
-import { scriptBasename } from 'multiverse+cli-utils:util.ts';
+import { scriptBasename } from '@-xun/cli/util';
 
 import { UnlimitedGlobalScope as RootScope } from 'universe:configure.ts';
 import { globalCliName } from 'universe:constant.ts';
 import { withGlobalBuilder, withGlobalUsage } from 'universe:util.ts';
 
-import type { RootConfiguration } from '@black-flag/core';
-import type { AsStrictExecutionContext } from 'multiverse+bfe';
+import type { RootConfiguration } from '@-xun/cli';
+import type { AsStrictExecutionContext } from '@-xun/cli';
 import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:configure.ts';
 
 /**

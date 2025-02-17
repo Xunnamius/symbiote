@@ -31,16 +31,13 @@ import {
 } from '@-xun/project';
 
 import { runNoRejectOnBadExit } from '@-xun/run';
-import { $executionContext, CliError, FrameworkExitCode } from '@black-flag/core';
+import { $executionContext, CliError, FrameworkExitCode } from '@-xun/cli';
 import { config as _loadDotEnv } from 'dotenv';
 import { createDebugLogger } from 'rejoinder';
 
-import {
-  withStandardBuilder,
-  withStandardUsage
-} from 'multiverse+cli-utils:extensions.ts';
+import { withStandardBuilder, withStandardUsage } from '@-xun/cli/extensions';
 
-import { LogTag } from 'multiverse+cli-utils:logging.ts';
+import { LogTag } from '@-xun/cli/logging';
 
 import { DefaultGlobalScope, globalCliArguments } from 'universe:configure.ts';
 import { globalDebuggerNamespace } from 'universe:constant.ts';
@@ -57,7 +54,7 @@ import type {
   RawPath
 } from '@-xun/project';
 
-import type { Arguments } from '@black-flag/core';
+import type { Arguments } from '@-xun/cli';
 
 import type {
   DotenvConfigOptions,

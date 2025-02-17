@@ -5,7 +5,7 @@ import assert from 'node:assert';
 
 import { dummyToProjectMetadata } from '@-xun/common-dummies/repositories';
 
-import { toSentenceCase } from 'multiverse+cli-utils:util.ts';
+import { toSentenceCase } from '@-xun/cli/util';
 
 import {
   moduleExport,

@@ -1,10 +1,9 @@
 // @ts-check
 'use strict';
 
-import { createDebugLogger } from 'rejoinder';
-
 import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/jest.config.mjs';
+import { createDebugLogger } from 'rejoinder';
 
 const debug = createDebugLogger({ namespace: 'symbiote:config:jest' });
 
@@ -24,21 +23,9 @@ function getJestAliases() {
   // ! directly, consider regenerating aliases across the entire project with:
   // ! `npx symbiote project renovate --regenerate-assets --assets-preset ...`
   return {
-    '^multiverse\\+bfe:(.+)$': '<rootDir>/packages/bfe/src/$1',
-    '^multiverse\\+cli\\x2dutils:(.+)$': '<rootDir>/packages/cli-utils/src/$1',
-    '^multiverse\\+bfe$': '<rootDir>/packages/bfe/src/index.ts',
-    '^multiverse\\+cli\\x2dutils$': '<rootDir>/packages/cli-utils/src/index.ts',
-    '^rootverse\\+bfe:(.+)$': '<rootDir>/packages/bfe/$1',
-    '^rootverse\\+cli\\x2dutils:(.+)$': '<rootDir>/packages/cli-utils/$1',
     '^rootverse:(.+)$': '<rootDir>/$1',
-    '^universe\\+bfe:(.+)$': '<rootDir>/packages/bfe/src/$1',
-    '^universe\\+cli\\x2dutils:(.+)$': '<rootDir>/packages/cli-utils/src/$1',
-    '^universe\\+bfe$': '<rootDir>/packages/bfe/src/index.ts',
-    '^universe\\+cli\\x2dutils$': '<rootDir>/packages/cli-utils/src/index.ts',
     '^universe:(.+)$': '<rootDir>/src/$1',
     '^universe$': '<rootDir>/src/index.ts',
-    '^testverse\\+bfe:(.+)$': '<rootDir>/packages/bfe/test/$1',
-    '^testverse\\+cli\\x2dutils:(.+)$': '<rootDir>/packages/cli-utils/test/$1',
     '^testverse:(.+)$': '<rootDir>/test/$1',
     '^typeverse:(.+)$': '<rootDir>/types/$1'
   };

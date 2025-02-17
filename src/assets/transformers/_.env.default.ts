@@ -6,7 +6,7 @@ import {
   isAccessible
 } from '@-xun/project';
 
-import { LogTag } from 'multiverse+cli-utils:logging.ts';
+import { LogTag } from '@-xun/cli/logging';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 import { readFile } from 'universe:util.ts';

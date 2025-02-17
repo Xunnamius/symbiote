@@ -4,7 +4,7 @@ import { pathToFileURL } from 'node:url';
 
 import { toAbsolutePath, toPath } from '@-xun/fs';
 import { isRootPackage, ProjectAttribute } from '@-xun/project';
-import { CliError } from '@black-flag/core';
+import { CliError } from '@-xun/cli';
 import getInObject from 'lodash.get';
 import mergeWith from 'lodash.mergewith';
 import { createDebugLogger } from 'rejoinder';
@@ -77,7 +77,7 @@ export enum AssetPreset {
   Basic = 'basic',
   /**
    * Represents the standard assets for an symbiote-compliant command-line
-   * interface project (such as `@black-flag/core`-powered tools like `symbiote`
+   * interface project (such as `@-xun/cli`-powered tools like `symbiote`
    * itself).
    *
    * See the symbiote wiki for details.
@@ -86,7 +86,7 @@ export enum AssetPreset {
   /**
    * Represents the standard assets for an symbiote-compliant library project
    * built for both CJS and ESM consumers (such as the case with
-   * `@black-flag/core`) and potentially also browser and other consumers as
+   * `@-xun/cli`) and potentially also browser and other consumers as
    * well.
    *
    * See the symbiote wiki for details.

@@ -9,7 +9,7 @@ import deepMerge from 'lodash.mergewith';
 import { createDebugLogger } from 'rejoinder';
 import semver from 'semver';
 
-import { interpolateTemplate, toSentenceCase } from 'multiverse+cli-utils:util.ts';
+import { interpolateTemplate, toSentenceCase } from '@-xun/cli/util';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 import { globalDebuggerNamespace } from 'universe:constant.ts';

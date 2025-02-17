@@ -1,11 +1,11 @@
 /* eslint-disable unicorn/prevent-abbreviations */
 import { ProjectAttribute } from '@-xun/project';
 import { run, runWithInheritedIo } from '@-xun/run';
-import { CliError } from '@black-flag/core';
+import { CliError } from '@-xun/cli';
 
-import { softAssert } from 'multiverse+cli-utils:error.ts';
-import { logStartTime, LogTag } from 'multiverse+cli-utils:logging.ts';
-import { scriptBasename } from 'multiverse+cli-utils:util.ts';
+import { softAssert } from '@-xun/cli/error';
+import { logStartTime, LogTag } from '@-xun/cli/logging';
+import { scriptBasename } from '@-xun/cli/util';
 
 import { ThisPackageGlobalScope as DevScope } from 'universe:configure.ts';
 import { ErrorMessage } from 'universe:error.ts';
@@ -17,8 +17,8 @@ import {
   withGlobalUsage
 } from 'universe:util.ts';
 
-import type { ChildConfiguration } from '@black-flag/core';
-import type { AsStrictExecutionContext } from 'multiverse+bfe';
+import type { ChildConfiguration } from '@-xun/cli';
+import type { AsStrictExecutionContext } from '@-xun/cli';
 import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:configure.ts';
 
 /**

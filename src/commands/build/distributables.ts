@@ -64,15 +64,11 @@ import { SHORT_TAB } from 'rejoinder';
 import { rimraf as forceDeletePaths } from 'rimraf';
 import uniqueFilename from 'unique-filename';
 
-import { hardAssert, softAssert } from 'multiverse+cli-utils:error.ts';
+import { hardAssert, softAssert } from '@-xun/cli/error';
 
-import {
-  logStartTime,
-  LogTag,
-  standardSuccessMessage
-} from 'multiverse+cli-utils:logging.ts';
+import { logStartTime, LogTag, standardSuccessMessage } from '@-xun/cli/logging';
 
-import { scriptBasename } from 'multiverse+cli-utils:util.ts';
+import { scriptBasename } from '@-xun/cli/util';
 
 import {
   extensionsTypescript,
@@ -102,8 +98,8 @@ import {
 
 import type { Path, RelativePath } from '@-xun/fs';
 import type { ImportSpecifier, MetadataImportsPrefix } from '@-xun/project';
-import type { ChildConfiguration } from '@black-flag/core';
-import type { AsStrictExecutionContext, BfeBuilderObject } from 'multiverse+bfe';
+import type { ChildConfiguration } from '@-xun/cli';
+import type { AsStrictExecutionContext, BfeBuilderObject } from '@-xun/cli';
 import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:configure.ts';
 
 const standardNodeShebang = '#!/usr/bin/env node\n';

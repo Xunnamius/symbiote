@@ -1,7 +1,7 @@
 import { run } from '@-xun/run';
 
-import { hardAssert } from 'multiverse+cli-utils:error.ts';
-import { LogTag } from 'multiverse+cli-utils:logging.ts';
+import { hardAssert } from '@-xun/cli/error';
+import { LogTag } from '@-xun/cli/logging';
 
 import { ErrorMessage } from 'universe:error.ts';
 

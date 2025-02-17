@@ -1,13 +1,9 @@
 import { Tsconfig } from '@-xun/project';
 import { run } from '@-xun/run';
 
-import {
-  logStartTime,
-  LogTag,
-  standardSuccessMessage
-} from 'multiverse+cli-utils:logging.ts';
+import { logStartTime, LogTag, standardSuccessMessage } from '@-xun/cli/logging';
 
-import { scriptBasename } from 'multiverse+cli-utils:util.ts';
+import { scriptBasename } from '@-xun/cli/util';
 
 import { ThisPackageGlobalScope as DocumentationBuilderScope } from 'universe:configure.ts';
 
@@ -18,8 +14,8 @@ import {
   withGlobalUsage
 } from 'universe:util.ts';
 
-import type { ChildConfiguration } from '@black-flag/core';
-import type { AsStrictExecutionContext } from 'multiverse+bfe';
+import type { ChildConfiguration } from '@-xun/cli';
+import type { AsStrictExecutionContext } from '@-xun/cli';
 import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:configure.ts';
 
 /**

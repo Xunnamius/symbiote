@@ -10,21 +10,17 @@ import {
 } from '@-xun/project';
 
 import { run, runNoRejectOnBadExit } from '@-xun/run';
-import { CliError } from '@black-flag/core';
+import { CliError } from '@-xun/cli';
 import { glob } from 'glob-gitignore';
 import { getSupportInfo } from 'prettier';
 import { SHORT_TAB } from 'rejoinder';
 
-import { $artificiallyInvoked } from 'multiverse+bfe:symbols.ts';
-import { hardAssert, softAssert } from 'multiverse+cli-utils:error.ts';
+import { $artificiallyInvoked } from '@-xun/cli';
+import { hardAssert, softAssert } from '@-xun/cli/error';
 
-import {
-  logStartTime,
-  LogTag,
-  standardSuccessMessage
-} from 'multiverse+cli-utils:logging.ts';
+import { logStartTime, LogTag, standardSuccessMessage } from '@-xun/cli/logging';
 
-import { scriptBasename } from 'multiverse+cli-utils:util.ts';
+import { scriptBasename } from '@-xun/cli/util';
 
 import { DefaultGlobalScope } from 'universe:configure.ts';
 import { ErrorMessage } from 'universe:error.ts';
@@ -37,8 +33,8 @@ import {
 } from 'universe:util.ts';
 
 import type { AbsolutePath } from '@-xun/fs';
-import type { ChildConfiguration } from '@black-flag/core';
-import type { AsStrictExecutionContext } from 'multiverse+bfe';
+import type { ChildConfiguration } from '@-xun/cli';
+import type { AsStrictExecutionContext } from '@-xun/cli';
 import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:configure.ts';
 
 export type CustomCliArguments = GlobalCliArguments & {

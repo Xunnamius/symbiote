@@ -7,13 +7,13 @@ import {
 
 import { makeNamedError } from 'named-app-errors';
 
-import { ErrorMessage as UpstreamErrorMessage } from 'multiverse+cli-utils:error.ts';
+import { ErrorMessage as UpstreamErrorMessage } from '@-xun/cli/error';
 
 import { DefaultGlobalScope } from 'universe:configure.ts';
 
 import type { ImportSpecifier, ProjectAttribute, RootPackage } from '@-xun/project';
 
-export { TaskError } from 'multiverse+cli-utils:error.ts';
+export { TaskError } from '@-xun/cli/error';
 
 // TODO: replace a lot of all that follows with the official package(s),
 // TODO: including the symbol use below. Symbols and stuff need to be auto-generated.

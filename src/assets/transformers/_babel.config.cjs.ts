@@ -33,7 +33,7 @@ import findUp from 'find-up~5';
 import { createDebugLogger, createGenericLogger } from 'rejoinder';
 import semver from 'semver';
 
-import { LogTag } from 'multiverse+cli-utils:logging.ts';
+import { LogTag } from '@-xun/cli/logging';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 

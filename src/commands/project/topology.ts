@@ -1,18 +1,14 @@
 import assert from 'node:assert';
 
 import { sortPackagesTopologically } from '@-xun/project';
-import { CliError } from '@black-flag/core';
+import { CliError } from '@-xun/cli';
 import { SHORT_TAB } from 'rejoinder';
 
-import { softAssert } from 'multiverse+cli-utils:error.ts';
+import { softAssert } from '@-xun/cli/error';
 
-import {
-  logStartTime,
-  LogTag,
-  standardSuccessMessage
-} from 'multiverse+cli-utils:logging.ts';
+import { logStartTime, LogTag, standardSuccessMessage } from '@-xun/cli/logging';
 
-import { scriptBasename } from 'multiverse+cli-utils:util.ts';
+import { scriptBasename } from '@-xun/cli/util';
 
 import { UnlimitedGlobalScope as TopologyScope } from 'universe:configure.ts';
 import { ErrorMessage } from 'universe:error.ts';
@@ -24,8 +20,8 @@ import {
   withGlobalUsage
 } from 'universe:util.ts';
 
-import type { ChildConfiguration } from '@black-flag/core';
-import type { AsStrictExecutionContext } from 'multiverse+bfe';
+import type { ChildConfiguration } from '@-xun/cli';
+import type { AsStrictExecutionContext } from '@-xun/cli';
 import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:configure.ts';
 
 export type { RawAliasMapperArray, RawAliasMapperFunction } from 'universe:util.ts';

@@ -31,21 +31,9 @@ function getBabelAliases() {
   // ! directly, consider regenerating aliases across the entire project with:
   // ! `npx symbiote project renovate --regenerate-assets --assets-preset ...`
   return {
-    '^multiverse\\+bfe:(.+)$': './packages/bfe/src/$1',
-    '^multiverse\\+cli\\x2dutils:(.+)$': './packages/cli-utils/src/$1',
-    '^multiverse\\+bfe$': './packages/bfe/src/index.js',
-    '^multiverse\\+cli\\x2dutils$': './packages/cli-utils/src/index.js',
-    '^rootverse\\+bfe:(.+)$': './packages/bfe/$1',
-    '^rootverse\\+cli\\x2dutils:(.+)$': './packages/cli-utils/$1',
     '^rootverse:(.+)$': './$1',
-    '^universe\\+bfe:(.+)$': './packages/bfe/src/$1',
-    '^universe\\+cli\\x2dutils:(.+)$': './packages/cli-utils/src/$1',
-    '^universe\\+bfe$': './packages/bfe/src/index.js',
-    '^universe\\+cli\\x2dutils$': './packages/cli-utils/src/index.js',
     '^universe:(.+)$': './src/$1',
     '^universe$': './src/index.js',
-    '^testverse\\+bfe:(.+)$': './packages/bfe/test/$1',
-    '^testverse\\+cli\\x2dutils:(.+)$': './packages/cli-utils/test/$1',
     '^testverse:(.+)$': './test/$1',
     '^typeverse:(.+)$': './types/$1'
   };

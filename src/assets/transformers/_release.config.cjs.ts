@@ -22,7 +22,7 @@ import { run } from '@-xun/run';
 import { createDebugLogger, createGenericLogger } from 'rejoinder';
 import { createGithubLogger } from 'rejoinder-github-actions';
 
-import { getInvocableExtendedHandler } from 'multiverse+bfe';
+import { getInvocableExtendedHandler } from '@-xun/cli';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 
@@ -52,7 +52,7 @@ import type {
 } from '@-xun/changelog' with { 'resolution-mode': 'import' };
 
 import type { ProjectMetadata } from '@-xun/project';
-import type { ExecutionContext } from '@black-flag/core/util';
+import type { ExecutionContext } from '@-xun/cli/util';
 
 import type {
   GenerateNotesContext,

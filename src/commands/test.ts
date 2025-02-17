@@ -18,18 +18,14 @@ import {
 } from '@-xun/project';
 
 import { runNoRejectOnBadExit } from '@-xun/run';
-import { CliError } from '@black-flag/core';
+import { CliError } from '@-xun/cli';
 import { SHORT_TAB } from 'rejoinder';
 
-import { softAssert } from 'multiverse+cli-utils:error.ts';
+import { softAssert } from '@-xun/cli/error';
 
-import {
-  logStartTime,
-  LogTag,
-  standardSuccessMessage
-} from 'multiverse+cli-utils:logging.ts';
+import { logStartTime, LogTag, standardSuccessMessage } from '@-xun/cli/logging';
 
-import { scriptBasename } from 'multiverse+cli-utils:util.ts';
+import { scriptBasename } from '@-xun/cli/util';
 
 import { DefaultGlobalScope } from 'universe:configure.ts';
 import { tstycheTargetRegExp } from 'universe:constant.ts';
@@ -43,8 +39,8 @@ import {
 } from 'universe:util.ts';
 
 import type { Package } from '@-xun/project';
-import type { ChildConfiguration } from '@black-flag/core';
-import type { AsStrictExecutionContext } from 'multiverse+bfe';
+import type { ChildConfiguration } from '@-xun/cli';
+import type { AsStrictExecutionContext } from '@-xun/cli';
 import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:configure.ts';
 
 const tstycheVacuousSuccessMessage = `Tstyche tests vacuously succeeded: no files found matching ${tstycheTargetRegExp.toString()}`;

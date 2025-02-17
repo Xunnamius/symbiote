@@ -1,11 +1,11 @@
 // @ts-check
 
-import { createDebugLogger } from 'rejoinder';
-
 import {
   assertEnvironment,
   moduleExport
 } from '@-xun/symbiote/assets/eslint.config.mjs';
+
+import { createDebugLogger } from 'rejoinder';
 
 const debug = createDebugLogger({ namespace: 'symbiote:config:eslint' });
 
@@ -27,21 +27,9 @@ function getEslintAliases() {
   // ! directly, consider regenerating aliases across the entire project with:
   // ! `npx symbiote project renovate --regenerate-assets --assets-preset ...`
   return [
-    ['multiverse+bfe:*', './packages/bfe/src/*'],
-    ['multiverse+cli-utils:*', './packages/cli-utils/src/*'],
-    ['multiverse+bfe', './packages/bfe/src/index.ts'],
-    ['multiverse+cli-utils', './packages/cli-utils/src/index.ts'],
-    ['rootverse+bfe:*', './packages/bfe/*'],
-    ['rootverse+cli-utils:*', './packages/cli-utils/*'],
     ['rootverse:*', './*'],
-    ['universe+bfe:*', './packages/bfe/src/*'],
-    ['universe+cli-utils:*', './packages/cli-utils/src/*'],
-    ['universe+bfe', './packages/bfe/src/index.ts'],
-    ['universe+cli-utils', './packages/cli-utils/src/index.ts'],
     ['universe:*', './src/*'],
     ['universe', './src/index.ts'],
-    ['testverse+bfe:*', './packages/bfe/test/*'],
-    ['testverse+cli-utils:*', './packages/cli-utils/test/*'],
     ['testverse:*', './test/*'],
     ['typeverse:*', './types/*']
   ];

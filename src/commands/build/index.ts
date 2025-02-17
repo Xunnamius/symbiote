@@ -1,8 +1,8 @@
 import { default as buildDistributables } from 'universe:commands/build/distributables.ts';
 import { withGlobalUsage } from 'universe:util.ts';
 
-import type { ChildConfiguration } from '@black-flag/core';
-import type { AsStrictExecutionContext } from 'multiverse+bfe';
+import type { ChildConfiguration } from '@-xun/cli';
+import type { AsStrictExecutionContext } from '@-xun/cli';
 import type { CustomCliArguments } from 'universe:commands/build/distributables.ts';
 import type { GlobalExecutionContext } from 'universe:configure.ts';
 

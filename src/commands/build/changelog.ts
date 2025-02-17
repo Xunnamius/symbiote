@@ -11,22 +11,18 @@ import {
   xchangelogConfigProjectBase
 } from '@-xun/project';
 
-import { CliError } from '@black-flag/core';
+import { CliError } from '@-xun/cli';
 import escapeStringRegexp from 'escape-string-regexp~4';
 import { valid as isValidSemver } from 'semver';
 // ? Patches global Proxy and spawn functions; see documentation for details
 import '@-xun/symbiote/assets/conventional.config.cjs';
 
-import { getInvocableExtendedHandler } from 'multiverse+bfe';
-import { hardAssert, softAssert } from 'multiverse+cli-utils:error.ts';
+import { getInvocableExtendedHandler } from '@-xun/cli';
+import { hardAssert, softAssert } from '@-xun/cli/error';
 
-import {
-  logStartTime,
-  LogTag,
-  standardSuccessMessage
-} from 'multiverse+cli-utils:logging.ts';
+import { logStartTime, LogTag, standardSuccessMessage } from '@-xun/cli/logging';
 
-import { scriptBasename } from 'multiverse+cli-utils:util.ts';
+import { scriptBasename } from '@-xun/cli/util';
 
 import { defaultChangelogTopmatter } from 'universe:assets/transformers/_conventional.config.cjs.ts';
 import { default as format } from 'universe:commands/format.ts';
@@ -50,9 +46,9 @@ import {
 
 import type { XchangelogConfig } from '@-xun/changelog' with { 'resolution-mode': 'import' };
 import type { Path } from '@-xun/fs';
-import type { ChildConfiguration } from '@black-flag/core';
+import type { ChildConfiguration } from '@-xun/cli';
 import type { Promisable } from 'type-fest';
-import type { AsStrictExecutionContext } from 'multiverse+bfe';
+import type { AsStrictExecutionContext } from '@-xun/cli';
 import type { CustomCliArguments as FormatCliArguments } from 'universe:commands/format.ts';
 import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:configure.ts';
 

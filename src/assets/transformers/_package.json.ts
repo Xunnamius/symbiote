@@ -14,7 +14,7 @@ import {
 import { ProjectError } from '@-xun/project/error';
 import semver from 'semver';
 
-import { LogTag } from 'multiverse+cli-utils:logging.ts';
+import { LogTag } from '@-xun/cli/logging';
 
 import { version as symbioteVersion } from 'rootverse:package.json';
 

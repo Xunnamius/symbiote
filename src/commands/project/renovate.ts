@@ -23,23 +23,19 @@ import {
 } from '@-xun/project';
 
 import { run } from '@-xun/run';
-import { CliError } from '@black-flag/core';
+import { CliError } from '@-xun/cli';
 import escapeStringRegexp from 'escape-string-regexp~4';
 import libsodium from 'libsodium-wrappers';
 import getInObject from 'lodash.get';
 import { SHORT_TAB, SINGLE_SPACE } from 'rejoinder';
 import semver from 'semver';
 
-import { getInvocableExtendedHandler } from 'multiverse+bfe';
-import { hardAssert, softAssert } from 'multiverse+cli-utils:error.ts';
+import { getInvocableExtendedHandler } from '@-xun/cli';
+import { hardAssert, softAssert } from '@-xun/cli/error';
 
-import {
-  logStartTime,
-  LogTag,
-  standardSuccessMessage
-} from 'multiverse+cli-utils:logging.ts';
+import { logStartTime, LogTag, standardSuccessMessage } from '@-xun/cli/logging';
 
-import { scriptBasename } from 'multiverse+cli-utils:util.ts';
+import { scriptBasename } from '@-xun/cli/util';
 
 import { version as packageVersion } from 'rootverse:package.json';
 
@@ -84,7 +80,7 @@ import {
 } from 'universe:util.ts';
 
 import type { Package } from '@-xun/project';
-import type { ChildConfiguration } from '@black-flag/core';
+import type { ChildConfiguration } from '@-xun/cli';
 import type { RestEndpointMethodTypes } from '@octokit/rest' with { 'resolution-mode': 'import' };
 import type { ExtendedDebugger, ExtendedLogger } from 'rejoinder';
 import type { CamelCasedProperties, KeysOfUnion, Merge } from 'type-fest';
@@ -95,7 +91,7 @@ import type {
   BfeBuilderObjectValue,
   BfeCheckFunction,
   BfeStrictArguments
-} from 'multiverse+bfe';
+} from '@-xun/cli';
 
 import type { AssetPreset, IncomingTransformerContext } from 'universe:assets.ts';
 import type { CustomCliArguments as FormatCliArguments } from 'universe:commands/format.ts';

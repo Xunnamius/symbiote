@@ -19,20 +19,16 @@ import {
 } from '@-xun/project';
 
 import { run, runNoRejectOnBadExit } from '@-xun/run';
-import { CliError } from '@black-flag/core';
+import { CliError } from '@-xun/cli';
 import { SHORT_TAB, SINGLE_SPACE } from 'rejoinder';
 import semver from 'semver';
 
-import { getInvocableExtendedHandler } from 'multiverse+bfe';
-import { hardAssert, softAssert } from 'multiverse+cli-utils:error.ts';
+import { getInvocableExtendedHandler } from '@-xun/cli';
+import { hardAssert, softAssert } from '@-xun/cli/error';
 
-import {
-  logStartTime,
-  LogTag,
-  standardSuccessMessage
-} from 'multiverse+cli-utils:logging.ts';
+import { logStartTime, LogTag, standardSuccessMessage } from '@-xun/cli/logging';
 
-import { scriptBasename } from 'multiverse+cli-utils:util.ts';
+import { scriptBasename } from '@-xun/cli/util';
 
 import { default as renovate } from 'universe:commands/project/renovate.ts';
 
@@ -60,10 +56,10 @@ import {
 import type { ReadableStream } from 'node:stream/web';
 import type { ProjectMetadata, XPackageJson } from '@-xun/project';
 import type { RunOptions } from '@-xun/run';
-import type { ChildConfiguration } from '@black-flag/core';
+import type { ChildConfiguration } from '@-xun/cli';
 import type { ExtendedDebugger, ExtendedLogger } from 'rejoinder';
 import type { Merge, OmitIndexSignature, StringKeyOf } from 'type-fest';
-import type { AsStrictExecutionContext } from 'multiverse+bfe';
+import type { AsStrictExecutionContext } from '@-xun/cli';
 import type { CustomCliArguments as RenovateCliArguments } from 'universe:commands/project/renovate.ts';
 import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:configure.ts';
 

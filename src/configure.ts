@@ -7,13 +7,13 @@ import {
   isAccessible
 } from '@-xun/project';
 
-import { defaultVersionTextDescription } from '@black-flag/core/util';
+import { defaultVersionTextDescription } from '@-xun/cli/util';
 import { createDebugLogger, createGenericLogger } from 'rejoinder';
 
 import {
   makeStandardConfigureErrorHandlingEpilogue,
   makeStandardConfigureExecutionContext
-} from 'multiverse+cli-utils:configure.ts';
+} from '@-xun/cli/configure';
 
 import { version as packageVersion } from 'rootverse:package.json';
 
@@ -25,14 +25,14 @@ import type {
   ConfigureErrorHandlingEpilogue,
   ConfigureExecutionContext,
   ConfigureExecutionEpilogue
-} from '@black-flag/core';
+} from '@-xun/cli';
 
-import type { BfeBuilderObject } from 'multiverse+bfe';
+import type { BfeBuilderObject } from '@-xun/cli';
 
 import type {
   StandardCommonCliArguments,
   StandardExecutionContext
-} from 'multiverse+cli-utils:extensions.ts';
+} from '@-xun/cli/extensions';
 
 import type {
   // ? Used in documentation
@@ -44,7 +44,7 @@ const rootGenericLogger = createGenericLogger({ namespace: globalLoggerNamespace
 const rootDebugLogger = createDebugLogger({ namespace: globalDebuggerNamespace });
 const cacheDebug = rootDebugLogger.extend('cache');
 
-export { $executionContext } from '@black-flag/core';
+export { $executionContext } from '@-xun/cli';
 
 export type GlobalExecutionContext = StandardExecutionContext & {
   /**
