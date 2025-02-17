@@ -232,7 +232,7 @@ export default function command({
           boolean: true,
           description: 'Execute a single tester alone without an execution plan',
           default: false,
-          conflicts: 'scope'
+          implies: { scope: TesterScope.Unlimited }
         },
         repeat: {
           number: true,

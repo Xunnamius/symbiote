@@ -146,7 +146,7 @@ export default async function command({
           boolean: true,
           description: 'Execute a single linter alone without an execution plan',
           default: false,
-          conflicts: 'scope'
+          implies: { scope: LinterScope.Unlimited }
         },
         'remark-skip-ignored': {
           boolean: true,
