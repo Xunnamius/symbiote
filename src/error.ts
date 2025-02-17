@@ -138,7 +138,7 @@ This error typically occurs when TypeScript's compiler generates a bad path in a
     return 'the current working directory must be the project root or a workspace (package) sub-root to run this command';
   },
   CannotRunInNonHybridMonorepoRootPackage() {
-    return `the current working directory must be a workspace (package) sub-root to run this command with --scope=${DefaultGlobalScope.ThisPackage}`;
+    return `to run this command with --scope=${DefaultGlobalScope.ThisPackage}, the current working directory must not be the root of a non-hybrid monorepo`;
   },
   CleanCalledWithoutForce() {
     return 'no deletions were performed (try again with --force)';
