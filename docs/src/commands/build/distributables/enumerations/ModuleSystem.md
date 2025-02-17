@@ -6,7 +6,7 @@
 
 # Enumeration: ModuleSystem
 
-Defined in: [src/commands/build/distributables.ts:125](https://github.com/Xunnamius/symbiote/blob/726d79e4b4249d13e12a53938af9a921099a47e6/src/commands/build/distributables.ts#L125)
+Defined in: [src/commands/build/distributables.ts:125](https://github.com/Xunnamius/symbiote/blob/16e65ca9568c2c290d9cbc170fcee40ca3a63520/src/commands/build/distributables.ts#L125)
 
 Which module system to use for transpiled output.
 
@@ -16,7 +16,7 @@ Which module system to use for transpiled output.
 
 > **Cjs**: `"cjs"`
 
-Defined in: [src/commands/build/distributables.ts:127](https://github.com/Xunnamius/symbiote/blob/726d79e4b4249d13e12a53938af9a921099a47e6/src/commands/build/distributables.ts#L127)
+Defined in: [src/commands/build/distributables.ts:127](https://github.com/Xunnamius/symbiote/blob/16e65ca9568c2c290d9cbc170fcee40ca3a63520/src/commands/build/distributables.ts#L127)
 
 ***
 
@@ -24,4 +24,4 @@ Defined in: [src/commands/build/distributables.ts:127](https://github.com/Xunnam
 
 > **Esm**: `"esm"`
 
-Defined in: [src/commands/build/distributables.ts:126](https://github.com/Xunnamius/symbiote/blob/726d79e4b4249d13e12a53938af9a921099a47e6/src/commands/build/distributables.ts#L126)
+Defined in: [src/commands/build/distributables.ts:126](https://github.com/Xunnamius/symbiote/blob/16e65ca9568c2c290d9cbc170fcee40ca3a63520/src/commands/build/distributables.ts#L126)
