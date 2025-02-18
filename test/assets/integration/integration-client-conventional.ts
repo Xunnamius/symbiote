@@ -5,11 +5,9 @@
 // * (e.g. mocking output handling and mocking networking while eschewing
 // * filesystem mocking) in favor of testing a "fully integrated" system.
 
-import assert from 'node:assert';
-
 import { toSentenceCase } from '@-xun/cli/util';
 import { dummyToProjectMetadata } from '@-xun/common-dummies/repositories';
-import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { toAbsolutePath, toDirname, toPath } from '@-xun/fs';
 import { createDebugLogger } from 'rejoinder';
 
 import { exports as packageExports, name as packageName } from 'rootverse:package.json';
@@ -26,8 +24,8 @@ import {
   dummyNpmPackageFixture,
   ensurePackageHasBeenBuilt,
   gitRepositoryFixture,
-  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested,
-  withMockedFixtures
+  mockFixturesFactory,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
 } from 'testverse:util.ts';
 
 import type {
@@ -35,8 +33,13 @@ import type {
   XchangelogOptions
 } from '@-xun/changelog' with { 'resolution-mode': 'import' };
 
-import type { Merge, Promisable, SetParameterType } from 'type-fest';
-import type { FixtureContext } from 'testverse:util.ts';
+import type { Promisable } from 'type-fest';
+
+import type {
+  FixtureContext,
+  GenericMockFixtureFunctions,
+  GitRepositoryFixtureOptions
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = `${packageName.split('/').at(-1)!}-integration-client-changelog`;
 const debug = createDebugLogger({ namespace: 'symbiote' }).extend(TEST_IDENTIFIER);
@@ -86,1089 +89,1040 @@ const dummyModuleExportConfig = {
 dummyModuleExportConfig.projectMetadata.cwdPackage.json = dummyPackageJson;
 dummyModuleExportConfig.projectMetadata.rootPackage.json = dummyPackageJson;
 
+type CustomFixtureContext = FixtureContext<
+  GitRepositoryFixtureOptions & AdditionalOptions
+> &
+  AdditionalContext;
+
+type AdditionalOptions = {
+  patches: TestEnvironmentPatch[];
+};
+
+type AdditionalContext = {
+  createBasicCommit: (message: string, context: CustomFixtureContext) => Promise<void>;
+  createBasicCommits: (
+    messages: readonly string[],
+    context: CustomFixtureContext
+  ) => Promise<void>;
+};
+
+type TestEnvironmentPatch = {
+  /**
+   * Note: `messages` are committed _before_ `callback` is invoked.
+   */
+  messages: string[];
+  /**
+   * Note: `messages` are committed _before_ `callback` is invoked.
+   */
+  callback?: (config: {
+    messages: readonly string[];
+    context: CustomFixtureContext;
+  }) => Promisable<unknown>;
+};
+
+const fixtures = [
+  dummyNpmPackageFixture,
+  gitRepositoryFixture,
+  () => {
+    return {
+      name: 'additional-context-provider',
+      description: 'adding additional functions to global context',
+      setup(context: CustomFixtureContext) {
+        let commitCounter = 0;
+
+        context.createBasicCommit = async function (message, { git, fs, root }) {
+          const path = 'dummy.txt';
+
+          await fs.writeFile(path, `${commitCounter++}`);
+          await git.add(toPath(root, path));
+          await git.commit(message, ['--no-gpg-sign']);
+        };
+
+        context.createBasicCommits = async function (messages, context) {
+          for (const message of messages) {
+            await context.createBasicCommit(message, context);
+          }
+        };
+      }
+    };
+  },
+  () => {
+    return {
+      name: 'environment-patcher',
+      description: 'committing TestEnvironmentPatches',
+      async setup(context: CustomFixtureContext) {
+        const {
+          createBasicCommits,
+          options: { patches }
+        } = context;
+
+        for (const { messages, callback } of patches) {
+          if (messages.length) {
+            await createBasicCommits(messages, context);
+          }
+
+          await callback?.({ messages, context });
+        }
+      }
+    };
+  }
+] satisfies GenericMockFixtureFunctions;
+
+const withMockedFixtures = mockFixturesFactory<
+  typeof fixtures,
+  AdditionalOptions,
+  AdditionalContext
+>(fixtures, {
+  performCleanup: true,
+  identifier: TEST_IDENTIFIER,
+  patches: []
+});
+
 it('matches changelog snapshot when there are no semver tags in the repo', async () => {
   expect.hasAssertions();
 
-  await withMockedFixtureWrapper(
-    {
-      async test() {
-        const config = moduleExport(dummyModuleExportConfig);
-        const changelog = await runConventionalChangelog(config);
-        expect(changelog).toMatchSnapshot();
-      }
+  await withMockedFixtures(
+    async function test() {
+      const config = moduleExport(dummyModuleExportConfig);
+      const changelog = await runConventionalChangelog(config);
+      expect(changelog).toMatchSnapshot();
     },
-    generatePatchesForEnvironment1()
+    { patches: generatePatchesForEnvironment1() }
   );
 });
 
 it('matches changelog snapshot when there are semver tags in the repo', async () => {
   expect.hasAssertions();
 
-  await withMockedFixtureWrapper(
-    {
-      async test() {
-        const config = moduleExport(dummyModuleExportConfig);
-        const changelog = await runConventionalChangelog(config, { releaseCount: 0 });
-        expect(changelog).toMatchSnapshot();
-      }
+  await withMockedFixtures(
+    async function test() {
+      const config = moduleExport(dummyModuleExportConfig);
+      const changelog = await runConventionalChangelog(config, { releaseCount: 0 });
+      expect(changelog).toMatchSnapshot();
     },
-    generatePatchesForEnvironment11()
+    { patches: generatePatchesForEnvironment11() }
   );
 });
 
 it('appends commit short-hash and repo link to the end of commits of non-hidden types with each formatted commit scope/subject appearing after its section header', async () => {
   expect.hasAssertions();
 
-  await withMockedFixtureWrapper(
-    {
-      async test({ git }) {
-        const config = moduleExport(dummyModuleExportConfig);
+  await withMockedFixtures(
+    async function test({ git }) {
+      const config = moduleExport(dummyModuleExportConfig);
 
-        const changelog = await runConventionalChangelog(config, {
-          makeReplacements: false
-        });
+      const changelog = await runConventionalChangelog(config, {
+        makeReplacements: false
+      });
 
-        const commits = await git.log({ multiLine: true });
+      const commits = await git.log({ multiLine: true });
 
-        commits.all.forEach(({ hash, body: bodyAndFooter }) => {
-          const isBreaking = bodyAndFooter.includes('BREAKING');
-          const urlStart = ` ([${hash.slice(0, 7)}`;
-          const urlEnd = `/commit/${hash}))`;
+      commits.all.forEach(({ hash, body: bodyAndFooter }) => {
+        const isBreaking = bodyAndFooter.includes('BREAKING');
+        const urlStart = ` ([${hash.slice(0, 7)}`;
+        const urlEnd = `/commit/${hash}))`;
 
-          const messageSplit = bodyAndFooter.split(':');
-          const messageSplit_ = messageSplit[0].split('(');
+        const messageSplit = bodyAndFooter.split(':');
+        const messageSplit_ = messageSplit[0]!.split('(');
 
-          const [type, scope] = [
-            messageSplit_[0]?.trim() ?? '',
-            messageSplit_[1]?.trim().slice(0, -1)
-          ];
+        const [type, scope] = [
+          messageSplit_[0]?.trim() ?? '',
+          messageSplit_[1]?.trim().slice(0, -1)
+        ];
 
-          const sectionHeading = isBreaking
-            ? `# 💥 ${noteTitleForBreakingChange} 💥`
-            : `# ${commitTypeSections[type]?.section ?? ''}\n`;
+        const sectionHeading = isBreaking
+          ? `# 💥 ${noteTitleForBreakingChange} 💥`
+          : `# ${commitTypeSections[type]?.section ?? ''}\n`;
 
-          const subject_ = messageSplit.slice(1).join(':').trim().split('\n')[0];
+        const subject_ = messageSplit.slice(1).join(':').trim().split('\n')[0]!;
 
-          if (type === 'revert' && !bodyAndFooter.includes('his reverts commit')) {
-            // ? Broken revert commits should not appear in changelog
-            expect(changelog).not.toInclude(subject_);
-            return;
+        if (type === 'revert' && !bodyAndFooter.includes('his reverts commit')) {
+          // ? Broken revert commits should not appear in changelog
+          expect(changelog).not.toInclude(subject_);
+          return;
+        }
+
+        const subject = type === 'revert' ? `*${subject_}*` : subject_;
+
+        const bullet =
+          scope && scope !== '*'
+            ? `* **${scope.toLowerCase()}:** ${subject}`
+            : toSentenceCase(subject);
+
+        if (!isBreaking && commitTypeSections[type]?.hidden !== false) {
+          if (sectionHeading) {
+            expect(changelog).not.toInclude(sectionHeading);
           }
 
-          const subject = type === 'revert' ? `*${subject_}*` : subject_;
-
-          const bullet =
-            scope && scope !== '*'
-              ? `* **${scope.toLowerCase()}:** ${subject}`
-              : toSentenceCase(subject);
-
-          if (!isBreaking && commitTypeSections[type]?.hidden !== false) {
-            if (sectionHeading) {
-              expect(changelog).not.toInclude(sectionHeading);
-            }
-
-            if (bullet) {
-              expect(changelog).not.toInclude(bullet);
-            }
-
-            expect(changelog).not.toInclude(urlStart);
-            expect(changelog).not.toInclude(urlEnd);
-          } else {
-            expect(changelog).toInclude(sectionHeading);
-
-            expect(changelog).toInclude(bullet);
-            expect(changelog.indexOf(sectionHeading)).toBeLessThan(
-              changelog.indexOf(bullet)
-            );
-
-            expect(changelog).toInclude(urlStart);
-            expect(changelog.indexOf(bullet)).toBeLessThan(changelog.indexOf(urlStart));
-
-            expect(changelog).toInclude(urlEnd);
-            expect(changelog.indexOf(urlStart)).toBeLessThan(changelog.indexOf(urlEnd));
+          if (bullet) {
+            expect(changelog).not.toInclude(bullet);
           }
-        });
-      }
+
+          expect(changelog).not.toInclude(urlStart);
+          expect(changelog).not.toInclude(urlEnd);
+        } else {
+          expect(changelog).toInclude(sectionHeading);
+
+          expect(changelog).toInclude(bullet);
+          expect(changelog.indexOf(sectionHeading)).toBeLessThan(
+            changelog.indexOf(bullet)
+          );
+
+          expect(changelog).toInclude(urlStart);
+          expect(changelog.indexOf(bullet)).toBeLessThan(changelog.indexOf(urlStart));
+
+          expect(changelog).toInclude(urlEnd);
+          expect(changelog.indexOf(urlStart)).toBeLessThan(changelog.indexOf(urlEnd));
+        }
+      });
     },
-    generatePatchesForEnvironment1()
+    { patches: generatePatchesForEnvironment1() }
   );
 });
 
 it('translates each semver tag into a super-section link prefixed with package name and suffixed with commit date', async () => {
   expect.hasAssertions();
 
-  await withMockedFixtureWrapper(
-    {
-      async test({ git }) {
-        const config = moduleExport(dummyModuleExportConfig);
-        const changelog = await runConventionalChangelog(config, { releaseCount: 0 });
-        const tags = await git.tags();
+  await withMockedFixtures(
+    async function test({ git }) {
+      const config = moduleExport(dummyModuleExportConfig);
+      const changelog = await runConventionalChangelog(config, { releaseCount: 0 });
+      const tags = await git.tags();
 
-        tags.all.forEach((tag) => {
-          expect(changelog).toInclude(
-            `fake-pkg[@${tag.slice(9)}](https://github.com/fake-user/fake-repo/compare/`
-          );
-        });
-      }
+      tags.all.forEach((tag) => {
+        expect(changelog).toInclude(
+          `fake-pkg[@${tag.slice(9)}](https://github.com/fake-user/fake-repo/compare/`
+        );
+      });
     },
-    generatePatchesForEnvironment11()
+    { patches: generatePatchesForEnvironment11() }
   );
 });
 
 it('groups types sections by default order', async () => {
   expect.hasAssertions();
 
-  await withMockedFixtureWrapper(
-    {
-      async test(context) {
-        const config = moduleExport(dummyModuleExportConfig);
+  await withMockedFixtures(
+    async function test(context) {
+      const config = moduleExport(dummyModuleExportConfig);
 
-        await createBasicCommit('mytype: new type from @Xunnamius', context);
-        const changelog = await runConventionalChangelog(config);
+      await context.createBasicCommit('mytype: new type from @Xunnamius', context);
+      const changelog = await runConventionalChangelog(config);
 
-        expect(changelog.indexOf(' BREAKING CHANGES\n')).toBeLessThan(
-          changelog.indexOf(' Features')
-        );
+      expect(changelog.indexOf(' BREAKING CHANGES\n')).toBeLessThan(
+        changelog.indexOf(' Features')
+      );
 
-        expect(changelog.indexOf(' Features\n')).toBeLessThan(
-          changelog.indexOf(' Fixes')
-        );
+      expect(changelog.indexOf(' Features\n')).toBeLessThan(changelog.indexOf(' Fixes'));
 
-        expect(changelog.indexOf(' Fixes\n')).toBeLessThan(
-          changelog.indexOf(' Optimizations')
-        );
+      expect(changelog.indexOf(' Fixes\n')).toBeLessThan(
+        changelog.indexOf(' Optimizations')
+      );
 
-        expect(changelog.indexOf(' Optimizations\n')).toBeLessThan(
-          changelog.indexOf(' Build system')
-        );
+      expect(changelog.indexOf(' Optimizations\n')).toBeLessThan(
+        changelog.indexOf(' Build system')
+      );
 
-        expect(changelog.indexOf(' Build system\n')).toBeLessThan(
-          changelog.indexOf(' CI/CD')
-        );
+      expect(changelog.indexOf(' Build system\n')).toBeLessThan(
+        changelog.indexOf(' CI/CD')
+      );
 
-        expect(changelog.indexOf(' CI/CD\n')).toBeLessThan(
-          changelog.indexOf('Reverted')
-        );
-      }
+      expect(changelog.indexOf(' CI/CD\n')).toBeLessThan(changelog.indexOf('Reverted'));
     },
-    generatePatchesForEnvironment1()
+    { patches: generatePatchesForEnvironment1() }
   );
 });
 
 it('can overwrite types using object override form', async () => {
   expect.hasAssertions();
 
-  await withMockedFixtureWrapper(
-    {
-      async test(context) {
-        const config = moduleExport({
-          ...dummyModuleExportConfig,
-          configOverrides: {
-            types: [{ type: 'mytype', section: 'FAKE TYPE SECTION', hidden: false }]
-          }
-        });
+  await withMockedFixtures(
+    async function test(context) {
+      const config = moduleExport({
+        ...dummyModuleExportConfig,
+        configOverrides: {
+          types: [{ type: 'mytype', section: 'FAKE TYPE SECTION', hidden: false }]
+        }
+      });
 
-        await createBasicCommit('mytype: new type from Xunnamius', context);
-        await createBasicCommit('mytype(some-scope): new type from Xunnamius', context);
-        const changelog = await runConventionalChangelog(config);
+      await context.createBasicCommit('mytype: new type from Xunnamius', context);
+      await context.createBasicCommit(
+        'mytype(some-scope): new type from Xunnamius',
+        context
+      );
+      const changelog = await runConventionalChangelog(config);
 
-        expect(changelog).toMatch(
-          /# FAKE TYPE SECTION\n+\* New type from Xunnamius \S+\n\* \*\*some-scope:\*\* new type from Xunnamius \S+\n/
-        );
-      }
+      expect(changelog).toMatch(
+        /# FAKE TYPE SECTION\n+\* New type from Xunnamius \S+\n\* \*\*some-scope:\*\* new type from Xunnamius \S+\n/
+      );
     },
-    generatePatchesForEnvironment1()
+    { patches: generatePatchesForEnvironment1() }
   );
 });
 
 it('can overwrite types using callback override form', async () => {
   expect.hasAssertions();
 
-  await withMockedFixtureWrapper(
-    {
-      async test(context) {
-        const config = moduleExport({
-          ...dummyModuleExportConfig,
-          configOverrides: (config) => ({
-            ...config,
-            types: [{ type: 'mytype', section: 'FAKE TYPE SECTION', hidden: false }]
-          })
-        });
+  await withMockedFixtures(
+    async function test(context) {
+      const config = moduleExport({
+        ...dummyModuleExportConfig,
+        configOverrides: (config) => ({
+          ...config,
+          types: [{ type: 'mytype', section: 'FAKE TYPE SECTION', hidden: false }]
+        })
+      });
 
-        await createBasicCommit('mytype: new type from Xunnamius', context);
-        await createBasicCommit('mytype(some-scope): new type from Xunnamius', context);
-        const changelog = await runConventionalChangelog(config);
+      await context.createBasicCommit('mytype: new type from Xunnamius', context);
+      await context.createBasicCommit(
+        'mytype(some-scope): new type from Xunnamius',
+        context
+      );
+      const changelog = await runConventionalChangelog(config);
 
-        expect(changelog).toMatch(
-          /# FAKE TYPE SECTION\n+\* New type from Xunnamius \S+\n\* \*\*some-scope:\*\* new type from Xunnamius \S+\n/
-        );
-      }
+      expect(changelog).toMatch(
+        /# FAKE TYPE SECTION\n+\* New type from Xunnamius \S+\n\* \*\*some-scope:\*\* new type from Xunnamius \S+\n/
+      );
     },
-    generatePatchesForEnvironment1()
+    { patches: generatePatchesForEnvironment1() }
   );
 });
 
 it('handles aliased types with the same section name', async () => {
   expect.hasAssertions();
 
-  await withMockedFixtureWrapper(
-    {
-      async test(context) {
-        const config = moduleExport({
-          ...dummyModuleExportConfig,
-          configOverrides: (config) => ({
-            ...config,
-            types: [
-              ...(config.types ?? []),
-              { type: 'mytype', section: wellKnownCommitTypes[0].section, hidden: false }
-            ]
-          })
-        });
+  await withMockedFixtures(
+    async function test(context) {
+      const config = moduleExport({
+        ...dummyModuleExportConfig,
+        configOverrides: (config) => ({
+          ...config,
+          types: [
+            ...(config.types ?? []),
+            { type: 'mytype', section: wellKnownCommitTypes[0]!.section, hidden: false }
+          ]
+        })
+      });
 
-        await createBasicCommit('mytype: new type from Xunnamius', context);
-        await createBasicCommit('mytype(some-scope): new type from Xunnamius', context);
-        const changelog = await runConventionalChangelog(config);
+      await context.createBasicCommit('mytype: new type from Xunnamius', context);
+      await context.createBasicCommit(
+        'mytype(some-scope): new type from Xunnamius',
+        context
+      );
+      const changelog = await runConventionalChangelog(config);
 
-        expect(changelog).toMatch(
-          new RegExp(
-            `### ${wellKnownCommitTypes[0].section!}\n+.+\\* New type from Xunnamius[^#]+\\* \\*\\*some-scope:\\*\\* new type from Xunnamius[^#]+### ${wellKnownCommitTypes[1].section!}\n`,
-            'vs'
-          )
-        );
-      }
+      expect(changelog).toMatch(
+        new RegExp(
+          `### ${wellKnownCommitTypes[0]!.section!}\n+.+\\* New type from Xunnamius[^#]+\\* \\*\\*some-scope:\\*\\* new type from Xunnamius[^#]+### ${wellKnownCommitTypes[1]!.section!}\n`,
+          'vs'
+        )
+      );
     },
-    generatePatchesForEnvironment1()
+    { patches: generatePatchesForEnvironment1() }
   );
 });
 
 it('recognizes scope setting with multiple matching types in types configuration', async () => {
   expect.hasAssertions();
 
-  await withMockedFixtureWrapper(
-    {
-      async test() {
-        const regexp = /### Dependencies\n+\* \*\*deps:\*\* upgrade example from 1 to 2/;
+  await withMockedFixtures(
+    async function test() {
+      const regexp = /### Dependencies\n+\* \*\*deps:\*\* upgrade example from 1 to 2/;
 
-        {
-          const config = moduleExport({
-            ...dummyModuleExportConfig,
-            configOverrides: (config) => ({
-              ...config,
-              types: [
-                { type: 'chore', scope: 'deps', section: 'Dependencies', hidden: false },
-                ...(config.types ?? [])
-              ]
-            })
-          });
+      {
+        const config = moduleExport({
+          ...dummyModuleExportConfig,
+          configOverrides: (config) => ({
+            ...config,
+            types: [
+              { type: 'chore', scope: 'deps', section: 'Dependencies', hidden: false },
+              ...(config.types ?? [])
+            ]
+          })
+        });
 
-          const changelog = await runConventionalChangelog(config);
-          expect(changelog).toMatch(regexp);
-          expect(changelog).not.toInclude('release 0.0.0');
-        }
+        const changelog = await runConventionalChangelog(config);
+        expect(changelog).toMatch(regexp);
+        expect(changelog).not.toInclude('release 0.0.0');
+      }
 
-        {
-          const config = moduleExport({
-            ...dummyModuleExportConfig,
-            configOverrides: (config) => ({
-              ...config,
-              types: [
-                { type: 'chore', scope: 'reps', section: 'Dependencies', hidden: false },
-                ...(config.types ?? [])
-              ]
-            })
-          });
+      {
+        const config = moduleExport({
+          ...dummyModuleExportConfig,
+          configOverrides: (config) => ({
+            ...config,
+            types: [
+              { type: 'chore', scope: 'reps', section: 'Dependencies', hidden: false },
+              ...(config.types ?? [])
+            ]
+          })
+        });
 
-          const changelog = await runConventionalChangelog(config);
-          expect(changelog).not.toMatch(regexp);
-          expect(changelog).not.toInclude('release 0.0.0');
-        }
+        const changelog = await runConventionalChangelog(config);
+        expect(changelog).not.toMatch(regexp);
+        expect(changelog).not.toInclude('release 0.0.0');
       }
     },
-    generatePatchesForEnvironment1()
+    { patches: generatePatchesForEnvironment1() }
   );
 });
 
 it('indents majors with h2, minors with h3, and adjusts section heading level as required', async () => {
   expect.hasAssertions();
 
-  await withMockedFixtureWrapper(
-    {
-      async test() {
-        const config = moduleExport(dummyModuleExportConfig);
-        const changelog = await runConventionalChangelog(config, { releaseCount: 0 });
+  await withMockedFixtures(
+    async function test() {
+      const config = moduleExport(dummyModuleExportConfig);
+      const changelog = await runConventionalChangelog(config, { releaseCount: 0 });
 
-        expect(changelog).toMatch(/## fake-pkg\[@0.2.0][^#]+\n### /);
-        expect(changelog).toMatch(/### fake-pkg\[@0.2.1][^#]+\n#### /);
-      }
+      expect(changelog).toMatch(/## fake-pkg\[@0.2.0][^#]+\n### /);
+      expect(changelog).toMatch(/### fake-pkg\[@0.2.1][^#]+\n#### /);
     },
-    generatePatchesForEnvironment8()
+    { patches: generatePatchesForEnvironment8() }
   );
 });
 
 it('makes bold, lowercases, and appends colon for scope strings in non-breaking commits', async () => {
   expect.hasAssertions();
 
-  await withMockedFixtureWrapper(
-    {
-      async test() {
-        const config = moduleExport(dummyModuleExportConfig);
-        const changelog = await runConventionalChangelog(config);
-        expect(changelog).toInclude('\n* **ngoptions:** make it faster ([X]');
-      }
+  await withMockedFixtures(
+    async function test() {
+      const config = moduleExport(dummyModuleExportConfig);
+      const changelog = await runConventionalChangelog(config);
+      expect(changelog).toInclude('\n* **ngoptions:** make it faster ([X]');
     },
-    generatePatchesForEnvironment1()
+    { patches: generatePatchesForEnvironment1() }
   );
 });
 
 it('removes scope strings in and capitalizes first letter of breaking commits', async () => {
   expect.hasAssertions();
 
-  await withMockedFixtureWrapper(
-    {
-      async test() {
-        const config = moduleExport(dummyModuleExportConfig);
-        const changelog = await runConventionalChangelog(config, { releaseCount: 2 });
-        expect(changelog).toInclude('\n* This completely changes the API\n');
-      }
+  await withMockedFixtures(
+    async function test() {
+      const config = moduleExport(dummyModuleExportConfig);
+      const changelog = await runConventionalChangelog(config, { releaseCount: 2 });
+      expect(changelog).toInclude('\n* This completely changes the API\n');
     },
-    generatePatchesForEnvironment9()
+    { patches: generatePatchesForEnvironment9() }
   );
 });
 
 it('capitalizes commit subject if no scope present', async () => {
   expect.hasAssertions();
 
-  await withMockedFixtureWrapper(
-    {
-      async test() {
-        const config = moduleExport(dummyModuleExportConfig);
-        const changelog = await runConventionalChangelog(config);
-        expect(changelog).toInclude('\n* Amazing new module ([X]');
-      }
+  await withMockedFixtures(
+    async function test() {
+      const config = moduleExport(dummyModuleExportConfig);
+      const changelog = await runConventionalChangelog(config);
+      expect(changelog).toInclude('\n* Amazing new module ([X]');
     },
-    generatePatchesForEnvironment1()
+    { patches: generatePatchesForEnvironment1() }
   );
 });
 
 it('discards commits that have been reverted', async () => {
   expect.hasAssertions();
 
-  await withMockedFixtureWrapper(
-    {
-      async test(context) {
-        const { git } = context;
-        await createBasicCommit('feat: this commit is gonna get reverted!', context);
+  await withMockedFixtures(
+    async function test(context) {
+      const { git } = context;
+      await context.createBasicCommit(
+        'feat: this commit is gonna get reverted!',
+        context
+      );
 
-        {
-          const config = moduleExport(dummyModuleExportConfig);
-          const changelog = await runConventionalChangelog(config);
-          expect(changelog).not.toInclude(
-            '*"feat: this commit is gonna get reverted!"*'
-          );
-          expect(changelog).toInclude('* This commit is gonna get reverted!');
-        }
+      {
+        const config = moduleExport(dummyModuleExportConfig);
+        const changelog = await runConventionalChangelog(config);
+        expect(changelog).not.toInclude('*"feat: this commit is gonna get reverted!"*');
+        expect(changelog).toInclude('* This commit is gonna get reverted!');
+      }
 
-        await git.revert('HEAD');
+      await git.revert('HEAD');
 
-        {
-          const config = moduleExport(dummyModuleExportConfig);
-          const changelog = await runConventionalChangelog(config);
-          expect(changelog).toInclude('*"feat: this commit is gonna get reverted!"*');
-          expect(changelog).not.toInclude('* This commit is gonna get reverted!');
-        }
+      {
+        const config = moduleExport(dummyModuleExportConfig);
+        const changelog = await runConventionalChangelog(config);
+        expect(changelog).toInclude('*"feat: this commit is gonna get reverted!"*');
+        expect(changelog).not.toInclude('* This commit is gonna get reverted!');
       }
     },
-    generatePatchesForEnvironment1()
+    { patches: generatePatchesForEnvironment1() }
   );
 });
 
 it('discards commits that have been reverted even if they contain breaking changes', async () => {
   expect.hasAssertions();
 
-  await withMockedFixtureWrapper(
-    {
-      async test(context) {
-        const { git } = context;
-        await createBasicCommit(
-          'chore!: this commit is gonna get reverted!\n\nBREAKING: A breaking change.',
-          context
-        );
+  await withMockedFixtures(
+    async function test(context) {
+      const { git } = context;
+      await context.createBasicCommit(
+        'chore!: this commit is gonna get reverted!\n\nBREAKING: A breaking change.',
+        context
+      );
 
-        {
-          const config = moduleExport(dummyModuleExportConfig);
-          const changelog = await runConventionalChangelog(config);
+      {
+        const config = moduleExport(dummyModuleExportConfig);
+        const changelog = await runConventionalChangelog(config);
 
-          expect(changelog).not.toInclude(
-            '*"feat: this commit is gonna get reverted!"*'
-          );
-          expect(changelog).toInclude('* A breaking change.');
-          expect(changelog).toInclude('* This commit is gonna get reverted!');
-        }
+        expect(changelog).not.toInclude('*"feat: this commit is gonna get reverted!"*');
+        expect(changelog).toInclude('* A breaking change.');
+        expect(changelog).toInclude('* This commit is gonna get reverted!');
+      }
 
-        await git.revert('HEAD');
+      await git.revert('HEAD');
 
-        {
-          const config = moduleExport(dummyModuleExportConfig);
-          const changelog = await runConventionalChangelog(config);
+      {
+        const config = moduleExport(dummyModuleExportConfig);
+        const changelog = await runConventionalChangelog(config);
 
-          expect(changelog).toInclude('*"chore!: this commit is gonna get reverted!"*');
-          expect(changelog).not.toInclude('* A breaking change.');
-          expect(changelog).not.toInclude('* This commit is gonna get reverted!');
-        }
+        expect(changelog).toInclude('*"chore!: this commit is gonna get reverted!"*');
+        expect(changelog).not.toInclude('* A breaking change.');
+        expect(changelog).not.toInclude('* This commit is gonna get reverted!');
       }
     },
-    generatePatchesForEnvironment1()
+    { patches: generatePatchesForEnvironment1() }
   );
 });
 
 it('discards revert commits that seem to target unknown/hidden non-breaking commits', async () => {
   expect.hasAssertions();
 
-  await withMockedFixtureWrapper(
-    {
-      async test(context) {
-        const { git } = context;
+  await withMockedFixtures(
+    async function test(context) {
+      const { git } = context;
 
-        await createBasicCommit('feat: this commit is gonna get reverted 1', context);
-        await git.revert('HEAD');
+      await context.createBasicCommit(
+        'feat: this commit is gonna get reverted 1',
+        context
+      );
+      await git.revert('HEAD');
 
-        await createBasicCommit('feat!: this commit is gonna get reverted 2', context);
-        await git.revert('HEAD');
+      await context.createBasicCommit(
+        'feat!: this commit is gonna get reverted 2',
+        context
+      );
+      await git.revert('HEAD');
 
-        await createBasicCommit(
-          'feat(scope): this commit is gonna get reverted 3',
-          context
+      await context.createBasicCommit(
+        'feat(scope): this commit is gonna get reverted 3',
+        context
+      );
+
+      await git.revert('HEAD');
+
+      await context.createBasicCommit(
+        'feat(scope)!: this commit is gonna get reverted 4',
+        context
+      );
+
+      await git.revert('HEAD');
+
+      await context.createBasicCommit(
+        'chore: this commit is gonna get reverted 5',
+        context
+      );
+      await git.revert('HEAD');
+
+      await context.createBasicCommit(
+        'chore!: this commit is gonna get reverted 6',
+        context
+      );
+      await git.revert('HEAD');
+
+      await context.createBasicCommit(
+        'chore(scope): this commit is gonna get reverted 7',
+        context
+      );
+
+      await git.revert('HEAD');
+
+      await context.createBasicCommit(
+        'chore(scope)!: this commit is gonna get reverted 8',
+        context
+      );
+
+      await git.revert('HEAD');
+
+      {
+        const config = moduleExport(dummyModuleExportConfig);
+        const changelog = await runConventionalChangelog(config);
+
+        expect(changelog).toInclude('*"feat: this commit is gonna get reverted 1"*');
+        expect(changelog).toInclude('*"feat!: this commit is gonna get reverted 2"*');
+
+        expect(changelog).toInclude(
+          '*"feat(scope): this commit is gonna get reverted 3"*'
         );
 
-        await git.revert('HEAD');
-
-        await createBasicCommit(
-          'feat(scope)!: this commit is gonna get reverted 4',
-          context
+        expect(changelog).toInclude(
+          '*"feat(scope)!: this commit is gonna get reverted 4"*'
         );
 
-        await git.revert('HEAD');
+        expect(changelog).toInclude('*"chore!: this commit is gonna get reverted 6"*');
 
-        await createBasicCommit('chore: this commit is gonna get reverted 5', context);
-        await git.revert('HEAD');
-
-        await createBasicCommit('chore!: this commit is gonna get reverted 6', context);
-        await git.revert('HEAD');
-
-        await createBasicCommit(
-          'chore(scope): this commit is gonna get reverted 7',
-          context
+        expect(changelog).toInclude(
+          '*"chore(scope)!: this commit is gonna get reverted 8"*'
         );
 
-        await git.revert('HEAD');
-
-        await createBasicCommit(
-          'chore(scope)!: this commit is gonna get reverted 8',
-          context
+        expect(changelog).not.toInclude(
+          '*"chore: this commit is gonna get reverted 5"*'
         );
 
-        await git.revert('HEAD');
+        expect(changelog).not.toInclude(
+          '*"chore(scope): this commit is gonna get reverted 7"*'
+        );
 
-        {
-          const config = moduleExport(dummyModuleExportConfig);
-          const changelog = await runConventionalChangelog(config);
+        expect(changelog).not.toInclude('* This commit is gonna get reverted');
 
-          expect(changelog).toInclude('*"feat: this commit is gonna get reverted 1"*');
-          expect(changelog).toInclude('*"feat!: this commit is gonna get reverted 2"*');
-
-          expect(changelog).toInclude(
-            '*"feat(scope): this commit is gonna get reverted 3"*'
-          );
-
-          expect(changelog).toInclude(
-            '*"feat(scope)!: this commit is gonna get reverted 4"*'
-          );
-
-          expect(changelog).toInclude('*"chore!: this commit is gonna get reverted 6"*');
-
-          expect(changelog).toInclude(
-            '*"chore(scope)!: this commit is gonna get reverted 8"*'
-          );
-
-          expect(changelog).not.toInclude(
-            '*"chore: this commit is gonna get reverted 5"*'
-          );
-
-          expect(changelog).not.toInclude(
-            '*"chore(scope): this commit is gonna get reverted 7"*'
-          );
-
-          expect(changelog).not.toInclude('* This commit is gonna get reverted');
-
-          expect(changelog).not.toInclude(
-            '* **scope**: this commit is gonna get reverted'
-          );
-        }
+        expect(changelog).not.toInclude(
+          '* **scope**: this commit is gonna get reverted'
+        );
       }
     },
-    generatePatchesForEnvironment1()
+    { patches: generatePatchesForEnvironment1() }
   );
 });
 
 it('populates breaking change notes if "!" is present', async () => {
   expect.hasAssertions();
 
-  await withMockedFixtureWrapper(
-    {
-      async test() {
-        const config = moduleExport(dummyModuleExportConfig);
-        const changelog = await runConventionalChangelog(config, { releaseCount: 2 });
-        expect(changelog).toInclude('* Incredible new flag FIXES: [#33](');
-      }
+  await withMockedFixtures(
+    async function test() {
+      const config = moduleExport(dummyModuleExportConfig);
+      const changelog = await runConventionalChangelog(config, { releaseCount: 2 });
+      expect(changelog).toInclude('* Incredible new flag FIXES: [#33](');
     },
-    generatePatchesForEnvironment9()
+    { patches: generatePatchesForEnvironment9() }
   );
 });
 
 it('does not list breaking change twice if "!" is used', async () => {
   expect.hasAssertions();
 
-  await withMockedFixtureWrapper(
-    {
-      async test() {
-        const config = moduleExport(dummyModuleExportConfig);
-        const changelog = await runConventionalChangelog(config);
-        expect(changelog).toInclude('* New build system.\n');
-        expect(changelog).not.toInclude('* First build setup\n');
-      }
+  await withMockedFixtures(
+    async function test() {
+      const config = moduleExport(dummyModuleExportConfig);
+      const changelog = await runConventionalChangelog(config);
+      expect(changelog).toInclude('* New build system.\n');
+      expect(changelog).not.toInclude('* First build setup\n');
     },
-    generatePatchesForEnvironment1()
+    { patches: generatePatchesForEnvironment1() }
   );
 });
 
 it('outputs as one line all lines of multi-line breaking change notes with each line in sentence case and first line bold', async () => {
   expect.hasAssertions();
 
-  await withMockedFixtureWrapper(
-    {
-      async test() {
-        const config = moduleExport(dummyModuleExportConfig);
-        const changelog = await runConventionalChangelog(config, { releaseCount: 2 });
-        expect(changelog).toInclude(
-          '* **The Change is huge. Big. Really big.**\n\n  Really. Like super big. Wow!\n\n  Here are some extra details!'
-        );
-      }
+  await withMockedFixtures(
+    async function test() {
+      const config = moduleExport(dummyModuleExportConfig);
+      const changelog = await runConventionalChangelog(config, { releaseCount: 2 });
+      expect(changelog).toInclude(
+        '* **The Change is huge. Big. Really big.**\n\n  Really. Like super big. Wow!\n\n  Here are some extra details!'
+      );
     },
-    generatePatchesForEnvironment9()
+    { patches: generatePatchesForEnvironment9() }
   );
 });
 
 it('outputs single-line breaking change notes in sentence case and not bolded', async () => {
   expect.hasAssertions();
 
-  await withMockedFixtureWrapper(
-    {
-      async test() {
-        const config = moduleExport(dummyModuleExportConfig);
-        const changelog = await runConventionalChangelog(config, { releaseCount: 2 });
-        expect(changelog).toInclude('* Incredible new flag FIXES: [#33]');
-      }
+  await withMockedFixtures(
+    async function test() {
+      const config = moduleExport(dummyModuleExportConfig);
+      const changelog = await runConventionalChangelog(config, { releaseCount: 2 });
+      expect(changelog).toInclude('* Incredible new flag FIXES: [#33]');
     },
-    generatePatchesForEnvironment9()
+    { patches: generatePatchesForEnvironment9() }
   );
 });
 
 it('linkifies all external issue references in and adds a data image to subjects and breaking notes', async () => {
   expect.hasAssertions();
 
-  await withMockedFixtureWrapper(
-    {
-      async test() {
-        const config = moduleExport(dummyModuleExportConfig);
-        const changelog = await runConventionalChangelog(config);
+  await withMockedFixtures(
+    async function test() {
+      const config = moduleExport(dummyModuleExportConfig);
+      const changelog = await runConventionalChangelog(config);
 
-        expect(changelog).toMatch(
-          /\[#358<img .*? \/>]\(https:\/\/github\.com\/other-fake-user\/other-fake-repo\/issues\/358\)/
-        );
+      expect(changelog).toMatch(
+        /\[#358<img .*? \/>]\(https:\/\/github\.com\/other-fake-user\/other-fake-repo\/issues\/358\)/
+      );
 
-        expect(changelog).toMatch(
-          /\[#853<img .*? \/>]\(https:\/\/github\.com\/other-fake-user\/other-fake-repo\/issues\/853\)/
-        );
+      expect(changelog).toMatch(
+        /\[#853<img .*? \/>]\(https:\/\/github\.com\/other-fake-user\/other-fake-repo\/issues\/853\)/
+      );
 
-        expect(changelog).toMatch(
-          /\[#331<img .*? \/>]\(https:\/\/github\.com\/owner\/repo\/issues\/331\)/
-        );
+      expect(changelog).toMatch(
+        /\[#331<img .*? \/>]\(https:\/\/github\.com\/owner\/repo\/issues\/331\)/
+      );
 
-        expect(changelog).toMatch(
-          /\[#441<img .*? \/>]\(https:\/\/github\.com\/owner\/repo\/issues\/441\)/
-        );
-      }
+      expect(changelog).toMatch(
+        /\[#441<img .*? \/>]\(https:\/\/github\.com\/owner\/repo\/issues\/441\)/
+      );
     },
-    generatePatchesForEnvironment2()
+    { patches: generatePatchesForEnvironment2() }
   );
 });
 
 it('linkifies all internal issue references in subjects and breaking notes', async () => {
   expect.hasAssertions();
 
-  await withMockedFixtureWrapper(
-    {
-      async test() {
-        {
-          const config = moduleExport(dummyModuleExportConfig);
-          const changelog = await runConventionalChangelog(config, { releaseCount: 0 });
+  await withMockedFixtures(
+    async function test() {
+      {
+        const config = moduleExport(dummyModuleExportConfig);
+        const changelog = await runConventionalChangelog(config, { releaseCount: 0 });
 
-          expect(changelog).toInclude(
-            '[#133](https://github.com/fake-user/fake-repo/issues/133)'
-          );
+        expect(changelog).toInclude(
+          '[#133](https://github.com/fake-user/fake-repo/issues/133)'
+        );
 
-          expect(changelog).toInclude(
-            '[#233](https://github.com/fake-user/fake-repo/issues/233)'
-          );
+        expect(changelog).toInclude(
+          '[#233](https://github.com/fake-user/fake-repo/issues/233)'
+        );
 
-          expect(changelog).toInclude(
-            '[#55](https://github.com/fake-user/fake-repo/issues/55)'
-          );
+        expect(changelog).toInclude(
+          '[#55](https://github.com/fake-user/fake-repo/issues/55)'
+        );
 
-          expect(changelog).toInclude(
-            '[#66](https://github.com/fake-user/fake-repo/issues/66)'
-          );
+        expect(changelog).toInclude(
+          '[#66](https://github.com/fake-user/fake-repo/issues/66)'
+        );
 
-          expect(changelog).toInclude(
-            '[#77](https://github.com/fake-user/fake-repo/issues/77)'
-          );
+        expect(changelog).toInclude(
+          '[#77](https://github.com/fake-user/fake-repo/issues/77)'
+        );
 
-          expect(changelog).toInclude(
-            '[#33](https://github.com/fake-user/fake-repo/issues/33)'
-          );
+        expect(changelog).toInclude(
+          '[#33](https://github.com/fake-user/fake-repo/issues/33)'
+        );
 
-          expect(changelog).toInclude(
-            '[#22](https://github.com/fake-user/fake-repo/issues/22)'
-          );
-        }
+        expect(changelog).toInclude(
+          '[#22](https://github.com/fake-user/fake-repo/issues/22)'
+        );
       }
     },
-    generatePatchesForEnvironment9()
+    { patches: generatePatchesForEnvironment9() }
   );
 });
 
 it('linkifies all internal and external issues in subjects and breaking notes given custom issueUrlFormat and prefix', async () => {
   expect.hasAssertions();
 
-  await withMockedFixtureWrapper(
-    {
-      async test() {
-        {
-          const config = moduleExport({
-            ...dummyModuleExportConfig,
-            configOverrides(config) {
-              return {
-                ...config,
-                issuePrefixes: ['#', 'GH-'],
-                issueUrlFormat: 'issues://{{repository}}/issues/{{id}}'
-              };
-            }
-          });
+  await withMockedFixtures(
+    async function test() {
+      {
+        const config = moduleExport({
+          ...dummyModuleExportConfig,
+          configOverrides(config) {
+            return {
+              ...config,
+              issuePrefixes: ['#', 'GH-'],
+              issueUrlFormat: 'issues://{{repository}}/issues/{{id}}'
+            };
+          }
+        });
 
-          const changelog = await runConventionalChangelog(config);
+        const changelog = await runConventionalChangelog(config);
 
-          expect(changelog).toInclude('[#1](issues://fake-repo/issues/1)');
-          expect(changelog).toInclude('[GH-1](issues://fake-repo/issues/1)');
-          expect(changelog).toInclude('[GH-2](issues://fake-repo/issues/2)');
-          expect(changelog).toInclude('[GH-3](issues://fake-repo/issues/3)');
+        expect(changelog).toInclude('[#1](issues://fake-repo/issues/1)');
+        expect(changelog).toInclude('[GH-1](issues://fake-repo/issues/1)');
+        expect(changelog).toInclude('[GH-2](issues://fake-repo/issues/2)');
+        expect(changelog).toInclude('[GH-3](issues://fake-repo/issues/3)');
 
-          expect(changelog).toMatch(
-            /\[#358<img .*? \/>]\(issues:\/\/other-fake-repo\/issues\/358\)/
-          );
+        expect(changelog).toMatch(
+          /\[#358<img .*? \/>]\(issues:\/\/other-fake-repo\/issues\/358\)/
+        );
 
-          expect(changelog).toMatch(
-            /\[#853<img .*? \/>]\(issues:\/\/other-fake-repo\/issues\/853\)/
-          );
-        }
+        expect(changelog).toMatch(
+          /\[#853<img .*? \/>]\(issues:\/\/other-fake-repo\/issues\/853\)/
+        );
+      }
 
-        {
-          const config = moduleExport({
-            ...dummyModuleExportConfig,
-            configOverrides(config) {
-              return {
-                ...config,
-                issueUrlFormat: 'https://example.com/browse/{{prefix}}{{id}}',
-                issuePrefixes: ['EXAMPLE-']
-              };
-            }
-          });
+      {
+        const config = moduleExport({
+          ...dummyModuleExportConfig,
+          configOverrides(config) {
+            return {
+              ...config,
+              issueUrlFormat: 'https://example.com/browse/{{prefix}}{{id}}',
+              issuePrefixes: ['EXAMPLE-']
+            };
+          }
+        });
 
-          const changelog = await runConventionalChangelog(config);
+        const changelog = await runConventionalChangelog(config);
 
-          expect(changelog).toInclude(
-            '[EXAMPLE-1](https://example.com/browse/EXAMPLE-1)'
-          );
+        expect(changelog).toInclude('[EXAMPLE-1](https://example.com/browse/EXAMPLE-1)');
 
-          expect(changelog).toInclude(
-            '[EXAMPLE-2](https://example.com/browse/EXAMPLE-2)'
-          );
-        }
+        expect(changelog).toInclude('[EXAMPLE-2](https://example.com/browse/EXAMPLE-2)');
       }
     },
-    generatePatchesForEnvironment1()
+    { patches: generatePatchesForEnvironment1() }
   );
 });
 
 it('linkifies issue references as internal even when they are given using external syntax in subjects and breaking notes', async () => {
   expect.hasAssertions();
 
-  await withMockedFixtureWrapper(
-    {
-      async test() {
-        {
-          const config = moduleExport(dummyModuleExportConfig);
-          const changelog = await runConventionalChangelog(config, { releaseCount: 0 });
-          expect(changelog).toInclude(
-            '[#551](https://github.com/fake-user/fake-repo/issues/551)'
-          );
-        }
+  await withMockedFixtures(
+    async function test() {
+      {
+        const config = moduleExport(dummyModuleExportConfig);
+        const changelog = await runConventionalChangelog(config, { releaseCount: 0 });
+        expect(changelog).toInclude(
+          '[#551](https://github.com/fake-user/fake-repo/issues/551)'
+        );
       }
     },
-    generatePatchesForEnvironment9()
+    { patches: generatePatchesForEnvironment9() }
   );
 });
 
 it('removes issue refs from superscript that already appear in the subject', async () => {
   expect.hasAssertions();
 
-  await withMockedFixtureWrapper(
-    {
-      async test() {
-        {
-          const config = moduleExport(dummyModuleExportConfig);
-          const changelog = await runConventionalChangelog(config, { releaseCount: 0 });
+  await withMockedFixtures(
+    async function test() {
+      {
+        const config = moduleExport(dummyModuleExportConfig);
+        const changelog = await runConventionalChangelog(config, { releaseCount: 0 });
 
-          expect(changelog).toInclude(
-            '[#88](https://github.com/fake-user/fake-repo/issues/88)'
-          );
+        expect(changelog).toInclude(
+          '[#88](https://github.com/fake-user/fake-repo/issues/88)'
+        );
 
-          expect(changelog.toLowerCase()).not.toInclude(
-            'see [#88](https://github.com/fake-user/fake-repo/issues/88)'
-          );
-        }
+        expect(changelog.toLowerCase()).not.toInclude(
+          'see [#88](https://github.com/fake-user/fake-repo/issues/88)'
+        );
       }
     },
-    generatePatchesForEnvironment3()
+    { patches: generatePatchesForEnvironment3() }
   );
 });
 
 it('linkifies @user with configured userUrlFormat', async () => {
   expect.hasAssertions();
 
-  await withMockedFixtureWrapper(
-    {
-      async test() {
-        {
-          const config = moduleExport({
-            ...dummyModuleExportConfig,
-            configOverrides: (config) => ({
-              ...config,
-              userUrlFormat: 'https://foo/{{user}}'
-            })
-          });
+  await withMockedFixtures(
+    async function test() {
+      {
+        const config = moduleExport({
+          ...dummyModuleExportConfig,
+          configOverrides: (config) => ({
+            ...config,
+            userUrlFormat: 'https://foo/{{user}}'
+          })
+        });
 
-          const changelog = await runConventionalChangelog(config, { releaseCount: 0 });
+        const changelog = await runConventionalChangelog(config, { releaseCount: 0 });
 
-          expect(changelog).toInclude('[@bcoe](https://foo/bcoe)');
-          expect(changelog).toInclude('[@dlmr](https://foo/dlmr)');
-          expect(changelog).toInclude('[@username](https://foo/username)');
-          expect(changelog).toInclude('[@Xunnamius](https://foo/Xunnamius)');
-          expect(changelog).toInclude('[@suimannux](https://foo/suimannux)');
-          expect(changelog).toInclude('[@user1](https://foo/user1)');
-          expect(changelog).toInclude('[@user2](https://foo/user2)');
-          expect(changelog).toInclude('[@user3](https://foo/user3)');
-          expect(changelog).toInclude('[@merchanz039f9](https://foo/merchanz039f9)');
-          expect(changelog).not.toInclude('@hutson');
-          expect(changelog).not.toInclude('[@aol');
-        }
+        expect(changelog).toInclude('[@bcoe](https://foo/bcoe)');
+        expect(changelog).toInclude('[@dlmr](https://foo/dlmr)');
+        expect(changelog).toInclude('[@username](https://foo/username)');
+        expect(changelog).toInclude('[@Xunnamius](https://foo/Xunnamius)');
+        expect(changelog).toInclude('[@suimannux](https://foo/suimannux)');
+        expect(changelog).toInclude('[@user1](https://foo/user1)');
+        expect(changelog).toInclude('[@user2](https://foo/user2)');
+        expect(changelog).toInclude('[@user3](https://foo/user3)');
+        expect(changelog).toInclude('[@merchanz039f9](https://foo/merchanz039f9)');
+        expect(changelog).not.toInclude('@hutson');
+        expect(changelog).not.toInclude('[@aol');
       }
     },
-    generatePatchesForEnvironment9()
+    { patches: generatePatchesForEnvironment9() }
   );
 });
 
 it('does not linkify @string if it is a scoped package (including with hyphens)', async () => {
   expect.hasAssertions();
 
-  await withMockedFixtureWrapper(
-    {
-      async test(context) {
-        {
-          const config = moduleExport(dummyModuleExportConfig);
+  await withMockedFixtures(
+    async function test(context) {
+      {
+        const config = moduleExport(dummyModuleExportConfig);
 
-          await createBasicCommit(
-            'fix: update @typescript-eslint/some-pkg and @-xun/symbiote and @eslint/js@5 and npm@beta',
-            context
-          );
+        await context.createBasicCommit(
+          'fix: update @typescript-eslint/some-pkg and @-xun/symbiote and @eslint/js@5 and npm@beta',
+          context
+        );
 
-          const changelog = await runConventionalChangelog(config, {
-            releaseCount: 0,
-            outputUnreleased: true
-          });
+        const changelog = await runConventionalChangelog(config, {
+          releaseCount: 0,
+          outputUnreleased: true
+        });
 
-          expect(changelog).toInclude(
-            '* Update @typescript-eslint/some-pkg and @-xun/symbiote and @eslint/js@5 and npm@beta'
-          );
+        expect(changelog).toInclude(
+          '* Update @typescript-eslint/some-pkg and @-xun/symbiote and @eslint/js@5 and npm@beta'
+        );
 
-          expect(changelog).not.toInclude('(https://github.com/5');
-          expect(changelog).toInclude('bump @dummy/package from');
-        }
+        expect(changelog).not.toInclude('(https://github.com/5');
+        expect(changelog).toInclude('bump @dummy/package from');
       }
     },
-    generatePatchesForEnvironment9()
+    { patches: generatePatchesForEnvironment9() }
   );
 });
 
 it('parses default, customized, but not malformed/broken revert commits', async () => {
   expect.hasAssertions();
 
-  await withMockedFixtureWrapper(
-    {
-      async test() {
-        {
-          const config = moduleExport(dummyModuleExportConfig);
-          const changelog = await runConventionalChangelog(config, { releaseCount: 0 });
+  await withMockedFixtures(
+    async function test() {
+      {
+        const config = moduleExport(dummyModuleExportConfig);
+        const changelog = await runConventionalChangelog(config, { releaseCount: 0 });
 
-          expect(changelog).toInclude('*"feat: default revert format"*');
-          expect(changelog).toInclude('*"feat: default revert format"*');
-          expect(changelog).toInclude('*Feat: custom revert format*');
-          expect(changelog).toInclude('*"Feat(two): custom revert format 2"*');
+        expect(changelog).toInclude('*"feat: default revert format"*');
+        expect(changelog).toInclude('*"feat: default revert format"*');
+        expect(changelog).toInclude('*Feat: custom revert format*');
+        expect(changelog).toInclude('*"Feat(two): custom revert format 2"*');
 
-          expect(changelog).not.toInclude(
-            '*"feat(X): broken revert commit should not appear"*'
-          );
-        }
+        expect(changelog).not.toInclude(
+          '*"feat(X): broken revert commit should not appear"*'
+        );
       }
     },
-    generatePatchesForEnvironment10()
+    { patches: generatePatchesForEnvironment10() }
   );
 });
 
 it('does not take the type/scope case into consideration (always lowercased)', async () => {
   expect.hasAssertions();
 
-  await withMockedFixtureWrapper(
-    {
-      async test() {
-        {
-          const config = moduleExport(dummyModuleExportConfig);
-          const changelog = await runConventionalChangelog(config, { releaseCount: 0 });
-          expect(changelog).toInclude('* **foo:** incredible new flag');
-        }
+  await withMockedFixtures(
+    async function test() {
+      {
+        const config = moduleExport(dummyModuleExportConfig);
+        const changelog = await runConventionalChangelog(config, { releaseCount: 0 });
+        expect(changelog).toInclude('* **foo:** incredible new flag');
       }
     },
-    generatePatchesForEnvironment9()
+    { patches: generatePatchesForEnvironment9() }
   );
 });
 
 it('supports multiple lines of footer information', async () => {
   expect.hasAssertions();
 
-  await withMockedFixtureWrapper(
-    {
-      async test() {
-        {
-          const config = moduleExport(dummyModuleExportConfig);
-          const changelog = await runConventionalChangelog(config, { releaseCount: 0 });
+  await withMockedFixtures(
+    async function test() {
+      {
+        const config = moduleExport(dummyModuleExportConfig);
+        const changelog = await runConventionalChangelog(config, { releaseCount: 0 });
 
-          expect(changelog).toInclude('see [#99]');
-          expect(changelog).toInclude('[#100]');
-          expect(changelog).toInclude('* This completely changes the API');
-        }
+        expect(changelog).toInclude('see [#99]');
+        expect(changelog).toInclude('[#100]');
+        expect(changelog).toInclude('* This completely changes the API');
       }
     },
-    generatePatchesForEnvironment9()
+    { patches: generatePatchesForEnvironment9() }
   );
 });
 
 it('removes xpipeline command suffixes from commit subjects', async () => {
   expect.hasAssertions();
 
-  await withMockedFixtureWrapper(
-    {
-      async test() {
-        {
-          const config = moduleExport(dummyModuleExportConfig);
-          const changelog = await runConventionalChangelog(config, { releaseCount: 0 });
+  await withMockedFixtures(
+    async function test() {
+      {
+        const config = moduleExport(dummyModuleExportConfig);
+        const changelog = await runConventionalChangelog(config, { releaseCount: 0 });
 
-          expect(changelog).toInclude('* Something else skip1\n');
-          expect(changelog).toInclude('* **scope:** something else skip1 ([X]');
-          expect(changelog).toInclude('* Something else skip2 ([X]');
-          // ? Multiple stacked together are illegal
-          expect(changelog).toInclude(
-            String.raw`* Something other skip3 \[CI SKIP\]\[skip ci\]\[sKiP cd\]\[cd skip\] ([X]`
-          );
-          expect(changelog).toInclude('* Something other skip4 ([X]');
-          // ? Reverts are always shown as-is
-          expect(changelog).toInclude(String.raw`*"build(bore): include1 \[skip cd\]"*`);
-        }
+        expect(changelog).toInclude('* Something else skip1\n');
+        expect(changelog).toInclude('* **scope:** something else skip1 ([X]');
+        expect(changelog).toInclude('* Something else skip2 ([X]');
+        // ? Multiple stacked together are illegal
+        expect(changelog).toInclude(
+          String.raw`* Something other skip3 \[CI SKIP\]\[skip ci\]\[sKiP cd\]\[cd skip\] ([X]`
+        );
+        expect(changelog).toInclude('* Something other skip4 ([X]');
+        // ? Reverts are always shown as-is
+        expect(changelog).toInclude(String.raw`*"build(bore): include1 \[skip cd\]"*`);
       }
     },
-    generatePatchesForEnvironment11()
+    { patches: generatePatchesForEnvironment11() }
   );
 });
 
 it('escapes characters considered special to markdown', async () => {
   expect.hasAssertions();
 
-  await withMockedFixtureWrapper(
-    {
-      async test() {
-        {
-          const config = moduleExport(dummyModuleExportConfig);
-          const changelog = await runConventionalChangelog(config, {
-            outputUnreleased: true
-          });
+  await withMockedFixtures(
+    async function test() {
+      {
+        const config = moduleExport(dummyModuleExportConfig);
+        const changelog = await runConventionalChangelog(config, {
+          outputUnreleased: true
+        });
 
-          expect(changelog).toInclude(String.raw`* **that:** escape test`);
-          expect(changelog).toInclude(
-            '* These \\[brackets\\] and these\\~tildes need to be \\~escaped\\~ and this\\~ too and \\~this but not ~~these~~ but yes this\\~\n'
-          );
+        expect(changelog).toInclude(String.raw`* **that:** escape test`);
+        expect(changelog).toInclude(
+          '* These \\[brackets\\] and these\\~tildes need to be \\~escaped\\~ and this\\~ too and \\~this but not ~~these~~ but yes this\\~\n'
+        );
 
-          expect(changelog).toInclude('* Something else skip1 escape me\\]\n');
-          expect(changelog).toInclude(
-            String.raw`* **scope:** something else skip1 escape me\] ([X]`
-          );
+        expect(changelog).toInclude('* Something else skip1 escape me\\]\n');
+        expect(changelog).toInclude(
+          String.raw`* **scope:** something else skip1 escape me\] ([X]`
+        );
 
-          expect(changelog).toInclude(String.raw`* Something else to escape\[\] ([X]`);
+        expect(changelog).toInclude(String.raw`* Something else to escape\[\] ([X]`);
 
-          expect(changelog).toInclude(
-            '* Do not `[[[escape``me[]]` or `*me*` but yes me\\[\\]\\]\\` ([X]'
-          );
+        expect(changelog).toInclude(
+          '* Do not `[[[escape``me[]]` or `*me*` but yes me\\[\\]\\]\\` ([X]'
+        );
 
-          expect(changelog).toInclude('* Do not `[escape]` this either ([X]');
+        expect(changelog).toInclude('* Do not `[escape]` this either ([X]');
 
-          expect(changelog).toInclude(
-            '* But do `escape`\\[\\[\\[me`and` also \\`\\*me\\*\\` `*not me*` but yes \\[\\]\\] me \\` ([X]'
-          );
+        expect(changelog).toInclude(
+          '* But do `escape`\\[\\[\\[me`and` also \\`\\*me\\*\\` `*not me*` but yes \\[\\]\\] me \\` ([X]'
+        );
 
-          expect(changelog).toInclude(
-            String.raw`* Escape the tilde in rejoinder\~5 and the \* in \*this\* ([X]`
-          );
+        expect(changelog).toInclude(
+          String.raw`* Escape the tilde in rejoinder\~5 and the \* in \*this\* ([X]`
+        );
 
-          expect(changelog).toInclude(
-            String.raw`* \# The previous # but none of \# the other #` + '\n'
-          );
+        expect(changelog).toInclude(
+          String.raw`* \# The previous # but none of \# the other #` + '\n'
+        );
 
-          expect(changelog).toInclude(
-            String.raw`* **this\~that:** escape the \~ in @-xun/debug\~dev ([X]`
-          );
+        expect(changelog).toInclude(
+          String.raw`* **this\~that:** escape the \~ in @-xun/debug\~dev ([X]`
+        );
 
-          expect(changelog).toInclude(String.raw`* *"fix(that\~this): escape \~"* ([X]`);
+        expect(changelog).toInclude(String.raw`* *"fix(that\~this): escape \~"* ([X]`);
 
-          expect(changelog).toInclude(
-            '* Do not escape \\_any\\_ of the following as they are already escaped: \\* / ( ) \\] \\[ \\> \\< \\_ \\` \\~! ([X]'
-          );
-        }
+        expect(changelog).toInclude(
+          '* Do not escape \\_any\\_ of the following as they are already escaped: \\* / ( ) \\] \\[ \\> \\< \\_ \\` \\~! ([X]'
+        );
       }
     },
-    generatePatchesForEnvironment12()
+    { patches: generatePatchesForEnvironment12() }
   );
 });
 
 it('does not include revert commits with missing metadata (i.e. not created by "git revert")', async () => {
   expect.hasAssertions();
 
-  await withMockedFixtureWrapper(
-    {
-      async test() {
-        {
-          const config = moduleExport(dummyModuleExportConfig);
-          const changelog = await runConventionalChangelog(config, {
-            outputUnreleased: true
-          });
+  await withMockedFixtures(
+    async function test() {
+      {
+        const config = moduleExport(dummyModuleExportConfig);
+        const changelog = await runConventionalChangelog(config, {
+          outputUnreleased: true
+        });
 
-          expect(changelog).not.toInclude('SHOULD NOT BE INCLUDED IN CHANGELOG');
-        }
+        expect(changelog).not.toInclude('SHOULD NOT BE INCLUDED IN CHANGELOG');
       }
     },
-    generatePatchesForEnvironment12()
+    { patches: generatePatchesForEnvironment12() }
   );
 });
-
-function getBaseEnvironmentConfig({
-  testIdentifier,
-  options
-}: Partial<Pick<WithMockedFixtureOptions, 'testIdentifier' | 'options'>>) {
-  return {
-    testIdentifier: testIdentifier ?? TEST_IDENTIFIER,
-    options: {
-      performCleanup: true,
-      initialFileContents: { 'package.json': stringifyJson({ name: 'dummy-pkg' }) },
-      use: [dummyNpmPackageFixture(), gitRepositoryFixture()],
-      ...options
-    }
-  };
-}
-
-async function createBasicCommit(
-  message: string,
-  { git, fs, root }: Required<Pick<FixtureContext, 'git' | 'fs' | 'root'>>
-) {
-  const path = 'dummy.txt';
-  const ownMemory = createBasicCommit as { counter?: number };
-  ownMemory.counter ??= 0;
-
-  await fs.writeFile({ path, data: `${ownMemory.counter++}` });
-  return git.add(root + '/' + path).then(() => git.commit(message, ['--no-gpg-sign']));
-}
-
-async function createBasicCommits(
-  messages: string[],
-  context: Parameters<typeof createBasicCommit>[1]
-) {
-  for (const message of messages) {
-    await createBasicCommit(message, context);
-  }
-}
-
-type TestEnvironmentPatch = {
-  messages: string[];
-  callback?: (config: {
-    messages: string[];
-    context: Merge<FixtureContext, { git: NonNullable<FixtureContext['git']> }>;
-  }) => Promisable<unknown>;
-};
-
-async function withMockedFixtureWrapper(
-  incomingConfig: {
-    test: SetParameterType<
-      WithMockedFixtureOptions['test'],
-      [
-        context: Merge<
-          Parameters<WithMockedFixtureOptions['test']>[0],
-          { git: NonNullable<Parameters<WithMockedFixtureOptions['test']>[0]['git']> }
-        >
-      ]
-    >;
-  } & Partial<Omit<WithMockedFixtureOptions, 'test'>>,
-  environmentPatches: TestEnvironmentPatch[]
-) {
-  const { test: customFn } = incomingConfig;
-  const config = getBaseEnvironmentConfig(incomingConfig);
-
-  config.options.initialFileContents['package.json'] = stringifyJson(dummyPackageJson);
-
-  return withMockedFixtures({
-    ...config,
-    async test(context) {
-      const { git, fs, root } = context;
-      assert(git, 'expected git instance to be defined');
-
-      process.chdir(root);
-
-      for (const { messages, callback } of environmentPatches) {
-        if (messages.length) {
-          await createBasicCommits(messages, { git, fs, root });
-        }
-
-        await callback?.({ messages, context } as Parameters<typeof callback>[0]);
-      }
-
-      return customFn(context as Parameters<typeof customFn>[0]);
-    }
-  });
-}
 
 async function runConventionalChangelog(
   config: XchangelogConfig,
@@ -1276,13 +1230,13 @@ function generatePatchesForEnvironment6(): TestEnvironmentPatch[] {
     {
       messages: ['feat: some more feats'],
       async callback({ context: { git, fs } }) {
-        await fs.writeFile({
-          path: 'package.json',
-          data: stringifyJson({
-            ...JSON.parse(await fs.readFile({ path: 'package.json' })),
+        await fs.writeFile(
+          'package.json',
+          stringifyJson({
+            ...JSON.parse(await fs.readFile('package.json', 'utf8')),
             version: '0.1.0'
           })
-        });
+        );
 
         return git.addAnnotatedTag('fake-pkg@0.1.0', 'fake-pkg@0.1.0');
       }
@@ -1299,13 +1253,13 @@ function generatePatchesForEnvironment7(): TestEnvironmentPatch[] {
         'feat: even more features'
       ],
       async callback({ context: { git, fs } }) {
-        await fs.writeFile({
-          path: 'package.json',
-          data: stringifyJson({
-            ...JSON.parse(await fs.readFile({ path: 'package.json' })),
+        await fs.writeFile(
+          'package.json',
+          stringifyJson({
+            ...JSON.parse(await fs.readFile('package.json', 'utf8')),
             version: '0.2.0'
           })
-        });
+        );
 
         return git.addAnnotatedTag('fake-pkg@0.2.0', 'fake-pkg@0.2.0');
       }
@@ -1318,13 +1272,13 @@ function generatePatchesForEnvironment8(): TestEnvironmentPatch[] {
     {
       messages: ['feat(*): implementing #5 by @dlmr\n closes #10'],
       async callback({ context: { git, fs } }) {
-        await fs.writeFile({
-          path: 'package.json',
-          data: stringifyJson({
-            ...JSON.parse(await fs.readFile({ path: 'package.json' })),
+        await fs.writeFile(
+          'package.json',
+          stringifyJson({
+            ...JSON.parse(await fs.readFile('package.json', 'utf8')),
             version: '0.2.1'
           })
-        });
+        );
 
         return git.addAnnotatedTag('fake-pkg@0.2.1', 'fake-pkg@0.2.1');
       }
@@ -1342,13 +1296,13 @@ function generatePatchesForEnvironment9(): TestEnvironmentPatch[] {
         'FEAT(FOO)!: incredible new flag FIXES: #33-#22'
       ],
       async callback({ context: { git, fs } }) {
-        await fs.writeFile({
-          path: 'package.json',
-          data: stringifyJson({
-            ...JSON.parse(await fs.readFile({ path: 'package.json' })),
+        await fs.writeFile(
+          'package.json',
+          stringifyJson({
+            ...JSON.parse(await fs.readFile('package.json', 'utf8')),
             version: '1.0.0'
           })
-        });
+        );
 
         return git.addAnnotatedTag('fake-pkg@1.0.0', 'fake-pkg@1.0.0');
       }
@@ -1367,13 +1321,13 @@ function generatePatchesForEnvironment10(): TestEnvironmentPatch[] {
         'revert: "feat(X): broken revert commit should not appear"'
       ],
       async callback({ context: { git, fs } }) {
-        await fs.writeFile({
-          path: 'package.json',
-          data: stringifyJson({
-            ...JSON.parse(await fs.readFile({ path: 'package.json' })),
+        await fs.writeFile(
+          'package.json',
+          stringifyJson({
+            ...JSON.parse(await fs.readFile('package.json', 'utf8')),
             version: '1.1.0'
           })
-        });
+        );
 
         return git.addAnnotatedTag('fake-pkg@1.1.0', 'fake-pkg@1.1.0');
       }
@@ -1395,13 +1349,13 @@ function generatePatchesForEnvironment11(): TestEnvironmentPatch[] {
       async callback({ context: { git, fs } }) {
         await git.revert('HEAD');
 
-        await fs.writeFile({
-          path: 'package.json',
-          data: stringifyJson({
-            ...JSON.parse(await fs.readFile({ path: 'package.json' })),
+        await fs.writeFile(
+          'package.json',
+          stringifyJson({
+            ...JSON.parse(await fs.readFile('package.json', 'utf8')),
             version: '1.1.1'
           })
-        });
+        );
 
         return git.addAnnotatedTag('fake-pkg@1.1.1', 'fake-pkg@1.1.1');
       }
