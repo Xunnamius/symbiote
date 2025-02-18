@@ -89,16 +89,8 @@ const dummyContext: IncomingTransformerContext = {
 };
 
 beforeEach(() => {
-  // TODO: when the feature of disabling root log also disables pre-extension
-  // TODO: loggers too is implemented in rejoinder, remove these lines:
   dummyContext.log.enabled = false;
-  dummyContext.log.message.enabled = false;
-  dummyContext.log.warn.enabled = false;
-  dummyContext.log.error.enabled = false;
   dummyContext.debug.enabled = false;
-  dummyContext.debug.message.enabled = false;
-  dummyContext.debug.warn.enabled = false;
-  dummyContext.debug.error.enabled = false;
 });
 
 describe('::gatherAssetsFromTransformer', () => {
