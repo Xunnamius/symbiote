@@ -1,3 +1,10 @@
+import { defaultVersionTextDescription } from '@-xun/cli';
+
+import {
+  makeStandardConfigureErrorHandlingEpilogue,
+  makeStandardConfigureExecutionContext
+} from '@-xun/cli/configure';
+
 import { toPath } from '@-xun/fs';
 import { memoizer } from '@-xun/memoize';
 
@@ -7,32 +14,25 @@ import {
   isAccessible
 } from '@-xun/project';
 
-import { defaultVersionTextDescription } from '@-xun/cli/util';
 import { createDebugLogger, createGenericLogger } from 'rejoinder';
-
-import {
-  makeStandardConfigureErrorHandlingEpilogue,
-  makeStandardConfigureExecutionContext
-} from '@-xun/cli/configure';
 
 import { version as packageVersion } from 'rootverse:package.json';
 
 import { globalDebuggerNamespace, globalLoggerNamespace } from 'universe:constant.ts';
 
-import type { ProjectMetadata } from '@-xun/project';
-
 import type {
+  BfeBuilderObject,
   ConfigureErrorHandlingEpilogue,
   ConfigureExecutionContext,
   ConfigureExecutionEpilogue
 } from '@-xun/cli';
 
-import type { BfeBuilderObject } from '@-xun/cli';
-
 import type {
   StandardCommonCliArguments,
   StandardExecutionContext
 } from '@-xun/cli/extensions';
+
+import type { ProjectMetadata } from '@-xun/project';
 
 import type {
   // ? Used in documentation

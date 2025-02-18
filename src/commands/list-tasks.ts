@@ -1,17 +1,16 @@
-import { logStartTime, LogTag, standardSuccessMessage } from '@-xun/cli/logging';
-
+import { LogTag, standardSuccessMessage } from '@-xun/cli/logging';
 import { scriptBasename } from '@-xun/cli/util';
 
 import { DefaultGlobalScope } from 'universe:configure.ts';
 
 import {
+  logStartTime,
   runGlobalPreChecks,
   withGlobalBuilder,
   withGlobalUsage
 } from 'universe:util.ts';
 
-import type { ChildConfiguration } from '@-xun/cli';
-import type { AsStrictExecutionContext } from '@-xun/cli';
+import type { AsStrictExecutionContext, ChildConfiguration } from '@-xun/cli';
 import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:configure.ts';
 
 const frontmatter = `\n⮞  `;
@@ -26,7 +25,10 @@ export default function command({
   state,
   projectMetadata: projectMetadata_,
   isUsingLocalInstallation
-}: AsStrictExecutionContext<GlobalExecutionContext>) {
+}: AsStrictExecutionContext<GlobalExecutionContext>): ChildConfiguration<
+  CustomCliArguments,
+  GlobalExecutionContext
+> {
   const [builder, withGlobalHandler] = withGlobalBuilder<CustomCliArguments>(
     (blackFlag, _, argv) => {
       blackFlag.strict(false);
@@ -151,5 +153,5 @@ export default function command({
         return genericLogger.extend(`[${packageName}]`);
       }
     })
-  } satisfies ChildConfiguration<CustomCliArguments, GlobalExecutionContext>;
+  };
 }

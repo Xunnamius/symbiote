@@ -1,24 +1,23 @@
 /* eslint-disable unicorn/prevent-abbreviations */
+import { CliError } from '@-xun/cli';
+import { softAssert } from '@-xun/cli/error';
+import { LogTag } from '@-xun/cli/logging';
+import { scriptBasename } from '@-xun/cli/util';
 import { ProjectAttribute } from '@-xun/project';
 import { run, runWithInheritedIo } from '@-xun/run';
-import { CliError } from '@-xun/cli';
-
-import { softAssert } from '@-xun/cli/error';
-import { logStartTime, LogTag } from '@-xun/cli/logging';
-import { scriptBasename } from '@-xun/cli/util';
 
 import { ThisPackageGlobalScope as DevScope } from 'universe:configure.ts';
 import { ErrorMessage } from 'universe:error.ts';
 
 import {
   hasExitCode,
+  logStartTime,
   runGlobalPreChecks,
   withGlobalBuilder,
   withGlobalUsage
 } from 'universe:util.ts';
 
-import type { ChildConfiguration } from '@-xun/cli';
-import type { AsStrictExecutionContext } from '@-xun/cli';
+import type { AsStrictExecutionContext, ChildConfiguration } from '@-xun/cli';
 import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:configure.ts';
 
 /**
@@ -34,7 +33,10 @@ export default function command({
   state,
   projectMetadata: projectMetadata_,
   isUsingLocalInstallation
-}: AsStrictExecutionContext<GlobalExecutionContext>) {
+}: AsStrictExecutionContext<GlobalExecutionContext>): ChildConfiguration<
+  CustomCliArguments,
+  GlobalExecutionContext
+> {
   const [builder, withGlobalHandler] = withGlobalBuilder<CustomCliArguments>({
     scope: { choices: devScopes }
   });
@@ -101,5 +103,5 @@ export default function command({
         return port;
       }
     })
-  } satisfies ChildConfiguration<CustomCliArguments, GlobalExecutionContext>;
+  };
 }

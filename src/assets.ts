@@ -2,9 +2,9 @@
 import { readdir } from 'node:fs/promises';
 import { pathToFileURL } from 'node:url';
 
+import { CliError } from '@-xun/cli';
 import { toAbsolutePath, toPath } from '@-xun/fs';
 import { isRootPackage, ProjectAttribute } from '@-xun/project';
-import { CliError } from '@-xun/cli';
 import getInObject from 'lodash.get';
 import mergeWith from 'lodash.mergewith';
 import { createDebugLogger } from 'rejoinder';

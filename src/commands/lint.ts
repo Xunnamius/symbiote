@@ -1,3 +1,7 @@
+import { CliError } from '@-xun/cli';
+import { hardAssert, softAssert } from '@-xun/cli/error';
+import { LogTag, standardSuccessMessage } from '@-xun/cli/logging';
+import { scriptBasename } from '@-xun/cli/util';
 import { toPath, toRelativePath } from '@-xun/fs';
 
 import {
@@ -12,27 +16,20 @@ import {
 } from '@-xun/project';
 
 import { runNoRejectOnBadExit } from '@-xun/run';
-import { CliError } from '@-xun/cli';
-
-import { hardAssert, softAssert } from '@-xun/cli/error';
-
-import { logStartTime, LogTag, standardSuccessMessage } from '@-xun/cli/logging';
-
-import { scriptBasename } from '@-xun/cli/util';
 
 import { DefaultGlobalScope as LinterScope } from 'universe:configure.ts';
 import { ErrorMessage } from 'universe:error.ts';
 
 import {
   checkArrayNotEmpty,
+  logStartTime,
   runGlobalPreChecks,
   withGlobalBuilder,
   withGlobalUsage
 } from 'universe:util.ts';
 
+import type { AsStrictExecutionContext, ChildConfiguration } from '@-xun/cli';
 import type { run, Subprocess } from '@-xun/run';
-import type { ChildConfiguration } from '@-xun/cli';
-import type { AsStrictExecutionContext } from '@-xun/cli';
 import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:configure.ts';
 
 export enum Linter {
@@ -69,7 +66,9 @@ export default async function command({
   state,
   projectMetadata: projectMetadata_,
   isUsingLocalInstallation
-}: AsStrictExecutionContext<GlobalExecutionContext>) {
+}: AsStrictExecutionContext<GlobalExecutionContext>): Promise<
+  ChildConfiguration<CustomCliArguments, GlobalExecutionContext>
+> {
   const [builder, withGlobalHandler] = withGlobalBuilder<CustomCliArguments>(
     (blackFlag) => {
       blackFlag.parserConfiguration({ 'unknown-options-as-args': true });
@@ -468,7 +467,9 @@ Provide --allow-warning-comments to set the SYMBIOTE_LINT_ALLOW_WARNING_COMMENTS
             );
 
             linterSubprocesses.push(subprocess);
-          }
+          },
+          lines: false,
+          coerceOutputToString: true
         });
 
         if (!aborted) {
@@ -506,5 +507,5 @@ Provide --allow-warning-comments to set the SYMBIOTE_LINT_ALLOW_WARNING_COMMENTS
         }
       }
     })
-  } satisfies ChildConfiguration<CustomCliArguments, GlobalExecutionContext>;
+  };
 }

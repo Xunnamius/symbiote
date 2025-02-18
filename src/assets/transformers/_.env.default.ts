@@ -1,3 +1,4 @@
+import { LogTag } from '@-xun/cli/logging';
 import { toRelativePath } from '@-xun/fs';
 
 import {
@@ -5,8 +6,6 @@ import {
   dotEnvDefaultConfigPackageBase,
   isAccessible
 } from '@-xun/project';
-
-import { LogTag } from '@-xun/cli/logging';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 import { readFile } from 'universe:util.ts';

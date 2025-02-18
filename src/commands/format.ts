@@ -1,5 +1,9 @@
 import { basename } from 'node:path';
 
+import { $artificiallyInvoked, CliError } from '@-xun/cli';
+import { hardAssert, softAssert } from '@-xun/cli/error';
+import { LogTag, standardSuccessMessage } from '@-xun/cli/logging';
+import { scriptBasename } from '@-xun/cli/util';
 import { toAbsolutePath, toPath, toRelativePath } from '@-xun/fs';
 
 import {
@@ -10,31 +14,23 @@ import {
 } from '@-xun/project';
 
 import { run, runNoRejectOnBadExit } from '@-xun/run';
-import { CliError } from '@-xun/cli';
 import { glob } from 'glob-gitignore';
 import { getSupportInfo } from 'prettier';
 import { SHORT_TAB } from 'rejoinder';
-
-import { $artificiallyInvoked } from '@-xun/cli';
-import { hardAssert, softAssert } from '@-xun/cli/error';
-
-import { logStartTime, LogTag, standardSuccessMessage } from '@-xun/cli/logging';
-
-import { scriptBasename } from '@-xun/cli/util';
 
 import { DefaultGlobalScope } from 'universe:configure.ts';
 import { ErrorMessage } from 'universe:error.ts';
 
 import {
   checkArrayNotEmpty,
+  logStartTime,
   runGlobalPreChecks,
   withGlobalBuilder,
   withGlobalUsage
 } from 'universe:util.ts';
 
+import type { AsStrictExecutionContext, ChildConfiguration } from '@-xun/cli';
 import type { AbsolutePath } from '@-xun/fs';
-import type { ChildConfiguration } from '@-xun/cli';
-import type { AsStrictExecutionContext } from '@-xun/cli';
 import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:configure.ts';
 
 export type CustomCliArguments = GlobalCliArguments & {
@@ -53,7 +49,10 @@ export default function command({
   state,
   projectMetadata: projectMetadata_,
   isUsingLocalInstallation
-}: AsStrictExecutionContext<GlobalExecutionContext>) {
+}: AsStrictExecutionContext<GlobalExecutionContext>): ChildConfiguration<
+  CustomCliArguments,
+  GlobalExecutionContext
+> {
   const [builder, withGlobalHandler] = withGlobalBuilder<CustomCliArguments>({
     scope: {
       defaultDescription: `"${DefaultGlobalScope.Unlimited}" if --files given, "${DefaultGlobalScope.ThisPackage}" otherwise`,
@@ -572,7 +571,7 @@ With respect to .prettierignore being the single source of truth for formatters:
 
       genericLogger([LogTag.IF_NOT_QUIETED], standardSuccessMessage);
     })
-  } satisfies ChildConfiguration<CustomCliArguments, GlobalExecutionContext>;
+  };
 }
 
 function statusToEmoji(status: boolean | null | undefined) {

@@ -1,26 +1,24 @@
 import { pathToFileURL } from 'node:url';
 
+import { CliError } from '@-xun/cli';
+import { LogTag, standardSuccessMessage } from '@-xun/cli/logging';
+import { scriptBasename } from '@-xun/cli/util';
 import { getCurrentWorkingDirectory, toAbsolutePath } from '@-xun/fs';
 import { isAccessible, isRootPackage, postNpmInstallPackageBase } from '@-xun/project';
 import { runWithInheritedIo } from '@-xun/run';
-import { CliError } from '@-xun/cli';
-
-import { logStartTime, LogTag, standardSuccessMessage } from '@-xun/cli/logging';
-
-import { scriptBasename } from '@-xun/cli/util';
 
 import { UnlimitedGlobalScope as PreparationScope } from 'universe:configure.ts';
 import { ErrorMessage } from 'universe:error.ts';
 
 import {
+  logStartTime,
   runGlobalPreChecks,
   withGlobalBuilder,
   withGlobalUsage
 } from 'universe:util.ts';
 
+import type { AsStrictExecutionContext, ChildConfiguration } from '@-xun/cli';
 import type { AbsolutePath } from '@-xun/fs';
-import type { ChildConfiguration } from '@-xun/cli';
-import type { AsStrictExecutionContext } from '@-xun/cli';
 import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:configure.ts';
 
 /**
@@ -40,7 +38,10 @@ export default function command({
   state,
   projectMetadata: projectMetadata_,
   isUsingLocalInstallation
-}: AsStrictExecutionContext<GlobalExecutionContext>) {
+}: AsStrictExecutionContext<GlobalExecutionContext>): ChildConfiguration<
+  CustomCliArguments,
+  GlobalExecutionContext
+> {
   const [builder, withGlobalHandler] = withGlobalBuilder<CustomCliArguments>({
     scope: { choices: preparationScopes, default: PreparationScope.Unlimited },
     force: {
@@ -369,5 +370,5 @@ This command runs all its tasks asynchronously and concurrently where possible. 
         );
       }
     })
-  } satisfies ChildConfiguration<CustomCliArguments, GlobalExecutionContext>;
+  };
 }

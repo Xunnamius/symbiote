@@ -1,26 +1,23 @@
+import { softAssert } from '@-xun/cli/error';
+import { LogTag, standardSuccessMessage } from '@-xun/cli/logging';
+import { scriptBasename } from '@-xun/cli/util';
 import { ProjectAttribute } from '@-xun/project';
 import { run } from '@-xun/run';
 import askPassword from 'askpassword';
 import uniqueFilename from 'unique-filename';
-
-import { softAssert } from '@-xun/cli/error';
-
-import { logStartTime, LogTag, standardSuccessMessage } from '@-xun/cli/logging';
-
-import { scriptBasename } from '@-xun/cli/util';
 
 import { ThisPackageGlobalScope as DeployScope } from 'universe:configure.ts';
 import { ErrorMessage } from 'universe:error.ts';
 
 import {
   checkIsNotNil,
+  logStartTime,
   runGlobalPreChecks,
   withGlobalBuilder,
   withGlobalUsage
 } from 'universe:util.ts';
 
-import type { ChildConfiguration } from '@-xun/cli';
-import type { AsStrictExecutionContext } from '@-xun/cli';
+import type { AsStrictExecutionContext, ChildConfiguration } from '@-xun/cli';
 import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:configure.ts';
 
 export enum DeployTarget {
@@ -60,7 +57,10 @@ export default function command({
   state,
   projectMetadata: projectMetadata_,
   isUsingLocalInstallation
-}: AsStrictExecutionContext<GlobalExecutionContext>) {
+}: AsStrictExecutionContext<GlobalExecutionContext>): ChildConfiguration<
+  CustomCliArguments,
+  GlobalExecutionContext
+> {
   const [builder, withGlobalHandler] = withGlobalBuilder<CustomCliArguments>({
     scope: { choices: deployScopes },
     target: {
@@ -292,5 +292,5 @@ When using --target=ssh, it is assumed the key pair necessary to authenticate wi
 
       genericLogger([LogTag.IF_NOT_QUIETED], standardSuccessMessage);
     })
-  } satisfies ChildConfiguration<CustomCliArguments, GlobalExecutionContext>;
+  };
 }

@@ -4,6 +4,8 @@
 import assert from 'node:assert';
 import { statSync } from 'node:fs';
 
+import { LogTag } from '@-xun/cli/logging';
+
 import {
   getCurrentWorkingDirectory,
   toAbsolutePath,
@@ -32,8 +34,6 @@ import escapeStringRegexp from 'escape-string-regexp~4';
 import findUp from 'find-up~5';
 import { createDebugLogger, createGenericLogger } from 'rejoinder';
 import semver from 'semver';
-
-import { LogTag } from '@-xun/cli/logging';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 

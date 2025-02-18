@@ -1,27 +1,24 @@
 import assert from 'node:assert';
 
-import { sortPackagesTopologically } from '@-xun/project';
 import { CliError } from '@-xun/cli';
-import { SHORT_TAB } from 'rejoinder';
-
 import { softAssert } from '@-xun/cli/error';
-
-import { logStartTime, LogTag, standardSuccessMessage } from '@-xun/cli/logging';
-
+import { LogTag, standardSuccessMessage } from '@-xun/cli/logging';
 import { scriptBasename } from '@-xun/cli/util';
+import { sortPackagesTopologically } from '@-xun/project';
+import { SHORT_TAB } from 'rejoinder';
 
 import { UnlimitedGlobalScope as TopologyScope } from 'universe:configure.ts';
 import { ErrorMessage } from 'universe:error.ts';
 import { attemptToRunCommand } from 'universe:task-runner.ts';
 
 import {
+  logStartTime,
   runGlobalPreChecks,
   withGlobalBuilder,
   withGlobalUsage
 } from 'universe:util.ts';
 
-import type { ChildConfiguration } from '@-xun/cli';
-import type { AsStrictExecutionContext } from '@-xun/cli';
+import type { AsStrictExecutionContext, ChildConfiguration } from '@-xun/cli';
 import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:configure.ts';
 
 export type { RawAliasMapperArray, RawAliasMapperFunction } from 'universe:util.ts';
@@ -62,7 +59,10 @@ export default function command({
   state,
   projectMetadata: projectMetadata_,
   isUsingLocalInstallation
-}: AsStrictExecutionContext<GlobalExecutionContext>) {
+}: AsStrictExecutionContext<GlobalExecutionContext>): ChildConfiguration<
+  CustomCliArguments,
+  GlobalExecutionContext
+> {
   const [builder, withGlobalHandler] = withGlobalBuilder<CustomCliArguments>(
     (blackFlag) => {
       blackFlag.parserConfiguration({ 'unknown-options-as-args': true });
@@ -327,5 +327,5 @@ ${SHORT_TAB}${topology
 
       genericLogger([LogTag.IF_NOT_QUIETED], standardSuccessMessage);
     })
-  } satisfies ChildConfiguration<CustomCliArguments, GlobalExecutionContext>;
+  };
 }

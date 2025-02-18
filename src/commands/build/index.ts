@@ -1,8 +1,7 @@
-import { default as buildDistributables } from 'universe:commands/build/distributables.ts';
+import buildDistributables from 'universe:commands/build/distributables.ts';
 import { withGlobalUsage } from 'universe:util.ts';
 
-import type { ChildConfiguration } from '@-xun/cli';
-import type { AsStrictExecutionContext } from '@-xun/cli';
+import type { AsStrictExecutionContext, ChildConfiguration } from '@-xun/cli';
 import type { CustomCliArguments } from 'universe:commands/build/distributables.ts';
 import type { GlobalExecutionContext } from 'universe:configure.ts';
 
@@ -10,7 +9,7 @@ export type { CustomCliArguments };
 
 export default async function command(
   globalExecutionContext: AsStrictExecutionContext<GlobalExecutionContext>
-) {
+): Promise<ChildConfiguration<CustomCliArguments, GlobalExecutionContext>> {
   return {
     ...(await buildDistributables(globalExecutionContext)),
     aliases: [],
@@ -18,5 +17,5 @@ export default async function command(
     usage: withGlobalUsage(
       `This command is a direct alias for "symbiote build distributables". See that command's help text for more information.`
     )
-  } satisfies ChildConfiguration<CustomCliArguments, GlobalExecutionContext>;
+  };
 }

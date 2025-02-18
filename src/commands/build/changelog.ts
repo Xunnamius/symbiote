@@ -2,6 +2,13 @@ import { createWriteStream } from 'node:fs';
 import { pipeline } from 'node:stream/promises';
 import { pathToFileURL } from 'node:url';
 
+// ? Patches global Proxy and spawn functions; see documentation for details
+import '@-xun/symbiote/assets/conventional.config.cjs';
+
+import { CliError, getInvocableExtendedHandler } from '@-xun/cli';
+import { hardAssert, softAssert } from '@-xun/cli/error';
+import { LogTag, standardSuccessMessage } from '@-xun/cli/logging';
+import { scriptBasename } from '@-xun/cli/util';
 import { toPath } from '@-xun/fs';
 
 import {
@@ -11,21 +18,11 @@ import {
   xchangelogConfigProjectBase
 } from '@-xun/project';
 
-import { CliError } from '@-xun/cli';
 import escapeStringRegexp from 'escape-string-regexp~4';
 import { valid as isValidSemver } from 'semver';
-// ? Patches global Proxy and spawn functions; see documentation for details
-import '@-xun/symbiote/assets/conventional.config.cjs';
-
-import { getInvocableExtendedHandler } from '@-xun/cli';
-import { hardAssert, softAssert } from '@-xun/cli/error';
-
-import { logStartTime, LogTag, standardSuccessMessage } from '@-xun/cli/logging';
-
-import { scriptBasename } from '@-xun/cli/util';
 
 import { defaultChangelogTopmatter } from 'universe:assets/transformers/_conventional.config.cjs.ts';
-import { default as format } from 'universe:commands/format.ts';
+import format from 'universe:commands/format.ts';
 
 import {
   DefaultGlobalScope,
@@ -37,6 +34,7 @@ import { ErrorMessage } from 'universe:error.ts';
 import {
   checkIsNotNil,
   getLatestCommitWithXpipelineInitCommandSuffixOrTagSuffix,
+  logStartTime,
   readFile,
   runGlobalPreChecks,
   withGlobalBuilder,
@@ -45,10 +43,9 @@ import {
 } from 'universe:util.ts';
 
 import type { XchangelogConfig } from '@-xun/changelog' with { 'resolution-mode': 'import' };
+import type { AsStrictExecutionContext, ChildConfiguration } from '@-xun/cli';
 import type { Path } from '@-xun/fs';
-import type { ChildConfiguration } from '@-xun/cli';
 import type { Promisable } from 'type-fest';
-import type { AsStrictExecutionContext } from '@-xun/cli';
 import type { CustomCliArguments as FormatCliArguments } from 'universe:commands/format.ts';
 import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:configure.ts';
 
@@ -141,7 +138,7 @@ export type CustomCliArguments = GlobalCliArguments<ChangelogBuilderScope> & {
 
 export default function command(
   globalExecutionContext: AsStrictExecutionContext<GlobalExecutionContext>
-) {
+): ChildConfiguration<CustomCliArguments, GlobalExecutionContext> {
   const {
     standardLog,
     standardDebug,
@@ -605,5 +602,5 @@ Use --import-section-file to add a custom release section to the changelog. The 
 
       genericLogger([LogTag.IF_NOT_QUIETED], standardSuccessMessage);
     })
-  } satisfies ChildConfiguration<CustomCliArguments, GlobalExecutionContext>;
+  };
 }

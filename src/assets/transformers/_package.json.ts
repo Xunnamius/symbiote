@@ -1,5 +1,6 @@
 import assert from 'node:assert';
 
+import { LogTag } from '@-xun/cli/logging';
 import { toRelativePath } from '@-xun/fs';
 
 import {
@@ -13,8 +14,6 @@ import {
 
 import { ProjectError } from '@-xun/project/error';
 import semver from 'semver';
-
-import { LogTag } from '@-xun/cli/logging';
 
 import { version as symbioteVersion } from 'rootverse:package.json';
 

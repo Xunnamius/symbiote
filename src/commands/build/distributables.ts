@@ -6,6 +6,10 @@ import { extname, sep as pathSeparator } from 'node:path';
 import { setTimeout as delay } from 'node:timers/promises';
 import { isNativeError } from 'node:util/types';
 
+import { hardAssert, softAssert } from '@-xun/cli/error';
+import { LogTag, standardSuccessMessage } from '@-xun/cli/logging';
+import { scriptBasename } from '@-xun/cli/util';
+
 import {
   isAbsolutePath,
   toAbsolutePath,
@@ -64,12 +68,6 @@ import { SHORT_TAB } from 'rejoinder';
 import { rimraf as forceDeletePaths } from 'rimraf';
 import uniqueFilename from 'unique-filename';
 
-import { hardAssert, softAssert } from '@-xun/cli/error';
-
-import { logStartTime, LogTag, standardSuccessMessage } from '@-xun/cli/logging';
-
-import { scriptBasename } from '@-xun/cli/util';
-
 import {
   extensionsTypescript,
   hasExtensionAcceptedByBabel,
@@ -88,6 +86,7 @@ import {
 import {
   checkIsNotNil,
   copyFile,
+  logStartTime,
   makeDirectory,
   readFile,
   runGlobalPreChecks,
@@ -96,10 +95,14 @@ import {
   writeFile
 } from 'universe:util.ts';
 
+import type {
+  AsStrictExecutionContext,
+  BfeBuilderObject,
+  ChildConfiguration
+} from '@-xun/cli';
+
 import type { Path, RelativePath } from '@-xun/fs';
 import type { ImportSpecifier, MetadataImportsPrefix } from '@-xun/project';
-import type { ChildConfiguration } from '@-xun/cli';
-import type { AsStrictExecutionContext, BfeBuilderObject } from '@-xun/cli';
 import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:configure.ts';
 
 const standardNodeShebang = '#!/usr/bin/env node\n';
@@ -167,7 +170,9 @@ export default async function command({
   state,
   projectMetadata: projectMetadata_,
   isUsingLocalInstallation
-}: AsStrictExecutionContext<GlobalExecutionContext>) {
+}: AsStrictExecutionContext<GlobalExecutionContext>): Promise<
+  ChildConfiguration<CustomCliArguments, GlobalExecutionContext>
+> {
   const { attributes: projectAttributes = {} } = projectMetadata_?.rootPackage || {};
   const isCwdTheProjectRoot =
     projectMetadata_ && isRootPackage(projectMetadata_.cwdPackage);
@@ -1949,7 +1954,7 @@ distrib root: ${absoluteOutputDirPath}
         }
       }
     })
-  } satisfies ChildConfiguration<CustomCliArguments, GlobalExecutionContext>;
+  };
 }
 
 function toNaturalSorted<T>(array: [key: string, value: T][]) {

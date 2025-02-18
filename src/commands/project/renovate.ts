@@ -1,6 +1,11 @@
 import { mkdir, rename as renamePath, rm } from 'node:fs/promises';
 import path from 'node:path';
 
+import { CliError, getInvocableExtendedHandler } from '@-xun/cli';
+import { hardAssert, softAssert } from '@-xun/cli/error';
+import { LogTag, standardSuccessMessage } from '@-xun/cli/logging';
+import { scriptBasename } from '@-xun/cli/util';
+
 import {
   getCurrentWorkingDirectory,
   toAbsolutePath,
@@ -23,19 +28,11 @@ import {
 } from '@-xun/project';
 
 import { run } from '@-xun/run';
-import { CliError } from '@-xun/cli';
 import escapeStringRegexp from 'escape-string-regexp~4';
 import libsodium from 'libsodium-wrappers';
 import getInObject from 'lodash.get';
 import { SHORT_TAB, SINGLE_SPACE } from 'rejoinder';
 import semver from 'semver';
-
-import { getInvocableExtendedHandler } from '@-xun/cli';
-import { hardAssert, softAssert } from '@-xun/cli/error';
-
-import { logStartTime, LogTag, standardSuccessMessage } from '@-xun/cli/logging';
-
-import { scriptBasename } from '@-xun/cli/util';
 
 import { version as packageVersion } from 'rootverse:package.json';
 
@@ -51,7 +48,7 @@ import {
   gatherAssetsFromAllTransformers
 } from 'universe:assets.ts';
 
-import { default as format } from 'universe:commands/format.ts';
+import format from 'universe:commands/format.ts';
 
 import {
   $executionContext,
@@ -67,6 +64,7 @@ import {
   getRelevantDotEnvFilePaths,
   importAdditionalRawAliasMappings,
   loadDotEnv,
+  logStartTime,
   magicStringChooserBlockEnd,
   magicStringChooserBlockSplit,
   magicStringChooserBlockStart,
@@ -79,20 +77,19 @@ import {
   writeFile
 } from 'universe:util.ts';
 
-import type { Package } from '@-xun/project';
-import type { ChildConfiguration } from '@-xun/cli';
-import type { RestEndpointMethodTypes } from '@octokit/rest' with { 'resolution-mode': 'import' };
-import type { ExtendedDebugger, ExtendedLogger } from 'rejoinder';
-import type { CamelCasedProperties, KeysOfUnion, Merge } from 'type-fest';
-
 import type {
   AsStrictExecutionContext,
   BfeBuilderObject,
   BfeBuilderObjectValue,
   BfeCheckFunction,
-  BfeStrictArguments
+  BfeStrictArguments,
+  ChildConfiguration
 } from '@-xun/cli';
 
+import type { Package } from '@-xun/project';
+import type { RestEndpointMethodTypes } from '@octokit/rest' with { 'resolution-mode': 'import' };
+import type { ExtendedDebugger, ExtendedLogger } from 'rejoinder';
+import type { CamelCasedProperties, KeysOfUnion, Merge } from 'type-fest';
 import type { AssetPreset, IncomingTransformerContext } from 'universe:assets.ts';
 import type { CustomCliArguments as FormatCliArguments } from 'universe:commands/format.ts';
 import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:configure.ts';
@@ -287,7 +284,7 @@ export type CustomCliArguments = GlobalCliArguments & {
 
 export default function command(
   executionContext: AsStrictExecutionContext<GlobalExecutionContext>
-) {
+): ChildConfiguration<CustomCliArguments, GlobalExecutionContext> {
   const {
     standardLog,
     standardDebug,
@@ -511,7 +508,7 @@ ${printRenovationTasks()}`,
       genericLogger.newline([LogTag.IF_NOT_QUIETED]);
       genericLogger([LogTag.IF_NOT_QUIETED], standardSuccessMessage);
     })
-  } satisfies ChildConfiguration<CustomCliArguments, GlobalExecutionContext>;
+  };
 }
 
 function renovationTasksToBlackFlagOptions(

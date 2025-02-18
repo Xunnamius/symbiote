@@ -1,6 +1,7 @@
 import assert from 'node:assert';
 import childProcess from 'node:child_process';
 
+import { interpolateTemplate, toSentenceCase } from '@-xun/cli/util';
 import { analyzeProjectStructure, xchangelogConfigProjectBase } from '@-xun/project';
 import escapeStringRegExp from 'escape-string-regexp~4';
 import clone from 'lodash.clone';
@@ -8,8 +9,6 @@ import cloneDeepWith from 'lodash.clonedeepwith';
 import deepMerge from 'lodash.mergewith';
 import { createDebugLogger } from 'rejoinder';
 import semver from 'semver';
-
-import { interpolateTemplate, toSentenceCase } from '@-xun/cli/util';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 import { globalDebuggerNamespace } from 'universe:constant.ts';

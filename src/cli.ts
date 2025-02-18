@@ -1,5 +1,5 @@
-import { toAbsolutePath } from '@-xun/fs';
 import { runProgram } from '@-xun/cli';
+import { toAbsolutePath } from '@-xun/fs';
 
 import 'rejoinder-github-actions/activator';
 

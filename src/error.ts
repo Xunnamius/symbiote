@@ -1,19 +1,17 @@
-import {
-  $type,
-  $type_ProjectError,
-  isProjectError,
-  ProjectError
-} from '@-xun/project/error';
-
+import { CliErrorMessage as UpstreamErrorMessage } from '@-xun/cli/error';
+import { isProjectError, ProjectError } from '@-xun/project/error';
 import { makeNamedError } from 'named-app-errors';
-
-import { ErrorMessage as UpstreamErrorMessage } from '@-xun/cli/error';
 
 import { DefaultGlobalScope } from 'universe:configure.ts';
 
 import type { ImportSpecifier, ProjectAttribute, RootPackage } from '@-xun/project';
 
 export { TaskError } from '@-xun/cli/error';
+
+// TODO: replace these HACKS with the official @-xun/instance-of and @-xun/error
+// TODO: packages!
+const $type = Symbol.for('object-type-hint');
+const $type_ProjectError = Symbol.for('object-type-hint:ProjectError');
 
 // TODO: replace a lot of all that follows with the official package(s),
 // TODO: including the symbol use below. Symbols and stuff need to be auto-generated.
@@ -27,6 +25,8 @@ export function isBuildOutputCheckError(
   parameter: unknown
 ): parameter is BuildOutputCheckError {
   return (
+    // TODO:
+    // @ts-expect-error: TODO: remove this comment once above HACKS are deleted
     isProjectError(parameter) && parameter[$type].includes($type_BuildOutputCheckError)
   );
 }
@@ -36,7 +36,7 @@ export function isBuildOutputCheckError(
  */
 export class BuildOutputCheckError extends ProjectError {
   // TODO: this prop should be added by makeNamedError or whatever other fn
-  override [$type] = [$type_BuildOutputCheckError, $type_ProjectError];
+  [$type] = [$type_BuildOutputCheckError, $type_ProjectError];
   /**
    * Represents encountering a project that is not a git repository.
    */

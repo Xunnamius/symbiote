@@ -8,6 +8,7 @@ import crypto from 'node:crypto';
 import { readFile, rm as rmFile, writeFile } from 'node:fs/promises';
 import os from 'node:os';
 
+import { getInvocableExtendedHandler } from '@-xun/cli';
 import { toAbsolutePath, toPath, toRelativePath } from '@-xun/fs';
 
 import {
@@ -22,14 +23,8 @@ import { run } from '@-xun/run';
 import { createDebugLogger, createGenericLogger } from 'rejoinder';
 import { createGithubLogger } from 'rejoinder-github-actions';
 
-import { getInvocableExtendedHandler } from '@-xun/cli';
-
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
-
-import {
-  default as buildChangelog,
-  OutputOrder
-} from 'universe:commands/build/changelog.ts';
+import buildChangelog, { OutputOrder } from 'universe:commands/build/changelog.ts';
 
 import {
   $executionContext,
@@ -51,8 +46,8 @@ import type {
   XchangelogConfigOptions
 } from '@-xun/changelog' with { 'resolution-mode': 'import' };
 
+import type { ExecutionContext } from '@-xun/cli';
 import type { ProjectMetadata } from '@-xun/project';
-import type { ExecutionContext } from '@-xun/cli/util';
 
 import type {
   GenerateNotesContext,

@@ -7,6 +7,10 @@ import { isNativeError } from 'node:util/types';
 // ? Patches global Proxy and spawn functions; see documentation for details
 import '@-xun/symbiote/assets/conventional.config.cjs';
 
+import { CliError, getInvocableExtendedHandler } from '@-xun/cli';
+import { hardAssert, softAssert } from '@-xun/cli/error';
+import { LogTag, standardSuccessMessage } from '@-xun/cli/logging';
+import { scriptBasename } from '@-xun/cli/util';
 import { toPath } from '@-xun/fs';
 
 import {
@@ -19,18 +23,10 @@ import {
 } from '@-xun/project';
 
 import { run, runNoRejectOnBadExit } from '@-xun/run';
-import { CliError } from '@-xun/cli';
 import { SHORT_TAB, SINGLE_SPACE } from 'rejoinder';
 import semver from 'semver';
 
-import { getInvocableExtendedHandler } from '@-xun/cli';
-import { hardAssert, softAssert } from '@-xun/cli/error';
-
-import { logStartTime, LogTag, standardSuccessMessage } from '@-xun/cli/logging';
-
-import { scriptBasename } from '@-xun/cli/util';
-
-import { default as renovate } from 'universe:commands/project/renovate.ts';
+import renovate from 'universe:commands/project/renovate.ts';
 
 import {
   DefaultGlobalScope,
@@ -47,6 +43,7 @@ import {
   getRelevantDotEnvFilePaths,
   isGitReferenceMoreRecent,
   loadDotEnv,
+  logStartTime,
   noSpecialInitialCommitIndicator,
   runGlobalPreChecks,
   withGlobalBuilder,
@@ -54,12 +51,11 @@ import {
 } from 'universe:util.ts';
 
 import type { ReadableStream } from 'node:stream/web';
+import type { AsStrictExecutionContext, ChildConfiguration } from '@-xun/cli';
 import type { ProjectMetadata, XPackageJson } from '@-xun/project';
 import type { RunOptions } from '@-xun/run';
-import type { ChildConfiguration } from '@-xun/cli';
 import type { ExtendedDebugger, ExtendedLogger } from 'rejoinder';
 import type { Merge, OmitIndexSignature, StringKeyOf } from 'type-fest';
-import type { AsStrictExecutionContext } from '@-xun/cli';
 import type { CustomCliArguments as RenovateCliArguments } from 'universe:commands/project/renovate.ts';
 import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:configure.ts';
 
@@ -139,7 +135,7 @@ export type ReleaseTaskContext = {
  * A reified {@link ProtoReleaseTaskRunner}. Generated automatically by tooling.
  */
 export type ReleaseTaskRunner = (
-  argv: Parameters<ReturnType<typeof command>['handler']>[0],
+  argv: Parameters<NonNullable<ReturnType<typeof command>['handler']>>[0],
   taskContextPartial: Omit<ReleaseTaskContext, 'self'>
 ) => Promise<void>;
 
@@ -153,7 +149,7 @@ export type ExecutionContextWithProjectMetadata = Merge<
  */
 export type ProtoReleaseTaskRunner = (
   executionContext: ExecutionContextWithProjectMetadata,
-  argv: Parameters<ReturnType<typeof command>['handler']>[0],
+  argv: Parameters<NonNullable<ReturnType<typeof command>['handler']>>[0],
   taskContext: ReleaseTaskContext
 ) => ReturnType<ReleaseTaskRunner>;
 
@@ -276,7 +272,7 @@ export type CustomCliArguments = GlobalCliArguments<ReleaseScope> & {
 
 export default function command(
   executionContext: AsStrictExecutionContext<GlobalExecutionContext>
-) {
+): ChildConfiguration<CustomCliArguments, GlobalExecutionContext> {
   const {
     standardLog,
     standardDebug,
@@ -694,7 +690,7 @@ WARNING: this command is NOT DESIGNED TO HANDLE CONCURRENT EXECUTION ON THE SAME
 
       genericLogger([LogTag.IF_NOT_QUIETED], standardSuccessMessage);
     })
-  } satisfies ChildConfiguration<CustomCliArguments, GlobalExecutionContext>;
+  };
 
   function findTaskByDescription(
     /**

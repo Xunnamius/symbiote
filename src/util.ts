@@ -4,9 +4,14 @@ import fsSync from 'node:fs';
 import fs from 'node:fs/promises';
 import { pathToFileURL } from 'node:url';
 
+import { $executionContext, CliError, FrameworkExitCode } from '@-xun/cli';
+import { withStandardBuilder, withStandardUsage } from '@-xun/cli/extensions';
+import { logStartTime as upstreamLogStartTime, LogTag } from '@-xun/cli/logging';
+
 import {
   getInitialWorkingDirectory,
   toAbsolutePath,
+  toDirname,
   toPath,
   toRelativePath
 } from '@-xun/fs';
@@ -31,18 +36,14 @@ import {
 } from '@-xun/project';
 
 import { runNoRejectOnBadExit } from '@-xun/run';
-import { $executionContext, CliError, FrameworkExitCode } from '@-xun/cli';
 import { config as _loadDotEnv } from 'dotenv';
 import { createDebugLogger } from 'rejoinder';
-
-import { withStandardBuilder, withStandardUsage } from '@-xun/cli/extensions';
-
-import { LogTag } from '@-xun/cli/logging';
 
 import { DefaultGlobalScope, globalCliArguments } from 'universe:configure.ts';
 import { globalDebuggerNamespace } from 'universe:constant.ts';
 import { ErrorMessage } from 'universe:error.ts';
 
+import type { Arguments } from '@-xun/cli';
 import type { AbsolutePath, RelativePath } from '@-xun/fs';
 
 import type {
@@ -53,8 +54,6 @@ import type {
   RawAliasMapping,
   RawPath
 } from '@-xun/project';
-
-import type { Arguments } from '@-xun/cli';
 
 import type {
   DotenvConfigOptions,
@@ -520,7 +519,7 @@ export async function replaceRegionsRespectively({
           .matchAll(refDefMatcherRegExp)
           .map((r) => toRefDefMapping(r))
           // ? We only care about our "named" refs and not numeric refs
-          .filter(([ref]) => beginsWithAlphaRegExp.test(ref!))
+          .filter(([ref]) => beginsWithAlphaRegExp.test(ref))
       );
 
       debug('currentRefDefsMap: %O', currentRefDefsMap);
@@ -743,6 +742,27 @@ export async function deriveCodecovPackageFlag(cwdPackage: Package) {
   debug(`derived codecov package flag: %O`, result);
 
   return result;
+}
+
+/**
+ * @see {@link upstreamLogStartTime}
+ */
+export function logStartTime(options: {
+  standardLog: ExtendedLogger;
+  startTime: Date;
+  isUsingLocalInstallation: boolean;
+}): void {
+  upstreamLogStartTime({
+    // ? This is a pseudo-Package representing @-xun/symbiote. We don't call the
+    // ? structural analysis function to generate this because it's overkill.
+    package: {
+      root: toAbsolutePath(toDirname(require.resolve('rootverse:package.json'))),
+      attributes: {},
+      json: require('rootverse:package.json'),
+      projectMetadata: {} as ProjectMetadata
+    },
+    ...options
+  });
 }
 
 // TODO: transmute this and related functions into @-xun/env

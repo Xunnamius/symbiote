@@ -1,6 +1,10 @@
 /* eslint-disable no-await-in-loop */
 import { setTimeout as delay } from 'node:timers/promises';
 
+import { CliError } from '@-xun/cli';
+import { softAssert } from '@-xun/cli/error';
+import { LogTag, standardSuccessMessage } from '@-xun/cli/logging';
+import { scriptBasename } from '@-xun/cli/util';
 import { toPath, toRelativePath } from '@-xun/fs';
 
 import {
@@ -18,14 +22,7 @@ import {
 } from '@-xun/project';
 
 import { runNoRejectOnBadExit } from '@-xun/run';
-import { CliError } from '@-xun/cli';
 import { SHORT_TAB } from 'rejoinder';
-
-import { softAssert } from '@-xun/cli/error';
-
-import { logStartTime, LogTag, standardSuccessMessage } from '@-xun/cli/logging';
-
-import { scriptBasename } from '@-xun/cli/util';
 
 import { DefaultGlobalScope } from 'universe:configure.ts';
 import { tstycheTargetRegExp } from 'universe:constant.ts';
@@ -34,13 +31,13 @@ import { ErrorMessage } from 'universe:error.ts';
 import {
   checkArrayNotEmpty,
   checkIsNotNegative,
+  logStartTime,
   runGlobalPreChecks,
   withGlobalBuilder
 } from 'universe:util.ts';
 
+import type { AsStrictExecutionContext, ChildConfiguration } from '@-xun/cli';
 import type { Package } from '@-xun/project';
-import type { ChildConfiguration } from '@-xun/cli';
-import type { AsStrictExecutionContext } from '@-xun/cli';
 import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:configure.ts';
 
 const tstycheVacuousSuccessMessage = `Tstyche tests vacuously succeeded: no files found matching ${tstycheTargetRegExp.toString()}`;
@@ -133,7 +130,10 @@ export default function command({
   state,
   projectMetadata: projectMetadata_,
   isUsingLocalInstallation
-}: AsStrictExecutionContext<GlobalExecutionContext>) {
+}: AsStrictExecutionContext<GlobalExecutionContext>): ChildConfiguration<
+  CustomCliArguments,
+  GlobalExecutionContext
+> {
   const allActualTests = tests.filter(
     (test) => ![Test.All, Test.AllLocal].includes(test)
   );
@@ -762,5 +762,5 @@ Provide --skip-slow-tests (or -x) to set the SYMBIOTE_TEST_JEST_SKIP_SLOW_TESTS 
       genericLogger.newline([LogTag.IF_NOT_QUIETED]);
       genericLogger([LogTag.IF_NOT_QUIETED], standardSuccessMessage);
     })
-  } satisfies ChildConfiguration<CustomCliArguments, GlobalExecutionContext>;
+  };
 }
