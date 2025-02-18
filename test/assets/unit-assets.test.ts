@@ -71,7 +71,7 @@ const dummyContext: IncomingTransformerContext = {
   projectMetadata: dummyToProjectMetadata(
     'goodHybridrepo'
   ) as TransformerContext['projectMetadata'],
-  cwdPackagePartialImportSpecifier: '+sub-pkg-id',
+  cwdPackagePartialImportSpecifier: '',
   additionalRawAliasMappings: [],
   monorepoPackagesList: '- package-1\n- package-2\n- package-3',
 

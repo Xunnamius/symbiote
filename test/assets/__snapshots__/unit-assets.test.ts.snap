@@ -27768,7 +27768,7 @@ import { createDebugLogger } from 'rejoinder';
 import {
   exports as packageExports,
   name as packageName
-} from 'rootverse:package.json';
+} from 'rootverse+cli:package.json';
 
 import {
   ensurePackageHasBeenBuilt,
@@ -27785,7 +27785,7 @@ reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true })
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
-    toDirname(toAbsolutePath(require.resolve('rootverse:package.json'))),
+    toDirname(toAbsolutePath(require.resolve('rootverse+cli:package.json'))),
     packageName,
     packageExports
   );
@@ -27821,14 +27821,14 @@ import { createDebugLogger } from 'rejoinder';
 import {
   exports as packageExports,
   name as packageName
-} from 'rootverse:package.json';
+} from 'rootverse+cli:package.json';
 
 import {
   ensurePackageHasBeenBuilt,
   reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
 } from 'testverse:util.ts';
 
-const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
 const debug = createDebugLogger({ namespace: 'cli' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
@@ -27838,7 +27838,7 @@ reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true })
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
-    toDirname(toAbsolutePath(require.resolve('rootverse:package.json'))),
+    toDirname(toAbsolutePath(require.resolve('rootverse+cli:package.json'))),
     packageName,
     packageExports
   );
@@ -27861,14 +27861,14 @@ import { createDebugLogger } from 'rejoinder';
 import {
   exports as packageExports,
   name as packageName
-} from 'rootverse:package.json';
+} from 'rootverse+cli:package.json';
 
 import {
   ensurePackageHasBeenBuilt,
   reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
 } from 'testverse:util.ts';
 
-const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
 const debug = createDebugLogger({ namespace: 'cli' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
@@ -27878,7 +27878,7 @@ reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true })
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
-    toDirname(toAbsolutePath(require.resolve('rootverse:package.json'))),
+    toDirname(toAbsolutePath(require.resolve('rootverse+cli:package.json'))),
     packageName,
     packageExports
   );
@@ -27942,7 +27942,7 @@ import { createDebugLogger } from 'rejoinder';
 import {
   exports as packageExports,
   name as packageName
-} from 'rootverse:package.json';
+} from 'rootverse+private:package.json';
 
 import {
   ensurePackageHasBeenBuilt,
@@ -27959,7 +27959,7 @@ reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true })
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
-    toDirname(toAbsolutePath(require.resolve('rootverse:package.json'))),
+    toDirname(toAbsolutePath(require.resolve('rootverse+private:package.json'))),
     packageName,
     packageExports
   );
@@ -27995,14 +27995,14 @@ import { createDebugLogger } from 'rejoinder';
 import {
   exports as packageExports,
   name as packageName
-} from 'rootverse:package.json';
+} from 'rootverse+private:package.json';
 
 import {
   ensurePackageHasBeenBuilt,
   reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
 } from 'testverse:util.ts';
 
-const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
 const debug = createDebugLogger({ namespace: 'private' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
@@ -28012,7 +28012,7 @@ reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true })
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
-    toDirname(toAbsolutePath(require.resolve('rootverse:package.json'))),
+    toDirname(toAbsolutePath(require.resolve('rootverse+private:package.json'))),
     packageName,
     packageExports
   );
@@ -28035,14 +28035,14 @@ import { createDebugLogger } from 'rejoinder';
 import {
   exports as packageExports,
   name as packageName
-} from 'rootverse:package.json';
+} from 'rootverse+private:package.json';
 
 import {
   ensurePackageHasBeenBuilt,
   reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
 } from 'testverse:util.ts';
 
-const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
 const debug = createDebugLogger({ namespace: 'private' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
@@ -28052,7 +28052,7 @@ reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true })
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
-    toDirname(toAbsolutePath(require.resolve('rootverse:package.json'))),
+    toDirname(toAbsolutePath(require.resolve('rootverse+private:package.json'))),
     packageName,
     packageExports
   );
@@ -28116,7 +28116,7 @@ import { createDebugLogger } from 'rejoinder';
 import {
   exports as packageExports,
   name as packageName
-} from 'rootverse:package.json';
+} from 'rootverse+webpack:package.json';
 
 import {
   ensurePackageHasBeenBuilt,
@@ -28133,7 +28133,7 @@ reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true })
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
-    toDirname(toAbsolutePath(require.resolve('rootverse:package.json'))),
+    toDirname(toAbsolutePath(require.resolve('rootverse+webpack:package.json'))),
     packageName,
     packageExports
   );
@@ -28169,14 +28169,14 @@ import { createDebugLogger } from 'rejoinder';
 import {
   exports as packageExports,
   name as packageName
-} from 'rootverse:package.json';
+} from 'rootverse+webpack:package.json';
 
 import {
   ensurePackageHasBeenBuilt,
   reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
 } from 'testverse:util.ts';
 
-const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
 const debug = createDebugLogger({ namespace: 'webpack' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
@@ -28186,7 +28186,7 @@ reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true })
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
-    toDirname(toAbsolutePath(require.resolve('rootverse:package.json'))),
+    toDirname(toAbsolutePath(require.resolve('rootverse+webpack:package.json'))),
     packageName,
     packageExports
   );
@@ -28209,14 +28209,14 @@ import { createDebugLogger } from 'rejoinder';
 import {
   exports as packageExports,
   name as packageName
-} from 'rootverse:package.json';
+} from 'rootverse+webpack:package.json';
 
 import {
   ensurePackageHasBeenBuilt,
   reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
 } from 'testverse:util.ts';
 
-const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
 const debug = createDebugLogger({ namespace: 'webpack' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
@@ -28226,7 +28226,7 @@ reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true })
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
-    toDirname(toAbsolutePath(require.resolve('rootverse:package.json'))),
+    toDirname(toAbsolutePath(require.resolve('rootverse+webpack:package.json'))),
     packageName,
     packageExports
   );
@@ -28350,7 +28350,7 @@ import {
   reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
 } from 'testverse:util.ts';
 
-const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
 const debug = createDebugLogger({ namespace: 'good-hybridrepo' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
@@ -28390,7 +28390,7 @@ import {
   reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
 } from 'testverse:util.ts';
 
-const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
 const debug = createDebugLogger({ namespace: 'good-hybridrepo' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
@@ -28498,7 +28498,7 @@ import { createDebugLogger } from 'rejoinder';
 import {
   exports as packageExports,
   name as packageName
-} from 'rootverse:package.json';
+} from 'rootverse+webpack:package.json';
 
 import {
   ensurePackageHasBeenBuilt,
@@ -28515,7 +28515,7 @@ reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true })
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
-    toDirname(toAbsolutePath(require.resolve('rootverse:package.json'))),
+    toDirname(toAbsolutePath(require.resolve('rootverse+webpack:package.json'))),
     packageName,
     packageExports
   );
@@ -28551,14 +28551,14 @@ import { createDebugLogger } from 'rejoinder';
 import {
   exports as packageExports,
   name as packageName
-} from 'rootverse:package.json';
+} from 'rootverse+webpack:package.json';
 
 import {
   ensurePackageHasBeenBuilt,
   reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
 } from 'testverse:util.ts';
 
-const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
 const debug = createDebugLogger({ namespace: 'webpack' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
@@ -28568,7 +28568,7 @@ reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true })
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
-    toDirname(toAbsolutePath(require.resolve('rootverse:package.json'))),
+    toDirname(toAbsolutePath(require.resolve('rootverse+webpack:package.json'))),
     packageName,
     packageExports
   );
@@ -28591,14 +28591,14 @@ import { createDebugLogger } from 'rejoinder';
 import {
   exports as packageExports,
   name as packageName
-} from 'rootverse:package.json';
+} from 'rootverse+webpack:package.json';
 
 import {
   ensurePackageHasBeenBuilt,
   reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
 } from 'testverse:util.ts';
 
-const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
 const debug = createDebugLogger({ namespace: 'webpack' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
@@ -28608,7 +28608,7 @@ reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true })
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
-    toDirname(toAbsolutePath(require.resolve('rootverse:package.json'))),
+    toDirname(toAbsolutePath(require.resolve('rootverse+webpack:package.json'))),
     packageName,
     packageExports
   );
@@ -28672,7 +28672,7 @@ import { createDebugLogger } from 'rejoinder';
 import {
   exports as packageExports,
   name as packageName
-} from 'rootverse+sub-pkg-id:package.json';
+} from 'rootverse:package.json';
 
 import {
   ensurePackageHasBeenBuilt,
@@ -28689,7 +28689,7 @@ reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true })
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
-    toDirname(toAbsolutePath(require.resolve('rootverse+sub-pkg-id:package.json'))),
+    toDirname(toAbsolutePath(require.resolve('rootverse:package.json'))),
     packageName,
     packageExports
   );
@@ -28725,14 +28725,14 @@ import { createDebugLogger } from 'rejoinder';
 import {
   exports as packageExports,
   name as packageName
-} from 'rootverse+sub-pkg-id:package.json';
+} from 'rootverse:package.json';
 
 import {
   ensurePackageHasBeenBuilt,
   reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
 } from 'testverse:util.ts';
 
-const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
 const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
@@ -28742,7 +28742,7 @@ reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true })
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
-    toDirname(toAbsolutePath(require.resolve('rootverse+sub-pkg-id:package.json'))),
+    toDirname(toAbsolutePath(require.resolve('rootverse:package.json'))),
     packageName,
     packageExports
   );
@@ -28765,14 +28765,14 @@ import { createDebugLogger } from 'rejoinder';
 import {
   exports as packageExports,
   name as packageName
-} from 'rootverse+sub-pkg-id:package.json';
+} from 'rootverse:package.json';
 
 import {
   ensurePackageHasBeenBuilt,
   reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
 } from 'testverse:util.ts';
 
-const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
 const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
@@ -28782,7 +28782,7 @@ reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true })
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
-    toDirname(toAbsolutePath(require.resolve('rootverse+sub-pkg-id:package.json'))),
+    toDirname(toAbsolutePath(require.resolve('rootverse:package.json'))),
     packageName,
     packageExports
   );
@@ -28906,7 +28906,7 @@ import {
   reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
 } from 'testverse:util.ts';
 
-const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
 const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
@@ -28946,7 +28946,7 @@ import {
   reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
 } from 'testverse:util.ts';
 
-const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
 const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
@@ -29020,7 +29020,7 @@ import { createDebugLogger } from 'rejoinder';
 import {
   exports as packageExports,
   name as packageName
-} from 'rootverse+pkg-1:package.json';
+} from 'rootverse+pkg-2:package.json';
 
 import {
   ensurePackageHasBeenBuilt,
@@ -29037,7 +29037,7 @@ reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true })
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
-    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-1:package.json'))),
+    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-2:package.json'))),
     packageName,
     packageExports
   );
@@ -29073,14 +29073,14 @@ import { createDebugLogger } from 'rejoinder';
 import {
   exports as packageExports,
   name as packageName
-} from 'rootverse+pkg-1:package.json';
+} from 'rootverse+pkg-2:package.json';
 
 import {
   ensurePackageHasBeenBuilt,
   reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
 } from 'testverse:util.ts';
 
-const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
 const debug = createDebugLogger({ namespace: 'pkg-2' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
@@ -29090,7 +29090,7 @@ reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true })
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
-    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-1:package.json'))),
+    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-2:package.json'))),
     packageName,
     packageExports
   );
@@ -29113,14 +29113,14 @@ import { createDebugLogger } from 'rejoinder';
 import {
   exports as packageExports,
   name as packageName
-} from 'rootverse+pkg-1:package.json';
+} from 'rootverse+pkg-2:package.json';
 
 import {
   ensurePackageHasBeenBuilt,
   reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
 } from 'testverse:util.ts';
 
-const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
 const debug = createDebugLogger({ namespace: 'pkg-2' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
@@ -29130,7 +29130,7 @@ reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true })
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
-    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-1:package.json'))),
+    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-2:package.json'))),
     packageName,
     packageExports
   );
@@ -29194,7 +29194,7 @@ import { createDebugLogger } from 'rejoinder';
 import {
   exports as packageExports,
   name as packageName
-} from 'rootverse+pkg-1:package.json';
+} from 'rootverse+pkg-import:package.json';
 
 import {
   ensurePackageHasBeenBuilt,
@@ -29211,7 +29211,7 @@ reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true })
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
-    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-1:package.json'))),
+    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-import:package.json'))),
     packageName,
     packageExports
   );
@@ -29247,14 +29247,14 @@ import { createDebugLogger } from 'rejoinder';
 import {
   exports as packageExports,
   name as packageName
-} from 'rootverse+pkg-1:package.json';
+} from 'rootverse+pkg-import:package.json';
 
 import {
   ensurePackageHasBeenBuilt,
   reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
 } from 'testverse:util.ts';
 
-const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
 const debug = createDebugLogger({ namespace: 'pkg-import' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
@@ -29264,7 +29264,7 @@ reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true })
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
-    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-1:package.json'))),
+    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-import:package.json'))),
     packageName,
     packageExports
   );
@@ -29287,14 +29287,14 @@ import { createDebugLogger } from 'rejoinder';
 import {
   exports as packageExports,
   name as packageName
-} from 'rootverse+pkg-1:package.json';
+} from 'rootverse+pkg-import:package.json';
 
 import {
   ensurePackageHasBeenBuilt,
   reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
 } from 'testverse:util.ts';
 
-const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
 const debug = createDebugLogger({ namespace: 'pkg-import' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
@@ -29304,7 +29304,7 @@ reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true })
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
-    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-1:package.json'))),
+    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-import:package.json'))),
     packageName,
     packageExports
   );
@@ -29462,7 +29462,7 @@ import {
   reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
 } from 'testverse:util.ts';
 
-const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
 const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
@@ -29502,7 +29502,7 @@ import {
   reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
 } from 'testverse:util.ts';
 
-const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
 const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
@@ -29576,7 +29576,7 @@ import { createDebugLogger } from 'rejoinder';
 import {
   exports as packageExports,
   name as packageName
-} from 'rootverse+pkg-1:package.json';
+} from 'rootverse+pkg-2:package.json';
 
 import {
   ensurePackageHasBeenBuilt,
@@ -29593,7 +29593,7 @@ reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true })
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
-    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-1:package.json'))),
+    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-2:package.json'))),
     packageName,
     packageExports
   );
@@ -29629,14 +29629,14 @@ import { createDebugLogger } from 'rejoinder';
 import {
   exports as packageExports,
   name as packageName
-} from 'rootverse+pkg-1:package.json';
+} from 'rootverse+pkg-2:package.json';
 
 import {
   ensurePackageHasBeenBuilt,
   reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
 } from 'testverse:util.ts';
 
-const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
 const debug = createDebugLogger({ namespace: 'pkg-2' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
@@ -29646,7 +29646,7 @@ reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true })
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
-    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-1:package.json'))),
+    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-2:package.json'))),
     packageName,
     packageExports
   );
@@ -29669,14 +29669,14 @@ import { createDebugLogger } from 'rejoinder';
 import {
   exports as packageExports,
   name as packageName
-} from 'rootverse+pkg-1:package.json';
+} from 'rootverse+pkg-2:package.json';
 
 import {
   ensurePackageHasBeenBuilt,
   reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
 } from 'testverse:util.ts';
 
-const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
 const debug = createDebugLogger({ namespace: 'pkg-2' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
@@ -29686,7 +29686,7 @@ reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true })
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
-    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-1:package.json'))),
+    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-2:package.json'))),
     packageName,
     packageExports
   );
@@ -29750,7 +29750,7 @@ import { createDebugLogger } from 'rejoinder';
 import {
   exports as packageExports,
   name as packageName
-} from 'rootverse+pkg-1:package.json';
+} from 'rootverse+pkg-import:package.json';
 
 import {
   ensurePackageHasBeenBuilt,
@@ -29767,7 +29767,7 @@ reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true })
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
-    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-1:package.json'))),
+    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-import:package.json'))),
     packageName,
     packageExports
   );
@@ -29803,14 +29803,14 @@ import { createDebugLogger } from 'rejoinder';
 import {
   exports as packageExports,
   name as packageName
-} from 'rootverse+pkg-1:package.json';
+} from 'rootverse+pkg-import:package.json';
 
 import {
   ensurePackageHasBeenBuilt,
   reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
 } from 'testverse:util.ts';
 
-const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
 const debug = createDebugLogger({ namespace: 'pkg-import' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
@@ -29820,7 +29820,7 @@ reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true })
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
-    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-1:package.json'))),
+    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-import:package.json'))),
     packageName,
     packageExports
   );
@@ -29843,14 +29843,14 @@ import { createDebugLogger } from 'rejoinder';
 import {
   exports as packageExports,
   name as packageName
-} from 'rootverse+pkg-1:package.json';
+} from 'rootverse+pkg-import:package.json';
 
 import {
   ensurePackageHasBeenBuilt,
   reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
 } from 'testverse:util.ts';
 
-const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
 const debug = createDebugLogger({ namespace: 'pkg-import' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
@@ -29860,7 +29860,7 @@ reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true })
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
-    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-1:package.json'))),
+    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-import:package.json'))),
     packageName,
     packageExports
   );
@@ -30018,7 +30018,7 @@ import {
   reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
 } from 'testverse:util.ts';
 
-const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
 const debug = createDebugLogger({ namespace: 'good-polyrepo-no-src' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
@@ -30058,7 +30058,7 @@ import {
   reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
 } from 'testverse:util.ts';
 
-const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
 const debug = createDebugLogger({ namespace: 'good-polyrepo-no-src' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 

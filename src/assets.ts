@@ -747,9 +747,9 @@ export async function generatePerPackageAssets(
           contextWithCwdPackage: {
             ...transformerContext,
             codecovFlag: (await deriveCodecovPackageFlag(package_)).flag,
-            cwdPackagePartialImportSpecifier: isRootPackage(cwdPackage)
+            cwdPackagePartialImportSpecifier: isRootPackage(package_)
               ? ''
-              : `+${cwdPackage.id}`,
+              : `+${package_.id}`,
             projectMetadata: {
               ...transformerContext.projectMetadata,
               cwdPackage: package_
