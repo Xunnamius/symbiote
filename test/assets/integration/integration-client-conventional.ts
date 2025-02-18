@@ -1,10 +1,18 @@
 /* eslint-disable no-await-in-loop */
-// * These tests ensure changelog-related asset exports function as expected.
+// * These tests verify that consumers of this software actually receive an API
+// * that behaves as described in help text and other documentation. Typically,
+// * these integration tests limit module-level mocking to peripheral concerns
+// * (e.g. mocking output handling and mocking networking while eschewing
+// * filesystem mocking) in favor of testing a "fully integrated" system.
 
 import assert from 'node:assert';
 
 import { toSentenceCase } from '@-xun/cli/util';
 import { dummyToProjectMetadata } from '@-xun/common-dummies/repositories';
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import { exports as packageExports, name as packageName } from 'rootverse:package.json';
 
 import {
   moduleExport,
@@ -16,6 +24,7 @@ import { noSpecialInitialCommitIndicator, stringifyJson } from 'universe:util.ts
 
 import {
   dummyNpmPackageFixture,
+  ensurePackageHasBeenBuilt,
   gitRepositoryFixture,
   reconfigureJestGlobalsToSkipTestsInThisFileIfRequested,
   withMockedFixtures
@@ -29,9 +38,21 @@ import type {
 import type { Merge, Promisable, SetParameterType } from 'type-fest';
 import type { FixtureContext } from 'testverse:util.ts';
 
-reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true });
+const TEST_IDENTIFIER = `${packageName.split('/').at(-1)!}-integration-client-changelog`;
+const debug = createDebugLogger({ namespace: 'symbiote' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-const TEST_IDENTIFIER = 'unit-changelog';
+debug(`nodeVersion: "${nodeVersion}" (process.version=${process.version})`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse:package.json'))),
+    packageName,
+    packageExports
+  );
+});
 
 const commitTypeSections: Record<
   string,

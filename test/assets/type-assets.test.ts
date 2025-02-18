@@ -1,6 +1,7 @@
-import { describe, expect, test } from 'tstyche';
+// * These tests ensure the exported types under test function as expected.
 
-test.todo('this');
+import { describe, test } from 'tstyche';
 
-// eslint-disable-next-line @typescript-eslint/no-unused-expressions
-void describe, expect;
+describe('::todo', () => {
+  test.todo('this');
+});

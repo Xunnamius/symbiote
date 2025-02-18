@@ -1,4 +1,5 @@
-// * These tests ensure automatically-discovered commands from universe/commands
-// * function as expected
+// * These tests ensure the exported interfaces under test function as expected.
 
-test.todo('this');
+describe('::todo', () => {
+  test.todo('this');
+});

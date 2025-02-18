@@ -1,4 +1,4 @@
-// * These tests ensure universe assets exports function as expected
+// * These tests ensure the exported interfaces under test function as expected.
 
 import { readdirSync } from 'node:fs';
 
