@@ -296,7 +296,7 @@ function genericRules(
 
     // * unicorn
     'unicorn/no-keyword-prefix': 'warn',
-    'unicorn/no-instanceof-builtin-object': 'warn',
+    'unicorn/no-instanceof-builtins': 'warn',
     'unicorn/prefer-string-replace-all': 'warn',
     // ? Handled by integration tests
     'unicorn/prefer-module': 'off',
@@ -370,7 +370,9 @@ function genericRules(
     // ? test() and exec() are stateful, match() is not. So this is a bad check.
     'unicorn/prefer-regexp-test': 'off',
     // ? Of limited use; when I want to reduce, it's usually for a good reason
-    'unicorn/no-array-reduce': 'warn'
+    'unicorn/no-array-reduce': 'warn',
+    // ? No.
+    'unicorn/consistent-assert': 'off'
   };
 }
 
