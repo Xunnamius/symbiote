@@ -27762,6 +27762,30 @@ scope: unlimited
 // * containers, and are built to run in GitHub Actions CI pipelines; some can
 // * also be run locally.
 
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
+const debug = createDebugLogger({ namespace: 'cli' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse:package.json'))),
+    packageName,
+    packageExports
+  );
+});
+
 test.todo('this');
 "
 `;
@@ -27786,6 +27810,30 @@ scope: unlimited
 // * (e.g. mocking output handling and mocking networking while eschewing
 // * filesystem mocking) in favor of testing a "fully integrated" system.
 
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
+const debug = createDebugLogger({ namespace: 'cli' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse:package.json'))),
+    packageName,
+    packageExports
+  );
+});
+
 test.todo('this');
 "
 `;
@@ -27797,6 +27845,30 @@ scope: unlimited
 // * These brutally minimal "smoke" tests ensure this software can be invoked
 // * and, when it is, exits cleanly. Functionality testing is not the goal here.
 
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
+const debug = createDebugLogger({ namespace: 'cli' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse:package.json'))),
+    packageName,
+    packageExports
+  );
+});
+
 test.todo('this');
 "
 `;
@@ -27807,7 +27879,11 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * These tests ensure the exported types under test function as expected.
 
-test.todo('this');
+import { describe, test } from 'tstyche';
+
+describe('::todo', () => {
+  test.todo('this');
+});
 "
 `;
 
@@ -27817,7 +27893,9 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * These tests ensure the exported interfaces under test function as expected.
 
-test.todo('this');
+describe('::todo', () => {
+  test.todo('this');
+});
 "
 `;
 
@@ -27843,6 +27921,30 @@ scope: unlimited
 // * containers, and are built to run in GitHub Actions CI pipelines; some can
 // * also be run locally.
 
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
+const debug = createDebugLogger({ namespace: 'private' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse:package.json'))),
+    packageName,
+    packageExports
+  );
+});
+
 test.todo('this');
 "
 `;
@@ -27867,6 +27969,30 @@ scope: unlimited
 // * (e.g. mocking output handling and mocking networking while eschewing
 // * filesystem mocking) in favor of testing a "fully integrated" system.
 
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
+const debug = createDebugLogger({ namespace: 'private' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse:package.json'))),
+    packageName,
+    packageExports
+  );
+});
+
 test.todo('this');
 "
 `;
@@ -27878,6 +28004,30 @@ scope: unlimited
 // * These brutally minimal "smoke" tests ensure this software can be invoked
 // * and, when it is, exits cleanly. Functionality testing is not the goal here.
 
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
+const debug = createDebugLogger({ namespace: 'private' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse:package.json'))),
+    packageName,
+    packageExports
+  );
+});
+
 test.todo('this');
 "
 `;
@@ -27888,7 +28038,11 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * These tests ensure the exported types under test function as expected.
 
-test.todo('this');
+import { describe, test } from 'tstyche';
+
+describe('::todo', () => {
+  test.todo('this');
+});
 "
 `;
 
@@ -27898,7 +28052,9 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * These tests ensure the exported interfaces under test function as expected.
 
-test.todo('this');
+describe('::todo', () => {
+  test.todo('this');
+});
 "
 `;
 
@@ -27924,6 +28080,30 @@ scope: unlimited
 // * containers, and are built to run in GitHub Actions CI pipelines; some can
 // * also be run locally.
 
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
+const debug = createDebugLogger({ namespace: 'webpack' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse:package.json'))),
+    packageName,
+    packageExports
+  );
+});
+
 test.todo('this');
 "
 `;
@@ -27948,6 +28128,30 @@ scope: unlimited
 // * (e.g. mocking output handling and mocking networking while eschewing
 // * filesystem mocking) in favor of testing a "fully integrated" system.
 
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
+const debug = createDebugLogger({ namespace: 'webpack' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse:package.json'))),
+    packageName,
+    packageExports
+  );
+});
+
 test.todo('this');
 "
 `;
@@ -27959,6 +28163,30 @@ scope: unlimited
 // * These brutally minimal "smoke" tests ensure this software can be invoked
 // * and, when it is, exits cleanly. Functionality testing is not the goal here.
 
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
+const debug = createDebugLogger({ namespace: 'webpack' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse:package.json'))),
+    packageName,
+    packageExports
+  );
+});
+
 test.todo('this');
 "
 `;
@@ -27969,7 +28197,11 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * These tests ensure the exported types under test function as expected.
 
-test.todo('this');
+import { describe, test } from 'tstyche';
+
+describe('::todo', () => {
+  test.todo('this');
+});
 "
 `;
 
@@ -27979,7 +28211,9 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * These tests ensure the exported interfaces under test function as expected.
 
-test.todo('this');
+describe('::todo', () => {
+  test.todo('this');
+});
 "
 `;
 
@@ -28005,6 +28239,30 @@ scope: unlimited
 // * containers, and are built to run in GitHub Actions CI pipelines; some can
 // * also be run locally.
 
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
+const debug = createDebugLogger({ namespace: 'good-hybridrepo' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse:package.json'))),
+    packageName,
+    packageExports
+  );
+});
+
 test.todo('this');
 "
 `;
@@ -28029,6 +28287,30 @@ scope: unlimited
 // * (e.g. mocking output handling and mocking networking while eschewing
 // * filesystem mocking) in favor of testing a "fully integrated" system.
 
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
+const debug = createDebugLogger({ namespace: 'good-hybridrepo' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse:package.json'))),
+    packageName,
+    packageExports
+  );
+});
+
 test.todo('this');
 "
 `;
@@ -28039,6 +28321,30 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * These brutally minimal "smoke" tests ensure this software can be invoked
 // * and, when it is, exits cleanly. Functionality testing is not the goal here.
+
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
+const debug = createDebugLogger({ namespace: 'good-hybridrepo' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse:package.json'))),
+    packageName,
+    packageExports
+  );
+});
 
 test.todo('this');
 "
@@ -28068,7 +28374,11 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * These tests ensure the exported types under test function as expected.
 
-test.todo('this');
+import { describe, test } from 'tstyche';
+
+describe('::todo', () => {
+  test.todo('this');
+});
 "
 `;
 
@@ -28078,7 +28388,9 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * These tests ensure the exported interfaces under test function as expected.
 
-test.todo('this');
+describe('::todo', () => {
+  test.todo('this');
+});
 "
 `;
 
@@ -28120,6 +28432,30 @@ scope: unlimited
 // * containers, and are built to run in GitHub Actions CI pipelines; some can
 // * also be run locally.
 
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
+const debug = createDebugLogger({ namespace: 'webpack' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse:package.json'))),
+    packageName,
+    packageExports
+  );
+});
+
 test.todo('this');
 "
 `;
@@ -28144,6 +28480,30 @@ scope: unlimited
 // * (e.g. mocking output handling and mocking networking while eschewing
 // * filesystem mocking) in favor of testing a "fully integrated" system.
 
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
+const debug = createDebugLogger({ namespace: 'webpack' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse:package.json'))),
+    packageName,
+    packageExports
+  );
+});
+
 test.todo('this');
 "
 `;
@@ -28155,6 +28515,30 @@ scope: unlimited
 // * These brutally minimal "smoke" tests ensure this software can be invoked
 // * and, when it is, exits cleanly. Functionality testing is not the goal here.
 
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
+const debug = createDebugLogger({ namespace: 'webpack' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse:package.json'))),
+    packageName,
+    packageExports
+  );
+});
+
 test.todo('this');
 "
 `;
@@ -28165,7 +28549,11 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * These tests ensure the exported types under test function as expected.
 
-test.todo('this');
+import { describe, test } from 'tstyche';
+
+describe('::todo', () => {
+  test.todo('this');
+});
 "
 `;
 
@@ -28175,7 +28563,9 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * These tests ensure the exported interfaces under test function as expected.
 
-test.todo('this');
+describe('::todo', () => {
+  test.todo('this');
+});
 "
 `;
 
@@ -28201,6 +28591,30 @@ scope: this-package
 // * containers, and are built to run in GitHub Actions CI pipelines; some can
 // * also be run locally.
 
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse+sub-pkg-id:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
+const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse+sub-pkg-id:package.json'))),
+    packageName,
+    packageExports
+  );
+});
+
 test.todo('this');
 "
 `;
@@ -28225,6 +28639,30 @@ scope: this-package
 // * (e.g. mocking output handling and mocking networking while eschewing
 // * filesystem mocking) in favor of testing a "fully integrated" system.
 
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse+sub-pkg-id:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
+const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse+sub-pkg-id:package.json'))),
+    packageName,
+    packageExports
+  );
+});
+
 test.todo('this');
 "
 `;
@@ -28236,6 +28674,30 @@ scope: this-package
 // * These brutally minimal "smoke" tests ensure this software can be invoked
 // * and, when it is, exits cleanly. Functionality testing is not the goal here.
 
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse+sub-pkg-id:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
+const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse+sub-pkg-id:package.json'))),
+    packageName,
+    packageExports
+  );
+});
+
 test.todo('this');
 "
 `;
@@ -28246,7 +28708,11 @@ scope: this-package
 ⏶⏷⏶⏷⏶
 // * These tests ensure the exported types under test function as expected.
 
-test.todo('this');
+import { describe, test } from 'tstyche';
+
+describe('::todo', () => {
+  test.todo('this');
+});
 "
 `;
 
@@ -28256,7 +28722,9 @@ scope: this-package
 ⏶⏷⏶⏷⏶
 // * These tests ensure the exported interfaces under test function as expected.
 
-test.todo('this');
+describe('::todo', () => {
+  test.todo('this');
+});
 "
 `;
 
@@ -28282,6 +28750,30 @@ scope: unlimited
 // * containers, and are built to run in GitHub Actions CI pipelines; some can
 // * also be run locally.
 
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse+pkg-1:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
+const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-1:package.json'))),
+    packageName,
+    packageExports
+  );
+});
+
 test.todo('this');
 "
 `;
@@ -28306,6 +28798,30 @@ scope: unlimited
 // * (e.g. mocking output handling and mocking networking while eschewing
 // * filesystem mocking) in favor of testing a "fully integrated" system.
 
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse+pkg-1:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
+const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-1:package.json'))),
+    packageName,
+    packageExports
+  );
+});
+
 test.todo('this');
 "
 `;
@@ -28317,6 +28833,30 @@ scope: unlimited
 // * These brutally minimal "smoke" tests ensure this software can be invoked
 // * and, when it is, exits cleanly. Functionality testing is not the goal here.
 
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse+pkg-1:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
+const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-1:package.json'))),
+    packageName,
+    packageExports
+  );
+});
+
 test.todo('this');
 "
 `;
@@ -28327,7 +28867,11 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * These tests ensure the exported types under test function as expected.
 
-test.todo('this');
+import { describe, test } from 'tstyche';
+
+describe('::todo', () => {
+  test.todo('this');
+});
 "
 `;
 
@@ -28337,7 +28881,9 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * These tests ensure the exported interfaces under test function as expected.
 
-test.todo('this');
+describe('::todo', () => {
+  test.todo('this');
+});
 "
 `;
 
@@ -28363,6 +28909,30 @@ scope: unlimited
 // * containers, and are built to run in GitHub Actions CI pipelines; some can
 // * also be run locally.
 
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse+pkg-1:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
+const debug = createDebugLogger({ namespace: 'pkg-2' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-1:package.json'))),
+    packageName,
+    packageExports
+  );
+});
+
 test.todo('this');
 "
 `;
@@ -28387,6 +28957,30 @@ scope: unlimited
 // * (e.g. mocking output handling and mocking networking while eschewing
 // * filesystem mocking) in favor of testing a "fully integrated" system.
 
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse+pkg-1:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
+const debug = createDebugLogger({ namespace: 'pkg-2' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-1:package.json'))),
+    packageName,
+    packageExports
+  );
+});
+
 test.todo('this');
 "
 `;
@@ -28398,6 +28992,30 @@ scope: unlimited
 // * These brutally minimal "smoke" tests ensure this software can be invoked
 // * and, when it is, exits cleanly. Functionality testing is not the goal here.
 
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse+pkg-1:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
+const debug = createDebugLogger({ namespace: 'pkg-2' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-1:package.json'))),
+    packageName,
+    packageExports
+  );
+});
+
 test.todo('this');
 "
 `;
@@ -28408,7 +29026,11 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * These tests ensure the exported types under test function as expected.
 
-test.todo('this');
+import { describe, test } from 'tstyche';
+
+describe('::todo', () => {
+  test.todo('this');
+});
 "
 `;
 
@@ -28418,7 +29040,9 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * These tests ensure the exported interfaces under test function as expected.
 
-test.todo('this');
+describe('::todo', () => {
+  test.todo('this');
+});
 "
 `;
 
@@ -28444,6 +29068,30 @@ scope: unlimited
 // * containers, and are built to run in GitHub Actions CI pipelines; some can
 // * also be run locally.
 
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse+pkg-1:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
+const debug = createDebugLogger({ namespace: 'pkg-import' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-1:package.json'))),
+    packageName,
+    packageExports
+  );
+});
+
 test.todo('this');
 "
 `;
@@ -28468,6 +29116,30 @@ scope: unlimited
 // * (e.g. mocking output handling and mocking networking while eschewing
 // * filesystem mocking) in favor of testing a "fully integrated" system.
 
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse+pkg-1:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
+const debug = createDebugLogger({ namespace: 'pkg-import' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-1:package.json'))),
+    packageName,
+    packageExports
+  );
+});
+
 test.todo('this');
 "
 `;
@@ -28479,6 +29151,30 @@ scope: unlimited
 // * These brutally minimal "smoke" tests ensure this software can be invoked
 // * and, when it is, exits cleanly. Functionality testing is not the goal here.
 
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse+pkg-1:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
+const debug = createDebugLogger({ namespace: 'pkg-import' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-1:package.json'))),
+    packageName,
+    packageExports
+  );
+});
+
 test.todo('this');
 "
 `;
@@ -28489,7 +29185,11 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * These tests ensure the exported types under test function as expected.
 
-test.todo('this');
+import { describe, test } from 'tstyche';
+
+describe('::todo', () => {
+  test.todo('this');
+});
 "
 `;
 
@@ -28499,7 +29199,9 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * These tests ensure the exported interfaces under test function as expected.
 
-test.todo('this');
+describe('::todo', () => {
+  test.todo('this');
+});
 "
 `;
 
@@ -28559,6 +29261,30 @@ scope: unlimited
 // * containers, and are built to run in GitHub Actions CI pipelines; some can
 // * also be run locally.
 
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse+pkg-1:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
+const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-1:package.json'))),
+    packageName,
+    packageExports
+  );
+});
+
 test.todo('this');
 "
 `;
@@ -28583,6 +29309,30 @@ scope: unlimited
 // * (e.g. mocking output handling and mocking networking while eschewing
 // * filesystem mocking) in favor of testing a "fully integrated" system.
 
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse+pkg-1:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
+const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-1:package.json'))),
+    packageName,
+    packageExports
+  );
+});
+
 test.todo('this');
 "
 `;
@@ -28594,6 +29344,30 @@ scope: unlimited
 // * These brutally minimal "smoke" tests ensure this software can be invoked
 // * and, when it is, exits cleanly. Functionality testing is not the goal here.
 
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse+pkg-1:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
+const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-1:package.json'))),
+    packageName,
+    packageExports
+  );
+});
+
 test.todo('this');
 "
 `;
@@ -28604,7 +29378,11 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * These tests ensure the exported types under test function as expected.
 
-test.todo('this');
+import { describe, test } from 'tstyche';
+
+describe('::todo', () => {
+  test.todo('this');
+});
 "
 `;
 
@@ -28614,7 +29392,9 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * These tests ensure the exported interfaces under test function as expected.
 
-test.todo('this');
+describe('::todo', () => {
+  test.todo('this');
+});
 "
 `;
 
@@ -28640,6 +29420,30 @@ scope: unlimited
 // * containers, and are built to run in GitHub Actions CI pipelines; some can
 // * also be run locally.
 
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse+pkg-1:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
+const debug = createDebugLogger({ namespace: 'pkg-2' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-1:package.json'))),
+    packageName,
+    packageExports
+  );
+});
+
 test.todo('this');
 "
 `;
@@ -28664,6 +29468,30 @@ scope: unlimited
 // * (e.g. mocking output handling and mocking networking while eschewing
 // * filesystem mocking) in favor of testing a "fully integrated" system.
 
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse+pkg-1:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
+const debug = createDebugLogger({ namespace: 'pkg-2' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-1:package.json'))),
+    packageName,
+    packageExports
+  );
+});
+
 test.todo('this');
 "
 `;
@@ -28675,6 +29503,30 @@ scope: unlimited
 // * These brutally minimal "smoke" tests ensure this software can be invoked
 // * and, when it is, exits cleanly. Functionality testing is not the goal here.
 
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse+pkg-1:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
+const debug = createDebugLogger({ namespace: 'pkg-2' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-1:package.json'))),
+    packageName,
+    packageExports
+  );
+});
+
 test.todo('this');
 "
 `;
@@ -28685,7 +29537,11 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * These tests ensure the exported types under test function as expected.
 
-test.todo('this');
+import { describe, test } from 'tstyche';
+
+describe('::todo', () => {
+  test.todo('this');
+});
 "
 `;
 
@@ -28695,7 +29551,9 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * These tests ensure the exported interfaces under test function as expected.
 
-test.todo('this');
+describe('::todo', () => {
+  test.todo('this');
+});
 "
 `;
 
@@ -28721,6 +29579,30 @@ scope: unlimited
 // * containers, and are built to run in GitHub Actions CI pipelines; some can
 // * also be run locally.
 
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse+pkg-1:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
+const debug = createDebugLogger({ namespace: 'pkg-import' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-1:package.json'))),
+    packageName,
+    packageExports
+  );
+});
+
 test.todo('this');
 "
 `;
@@ -28745,6 +29627,30 @@ scope: unlimited
 // * (e.g. mocking output handling and mocking networking while eschewing
 // * filesystem mocking) in favor of testing a "fully integrated" system.
 
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse+pkg-1:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
+const debug = createDebugLogger({ namespace: 'pkg-import' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-1:package.json'))),
+    packageName,
+    packageExports
+  );
+});
+
 test.todo('this');
 "
 `;
@@ -28756,6 +29662,30 @@ scope: unlimited
 // * These brutally minimal "smoke" tests ensure this software can be invoked
 // * and, when it is, exits cleanly. Functionality testing is not the goal here.
 
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse+pkg-1:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
+const debug = createDebugLogger({ namespace: 'pkg-import' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse+pkg-1:package.json'))),
+    packageName,
+    packageExports
+  );
+});
+
 test.todo('this');
 "
 `;
@@ -28766,7 +29696,11 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * These tests ensure the exported types under test function as expected.
 
-test.todo('this');
+import { describe, test } from 'tstyche';
+
+describe('::todo', () => {
+  test.todo('this');
+});
 "
 `;
 
@@ -28776,7 +29710,9 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * These tests ensure the exported interfaces under test function as expected.
 
-test.todo('this');
+describe('::todo', () => {
+  test.todo('this');
+});
 "
 `;
 
@@ -28836,6 +29772,30 @@ scope: this-package
 // * containers, and are built to run in GitHub Actions CI pipelines; some can
 // * also be run locally.
 
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
+const debug = createDebugLogger({ namespace: 'good-polyrepo-no-src' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse:package.json'))),
+    packageName,
+    packageExports
+  );
+});
+
 test.todo('this');
 "
 `;
@@ -28860,6 +29820,30 @@ scope: this-package
 // * (e.g. mocking output handling and mocking networking while eschewing
 // * filesystem mocking) in favor of testing a "fully integrated" system.
 
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
+const debug = createDebugLogger({ namespace: 'good-polyrepo-no-src' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse:package.json'))),
+    packageName,
+    packageExports
+  );
+});
+
 test.todo('this');
 "
 `;
@@ -28870,6 +29854,30 @@ scope: this-package
 ⏶⏷⏶⏷⏶
 // * These brutally minimal "smoke" tests ensure this software can be invoked
 // * and, when it is, exits cleanly. Functionality testing is not the goal here.
+
+import { toAbsolutePath, toDirname } from '@-xun/fs';
+import { createDebugLogger } from 'rejoinder';
+
+import {
+  exports as packageExports,
+  name as packageName
+} from 'rootverse:package.json';
+
+import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+
+const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
+const debug = createDebugLogger({ namespace: 'good-polyrepo-no-src' }).extend(TEST_IDENTIFIER);
+const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+
+debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+beforeAll(async () => {
+  await ensurePackageHasBeenBuilt(
+    toDirname(toAbsolutePath(require.resolve('rootverse:package.json'))),
+    packageName,
+    packageExports
+  );
+});
 
 test.todo('this');
 "
@@ -28899,7 +29907,11 @@ scope: this-package
 ⏶⏷⏶⏷⏶
 // * These tests ensure the exported types under test function as expected.
 
-test.todo('this');
+import { describe, test } from 'tstyche';
+
+describe('::todo', () => {
+  test.todo('this');
+});
 "
 `;
 
@@ -28909,7 +29921,9 @@ scope: this-package
 ⏶⏷⏶⏷⏶
 // * These tests ensure the exported interfaces under test function as expected.
 
-test.todo('this');
+describe('::todo', () => {
+  test.todo('this');
+});
 "
 `;
 

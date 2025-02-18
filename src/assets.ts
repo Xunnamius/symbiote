@@ -255,6 +255,15 @@ export type TransformerContext = {
    */
   projectMetadata: ProjectMetadata;
   /**
+   * A partial import alias string that can be used as part of a specifier to
+   * import from the current package. If the current package is the root
+   * package, this will be an empty string. Otherwise, it will begin with a plus
+   * sign (`+`).
+   *
+   * Example: `"+graph"` (for the `@-xun/project-graph` sub-root package)
+   */
+  cwdPackagePartialImportSpecifier: string;
+  /**
    * An array of {@link RawAliasMapping}s that will be included when deriving
    * aliases during content generation.
    */
@@ -666,6 +675,11 @@ async function invokeTransformerAndReifyAssets({
  * including the root package in hybridrepos and polyrepos (but not in
  * non-hybrid monorepos).
  *
+ * Note that, when invoked with `scope` equal to
+ * {@link DefaultGlobalScope.ThisPackage}, `transformerContext` must already be
+ * configured for the current package. It will not be modified further by this
+ * function (only in this specific case).
+ *
  * **WARNING: be wary relying on an external {@link TransformerContext} when
  * using this function. When context access is required, use the
  * `contextWithCwdPackage` parameter provided to each adder function.**
@@ -706,7 +720,12 @@ export async function generatePerPackageAssets(
       adder({
         package_: cwdPackage,
         toPackageAbsolutePath: toSpecificPackageAbsolutePath(cwdPackage),
-        contextWithCwdPackage: { ...transformerContext }
+        contextWithCwdPackage: {
+          ...transformerContext
+          // ? Unlike the all-packages version below, this version expects
+          // ? the incoming transformerContext to already be configured for the
+          // ? current package, so there's nothing further to do here :)
+        }
       })
     ).then((result) => result || []);
   } else {
@@ -728,6 +747,9 @@ export async function generatePerPackageAssets(
           contextWithCwdPackage: {
             ...transformerContext,
             codecovFlag: (await deriveCodecovPackageFlag(package_)).flag,
+            cwdPackagePartialImportSpecifier: isRootPackage(cwdPackage)
+              ? ''
+              : `+${cwdPackage.id}`,
             projectMetadata: {
               ...transformerContext.projectMetadata,
               cwdPackage: package_

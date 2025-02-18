@@ -1931,6 +1931,8 @@ See the symbiote wiki documentation for more details on this command and all ava
       const { owner: repoOwner, repo: repoName } =
         parsePackageJsonRepositoryIntoOwnerAndRepo(projectJson);
 
+      // ? Since we're always using "unlimited" scope, transformerContext is
+      // ? configured by default for use with the root package
       const transformerContext: IncomingTransformerContext = {
         log,
         debug,
@@ -1947,6 +1949,7 @@ See the symbiote wiki documentation for more details on this command and all ava
         scope: DefaultGlobalScope.Unlimited,
         assetPreset: preset,
         projectMetadata,
+        cwdPackagePartialImportSpecifier: '',
         additionalRawAliasMappings: await importAdditionalRawAliasMappings(
           projectMetadata,
           { log, debug }
