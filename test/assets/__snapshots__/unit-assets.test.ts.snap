@@ -27770,13 +27770,18 @@ import {
   name as packageName
 } from 'rootverse:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
 const debug = createDebugLogger({ namespace: 'cli' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -27818,13 +27823,18 @@ import {
   name as packageName
 } from 'rootverse:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
 const debug = createDebugLogger({ namespace: 'cli' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -27853,13 +27863,18 @@ import {
   name as packageName
 } from 'rootverse:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
 const debug = createDebugLogger({ namespace: 'cli' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -27929,13 +27944,18 @@ import {
   name as packageName
 } from 'rootverse:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
 const debug = createDebugLogger({ namespace: 'private' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -27977,13 +27997,18 @@ import {
   name as packageName
 } from 'rootverse:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
 const debug = createDebugLogger({ namespace: 'private' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -28012,13 +28037,18 @@ import {
   name as packageName
 } from 'rootverse:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
 const debug = createDebugLogger({ namespace: 'private' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -28088,13 +28118,18 @@ import {
   name as packageName
 } from 'rootverse:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
 const debug = createDebugLogger({ namespace: 'webpack' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -28136,13 +28171,18 @@ import {
   name as packageName
 } from 'rootverse:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
 const debug = createDebugLogger({ namespace: 'webpack' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -28171,13 +28211,18 @@ import {
   name as packageName
 } from 'rootverse:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
 const debug = createDebugLogger({ namespace: 'webpack' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -28247,13 +28292,18 @@ import {
   name as packageName
 } from 'rootverse:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
 const debug = createDebugLogger({ namespace: 'good-hybridrepo' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -28295,13 +28345,18 @@ import {
   name as packageName
 } from 'rootverse:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
 const debug = createDebugLogger({ namespace: 'good-hybridrepo' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -28330,13 +28385,18 @@ import {
   name as packageName
 } from 'rootverse:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
 const debug = createDebugLogger({ namespace: 'good-hybridrepo' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -28440,13 +28500,18 @@ import {
   name as packageName
 } from 'rootverse:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
 const debug = createDebugLogger({ namespace: 'webpack' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -28488,13 +28553,18 @@ import {
   name as packageName
 } from 'rootverse:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
 const debug = createDebugLogger({ namespace: 'webpack' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -28523,13 +28593,18 @@ import {
   name as packageName
 } from 'rootverse:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
 const debug = createDebugLogger({ namespace: 'webpack' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -28599,13 +28674,18 @@ import {
   name as packageName
 } from 'rootverse+sub-pkg-id:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
 const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -28647,13 +28727,18 @@ import {
   name as packageName
 } from 'rootverse+sub-pkg-id:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
 const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -28682,13 +28767,18 @@ import {
   name as packageName
 } from 'rootverse+sub-pkg-id:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
 const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -28758,13 +28848,18 @@ import {
   name as packageName
 } from 'rootverse+pkg-1:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
 const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -28806,13 +28901,18 @@ import {
   name as packageName
 } from 'rootverse+pkg-1:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
 const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -28841,13 +28941,18 @@ import {
   name as packageName
 } from 'rootverse+pkg-1:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
 const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -28917,13 +29022,18 @@ import {
   name as packageName
 } from 'rootverse+pkg-1:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
 const debug = createDebugLogger({ namespace: 'pkg-2' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -28965,13 +29075,18 @@ import {
   name as packageName
 } from 'rootverse+pkg-1:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
 const debug = createDebugLogger({ namespace: 'pkg-2' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -29000,13 +29115,18 @@ import {
   name as packageName
 } from 'rootverse+pkg-1:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
 const debug = createDebugLogger({ namespace: 'pkg-2' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -29076,13 +29196,18 @@ import {
   name as packageName
 } from 'rootverse+pkg-1:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
 const debug = createDebugLogger({ namespace: 'pkg-import' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -29124,13 +29249,18 @@ import {
   name as packageName
 } from 'rootverse+pkg-1:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
 const debug = createDebugLogger({ namespace: 'pkg-import' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -29159,13 +29289,18 @@ import {
   name as packageName
 } from 'rootverse+pkg-1:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
 const debug = createDebugLogger({ namespace: 'pkg-import' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -29269,13 +29404,18 @@ import {
   name as packageName
 } from 'rootverse+pkg-1:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
 const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -29317,13 +29457,18 @@ import {
   name as packageName
 } from 'rootverse+pkg-1:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
 const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -29352,13 +29497,18 @@ import {
   name as packageName
 } from 'rootverse+pkg-1:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
 const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -29428,13 +29578,18 @@ import {
   name as packageName
 } from 'rootverse+pkg-1:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
 const debug = createDebugLogger({ namespace: 'pkg-2' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -29476,13 +29631,18 @@ import {
   name as packageName
 } from 'rootverse+pkg-1:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
 const debug = createDebugLogger({ namespace: 'pkg-2' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -29511,13 +29671,18 @@ import {
   name as packageName
 } from 'rootverse+pkg-1:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
 const debug = createDebugLogger({ namespace: 'pkg-2' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -29587,13 +29752,18 @@ import {
   name as packageName
 } from 'rootverse+pkg-1:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
 const debug = createDebugLogger({ namespace: 'pkg-import' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -29635,13 +29805,18 @@ import {
   name as packageName
 } from 'rootverse+pkg-1:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
 const debug = createDebugLogger({ namespace: 'pkg-import' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -29670,13 +29845,18 @@ import {
   name as packageName
 } from 'rootverse+pkg-1:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
 const debug = createDebugLogger({ namespace: 'pkg-import' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -29780,13 +29960,18 @@ import {
   name as packageName
 } from 'rootverse:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
 const debug = createDebugLogger({ namespace: 'good-polyrepo-no-src' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -29828,13 +30013,18 @@ import {
   name as packageName
 } from 'rootverse:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-client\`;
 const debug = createDebugLogger({ namespace: 'good-polyrepo-no-src' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -29863,13 +30053,18 @@ import {
   name as packageName
 } from 'rootverse:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-integration-smoke\`;
 const debug = createDebugLogger({ namespace: 'good-polyrepo-no-src' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
