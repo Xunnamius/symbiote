@@ -6,9 +6,9 @@
 
 # Function: default()
 
-> **default**(`executionContext`): `object`
+> **default**(`executionContext`): `Partial`\<`Configuration`\<[`CustomCliArguments`](../type-aliases/CustomCliArguments.md), [`GlobalExecutionContext`](../../../../configure/type-aliases/GlobalExecutionContext.md)\>\>
 
-Defined in: [src/commands/project/renovate.ts:292](https://github.com/Xunnamius/symbiote/blob/16e65ca9568c2c290d9cbc170fcee40ca3a63520/src/commands/project/renovate.ts#L292)
+Defined in: [src/commands/project/renovate.ts:285](https://github.com/Xunnamius/symbiote/blob/c3eb624b24481297d928007f103c9d2138e49cb7/src/commands/project/renovate.ts#L285)
 
 ## Parameters
 
@@ -18,30 +18,4 @@ Defined in: [src/commands/project/renovate.ts:292](https://github.com/Xunnamius/
 
 ## Returns
 
-`object`
-
-### builder
-
-> **builder**: `BfeBuilderFunction`\<[`CustomCliArguments`](../type-aliases/CustomCliArguments.md), [`GlobalExecutionContext`](../../../../configure/type-aliases/GlobalExecutionContext.md)\>
-
-### description
-
-> **description**: `string` = `'Bring a project into compliance with latest best practices'`
-
-### handler()
-
-> **handler**: (`argv`) => `Promisable`\<`void`\>
-
-#### Parameters
-
-##### argv
-
-`Arguments`\<[`CustomCliArguments`](../type-aliases/CustomCliArguments.md), [`GlobalExecutionContext`](../../../../configure/type-aliases/GlobalExecutionContext.md)\>
-
-#### Returns
-
-`Promisable`\<`void`\>
-
-### usage
-
-> **usage**: `string`
+`Partial`\<`Configuration`\<[`CustomCliArguments`](../type-aliases/CustomCliArguments.md), [`GlobalExecutionContext`](../../../../configure/type-aliases/GlobalExecutionContext.md)\>\>

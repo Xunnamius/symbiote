@@ -6,9 +6,9 @@
 
 # Function: default()
 
-> **default**(`__namedParameters`): `object`
+> **default**(`__namedParameters`): `Partial`\<`Configuration`\<[`CustomCliArguments`](../type-aliases/CustomCliArguments.md), [`GlobalExecutionContext`](../../../../configure/type-aliases/GlobalExecutionContext.md)\>\>
 
-Defined in: [src/commands/project/info.ts:33](https://github.com/Xunnamius/symbiote/blob/16e65ca9568c2c290d9cbc170fcee40ca3a63520/src/commands/project/info.ts#L33)
+Defined in: [src/commands/project/info.ts:28](https://github.com/Xunnamius/symbiote/blob/c3eb624b24481297d928007f103c9d2138e49cb7/src/commands/project/info.ts#L28)
 
 ## Parameters
 
@@ -18,30 +18,4 @@ Defined in: [src/commands/project/info.ts:33](https://github.com/Xunnamius/symbi
 
 ## Returns
 
-`object`
-
-### builder
-
-> **builder**: `BfeBuilderFunction`\<[`CustomCliArguments`](../type-aliases/CustomCliArguments.md), [`GlobalExecutionContext`](../../../../configure/type-aliases/GlobalExecutionContext.md)\>
-
-### description
-
-> **description**: `string` = `'Gather and report information about this project'`
-
-### handler()
-
-> **handler**: (`argv`) => `Promisable`\<`void`\>
-
-#### Parameters
-
-##### argv
-
-`Arguments`\<[`CustomCliArguments`](../type-aliases/CustomCliArguments.md), [`GlobalExecutionContext`](../../../../configure/type-aliases/GlobalExecutionContext.md)\>
-
-#### Returns
-
-`Promisable`\<`void`\>
-
-### usage
-
-> **usage**: `string`
+`Partial`\<`Configuration`\<[`CustomCliArguments`](../type-aliases/CustomCliArguments.md), [`GlobalExecutionContext`](../../../../configure/type-aliases/GlobalExecutionContext.md)\>\>

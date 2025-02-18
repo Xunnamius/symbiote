@@ -6,9 +6,9 @@
 
 # Function: moduleExport()
 
-> **moduleExport**(`__namedParameters`): `Config`[]
+> **moduleExport**(`__namedParameters`): `Promise`\<`Config`[]\>
 
-Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:509](https://github.com/Xunnamius/symbiote/blob/16e65ca9568c2c290d9cbc170fcee40ca3a63520/src/assets/transformers/_eslint.config.mjs.ts#L509)
+Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:511](https://github.com/Xunnamius/symbiote/blob/c3eb624b24481297d928007f103c9d2138e49cb7/src/assets/transformers/_eslint.config.mjs.ts#L511)
 
 ## Parameters
 
@@ -32,4 +32,4 @@ Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:509](https://github.
 
 ## Returns
 
-`Config`[]
+`Promise`\<`Config`[]\>

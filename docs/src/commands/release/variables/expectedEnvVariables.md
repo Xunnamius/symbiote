@@ -8,7 +8,7 @@
 
 > `const` **expectedEnvVariables**: `string`[]
 
-Defined in: [src/commands/release.ts:82](https://github.com/Xunnamius/symbiote/blob/16e65ca9568c2c290d9cbc170fcee40ca3a63520/src/commands/release.ts#L82)
+Defined in: [src/commands/release.ts:74](https://github.com/Xunnamius/symbiote/blob/c3eb624b24481297d928007f103c9d2138e49cb7/src/commands/release.ts#L74)
 
 The environment variables this command expects to be defined in
 `process.env`.

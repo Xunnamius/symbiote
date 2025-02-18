@@ -42,6 +42,7 @@
 - [isGitReferenceMoreRecent](functions/isGitReferenceMoreRecent.md)
 - [isNonEmptyString](functions/isNonEmptyString.md)
 - [loadDotEnv](functions/loadDotEnv.md)
+- [logStartTime](functions/logStartTime.md)
 - [makeDirectory](functions/makeDirectory.md)
 - [makeMagicStringReplacerRegionStartWithId](functions/makeMagicStringReplacerRegionStartWithId.md)
 - [makeReplacerRegionIdMatcherRegExp](functions/makeReplacerRegionIdMatcherRegExp.md)

@@ -8,7 +8,7 @@
 
 > `const` **deployScopes**: [`ThisPackage`](../../../configure/enumerations/ThisPackageGlobalScope.md#thispackage)[]
 
-Defined in: [src/commands/deploy.ts:43](https://github.com/Xunnamius/symbiote/blob/16e65ca9568c2c290d9cbc170fcee40ca3a63520/src/commands/deploy.ts#L43)
+Defined in: [src/commands/deploy.ts:36](https://github.com/Xunnamius/symbiote/blob/c3eb624b24481297d928007f103c9d2138e49cb7/src/commands/deploy.ts#L36)
 
 ## See
 

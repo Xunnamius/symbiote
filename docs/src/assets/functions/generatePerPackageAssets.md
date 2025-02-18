@@ -8,12 +8,17 @@
 
 > **generatePerPackageAssets**(`transformerContext`, `adder`, `__namedParameters`): `Promise`\<[`Asset`](../type-aliases/Asset.md)[]\>
 
-Defined in: [src/assets.ts:673](https://github.com/Xunnamius/symbiote/blob/16e65ca9568c2c290d9cbc170fcee40ca3a63520/src/assets.ts#L673)
+Defined in: [src/assets.ts:687](https://github.com/Xunnamius/symbiote/blob/c3eb624b24481297d928007f103c9d2138e49cb7/src/assets.ts#L687)
 
 Takes a [TransformerContext](../type-aliases/TransformerContext.md) and an adder function and returns an array
 of [Asset](../type-aliases/Asset.md)s generated per each package in ProjectMetadata,
 including the root package in hybridrepos and polyrepos (but not in
 non-hybrid monorepos).
+
+Note that, when invoked with `scope` equal to
+[DefaultGlobalScope.ThisPackage](../../configure/enumerations/DefaultGlobalScope.md#thispackage), `transformerContext` must already be
+configured for the current package. It will not be modified further by this
+function (only in this specific case).
 
 **WARNING: be wary relying on an external [TransformerContext](../type-aliases/TransformerContext.md) when
 using this function. When context access is required, use the

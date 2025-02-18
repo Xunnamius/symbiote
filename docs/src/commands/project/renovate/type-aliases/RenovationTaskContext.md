@@ -8,7 +8,7 @@
 
 > **RenovationTaskContext**: `object`
 
-Defined in: [src/commands/project/renovate.ts:192](https://github.com/Xunnamius/symbiote/blob/16e65ca9568c2c290d9cbc170fcee40ca3a63520/src/commands/project/renovate.ts#L192)
+Defined in: [src/commands/project/renovate.ts:185](https://github.com/Xunnamius/symbiote/blob/c3eb624b24481297d928007f103c9d2138e49cb7/src/commands/project/renovate.ts#L185)
 
 The context passed to each individual task.
 

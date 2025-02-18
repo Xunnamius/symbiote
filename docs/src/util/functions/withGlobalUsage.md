@@ -6,9 +6,9 @@
 
 # Function: withGlobalUsage()
 
-> **withGlobalUsage**(`altDescription`, `__namedParameters`): `string`
+> **withGlobalUsage**(`altDescription`?, `__namedParameters`?): `string`
 
-Defined in: [packages/bfe/src/index.ts:1296](https://github.com/Xunnamius/symbiote/blob/16e65ca9568c2c290d9cbc170fcee40ca3a63520/packages/bfe/src/index.ts#L1296)
+Defined in: node\_modules/@black-flag/extensions/dist/src/index.d.ts:435
 
 Generate command usage text consistently yet flexibly.
 
@@ -17,15 +17,15 @@ Defaults to: `Usage: $000\n\n${altDescription}` where `altDescription` is
 
 ## Parameters
 
-### altDescription
+### altDescription?
 
-`string` = `'$1.'`
+`string`
 
-### \_\_namedParameters
+### \_\_namedParameters?
 
 #### appendPeriod?
 
-`boolean` = `true`
+`boolean`
 
 Whether a period will be appended to the resultant string or not. A
 period is only appended if one is not already appended.
@@ -38,7 +38,7 @@ true
 
 #### includeOptions?
 
-`boolean` = `prependNewlines`
+`boolean`
 
 Whether the string `' [...options]'` will be appended to the first line of usage text
 
@@ -50,7 +50,7 @@ options.prependNewlines
 
 #### prependNewlines?
 
-`boolean` = `true`
+`boolean`
 
 Whether newlines will be prepended to `altDescription` or not.
 
@@ -62,7 +62,7 @@ true
 
 #### trim?
 
-`boolean` = `true`
+`boolean`
 
 Whether `altDescription` will be `trim()`'d or not.
 

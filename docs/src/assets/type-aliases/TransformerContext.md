@@ -8,7 +8,7 @@
 
 > **TransformerContext**: `object`
 
-Defined in: [src/assets.ts:198](https://github.com/Xunnamius/symbiote/blob/16e65ca9568c2c290d9cbc170fcee40ca3a63520/src/assets.ts#L198)
+Defined in: [src/assets.ts:198](https://github.com/Xunnamius/symbiote/blob/c3eb624b24481297d928007f103c9d2138e49cb7/src/assets.ts#L198)
 
 A union of well-known context keys passed directly to each transformer
 [Transformer](Transformer.md).
@@ -73,6 +73,17 @@ The standard markdown text denoting the start of a "chooser block".
 > **codecovFlag**: `string`
 
 The flag used when generating codecov badges and related links.
+
+### cwdPackagePartialImportSpecifier
+
+> **cwdPackagePartialImportSpecifier**: `string`
+
+A partial import alias string that can be used as part of a specifier to
+import from the current package. If the current package is the root
+package, this will be an empty string. Otherwise, it will begin with a plus
+sign (`+`).
+
+Example: `"+graph"` (for the `@-xun/project-graph` sub-root package)
 
 ### debug
 

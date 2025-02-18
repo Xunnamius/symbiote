@@ -8,7 +8,7 @@
 
 > **moduleExport**(`__namedParameters`): `WritableObjectDeep`
 
-Defined in: [src/assets/transformers/\_release.config.cjs.ts:115](https://github.com/Xunnamius/symbiote/blob/16e65ca9568c2c290d9cbc170fcee40ca3a63520/src/assets/transformers/_release.config.cjs.ts#L115)
+Defined in: [src/assets/transformers/\_release.config.cjs.ts:110](https://github.com/Xunnamius/symbiote/blob/c3eb624b24481297d928007f103c9d2138e49cb7/src/assets/transformers/_release.config.cjs.ts#L110)
 
 ## Parameters
 

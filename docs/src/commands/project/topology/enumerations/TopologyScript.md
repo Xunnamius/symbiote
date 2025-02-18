@@ -6,7 +6,7 @@
 
 # Enumeration: TopologyScript
 
-Defined in: [src/commands/project/topology.ts:36](https://github.com/Xunnamius/symbiote/blob/16e65ca9568c2c290d9cbc170fcee40ca3a63520/src/commands/project/topology.ts#L36)
+Defined in: [src/commands/project/topology.ts:29](https://github.com/Xunnamius/symbiote/blob/c3eb624b24481297d928007f103c9d2138e49cb7/src/commands/project/topology.ts#L29)
 
 The NPM scripts that can be executed in topological sort order.
 
@@ -16,7 +16,7 @@ The NPM scripts that can be executed in topological sort order.
 
 > **Build**: `"build"`
 
-Defined in: [src/commands/project/topology.ts:37](https://github.com/Xunnamius/symbiote/blob/16e65ca9568c2c290d9cbc170fcee40ca3a63520/src/commands/project/topology.ts#L37)
+Defined in: [src/commands/project/topology.ts:30](https://github.com/Xunnamius/symbiote/blob/c3eb624b24481297d928007f103c9d2138e49cb7/src/commands/project/topology.ts#L30)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [src/commands/project/topology.ts:37](https://github.com/Xunnamius/s
 
 > **Lint**: `"lint"`
 
-Defined in: [src/commands/project/topology.ts:39](https://github.com/Xunnamius/symbiote/blob/16e65ca9568c2c290d9cbc170fcee40ca3a63520/src/commands/project/topology.ts#L39)
+Defined in: [src/commands/project/topology.ts:32](https://github.com/Xunnamius/symbiote/blob/c3eb624b24481297d928007f103c9d2138e49cb7/src/commands/project/topology.ts#L32)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [src/commands/project/topology.ts:39](https://github.com/Xunnamius/s
 
 > **Release**: `"release"`
 
-Defined in: [src/commands/project/topology.ts:38](https://github.com/Xunnamius/symbiote/blob/16e65ca9568c2c290d9cbc170fcee40ca3a63520/src/commands/project/topology.ts#L38)
+Defined in: [src/commands/project/topology.ts:31](https://github.com/Xunnamius/symbiote/blob/c3eb624b24481297d928007f103c9d2138e49cb7/src/commands/project/topology.ts#L31)
 
 ***
 
@@ -40,4 +40,4 @@ Defined in: [src/commands/project/topology.ts:38](https://github.com/Xunnamius/s
 
 > **Test**: `"test"`
 
-Defined in: [src/commands/project/topology.ts:40](https://github.com/Xunnamius/symbiote/blob/16e65ca9568c2c290d9cbc170fcee40ca3a63520/src/commands/project/topology.ts#L40)
+Defined in: [src/commands/project/topology.ts:33](https://github.com/Xunnamius/symbiote/blob/c3eb624b24481297d928007f103c9d2138e49cb7/src/commands/project/topology.ts#L33)
