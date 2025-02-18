@@ -3,9 +3,8 @@
 
 import assert from 'node:assert';
 
-import { dummyToProjectMetadata } from '@-xun/common-dummies/repositories';
-
 import { toSentenceCase } from '@-xun/cli/util';
+import { dummyToProjectMetadata } from '@-xun/common-dummies/repositories';
 
 import {
   moduleExport,
