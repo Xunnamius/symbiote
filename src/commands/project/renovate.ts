@@ -1926,7 +1926,11 @@ See the symbiote wiki documentation for more details on this command and all ava
         subRootPackages
       } = projectMetadata;
 
-      const { root: projectRoot, json: projectJson } = rootPackage;
+      const {
+        root: projectRoot,
+        json: projectJson,
+        attributes: projectAttributes
+      } = rootPackage;
 
       const { owner: repoOwner, repo: repoName } =
         parsePackageJsonRepositoryIntoOwnerAndRepo(projectJson);
@@ -1965,11 +1969,10 @@ See the symbiote wiki documentation for more details on this command and all ava
             .toArray()
             .join('\n') || '<!-- TODO: a list of packages goes here -->',
 
-        lintNpmScript: rootPackage.attributes.monorepo
-          ? 'lint:packages'
-          : 'lint:package',
+        lintNpmScript: projectAttributes.monorepo ? 'lint:packages' : 'lint:package',
         testNpmScript:
-          rootPackage.attributes.monorepo && !rootPackage.attributes.hybridrepo
+          projectAttributes.monorepo &&
+          (!projectAttributes.hybridrepo || !projectAttributes.multiversal)
             ? 'test:packages:all:unit'
             : 'test',
 
