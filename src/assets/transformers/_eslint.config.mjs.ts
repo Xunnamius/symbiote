@@ -21,6 +21,7 @@ import { ProjectError } from '@-xun/project/error';
 import { fixupConfigRules } from '@eslint/compat';
 import eslintJs from '@eslint/js';
 import restrictedGlobals from 'confusing-browser-globals';
+import { builtinRules as eslintJsCoreRules } from 'eslint/use-at-your-own-risk';
 import { flatConfigs as eslintPluginImportFlatConfigs } from 'eslint-plugin-import';
 import eslintPluginJest from 'eslint-plugin-jest';
 import eslintPluginNode from 'eslint-plugin-n';
@@ -105,6 +106,12 @@ function genericRules(
     'no-unused-vars': 'off',
     // ? If I'm using apply, it's because I want to
     'prefer-spread': 'off',
+    // ? "XXX" comments are treated as errors that will fail a `git commit`
+    // ? command (where verification isn't skipped) if present in a file. "XXX"
+    // ? comments will similarly fail a `git push` command. If you're looking
+    // ? for the no-warning-comments rule that affect other comments like
+    // ? "TODO" and "FIXME", those are added dynamically later in this script
+    'xxx/no-warning-comments': ['error', { terms: ['xxx'] }],
     // ? We need to warn about using bad things that are or may be bad
     'no-restricted-syntax': [
       'warn',
@@ -606,7 +613,8 @@ export async function moduleExport({
     reifiedGenericRules['no-warning-comments'] = 'off';
   } else {
     debug('NO todo-style code comments allowed (will generate warning)');
-    reifiedGenericRules['no-warning-comments'] = 'warn';
+    // ? Warnings about "XXX" style comments are defined earlier in this script
+    reifiedGenericRules['no-warning-comments'] = ['warn', { terms: ['todo', 'fixme'] }];
   }
 
   const reifiedRestrictedImportRules = shouldAllowTodoComments
@@ -636,9 +644,10 @@ export async function moduleExport({
       ]
     },
 
-    // * Configs applying to both JavaScript and TypeScript files (all extensions)
-    // ? Keep in mind that JS files can use @ts-check and "become" TS files, hence
-    // ? the existence of this block. Logically, most rules should be loaded here.
+    // * Configs applying to both JavaScript & TypeScript files (all extensions)
+    // ? Keep in mind that JS files can use @ts-check and "become" TS files,
+    // ? hence the existence of this block. Logically, most rules should be
+    // ? loaded here.
     ...[
       { ...eslintJs.configs.recommended, name: '@eslint/js:recommended' },
       eslintTsConfigs.strictTypeChecked,
@@ -649,6 +658,15 @@ export async function moduleExport({
       eslintPluginUnicornRecommended,
       {
         name: '@-xun/symbiote:js-and-ts',
+        // ? Facilitates the usage of the xxx/no-warning-comments rule (above)
+        plugins: {
+          xxx: {
+            rules: {
+              // eslint-disable-next-line @typescript-eslint/no-deprecated
+              'no-warning-comments': eslintJsCoreRules.get('no-warning-comments')!
+            }
+          }
+        },
         rules: reifiedGenericRules,
         languageOptions: {
           ecmaVersion: 'latest',
