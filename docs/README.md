@@ -75,7 +75,6 @@
 - [src/error](src/error/README.md)
 - [src/task-runner](src/task-runner/README.md)
 - [src/util](src/util/README.md)
-- [test/assets/integration/integration-client-conventional](test/assets/integration/integration-client-conventional/README.md)
 - [test/setup](test/setup/README.md)
 - [test/util](test/util/README.md)
 - [types/eslint-plugin-import](types/eslint-plugin-import/README.md)

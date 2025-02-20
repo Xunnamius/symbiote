@@ -8,7 +8,7 @@
 
 > **CustomCliArguments**: [`GlobalCliArguments`](../../../configure/type-aliases/GlobalCliArguments.md) & `object`
 
-Defined in: [src/commands/clean.ts:44](https://github.com/Xunnamius/symbiote/blob/c3eb624b24481297d928007f103c9d2138e49cb7/src/commands/clean.ts#L44)
+Defined in: [src/commands/clean.ts:48](https://github.com/Xunnamius/symbiote/blob/f1a73bcde0fca04d8ad00dcd2d4b20b98c9a647a/src/commands/clean.ts#L48)
 
 ## Type declaration
 
@@ -19,3 +19,7 @@ Defined in: [src/commands/clean.ts:44](https://github.com/Xunnamius/symbiote/blo
 ### force
 
 > **force**: `boolean`
+
+### onlyEmptyDirectories
+
+> **onlyEmptyDirectories**: `boolean`
