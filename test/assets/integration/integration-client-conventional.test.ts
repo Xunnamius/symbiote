@@ -41,7 +41,7 @@ import type {
   GitRepositoryFixtureOptions
 } from 'testverse:util.ts';
 
-const TEST_IDENTIFIER = `${packageName.split('/').at(-1)!}-integration-client-changelog`;
+const TEST_IDENTIFIER = `${packageName.split('/').at(-1)!}-client-changelog`;
 const debug = createDebugLogger({ namespace: 'symbiote' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
@@ -165,6 +165,15 @@ const fixtures = [
         }
       }
     };
+  },
+  () => {
+    return {
+      name: 'process-chdir',
+      description: 'changing process directory to dummy root',
+      async setup({ root }: CustomFixtureContext) {
+        process.chdir(root);
+      }
+    };
   }
 ] satisfies GenericMockFixtureFunctions;
 
@@ -175,6 +184,7 @@ const withMockedFixtures = mockFixturesFactory<
 >(fixtures, {
   performCleanup: true,
   identifier: TEST_IDENTIFIER,
+  initialVirtualFiles: { 'package.json': JSON.stringify(dummyPackageJson) },
   patches: []
 });
 
