@@ -122,7 +122,7 @@ import {
   reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
 } from 'testverse:util.ts';
 
-const TEST_IDENTIFIER = ${bt}\${packageName.split('/').at(-1)!}-integration-smoke${bt};
+const TEST_IDENTIFIER = ${bt}\${packageName.split('/').at(-1)!}-smoke${bt};
 const debug = createDebugLogger({ namespace: '${debugNamespace}' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
@@ -166,7 +166,7 @@ import {
   reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
 } from 'testverse:util.ts';
 
-const TEST_IDENTIFIER = ${bt}\${packageName.split('/').at(-1)!}-integration-client${bt};
+const TEST_IDENTIFIER = ${bt}\${packageName.split('/').at(-1)!}-client${bt};
 const debug = createDebugLogger({ namespace: '${debugNamespace}' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 

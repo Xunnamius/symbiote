@@ -14,7 +14,7 @@ import {
   reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
 } from 'testverse:util.ts';
 
-const TEST_IDENTIFIER = `${packageName.split('/').at(-1)!}-integration-client`;
+const TEST_IDENTIFIER = `${packageName.split('/').at(-1)!}-client`;
 const debug = createDebugLogger({ namespace: 'symbiote' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
