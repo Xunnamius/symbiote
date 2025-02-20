@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/no-array-callback-reference */
 import { softAssert } from '@-xun/cli/error';
 import { LogTag, standardSuccessMessage } from '@-xun/cli/logging';
 import { scriptBasename } from '@-xun/cli/util';
@@ -17,6 +18,9 @@ import {
 } from 'universe:util.ts';
 
 import type { AsStrictExecutionContext, ChildConfiguration } from '@-xun/cli';
+import type { AbsolutePath, RelativePath } from '@-xun/fs';
+import type { DefaultRunOptions, RunReturnType } from '@-xun/run';
+import type { Merge } from 'type-fest';
 import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:configure.ts';
 
 const matchNothing = '(?!)';
@@ -44,6 +48,7 @@ export const defaultCleanExcludedPaths: string[] = [
 export type CustomCliArguments = GlobalCliArguments & {
   excludePaths: string[];
   force: boolean;
+  onlyEmptyDirectories: boolean;
 };
 
 export default function command({
@@ -60,24 +65,30 @@ export default function command({
     'exclude-paths': {
       array: true,
       default: defaultCleanExcludedPaths,
-      describe: 'Paths matching these regular expressions will never be deleted',
+      describe: 'File paths matching these regular expressions will never be deleted',
       defaultDescription: 'standard project files (see help text)'
     },
     force: {
       boolean: true,
       default: false,
       describe: 'Actually perform the deletion rather than the default dry run'
+    },
+    'only-empty-directories': {
+      alias: 'only-empty-dirs',
+      boolean: true,
+      default: false,
+      describe: 'Only target empty directories for deletion and nothing else',
+      conflicts: ['exclude-paths', 'force']
     }
   });
 
   return {
     builder,
-    description:
-      'Permanently delete paths ignored by or unknown to git (with exceptions)',
+    description: 'Permanently delete paths ignored/untracked by git (with exceptions)',
     usage: withGlobalUsage(
-      `$1.
+      `$1. This includes empty directories that are not descended from an ignored/untracked directory.
 
-You must pass --force for any deletions to actually take place.
+Unless --only-empty-directories is specified, --force must be used for any deletions to actually take place.
 
 Note that the regular expressions provided via --exclude-paths are computed with the "i" and "u" flags. If you want to pass an empty array to --exclude-paths (overwriting the defaults), use \`--exclude-paths ''\`
 
@@ -91,7 +102,8 @@ The default value for --exclude-paths includes the following regular expressions
       $0: scriptFullName,
       scope,
       excludePaths,
-      force
+      force,
+      onlyEmptyDirectories
     }) {
       const handlerName = scriptBasename(scriptFullName);
       const genericLogger = standardLog.extend(handlerName);
@@ -114,11 +126,12 @@ The default value for --exclude-paths includes the following regular expressions
 
       genericLogger(
         [LogTag.IF_NOT_QUIETED],
-        `Cleaning ${scope === DefaultGlobalScope.ThisPackage ? 'this package only' : 'the entire project'}...`
+        `${onlyEmptyDirectories ? 'Removing empty directories in' : 'Cleaning'} ${scope === DefaultGlobalScope.ThisPackage ? 'this package only' : 'the entire project'}...`
       );
 
       debug('scope: %O', scope);
       debug('excludePaths (original): %O', excludePaths);
+      debug('onlyEmptyDirectories: %O', onlyEmptyDirectories);
 
       const excludeRegExps = excludePaths.map(
         (path) => new RegExp(path || matchNothing, 'iu')
@@ -136,40 +149,125 @@ The default value for --exclude-paths includes the following regular expressions
 
       debug('cleanTargetRoot: %O', cleanTargetRoot);
 
-      const { stdout: ignoredPaths } = await run(
-        'git',
-        [
-          'ls-files',
-          '--exclude-standard',
-          '--ignored',
-          '--others',
-          // ? Git will include trailing slash for directories :)
-          '--directory'
-        ],
-        { cwd: cleanTargetRoot, lines: true }
+      // ? Git's ls-files will include trailing slash for directories :)
+      const ignoredPathsSet = reduceGitResultToSet(
+        await Promise.all([
+          run(
+            'git',
+            ['ls-files', '--exclude-standard', '--ignored', '--others', '--directory'],
+            { cwd: cleanTargetRoot, lines: true }
+          ),
+          run('git', ['ls-files', '--exclude-standard', '--others', '--directory'], {
+            cwd: cleanTargetRoot,
+            lines: true
+          })
+        ])
       );
 
-      debug('raw ignored paths: %O', ignoredPaths);
+      debug('raw ignored paths: %O', ignoredPathsSet);
 
-      const finalIgnoredPaths = ignoredPaths
-        .filter((path) => path && !excludeRegExps.some((regExp) => path.match(regExp)))
-        .map((path) =>
-          scope === DefaultGlobalScope.Unlimited ? toPath(cleanTargetRoot, path) : path
+      if (onlyEmptyDirectories) {
+        const pathsThatAreNotAnEmptyDirectorySet = reduceGitResultToSet(
+          await Promise.all([
+            run(
+              'git',
+              [
+                'ls-files',
+                '--exclude-standard',
+                '--ignored',
+                '--others',
+                '--directory',
+                '--no-empty-directory'
+              ],
+              { cwd: cleanTargetRoot, lines: true }
+            ),
+            run(
+              'git',
+              [
+                'ls-files',
+                '--exclude-standard',
+                '--others',
+                '--directory',
+                '--no-empty-directory'
+              ],
+              {
+                cwd: cleanTargetRoot,
+                lines: true
+              }
+            )
+          ])
         );
 
-      debug('final ignored paths: %O', finalIgnoredPaths);
+        debug(
+          'raw ignored paths that do NOT point to an empty directory: %O',
+          pathsThatAreNotAnEmptyDirectorySet
+        );
 
-      genericLogger.newline([LogTag.IF_NOT_HUSHED]);
-      genericLogger([LogTag.IF_NOT_HUSHED], 'Deletion root: %O', cleanTargetRoot);
-      genericLogger([LogTag.IF_NOT_HUSHED], 'Deletion targets: %O', finalIgnoredPaths);
-      genericLogger.newline([LogTag.IF_NOT_HUSHED]);
-
-      softAssert(force, ErrorMessage.CleanCalledWithoutForce());
-
-      genericLogger([LogTag.IF_NOT_HUSHED], 'Performing deletions...');
-      await forceDeletePaths(finalIgnoredPaths);
+        await maybePerformDeletions(
+          ignoredPathsSet
+            .difference(pathsThatAreNotAnEmptyDirectorySet)
+            .values()
+            .filter((path) => path && path.endsWith('/'))
+            .map(relativePathToDeletionTarget)
+            .toArray()
+        );
+      } else {
+        await maybePerformDeletions(
+          ignoredPathsSet
+            .values()
+            .filter((path) => {
+              return path && !excludeRegExps.some((regExp) => path.match(regExp));
+            })
+            .map(relativePathToDeletionTarget)
+            .toArray()
+        );
+      }
 
       genericLogger([LogTag.IF_NOT_QUIETED], standardSuccessMessage);
+
+      function reduceGitResultToSet(
+        result: RunReturnType<Merge<DefaultRunOptions, { lines: true }>>[]
+      ) {
+        // eslint-disable-next-line unicorn/no-array-reduce
+        return result.reduce<Set<RelativePath>>(
+          (accumulator, { stdout: ignoredPaths_ }) => {
+            return accumulator.union(new Set(ignoredPaths_) as Set<RelativePath>);
+          },
+          new Set()
+        );
+      }
+
+      function relativePathToDeletionTarget(relativePath: RelativePath) {
+        return [toPath(cleanTargetRoot, relativePath), relativePath] as const;
+      }
+
+      async function maybePerformDeletions(
+        deletionTargets: (readonly [realPath: AbsolutePath, prettyPath: string])[]
+      ) {
+        debug('deletionTargets: %O', deletionTargets);
+
+        genericLogger.newline([LogTag.IF_NOT_HUSHED]);
+
+        genericLogger([LogTag.IF_NOT_HUSHED], 'Deletion root: %O', cleanTargetRoot);
+        genericLogger(
+          [LogTag.IF_NOT_HUSHED],
+          'Deletion targets: %O',
+          deletionTargets.map(([, prettyPath]) => prettyPath)
+        );
+
+        genericLogger.newline([LogTag.IF_NOT_HUSHED]);
+
+        if (!onlyEmptyDirectories) {
+          softAssert(force, ErrorMessage.CleanCalledWithoutForce());
+        }
+
+        if (deletionTargets.length) {
+          genericLogger([LogTag.IF_NOT_HUSHED], 'Performing deletions...');
+          await forceDeletePaths(deletionTargets.map(([realPath]) => realPath));
+        } else {
+          genericLogger([LogTag.IF_NOT_HUSHED], 'Nothing to delete 🙂');
+        }
+      }
     })
   };
 }
