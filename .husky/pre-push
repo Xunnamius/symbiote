@@ -30,10 +30,16 @@ set +e
 incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 set -e
 
+interestingTestFiles=$(echo "$interestingXxxFiles" | grep '\.test\.ts$')
+set +e
+incompleteTestFilesGrep=$(echo "$interestingTestFiles" | xargs -P 0 sh -c 'if grep -q -i -E -e "(it|test|describe)\.only\(" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+set -e
+
 # ? Make sure no commits to be pushed contain "mergeme" etc in their headers, no
-# ? relevant markdown files contain "-✄-" in their contents, and no files
-# ? anywhere contain "XXX: " in their contents
-if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$incompleteXxxFilesGrep" != 0 ]; then
+# ? relevant markdown files contain "-✄-" in their contents, no files anywhere
+# ? anywhere contain "XXX: " in their contents, and no test files contain
+# ? erroneously focused tests
+if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$incompleteXxxFilesGrep" != 0 ] || [ "$incompleteTestFilesGrep" != 0 ]; then
   echo 'husky-hook::pre-push: BAD COMMIT(S) DETECTED!'
   echo 'husky-hook::pre-push: merge, delete, reword, or otherwise rectify the following commits before trying again:'
 
@@ -53,9 +59,16 @@ if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$
 
   if [ "$incompleteXxxFilesGrep" != 0 ]; then
     echo
-    echo 'husky-hook::pre-push: files at HEAD that contain "XXX" error comments:'
+    echo 'husky-hook::pre-push: files at HEAD with "XXX" error comments:'
     echo
     echo "$interestingXxxFiles" | xargs -P 0 grep -l -H -F -e 'XXX: ' | prepend '  ⋗ '
+  fi
+
+  if [ "$incompleteTestFilesGrep" != 0 ]; then
+    echo
+    echo 'husky-hook::pre-push: files at HEAD with erroneously focused tests:'
+    echo
+    echo "$interestingTestFiles" | xargs -P 0 grep -l -H -E -e '(it|test|describe)\.only\(' | prepend '  ⋗ '
   fi
 
   echo
