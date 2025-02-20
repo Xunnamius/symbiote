@@ -6,7 +6,7 @@
 
 # Enumeration: Linter
 
-Defined in: [src/commands/lint.ts:35](https://github.com/Xunnamius/symbiote/blob/f1a73bcde0fca04d8ad00dcd2d4b20b98c9a647a/src/commands/lint.ts#L35)
+Defined in: [src/commands/lint.ts:35](https://github.com/Xunnamius/symbiote/blob/a1a1659a6aee8463244f5d57f0317787662deaf7/src/commands/lint.ts#L35)
 
 ## Enumeration Members
 
@@ -14,7 +14,7 @@ Defined in: [src/commands/lint.ts:35](https://github.com/Xunnamius/symbiote/blob
 
 > **All**: `"all"`
 
-Defined in: [src/commands/lint.ts:39](https://github.com/Xunnamius/symbiote/blob/f1a73bcde0fca04d8ad00dcd2d4b20b98c9a647a/src/commands/lint.ts#L39)
+Defined in: [src/commands/lint.ts:39](https://github.com/Xunnamius/symbiote/blob/a1a1659a6aee8463244f5d57f0317787662deaf7/src/commands/lint.ts#L39)
 
 ***
 
@@ -22,7 +22,7 @@ Defined in: [src/commands/lint.ts:39](https://github.com/Xunnamius/symbiote/blob
 
 > **Eslint**: `"eslint"`
 
-Defined in: [src/commands/lint.ts:37](https://github.com/Xunnamius/symbiote/blob/f1a73bcde0fca04d8ad00dcd2d4b20b98c9a647a/src/commands/lint.ts#L37)
+Defined in: [src/commands/lint.ts:37](https://github.com/Xunnamius/symbiote/blob/a1a1659a6aee8463244f5d57f0317787662deaf7/src/commands/lint.ts#L37)
 
 ***
 
@@ -30,7 +30,7 @@ Defined in: [src/commands/lint.ts:37](https://github.com/Xunnamius/symbiote/blob
 
 > **Remark**: `"remark"`
 
-Defined in: [src/commands/lint.ts:38](https://github.com/Xunnamius/symbiote/blob/f1a73bcde0fca04d8ad00dcd2d4b20b98c9a647a/src/commands/lint.ts#L38)
+Defined in: [src/commands/lint.ts:38](https://github.com/Xunnamius/symbiote/blob/a1a1659a6aee8463244f5d57f0317787662deaf7/src/commands/lint.ts#L38)
 
 ***
 
@@ -38,4 +38,4 @@ Defined in: [src/commands/lint.ts:38](https://github.com/Xunnamius/symbiote/blob
 
 > **Tsc**: `"tsc"`
 
-Defined in: [src/commands/lint.ts:36](https://github.com/Xunnamius/symbiote/blob/f1a73bcde0fca04d8ad00dcd2d4b20b98c9a647a/src/commands/lint.ts#L36)
+Defined in: [src/commands/lint.ts:36](https://github.com/Xunnamius/symbiote/blob/a1a1659a6aee8463244f5d57f0317787662deaf7/src/commands/lint.ts#L36)

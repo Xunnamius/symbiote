@@ -8,7 +8,7 @@
 
 > **attemptToRunCommand**(`cmd`, `cmdArgs`, `__namedParameters`): `Promise`\<`undefined` \| `number`\>
 
-Defined in: [src/task-runner.ts:9](https://github.com/Xunnamius/symbiote/blob/f1a73bcde0fca04d8ad00dcd2d4b20b98c9a647a/src/task-runner.ts#L9)
+Defined in: [src/task-runner.ts:9](https://github.com/Xunnamius/symbiote/blob/a1a1659a6aee8463244f5d57f0317787662deaf7/src/task-runner.ts#L9)
 
 ## Parameters
 
