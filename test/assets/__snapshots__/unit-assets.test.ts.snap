@@ -8581,7 +8581,7 @@ fi
 
 if [ -z "$GAC_VERIFY_SIMPLE" ]; then npm run lint:package; fi
 NODE_NO_WARNINGS=1 lint-staged --concurrent false
-symbiote clean --env NODE_NO_WARNINGS=1 --only-empty-directories
+symbiote clean --env NODE_NO_WARNINGS=1 --only-empty-directories --hush
 "
 `;
 
@@ -8611,12 +8611,12 @@ set -e
 # ? In the below lines, 'x' is passed as the "zero parameter" so "$@" spits out
 # ? the right stuff. Stuff like this won't be an issue when we switch this to JS
 
-interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^|/)(\\.husky|assets/templates/husky)/')
+interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^|/)(\\.husky|assets/templates/husky)/' | grep -vE '\\.snap$')
 set +e
 incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 set -e
 
-interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -v '/CHANGELOG.md$')
+interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -vE '/CHANGELOG.md$')
 set +e
 incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 set -e
@@ -8711,7 +8711,7 @@ fi
 
 if [ -z "$GAC_VERIFY_SIMPLE" ]; then npm run lint:package; fi
 NODE_NO_WARNINGS=1 lint-staged --concurrent false
-symbiote clean --env NODE_NO_WARNINGS=1 --only-empty-directories
+symbiote clean --env NODE_NO_WARNINGS=1 --only-empty-directories --hush
 "
 `;
 
@@ -8741,12 +8741,12 @@ set -e
 # ? In the below lines, 'x' is passed as the "zero parameter" so "$@" spits out
 # ? the right stuff. Stuff like this won't be an issue when we switch this to JS
 
-interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^|/)(\\.husky|assets/templates/husky)/')
+interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^|/)(\\.husky|assets/templates/husky)/' | grep -vE '\\.snap$')
 set +e
 incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 set -e
 
-interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -v '/CHANGELOG.md$')
+interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -vE '/CHANGELOG.md$')
 set +e
 incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 set -e
@@ -8841,7 +8841,7 @@ fi
 
 if [ -z "$GAC_VERIFY_SIMPLE" ]; then npm run lint:package; fi
 NODE_NO_WARNINGS=1 lint-staged --concurrent false
-symbiote clean --env NODE_NO_WARNINGS=1 --only-empty-directories
+symbiote clean --env NODE_NO_WARNINGS=1 --only-empty-directories --hush
 "
 `;
 
@@ -8871,12 +8871,12 @@ set -e
 # ? In the below lines, 'x' is passed as the "zero parameter" so "$@" spits out
 # ? the right stuff. Stuff like this won't be an issue when we switch this to JS
 
-interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^|/)(\\.husky|assets/templates/husky)/')
+interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^|/)(\\.husky|assets/templates/husky)/' | grep -vE '\\.snap$')
 set +e
 incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 set -e
 
-interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -v '/CHANGELOG.md$')
+interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -vE '/CHANGELOG.md$')
 set +e
 incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 set -e
@@ -8971,7 +8971,7 @@ fi
 
 if [ -z "$GAC_VERIFY_SIMPLE" ]; then npm run lint:package; fi
 NODE_NO_WARNINGS=1 lint-staged --concurrent false
-symbiote clean --env NODE_NO_WARNINGS=1 --only-empty-directories
+symbiote clean --env NODE_NO_WARNINGS=1 --only-empty-directories --hush
 "
 `;
 
@@ -9001,12 +9001,12 @@ set -e
 # ? In the below lines, 'x' is passed as the "zero parameter" so "$@" spits out
 # ? the right stuff. Stuff like this won't be an issue when we switch this to JS
 
-interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^|/)(\\.husky|assets/templates/husky)/')
+interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^|/)(\\.husky|assets/templates/husky)/' | grep -vE '\\.snap$')
 set +e
 incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 set -e
 
-interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -v '/CHANGELOG.md$')
+interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -vE '/CHANGELOG.md$')
 set +e
 incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 set -e
@@ -9101,7 +9101,7 @@ fi
 
 if [ -z "$GAC_VERIFY_SIMPLE" ]; then npm run lint:package; fi
 NODE_NO_WARNINGS=1 lint-staged --concurrent false
-symbiote clean --env NODE_NO_WARNINGS=1 --only-empty-directories
+symbiote clean --env NODE_NO_WARNINGS=1 --only-empty-directories --hush
 "
 `;
 
@@ -9131,12 +9131,12 @@ set -e
 # ? In the below lines, 'x' is passed as the "zero parameter" so "$@" spits out
 # ? the right stuff. Stuff like this won't be an issue when we switch this to JS
 
-interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^|/)(\\.husky|assets/templates/husky)/')
+interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^|/)(\\.husky|assets/templates/husky)/' | grep -vE '\\.snap$')
 set +e
 incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 set -e
 
-interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -v '/CHANGELOG.md$')
+interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -vE '/CHANGELOG.md$')
 set +e
 incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 set -e
@@ -9231,7 +9231,7 @@ fi
 
 if [ -z "$GAC_VERIFY_SIMPLE" ]; then npm run lint:package; fi
 NODE_NO_WARNINGS=1 lint-staged --concurrent false
-symbiote clean --env NODE_NO_WARNINGS=1 --only-empty-directories
+symbiote clean --env NODE_NO_WARNINGS=1 --only-empty-directories --hush
 "
 `;
 
@@ -9261,12 +9261,12 @@ set -e
 # ? In the below lines, 'x' is passed as the "zero parameter" so "$@" spits out
 # ? the right stuff. Stuff like this won't be an issue when we switch this to JS
 
-interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^|/)(\\.husky|assets/templates/husky)/')
+interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^|/)(\\.husky|assets/templates/husky)/' | grep -vE '\\.snap$')
 set +e
 incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 set -e
 
-interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -v '/CHANGELOG.md$')
+interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -vE '/CHANGELOG.md$')
 set +e
 incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 set -e
@@ -9361,7 +9361,7 @@ fi
 
 if [ -z "$GAC_VERIFY_SIMPLE" ]; then npm run lint:package; fi
 NODE_NO_WARNINGS=1 lint-staged --concurrent false
-symbiote clean --env NODE_NO_WARNINGS=1 --only-empty-directories
+symbiote clean --env NODE_NO_WARNINGS=1 --only-empty-directories --hush
 "
 `;
 
@@ -9391,12 +9391,12 @@ set -e
 # ? In the below lines, 'x' is passed as the "zero parameter" so "$@" spits out
 # ? the right stuff. Stuff like this won't be an issue when we switch this to JS
 
-interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^|/)(\\.husky|assets/templates/husky)/')
+interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^|/)(\\.husky|assets/templates/husky)/' | grep -vE '\\.snap$')
 set +e
 incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 set -e
 
-interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -v '/CHANGELOG.md$')
+interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -vE '/CHANGELOG.md$')
 set +e
 incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 set -e
@@ -9491,7 +9491,7 @@ fi
 
 if [ -z "$GAC_VERIFY_SIMPLE" ]; then npm run lint:package; fi
 NODE_NO_WARNINGS=1 lint-staged --concurrent false
-symbiote clean --env NODE_NO_WARNINGS=1 --only-empty-directories
+symbiote clean --env NODE_NO_WARNINGS=1 --only-empty-directories --hush
 "
 `;
 
@@ -9521,12 +9521,12 @@ set -e
 # ? In the below lines, 'x' is passed as the "zero parameter" so "$@" spits out
 # ? the right stuff. Stuff like this won't be an issue when we switch this to JS
 
-interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^|/)(\\.husky|assets/templates/husky)/')
+interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^|/)(\\.husky|assets/templates/husky)/' | grep -vE '\\.snap$')
 set +e
 incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 set -e
 
-interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -v '/CHANGELOG.md$')
+interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -vE '/CHANGELOG.md$')
 set +e
 incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 set -e
