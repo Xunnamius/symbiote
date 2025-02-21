@@ -1725,6 +1725,10 @@ Note that this command never deletes tags.`,
       debug('oldScope: %O', oldScope);
       debug('renameMatchingReleases: %O', renameMatchingReleases);
 
+      if (renameMatchingReleases) {
+        checkRuntimeIsReadyForGithub(argv, log);
+      }
+
       await createAliasTags(oldScope, updatedScope, {
         alsoUpdateOldStyleVersionTags: force,
         debug,
