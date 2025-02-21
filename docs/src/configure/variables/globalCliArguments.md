@@ -8,7 +8,7 @@
 
 > `const` **globalCliArguments**: `object`
 
-Defined in: [src/configure.ts:148](https://github.com/Xunnamius/symbiote/blob/a1a1659a6aee8463244f5d57f0317787662deaf7/src/configure.ts#L148)
+Defined in: [src/configure.ts:148](https://github.com/Xunnamius/symbiote/blob/2e19fbb73f32694e0ab61a9670538fab89e2de03/src/configure.ts#L148)
 
 This BfeBuilderObject instance describes the CLI arguments available
 in the `argv` object of any command that uses [withGlobalBuilder](../../util/functions/withGlobalBuilder.md) to

@@ -8,4 +8,4 @@
 
 > **ExecutionContextWithProjectMetadata**: `Merge`\<`Parameters`\<*typeof* [`default`](../functions/default.md)\>\[`0`\], \{ `projectMetadata`: `ProjectMetadata`; \}\>
 
-Defined in: [src/commands/release.ts:142](https://github.com/Xunnamius/symbiote/blob/a1a1659a6aee8463244f5d57f0317787662deaf7/src/commands/release.ts#L142)
+Defined in: [src/commands/release.ts:142](https://github.com/Xunnamius/symbiote/blob/2e19fbb73f32694e0ab61a9670538fab89e2de03/src/commands/release.ts#L142)

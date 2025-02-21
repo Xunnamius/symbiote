@@ -8,7 +8,7 @@
 
 > **deriveCodecovPackageFlag**(`cwdPackage`): `Promise`\<\{ `currentBranch`: `string`; `flag`: `string`; \}\>
 
-Defined in: [src/util.ts:718](https://github.com/Xunnamius/symbiote/blob/a1a1659a6aee8463244f5d57f0317787662deaf7/src/util.ts#L718)
+Defined in: [src/util.ts:718](https://github.com/Xunnamius/symbiote/blob/2e19fbb73f32694e0ab61a9670538fab89e2de03/src/util.ts#L718)
 
 Returns a codecov flag consisting of the current branch name and package id.
 

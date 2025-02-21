@@ -8,7 +8,7 @@
 
 > **determineRepoWorkingTreeDirty**(): `Promise`\<\{ `gitStatusExitCode`: `undefined` \| `number`; `gitStatusOutput`: `string`; `isDirty`: `boolean`; \}\>
 
-Defined in: [src/util.ts:372](https://github.com/Xunnamius/symbiote/blob/a1a1659a6aee8463244f5d57f0317787662deaf7/src/util.ts#L372)
+Defined in: [src/util.ts:372](https://github.com/Xunnamius/symbiote/blob/2e19fbb73f32694e0ab61a9670538fab89e2de03/src/util.ts#L372)
 
 If `gitStatusOutput` is not empty or `gitStatusExitCode` is non-zero, then
 the current working tree is dirty. This can be checked quickly via the

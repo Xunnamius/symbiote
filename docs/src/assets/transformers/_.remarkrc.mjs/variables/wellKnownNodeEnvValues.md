@@ -8,6 +8,6 @@
 
 > `const` **wellKnownNodeEnvValues**: readonly \[`"lint"`, `"lint-no-undef"`, `"format"`\]
 
-Defined in: [src/assets/transformers/\_.remarkrc.mjs.ts:46](https://github.com/Xunnamius/symbiote/blob/a1a1659a6aee8463244f5d57f0317787662deaf7/src/assets/transformers/_.remarkrc.mjs.ts#L46)
+Defined in: [src/assets/transformers/\_.remarkrc.mjs.ts:46](https://github.com/Xunnamius/symbiote/blob/2e19fbb73f32694e0ab61a9670538fab89e2de03/src/assets/transformers/_.remarkrc.mjs.ts#L46)
 
 An array of NODE_ENV values recognized by this configuration file.
