@@ -8,7 +8,7 @@
 
 > **logStartTime**(`options`): `void`
 
-Defined in: [src/util.ts:750](https://github.com/Xunnamius/symbiote/blob/2e19fbb73f32694e0ab61a9670538fab89e2de03/src/util.ts#L750)
+Defined in: [src/util.ts:750](https://github.com/Xunnamius/symbiote/blob/520897b087b8e240c6e7c9236ad875776c29a907/src/util.ts#L750)
 
 ## Parameters
 
