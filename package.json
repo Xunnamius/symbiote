@@ -175,8 +175,8 @@
     "named-app-errors": "^4.0.2",
     "npm-check-updates": "^17.1.14",
     "prettier": "^3.5.1",
-    "rejoinder": "^1.2.4",
-    "rejoinder-github-actions": "^1.0.2",
+    "rejoinder": "^1.2.5",
+    "rejoinder-github-actions": "^1.0.3",
     "remark-capitalize-headings": "^2.0.1",
     "remark-cli": "^12.0.1",
     "remark-frontmatter": "^5.0.0",
@@ -239,7 +239,7 @@
   },
   "devDependencies": {
     "@-xun/common-dummies": "^1.0.4",
-    "@-xun/symbiote": "^3.1.0"
+    "@-xun/symbiote": "^3.1.2"
   },
   "engines": {
     "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
