@@ -1,11 +1,15 @@
+/* eslint-disable no-await-in-loop */
+import { symlink } from 'node:fs/promises';
 import { pathToFileURL } from 'node:url';
 
 import { CliError } from '@-xun/cli';
 import { LogTag, standardSuccessMessage } from '@-xun/cli/logging';
 import { scriptBasename } from '@-xun/cli/util';
-import { getCurrentWorkingDirectory, toAbsolutePath } from '@-xun/fs';
+import { getCurrentWorkingDirectory, toAbsolutePath, toPath } from '@-xun/fs';
 import { isAccessible, isRootPackage, postNpmInstallPackageBase } from '@-xun/project';
 import { runWithInheritedIo } from '@-xun/run';
+
+import { bundleDependencies } from 'rootverse:package.json';
 
 import { UnlimitedGlobalScope as PreparationScope } from 'universe:configure.ts';
 import { ErrorMessage } from 'universe:error.ts';
@@ -69,11 +73,12 @@ export default function command({
 
 1. If the runtime pre-checks fail, exit
 2. If executing in a CI or non-development environment and --force is not provided, exit
-3. If executing in a non-CI development environment and the current working directory is the project root, run \`npx husky\`
-4. If the npm_command environment variable is not "install" or "ci", exit
-5. If the current working directory contains a post-npm-install script, run that script
-6. If the current working directory IS NOT the project root, exit
-7. If the current working directory is the project root and the project is a monorepo, search each package root for a post-npm-install script and run them as they are encountered
+3. If the current working directory is the project root, symlink into node_modules any dependencies explicitly bundled with symbiote if those directories do not already exist
+4. If executing in a non-CI development environment and the current working directory is the project root, run \`npx husky\`
+5. If the npm_command environment variable is not "install" or "ci", exit
+6. If the current working directory contains a post-npm-install script, run that script
+7. If the current working directory IS NOT the project root, exit
+8. If the current working directory is the project root and the project is a monorepo, search each package root for a post-npm-install script and run them as they are encountered
 
 The same current working directory is shared by all tasks, and is equal to the current working directory at the time this command was executed.
 
@@ -177,30 +182,83 @@ This command runs all its tasks asynchronously and concurrently where possible. 
       const errors: [identifier: string, error: unknown][] = [];
       const tasks: ((shouldLogSuccess: boolean) => Promise<unknown>)[] = [];
 
-      if (shouldRunTasks && isCwdTheProjectRoot) {
-        tasks.push(async (shouldLogSuccess) => {
-          try {
-            genericLogger(
-              [LogTag.IF_NOT_HUSHED],
-              'Executing %O initialization task',
-              // {@symbiote/notExtraneous husky}
-              'husky'
+      if (isCwdTheProjectRoot) {
+        if (bundleDependencies.length) {
+          genericLogger(
+            [LogTag.IF_NOT_HUSHED],
+            "Potentially symlinking up to %O of symbiote's bundled dependencies into node_modules",
+            bundleDependencies.length
+          );
+
+          let didSymlinkBundledDependencies = false;
+
+          const nodeModulesPath = toPath(projectRoot, 'node_modules');
+          const bundledModulesPath = toPath(
+            nodeModulesPath,
+            '@-xun',
+            'symbiote',
+            'node_modules'
+          );
+
+          for (const packageName of bundleDependencies) {
+            const nodeModulesPackagePath = toPath(nodeModulesPath, packageName);
+            const symbiotePackagePath = toPath(bundledModulesPath, packageName);
+
+            debug(
+              'potential symlink: %O => %O',
+              nodeModulesPackagePath,
+              symbiotePackagePath
             );
 
-            await runWithInheritedIo('npx', ['husky'], { cwd: projectRoot });
-            debug('husky initialization was successful');
+            if (await isAccessible(nodeModulesPackagePath, { useCached: false })) {
+              debug.message('dependency symlink not created: path already exists');
+            } else {
+              didSymlinkBundledDependencies = true;
 
-            // ? This is here because we don't want one task to say "success!"
-            // ? while another poos the bed, especially when they are executed
-            // ? concurrently
-            // TODO: replace this horror with centralized task logging
-            if (shouldLogSuccess) {
-              genericLogger.message([LogTag.IF_NOT_QUIETED], 'Task execution succeeded');
+              await symlink(symbiotePackagePath, nodeModulesPackagePath, 'junction');
+
+              genericLogger(
+                [LogTag.IF_NOT_HUSHED],
+                'Installed dependency symlink: %O => %O',
+                nodeModulesPackagePath,
+                symbiotePackagePath
+              );
             }
-          } catch (error) {
-            errors.push(['husky executable', error]);
           }
-        });
+
+          if (!didSymlinkBundledDependencies) {
+            genericLogger([LogTag.IF_NOT_HUSHED], 'No dependency symlinks installed');
+          }
+        }
+
+        if (shouldRunTasks) {
+          tasks.push(async (shouldLogSuccess) => {
+            try {
+              genericLogger(
+                [LogTag.IF_NOT_HUSHED],
+                'Executing %O initialization task',
+                'husky'
+              );
+
+              // {@symbiote/notExtraneous husky}
+              await runWithInheritedIo('npx', ['husky'], { cwd: projectRoot });
+              debug('husky initialization was successful');
+
+              // ? This is here because we don't want one task to say "success!"
+              // ? while another poos the bed, especially when they are executed
+              // ? concurrently
+              // TODO: replace this horror with centralized task logging
+              if (shouldLogSuccess) {
+                genericLogger.message(
+                  [LogTag.IF_NOT_QUIETED],
+                  'Task execution succeeded'
+                );
+              }
+            } catch (error) {
+              errors.push(['husky executable', error]);
+            }
+          });
+        }
       }
 
       if (force || (isRunningNpmInstallCommand && shouldRunTasks)) {
@@ -301,7 +359,7 @@ This command runs all its tasks asynchronously and concurrently where possible. 
       // TODO: use this in eventual task-runner API factorization along with
       // TODO: what's in renovate, release, etc
 
-      debug.error('task count (any of which may be no-ops): %O', tasks.length);
+      debug.message('task count (any of which may be no-ops): %O', tasks.length);
 
       if (tasks.length) {
         // TODO: redesign to have centralized logging in these blocks
@@ -324,7 +382,7 @@ This command runs all its tasks asynchronously and concurrently where possible. 
           for (const task of tasks) {
             try {
               // ? Order matters
-              // eslint-disable-next-line no-await-in-loop
+
               await task(true);
             } catch (error) {
               if (runToCompletion) {
