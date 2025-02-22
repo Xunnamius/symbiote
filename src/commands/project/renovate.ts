@@ -294,7 +294,6 @@ export default function command(
   } = executionContext;
 
   const [builder, withGlobalHandler] = withGlobalBuilder<CustomCliArguments>({
-    hush: { default: true },
     scope: {
       choices: projectRenovateScopes,
       default: ProjectRenovateScope.Unlimited,
@@ -1834,6 +1833,7 @@ This renovation should be re-run each time a package is added to, or removed fro
 See the symbiote wiki documentation for more details on this command and all available assets.
 `,
     requiresForce: false,
+    implies: { hush: true },
     supportedScopes: [ProjectRenovateScope.Unlimited],
     subOptions: {
       'assets-preset': {
@@ -1902,7 +1902,6 @@ See the symbiote wiki documentation for more details on this command and all ava
 
       const {
         force,
-        hush: isHushed,
         silent: isSilenced,
         quiet: isQuieted,
         [$executionContext]: globalExecutionContext
@@ -2126,7 +2125,7 @@ See the symbiote wiki documentation for more details on this command and all ava
             scope: DefaultGlobalScope.Unlimited,
             silent: isSilenced,
             quiet: isQuieted,
-            hush: isHushed,
+            hush: true,
             renumberReferences: false,
             skipIgnored: true,
             skipUnknown: false,
@@ -2207,7 +2206,6 @@ See the symbiote wiki documentation for more details on this command and all ava
 
       const {
         scope,
-        hush: isHushed,
         silent: isSilenced,
         quiet: isQuieted,
         [$executionContext]: globalExecutionContext
@@ -2327,7 +2325,7 @@ See the symbiote wiki documentation for more details on this command and all ava
             files: [ourPackageJsonPath],
             silent: isSilenced,
             quiet: isQuieted,
-            hush: isHushed,
+            hush: true,
             renumberReferences: false,
             skipIgnored: false,
             skipUnknown: false,
