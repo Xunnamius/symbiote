@@ -8,7 +8,7 @@
 
 > **isGitReferenceMoreRecent**(`ref`, `moreRecentThan`): `Promise`\<`boolean`\>
 
-Defined in: [src/util.ts:1227](https://github.com/Xunnamius/symbiote/blob/4f71380506e8b2505a907d817794b6730bca4f95/src/util.ts#L1227)
+Defined in: [src/util.ts:1227](https://github.com/Xunnamius/symbiote/blob/9d125f863e55b05b020914ff4ddfee626423b9b7/src/util.ts#L1227)
 
 Returns `true` if `ref` is "more recent than" `moreRecentThan`.
 

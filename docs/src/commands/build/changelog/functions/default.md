@@ -8,7 +8,7 @@
 
 > **default**(`globalExecutionContext`): `Partial`\<`Configuration`\<[`CustomCliArguments`](../type-aliases/CustomCliArguments.md), [`GlobalExecutionContext`](../../../../configure/type-aliases/GlobalExecutionContext.md)\>\>
 
-Defined in: [src/commands/build/changelog.ts:139](https://github.com/Xunnamius/symbiote/blob/4f71380506e8b2505a907d817794b6730bca4f95/src/commands/build/changelog.ts#L139)
+Defined in: [src/commands/build/changelog.ts:139](https://github.com/Xunnamius/symbiote/blob/9d125f863e55b05b020914ff4ddfee626423b9b7/src/commands/build/changelog.ts#L139)
 
 ## Parameters
 
