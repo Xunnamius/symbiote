@@ -1,3 +1,5 @@
+/* eslint-disable no-await-in-loop */
+import assert from 'node:assert';
 import { mkdir, rename as renamePath, rm } from 'node:fs/promises';
 import path from 'node:path';
 import { setTimeout as delay } from 'node:timers/promises';
@@ -24,11 +26,12 @@ import {
   nextjsConfigProjectBase,
   packageJsonConfigPackageBase,
   ProjectAttribute,
+  readXPackageJsonAtRoot,
   Tsconfig,
   webpackConfigProjectBase
 } from '@-xun/project';
 
-import { run } from '@-xun/run';
+import { run, runWithInheritedIo } from '@-xun/run';
 import escapeStringRegexp from 'escape-string-regexp~4';
 import libsodium from 'libsodium-wrappers';
 import getInObject from 'lodash.get';
@@ -87,7 +90,9 @@ import type {
   ChildConfiguration
 } from '@-xun/cli';
 
-import type { Package } from '@-xun/project';
+import type { AbsolutePath } from '@-xun/fs';
+
+import type { Package, XPackageJson } from '@-xun/project';
 import type { RestEndpointMethodTypes } from '@octokit/rest' with { 'resolution-mode': 'import' };
 import type { ExtendedDebugger, ExtendedLogger } from 'rejoinder';
 import type { CamelCasedProperties, KeysOfUnion, Merge } from 'type-fest';
@@ -471,7 +476,6 @@ ${printRenovationTasks()}`,
         } else {
           for (const taskPromiseFunction of taskPromiseFunctions) {
             try {
-              // eslint-disable-next-line no-await-in-loop
               await taskPromiseFunction();
             } catch (error) {
               if (runToCompletion) {
@@ -1176,7 +1180,6 @@ By default, this command will preserve the origin repository's pre-existing conf
 
         for (const subtaskPromiseFunction of subtaskPromiseFunctions) {
           try {
-            // eslint-disable-next-line no-await-in-loop
             await subtaskPromiseFunction();
           } catch (error) {
             firstError ||= error;
@@ -2270,11 +2273,11 @@ See the symbiote wiki documentation for more details on this command and all ava
     actionDescription: 'Launching interactive dependency check for latest versions',
     shortHelpDescription: 'Interactively update dependencies in package.json',
     longHelpDescription:
-      'This renovation allows the user to interactively select and update dependencies in package.json files belong to packages across the entire project (depending on --scope). Each updated dependency will generate either a chore-type commit (for package.json::devDependency updates) or a build-type commit (for any other kind of dependency in package.json) with a short simple commit message tailored to the dependency being updated.',
+      'This renovation allows the user to interactively select and update dependencies in package.json files belong to packages across the entire project (depending on --scope). Each updated dependency will generate either a chore-type commit (for package.json::devDependency updates) or a build-type commit (for any other kind of dependency in package.json) with a short simple commit message tailored to the dependency being updated. Afterwards, "npm install --force" will be executed and the resulting package-lock.json committed.',
     requiresForce: false,
-    // ? This renovation can only be run when no other tasks given
     supportedScopes: projectRenovateScopes,
     subOptions: {},
+    // ? This renovation can only be run when no other tasks given
     check: function (currentArgumentValue, argv) {
       return (
         !currentArgumentValue ||
@@ -2284,14 +2287,177 @@ See the symbiote wiki documentation for more details on this command and all ava
         ErrorMessage.OptionValueMustBeAlone('update-dependencies', 'renovation')
       );
     } as RenovationTask['check'],
-    async run(argv_, { log }) {
+    async run(argv_, { log, debug }) {
       const argv = argv_ as RenovationTaskArgv;
+      const {
+        scope,
+        [$executionContext]: { projectMetadata }
+      } = argv;
 
-      // TODO:
-      void argv;
-      log.message([LogTag.IF_NOT_SILENCED], `✖️ This task is currently a no-op (todo)`);
+      hardAssert(projectMetadata, ErrorMessage.GuruMeditation());
+
+      const { cwdPackage, rootPackage, subRootPackages } = projectMetadata;
+      const { root: projectRoot } = rootPackage;
+
+      const targetPackages =
+        scope === DefaultGlobalScope.Unlimited
+          ? [rootPackage, ...(subRootPackages?.all || [])]
+          : [cwdPackage];
+
+      for (const { json: oldJson_, root } of targetPackages) {
+        // ? We'll be doing some light modifying
+        const oldJson = structuredClone(oldJson_);
+        const jsonPath = toPath(root, packageJsonConfigPackageBase);
+
+        const {
+          dependencies: oldDependencies,
+          devDependencies: oldDevelopmentDependencies
+        } = oldJson;
+
+        log.newline([LogTag.IF_NOT_QUIETED]);
+
+        await runWithInheritedIo('npx', [
+          'npm-check-updates',
+          '--interactive',
+          '--dep=dev,prod',
+          '--packageFile',
+          jsonPath
+        ]);
+
+        const {
+          dependencies: updatedDependencies,
+          devDependencies: updatedDevelopmentDependencies
+        } = await readXPackageJsonAtRoot(root, { useCached: false });
+
+        const changedDependencies = setToPackageNames(
+          depsToSet(oldDependencies).difference(depsToSet(updatedDependencies))
+        );
+
+        const changedDevelopmentDependencies = setToPackageNames(
+          depsToSet(oldDevelopmentDependencies).difference(
+            depsToSet(updatedDevelopmentDependencies)
+          )
+        );
+
+        debug('oldDependencies: %O', oldDependencies);
+        debug('oldDevelopmentDependencies: %O', oldDevelopmentDependencies);
+
+        debug('updatedDependencies: %O', updatedDependencies);
+        debug('updatedDevelopmentDependencies: %O', updatedDevelopmentDependencies);
+
+        debug('changedDependencies: %O', changedDependencies);
+        debug('changedDevelopmentDependencies: %O', changedDevelopmentDependencies);
+
+        if (changedDependencies.length) {
+          await commitUpdates(
+            'production',
+            jsonPath,
+            oldJson,
+            updatedDependencies,
+            changedDependencies
+          );
+        } else {
+          log([LogTag.IF_NOT_QUIETED], '(no production dependencies were updated)');
+        }
+
+        if (changedDevelopmentDependencies.length) {
+          await commitUpdates(
+            'development',
+            jsonPath,
+            oldJson,
+            updatedDevelopmentDependencies,
+            changedDevelopmentDependencies
+          );
+        } else {
+          log([LogTag.IF_NOT_QUIETED], '(no development dependencies were updated)');
+        }
+      }
+
+      log.newline([LogTag.IF_NOT_QUIETED]);
+      log.message([LogTag.IF_NOT_QUIETED], 'Installing updates...');
+      log.newline([LogTag.IF_NOT_QUIETED]);
+
+      await runWithInheritedIo('npm', ['install', '--force'], { cwd: projectRoot });
+
+      const jsonLockPath = toPath(projectRoot, 'package-lock.json');
+
+      log.newline([LogTag.IF_NOT_QUIETED]);
+      log.message([LogTag.IF_NOT_QUIETED], 'Committing %O...', jsonLockPath);
+      log.newline([LogTag.IF_NOT_QUIETED]);
+
+      await runWithInheritedIo('git', ['add', jsonLockPath]);
+      await runWithInheritedIo('git', [
+        'commit',
+        '--no-verify',
+        '-m',
+        `chore(package): update package-lock.json`
+      ]);
+
+      log.newline([LogTag.IF_NOT_SILENCED]);
+      log.warn(
+        [LogTag.IF_NOT_SILENCED],
+        "⚠️ At this point, you should consider running this project's tests against the newly installed dependencies"
+      );
+
+      log.newline([LogTag.IF_NOT_SILENCED]);
+
       // ? Typescript wants this here because of our "as const" for some reason
       return undefined;
+
+      // eslint-disable-next-line @typescript-eslint/no-duplicate-type-constituents
+      type Deps = XPackageJson['dependencies'] | XPackageJson['devDependencies'];
+
+      function depsToSet(deps: Deps = {}): Set<string> {
+        return new Set(
+          Object.entries(deps).map(
+            ([package_, semver]) => `${package_} ${semver || 'latest'}`
+          )
+        );
+      }
+
+      function setToPackageNames(set: Set<string>): string[] {
+        return set
+          .values()
+          .map((value) => value.split(' ')[0]!)
+          .toArray();
+      }
+
+      async function commitUpdates(
+        type: 'production' | 'development',
+        jsonPath: AbsolutePath,
+        oldJson: XPackageJson,
+        updatedDeps: Deps = {},
+        changedDeps: string[]
+      ) {
+        const depTarget = type === 'production' ? 'dependencies' : 'devDependencies';
+        const commitType = type === 'production' ? 'build' : 'chore';
+        const commitScope = type === 'production' ? 'deps' : 'deps-dev';
+        const oldDeps = oldJson[depTarget] || {};
+
+        assert(oldJson[depTarget], ErrorMessage.GuruMeditation());
+
+        for (const packageName of changedDeps) {
+          const oldDep = oldDeps[packageName];
+          const updatedDep = updatedDeps[packageName];
+
+          assert(oldDep, ErrorMessage.GuruMeditation());
+          assert(updatedDep, ErrorMessage.GuruMeditation());
+
+          const oldDepVersion = semver.coerce(oldDep)?.version || oldDep;
+          const updatedDepVersion = semver.coerce(updatedDep)?.version || updatedDep;
+
+          oldJson[depTarget][packageName] = updatedDep;
+
+          await writeFile(jsonPath, JSON.stringify(oldJson, undefined, 2));
+          await runWithInheritedIo('git', ['add', jsonPath]);
+          await runWithInheritedIo('git', [
+            'commit',
+            '--no-verify',
+            '-m',
+            `${commitType}(${commitScope}): bump ${packageName} from ${oldDepVersion} to ${updatedDepVersion}`
+          ]);
+        }
+      }
     }
   },
   'synchronize-interdependencies': {
@@ -2556,7 +2722,6 @@ async function createAliasTags(
         if (shouldCreateNewAliasTag) {
           const {
             stdout: [oldTagCommitterDate]
-            // eslint-disable-next-line no-await-in-loop
           } = await run('git', ['show', `${oldTag}^{}`, '--format=%aD'], {
             lines: true
           });
@@ -2565,7 +2730,6 @@ async function createAliasTags(
           softAssert(oldTagCommitterDate, ErrorMessage.GuruMeditation());
           debug.message('creating new tag %O that aliases %O', aliasTag, oldTag);
 
-          // eslint-disable-next-line no-await-in-loop
           await run(
             'git',
             ['tag', '-m', `alias => ${oldTag}`, aliasTag, `${oldTag}^{}`],
