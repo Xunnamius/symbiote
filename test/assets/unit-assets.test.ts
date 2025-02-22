@@ -722,7 +722,7 @@ describe('::gatherAssetsFromTransformer', () => {
           dependencies: { a: '1' },
           devDependencies: { b: '2' },
           peerDependencies: { c: '3' },
-          bundledDependencies: ['d'],
+          bundleDependencies: ['d'],
           optionalDependencies: { e: '5' }
         };
 

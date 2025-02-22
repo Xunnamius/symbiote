@@ -522,7 +522,7 @@ export const { transformer } = makeTransformer(function (context) {
                 : {}),
               ...(packageJson.bundleDependencies || packageJson.bundledDependencies
                 ? {
-                    bundledDependencies: Array.from(
+                    bundleDependencies: Array.from(
                       new Set(
                         (packageJson.bundleDependencies || []).concat(
                           packageJson.bundledDependencies || []
