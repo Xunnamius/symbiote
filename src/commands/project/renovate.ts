@@ -2303,6 +2303,8 @@ See the symbiote wiki documentation for more details on this command and all ava
           ? [rootPackage, ...(subRootPackages?.all || [])]
           : [cwdPackage];
 
+      let didUpdateDependencies = false;
+
       for (const { json: oldJson_, root } of targetPackages) {
         // ? We'll be doing some light modifying
         const oldJson = structuredClone(oldJson_);
@@ -2348,6 +2350,7 @@ See the symbiote wiki documentation for more details on this command and all ava
         debug('changedDevelopmentDependencies: %O', changedDevelopmentDependencies);
 
         if (changedDependencies.length) {
+          didUpdateDependencies = true;
           await commitUpdates(
             'production',
             jsonPath,
@@ -2360,6 +2363,7 @@ See the symbiote wiki documentation for more details on this command and all ava
         }
 
         if (changedDevelopmentDependencies.length) {
+          didUpdateDependencies = true;
           await commitUpdates(
             'development',
             jsonPath,
@@ -2372,31 +2376,33 @@ See the symbiote wiki documentation for more details on this command and all ava
         }
       }
 
-      log.newline([LogTag.IF_NOT_QUIETED]);
-      log.message([LogTag.IF_NOT_QUIETED], 'Installing updates...');
-      log.newline([LogTag.IF_NOT_QUIETED]);
+      if (didUpdateDependencies) {
+        log.newline([LogTag.IF_NOT_QUIETED]);
+        log.message([LogTag.IF_NOT_QUIETED], 'Installing updates...');
+        log.newline([LogTag.IF_NOT_QUIETED]);
 
-      await runWithInheritedIo('npm', ['install', '--force'], { cwd: projectRoot });
+        await runWithInheritedIo('npm', ['install', '--force'], { cwd: projectRoot });
 
-      const jsonLockPath = toPath(projectRoot, 'package-lock.json');
+        const jsonLockPath = toPath(projectRoot, 'package-lock.json');
 
-      log.newline([LogTag.IF_NOT_QUIETED]);
-      log.message([LogTag.IF_NOT_QUIETED], 'Committing %O...', jsonLockPath);
-      log.newline([LogTag.IF_NOT_QUIETED]);
+        log.newline([LogTag.IF_NOT_QUIETED]);
+        log.message([LogTag.IF_NOT_QUIETED], 'Committing %O...', jsonLockPath);
+        log.newline([LogTag.IF_NOT_QUIETED]);
 
-      await runWithInheritedIo('git', ['add', jsonLockPath]);
-      await runWithInheritedIo('git', [
-        'commit',
-        '--no-verify',
-        '-m',
-        `chore(package): update package-lock.json`
-      ]);
+        await runWithInheritedIo('git', ['add', jsonLockPath]);
+        await runWithInheritedIo('git', [
+          'commit',
+          '--no-verify',
+          '-m',
+          `chore(package): update package-lock.json`
+        ]);
 
-      log.newline([LogTag.IF_NOT_SILENCED]);
-      log.warn(
-        [LogTag.IF_NOT_SILENCED],
-        "⚠️ At this point, you should consider running this project's tests against the newly installed dependencies"
-      );
+        log.newline([LogTag.IF_NOT_SILENCED]);
+        log.warn(
+          [LogTag.IF_NOT_SILENCED],
+          "⚠️ At this point, you should consider running this project's tests against the newly installed dependencies"
+        );
+      }
 
       log.newline([LogTag.IF_NOT_SILENCED]);
 
