@@ -8,7 +8,7 @@
 
 > **GlobalCliArguments**\<`Scope`\>: `StandardCommonCliArguments` & `object`
 
-Defined in: [src/configure.ts:124](https://github.com/Xunnamius/symbiote/blob/e3c8f9ab2680e6eaa30465c77954050484c7c41e/src/configure.ts#L124)
+Defined in: [src/configure.ts:124](https://github.com/Xunnamius/symbiote/blob/3911bb5748d7ecd905ce3bbd9106aa0ea0787160/src/configure.ts#L124)
 
 These properties will be available in the `argv` object of any command that
 uses [withGlobalBuilder](../../util/functions/withGlobalBuilder.md) to construct its `builder`.
