@@ -494,10 +494,13 @@ ${printRenovationTasks()}`,
         genericLogger.newline([LogTag.IF_NOT_QUIETED]);
       }
 
+      if (regenerateAssets) {
       genericLogger.message(
         [LogTag.IF_NOT_QUIETED],
-        'Consider running the following to fixup node_modules and package-lock.json:'
+          'Consider running one of the following to fixup node_modules and package-lock.json:'
       );
+
+        genericLogger.message([LogTag.IF_NOT_QUIETED], `${SHORT_TAB}npm update`);
 
       genericLogger.message(
         [LogTag.IF_NOT_QUIETED],
@@ -505,6 +508,8 @@ ${printRenovationTasks()}`,
       );
 
       genericLogger.newline([LogTag.IF_NOT_QUIETED]);
+      }
+
       genericLogger([LogTag.IF_NOT_QUIETED], standardSuccessMessage);
     })
   };
