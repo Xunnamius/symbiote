@@ -8,7 +8,7 @@
 
 > `const` **renovationTasks**: `object`
 
-Defined in: [src/commands/project/renovate.ts:750](https://github.com/Xunnamius/symbiote/blob/b809268e30856c31f49ff4f21b64fdeab8d49e28/src/commands/project/renovate.ts#L750)
+Defined in: [src/commands/project/renovate.ts:765](https://github.com/Xunnamius/symbiote/blob/cfd701ad0628c5e146048c1316e66e821d0bb3c4/src/commands/project/renovate.ts#L765)
 
 ## Type declaration
 
@@ -1921,6 +1921,14 @@ BfeBuilderObjectValueExtensions.implies
 
 > `readonly` **emoji**: `"♻️"` = `'♻️'`
 
+#### regenerate-assets.implies
+
+> `readonly` **implies**: `object`
+
+#### regenerate-assets.implies.hush
+
+> `readonly` **hush**: `true` = `true`
+
 #### regenerate-assets.longHelpDescription
 
 > `readonly` **longHelpDescription**: `` `
@@ -2621,7 +2629,7 @@ BfeBuilderObjectValueExtensions.implies
 
 #### update-dependencies.longHelpDescription
 
-> `readonly` **longHelpDescription**: `"This renovation allows the user to interactively select and update dependencies in package.json files belong to packages across the entire project (depending on --scope). Each updated dependency will generate either a chore-type commit (for package.json::devDependency updates) or a build-type commit (for any other kind of dependency in package.json) with a short simple commit message tailored to the dependency being updated."` = `'This renovation allows the user to interactively select and update dependencies in package.json files belong to packages across the entire project (depending on --scope). Each updated dependency will generate either a chore-type commit (for package.json::devDependency updates) or a build-type commit (for any other kind of dependency in package.json) with a short simple commit message tailored to the dependency being updated.'`
+> `readonly` **longHelpDescription**: "This renovation allows the user to interactively select and update dependencies in package.json files belong to packages across the entire project (depending on --scope). Each updated dependency will generate either a chore-type commit (for package.json::devDependency updates) or a build-type commit (for any other kind of dependency in package.json) with a short simple commit message tailored to the dependency being updated. Afterwards, \"npm install --force\" will be executed and the resulting package-lock.json committed." = `'This renovation allows the user to interactively select and update dependencies in package.json files belong to packages across the entire project (depending on --scope). Each updated dependency will generate either a chore-type commit (for package.json::devDependency updates) or a build-type commit (for any other kind of dependency in package.json) with a short simple commit message tailored to the dependency being updated. Afterwards, "npm install --force" will be executed and the resulting package-lock.json committed.'`
 
 #### update-dependencies.requiresForce
 

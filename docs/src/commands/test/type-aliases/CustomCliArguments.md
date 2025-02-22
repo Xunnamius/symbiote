@@ -8,7 +8,7 @@
 
 > **CustomCliArguments**: [`GlobalCliArguments`](../../../configure/type-aliases/GlobalCliArguments.md)\<[`TesterScope`](TesterScope.md)\> & `object`
 
-Defined in: [src/commands/test.ts:116](https://github.com/Xunnamius/symbiote/blob/b809268e30856c31f49ff4f21b64fdeab8d49e28/src/commands/test.ts#L116)
+Defined in: [src/commands/test.ts:116](https://github.com/Xunnamius/symbiote/blob/cfd701ad0628c5e146048c1316e66e821d0bb3c4/src/commands/test.ts#L116)
 
 ## Type declaration
 

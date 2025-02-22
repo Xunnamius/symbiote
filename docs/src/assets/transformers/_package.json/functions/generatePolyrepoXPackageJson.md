@@ -8,7 +8,7 @@
 
 > **generatePolyrepoXPackageJson**(...`__namedParameters`): `object`
 
-Defined in: [src/assets/transformers/\_package.json.ts:195](https://github.com/Xunnamius/symbiote/blob/b809268e30856c31f49ff4f21b64fdeab8d49e28/src/assets/transformers/_package.json.ts#L195)
+Defined in: [src/assets/transformers/\_package.json.ts:195](https://github.com/Xunnamius/symbiote/blob/cfd701ad0628c5e146048c1316e66e821d0bb3c4/src/assets/transformers/_package.json.ts#L195)
 
 ## Parameters
 
@@ -748,7 +748,7 @@ tests across the entire project.
 
 #### scripts.test:packages:all:unit
 
-> **test:packages:all:unit**: `"symbiote test --env NODE_NO_WARNINGS=1 --tests unit --scope unlimited --coverage"`
+> **test:packages:all:unit**: `"symbiote test --env NODE_NO_WARNINGS=1 --tests unit type --scope unlimited --coverage"`
 
 #### scripts.uninstall?
 
