@@ -94,7 +94,7 @@
     "test:package:integration": "./node_modules/@-xun/symbiote/dist/src/cli.js test --env NODE_NO_WARNINGS=1 --tests integration",
     "test:package:unit": "./node_modules/@-xun/symbiote/dist/src/cli.js test --env NODE_NO_WARNINGS=1 --tests unit",
     "test:packages:all": "./node_modules/@-xun/symbiote/dist/src/cli.js test --env NODE_NO_WARNINGS=1 --scope unlimited --env NODE_NO_WARNINGS=1 --coverage",
-    "test:packages:all:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit --scope unlimited --coverage"
+    "test:packages:all:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit type --scope unlimited --coverage"
   },
   "dependencies": {
     "@-xun/changelog": "^1.0.2",
