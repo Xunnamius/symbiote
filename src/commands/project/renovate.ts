@@ -2453,7 +2453,7 @@ See the symbiote wiki documentation for more details on this command and all ava
 
           oldJson[depTarget][packageName] = updatedDep;
 
-          await writeFile(jsonPath, JSON.stringify(oldJson, undefined, 2));
+          await writeFile(jsonPath, JSON.stringify(oldJson, undefined, 2) + '\n');
           await runWithInheritedIo('git', ['add', jsonPath]);
           await runWithInheritedIo('git', [
             'commit',
