@@ -8,7 +8,7 @@
 
 > `const` **default**: `object`
 
-Defined in: [types/eslint-plugin-unicorn.d.ts:5](https://github.com/Xunnamius/symbiote/blob/9d125f863e55b05b020914ff4ddfee626423b9b7/types/eslint-plugin-unicorn.d.ts#L5)
+Defined in: [types/eslint-plugin-unicorn.d.ts:5](https://github.com/Xunnamius/symbiote/blob/e3c8f9ab2680e6eaa30465c77954050484c7c41e/types/eslint-plugin-unicorn.d.ts#L5)
 
 ## Type declaration
 

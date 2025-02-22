@@ -8,7 +8,7 @@
 
 > **default**(`__namedParameters`): `Partial`\<`Configuration`\<[`CustomCliArguments`](../type-aliases/CustomCliArguments.md), [`GlobalExecutionContext`](../../../../configure/type-aliases/GlobalExecutionContext.md)\>\>
 
-Defined in: [src/commands/project/topology.ts:56](https://github.com/Xunnamius/symbiote/blob/9d125f863e55b05b020914ff4ddfee626423b9b7/src/commands/project/topology.ts#L56)
+Defined in: [src/commands/project/topology.ts:56](https://github.com/Xunnamius/symbiote/blob/e3c8f9ab2680e6eaa30465c77954050484c7c41e/src/commands/project/topology.ts#L56)
 
 ## Parameters
 

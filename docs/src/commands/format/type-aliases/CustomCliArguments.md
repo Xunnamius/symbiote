@@ -8,7 +8,7 @@
 
 > **CustomCliArguments**: [`GlobalCliArguments`](../../../configure/type-aliases/GlobalCliArguments.md) & `object`
 
-Defined in: [src/commands/format.ts:36](https://github.com/Xunnamius/symbiote/blob/9d125f863e55b05b020914ff4ddfee626423b9b7/src/commands/format.ts#L36)
+Defined in: [src/commands/format.ts:36](https://github.com/Xunnamius/symbiote/blob/e3c8f9ab2680e6eaa30465c77954050484c7c41e/src/commands/format.ts#L36)
 
 ## Type declaration
 

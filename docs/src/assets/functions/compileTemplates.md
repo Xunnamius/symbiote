@@ -8,7 +8,7 @@
 
 > **compileTemplates**(`templates`, `context`): `Promise`\<[`Asset`](../type-aliases/Asset.md)[]\>
 
-Defined in: [src/assets.ts:510](https://github.com/Xunnamius/symbiote/blob/9d125f863e55b05b020914ff4ddfee626423b9b7/src/assets.ts#L510)
+Defined in: [src/assets.ts:510](https://github.com/Xunnamius/symbiote/blob/e3c8f9ab2680e6eaa30465c77954050484c7c41e/src/assets.ts#L510)
 
 This function takes an object of absolute path keys with relative path
 values; each pair represents an output path and an input path relative to the

@@ -8,7 +8,7 @@
 
 > **CustomCliArguments**: [`GlobalCliArguments`](../../../../configure/type-aliases/GlobalCliArguments.md) & `object` & `CamelCasedProperties`\<`Record`\<keyof *typeof* [`renovationTasks`](../variables/renovationTasks.md), `boolean`\> & `Partial`\<`Record`\<`KeysOfUnion`\<*typeof* [`renovationTasks`](../variables/renovationTasks.md)\[keyof *typeof* [`renovationTasks`](../variables/renovationTasks.md)\]\[`"subOptions"`\]\>, `unknown`\>\>\>
 
-Defined in: [src/commands/project/renovate.ts:274](https://github.com/Xunnamius/symbiote/blob/9d125f863e55b05b020914ff4ddfee626423b9b7/src/commands/project/renovate.ts#L274)
+Defined in: [src/commands/project/renovate.ts:274](https://github.com/Xunnamius/symbiote/blob/e3c8f9ab2680e6eaa30465c77954050484c7c41e/src/commands/project/renovate.ts#L274)
 
 ## Type declaration
 

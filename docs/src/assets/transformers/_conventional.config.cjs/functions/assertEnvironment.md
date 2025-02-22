@@ -8,7 +8,7 @@
 
 > **assertEnvironment**(): `Omit`\<\{ `configOverrides`: (`config`) => `XchangelogConfig` \| `Partial`\<`XchangelogConfig`\>; `projectMetadata`: `ProjectMetadata`; `specialInitialCommit`: `string`; \}, `"configOverrides"`\>
 
-Defined in: [src/assets/transformers/\_conventional.config.cjs.ts:346](https://github.com/Xunnamius/symbiote/blob/9d125f863e55b05b020914ff4ddfee626423b9b7/src/assets/transformers/_conventional.config.cjs.ts#L346)
+Defined in: [src/assets/transformers/\_conventional.config.cjs.ts:346](https://github.com/Xunnamius/symbiote/blob/e3c8f9ab2680e6eaa30465c77954050484c7c41e/src/assets/transformers/_conventional.config.cjs.ts#L346)
 
 ## Returns
 

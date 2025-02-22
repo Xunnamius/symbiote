@@ -8,7 +8,7 @@
 
 > `const` **reactAssetPresets**: (`undefined` \| [`AssetPreset`](../enumerations/AssetPreset.md))[]
 
-Defined in: [src/assets.ts:149](https://github.com/Xunnamius/symbiote/blob/9d125f863e55b05b020914ff4ddfee626423b9b7/src/assets.ts#L149)
+Defined in: [src/assets.ts:149](https://github.com/Xunnamius/symbiote/blob/e3c8f9ab2680e6eaa30465c77954050484c7c41e/src/assets.ts#L149)
 
 The presets for react and react-based projects (such as
 [AssetPreset.Cli](../enumerations/AssetPreset.md#cli)). Also includes `undefined`, signifying a lack of

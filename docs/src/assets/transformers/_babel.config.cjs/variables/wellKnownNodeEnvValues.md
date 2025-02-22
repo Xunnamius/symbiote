@@ -8,6 +8,6 @@
 
 > `const` **wellKnownNodeEnvValues**: readonly \[`"development"`, `"test"`, `"production-esm"`, `"production-cjs"`, `"production-types"`\]
 
-Defined in: [src/assets/transformers/\_babel.config.cjs.ts:90](https://github.com/Xunnamius/symbiote/blob/9d125f863e55b05b020914ff4ddfee626423b9b7/src/assets/transformers/_babel.config.cjs.ts#L90)
+Defined in: [src/assets/transformers/\_babel.config.cjs.ts:90](https://github.com/Xunnamius/symbiote/blob/e3c8f9ab2680e6eaa30465c77954050484c7c41e/src/assets/transformers/_babel.config.cjs.ts#L90)
 
 An array of NODE_ENV values recognized by this configuration file.

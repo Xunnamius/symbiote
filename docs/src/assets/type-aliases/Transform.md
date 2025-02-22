@@ -8,7 +8,7 @@
 
 > **Transform**: (`this`, `context`) => `Promisable`\<[`Asset`](Asset.md)[]\>
 
-Defined in: [src/assets.ts:163](https://github.com/Xunnamius/symbiote/blob/9d125f863e55b05b020914ff4ddfee626423b9b7/src/assets.ts#L163)
+Defined in: [src/assets.ts:163](https://github.com/Xunnamius/symbiote/blob/e3c8f9ab2680e6eaa30465c77954050484c7c41e/src/assets.ts#L163)
 
 An input function that accepts a [TransformerContext](TransformerContext.md) and returns one
 or more [Asset](Asset.md)s.
