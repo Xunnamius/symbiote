@@ -1,5 +1,6 @@
 import { mkdir, rename as renamePath, rm } from 'node:fs/promises';
 import path from 'node:path';
+import { setTimeout as delay } from 'node:timers/promises';
 
 import { CliError, getInvocableExtendedHandler } from '@-xun/cli';
 import { hardAssert, softAssert } from '@-xun/cli/error';
@@ -341,7 +342,14 @@ ${printRenovationTasks()}`,
       { appendPeriod: false }
     ),
     handler: withGlobalHandler(async function (argv) {
-      const { $0: scriptFullName, scope, parallel, force, runToCompletion } = argv;
+      const {
+        $0: scriptFullName,
+        scope,
+        parallel,
+        force,
+        runToCompletion,
+        regenerateAssets
+      } = argv;
 
       const handlerName = scriptBasename(scriptFullName);
       const genericLogger = standardLog.extend(handlerName);
@@ -495,19 +503,19 @@ ${printRenovationTasks()}`,
       }
 
       if (regenerateAssets) {
-      genericLogger.message(
-        [LogTag.IF_NOT_QUIETED],
+        genericLogger.message(
+          [LogTag.IF_NOT_QUIETED],
           'Consider running one of the following to fixup node_modules and package-lock.json:'
-      );
+        );
 
         genericLogger.message([LogTag.IF_NOT_QUIETED], `${SHORT_TAB}npm update`);
 
-      genericLogger.message(
-        [LogTag.IF_NOT_QUIETED],
-        `${SHORT_TAB}rm -rf node_modules package-lock.json && npm install`
-      );
+        genericLogger.message(
+          [LogTag.IF_NOT_QUIETED],
+          `${SHORT_TAB}rm -rf node_modules package-lock.json && npm install`
+        );
 
-      genericLogger.newline([LogTag.IF_NOT_QUIETED]);
+        genericLogger.newline([LogTag.IF_NOT_QUIETED]);
       }
 
       genericLogger([LogTag.IF_NOT_QUIETED], standardSuccessMessage);
@@ -1569,13 +1577,106 @@ npm deprecate '${oldRootPackageName}' 'This package has been superseded by \`${u
     conflicts: conflictingUpstreamRenovationTasks.filter(
       (o) => !o['github-pause-rulesets']
     ),
-    async run(argv_, { log }) {
+    async run(argv_, { log, debug }) {
       const argv = argv_ as RenovationTaskArgv;
       checkRuntimeIsReadyForGithub(argv, log);
 
-      // * Since "this-package" is not supported, we can't use cwdPackage
-      // TODO: countdown, press any key to unpause immediately
-      log.message([LogTag.IF_NOT_SILENCED], `✖️ This task is currently a no-op (todo)`);
+      const {
+        [$executionContext]: { projectMetadata }
+      } = argv;
+
+      hardAssert(projectMetadata, ErrorMessage.GuruMeditation());
+
+      const {
+        // * Since "this-package" is not supported, we can't use cwdPackage
+        rootPackage
+      } = projectMetadata;
+
+      const github = await makeOctokit({ debug, log });
+      const ownerAndRepo = parsePackageJsonRepositoryIntoOwnerAndRepo(rootPackage.json);
+
+      const allRulesetIds: number[] = [];
+      const disabledRulesetIds: number[] = [];
+      const rulesets = await github.paginate(github.repos.getRepoRulesets, {
+        ...ownerAndRepo
+      });
+
+      await Promise.all(
+        rulesets.map(async ({ name, id, enforcement }) => {
+          allRulesetIds.push(id);
+
+          if (enforcement === 'active') {
+            await github.repos.updateRepoRuleset({
+              ...ownerAndRepo,
+              ruleset_id: id,
+              enforcement: 'disabled'
+            });
+
+            disabledRulesetIds.push(id);
+            log([LogTag.IF_NOT_HUSHED], 'Disabled ruleset %O (%O)', id, name);
+          } else {
+            log.message(
+              [LogTag.IF_NOT_HUSHED],
+              'Skipped updating ruleset %O (%O): it is already disabled',
+              id,
+              name
+            );
+          }
+        })
+      );
+
+      log(
+        [LogTag.IF_NOT_SILENCED],
+        `All rulesets disabled for %O minutes`,
+        RULESET_PROTECTION_PAUSE_MINUTES
+      );
+
+      if (!disabledRulesetIds.length) {
+        log.message(
+          [LogTag.IF_NOT_SILENCED],
+          'All rulesets were already disabled before symbiote was invoked\nTherefore, ALL RULESETS will be "re-enabled"!'
+        );
+      }
+
+      process.stdout.write(
+        `\n${SHORT_TAB}Press any key to re-enable them immediately...\n\n`
+      );
+
+      const abortController = new AbortController();
+      const handler = () => abortController.abort();
+
+      process.stdin.setRawMode(true);
+      process.stdin.resume();
+      process.stdin.once('data', handler);
+
+      await delay(RULESET_PROTECTION_PAUSE_MINUTES * 60 * 1000, undefined, {
+        signal: abortController.signal
+      }).catch(() => undefined);
+
+      process.stdin.removeListener('data', handler);
+      process.stdin.setRawMode(false);
+      process.stdin.pause();
+
+      const targetRulesets = disabledRulesetIds.length
+        ? disabledRulesetIds
+        : allRulesetIds;
+
+      log([LogTag.IF_NOT_SILENCED], 'Re-enabling %O rulesets', targetRulesets.length);
+
+      await Promise.all(
+        targetRulesets.map(async (id) => {
+          await github.repos.updateRepoRuleset({
+            ...ownerAndRepo,
+            ruleset_id: id,
+            enforcement: 'active'
+          });
+
+          log([LogTag.IF_NOT_HUSHED], 'Re-enabled ruleset %O', id);
+        })
+      );
+
+      log([LogTag.IF_NOT_SILENCED], `Rulesets re-enabled!`);
+
       // ? Typescript wants this here because of our "as const" for some reason
       return undefined;
     }
