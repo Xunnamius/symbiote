@@ -265,7 +265,7 @@ The default value for --exclude-paths includes the following regular expressions
           genericLogger([LogTag.IF_NOT_HUSHED], 'Performing deletions...');
           await forceDeletePaths(deletionTargets.map(([realPath]) => realPath));
         } else {
-          genericLogger([LogTag.IF_NOT_HUSHED], 'Nothing to delete 🙂');
+          genericLogger([LogTag.IF_NOT_QUIETED], 'Nothing to delete 🙂');
         }
       }
     })
