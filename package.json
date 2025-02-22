@@ -256,6 +256,7 @@
     "remark-lint-fenced-code-flag-case",
     "remark-lint-heading-word-length",
     "remark-lint-list-item-style",
+    "remark-reference-links",
     "remark-remove-unused-definitions",
     "remark-remove-url-trailing-slash",
     "remark-renumber-references",
