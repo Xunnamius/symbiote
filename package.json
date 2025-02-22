@@ -240,6 +240,28 @@
     "@-xun/common-dummies": "^1.0.4",
     "@-xun/symbiote": "^3.1.4"
   },
+  "bundleDependencies": [
+    "@-xun/changelog",
+    "@-xun/cli",
+    "@-xun/fs",
+    "@-xun/jest",
+    "@-xun/memoize",
+    "@-xun/project",
+    "@-xun/run",
+    "bidirectional-resolve",
+    "rejoinder",
+    "rejoinder-github-actions",
+    "remark-capitalize-headings",
+    "remark-ignore",
+    "remark-lint-fenced-code-flag-case",
+    "remark-lint-heading-word-length",
+    "remark-lint-list-item-style",
+    "remark-remove-unused-definitions",
+    "remark-remove-url-trailing-slash",
+    "remark-renumber-references",
+    "remark-sort-definitions",
+    "remark-tight-comments"
+  ],
   "engines": {
     "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
   },
