@@ -505,7 +505,7 @@ function doCoreJsVersionChecksAndReturnHardcodedVersion({
   const {
     name: packageName,
     dependencies: { 'core-js': cwdPackageCoreJsDependency_ } = {}
-  } = readXPackageJsonAtRoot.sync(packageRoot, { useCached: true, try: true });
+  } = readXPackageJsonAtRoot.sync(packageRoot, { useCached: true });
 
   const cwdPackageCoreJsDependency =
     semver.validRange(cwdPackageCoreJsDependency_) || undefined;
