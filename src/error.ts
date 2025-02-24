@@ -1,3 +1,5 @@
+import { isNativeError } from 'node:util/types';
+
 import { CliErrorMessage as UpstreamErrorMessage } from '@-xun/cli/error';
 import { isProjectError, ProjectError } from '@-xun/project/error';
 import { makeNamedError } from 'named-app-errors';
@@ -147,7 +149,7 @@ This error typically occurs when TypeScript's compiler generates a bad path in a
     return `failed to acquire the patched global Proxy class in ${filename}`;
   },
   JestChangelogMonkeyPatchFailedToTake(error: unknown) {
-    return `unable to monkey patch jest resolver: ${String(error)}`;
+    return `unable to monkey patch jest resolver: ${isNativeError(error) ? error.stack || error : String(error)}`;
   },
   WrongProjectAttributes(
     expected: ProjectAttribute[],
