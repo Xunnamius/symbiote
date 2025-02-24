@@ -6,7 +6,7 @@
 
 # Enumeration: IntermediateTranspilationEnvironment
 
-Defined in: [src/commands/build/distributables.ts:116](https://github.com/Xunnamius/symbiote/blob/3911bb5748d7ecd905ce3bbd9106aa0ea0787160/src/commands/build/distributables.ts#L116)
+Defined in: [src/commands/build/distributables.ts:116](https://github.com/Xunnamius/symbiote/blob/51eddb5973356cb1aa2a534c04d214fae24d5526/src/commands/build/distributables.ts#L116)
 
 Possible intermediate transpilation targets (non-production
 non-distributables). See this command's options configuration for details.
@@ -17,7 +17,7 @@ non-distributables). See this command's options configuration for details.
 
 > **Development**: `"development"`
 
-Defined in: [src/commands/build/distributables.ts:117](https://github.com/Xunnamius/symbiote/blob/3911bb5748d7ecd905ce3bbd9106aa0ea0787160/src/commands/build/distributables.ts#L117)
+Defined in: [src/commands/build/distributables.ts:117](https://github.com/Xunnamius/symbiote/blob/51eddb5973356cb1aa2a534c04d214fae24d5526/src/commands/build/distributables.ts#L117)
 
 ***
 
@@ -25,4 +25,4 @@ Defined in: [src/commands/build/distributables.ts:117](https://github.com/Xunnam
 
 > **Test**: `"test"`
 
-Defined in: [src/commands/build/distributables.ts:118](https://github.com/Xunnamius/symbiote/blob/3911bb5748d7ecd905ce3bbd9106aa0ea0787160/src/commands/build/distributables.ts#L118)
+Defined in: [src/commands/build/distributables.ts:118](https://github.com/Xunnamius/symbiote/blob/51eddb5973356cb1aa2a534c04d214fae24d5526/src/commands/build/distributables.ts#L118)
