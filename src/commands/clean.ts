@@ -126,7 +126,7 @@ The default value for --exclude-paths includes the following regular expressions
 
       genericLogger(
         [LogTag.IF_NOT_QUIETED],
-        `${onlyEmptyDirectories ? 'Removing empty directories in' : 'Cleaning'} ${scope === DefaultGlobalScope.ThisPackage ? 'this package only' : 'the entire project'}...`
+        `${onlyEmptyDirectories ? 'Removing empty directories from' : 'Cleaning'} ${scope === DefaultGlobalScope.ThisPackage ? 'this package only' : 'the entire project'}...`
       );
 
       debug('scope: %O', scope);
