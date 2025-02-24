@@ -25,11 +25,13 @@ import { createGithubLogger } from 'rejoinder-github-actions';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 import buildChangelog, { OutputOrder } from 'universe:commands/build/changelog.ts';
+import projectPrepare from 'universe:commands/project/prepare.ts';
 
 import {
   $executionContext,
   configureExecutionContext,
-  ThisPackageGlobalScope
+  ThisPackageGlobalScope,
+  UnlimitedGlobalScope
 } from 'universe:configure.ts';
 
 import { globalDebuggerNamespace, globalLoggerNamespace } from 'universe:constant.ts';
@@ -58,6 +60,7 @@ import type {
 
 import type { WritableDeep } from 'type-fest';
 import type { CustomCliArguments as BuildChangelogCliArguments } from 'universe:commands/build/changelog.ts';
+import type { CustomCliArguments as ProjectPrepareCliArguments } from 'universe:commands/project/prepare.ts';
 import type { GlobalExecutionContext } from 'universe:configure.ts';
 
 const debug = createDebugLogger({
@@ -347,18 +350,43 @@ export async function generateNotes(
 ): Promise<string> {
   generateNotesDebug('entered step function');
 
+  const pseudoBfGlobalExecutionContext = await configureExecutionContext({
+    commands: new Map(),
+    state: {},
+    debug: createDebugLogger({ namespace: '${globalDebuggerNamespace}:pseudo-bf' })
+  } as unknown as ExecutionContext);
+
+  const projectPrepareHandler = await getInvocableExtendedHandler<
+    ProjectPrepareCliArguments,
+    GlobalExecutionContext
+  >(projectPrepare, pseudoBfGlobalExecutionContext);
+
+  generateNotesDebug(
+    'defensively re-running prepare to recover from xrelease calling "npm version" earlier (calling out to symbiote api)'
+  );
+
+  await projectPrepareHandler({
+    [$executionContext]: pseudoBfGlobalExecutionContext,
+    $0: 'build changelog',
+    _: [],
+    env: [],
+    scope: UnlimitedGlobalScope.Unlimited,
+    silent: true,
+    quiet: true,
+    hush: true,
+    force: false,
+    parallel: true,
+    runToCompletion: true
+  });
+
+  generateNotesDebug('symbiote api call completed successfully');
+
   const {
     env: { SYMBIOTE_RELEASE_REBUILD_CHANGELOG }
   } = context;
 
   const shouldRebuildChangelog = SYMBIOTE_RELEASE_REBUILD_CHANGELOG !== 'false';
   generateNotesDebug('shouldRebuildChangelog: %O', shouldRebuildChangelog);
-
-  const pseudoBfGlobalExecutionContext = await configureExecutionContext({
-    commands: new Map(),
-    state: {},
-    debug: createDebugLogger({ namespace: '${globalDebuggerNamespace}:pseudo-bf' })
-  } as unknown as ExecutionContext);
 
   const buildChangelogHandler = await getInvocableExtendedHandler<
     BuildChangelogCliArguments,
