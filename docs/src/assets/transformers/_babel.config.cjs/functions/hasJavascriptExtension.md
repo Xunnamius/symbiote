@@ -8,7 +8,7 @@
 
 > **hasJavascriptExtension**(`path`): `boolean`
 
-Defined in: [src/assets/transformers/\_babel.config.cjs.ts:172](https://github.com/Xunnamius/symbiote/blob/51eddb5973356cb1aa2a534c04d214fae24d5526/src/assets/transformers/_babel.config.cjs.ts#L172)
+Defined in: [src/assets/transformers/\_babel.config.cjs.ts:172](https://github.com/Xunnamius/symbiote/blob/03c423f753693df61565a1f49d80cc0f6cc503f1/src/assets/transformers/_babel.config.cjs.ts#L172)
 
 Returns `true` if `path` points to a file with a JavaScript extension.
 

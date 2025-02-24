@@ -8,7 +8,7 @@
 
 > **PathGroup**: `object`
 
-Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:81](https://github.com/Xunnamius/symbiote/blob/51eddb5973356cb1aa2a534c04d214fae24d5526/src/assets/transformers/_eslint.config.mjs.ts#L81)
+Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:81](https://github.com/Xunnamius/symbiote/blob/03c423f753693df61565a1f49d80cc0f6cc503f1/src/assets/transformers/_eslint.config.mjs.ts#L81)
 
 ## Type declaration
 
