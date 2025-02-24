@@ -172,7 +172,7 @@
     "lodash.mergewith": "^4.6.2",
     "mdast-util-to-markdown": "^2.1.2",
     "named-app-errors": "^4.0.2",
-    "npm-check-updates": "^17.1.14",
+    "npm-check-updates": "^17.1.15",
     "prettier": "^3.5.2",
     "rejoinder": "^1.2.5",
     "rejoinder-github-actions": "^1.0.3",
