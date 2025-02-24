@@ -233,7 +233,10 @@ This command runs all its tasks asynchronously and concurrently where possible. 
         }
 
         if (!didSymlinkBundledDependencies) {
-          genericLogger([LogTag.IF_NOT_HUSHED], 'No dependency symlinks installed');
+          genericLogger(
+            [LogTag.IF_NOT_HUSHED],
+            'No additional dependency symlinks installed'
+          );
         }
       }
 
