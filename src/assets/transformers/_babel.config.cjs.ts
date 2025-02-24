@@ -780,8 +780,6 @@ function makeDistReplacerEntry(
             });
 
             dbgResolver('packageName: %O', packageName);
-            assert(packageName);
-
             dbgResolver('packageExports: %O', packageExports);
             dbgResolver('packageTypes: %O', packageTypes);
 
