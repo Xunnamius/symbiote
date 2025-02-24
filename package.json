@@ -102,7 +102,7 @@
     "@-xun/fs": "^1.0.0",
     "@-xun/jest": "^1.1.6",
     "@-xun/memoize": "^1.1.0",
-    "@-xun/project": "^1.0.2",
+    "@-xun/project": "^1.0.3",
     "@-xun/run": "^1.0.3",
     "@arethetypeswrong/cli": "^0.17.4",
     "@babel/cli": "^7.26.4",
