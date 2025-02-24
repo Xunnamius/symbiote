@@ -8,7 +8,7 @@
 
 > **RawAliasMapperFunction**: (`projectMetadata`, `outputFunctions`) => [`RawAliasMapperArray`](RawAliasMapperArray.md)
 
-Defined in: [src/util.ts:105](https://github.com/Xunnamius/symbiote/blob/5aba0025b9a2417f80cab078fc2ddb0b25903903/src/util.ts#L105)
+Defined in: [src/util.ts:105](https://github.com/Xunnamius/symbiote/blob/c8e7e58364e34d94a79ee4d48272a3e971d09e09/src/util.ts#L105)
 
 A function that receives the current ProjectMetadata and must return
 an array of RawAliasMappings.
