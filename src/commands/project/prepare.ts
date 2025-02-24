@@ -79,19 +79,17 @@ export default function command({
       `$1. The tasks executed by this command are, in order:
 
 1. If the runtime pre-checks fail, exit
-2. If executing in a CI or non-development environment and --force is not provided, exit
-3. If the current working directory is the project root, symlink into node_modules any dependencies explicitly bundled with symbiote if those directories do not already exist
+2. Symlink into the project root node_modules directory any dependencies explicitly bundled with symbiote if these links do not already exist
+3. If the npm_command environment variable is not "install" or "ci", and --force is not provided, exit
 4. If executing in a non-CI development environment and the current working directory is the project root, run \`npx husky\`
-5. If the npm_command environment variable is not "install" or "ci", exit
-6. If the current working directory contains a post-npm-install script, run that script
-7. If the current working directory IS NOT the project root, exit
-8. If the current working directory is the project root and the project is a monorepo, search each package root for a post-npm-install script and run them as they are encountered
+5. If the current working directory contains a post-npm-install script, run that script
+6. If the current working directory is the project root and the project is a monorepo, search each package root for a post-npm-install script and run them as they are encountered
 
 The same current working directory is shared by all tasks, and is equal to the current working directory at the time this command was executed.
 
 The ${postNpmInstallPackageBase} file, when present at a package root, is recognized as a post-npm-install script. Each package in a project (including the root package) can contain at most one post-npm-install script. These scrips have access to the following additional environment variables, each of which are defined as either "true" or "false": SYMBIOTE_IS_CI, SYMBIOTE_IS_DEVELOPMENT_ENV, SYMBIOTE_NPM_IS_INSTALLING.
 
-By default, this command exits (becomes a no-op) when the runtime pre-checks fail, the CI environment variable is defined (implies a CI environment and sets SYMBIOTE_IS_CI=true), or when the NODE_ENV environment variable is NOT undefined nor equal to "development" (implies a non-development environment and sets SYMBIOTE_IS_DEVELOPMENT_ENV=false).
+Notwithstanding node_modules symlinking, this command exits (becomes a no-op) when the runtime pre-checks fail, the CI environment variable is defined (implies a CI environment and sets SYMBIOTE_IS_CI=true), or when the NODE_ENV environment variable is NOT undefined nor equal to "development" (implies a non-development environment and sets SYMBIOTE_IS_DEVELOPMENT_ENV=false).
 
 Provide --force to force this command to run post-npm-install scripts without regard for any environment variables, which can be useful in those rare cases where the scripts must run in CI and/or non-development environments. In such a scenario, post-npm-install scripts should take advantage of the available SYMBIOTE_* environment variables to alter their functionality (e.g. only running when SYMBIOTE_NPM_IS_INSTALLING=true). However, if the runtime pre-checks fail, this command will always exit as a no-op regardless of the flags passed.
 
@@ -114,6 +112,7 @@ This command runs all its tasks asynchronously and concurrently where possible. 
 
       debug('entered handler');
 
+      // * 1
       try {
         await runGlobalPreChecks({
           standardDebug: standardDebug,
@@ -175,8 +174,8 @@ This command runs all its tasks asynchronously and concurrently where possible. 
       debug('isInDevelopmentEnvironment: %O', isInDevelopmentEnvironment);
       debug('isRunningNpmInstallCommand: %O', isRunningNpmInstallCommand);
 
-      const shouldRunTasks = !isInCiEnvironment && isInDevelopmentEnvironment;
-      debug('shouldRunTasks: %O', shouldRunTasks);
+      const shouldConsiderRunningTasks = force || isRunningNpmInstallCommand;
+      debug('shouldConsiderRunningTasks: %O', shouldConsiderRunningTasks);
 
       if (runToCompletion) {
         debug.message(
@@ -189,94 +188,99 @@ This command runs all its tasks asynchronously and concurrently where possible. 
       const errors: [identifier: string, error: unknown][] = [];
       const tasks: ((shouldLogSuccess: boolean) => Promise<unknown>)[] = [];
 
-      if (isCwdTheProjectRoot) {
-        if (bundleDependencies.length) {
-          genericLogger(
-            [LogTag.IF_NOT_HUSHED],
-            "Potentially symlinking up to %O of symbiote's bundled dependencies into node_modules",
-            bundleDependencies.length
+      // * 2
+      if (bundleDependencies.length) {
+        genericLogger(
+          [LogTag.IF_NOT_HUSHED],
+          "Potentially symlinking up to %O of symbiote's bundled dependencies into node_modules",
+          bundleDependencies.length
+        );
+
+        let didSymlinkBundledDependencies = false;
+
+        const nodeModulesPath = toPath(projectRoot, 'node_modules');
+        const bundledModulesPath = toPath(
+          nodeModulesPath,
+          '@-xun',
+          'symbiote',
+          'node_modules'
+        );
+
+        for (const packageName of bundleDependencies) {
+          const nodeModulesPackagePath = toPath(nodeModulesPath, packageName);
+          const symbiotePackagePath = toPath(bundledModulesPath, packageName);
+
+          debug(
+            'potential symlink: %O => %O',
+            nodeModulesPackagePath,
+            symbiotePackagePath
           );
 
-          let didSymlinkBundledDependencies = false;
+          if (await isAccessible(nodeModulesPackagePath, { useCached: false })) {
+            debug.message('dependency symlink not created: path already exists');
+          } else {
+            didSymlinkBundledDependencies = true;
 
-          const nodeModulesPath = toPath(projectRoot, 'node_modules');
-          const bundledModulesPath = toPath(
-            nodeModulesPath,
-            '@-xun',
-            'symbiote',
-            'node_modules'
-          );
+            await symlink(symbiotePackagePath, nodeModulesPackagePath, 'junction');
 
-          for (const packageName of bundleDependencies) {
-            const nodeModulesPackagePath = toPath(nodeModulesPath, packageName);
-            const symbiotePackagePath = toPath(bundledModulesPath, packageName);
-
-            debug(
-              'potential symlink: %O => %O',
-              nodeModulesPackagePath,
-              symbiotePackagePath
+            genericLogger(
+              [LogTag.IF_NOT_HUSHED],
+              'Installed dependency symlink: %O => %O',
+              toRelativePath(nodeModulesPath, nodeModulesPackagePath),
+              toRelativePath(nodeModulesPath, symbiotePackagePath)
             );
-
-            if (await isAccessible(nodeModulesPackagePath, { useCached: false })) {
-              debug.message('dependency symlink not created: path already exists');
-            } else {
-              didSymlinkBundledDependencies = true;
-
-              await symlink(symbiotePackagePath, nodeModulesPackagePath, 'junction');
-
-              genericLogger(
-                [LogTag.IF_NOT_HUSHED],
-                'Installed dependency symlink: %O => %O',
-                toRelativePath(nodeModulesPath, nodeModulesPackagePath),
-                toRelativePath(nodeModulesPath, symbiotePackagePath)
-              );
-            }
-          }
-
-          if (!didSymlinkBundledDependencies) {
-            genericLogger([LogTag.IF_NOT_HUSHED], 'No dependency symlinks installed');
           }
         }
 
-        if (shouldRunTasks) {
-          tasks.push(async (shouldLogSuccess) => {
-            try {
-              genericLogger(
-                [LogTag.IF_NOT_HUSHED],
-                'Executing %O initialization task',
-                'husky'
-              );
-
-              // {@symbiote/notExtraneous husky}
-              await runWithInheritedIo('npx', ['husky'], { cwd: projectRoot });
-              debug('husky initialization was successful');
-
-              // ? This is here because we don't want one task to say "success!"
-              // ? while another poos the bed, especially when they are executed
-              // ? concurrently
-              // TODO: replace this horror with centralized task logging
-              if (shouldLogSuccess) {
-                genericLogger.message(
-                  [LogTag.IF_NOT_QUIETED],
-                  'Task execution succeeded'
-                );
-              }
-            } catch (error) {
-              errors.push(['husky executable', error]);
-            }
-          });
+        if (!didSymlinkBundledDependencies) {
+          genericLogger([LogTag.IF_NOT_HUSHED], 'No dependency symlinks installed');
         }
       }
 
-      if (force || (isRunningNpmInstallCommand && shouldRunTasks)) {
+      // * 3 & 4
+      if (
+        isCwdTheProjectRoot &&
+        shouldConsiderRunningTasks &&
+        !isInCiEnvironment &&
+        isInDevelopmentEnvironment
+      ) {
+        tasks.push(async (shouldLogSuccess) => {
+          try {
+            genericLogger(
+              [LogTag.IF_NOT_HUSHED],
+              'Executing %O initialization task',
+              'husky'
+            );
+
+            // {@symbiote/notExtraneous husky}
+            await runWithInheritedIo('npx', ['husky'], { cwd: projectRoot });
+            debug('husky initialization was successful');
+
+            // ? This is here because we don't want one task to say "success!"
+            // ? while another poos the bed, especially when they are executed
+            // ? concurrently
+            // TODO: replace this horror with centralized task logging
+            if (shouldLogSuccess) {
+              genericLogger.message([LogTag.IF_NOT_QUIETED], 'Task execution succeeded');
+            }
+          } catch (error) {
+            errors.push(['husky executable', error]);
+          }
+        });
+      }
+
+      // * 3
+      if (shouldConsiderRunningTasks) {
         const roots = new Set<AbsolutePath>([currentPackageRoot]);
 
+        // * 6
         if (isCwdTheProjectRoot) {
           subRootPackages?.all.forEach(({ root }) => roots.add(root));
         }
 
         debug('roots: %O', roots);
 
+        // * 5 & 6
         for (const root of roots) {
           const postNpmInstallPath = pathToFileURL(
             toAbsolutePath(root, postNpmInstallPackageBase)
@@ -431,7 +435,7 @@ This command runs all its tasks asynchronously and concurrently where possible. 
       } else {
         genericLogger(
           [LogTag.IF_NOT_QUIETED],
-          'Skipped project preparation (no runnable tasks)'
+          'Skipped further preparation (no runnable tasks remaining)'
         );
       }
     })
