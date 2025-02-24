@@ -8,7 +8,7 @@
 
 > **generateBaseXPackageJson**(...`__namedParameters`): `object`
 
-Defined in: [src/assets/transformers/\_package.json.ts:58](https://github.com/Xunnamius/symbiote/blob/03c423f753693df61565a1f49d80cc0f6cc503f1/src/assets/transformers/_package.json.ts#L58)
+Defined in: [src/assets/transformers/\_package.json.ts:58](https://github.com/Xunnamius/symbiote/blob/5aba0025b9a2417f80cab078fc2ddb0b25903903/src/assets/transformers/_package.json.ts#L58)
 
 ## Parameters
 

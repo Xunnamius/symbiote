@@ -8,7 +8,7 @@
 
 > **Transformer**: (`this`, `context`, `options`?) => `Promise`\<[`ReifiedAssets`](ReifiedAssets.md)\>
 
-Defined in: [src/assets.ts:175](https://github.com/Xunnamius/symbiote/blob/03c423f753693df61565a1f49d80cc0f6cc503f1/src/assets.ts#L175)
+Defined in: [src/assets.ts:175](https://github.com/Xunnamius/symbiote/blob/5aba0025b9a2417f80cab078fc2ddb0b25903903/src/assets.ts#L175)
 
 A function that accepts a [TransformerContext](TransformerContext.md) and returns one or more
 [Asset](Asset.md)s.

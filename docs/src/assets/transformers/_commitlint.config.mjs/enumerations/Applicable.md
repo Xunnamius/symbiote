@@ -6,7 +6,7 @@
 
 # Enumeration: Applicable
 
-Defined in: [src/assets/transformers/\_commitlint.config.mjs.ts:21](https://github.com/Xunnamius/symbiote/blob/03c423f753693df61565a1f49d80cc0f6cc503f1/src/assets/transformers/_commitlint.config.mjs.ts#L21)
+Defined in: [src/assets/transformers/\_commitlint.config.mjs.ts:21](https://github.com/Xunnamius/symbiote/blob/5aba0025b9a2417f80cab078fc2ddb0b25903903/src/assets/transformers/_commitlint.config.mjs.ts#L21)
 
 ## See
 
@@ -18,7 +18,7 @@ https://github.com/conventional-changelog/commitlint/blob/master/docs/reference/
 
 > **FailIfEncountered**: `"always"`
 
-Defined in: [src/assets/transformers/\_commitlint.config.mjs.ts:22](https://github.com/Xunnamius/symbiote/blob/03c423f753693df61565a1f49d80cc0f6cc503f1/src/assets/transformers/_commitlint.config.mjs.ts#L22)
+Defined in: [src/assets/transformers/\_commitlint.config.mjs.ts:22](https://github.com/Xunnamius/symbiote/blob/5aba0025b9a2417f80cab078fc2ddb0b25903903/src/assets/transformers/_commitlint.config.mjs.ts#L22)
 
 ***
 
@@ -26,4 +26,4 @@ Defined in: [src/assets/transformers/\_commitlint.config.mjs.ts:22](https://gith
 
 > **FailIfNotEncountered**: `"never"`
 
-Defined in: [src/assets/transformers/\_commitlint.config.mjs.ts:23](https://github.com/Xunnamius/symbiote/blob/03c423f753693df61565a1f49d80cc0f6cc503f1/src/assets/transformers/_commitlint.config.mjs.ts#L23)
+Defined in: [src/assets/transformers/\_commitlint.config.mjs.ts:23](https://github.com/Xunnamius/symbiote/blob/5aba0025b9a2417f80cab078fc2ddb0b25903903/src/assets/transformers/_commitlint.config.mjs.ts#L23)

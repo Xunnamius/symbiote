@@ -8,7 +8,7 @@
 
 > **ReleaseTaskContext**: `object`
 
-Defined in: [src/commands/release.ts:128](https://github.com/Xunnamius/symbiote/blob/03c423f753693df61565a1f49d80cc0f6cc503f1/src/commands/release.ts#L128)
+Defined in: [src/commands/release.ts:128](https://github.com/Xunnamius/symbiote/blob/5aba0025b9a2417f80cab078fc2ddb0b25903903/src/commands/release.ts#L128)
 
 The context passed to each individual task.
 
