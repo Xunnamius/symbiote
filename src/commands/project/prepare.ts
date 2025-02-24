@@ -1,5 +1,5 @@
 /* eslint-disable no-await-in-loop */
-import { symlink } from 'node:fs/promises';
+import { rm, symlink } from 'node:fs/promises';
 import { pathToFileURL } from 'node:url';
 
 import { CliError } from '@-xun/cli';
@@ -210,25 +210,20 @@ This command runs all its tasks asynchronously and concurrently where possible. 
         const linkPath = toPath(projectRoot, 'node_modules', rootPackageName);
         const logText = 'Installed root package self-referential dependency symlink';
 
-        if (await isAccessible(linkPath, { useCached: false })) {
+        await rm(linkPath, { force: true, recursive: true, maxRetries: 10 });
+        await symlink(projectRoot, linkPath, 'junction');
+
+        debug(`%O => %O`, linkPath, projectRoot);
+
+        if (isHushed) {
+          genericLogger([LogTag.IF_NOT_QUIETED], logText);
+        } else {
           genericLogger(
             [LogTag.IF_NOT_QUIETED],
-            'Skipped installing root package self-referential dependency symlink (already exists)'
+            `${logText}: %O => %O`,
+            rootPackageName,
+            '..'
           );
-        } else {
-          await symlink(projectRoot, linkPath, 'junction');
-          debug(`%O => %O`, linkPath, projectRoot);
-
-          if (isHushed) {
-            genericLogger([LogTag.IF_NOT_QUIETED], logText);
-          } else {
-            genericLogger(
-              [LogTag.IF_NOT_QUIETED],
-              `${logText}: %O => %O`,
-              rootPackageName,
-              '..'
-            );
-          }
         }
       }
 
