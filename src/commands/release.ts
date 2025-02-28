@@ -26,11 +26,13 @@ import { run, runNoRejectOnBadExit } from '@-xun/run';
 import { SHORT_TAB, SINGLE_SPACE } from 'rejoinder';
 import semver from 'semver';
 
-import renovate from 'universe:commands/project/renovate.ts';
+import projectPrepare from 'universe:commands/project/prepare.ts';
+import projectRenovate from 'universe:commands/project/renovate.ts';
 
 import {
   DefaultGlobalScope,
-  ThisPackageGlobalScope as ReleaseScope
+  ThisPackageGlobalScope as ReleaseScope,
+  UnlimitedGlobalScope
 } from 'universe:configure.ts';
 
 import { ErrorMessage } from 'universe:error.ts';
@@ -56,7 +58,8 @@ import type { ProjectMetadata, XPackageJson } from '@-xun/project';
 import type { RunOptions } from '@-xun/run';
 import type { ExtendedDebugger, ExtendedLogger } from 'rejoinder';
 import type { Merge, OmitIndexSignature, StringKeyOf } from 'type-fest';
-import type { CustomCliArguments as RenovateCliArguments } from 'universe:commands/project/renovate.ts';
+import type { CustomCliArguments as ProjectPrepareCliArguments } from 'universe:commands/project/prepare.ts';
+import type { CustomCliArguments as ProjectRenovateCliArguments } from 'universe:commands/project/renovate.ts';
 import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:configure.ts';
 
 const releaseEmoji = '🚀';
@@ -526,6 +529,13 @@ WARNING: this command is NOT DESIGNED TO HANDLE CONCURRENT EXECUTION ON THE SAME
       genericLogger.newline([LogTag.IF_NOT_HUSHED]);
       debug('processing tasks');
 
+      const projectPrepareHandler = await getInvocableExtendedHandler<
+        ProjectPrepareCliArguments,
+        GlobalExecutionContext
+      >(projectPrepare, executionContext);
+
+      let threw = false;
+
       // TODO: generalize this task algo along with what's in renovate and init
 
       try {
@@ -682,9 +692,39 @@ WARNING: this command is NOT DESIGNED TO HANDLE CONCURRENT EXECUTION ON THE SAME
             '💃🏿 The release process exited prematurely but gracefully 💃🏿'
           );
         } else {
+          threw = true;
           throw error;
         }
       } finally {
+        genericLogger.newline([LogTag.IF_NOT_QUIETED]);
+
+        genericLogger(
+          'Attempting to repair node_modules structure (errors will be ignored)...'
+        );
+
+        await projectPrepareHandler({
+          ...argv,
+          $0: 'project prepare',
+          _: [],
+          env: [],
+          scope: UnlimitedGlobalScope.Unlimited,
+          silent: isSilenced,
+          quiet: isQuieted,
+          hush: true,
+          runToCompletion: true
+        }).then(
+          () => genericLogger([LogTag.IF_NOT_QUIETED], 'Repair completed successfully'),
+          (error: unknown) => {
+            debug.error('project-prepare sub-command failed:', error);
+            genericLogger.warn(
+              [LogTag.IF_NOT_SILENCED],
+              `Repair attempt failed${threw ? ' (which was ignored due to another error)' : ''}:`
+            );
+
+            genericLogger.warn([LogTag.IF_NOT_SILENCED], error);
+          }
+        );
+
         genericLogger.newline([LogTag.IF_NOT_QUIETED]);
       }
 
@@ -1053,14 +1093,14 @@ const protoPrereleaseTasks: ProtoPrereleaseTask[][] = [
       async run(globalExecutionContext, argv, { debug }) {
         debug(`renovating this package (sync-deps only) (calling out to sub-command)`);
 
-        const renovateHandler = await getInvocableExtendedHandler<
-          RenovateCliArguments,
+        const projectRenovateHandler = await getInvocableExtendedHandler<
+          ProjectRenovateCliArguments,
           GlobalExecutionContext
-        >(renovate, globalExecutionContext);
+        >(projectRenovate, globalExecutionContext);
 
-        await renovateHandler({
+        await projectRenovateHandler({
           ...argv,
-          $0: 'renovate',
+          $0: 'project renovate',
           _: [],
           env: [],
           scope: DefaultGlobalScope.ThisPackage,
