@@ -432,7 +432,7 @@ function nodeRules(
     // * Node (eslint-plugin-n) rules (affects all JS/TS files)
     'n/hashbang': 'warn',
     'n/no-unpublished-bin': 'error',
-    // ? Handled (albeit badly currently) by eslint-plugin-import
+    // ? Handled by eslint-plugin-import
     'n/file-extension-in-import': 'off',
     // ? Handled by symbiote project lint and symbiote build distributables
     'n/no-missing-import': 'off',
@@ -450,8 +450,7 @@ function nodeRules(
     'n/no-unsupported-features/es-builtins': 'off',
     // ? Handled by babel and core-js
     'n/no-unsupported-features/es-syntax': 'off',
-    // ? Handled by babel and core-js
-    'n/no-unsupported-features/node-builtins': 'off',
+    'n/no-unsupported-features/node-builtins': 'error',
     // ? Handled by unicorn
     'n/no-process-exit': 'off',
     'n/no-restricted-import': ['warn', restrictedImportRules],
