@@ -1,7 +1,13 @@
 /* eslint-disable no-await-in-loop */
 import { setTimeout as delay } from 'node:timers/promises';
 
-import { CliError } from '@-xun/cli';
+import {
+  BfcErrorMessage,
+  checkArrayNotEmpty,
+  checkIsNotNegative,
+  CliError
+} from '@-xun/cli';
+
 import { softAssert } from '@-xun/cli/error';
 import { LogTag, standardSuccessMessage } from '@-xun/cli/logging';
 import { scriptBasename } from '@-xun/cli/util';
@@ -27,14 +33,7 @@ import { SHORT_TAB } from 'rejoinder';
 import { DefaultGlobalScope } from 'universe:configure.ts';
 import { tstycheTargetRegExp } from 'universe:constant.ts';
 import { ErrorMessage } from 'universe:error.ts';
-
-import {
-  checkArrayNotEmpty,
-  checkIsNotNegative,
-  logStartTime,
-  runGlobalPreChecks,
-  withGlobalBuilder
-} from 'universe:util.ts';
+import { logStartTime, runGlobalPreChecks, withGlobalBuilder } from 'universe:util.ts';
 
 import type { AsStrictExecutionContext, ChildConfiguration } from '@-xun/cli';
 import type { Package } from '@-xun/project';
@@ -206,7 +205,7 @@ export default function command({
                       return (
                         !includesType ||
                         currentArgument.length === 1 ||
-                        ErrorMessage.OptionValueMustBeAloneWhenBaseline(
+                        BfcErrorMessage.OptionValueMustBeAloneWhenBaseline(
                           Test.Type,
                           '--test option'
                         )

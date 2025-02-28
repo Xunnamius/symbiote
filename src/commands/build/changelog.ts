@@ -5,7 +5,7 @@ import { pathToFileURL } from 'node:url';
 // ? Patches global Proxy and spawn functions; see documentation for details
 import '@-xun/symbiote/assets/conventional.config.cjs';
 
-import { CliError, getInvocableExtendedHandler } from '@-xun/cli';
+import { checkIsNotNil, CliError, getInvocableExtendedHandler } from '@-xun/cli';
 import { hardAssert, softAssert } from '@-xun/cli/error';
 import { LogTag, standardSuccessMessage } from '@-xun/cli/logging';
 import { scriptBasename } from '@-xun/cli/util';
@@ -32,7 +32,6 @@ import {
 import { ErrorMessage } from 'universe:error.ts';
 
 import {
-  checkIsNotNil,
   getLatestCommitWithXpipelineInitCommandSuffixOrTagSuffix,
   logStartTime,
   readFile,

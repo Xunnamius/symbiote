@@ -1,4 +1,4 @@
-import { CliError } from '@-xun/cli';
+import { BfcErrorMessage, checkArrayNotEmpty, CliError } from '@-xun/cli';
 import { hardAssert, softAssert } from '@-xun/cli/error';
 import { LogTag, standardSuccessMessage } from '@-xun/cli/logging';
 import { scriptBasename } from '@-xun/cli/util';
@@ -21,7 +21,6 @@ import { DefaultGlobalScope as LinterScope } from 'universe:configure.ts';
 import { ErrorMessage } from 'universe:error.ts';
 
 import {
-  checkArrayNotEmpty,
   logStartTime,
   runGlobalPreChecks,
   withGlobalBuilder,
@@ -119,7 +118,7 @@ export default async function command({
                     ) {
                       return (
                         currentArgument.length === 1 ||
-                        ErrorMessage.OptionValueMustBeAloneWhenBaseline(
+                        BfcErrorMessage.OptionValueMustBeAloneWhenBaseline(
                           currentArgument[0]!,
                           '--linter option'
                         )

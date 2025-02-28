@@ -4,7 +4,7 @@ import { mkdir, rename as renamePath, rm } from 'node:fs/promises';
 import path from 'node:path';
 import { setTimeout as delay } from 'node:timers/promises';
 
-import { CliError, getInvocableExtendedHandler } from '@-xun/cli';
+import { BfcErrorMessage, CliError, getInvocableExtendedHandler } from '@-xun/cli';
 import { hardAssert, softAssert } from '@-xun/cli/error';
 import { LogTag, standardSuccessMessage } from '@-xun/cli/logging';
 import { scriptBasename } from '@-xun/cli/util';
@@ -2283,7 +2283,7 @@ See the symbiote wiki documentation for more details on this command and all ava
         Object.keys(renovationTasks).every(
           (task) => task === 'update-dependencies' || !argv[task]
         ) ||
-        ErrorMessage.OptionValueMustBeAlone('update-dependencies', 'renovation')
+        BfcErrorMessage.OptionValueMustBeAlone('update-dependencies', 'renovation')
       );
     } as RenovationTask['check'],
     async run(argv_, { log, debug }) {

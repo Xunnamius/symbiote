@@ -1,6 +1,6 @@
 import { basename } from 'node:path';
 
-import { $artificiallyInvoked, CliError } from '@-xun/cli';
+import { $artificiallyInvoked, checkArrayNotEmpty, CliError } from '@-xun/cli';
 import { hardAssert, softAssert } from '@-xun/cli/error';
 import { LogTag, standardSuccessMessage } from '@-xun/cli/logging';
 import { scriptBasename } from '@-xun/cli/util';
@@ -22,7 +22,6 @@ import { DefaultGlobalScope } from 'universe:configure.ts';
 import { ErrorMessage } from 'universe:error.ts';
 
 import {
-  checkArrayNotEmpty,
   logStartTime,
   runGlobalPreChecks,
   withGlobalBuilder,

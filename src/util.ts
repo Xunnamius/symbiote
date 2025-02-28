@@ -1117,37 +1117,6 @@ export function hasExitCode(error: unknown): error is object & { exitCode: numbe
   );
 }
 
-// TODO: also consider a package of @-xun/black-flag-common-option-checks that
-// TODO: includes the generic checks implemented below:
-
-export function checkIsNotNegative(argName: string) {
-  return function (currentArg: unknown) {
-    return (
-      (typeof currentArg === 'number' && currentArg >= 0) ||
-      ErrorMessage.OptionMustBeNonNegative(argName)
-    );
-  };
-}
-
-export function checkIsNotNil(argName: string) {
-  return function (currentArg: unknown) {
-    return !!currentArg || ErrorMessage.OptionMustNotBeFalsy(argName);
-  };
-}
-
-export function checkArrayNotEmpty(argName: string, adjective = 'non-empty') {
-  return function (currentArg: unknown[]) {
-    return (
-      (currentArg.length > 0 && currentArg.every((file) => isNonEmptyString(file))) ||
-      ErrorMessage.RequiresMinArgs(argName, 1, undefined, adjective)
-    );
-  };
-}
-
-export function isNonEmptyString(o: unknown): o is string {
-  return typeof o === 'string' && o.length > 0;
-}
-
 // TODO: migrate some part of this into xpipeline
 
 /**

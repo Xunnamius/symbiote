@@ -179,20 +179,8 @@ This error typically occurs when TypeScript's compiler generates a bad path in a
   MultipleConfigsWhenExpectingOnlyOne(filename1: string, filename2: string) {
     return `expected one configuration file but encountered multiple conflicting files: ${filename1} conflicts with ${filename2}`;
   },
-  OptionMustBeNonNegative(name: string) {
-    return `option "${name}" must have a non-negative value`;
-  },
-  OptionMustNotBeFalsy(name: string) {
-    return `option "${name}" must have a non-empty (non-falsy) value`;
-  },
   MarkdownNoUndefinedReferences() {
     return 'cannot continue with undefined references present in one or more Markdown files';
-  },
-  OptionValueMustBeAlone(option: string, noun: string) {
-    return `the "${option}" ${noun} must not be given alongside any others`;
-  },
-  OptionValueMustBeAloneWhenBaseline(option: string, noun: string) {
-    return ErrorMessage.OptionValueMustBeAlone(option, noun) + ' when using --baseline';
   },
   NoCurrentBranch() {
     return 'repository "HEAD" ref is not currently on an existing branch (are you in detached HEAD state?)';

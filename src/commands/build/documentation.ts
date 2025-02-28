@@ -1,3 +1,4 @@
+import { checkArrayNotEmpty } from '@-xun/cli';
 import { LogTag, standardSuccessMessage } from '@-xun/cli/logging';
 import { scriptBasename } from '@-xun/cli/util';
 import { Tsconfig } from '@-xun/project';
@@ -6,7 +7,6 @@ import { run } from '@-xun/run';
 import { ThisPackageGlobalScope as DocumentationBuilderScope } from 'universe:configure.ts';
 
 import {
-  checkArrayNotEmpty,
   logStartTime,
   runGlobalPreChecks,
   withGlobalBuilder,

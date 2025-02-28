@@ -6,6 +6,7 @@ import { extname, sep as pathSeparator } from 'node:path';
 import { setTimeout as delay } from 'node:timers/promises';
 import { isNativeError } from 'node:util/types';
 
+import { checkIsNotNil } from '@-xun/cli';
 import { hardAssert, softAssert } from '@-xun/cli/error';
 import { LogTag, standardSuccessMessage } from '@-xun/cli/logging';
 import { scriptBasename } from '@-xun/cli/util';
@@ -84,7 +85,6 @@ import {
 } from 'universe:error.ts';
 
 import {
-  checkIsNotNil,
   copyFile,
   logStartTime,
   makeDirectory,

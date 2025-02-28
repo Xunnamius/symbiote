@@ -1,3 +1,4 @@
+import { checkIsNotNil } from '@-xun/cli';
 import { softAssert } from '@-xun/cli/error';
 import { LogTag, standardSuccessMessage } from '@-xun/cli/logging';
 import { scriptBasename } from '@-xun/cli/util';
@@ -10,7 +11,6 @@ import { ThisPackageGlobalScope as DeployScope } from 'universe:configure.ts';
 import { ErrorMessage } from 'universe:error.ts';
 
 import {
-  checkIsNotNil,
   logStartTime,
   runGlobalPreChecks,
   withGlobalBuilder,
