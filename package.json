@@ -134,7 +134,7 @@
     "@types/lodash.clonedeepwith": "^4.5.9",
     "@types/lodash.get": "^4.4.9",
     "@types/lodash.mergewith": "^4.6.9",
-    "@types/node": "^22.13.5",
+    "@types/node": "^22.13.8",
     "@types/react": "^19.0.10",
     "@types/semver": "^7.5.8",
     "all-contributors-cli": "^6.26.1",
