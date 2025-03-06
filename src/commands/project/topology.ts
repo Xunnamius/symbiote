@@ -265,7 +265,10 @@ ${SHORT_TAB}${topology
                       logger: taskLogger,
                       scriptName: runScript,
                       cwd: packageRoot,
-                      shouldOutputResult: false
+                      shouldOutputResult: [
+                        TopologyScript.Lint,
+                        TopologyScript.Test
+                      ].includes(runScript)
                     }
                   );
 
