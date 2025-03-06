@@ -324,7 +324,10 @@ export function moduleExport({
           // {@symbiote/notExtraneous @babel/preset-env @types/babel__preset-env}
           [
             '@babel/preset-env',
-            { targets: { node: true } } satisfies BabelPresetEnvConfig
+            {
+              targets: { node: true },
+              exclude: ['transform-dynamic-import']
+            } satisfies BabelPresetEnvConfig
           ],
           // {@symbiote/notExtraneous @babel/preset-typescript}
           ['@babel/preset-typescript', { allowDeclareFields: true }],
