@@ -432,7 +432,7 @@ function nodeRules(
     // * Node (eslint-plugin-n) rules (affects all JS/TS files)
     'n/hashbang': 'warn',
     'n/no-unpublished-bin': 'error',
-    // ? Handled (albeit badly currently) by eslint-plugin-import
+    // ? Handled by eslint-plugin-import
     'n/file-extension-in-import': 'off',
     // ? Handled by symbiote project lint and symbiote build distributables
     'n/no-missing-import': 'off',

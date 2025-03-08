@@ -250,7 +250,7 @@ export function moduleExport({
       strong: '*',
       tightDefinitions: true,
 
-      // ? Prevent mdast-util-markdown from mangling GFM alerts with an
+      // ? Prevent mdast-util-to-markdown from mangling GFM alerts with an
       // ? unneeded escape character "\" which causes problems on GitHub
       handlers: {
         text: (node, _, state, info) => {
