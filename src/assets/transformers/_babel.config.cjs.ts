@@ -303,6 +303,15 @@ export function moduleExport({
   dbgModuleExport('packageRoot: %O', packageRoot);
   dbgModuleExport('projectRoot: %O', projectRoot);
 
+  const commonPresetEnvConfig: BabelPresetEnvConfig = {
+    useBuiltIns: 'usage',
+    corejs: doCoreJsVersionChecksAndReturnHardcodedVersion({ packageRoot }),
+    shippedProposals: true,
+    exclude: ['transform-dynamic-import']
+  };
+
+  dbgModuleExport('commonPresetEnvConfig: %O', commonPresetEnvConfig);
+
   const config: BabelConfig = {
     comments: false,
     parserOpts: { strictMode: true },
@@ -325,8 +334,10 @@ export function moduleExport({
           [
             '@babel/preset-env',
             {
+              // ? https://babeljs.io/docs/en/babel-preset-env#modules
+              //modules: 'auto', // * default: 'auto'
               targets: { node: true },
-              exclude: ['transform-dynamic-import']
+              ...commonPresetEnvConfig
             } satisfies BabelPresetEnvConfig
           ],
           // {@symbiote/notExtraneous @babel/preset-typescript}
@@ -356,10 +367,7 @@ export function moduleExport({
               // ? https://babeljs.io/docs/en/babel-preset-env#modules
               modules: 'cjs',
               targets: NODE_LTS,
-              useBuiltIns: 'usage',
-              corejs: doCoreJsVersionChecksAndReturnHardcodedVersion({ packageRoot }),
-              shippedProposals: true,
-              exclude: ['transform-dynamic-import']
+              ...commonPresetEnvConfig
             } satisfies BabelPresetEnvConfig
           ],
           // {@symbiote/notExtraneous @babel/preset-typescript}
