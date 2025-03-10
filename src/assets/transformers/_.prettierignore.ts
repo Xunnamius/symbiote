@@ -43,7 +43,7 @@ ignore.*
 **/build/**
 # ? This negation must end in "/**" to be interpreted properly.
 !**/src/**/build/**
-docs
+docs/**
 dist
 coverage
 .vercel
