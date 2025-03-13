@@ -10,7 +10,7 @@ export const { transformer } = makeTransformer(function (context) {
     return [
       {
         path: toProjectAbsolutePath(prettierIgnoreConfigProjectBase),
-        generate: () => `
+        generate: () => /* md */ `
 # * Paths below are ignored by prettier, remark, doctoc when called
 # * with \`symbiote format\` and \`symbiote lint\`. To have eslint ignore
 # * certain files, add them to an "ignores" block in eslint.config.js. To have

@@ -10,7 +10,7 @@ export const { transformer } = makeTransformer(function (context) {
     return [
       {
         path: toProjectAbsolutePath(gitignoreConfigProjectBase),
-        generate: () => `
+        generate: () => /* md */ `
 # ! Note that any pattern with a / in the beginning OR MIDDLE (but not end) will
 # ! be considered relative to this file ONLY. Matching subdirs will NOT match!
 # ! Otherwise, patterns will match entities in any directory or subdirectory.
