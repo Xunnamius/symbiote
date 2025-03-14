@@ -229,7 +229,7 @@
     "sort-package-json": "^3.0.0",
     "toss-expression": "^0.1.2",
     "tstyche": "^3.5.0",
-    "type-fest": "^4.36.0",
+    "type-fest": "^4.37.0",
     "typedoc": "^0.27.9",
     "typedoc-plugin-markdown": "^4.4.2",
     "typescript": "^5.8.2",
