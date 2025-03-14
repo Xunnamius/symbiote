@@ -143,7 +143,7 @@
     "babel-jest": "next",
     "babel-plugin-explicit-exports-references": "^1.0.2",
     "babel-plugin-transform-rewrite-imports": "^1.5.3",
-    "bidirectional-resolve": "^1.0.2",
+    "bidirectional-resolve": "^1.0.3",
     "confusing-browser-globals": "^1.0.11",
     "core-js": "^3.41.0",
     "doctoc": "^2.2.1",
