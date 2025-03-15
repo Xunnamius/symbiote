@@ -73,7 +73,7 @@
   "scripts": {
     "build": "npm run build:dist --",
     "build:changelog": "./node_modules/@-xun/symbiote/dist/src/cli.js build changelog --env NODE_NO_WARNINGS=1",
-    "build:dist": "./node_modules/@-xun/symbiote/dist/src/cli.js build distributables --env NODE_NO_WARNINGS=1 --not-multiversal --exclude-internal-file .remarkrc.mjs",
+    "build:dist": "./node_modules/@-xun/symbiote/dist/src/cli.js build distributables --env NODE_NO_WARNINGS=1 --not-multiversal --skip-attw --exclude-internal-file .remarkrc.mjs",
     "build:docs": "./node_modules/@-xun/symbiote/dist/src/cli.js build docs --env NODE_NO_WARNINGS=1",
     "clean": "./node_modules/@-xun/symbiote/dist/src/cli.js clean --env NODE_NO_WARNINGS=1",
     "format": "./node_modules/@-xun/symbiote/dist/src/cli.js format --env NODE_NO_WARNINGS=1 --hush",
