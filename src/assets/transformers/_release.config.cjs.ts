@@ -244,11 +244,65 @@ export function moduleExport({
         }
       ],
       // This comes bundled with semantic-release
-      '@semantic-release/github'
+      [
+        '@semantic-release/github',
+        {
+          successComment:
+            '🚀✨ This ${issue.pull_request ? "pull request" : "issue\'s resolution"} was included in ' +
+            cwdPackageName +
+            '@${nextRelease.version} ✨🚀' +
+            String.raw`<%
+          const releaseInfos = releases.filter((release) => Boolean(release.name));
+
+          ${linkify.toString()}
+
+          ${getSuccessCommentSuffix.toString()}
+
+          const result = getSuccessCommentSuffix();
+          %><%= result %>`,
+          // ? Labels added to issues/PRs with contents included in this release
+          releasedLabels: [
+            cwdPackageName +
+              ':released<%= nextRelease.channel ? ` (${nextRelease.channel})` : "" %>'
+          ],
+          // ? Labels added to the newly created issue/PR when the release fails
+          labels: false,
+          // ? Users added to the newly created issue/PR when the release fails
+          assignees: ['Xunnamius']
+        }
+      ]
     ]
   } satisfies ReleaseConfig;
 
   return finalConfig;
+}
+
+// * This function is from semantic-release's source:
+// * https://github.com/semantic-release/github/blob/df69c49ca7bc0b4e7116b7c57cb0c7efddb12f64/lib/get-success-comment.js#L9
+function linkify(releaseInfo: { url: string; name: string }) {
+  return releaseInfo.url
+    ? `[${releaseInfo.name}](${releaseInfo.url})`
+    : `\`${releaseInfo.name}\``;
+}
+
+// ? This useless unused variable is here to silence complaints from typescript
+const releaseInfos:
+  | [{ url: string; name: string }]
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  | [{ url: string; name: string }, { url: string; name: string }] = [] as any;
+
+// * This function is from semantic-release's source:
+// * https://github.com/semantic-release/github/blob/df69c49ca7bc0b4e7116b7c57cb0c7efddb12f64/lib/get-success-comment.js#L9
+function getSuccessCommentSuffix() {
+  return releaseInfos.length > 0
+    ? `\n\nThe release is available on${
+        releaseInfos.length === 1
+          ? ` ${linkify(releaseInfos[0])}`
+          : `:\n${releaseInfos
+              .map((releaseInfo) => `- ${linkify(releaseInfo)}`)
+              .join('\n')}`
+      }`
+    : '';
 }
 
 export const { transformer } = makeTransformer(function (context) {
