@@ -11,13 +11,18 @@ import { createDebugLogger } from 'rejoinder';
 
 import { exports as packageExports, name as packageName } from 'rootverse:package.json';
 
-import { ensurePackageHasBeenBuilt } from 'testverse:util.ts';
+import {
+  ensurePackageHasBeenBuilt,
+  reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
+} from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = `${packageName.split('/').at(-1)!}-e2e`;
 const debug = createDebugLogger({ namespace: 'symbiote' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(`nodeVersion: "${nodeVersion}" (process.version=${process.version})`);
+
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(

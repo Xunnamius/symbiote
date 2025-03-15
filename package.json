@@ -86,15 +86,15 @@
     "prepare": "./node_modules/@-xun/symbiote/dist/src/cli.js project prepare --env NODE_NO_WARNINGS=1",
     "release": "./node_modules/@-xun/symbiote/dist/src/cli.js release --env NODE_NO_WARNINGS=1",
     "renovate": "./node_modules/@-xun/symbiote/dist/src/cli.js project renovate --env NODE_NO_WARNINGS=1 --github-reconfigure-repo --regenerate-assets --assets-preset cli",
-    "renovate:aliases": "symbiote project renovate --env NODE_NO_WARNINGS=1 --regenerate-assets --assets-preset cli --only-aliases",
-    "start": "./node_modules/@-xun/symbiote/dist/src/cli.js start --",
+    "renovate:aliases": "./node_modules/@-xun/symbiote/dist/src/cli.js project renovate --env NODE_NO_WARNINGS=1 --regenerate-assets --assets-preset cli --only-aliases",
+    "start": "./node_modules/@-xun/symbiote/dist/src/cli.js start --env NODE_NO_WARNINGS=1 --",
     "test": "npm run test:package:unit --",
-    "test:package:all": "./node_modules/@-xun/symbiote/dist/src/cli.js test --env NODE_NO_WARNINGS=1 --coverage",
+    "test:package:all": "./node_modules/@-xun/symbiote/dist/src/cli.js test --env NODE_NO_WARNINGS=1 --tests all-local --coverage",
     "test:package:e2e": "./node_modules/@-xun/symbiote/dist/src/cli.js test --env NODE_NO_WARNINGS=1 --tests end-to-end",
     "test:package:integration": "./node_modules/@-xun/symbiote/dist/src/cli.js test --env NODE_NO_WARNINGS=1 --tests integration",
-    "test:package:unit": "./node_modules/@-xun/symbiote/dist/src/cli.js test --env NODE_NO_WARNINGS=1 --tests unit",
-    "test:packages:all": "./node_modules/@-xun/symbiote/dist/src/cli.js test --env NODE_NO_WARNINGS=1 --scope unlimited --env NODE_NO_WARNINGS=1 --coverage",
-    "test:packages:all:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit type --scope unlimited --coverage"
+    "test:package:unit": "./node_modules/@-xun/symbiote/dist/src/cli.js test --env NODE_NO_WARNINGS=1 --tests unit type",
+    "test:packages:all": "./node_modules/@-xun/symbiote/dist/src/cli.js test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage",
+    "test:packages:all:unit": "./node_modules/@-xun/symbiote/dist/src/cli.js test --env NODE_NO_WARNINGS=1 --tests unit type --scope unlimited --coverage"
   },
   "dependencies": {
     "@-xun/changelog": "^1.0.2",

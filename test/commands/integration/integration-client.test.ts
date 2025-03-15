@@ -30,6 +30,4 @@ beforeAll(async () => {
   );
 });
 
-// TODO: good fable candidate here
-
 test.todo('this');
