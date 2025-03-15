@@ -161,7 +161,8 @@ export type CustomCliArguments = GlobalCliArguments<DistributablesBuilderScope> 
   skipOutputExtraneityCheckFor?: (string | RegExp)[];
   skipOutputBijectionCheckFor?: (string | RegExp)[];
   multiversal: boolean;
-  allowRootverseNodeModules: boolean;
+  allowMultiversalImportsInNonSource: boolean;
+  allowIncompatibleCoreJs: boolean;
 };
 
 export default async function command({
@@ -200,11 +201,18 @@ export default async function command({
       CustomCliArguments,
       GlobalExecutionContext
     > = {
-      'allow-rootverse-node-modules': {
+      'allow-incompatible-core-js': {
         boolean: true,
         description:
-          'allow precarious imports from node_modules using rootverse aliases',
+          "dangerously allow a core-js version outside the known compatible range",
         default: false
+      },
+      'allow-multiversal-imports-in-non-source': {
+        boolean: true,
+        description:
+          'similar to --multiversal, but only applies to relevant TS files outside src/',
+        default: argv?.notMultiversal !== undefined ? !argv.notMultiversal : !!argv?.multiversal,
+        defaultDescription: 'the value of --multiversal'
       },
       'exclude-internal-files': {
         alias: 'exclude-internal-file',
@@ -397,6 +405,8 @@ Note that (1) some specifiers are always skipped during extraneity checks, such 
 
 Provide --multiversal (or --not-multiversal) to further tweak import validation and other aspects of this command's support for so-called "multiversal imports". Multiversal imports are "interdependencies," or direct imports of files from other packages in the repository. By default, or when --not-multiversal is provided (or --multiversal=false), this command's multiversal capabilities are disabled; any use of "multiverse" imports, or imports that attempt to pull in files from outside of the package's root directory, will cause an error. On the other hand, providing --multiversal enables all multiversal capabilities, including multiverse imports.
 
+The only exception to this is --allow-multiversal-imports-in-non-source, which is similar to --multiversal but restricts the use of multiversal imports to relevant non-source TypeScript files only. The flag additionally allows for the use of precarious rootverse imports directly from node_modules in these files, which are never allowed in source files.
+
 All package build targets are classified as either "source" ("sources," "source files") or "asset" ("assets," "asset files"). Sources describe all the files to be transpiled while assets describe the remaining targets that are copied through to the output directory without any modification. Currently, only TypeScript files (specifically, files ending in one of: ${extensionsTypescript.join(', ')}) are considered sources. Every other file is considered an asset.
 
 All source and asset files are further classified as either "internal" or "external". Internal files or "internals" are all of the files within a package's source directory, i.e. "\${packageRoot}/${directorySrcPackageBase}". All relevant internals will be subject to import analysis (more on that below). One or more internals can be excluded from analysis and transpilation with --exclude-internal-files. External files or "externals," on the other hand, are all of the files outside of the package's source directory, such as files in neighboring directories or from other packages in the project that are imported by an internal (i.e. a "multiversal import"). One or more files can be added to the list of externals with --include-external-files or --include-external-assets.
@@ -452,7 +462,8 @@ Finally, note that, when attempting to build a Next.js package, this command wil
       skipOutputValidityCheckFor: skipOutputValidityCheckFor_,
       skipOutputExtraneityCheckFor: skipOutputExtraneityCheckFor_,
       skipOutputBijectionCheckFor: skipOutputBijectionCheckFor_,
-      allowRootverseNodeModules: allowRootverseNodeModules_,
+      allowMultiversalImportsInNonSource: allowMultiversalImportsInNonSource_,
+      allowIncompatibleCoreJs: allowIncompatibleCoreJs_,
       partialFilter: partialFilter_
     }) {
       const handlerName = scriptBasename(scriptFullName);
@@ -516,7 +527,13 @@ Finally, note that, when attempting to build a Next.js package, this command wil
             skipOutputBijectionCheckFor_
           );
           debug('partialFilter: %O', partialFilter_);
-          debug('allowRootverseNodeModules: %O', allowRootverseNodeModules_);
+          debug('allowMultiversalImportsInNonSource: %O', allowMultiversalImportsInNonSource_);
+          debug('allowIncompatibleCoreJs: %O', allowIncompatibleCoreJs_);
+
+          if(allowIncompatibleCoreJs_) {
+            process.env.SYMBIOTE_ALLOW_INCOMPATIBLE_CORE_JS = 'true';
+            debug('set process.env.SYMBIOTE_ALLOW_INCOMPATIBLE_CORE_JS=%O', process.env.SYMBIOTE_ALLOW_INCOMPATIBLE_CORE_JS);
+          }
 
           if (generateIntermediatesFor) {
             genericLogger.warn(
@@ -1941,12 +1958,12 @@ distrib root: ${absoluteOutputDirPath}
 
           for (const specifier of specifiers) {
             ensureRawSpecifierOk(wellKnownAliases, specifier, {
-              allowMultiversalImports: multiversal,
+              allowMultiversalImports: allowMultiversalImportsInNonSource_,
               // ? Allow foreign universe imports in non-source typescript files
               allowForeignUniversalImports: true,
               // ? Allow testverse imports in non-source typescript files
               allowTestversalImports: true,
-              allowRootverseNodeModules: false,
+              allowRootverseNodeModules: allowMultiversalImportsInNonSource_,
               packageId: specifierPackageId,
               containingFilePath: path
             });
