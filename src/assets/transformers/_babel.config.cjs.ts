@@ -555,7 +555,10 @@ function doCoreJsVersionChecksAndReturnHardcodedVersion({
         );
       }
 
-      const isCwdPackageDependencyNotSatisfiedByLibraryVersion = !semver.subset(cwdPackageCoreJsDependency, `^${coreJsLibraryVersion}`);
+      const isCwdPackageDependencyNotSatisfiedByLibraryVersion = !semver.subset(
+        cwdPackageCoreJsDependency,
+        `^${coreJsLibraryVersion}`
+      );
 
       if (isCwdPackageDependencyNotSatisfiedByLibraryVersion) {
         const errorString = ErrorMessage.BabelCorejsInstalledVersionRangeNotSatisfactory(
@@ -566,14 +569,11 @@ function doCoreJsVersionChecksAndReturnHardcodedVersion({
           packageRoot
         );
 
-        if(process.env.SYMBIOTE_ALLOW_INCOMPATIBLE_CORE_JS === 'true') {
-          log.warn(
-            [LogTag.IF_NOT_QUIETED],
-            errorString
-          );
+        if (process.env.SYMBIOTE_ALLOW_INCOMPATIBLE_CORE_JS === 'true') {
+          log.warn([LogTag.IF_NOT_QUIETED], errorString);
         } else {
-        throw new ProjectError(errorString
-        );}
+          throw new ProjectError(errorString);
+        }
       }
     } else {
       // * We don't throw an error here to be kind to the build process; this
