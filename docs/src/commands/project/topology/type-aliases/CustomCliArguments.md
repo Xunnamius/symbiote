@@ -8,7 +8,7 @@
 
 > **CustomCliArguments**: [`GlobalCliArguments`](../../../../configure/type-aliases/GlobalCliArguments.md)\<[`UnlimitedGlobalScope`](../../../../configure/enumerations/UnlimitedGlobalScope.md)\> & `object` & \{ `describe`: `false`; `runScript`: [`TopologyScript`](../enumerations/TopologyScript.md); \} \| \{ `describe`: `true`; `runScript`: `undefined`; \}
 
-Defined in: [src/commands/project/topology.ts:46](https://github.com/Xunnamius/symbiote/blob/892f2824ac6ba0b778715e945397d1bc643ed619/src/commands/project/topology.ts#L46)
+Defined in: [src/commands/project/topology.ts:46](https://github.com/Xunnamius/symbiote/blob/6bf49fdc67f7ad7bf0be986cfd71e3400d8eef3c/src/commands/project/topology.ts#L46)
 
 ## Type declaration
 

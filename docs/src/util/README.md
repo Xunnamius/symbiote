@@ -28,9 +28,6 @@
 
 - [\_\_read\_file\_sync](functions/read_file_sync.md)
 - [\_\_write\_file\_sync](functions/write_file_sync.md)
-- [checkArrayNotEmpty](functions/checkArrayNotEmpty.md)
-- [checkIsNotNegative](functions/checkIsNotNegative.md)
-- [checkIsNotNil](functions/checkIsNotNil.md)
 - [copyFile](functions/copyFile.md)
 - [deriveCodecovPackageFlag](functions/deriveCodecovPackageFlag.md)
 - [deriveScopeNarrowingPathspecs](functions/deriveScopeNarrowingPathspecs.md)
@@ -40,7 +37,6 @@
 - [hasExitCode](functions/hasExitCode.md)
 - [importAdditionalRawAliasMappings](functions/importAdditionalRawAliasMappings.md)
 - [isGitReferenceMoreRecent](functions/isGitReferenceMoreRecent.md)
-- [isNonEmptyString](functions/isNonEmptyString.md)
 - [loadDotEnv](functions/loadDotEnv.md)
 - [logStartTime](functions/logStartTime.md)
 - [makeDirectory](functions/makeDirectory.md)

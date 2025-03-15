@@ -8,7 +8,7 @@
 
 > **default**(`__namedParameters`): `Partial`\<`Configuration`\<[`CustomCliArguments`](../type-aliases/CustomCliArguments.md), [`GlobalExecutionContext`](../../../configure/type-aliases/GlobalExecutionContext.md)\>\>
 
-Defined in: [src/commands/format.ts:46](https://github.com/Xunnamius/symbiote/blob/892f2824ac6ba0b778715e945397d1bc643ed619/src/commands/format.ts#L46)
+Defined in: [src/commands/format.ts:45](https://github.com/Xunnamius/symbiote/blob/6bf49fdc67f7ad7bf0be986cfd71e3400d8eef3c/src/commands/format.ts#L45)
 
 ## Parameters
 

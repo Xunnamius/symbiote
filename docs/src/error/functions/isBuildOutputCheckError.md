@@ -8,7 +8,7 @@
 
 > **isBuildOutputCheckError**(`parameter`): `parameter is BuildOutputCheckError`
 
-Defined in: [src/error.ts:26](https://github.com/Xunnamius/symbiote/blob/892f2824ac6ba0b778715e945397d1bc643ed619/src/error.ts#L26)
+Defined in: [src/error.ts:26](https://github.com/Xunnamius/symbiote/blob/6bf49fdc67f7ad7bf0be986cfd71e3400d8eef3c/src/error.ts#L26)
 
 Type guard for ProjectError.
 

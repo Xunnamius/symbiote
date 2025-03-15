@@ -8,7 +8,7 @@
 
 > `const` **skippableTasksGroups**: [`SkippableTasksGroup`](../enumerations/SkippableTasksGroup.md)[]
 
-Defined in: [src/commands/release.ts:120](https://github.com/Xunnamius/symbiote/blob/892f2824ac6ba0b778715e945397d1bc643ed619/src/commands/release.ts#L120)
+Defined in: [src/commands/release.ts:123](https://github.com/Xunnamius/symbiote/blob/6bf49fdc67f7ad7bf0be986cfd71e3400d8eef3c/src/commands/release.ts#L123)
 
 ## See
 

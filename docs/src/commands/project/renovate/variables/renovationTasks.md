@@ -8,7 +8,7 @@
 
 > `const` **renovationTasks**: `object`
 
-Defined in: [src/commands/project/renovate.ts:765](https://github.com/Xunnamius/symbiote/blob/892f2824ac6ba0b778715e945397d1bc643ed619/src/commands/project/renovate.ts#L765)
+Defined in: [src/commands/project/renovate.ts:765](https://github.com/Xunnamius/symbiote/blob/6bf49fdc67f7ad7bf0be986cfd71e3400d8eef3c/src/commands/project/renovate.ts#L765)
 
 ## Type declaration
 
@@ -250,7 +250,7 @@ the other. Note that providing an array of one or more async check
 functions will result in them being awaited concurrently.
 
 See [the
-documentation](https://github.com/Xunnamius/black-flag-extensions?tab=readme-ov-file#check)
+documentation](https://github.com/Xunnamius/black-flag/tree/main/packages/extensions/README.md#check)
 for details.
 
 ###### choices?
@@ -341,7 +341,7 @@ boolean, interpret option as a count of boolean flags, see `count()`
 However, unlike vanilla yargs and Black Flag, this default value is applied
 towards the end of BFE's execution, enabling its use alongside keys like
 `conflicts`. See [the
-documentation](https://github.com/Xunnamius/black-flag-extensions?tab=readme-ov-file#support-for-default-with-conflictsrequiresetc)
+documentation](https://github.com/Xunnamius/black-flag/tree/main/packages/extensions/README.md#support-for-default-with-conflictsrequiresetc)
 for details.
 
 Note also that a defaulted argument will not be coerced by the `coerce`
@@ -1111,7 +1111,7 @@ the other. Note that providing an array of one or more async check
 functions will result in them being awaited concurrently.
 
 See [the
-documentation](https://github.com/Xunnamius/black-flag-extensions?tab=readme-ov-file#check)
+documentation](https://github.com/Xunnamius/black-flag/tree/main/packages/extensions/README.md#check)
 for details.
 
 ###### choices?
@@ -1202,7 +1202,7 @@ boolean, interpret option as a count of boolean flags, see `count()`
 However, unlike vanilla yargs and Black Flag, this default value is applied
 towards the end of BFE's execution, enabling its use alongside keys like
 `conflicts`. See [the
-documentation](https://github.com/Xunnamius/black-flag-extensions?tab=readme-ov-file#support-for-default-with-conflictsrequiresetc)
+documentation](https://github.com/Xunnamius/black-flag/tree/main/packages/extensions/README.md#support-for-default-with-conflictsrequiresetc)
 for details.
 
 Note also that a defaulted argument will not be coerced by the `coerce`
@@ -1537,7 +1537,7 @@ the other. Note that providing an array of one or more async check
 functions will result in them being awaited concurrently.
 
 See [the
-documentation](https://github.com/Xunnamius/black-flag-extensions?tab=readme-ov-file#check)
+documentation](https://github.com/Xunnamius/black-flag/tree/main/packages/extensions/README.md#check)
 for details.
 
 ###### choices?
@@ -1628,7 +1628,7 @@ boolean, interpret option as a count of boolean flags, see `count()`
 However, unlike vanilla yargs and Black Flag, this default value is applied
 towards the end of BFE's execution, enabling its use alongside keys like
 `conflicts`. See [the
-documentation](https://github.com/Xunnamius/black-flag-extensions?tab=readme-ov-file#support-for-default-with-conflictsrequiresetc)
+documentation](https://github.com/Xunnamius/black-flag/tree/main/packages/extensions/README.md#support-for-default-with-conflictsrequiresetc)
 for details.
 
 Note also that a defaulted argument will not be coerced by the `coerce`
@@ -2051,7 +2051,7 @@ the other. Note that providing an array of one or more async check
 functions will result in them being awaited concurrently.
 
 See [the
-documentation](https://github.com/Xunnamius/black-flag-extensions?tab=readme-ov-file#check)
+documentation](https://github.com/Xunnamius/black-flag/tree/main/packages/extensions/README.md#check)
 for details.
 
 ###### choices?
@@ -2142,7 +2142,7 @@ boolean, interpret option as a count of boolean flags, see `count()`
 However, unlike vanilla yargs and Black Flag, this default value is applied
 towards the end of BFE's execution, enabling its use alongside keys like
 `conflicts`. See [the
-documentation](https://github.com/Xunnamius/black-flag-extensions?tab=readme-ov-file#support-for-default-with-conflictsrequiresetc)
+documentation](https://github.com/Xunnamius/black-flag/tree/main/packages/extensions/README.md#support-for-default-with-conflictsrequiresetc)
 for details.
 
 Note also that a defaulted argument will not be coerced by the `coerce`

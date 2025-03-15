@@ -8,7 +8,7 @@
 
 > `const` **availableOutputOrders**: [`OutputOrder`](../enumerations/OutputOrder.md)[]
 
-Defined in: [src/commands/build/changelog.ts:121](https://github.com/Xunnamius/symbiote/blob/892f2824ac6ba0b778715e945397d1bc643ed619/src/commands/build/changelog.ts#L121)
+Defined in: [src/commands/build/changelog.ts:120](https://github.com/Xunnamius/symbiote/blob/6bf49fdc67f7ad7bf0be986cfd71e3400d8eef3c/src/commands/build/changelog.ts#L120)
 
 ## See
 

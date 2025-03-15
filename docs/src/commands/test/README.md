@@ -9,6 +9,7 @@
 ## Enumerations
 
 - [\_TesterScope](enumerations/TesterScope.md)
+- [EndToEndMode](enumerations/EndToEndMode.md)
 - [Test](enumerations/Test.md)
 
 ## Type Aliases

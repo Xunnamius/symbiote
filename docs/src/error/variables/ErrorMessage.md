@@ -8,7 +8,7 @@
 
 > `const` **ErrorMessage**: `object`
 
-Defined in: [src/error.ts:61](https://github.com/Xunnamius/symbiote/blob/892f2824ac6ba0b778715e945397d1bc643ed619/src/error.ts#L61)
+Defined in: [src/error.ts:61](https://github.com/Xunnamius/symbiote/blob/6bf49fdc67f7ad7bf0be986cfd71e3400d8eef3c/src/error.ts#L61)
 
 A collection of possible error and warning messages.
 
@@ -757,62 +757,6 @@ readonly `string`[]
 
 `string`
 
-### OptionMustBeNonNegative()
-
-#### Parameters
-
-##### name
-
-`string`
-
-#### Returns
-
-`string`
-
-### OptionMustNotBeFalsy()
-
-#### Parameters
-
-##### name
-
-`string`
-
-#### Returns
-
-`string`
-
-### OptionValueMustBeAlone()
-
-#### Parameters
-
-##### option
-
-`string`
-
-##### noun
-
-`string`
-
-#### Returns
-
-`string`
-
-### OptionValueMustBeAloneWhenBaseline()
-
-#### Parameters
-
-##### option
-
-`string`
-
-##### noun
-
-`string`
-
-#### Returns
-
-`string`
-
 ### PreparationRunnerExecutionFailed()
 
 #### Returns
@@ -920,30 +864,6 @@ readonly `string`[]
 #### Parameters
 
 ##### tag
-
-`string`
-
-#### Returns
-
-`string`
-
-### RequiresMinArgs()
-
-#### Parameters
-
-##### name
-
-`string`
-
-##### min
-
-`number`
-
-##### given?
-
-`number`
-
-##### adjective?
 
 `string`
 

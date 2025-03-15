@@ -8,7 +8,7 @@
 
 > **ChangelogPatcherFunction**: (`changelog`, `patcher`) => `Promisable`\<`string`\>
 
-Defined in: [src/commands/build/changelog.ts:87](https://github.com/Xunnamius/symbiote/blob/892f2824ac6ba0b778715e945397d1bc643ed619/src/commands/build/changelog.ts#L87)
+Defined in: [src/commands/build/changelog.ts:86](https://github.com/Xunnamius/symbiote/blob/6bf49fdc67f7ad7bf0be986cfd71e3400d8eef3c/src/commands/build/changelog.ts#L86)
 
 A function that receives the current contents of the changelog file and a
 `patcher` function. `ChangelogPatcherFunction` must return a string that will

@@ -6,7 +6,7 @@
 
 # Enumeration: DeployTarget
 
-Defined in: [src/commands/deploy.ts:23](https://github.com/Xunnamius/symbiote/blob/892f2824ac6ba0b778715e945397d1bc643ed619/src/commands/deploy.ts#L23)
+Defined in: [src/commands/deploy.ts:23](https://github.com/Xunnamius/symbiote/blob/6bf49fdc67f7ad7bf0be986cfd71e3400d8eef3c/src/commands/deploy.ts#L23)
 
 ## Enumeration Members
 
@@ -14,7 +14,7 @@ Defined in: [src/commands/deploy.ts:23](https://github.com/Xunnamius/symbiote/bl
 
 > **Ssh**: `"ssh"`
 
-Defined in: [src/commands/deploy.ts:25](https://github.com/Xunnamius/symbiote/blob/892f2824ac6ba0b778715e945397d1bc643ed619/src/commands/deploy.ts#L25)
+Defined in: [src/commands/deploy.ts:25](https://github.com/Xunnamius/symbiote/blob/6bf49fdc67f7ad7bf0be986cfd71e3400d8eef3c/src/commands/deploy.ts#L25)
 
 ***
 
@@ -22,4 +22,4 @@ Defined in: [src/commands/deploy.ts:25](https://github.com/Xunnamius/symbiote/bl
 
 > **Vercel**: `"vercel"`
 
-Defined in: [src/commands/deploy.ts:24](https://github.com/Xunnamius/symbiote/blob/892f2824ac6ba0b778715e945397d1bc643ed619/src/commands/deploy.ts#L24)
+Defined in: [src/commands/deploy.ts:24](https://github.com/Xunnamius/symbiote/blob/6bf49fdc67f7ad7bf0be986cfd71e3400d8eef3c/src/commands/deploy.ts#L24)
