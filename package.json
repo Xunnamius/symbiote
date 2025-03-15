@@ -238,7 +238,7 @@
   },
   "devDependencies": {
     "@-xun/common-dummies": "^1.3.0",
-    "@-xun/symbiote": "^3.4.0"
+    "@-xun/symbiote": "^3.4.1"
   },
   "bundleDependencies": [
     "@-xun/changelog",
