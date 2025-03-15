@@ -160,6 +160,7 @@ export type CustomCliArguments = GlobalCliArguments<DistributablesBuilderScope> 
   skipOutputValidityCheckFor?: (string | RegExp)[];
   skipOutputExtraneityCheckFor?: (string | RegExp)[];
   skipOutputBijectionCheckFor?: (string | RegExp)[];
+  skipOutputTypeResolutionChecks?: boolean;
   multiversal: boolean;
   allowMultiversalImportsInNonSource: boolean;
   allowIncompatibleCoreJs: boolean;
@@ -204,14 +205,17 @@ export default async function command({
       'allow-incompatible-core-js': {
         boolean: true,
         description:
-          "dangerously allow a core-js version outside the known compatible range",
+          'dangerously allow a core-js version outside the known compatible range',
         default: false
       },
       'allow-multiversal-imports-in-non-source': {
         boolean: true,
         description:
           'similar to --multiversal, but only applies to relevant TS files outside src/',
-        default: argv?.notMultiversal !== undefined ? !argv.notMultiversal : !!argv?.multiversal,
+        default:
+          argv?.notMultiversal !== undefined
+            ? !argv.notMultiversal
+            : !!argv?.multiversal,
         defaultDescription: 'the value of --multiversal'
       },
       'exclude-internal-files': {
@@ -327,7 +331,7 @@ export default async function command({
       'skip-output-checks': {
         alias: 'skip-output-check',
         boolean: true,
-        description: 'Do not run consistency and integrity checks on build output',
+        description: 'Do not run any consistency/integrity checks on build output',
         default: false
       },
       'skip-output-validity-checks-for': {
@@ -371,6 +375,12 @@ export default async function command({
             return str.startsWith('^') || str.endsWith('$') ? new RegExp(str) : str;
           });
         }
+      },
+      'skip-output-type-resolution-checks': {
+        alias: 'skip-attw',
+        boolean: true,
+        description: 'Do not run @arethetypeswrong/cli checks on build output',
+        default: false
       }
     };
 
@@ -462,6 +472,7 @@ Finally, note that, when attempting to build a Next.js package, this command wil
       skipOutputValidityCheckFor: skipOutputValidityCheckFor_,
       skipOutputExtraneityCheckFor: skipOutputExtraneityCheckFor_,
       skipOutputBijectionCheckFor: skipOutputBijectionCheckFor_,
+      skipOutputTypeResolutionChecks: skipOutputTypeResolutionChecks_,
       allowMultiversalImportsInNonSource: allowMultiversalImportsInNonSource_,
       allowIncompatibleCoreJs: allowIncompatibleCoreJs_,
       partialFilter: partialFilter_
@@ -514,25 +525,37 @@ Finally, note that, when attempting to build a Next.js package, this command wil
           debug('moduleSystem: %O', moduleSystem_);
           debug('outputExtension (original): %O', outputExtension);
           debug('skipOutputChecks: %O', skipOutputChecks_);
+
           debug(
             'skipOutputValidityCheckFor (original): %O',
             skipOutputValidityCheckFor_
           );
+
           debug(
             'skipOutputExtraneityCheckFor (original): %O',
             skipOutputExtraneityCheckFor_
           );
+
           debug(
             'skipOutputBijectionCheckFor (original): %O',
             skipOutputBijectionCheckFor_
           );
+
+          debug('skipOutputTypeResolutionChecks: %O', skipOutputTypeResolutionChecks_);
+
           debug('partialFilter: %O', partialFilter_);
-          debug('allowMultiversalImportsInNonSource: %O', allowMultiversalImportsInNonSource_);
+          debug(
+            'allowMultiversalImportsInNonSource: %O',
+            allowMultiversalImportsInNonSource_
+          );
           debug('allowIncompatibleCoreJs: %O', allowIncompatibleCoreJs_);
 
-          if(allowIncompatibleCoreJs_) {
+          if (allowIncompatibleCoreJs_) {
             process.env.SYMBIOTE_ALLOW_INCOMPATIBLE_CORE_JS = 'true';
-            debug('set process.env.SYMBIOTE_ALLOW_INCOMPATIBLE_CORE_JS=%O', process.env.SYMBIOTE_ALLOW_INCOMPATIBLE_CORE_JS);
+            debug(
+              'set process.env.SYMBIOTE_ALLOW_INCOMPATIBLE_CORE_JS=%O',
+              process.env.SYMBIOTE_ALLOW_INCOMPATIBLE_CORE_JS
+            );
           }
 
           if (generateIntermediatesFor) {
@@ -558,6 +581,7 @@ Finally, note that, when attempting to build a Next.js package, this command wil
           const skipOutputValidityCheckFor = new Set(skipOutputValidityCheckFor_);
           const skipOutputExtraneityCheckFor = new Set(skipOutputExtraneityCheckFor_);
           const skipOutputBijectionCheckFor = new Set(skipOutputBijectionCheckFor_);
+          const skipOutputTypeResolutionChecks = skipOutputTypeResolutionChecks_;
           const partialFilters = partialFilter_;
 
           hardAssert(includeExternalFiles !== undefined, ErrorMessage.GuruMeditation());
@@ -1183,7 +1207,9 @@ distrib root: ${absoluteOutputDirPath}
             // ? This code block should only be reached when generateTypes is true
             // ? due to our Black Flag checks
             const [attwResult, bijectionResult, entryResult] = await Promise.allSettled([
-              checkDistAreTheTypesWrong(),
+              skipOutputTypeResolutionChecks
+                ? Promise.resolve({ all: '', exitCode: -1 })
+                : checkDistAreTheTypesWrong(),
               checkImportsDependenciesValidBijection(),
               checkDistEntryPoints()
             ]);
@@ -1200,7 +1226,12 @@ distrib root: ${absoluteOutputDirPath}
             genericLogger.newline([LogTag.IF_NOT_SILENCED]);
 
             if (attwExitCode !== 0 && !isSilenced) {
-              if (attwOutput) {
+              if (attwExitCode === -1) {
+                genericLogger(
+                  [LogTag.IF_NOT_SILENCED],
+                  `${SHORT_TAB}@arethetypeswrong/cli test skipped 🟧`
+                );
+              } else if (attwOutput) {
                 process.stderr.write([attwOutput].flat().join('\n') + '\n');
               } else {
                 genericLogger.error(
