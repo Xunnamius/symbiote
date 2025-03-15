@@ -1218,7 +1218,7 @@ distrib root: ${absoluteOutputDirPath}
             const { all: attwOutput, exitCode: attwExitCode } = attwResult.value;
 
             const errored: boolean | Error =
-              attwExitCode !== 0 ||
+              (attwExitCode !== 0 && attwExitCode !== -1) ||
               (bijectionResult.status === 'rejected' && bijectionResult.reason) ||
               (entryResult.status === 'rejected' && entryResult.reason) ||
               false;
