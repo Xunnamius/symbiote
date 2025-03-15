@@ -3,6 +3,7 @@ import { setTimeout as delay } from 'node:timers/promises';
 
 import {
   BfcErrorMessage,
+  checkArrayNoConflicts,
   checkArrayNotEmpty,
   checkIsNotNegative,
   CliError
@@ -64,22 +65,41 @@ export enum Test {
    */
   Integration = 'integration',
   /**
-   * Include end-to-end tests from the chosen scope.
+   * Include end-to-end tests from the chosen scope with the
+   * `SYMBIOTE_TEST_E2E_MODE=${EndToEndMode.Real}` environment variable. This
+   * will run any end-to-end tests by actually downloading the items under test
+   * from the internet.
    *
    * Does not include code coverage results by default.
    */
-  EndToEnd = 'end-to-end',
+  EndToEnd = 'e2e',
   /**
-   * Include _all possible tests_ from the chosen scope.
+   * This option is identical to {@link Test.EndToEnd} except it runs end-to-end
+   * tests with the `SYMBIOTE_TEST_E2E_MODE=${EndToEndMode.Simulated}`
+   * environment variable. This will run any end-to-end tests by copying the
+   * items under test from the local filesystem.
    *
    * Does not include code coverage results by default.
+   */
+  EndToEndLocal = 'e2e-local',
+  /**
+   * Include _all possible tests_ from the chosen scope, and runs end-to-end
+   * tests with the `SYMBIOTE_TEST_E2E_MODE=${EndToEndMode.Real}` environment
+   * variable. This will run any end-to-end tests by actually downloading the
+   * items under test from the internet.
+   *
+   * Will also include code coverage results by default when scope is
+   * {@link TesterScope.Unlimited}.
    */
   All = 'all',
   /**
-   * This option is identical to {@link Test.All} except it _excludes end-to-end
-   * tests_.
+   * This option is identical to {@link Test.All} except it runs end-to-end
+   * tests with the `SYMBIOTE_TEST_E2E_MODE=${EndToEndMode.Simulated}`
+   * environment variable. This will run any end-to-end tests by copying the
+   * items under test from the local filesystem.
    *
-   * Will also include code coverage results by default.
+   * Will also include code coverage results by default when scope is
+   * {@link TesterScope.Unlimited}.
    */
   AllLocal = 'all-local'
 }
@@ -90,6 +110,15 @@ export enum _TesterScope {
    * within `./.transpiled` (with respect to the current working directory).
    */
   ThisPackageIntermediates = 'this-package-intermediates'
+}
+
+/**
+ * The possible valid values for the `process.env.SYMBIOTE_TEST_E2E_MODE`
+ * environment variable (not including `undefined`).
+ */
+export enum EndToEndMode {
+  Real = 'real',
+  Simulated = 'simulated'
 }
 
 /**
@@ -133,13 +162,15 @@ export default function command({
   CustomCliArguments,
   GlobalExecutionContext
 > {
-  const allActualTests = tests.filter(
-    (test) => ![Test.All, Test.AllLocal].includes(test)
+  const allActualNonLocalTests = tests.filter(
+    (test) => ![Test.All, Test.AllLocal, Test.EndToEndLocal].includes(test)
   );
 
-  const allActualLocalTests = allActualTests.filter(
-    (test) => ![Test.EndToEnd].includes(test)
-  );
+  const allActualLocalTests = allActualNonLocalTests
+    .filter((test) => ![Test.EndToEnd].includes(test))
+    .concat(Test.EndToEndLocal);
+
+  let endToEndMode: EndToEndMode = EndToEndMode.Real;
 
   const [builder, withGlobalHandler] = withGlobalBuilder<CustomCliArguments>(
     (blackFlag) => {
@@ -156,18 +187,29 @@ export default function command({
           choices: tests,
           description: 'Which kinds of test to run',
           default: [Test.AllLocal],
-          check: checkArrayNotEmpty('--tests'),
+          check: [
+            checkArrayNotEmpty('--tests'),
+            checkArrayNoConflicts('--tests', [
+              [Test.All, Test.AllLocal, Test.EndToEnd, Test.EndToEndLocal]
+            ])
+          ],
           coerce(tests: Test[]) {
             return Array.from(
               new Set(
                 [tests].flat().flatMap((test) => {
                   switch (test) {
                     case Test.All: {
-                      return allActualTests;
+                      return allActualNonLocalTests;
                     }
 
                     case Test.AllLocal: {
+                      endToEndMode = EndToEndMode.Simulated;
                       return allActualLocalTests;
+                    }
+
+                    case Test.EndToEndLocal: {
+                      endToEndMode = EndToEndMode.Simulated;
+                      return Test.EndToEnd;
                     }
 
                     default: {
@@ -249,8 +291,12 @@ export default function command({
           default: false,
           subOptionOf: {
             tests: {
-              when: (tests: Test[], { scope }) =>
-                tests.includes(Test.AllLocal) && scope === TesterScope.Unlimited,
+              when: (tests: Test[], { scope }) => {
+                return (
+                  (tests.includes(Test.All) || tests.includes(Test.AllLocal)) &&
+                  scope === TesterScope.Unlimited
+                );
+              },
               update(oldOptionConfig) {
                 return {
                   ...oldOptionConfig,
@@ -290,9 +336,15 @@ export default function command({
 
 $1.
 
-Currently, "type" tests (i.e. --test=type or --tests=type) are executed by the Tstyche test runner while all other kinds are executed by the Jest test runner; said kinds are: "${allActualTests.filter((t) => t !== Test.Type).join('", "')}". It is for this reason that all test files should be appropriately named (e.g. "\${kind}-\${name}.test.ts"), and should exist under a package's ./test directory.
+Currently, --test='${Test.Type}' tests are executed by the Tstyche test runner while all other kinds are executed by the Jest test runner; said kinds are: --test='${Test.Unit}', --test='${Test.Integration}', and --test='${Test.EndToEnd}'. It is for this reason that all test files should be appropriately named (e.g. "\${kind}-\${name}.test.ts"), and should exist under a package's ./test directory.
 
-There are two additional meta test kinds: --test=${Test.All} and --test=${Test.AllLocal}. "${Test.All}" runs all possible tests while "${Test.AllLocal}" runs all possible tests EXCEPT "end-to-end".
+There are three additional "meta" test kinds: --test='${Test.EndToEndLocal}', --test='${Test.AllLocal}', and --test='${Test.All}'.
+
+  --test='${Test.EndToEndLocal}' is identical to --test='${Test.EndToEnd}' in that it runs end-to-end tests; however, --test='${Test.EndToEndLocal}' sets the SYMBIOTE_TEST_E2E_MODE environment variable to "simulated" while --test='${Test.EndToEnd}' sets the same variable to "real". When SYMBIOTE_TEST_E2E_MODE is set to "simulated", end-to-end tests will run against the current locally-built distributables (i.e. "simulated" end-to-end tests), while SYMBIOTE_TEST_E2E_MODE being set to "real" will cause end-to-end tests to download assets under test from the internet (i.e. "real" end-to-end tests). Simulated testing is useful when debugging end-to-end tests, or running end-to-end tests against distributables that have not yet been published to the internet.
+
+  --test='${Test.AllLocal}' runs all possible tests, including e2e tests, and sets the SYMBIOTE_TEST_E2E_MODE environment variable to "simulated".
+
+  --test='${Test.All}' runs all possible tests, including e2e tests, and sets the SYMBIOTE_TEST_E2E_MODE environment variable to "real".
 
 Any unrecognized flags/arguments provided after the --tester-options flag are always passed through directly to each tester. For Jest, they are inserted after computed arguments but before test path patterns, e.g. \`--reporters=... --testPathIgnorePatterns=... <your extra args> -- testPathPattern1 testPathPattern2\`. For Tstyche, they are inserted after all other arguments, e.g. \`--computed-arg-1=... computed-arg-2 <your extra args>\`.
 
@@ -399,6 +451,9 @@ Provide --skip-slow-tests (or -x) to set the SYMBIOTE_TEST_JEST_SKIP_SLOW_TESTS 
       if (skipSlowTests) {
         env.SYMBIOTE_TEST_JEST_SKIP_SLOW_TESTS = skipSlowTests.toString();
       }
+
+      env.SYMBIOTE_TEST_E2E_MODE = endToEndMode;
+      debug('endToEndMode: %O', endToEndMode);
 
       if (isRepeating) {
         env.JEST_SILENT_REPORTER_SHOW_WARNINGS = 'true';
