@@ -69,7 +69,7 @@ export const ErrorMessage = {
     resolvedCoreJsVersion: string,
     packageRoot: string
   ) {
-    return `babel is configured to use core-js@${coreJsLibraryVersion} ("${
+    return `Babel is configured to use core-js@${coreJsLibraryVersion} ("${
       CORE_JS_LIBRARY_VERSION
     }") but the resolved core-js version is ${
       resolvedCoreJsVersion
@@ -82,7 +82,7 @@ export const ErrorMessage = {
     packageName: string | undefined,
     packageRoot: string
   ) {
-    return `babel is configured to use core-js@${coreJsLibraryVersion} ("${
+    return `Babel is configured to use core-js@${coreJsLibraryVersion} ("${
       CORE_JS_LIBRARY_VERSION
     }") but the ${
       packageName ? `"${packageName}"` : 'current'
