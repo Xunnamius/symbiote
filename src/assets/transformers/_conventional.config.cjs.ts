@@ -952,12 +952,20 @@ function mergeCustomizer(
  * A smarter more useful cloning algorithm based on "structured clone" that
  * passes through as-is items that cannot be cloned.
  */
-// TODO: export this as part of js-utils (@-xun/js) shared with bfe
+// TODO: replace this with the latest version exported from @-xun/js (see bfe)
 function safeDeepClone<T>(o: T): T {
   return cloneDeepWith(o, (value) => {
     const attempt = clone(value);
 
-    if (attempt && typeof attempt === 'object' && Object.keys(attempt).length === 0) {
+    if (
+      attempt &&
+      typeof attempt === 'object' &&
+      Object.keys(attempt).length === 0 &&
+      // ? Essentially an "instanceof" that doesn't crawl the prototype chain
+      Object.getPrototypeOf(attempt) === Object.prototype &&
+      // ? Do NOT return the original value if it is itself an empty object
+      Object.getPrototypeOf(value) !== Object.prototype
+    ) {
       return value;
     }
 
