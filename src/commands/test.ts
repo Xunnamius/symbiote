@@ -162,19 +162,13 @@ export default function command({
   CustomCliArguments,
   GlobalExecutionContext
 > {
-  const allActualNonLocalTests = tests.filter(
-    (test) => ![Test.All, Test.AllLocal, Test.EndToEndLocal].includes(test)
-  );
-
-  const allActualLocalTests = allActualNonLocalTests
-    .filter((test) => ![Test.EndToEnd].includes(test))
-    .concat(Test.EndToEndLocal);
-
-  let endToEndMode: EndToEndMode = EndToEndMode.Real;
+  let endToEndMode: EndToEndMode = EndToEndMode.Simulated;
 
   const [builder, withGlobalHandler] = withGlobalBuilder<CustomCliArguments>(
     (blackFlag) => {
       blackFlag.parserConfiguration({ 'unknown-options-as-args': true });
+
+      const allActualTests = [Test.EndToEnd, Test.Integration, Test.Type, Test.Unit];
 
       return {
         scope: {
@@ -186,29 +180,30 @@ export default function command({
           array: true,
           choices: tests,
           description: 'Which kinds of test to run',
-          default: [Test.AllLocal],
-          check: [
-            checkArrayNotEmpty('--tests'),
-            checkArrayNoConflicts('--tests', [
-              [Test.All, Test.AllLocal, Test.EndToEnd, Test.EndToEndLocal]
-            ])
-          ],
+          // ? If this changes, endToEndMode's initial value needs to change too
+          default: allActualTests,
+          defaultDescription: Test.AllLocal,
+          check: checkArrayNotEmpty('--tests'),
           coerce(tests: Test[]) {
             return Array.from(
               new Set(
                 [tests].flat().flatMap((test) => {
                   switch (test) {
                     case Test.All: {
-                      return allActualNonLocalTests;
+                      endToEndMode = EndToEndMode.Real;
+                      return allActualTests;
                     }
 
                     case Test.AllLocal: {
-                      endToEndMode = EndToEndMode.Simulated;
-                      return allActualLocalTests;
+                      return allActualTests;
+                    }
+
+                    case Test.EndToEnd: {
+                      endToEndMode = EndToEndMode.Real;
+                      return Test.EndToEnd;
                     }
 
                     case Test.EndToEndLocal: {
-                      endToEndMode = EndToEndMode.Simulated;
                       return Test.EndToEnd;
                     }
 
