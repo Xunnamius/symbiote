@@ -3,7 +3,6 @@ import { setTimeout as delay } from 'node:timers/promises';
 
 import {
   BfcErrorMessage,
-  checkArrayNoConflicts,
   checkArrayNotEmpty,
   checkIsNotNegative,
   CliError
