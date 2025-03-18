@@ -142,6 +142,12 @@ This error typically occurs when TypeScript's compiler generates a bad path in a
   CannotRunInNonHybridMonorepoRootPackage() {
     return `to run this command with --scope=${DefaultGlobalScope.ThisPackage}, the current working directory must not be the root of a non-hybrid monorepo`;
   },
+  CannotUseNodeOptionsOnNonNodeRuntime() {
+    return 'the --node-options flag cannot be used when a non-Node.js --runtime is specified';
+  },
+  InvalidRuntime() {
+    return '--runtime must be either "default" (representing the currently installed Node.js version from PATH) or a semver-valid NPM package identifier of the form "package-name@semver"; e.g.: node@22.2.3';
+  },
   CleanCalledWithoutForce() {
     return 'no deletions were performed (try again with --force)';
   },

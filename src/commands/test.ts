@@ -145,6 +145,7 @@ export type CustomCliArguments = GlobalCliArguments<TesterScope> & {
   tests: Test[];
   testerOptions: string[];
   nodeOptions: string[];
+  runtime: 'default' | `${string}@${string}`;
   baseline: boolean;
   repeat: number;
   collectCoverage: boolean;
@@ -182,7 +183,7 @@ export default function command({
           description: 'Which kinds of test to run',
           // ? If this changes, endToEndMode's initial value needs to change too
           default: allActualTests,
-          defaultDescription: Test.AllLocal,
+          defaultDescription: `"${Test.AllLocal}"`,
           check: checkArrayNotEmpty('--tests'),
           coerce(tests: Test[]) {
             return Array.from(
@@ -230,6 +231,7 @@ export default function command({
               update(oldOptionConfig) {
                 return {
                   ...oldOptionConfig,
+                  default: [Test.Unit],
                   demandThisOption: true,
                   // ? Either Jest or Tstyche run in baseline mode, but not both
                   check: [oldOptionConfig.check || []]
@@ -318,7 +320,43 @@ export default function command({
           string: true,
           array: true,
           description: 'Options passed to the Node runtime via NODE_OPTIONS',
-          default: ['--no-warnings --experimental-vm-modules']
+          default: ['--no-warnings --experimental-vm-modules'],
+          check(arg: string[], argv) {
+            return (
+              arg.length === 0 ||
+              argv.runtime === 'default' ||
+              argv.runtime.startsWith('node@') ||
+              ErrorMessage.CannotUseNodeOptionsOnNonNodeRuntime()
+            );
+          },
+          subOptionOf: {
+            runtime: {
+              when(superOptionValue: string) {
+                return (
+                  superOptionValue !== 'default' && !superOptionValue.startsWith('node@')
+                );
+              },
+              update(oldOptionConfig) {
+                return {
+                  ...oldOptionConfig,
+                  default: []
+                };
+              }
+            }
+          }
+        },
+        runtime: {
+          string: true,
+          description: 'Set the runtime used to execute Jest (not Tstyche) tests',
+          default: 'default',
+          defaultDescription: '"default" (node from PATH)',
+          check(arg: string) {
+            return (
+              arg === 'default' ||
+              arg.split('@').length === 2 ||
+              ErrorMessage.InvalidRuntime()
+            );
+          }
         }
       };
     }
@@ -364,6 +402,7 @@ Provide --skip-slow-tests (or -x) to set the SYMBIOTE_TEST_JEST_SKIP_SLOW_TESTS 
       tests,
       testerOptions,
       nodeOptions,
+      runtime,
       baseline,
       collectCoverage,
       skipSlowTests,
@@ -402,6 +441,7 @@ Provide --skip-slow-tests (or -x) to set the SYMBIOTE_TEST_JEST_SKIP_SLOW_TESTS 
       debug('baseline: %O', baseline);
       debug('testerOptions: %O', testerOptions);
       debug('nodeOptions: %O', nodeOptions);
+      debug('runtime: %O', runtime);
       debug('collectCoverage: %O', collectCoverage);
       debug('skipSlowTests: %O', skipSlowTests);
       debug('repeat: %O', repeat);
@@ -470,7 +510,17 @@ Provide --skip-slow-tests (or -x) to set the SYMBIOTE_TEST_JEST_SKIP_SLOW_TESTS 
       // ! Test path patterns should begin with a slash (/)
       const jestTestPathPatterns: string[] = [];
       const isCwdTheProjectRoot = isRootPackage(cwdPackage);
-      const npxJestArguments = ['jest'];
+      const npxJestArguments: string[] = [];
+
+      if (runtime === 'default') {
+        npxJestArguments.push('jest');
+      } else {
+        npxJestArguments.push(
+          '--yes',
+          runtime,
+          toPath(projectRoot, 'node_modules/.bin/jest')
+        );
+      }
 
       const npxTstycheArguments = [
         'tstyche',
