@@ -25541,7 +25541,7 @@ scope: this-package
     "release": "symbiote release --env NODE_NO_WARNINGS=1",
     "test": "npm run test:package:unit --",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --coverage",
-    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests e2e-local",
     "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
     "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit type"
   }
@@ -25636,7 +25636,7 @@ scope: unlimited
     "release": "symbiote release --env NODE_NO_WARNINGS=1",
     "test": "npm run test:package:unit --",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --coverage",
-    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests e2e-local",
     "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
     "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit type"
   }
@@ -25730,7 +25730,7 @@ scope: unlimited
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "npm run test:package:unit --",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --coverage",
-    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests e2e-local",
     "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
     "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit type",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage"
@@ -25794,7 +25794,7 @@ scope: unlimited
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "npm run test:package:unit --",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --coverage",
-    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests e2e-local",
     "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
     "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit type",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage"
@@ -25875,7 +25875,7 @@ scope: unlimited
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "npm run test:package:unit --",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --coverage",
-    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests e2e-local",
     "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
     "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit type",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage"
@@ -25973,7 +25973,7 @@ scope: unlimited
     "release": "symbiote release --env NODE_NO_WARNINGS=1",
     "test": "npm run test:package:unit --",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --coverage",
-    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests e2e-local",
     "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
     "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit type"
   }
@@ -26068,7 +26068,7 @@ scope: unlimited
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "echo 'it works!'",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --coverage",
-    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests e2e-local",
     "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
     "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit type",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage"
@@ -26127,7 +26127,7 @@ scope: unlimited
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "echo 'it works!'",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --coverage",
-    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests e2e-local",
     "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
     "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit type",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage"
@@ -26203,7 +26203,7 @@ scope: unlimited
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "echo 'it works!'",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --coverage",
-    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests e2e-local",
     "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
     "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit type",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage"
@@ -26277,7 +26277,7 @@ scope: this-package
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "echo 'it works!'",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --coverage",
-    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests e2e-local",
     "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
     "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit type",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage"
@@ -26426,7 +26426,7 @@ scope: unlimited
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "npm run test:package:unit --",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --coverage",
-    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests e2e-local",
     "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
     "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit type",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage"
@@ -26521,7 +26521,7 @@ scope: unlimited
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "npm run test:package:unit --",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --coverage",
-    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests e2e-local",
     "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
     "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit type",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage"
@@ -26602,7 +26602,7 @@ scope: unlimited
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "npm run test:package:unit --",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --coverage",
-    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests e2e-local",
     "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
     "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit type",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage"
@@ -26738,7 +26738,7 @@ scope: unlimited
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "echo 'it works!'",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --coverage",
-    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests e2e-local",
     "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
     "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit type",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage"
@@ -26823,7 +26823,7 @@ scope: unlimited
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "echo 'it works!'",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --coverage",
-    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests e2e-local",
     "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
     "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit type",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage"
@@ -26899,7 +26899,7 @@ scope: unlimited
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "echo 'it works!'",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --coverage",
-    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests e2e-local",
     "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
     "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit type",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage"
@@ -26975,7 +26975,7 @@ scope: unlimited
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "echo 'it works!'",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --coverage",
-    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests e2e-local",
     "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
     "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit type",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage",
@@ -27061,7 +27061,7 @@ scope: this-package
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "npm run test:package:unit --",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --coverage",
-    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests e2e-local",
     "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
     "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit type",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage",
@@ -27142,7 +27142,7 @@ scope: unlimited
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "echo 'it works!'",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --coverage",
-    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:e2e": "symbiote test --env NODE_NO_WARNINGS=1 --tests e2e-local",
     "test:package:integration": "symbiote test --env NODE_NO_WARNINGS=1 --tests integration",
     "test:package:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit type",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage",
