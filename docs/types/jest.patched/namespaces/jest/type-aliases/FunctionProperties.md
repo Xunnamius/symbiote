@@ -6,10 +6,12 @@
 
 # Type Alias: FunctionProperties\<T\>
 
-> **FunctionProperties**\<`T`\>: `{ [K in keyof T as T[K] extends (args: any[]) => any ? K : never]: T[K] }`
+> **FunctionProperties**\<`T`\> = `{ [K in keyof T as T[K] extends (args: any[]) => any ? K : never]: T[K] }`
 
 Defined in: node\_modules/@types/jest/index.d.ts:483
 
 ## Type Parameters
 
-• **T**
+### T
+
+`T`

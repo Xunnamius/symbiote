@@ -14,6 +14,7 @@
 ## Variables
 
 - [noUndefinedReferencesPlugin](variables/noUndefinedReferencesPlugin.md)
+- [transformer](variables/transformer.md)
 - [wellKnownGithubAlerts](variables/wellKnownGithubAlerts.md)
 - [wellKnownNodeEnvValues](variables/wellKnownNodeEnvValues.md)
 
@@ -21,4 +22,3 @@
 
 - [assertEnvironment](functions/assertEnvironment.md)
 - [moduleExport](functions/moduleExport.md)
-- [transformer](functions/transformer.md)

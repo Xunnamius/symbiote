@@ -6,7 +6,10 @@
 
 # src/assets/transformers/\_webpack.config.mjs
 
+## Variables
+
+- [transformer](variables/transformer.md)
+
 ## Functions
 
 - [moduleExport](functions/moduleExport.md)
-- [transformer](functions/transformer.md)

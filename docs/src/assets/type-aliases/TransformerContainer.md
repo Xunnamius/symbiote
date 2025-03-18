@@ -6,17 +6,19 @@
 
 # Type Alias: TransformerContainer
 
-> **TransformerContainer**: `object`
+> **TransformerContainer** = `object`
 
-Defined in: [src/assets.ts:187](https://github.com/Xunnamius/symbiote/blob/9f696d86c2382405dbee8c9ec7da955f46194e6a/src/assets.ts#L187)
+Defined in: [src/assets.ts:187](https://github.com/Xunnamius/symbiote/blob/beb889fb40f0cd320367d5f94d02e29b1efb13ab/src/assets.ts#L187)
 
 An object containing a [Transformer](Transformer.md) and related context/helpers.
 
 Rather than tediously construct such an object manually, consider using
 [makeTransformer](../functions/makeTransformer.md).
 
-## Type declaration
+## Properties
 
 ### transformer
 
 > **transformer**: [`Transformer`](Transformer.md)
+
+Defined in: [src/assets.ts:188](https://github.com/Xunnamius/symbiote/blob/beb889fb40f0cd320367d5f94d02e29b1efb13ab/src/assets.ts#L188)

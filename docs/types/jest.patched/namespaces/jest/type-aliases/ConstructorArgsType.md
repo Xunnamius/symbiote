@@ -6,10 +6,12 @@
 
 # Type Alias: ConstructorArgsType\<T\>
 
-> **ConstructorArgsType**\<`T`\>: `T` *extends* (...`args`) => `any` ? `A` : `never`
+> **ConstructorArgsType**\<`T`\> = `T` *extends* (...`args`) => `any` ? `A` : `never`
 
 Defined in: node\_modules/@types/jest/index.d.ts:473
 
 ## Type Parameters
 
-• **T**
+### T
+
+`T`

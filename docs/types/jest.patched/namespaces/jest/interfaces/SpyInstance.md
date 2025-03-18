@@ -14,11 +14,17 @@ Defined in: node\_modules/@types/jest/index.d.ts:1214
 
 ## Type Parameters
 
-• **T** = `any`
+### T
 
-• **Y** *extends* `any`[] = `any`
+`T` = `any`
 
-• **C** = `any`
+### Y
+
+`Y` *extends* `any`[] = `any`
+
+### C
+
+`C` = `any`
 
 ## Properties
 

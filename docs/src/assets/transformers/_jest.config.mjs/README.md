@@ -12,6 +12,7 @@
 
 ## Variables
 
+- [transformer](variables/transformer.md)
 - [wellKnownNodeEnvValues](variables/wellKnownNodeEnvValues.md)
 
 ## Functions
@@ -19,5 +20,4 @@
 - [assertEnvironment](functions/assertEnvironment.md)
 - [baseConfig](functions/baseConfig.md)
 - [moduleExport](functions/moduleExport.md)
-- [transformer](functions/transformer.md)
 - [transformSelectEsmPackagesToCjs](functions/transformSelectEsmPackagesToCjs.md)

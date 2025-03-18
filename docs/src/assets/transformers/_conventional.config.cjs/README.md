@@ -14,13 +14,13 @@
 - [defaultTemplates](variables/defaultTemplates.md)
 - [inlineExternalImageElement](variables/inlineExternalImageElement.md)
 - [noteTitleForBreakingChange](variables/noteTitleForBreakingChange.md)
+- [transformer](variables/transformer.md)
 - [wellKnownCommitTypes](variables/wellKnownCommitTypes.md)
 
 ## Functions
 
 - [assertEnvironment](functions/assertEnvironment.md)
 - [moduleExport](functions/moduleExport.md)
-- [transformer](functions/transformer.md)
 
 ## References
 

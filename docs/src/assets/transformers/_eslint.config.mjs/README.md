@@ -12,6 +12,10 @@
 - [PathGroup](type-aliases/PathGroup.md)
 - [PathGroupOverride](type-aliases/PathGroupOverride.md)
 
+## Variables
+
+- [transformer](variables/transformer.md)
+
 ## Functions
 
 - [assertEnvironment](functions/assertEnvironment.md)
@@ -19,4 +23,3 @@
 - [makeEslintFlatCompat](functions/makeEslintFlatCompat.md)
 - [moduleExport](functions/moduleExport.md)
 - [overwriteProperty](functions/overwriteProperty.md)
-- [transformer](functions/transformer.md)

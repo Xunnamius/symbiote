@@ -15,7 +15,9 @@ on whether the module should be required normally or not.
 
 ## Type Parameters
 
-• **TModule** *extends* `object` = `any`
+### TModule
+
+`TModule` *extends* `object` = `any`
 
 ## Parameters
 

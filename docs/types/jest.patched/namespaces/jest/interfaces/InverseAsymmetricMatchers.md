@@ -24,7 +24,9 @@ You will rarely call `expect` by itself.
 
 ## Type Parameters
 
-• **T** = `any`
+### T
+
+`T` = `any`
 
 ## Parameters
 
@@ -46,7 +48,7 @@ The value to apply matchers against.
 
 ### not
 
-> **not**: [`InverseAsymmetricMatchers`](InverseAsymmetricMatchers.md)
+> **not**: `InverseAsymmetricMatchers`
 
 Defined in: node\_modules/@types/jest/index.d.ts:776
 
@@ -164,7 +166,9 @@ Optionally, you can provide a type for the elements via a generic.
 
 #### Type Parameters
 
-• **E** = `any`
+##### E
+
+`E` = `any`
 
 #### Parameters
 
@@ -342,7 +346,9 @@ This ensures that the object contains the desired structure.
 
 #### Type Parameters
 
-• **E** = \{\}
+##### E
+
+`E` = \{\}
 
 #### Parameters
 
@@ -987,7 +993,9 @@ Use .toBeOneOf when checking if a value is a member of a given Array.
 
 #### Type Parameters
 
-• **E** = `unknown`
+##### E
+
+`E` = `unknown`
 
 #### Parameters
 
@@ -1151,7 +1159,9 @@ Use `.toContainAllEntries` when checking if an object only contains all of the p
 
 #### Type Parameters
 
-• **E** = `unknown`
+##### E
+
+`E` = `unknown`
 
 #### Parameters
 
@@ -1179,7 +1189,9 @@ Use `.toContainAllKeys` when checking if an object only contains all of the prov
 
 #### Type Parameters
 
-• **E** = `unknown`
+##### E
+
+`E` = `unknown`
 
 #### Parameters
 
@@ -1207,7 +1219,9 @@ Use `.toContainAllValues` when checking if an object only contains all of the pr
 
 #### Type Parameters
 
-• **E** = `unknown`
+##### E
+
+`E` = `unknown`
 
 #### Parameters
 
@@ -1235,7 +1249,9 @@ Use `.toContainAnyEntries` when checking if an object contains at least one of t
 
 #### Type Parameters
 
-• **E** = `unknown`
+##### E
+
+`E` = `unknown`
 
 #### Parameters
 
@@ -1263,7 +1279,9 @@ Use `.toContainAnyKeys` when checking if an object contains at least one of the 
 
 #### Type Parameters
 
-• **E** = `unknown`
+##### E
+
+`E` = `unknown`
 
 #### Parameters
 
@@ -1291,7 +1309,9 @@ Use `.toContainAnyValues` when checking if an object contains at least one of th
 
 #### Type Parameters
 
-• **E** = `unknown`
+##### E
+
+`E` = `unknown`
 
 #### Parameters
 
@@ -1319,7 +1339,9 @@ Use `.toContainEntries` when checking if an object contains all of the provided 
 
 #### Type Parameters
 
-• **E** = `unknown`
+##### E
+
+`E` = `unknown`
 
 #### Parameters
 
@@ -1347,7 +1369,9 @@ Use `.toContainEntry` when checking if an object contains the provided entry.
 
 #### Type Parameters
 
-• **E** = `unknown`
+##### E
+
+`E` = `unknown`
 
 #### Parameters
 
@@ -1399,7 +1423,9 @@ Use `.toContainKeys` when checking if an object has all of the provided keys.
 
 #### Type Parameters
 
-• **E** = `unknown`
+##### E
+
+`E` = `unknown`
 
 #### Parameters
 
@@ -1427,7 +1453,9 @@ Use `.toContainValue` when checking if an object contains the provided value.
 
 #### Type Parameters
 
-• **E** = `unknown`
+##### E
+
+`E` = `unknown`
 
 #### Parameters
 
@@ -1455,7 +1483,9 @@ Use `.toContainValues` when checking if an object contains all of the provided v
 
 #### Type Parameters
 
-• **E** = `unknown`
+##### E
+
+`E` = `unknown`
 
 #### Parameters
 
@@ -1681,7 +1711,9 @@ Use `.toIncludeAllMembers` when checking if an `Array` contains all of the same 
 
 #### Type Parameters
 
-• **E** = `unknown`
+##### E
+
+`E` = `unknown`
 
 #### Parameters
 
@@ -1709,7 +1741,9 @@ Use `.toIncludeAnyMembers` when checking if an `Array` contains any of the membe
 
 #### Type Parameters
 
-• **E** = `unknown`
+##### E
+
+`E` = `unknown`
 
 #### Parameters
 
@@ -1789,7 +1823,9 @@ Use `.toIncludeSameMembers` when checking if two arrays contain equal values, in
 
 #### Type Parameters
 
-• **E** = `unknown`
+##### E
+
+`E` = `unknown`
 
 #### Parameters
 
@@ -1817,7 +1853,9 @@ Use `.toPartiallyContain` when checking if any array value matches the partial m
 
 #### Type Parameters
 
-• **E** = `unknown`
+##### E
+
+`E` = `unknown`
 
 #### Parameters
 
@@ -1881,7 +1919,9 @@ Use `.toSatisfy` when you want to use a custom matcher by supplying a predicate 
 
 #### Type Parameters
 
-• **E** = `any`
+##### E
+
+`E` = `any`
 
 #### Parameters
 
@@ -1909,7 +1949,9 @@ Use `.toSatisfyAll` when you want to use a custom matcher by supplying a predica
 
 #### Type Parameters
 
-• **E** = `any`
+##### E
+
+`E` = `any`
 
 #### Parameters
 

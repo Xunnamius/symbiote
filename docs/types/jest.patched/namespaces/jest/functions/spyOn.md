@@ -19,13 +19,21 @@ other test libraries.
 
 ### Type Parameters
 
-• **T** *extends* `object`
+#### T
 
-• **Key** *extends* `string` \| `number` \| `symbol`
+`T` *extends* `object`
 
-• **A** *extends* `"set"` \| `"get"` = [`PropertyAccessors`](../type-aliases/PropertyAccessors.md)\<`Key`, `T`\>
+#### Key
 
-• **Value** = `Required`\<`T`\>\[`Key`\]
+`Key` *extends* `string` \| `number` \| `symbol`
+
+#### A
+
+`A` *extends* `"set"` \| `"get"` = [`PropertyAccessors`](../type-aliases/PropertyAccessors.md)\<`Key`, `T`\>
+
+#### Value
+
+`Value` = `Required`\<`T`\>\[`Key`\]
 
 ### Parameters
 
@@ -75,9 +83,13 @@ other test libraries.
 
 ### Type Parameters
 
-• **T** *extends* `object`
+#### T
 
-• **M** *extends* `string` \| `number` \| `symbol`
+`T` *extends* `object`
+
+#### M
+
+`M` *extends* `string` \| `number` \| `symbol`
 
 ### Parameters
 
@@ -123,9 +135,13 @@ other test libraries.
 
 ### Type Parameters
 
-• **T** *extends* `object`
+#### T
 
-• **M** *extends* `string` \| `number` \| `symbol`
+`T` *extends* `object`
+
+#### M
+
+`M` *extends* `string` \| `number` \| `symbol`
 
 ### Parameters
 

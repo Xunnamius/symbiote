@@ -8,7 +8,7 @@
 
 > **withGlobalUsage**(`altDescription`?, `__namedParameters`?): `string`
 
-Defined in: node\_modules/@black-flag/extensions/dist/packages/extensions/src/index.d.ts:437
+Defined in: node\_modules/@black-flag/extensions/dist/packages/extensions/src/index.d.ts:449
 
 Generate command usage text consistently yet flexibly.
 

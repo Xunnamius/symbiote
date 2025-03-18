@@ -15,7 +15,9 @@ whether the module should receive a mock implementation or not.
 
 ## Type Parameters
 
-• **TModule** *extends* `object` = `any`
+### TModule
+
+`TModule` *extends* `object` = `any`
 
 ## Parameters
 

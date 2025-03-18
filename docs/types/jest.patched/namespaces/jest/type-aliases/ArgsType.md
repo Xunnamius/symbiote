@@ -6,10 +6,12 @@
 
 # Type Alias: ArgsType\<T\>
 
-> **ArgsType**\<`T`\>: `T` *extends* (...`args`) => `any` ? `A` : `never`
+> **ArgsType**\<`T`\> = `T` *extends* (...`args`) => `any` ? `A` : `never`
 
 Defined in: node\_modules/@types/jest/index.d.ts:470
 
 ## Type Parameters
 
-• **T**
+### T
+
+`T`

@@ -6,6 +6,6 @@
 
 # src/assets/transformers/\_tstyche.config.json
 
-## Functions
+## Variables
 
-- [transformer](functions/transformer.md)
+- [transformer](variables/transformer.md)

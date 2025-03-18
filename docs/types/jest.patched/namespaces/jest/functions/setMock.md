@@ -15,7 +15,9 @@ for the specified module.
 
 ## Type Parameters
 
-• **T**
+### T
+
+`T`
 
 ## Parameters
 

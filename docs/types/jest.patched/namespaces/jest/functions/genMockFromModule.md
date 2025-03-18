@@ -15,7 +15,9 @@ Use the automatic mocking system to generate a mocked version of the given modul
 
 ## Type Parameters
 
-• **T**
+### T
+
+`T`
 
 ## Parameters
 

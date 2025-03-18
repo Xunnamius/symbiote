@@ -10,7 +10,10 @@
 
 - [PrettierConfig](interfaces/PrettierConfig.md)
 
+## Variables
+
+- [transformer](variables/transformer.md)
+
 ## Functions
 
 - [moduleExport](functions/moduleExport.md)
-- [transformer](functions/transformer.md)

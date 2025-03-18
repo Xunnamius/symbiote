@@ -14,9 +14,13 @@ Replaces property on an object with another value.
 
 ## Type Parameters
 
-• **T** *extends* `object`
+### T
 
-• **K** *extends* `string` \| `number` \| `symbol`
+`T` *extends* `object`
+
+### K
+
+`K` *extends* `string` \| `number` \| `symbol`
 
 ## Parameters
 

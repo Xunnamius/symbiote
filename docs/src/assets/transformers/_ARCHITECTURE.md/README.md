@@ -6,6 +6,6 @@
 
 # src/assets/transformers/\_ARCHITECTURE.md
 
-## Functions
+## Variables
 
-- [transformer](functions/transformer.md)
+- [transformer](variables/transformer.md)

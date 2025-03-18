@@ -407,7 +407,7 @@ Default: `null`
 
 ### overrides?
 
-> `optional` **overrides**: [`BabelConfig`](BabelConfig.md)[]
+> `optional` **overrides**: `TransformOptions`[]
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:281
 

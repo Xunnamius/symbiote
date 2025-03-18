@@ -6,7 +6,7 @@
 
 # Type Alias: Func()
 
-> **Func**: (...`args`) => `any`
+> **Func** = (...`args`) => `any`
 
 Defined in: node\_modules/@types/jest/index.d.ts:472
 

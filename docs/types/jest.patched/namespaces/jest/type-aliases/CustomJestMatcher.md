@@ -6,15 +6,19 @@
 
 # Type Alias: CustomJestMatcher()\<TMatcher, TMatcherReturn\>
 
-> **CustomJestMatcher**\<`TMatcher`, `TMatcherReturn`\>: (...`args`) => `TMatcherReturn`
+> **CustomJestMatcher**\<`TMatcher`, `TMatcherReturn`\> = (...`args`) => `TMatcherReturn`
 
 Defined in: node\_modules/@types/jest/index.d.ts:1170
 
 ## Type Parameters
 
-• **TMatcher** *extends* (...`args`) => `any`
+### TMatcher
 
-• **TMatcherReturn**
+`TMatcher` *extends* (...`args`) => `any`
+
+### TMatcherReturn
+
+`TMatcherReturn`
 
 ## Parameters
 

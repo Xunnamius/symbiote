@@ -6,24 +6,38 @@
 
 # Type Alias: PathGroup
 
-> **PathGroup**: `object`
+> **PathGroup** = `object`
 
-Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:81](https://github.com/Xunnamius/symbiote/blob/9f696d86c2382405dbee8c9ec7da955f46194e6a/src/assets/transformers/_eslint.config.mjs.ts#L81)
+Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:81](https://github.com/Xunnamius/symbiote/blob/beb889fb40f0cd320367d5f94d02e29b1efb13ab/src/assets/transformers/_eslint.config.mjs.ts#L81)
 
-## Type declaration
+## Properties
 
 ### \[$scheme\]
 
 > **\[$scheme\]**: `string`
 
+Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:85](https://github.com/Xunnamius/symbiote/blob/beb889fb40f0cd320367d5f94d02e29b1efb13ab/src/assets/transformers/_eslint.config.mjs.ts#L85)
+
+***
+
 ### group
 
 > **group**: `string`
+
+Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:83](https://github.com/Xunnamius/symbiote/blob/beb889fb40f0cd320367d5f94d02e29b1efb13ab/src/assets/transformers/_eslint.config.mjs.ts#L83)
+
+***
 
 ### pattern
 
 > **pattern**: `string`
 
+Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:82](https://github.com/Xunnamius/symbiote/blob/beb889fb40f0cd320367d5f94d02e29b1efb13ab/src/assets/transformers/_eslint.config.mjs.ts#L82)
+
+***
+
 ### position
 
 > **position**: `string`
+
+Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:84](https://github.com/Xunnamius/symbiote/blob/beb889fb40f0cd320367d5f94d02e29b1efb13ab/src/assets/transformers/_eslint.config.mjs.ts#L84)

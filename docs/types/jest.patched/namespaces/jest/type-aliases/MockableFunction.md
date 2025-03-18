@@ -6,7 +6,7 @@
 
 # Type Alias: MockableFunction()
 
-> **MockableFunction**: (...`args`) => `any`
+> **MockableFunction** = (...`args`) => `any`
 
 Defined in: node\_modules/@types/jest/index.d.ts:435
 

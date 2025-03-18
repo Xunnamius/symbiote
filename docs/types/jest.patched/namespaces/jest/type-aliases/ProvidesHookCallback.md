@@ -6,6 +6,6 @@
 
 # Type Alias: ProvidesHookCallback
 
-> **ProvidesHookCallback**: () => `any` \| [`ProvidesCallback`](ProvidesCallback.md)
+> **ProvidesHookCallback** = () => `any` \| [`ProvidesCallback`](ProvidesCallback.md)
 
 Defined in: node\_modules/@types/jest/index.d.ts:501

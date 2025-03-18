@@ -6,7 +6,7 @@
 
 # Type Alias: JestMatchersShape\<TNonPromise, TPromise\>
 
-> **JestMatchersShape**\<`TNonPromise`, `TPromise`\>: `object` & [`AndNot`](AndNot.md)\<`TNonPromise`\>
+> **JestMatchersShape**\<`TNonPromise`, `TPromise`\> = `object` & [`AndNot`](AndNot.md)\<`TNonPromise`\>
 
 Defined in: node\_modules/@types/jest/index.d.ts:784
 
@@ -28,6 +28,10 @@ matcher can be chained. If the promise is rejected the assertion fails.
 
 ## Type Parameters
 
-• **TNonPromise** *extends* `object` = \{\}
+### TNonPromise
 
-• **TPromise** *extends* `object` = \{\}
+`TNonPromise` *extends* `object` = \{\}
+
+### TPromise
+
+`TPromise` *extends* `object` = \{\}

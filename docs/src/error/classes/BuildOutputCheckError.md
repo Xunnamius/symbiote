@@ -6,7 +6,7 @@
 
 # Class: BuildOutputCheckError
 
-Defined in: [src/error.ts:39](https://github.com/Xunnamius/symbiote/blob/9f696d86c2382405dbee8c9ec7da955f46194e6a/src/error.ts#L39)
+Defined in: [src/error.ts:39](https://github.com/Xunnamius/symbiote/blob/beb889fb40f0cd320367d5f94d02e29b1efb13ab/src/error.ts#L39)
 
 Represents encountering a project that is not a git repository.
 
@@ -18,15 +18,15 @@ Represents encountering a project that is not a git repository.
 
 ### new BuildOutputCheckError()
 
-> **new BuildOutputCheckError**(): [`BuildOutputCheckError`](BuildOutputCheckError.md)
+> **new BuildOutputCheckError**(): `BuildOutputCheckError`
 
-Defined in: [src/error.ts:45](https://github.com/Xunnamius/symbiote/blob/9f696d86c2382405dbee8c9ec7da955f46194e6a/src/error.ts#L45)
+Defined in: [src/error.ts:45](https://github.com/Xunnamius/symbiote/blob/beb889fb40f0cd320367d5f94d02e29b1efb13ab/src/error.ts#L45)
 
 Represents encountering a project that is not a git repository.
 
 #### Returns
 
-[`BuildOutputCheckError`](BuildOutputCheckError.md)
+`BuildOutputCheckError`
 
 #### Overrides
 
@@ -34,9 +34,9 @@ Represents encountering a project that is not a git repository.
 
 ### new BuildOutputCheckError()
 
-> **new BuildOutputCheckError**(`message`): [`BuildOutputCheckError`](BuildOutputCheckError.md)
+> **new BuildOutputCheckError**(`message`): `BuildOutputCheckError`
 
-Defined in: [src/error.ts:50](https://github.com/Xunnamius/symbiote/blob/9f696d86c2382405dbee8c9ec7da955f46194e6a/src/error.ts#L50)
+Defined in: [src/error.ts:50](https://github.com/Xunnamius/symbiote/blob/beb889fb40f0cd320367d5f94d02e29b1efb13ab/src/error.ts#L50)
 
 This constructor syntax is used by subclasses when calling this constructor
 via `super`.
@@ -49,7 +49,7 @@ via `super`.
 
 #### Returns
 
-[`BuildOutputCheckError`](BuildOutputCheckError.md)
+`BuildOutputCheckError`
 
 #### Overrides
 
@@ -61,7 +61,7 @@ via `super`.
 
 > **\[$type\]**: `symbol`[]
 
-Defined in: [src/error.ts:41](https://github.com/Xunnamius/symbiote/blob/9f696d86c2382405dbee8c9ec7da955f46194e6a/src/error.ts#L41)
+Defined in: [src/error.ts:41](https://github.com/Xunnamius/symbiote/blob/beb889fb40f0cd320367d5f94d02e29b1efb13ab/src/error.ts#L41)
 
 ***
 

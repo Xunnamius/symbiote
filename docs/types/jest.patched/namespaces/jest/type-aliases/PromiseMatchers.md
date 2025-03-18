@@ -6,10 +6,12 @@
 
 # Type Alias: PromiseMatchers\<T\>
 
-> **PromiseMatchers**\<`T`\>: `Omit`\<`T`\[`"resolves"`\], `"not"`\>
+> **PromiseMatchers**\<`T`\> = `Omit`\<`T`\[`"resolves"`\], `"not"`\>
 
 Defined in: node\_modules/@types/jest/index.d.ts:1202
 
 ## Type Parameters
 
-• **T** *extends* [`JestMatchersShape`](JestMatchersShape.md)
+### T
+
+`T` *extends* [`JestMatchersShape`](JestMatchersShape.md)

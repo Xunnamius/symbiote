@@ -6,10 +6,12 @@
 
 # Type Alias: RejectedValue\<T\>
 
-> **RejectedValue**\<`T`\>: `T` *extends* `PromiseLike`\<`any`\> ? `any` : `never`
+> **RejectedValue**\<`T`\> = `T` *extends* `PromiseLike`\<`any`\> ? `any` : `never`
 
 Defined in: node\_modules/@types/jest/index.d.ts:474
 
 ## Type Parameters
 
-• **T**
+### T
+
+`T`

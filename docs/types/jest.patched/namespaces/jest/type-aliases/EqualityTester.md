@@ -6,7 +6,7 @@
 
 # Type Alias: EqualityTester()
 
-> **EqualityTester**: (`a`, `b`) => `boolean` \| `undefined`
+> **EqualityTester** = (`a`, `b`) => `boolean` \| `undefined`
 
 Defined in: node\_modules/@types/jest/index.d.ts:620
 

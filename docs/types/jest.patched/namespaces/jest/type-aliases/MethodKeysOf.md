@@ -6,10 +6,12 @@
 
 # Type Alias: MethodKeysOf\<T\>
 
-> **MethodKeysOf**\<`T`\>: `{ [K in keyof T]: T[K] extends MockableFunction ? K : never }`\[keyof `T`\]
+> **MethodKeysOf**\<`T`\> = `{ [K in keyof T]: T[K] extends MockableFunction ? K : never }`\[keyof `T`\]
 
 Defined in: node\_modules/@types/jest/index.d.ts:436
 
 ## Type Parameters
 
-• **T**
+### T
+
+`T`

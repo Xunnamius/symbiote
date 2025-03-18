@@ -14,7 +14,9 @@ Mocks a module with an auto-mocked version when it is being required.
 
 ## Type Parameters
 
-• **T** = `unknown`
+### T
+
+`T` = `unknown`
 
 ## Parameters
 

@@ -8,10 +8,10 @@
 
 > **transformSelectEsmPackagesToCjs**(`config`, `packageNames`): `void`
 
-Defined in: [src/assets/transformers/\_jest.config.mjs.ts:264](https://github.com/Xunnamius/symbiote/blob/9f696d86c2382405dbee8c9ec7da955f46194e6a/src/assets/transformers/_jest.config.mjs.ts#L264)
+Defined in: [src/assets/transformers/\_jest.config.mjs.ts:264](https://github.com/Xunnamius/symbiote/blob/beb889fb40f0cd320367d5f94d02e29b1efb13ab/src/assets/transformers/_jest.config.mjs.ts#L264)
 
 This function prepends a single regular expression _pattern string_ to
-[JestConfig.transformIgnorePatterns](moduleExport.md#transformignorepatterns) in `config`. This will result in
+[JestConfig.transformIgnorePatterns](moduleExport.md#moduleexport) in `config`. This will result in
 any packages _within `node_modules`_ with names matching `packageNames` being
 transpiled into CJS on the fly while preserving jest's default behavior (i.e.
 no transpilation) in every other case.

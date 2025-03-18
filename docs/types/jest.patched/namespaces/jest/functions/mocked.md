@@ -18,7 +18,9 @@ mocked behavior.
 
 ### Type Parameters
 
-• **T**
+#### T
+
+`T`
 
 ### Parameters
 
@@ -46,7 +48,9 @@ Wraps types of the `source` object with type definitions of Jest mock function.
 
 ### Type Parameters
 
-• **T**
+#### T
+
+`T`
 
 ### Parameters
 

@@ -6,7 +6,7 @@
 
 # Type Alias: SpiedSetter\<T\>
 
-> **SpiedSetter**\<`T`\>: [`SpyInstance`](../interfaces/SpyInstance.md)\<`void`, \[`T`\]\>
+> **SpiedSetter**\<`T`\> = [`SpyInstance`](../interfaces/SpyInstance.md)\<`void`, \[`T`\]\>
 
 Defined in: node\_modules/@types/jest/index.d.ts:1242
 
@@ -14,4 +14,6 @@ Constructs the type of a spied setter.
 
 ## Type Parameters
 
-• **T**
+### T
+
+`T`

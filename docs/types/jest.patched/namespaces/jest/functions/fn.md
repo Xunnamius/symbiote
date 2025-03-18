@@ -28,11 +28,17 @@ Creates a mock function. Optionally takes a mock implementation.
 
 ### Type Parameters
 
-• **T**
+#### T
 
-• **Y** *extends* `any`[]
+`T`
 
-• **C** = `any`
+#### Y
+
+`Y` *extends* `any`[]
+
+#### C
+
+`C` = `any`
 
 ### Parameters
 

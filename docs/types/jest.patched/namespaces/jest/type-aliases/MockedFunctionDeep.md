@@ -6,10 +6,12 @@
 
 # Type Alias: MockedFunctionDeep\<T\>
 
-> **MockedFunctionDeep**\<`T`\>: [`MockWithArgs`](../interfaces/MockWithArgs.md)\<`T`\> & [`MockedObjectDeep`](MockedObjectDeep.md)\<`T`\>
+> **MockedFunctionDeep**\<`T`\> = [`MockWithArgs`](../interfaces/MockWithArgs.md)\<`T`\> & [`MockedObjectDeep`](MockedObjectDeep.md)\<`T`\>
 
 Defined in: node\_modules/@types/jest/index.d.ts:452
 
 ## Type Parameters
 
-• **T** *extends* [`MockableFunction`](MockableFunction.md)
+### T
+
+`T` *extends* [`MockableFunction`](MockableFunction.md)

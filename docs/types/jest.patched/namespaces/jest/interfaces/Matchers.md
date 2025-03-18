@@ -10,9 +10,13 @@ Defined in: node\_modules/jest-extended/types/index.d.ts:431
 
 ## Type Parameters
 
-• **R**
+### R
 
-• **T** = \{\}
+`R`
+
+### T
+
+`T` = \{\}
 
 ## Methods
 
@@ -50,7 +54,9 @@ Note that the type must be either an array or a tuple.
 
 #### Type Parameters
 
-• **E** *extends* `any`[]
+##### E
+
+`E` *extends* `any`[]
 
 #### Parameters
 
@@ -81,7 +87,9 @@ This is particularly useful for ensuring expected objects have the right structu
 
 #### Type Parameters
 
-• **E** = `any`
+##### E
+
+`E` = `any`
 
 #### Parameters
 
@@ -112,7 +120,9 @@ Note that the type must be either an array or a tuple.
 
 #### Type Parameters
 
-• **E** *extends* `any`[]
+##### E
+
+`E` *extends* `any`[]
 
 #### Parameters
 
@@ -147,7 +157,9 @@ This is particularly useful for ensuring expected objects have the right structu
 
 #### Type Parameters
 
-• **E** = `any`
+##### E
+
+`E` = `any`
 
 #### Parameters
 
@@ -204,7 +216,9 @@ This is particularly useful for ensuring expected objects have the right structu
 
 #### Type Parameters
 
-• **E** = `any`
+##### E
+
+`E` = `any`
 
 #### Parameters
 
@@ -425,7 +439,9 @@ Note that the type must be either an array or a tuple.
 
 #### Type Parameters
 
-• **E** *extends* `any`[]
+##### E
+
+`E` *extends* `any`[]
 
 #### Parameters
 
@@ -730,7 +746,9 @@ This is particularly useful for ensuring expected objects have the right structu
 
 #### Type Parameters
 
-• **E** = `any`
+##### E
+
+`E` = `any`
 
 #### Parameters
 
@@ -921,7 +939,9 @@ Use .toBeOneOf when checking if a value is a member of a given Array.
 
 #### Type Parameters
 
-• **E** = `unknown`
+##### E
+
+`E` = `unknown`
 
 #### Parameters
 
@@ -1088,7 +1108,9 @@ This is particularly useful for ensuring expected objects have the right structu
 
 #### Type Parameters
 
-• **E** = `any`
+##### E
+
+`E` = `any`
 
 #### Parameters
 
@@ -1112,7 +1134,9 @@ Use `.toContainAllEntries` when checking if an object only contains all of the p
 
 #### Type Parameters
 
-• **E** = `unknown`
+##### E
+
+`E` = `unknown`
 
 #### Parameters
 
@@ -1136,7 +1160,9 @@ Use `.toContainAllKeys` when checking if an object only contains all of the prov
 
 #### Type Parameters
 
-• **E** = `unknown`
+##### E
+
+`E` = `unknown`
 
 #### Parameters
 
@@ -1160,7 +1186,9 @@ Use `.toContainAllValues` when checking if an object only contains all of the pr
 
 #### Type Parameters
 
-• **E** = `unknown`
+##### E
+
+`E` = `unknown`
 
 #### Parameters
 
@@ -1184,7 +1212,9 @@ Use `.toContainAnyEntries` when checking if an object contains at least one of t
 
 #### Type Parameters
 
-• **E** = `unknown`
+##### E
+
+`E` = `unknown`
 
 #### Parameters
 
@@ -1208,7 +1238,9 @@ Use `.toContainAnyKeys` when checking if an object contains at least one of the 
 
 #### Type Parameters
 
-• **E** = `unknown`
+##### E
+
+`E` = `unknown`
 
 #### Parameters
 
@@ -1232,7 +1264,9 @@ Use `.toContainAnyValues` when checking if an object contains at least one of th
 
 #### Type Parameters
 
-• **E** = `unknown`
+##### E
+
+`E` = `unknown`
 
 #### Parameters
 
@@ -1256,7 +1290,9 @@ Use `.toContainEntries` when checking if an object contains all of the provided 
 
 #### Type Parameters
 
-• **E** = `unknown`
+##### E
+
+`E` = `unknown`
 
 #### Parameters
 
@@ -1280,7 +1316,9 @@ Use `.toContainEntry` when checking if an object contains the provided entry.
 
 #### Type Parameters
 
-• **E** = `unknown`
+##### E
+
+`E` = `unknown`
 
 #### Parameters
 
@@ -1309,7 +1347,9 @@ This is particularly useful for ensuring expected objects have the right structu
 
 #### Type Parameters
 
-• **E** = `any`
+##### E
+
+`E` = `any`
 
 #### Parameters
 
@@ -1333,7 +1373,9 @@ Use `.toContainKey` when checking if an object contains the provided key.
 
 #### Type Parameters
 
-• **E** = `unknown`
+##### E
+
+`E` = `unknown`
 
 #### Parameters
 
@@ -1357,7 +1399,9 @@ Use `.toContainKeys` when checking if an object has all of the provided keys.
 
 #### Type Parameters
 
-• **E** = `unknown`
+##### E
+
+`E` = `unknown`
 
 #### Parameters
 
@@ -1381,7 +1425,9 @@ Use `.toContainValue` when checking if an object contains the provided value.
 
 #### Type Parameters
 
-• **E** = `unknown`
+##### E
+
+`E` = `unknown`
 
 #### Parameters
 
@@ -1405,7 +1451,9 @@ Use `.toContainValues` when checking if an object contains all of the provided v
 
 #### Type Parameters
 
-• **E** = `unknown`
+##### E
+
+`E` = `unknown`
 
 #### Parameters
 
@@ -1453,7 +1501,9 @@ This is particularly useful for ensuring expected objects have the right structu
 
 #### Type Parameters
 
-• **E** = `any`
+##### E
+
+`E` = `any`
 
 #### Parameters
 
@@ -1640,7 +1690,9 @@ Note that the type must be either an array or a tuple.
 
 #### Type Parameters
 
-• **E** *extends* `any`[]
+##### E
+
+`E` *extends* `any`[]
 
 #### Parameters
 
@@ -1668,7 +1720,9 @@ Note that the type must be either an array or a tuple.
 
 #### Type Parameters
 
-• **E** *extends* `any`[]
+##### E
+
+`E` *extends* `any`[]
 
 #### Parameters
 
@@ -1695,7 +1749,9 @@ Note that the type must be either an array or a tuple.
 
 #### Type Parameters
 
-• **E** *extends* `any`[]
+##### E
+
+`E` *extends* `any`[]
 
 #### Parameters
 
@@ -1728,7 +1784,9 @@ This is particularly useful for ensuring expected objects have the right structu
 
 #### Type Parameters
 
-• **E** = `any`
+##### E
+
+`E` = `any`
 
 #### Parameters
 
@@ -1778,7 +1836,9 @@ This is particularly useful for ensuring expected objects have the right structu
 
 #### Type Parameters
 
-• **E** = `any`
+##### E
+
+`E` = `any`
 
 #### Parameters
 
@@ -1812,7 +1872,9 @@ the equality of all fields.
 
 #### Type Parameters
 
-• **E** = `any`
+##### E
+
+`E` = `any`
 
 #### Parameters
 
@@ -1884,7 +1946,9 @@ This is particularly useful for ensuring expected objects have the right structu
 
 #### Type Parameters
 
-• **E** = `any`
+##### E
+
+`E` = `any`
 
 #### Parameters
 
@@ -1928,7 +1992,9 @@ Use `.toIncludeAllMembers` when checking if an `Array` contains all of the same 
 
 #### Type Parameters
 
-• **E** = `unknown`
+##### E
+
+`E` = `unknown`
 
 #### Parameters
 
@@ -1952,7 +2018,9 @@ Use `.toIncludeAllPartialMembers` when checking if an `Array` contains all of th
 
 #### Type Parameters
 
-• **E** = `unknown`
+##### E
+
+`E` = `unknown`
 
 #### Parameters
 
@@ -1976,7 +2044,9 @@ Use `.toIncludeAnyMembers` when checking if an `Array` contains any of the membe
 
 #### Type Parameters
 
-• **E** = `unknown`
+##### E
+
+`E` = `unknown`
 
 #### Parameters
 
@@ -2044,7 +2114,9 @@ Use `.toIncludeSameMembers` when checking if two arrays contain equal values, in
 
 #### Type Parameters
 
-• **E** = `unknown`
+##### E
+
+`E` = `unknown`
 
 #### Parameters
 
@@ -2092,7 +2164,9 @@ Check out [the Snapshot Testing guide](http://facebook.github.io/jest/docs/snaps
 
 ##### Type Parameters
 
-• **U** *extends* \{ \[P in string \| number \| symbol\]: any \}
+###### U
+
+`U` *extends* \{ \[P in string \| number \| symbol\]: any \}
 
 ##### Parameters
 
@@ -2143,7 +2217,9 @@ This ensures that the matching object matches the structure of the provided obje
 
 #### Type Parameters
 
-• **E** *extends* \{\} \| `any`[]
+##### E
+
+`E` *extends* \{\} \| `any`[]
 
 #### Parameters
 
@@ -2186,7 +2262,9 @@ Check out [the Snapshot Testing guide](http://facebook.github.io/jest/docs/snaps
 
 ##### Type Parameters
 
-• **U** *extends* \{ \[P in string \| number \| symbol\]: any \}
+###### U
+
+`U` *extends* \{ \[P in string \| number \| symbol\]: any \}
 
 ##### Parameters
 
@@ -2233,7 +2311,9 @@ Use `.toPartiallyContain` when checking if any array value matches the partial m
 
 #### Type Parameters
 
-• **E** = `unknown`
+##### E
+
+`E` = `unknown`
 
 #### Parameters
 
@@ -2330,7 +2410,9 @@ This is particularly useful for ensuring expected objects have the right structu
 
 #### Type Parameters
 
-• **E** = `any`
+##### E
+
+`E` = `any`
 
 #### Parameters
 
@@ -2358,7 +2440,9 @@ Use `.toSatisfy` when you want to use a custom matcher by supplying a predicate 
 
 #### Type Parameters
 
-• **E** = `any`
+##### E
+
+`E` = `any`
 
 #### Parameters
 
@@ -2382,7 +2466,9 @@ Use `.toSatisfyAll` when you want to use a custom matcher by supplying a predica
 
 #### Type Parameters
 
-• **E** = `any`
+##### E
+
+`E` = `any`
 
 #### Parameters
 
@@ -2449,7 +2535,9 @@ This is particularly useful for ensuring expected objects have the right structu
 
 #### Type Parameters
 
-• **E** = `any`
+##### E
+
+`E` = `any`
 
 #### Parameters
 

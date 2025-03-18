@@ -6,10 +6,12 @@
 
 # Type Alias: NonPromiseMatchers\<T\>
 
-> **NonPromiseMatchers**\<`T`\>: `Omit`\<`T`, `"resolves"` \| `"rejects"` \| `"not"`\>
+> **NonPromiseMatchers**\<`T`\> = `Omit`\<`T`, `"resolves"` \| `"rejects"` \| `"not"`\>
 
 Defined in: node\_modules/@types/jest/index.d.ts:1201
 
 ## Type Parameters
 
-• **T** *extends* [`JestMatchersShape`](JestMatchersShape.md)\<`any`\>
+### T
+
+`T` *extends* [`JestMatchersShape`](JestMatchersShape.md)\<`any`\>

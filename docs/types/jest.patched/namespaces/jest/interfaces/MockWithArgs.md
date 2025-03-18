@@ -14,7 +14,9 @@ Defined in: node\_modules/@types/jest/index.d.ts:442
 
 ## Type Parameters
 
-• **T** *extends* [`MockableFunction`](../type-aliases/MockableFunction.md)
+### T
+
+`T` *extends* [`MockableFunction`](../type-aliases/MockableFunction.md)
 
 > **MockWithArgs**(...`args`): `ReturnType`\<`T`\>
 

@@ -6,22 +6,28 @@
 
 # Type Alias: Asset
 
-> **Asset**: `object`
+> **Asset** = `object`
 
-Defined in: [src/assets.ts:154](https://github.com/Xunnamius/symbiote/blob/9f696d86c2382405dbee8c9ec7da955f46194e6a/src/assets.ts#L154)
+Defined in: [src/assets.ts:154](https://github.com/Xunnamius/symbiote/blob/beb889fb40f0cd320367d5f94d02e29b1efb13ab/src/assets.ts#L154)
 
 An _asset_ maps an absolute output path and a function that generates output.
 
-## Type declaration
+## Properties
 
 ### generate()
 
 > **generate**: () => `Promisable`\<`string` \| *typeof* [`$delete`](../variables/$delete.md)\>
 
+Defined in: [src/assets.ts:156](https://github.com/Xunnamius/symbiote/blob/beb889fb40f0cd320367d5f94d02e29b1efb13ab/src/assets.ts#L156)
+
 #### Returns
 
 `Promisable`\<`string` \| *typeof* [`$delete`](../variables/$delete.md)\>
 
+***
+
 ### path
 
 > **path**: `AbsolutePath`
+
+Defined in: [src/assets.ts:155](https://github.com/Xunnamius/symbiote/blob/beb889fb40f0cd320367d5f94d02e29b1efb13ab/src/assets.ts#L155)

@@ -6,6 +6,6 @@
 
 # Type Alias: MatcherUtils
 
-> **MatcherUtils**: `MatcherUtils` & `object`
+> **MatcherUtils** = `MatcherUtils` & `object`
 
 Defined in: node\_modules/@types/jest/index.d.ts:622

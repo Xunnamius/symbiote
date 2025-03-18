@@ -6,6 +6,6 @@
 
 # src/assets/transformers/\_CONTRIBUTING.md
 
-## Functions
+## Variables
 
-- [transformer](functions/transformer.md)
+- [transformer](variables/transformer.md)

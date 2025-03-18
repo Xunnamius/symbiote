@@ -6,9 +6,9 @@
 
 # Type Alias: ChangelogPatch
 
-> **ChangelogPatch**: \[`string` \| `RegExp`, `string`\]
+> **ChangelogPatch** = \[`string` \| `RegExp`, `string`\]
 
-Defined in: [src/commands/build/changelog.ts:63](https://github.com/Xunnamius/symbiote/blob/9f696d86c2382405dbee8c9ec7da955f46194e6a/src/commands/build/changelog.ts#L63)
+Defined in: [src/commands/build/changelog.ts:63](https://github.com/Xunnamius/symbiote/blob/beb889fb40f0cd320367d5f94d02e29b1efb13ab/src/commands/build/changelog.ts#L63)
 
 A changelog patch that will be applied to the changelog file.
 

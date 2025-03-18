@@ -6,7 +6,10 @@
 
 # src/assets/transformers/\_tailwind.config.mjs
 
+## Variables
+
+- [transformer](variables/transformer.md)
+
 ## Functions
 
 - [moduleExport](functions/moduleExport.md)
-- [transformer](functions/transformer.md)

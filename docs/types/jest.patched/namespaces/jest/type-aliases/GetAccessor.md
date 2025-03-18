@@ -6,6 +6,6 @@
 
 # Type Alias: GetAccessor
 
-> **GetAccessor**: `"get"`
+> **GetAccessor** = `"get"`
 
 Defined in: node\_modules/@types/jest/index.d.ts:478

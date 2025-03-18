@@ -6,6 +6,6 @@
 
 # Type Alias: ExpectProperties
 
-> **ExpectProperties**: `{ [K in keyof Expect]: Expect[K] }`
+> **ExpectProperties** = `{ [K in keyof Expect]: Expect[K] }`
 
 Defined in: node\_modules/@types/jest/index.d.ts:1174

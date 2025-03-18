@@ -6,12 +6,16 @@
 
 # Type Alias: PropertyAccessors\<M, T\>
 
-> **PropertyAccessors**\<`M`, `T`\>: `M` *extends* [`NonFunctionPropertyNames`](NonFunctionPropertyNames.md)\<`Required`\<`T`\>\> ? [`GetAccessor`](GetAccessor.md) \| [`SetAccessor`](SetAccessor.md) : `never`
+> **PropertyAccessors**\<`M`, `T`\> = `M` *extends* [`NonFunctionPropertyNames`](NonFunctionPropertyNames.md)\<`Required`\<`T`\>\> ? [`GetAccessor`](GetAccessor.md) \| [`SetAccessor`](SetAccessor.md) : `never`
 
 Defined in: node\_modules/@types/jest/index.d.ts:480
 
 ## Type Parameters
 
-• **M** *extends* keyof `T`
+### M
 
-• **T** *extends* `object`
+`M` *extends* keyof `T`
+
+### T
+
+`T` *extends* `object`

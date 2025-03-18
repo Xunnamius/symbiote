@@ -18,6 +18,7 @@
 - [extensionsTypescript](variables/extensionsTypescript.md)
 - [extensionTypescriptDefinition](variables/extensionTypescriptDefinition.md)
 - [NODE\_LTS](variables/NODE_LTS.md)
+- [transformer](variables/transformer.md)
 - [wellKnownNodeEnvValues](variables/wellKnownNodeEnvValues.md)
 
 ## Functions
@@ -27,4 +28,3 @@
 - [hasJavascriptExtension](functions/hasJavascriptExtension.md)
 - [hasTypescriptExtension](functions/hasTypescriptExtension.md)
 - [moduleExport](functions/moduleExport.md)
-- [transformer](functions/transformer.md)

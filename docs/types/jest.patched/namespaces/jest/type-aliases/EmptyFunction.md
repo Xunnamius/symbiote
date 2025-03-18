@@ -6,7 +6,7 @@
 
 # Type Alias: EmptyFunction()
 
-> **EmptyFunction**: () => `void`
+> **EmptyFunction** = () => `void`
 
 Defined in: node\_modules/@types/jest/index.d.ts:469
 

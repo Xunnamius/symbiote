@@ -12,7 +12,9 @@ Represents the result of a single call to a mock function with a return value.
 
 ## Type Parameters
 
-• **T**
+### T
+
+`T`
 
 ## Properties
 

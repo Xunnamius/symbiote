@@ -6,7 +6,7 @@
 
 # Type Alias: SpiedGetter\<T\>
 
-> **SpiedGetter**\<`T`\>: [`SpyInstance`](../interfaces/SpyInstance.md)\<`T`, \[\]\>
+> **SpiedGetter**\<`T`\> = [`SpyInstance`](../interfaces/SpyInstance.md)\<`T`, \[\]\>
 
 Defined in: node\_modules/@types/jest/index.d.ts:1237
 
@@ -14,4 +14,6 @@ Constructs the type of a spied getter.
 
 ## Type Parameters
 
-• **T**
+### T
+
+`T`

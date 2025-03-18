@@ -6,6 +6,6 @@
 
 # src/assets/transformers/\_MAINTAINING.md
 
-## Functions
+## Variables
 
-- [transformer](functions/transformer.md)
+- [transformer](variables/transformer.md)

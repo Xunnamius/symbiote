@@ -6,6 +6,6 @@
 
 # src/assets/transformers/\_.ncurc.cjs
 
-## Functions
+## Variables
 
-- [transformer](functions/transformer.md)
+- [transformer](variables/transformer.md)

@@ -6,6 +6,6 @@
 
 # Type Alias: MatcherContext
 
-> **MatcherContext**: [`MatcherUtils`](MatcherUtils.md) & `Readonly`\<[`MatcherState`](MatcherState.md)\>
+> **MatcherContext** = [`MatcherUtils`](MatcherUtils.md) & `Readonly`\<[`MatcherState`](MatcherState.md)\>
 
 Defined in: node\_modules/@types/jest/index.d.ts:628

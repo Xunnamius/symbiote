@@ -6,10 +6,12 @@
 
 # Type Alias: ConstructorPropertyNames\<T\>
 
-> **ConstructorPropertyNames**\<`T`\>: [`RemoveIndex`](RemoveIndex.md)\<keyof [`ConstructorProperties`](ConstructorProperties.md)\<`T`\>\>
+> **ConstructorPropertyNames**\<`T`\> = [`RemoveIndex`](RemoveIndex.md)\<keyof [`ConstructorProperties`](ConstructorProperties.md)\<`T`\>\>
 
 Defined in: node\_modules/@types/jest/index.d.ts:492
 
 ## Type Parameters
 
-• **T**
+### T
+
+`T`

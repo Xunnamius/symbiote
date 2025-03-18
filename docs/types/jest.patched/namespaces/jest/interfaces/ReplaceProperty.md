@@ -10,7 +10,9 @@ Defined in: node\_modules/@types/jest/index.d.ts:1543
 
 ## Type Parameters
 
-• **K**
+### K
+
+`K`
 
 ## Methods
 

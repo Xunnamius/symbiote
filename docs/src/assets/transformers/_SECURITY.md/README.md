@@ -6,6 +6,6 @@
 
 # src/assets/transformers/\_SECURITY.md
 
-## Functions
+## Variables
 
-- [transformer](functions/transformer.md)
+- [transformer](variables/transformer.md)

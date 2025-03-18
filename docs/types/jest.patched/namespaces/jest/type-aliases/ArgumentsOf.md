@@ -6,10 +6,12 @@
 
 # Type Alias: ArgumentsOf\<T\>
 
-> **ArgumentsOf**\<`T`\>: `T` *extends* (...`args`) => `any` ? `A` : `never`
+> **ArgumentsOf**\<`T`\> = `T` *extends* (...`args`) => `any` ? `A` : `never`
 
 Defined in: node\_modules/@types/jest/index.d.ts:438
 
 ## Type Parameters
 
-• **T**
+### T
+
+`T`

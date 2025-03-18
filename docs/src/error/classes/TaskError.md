@@ -18,7 +18,7 @@ An `Error` class where the first letter of the message is capitalized.
 
 ### new TaskError()
 
-> **new TaskError**(...`args`): [`TaskError`](TaskError.md)
+> **new TaskError**(...`args`): `TaskError`
 
 Defined in: node\_modules/@-xun/cli/dist/src/error.d.ts:5
 
@@ -30,7 +30,7 @@ Defined in: node\_modules/@-xun/cli/dist/src/error.d.ts:5
 
 #### Returns
 
-[`TaskError`](TaskError.md)
+`TaskError`
 
 #### Overrides
 

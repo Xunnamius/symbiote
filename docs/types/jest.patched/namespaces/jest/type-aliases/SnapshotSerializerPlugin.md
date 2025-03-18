@@ -6,6 +6,6 @@
 
 # Type Alias: SnapshotSerializerPlugin
 
-> **SnapshotSerializerPlugin**: `Plugin`
+> **SnapshotSerializerPlugin** = `Plugin`
 
 Defined in: node\_modules/@types/jest/index.d.ts:640

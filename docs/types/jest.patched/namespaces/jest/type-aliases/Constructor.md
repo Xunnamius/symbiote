@@ -6,7 +6,7 @@
 
 # Type Alias: Constructor()
 
-> **Constructor**: (...`args`) => `any`
+> **Constructor** = (...`args`) => `any`
 
 Defined in: node\_modules/@types/jest/index.d.ts:471
 

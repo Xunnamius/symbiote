@@ -6,6 +6,6 @@
 
 # Type Alias: MatcherState
 
-> **MatcherState**: `MatcherState`
+> **MatcherState** = `MatcherState`
 
 Defined in: node\_modules/@types/jest/index.d.ts:678

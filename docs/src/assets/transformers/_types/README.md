@@ -6,6 +6,6 @@
 
 # src/assets/transformers/\_types
 
-## Functions
+## Variables
 
-- [transformer](functions/transformer.md)
+- [transformer](variables/transformer.md)

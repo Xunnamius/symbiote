@@ -6,6 +6,6 @@
 
 # Type Alias: ProvidesCallback
 
-> **ProvidesCallback**: (`cb`) => `void` \| `undefined` \| () => `PromiseLike`\<`unknown`\>
+> **ProvidesCallback** = (`cb`) => `void` \| `undefined` \| () => `PromiseLike`\<`unknown`\>
 
 Defined in: node\_modules/@types/jest/index.d.ts:500

@@ -6,10 +6,12 @@
 
 # Type Alias: CustomAsyncMatchers\<TMatchers\>
 
-> **CustomAsyncMatchers**\<`TMatchers`\>: `{ [K in NonAsyncMatchers<TMatchers>]: CustomAsymmetricMatcher<TMatchers[K]> }`
+> **CustomAsyncMatchers**\<`TMatchers`\> = `{ [K in NonAsyncMatchers<TMatchers>]: CustomAsymmetricMatcher<TMatchers[K]> }`
 
 Defined in: node\_modules/@types/jest/index.d.ts:1162
 
 ## Type Parameters
 
-• **TMatchers** *extends* [`ExpectExtendMap`](../interfaces/ExpectExtendMap.md)
+### TMatchers
+
+`TMatchers` *extends* [`ExpectExtendMap`](../interfaces/ExpectExtendMap.md)

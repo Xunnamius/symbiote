@@ -6,9 +6,9 @@
 
 # Type Alias: GlobalCliArguments\<Scope\>
 
-> **GlobalCliArguments**\<`Scope`\>: `StandardCommonCliArguments` & `object`
+> **GlobalCliArguments**\<`Scope`\> = `StandardCommonCliArguments` & `object`
 
-Defined in: [src/configure.ts:124](https://github.com/Xunnamius/symbiote/blob/9f696d86c2382405dbee8c9ec7da955f46194e6a/src/configure.ts#L124)
+Defined in: [src/configure.ts:124](https://github.com/Xunnamius/symbiote/blob/beb889fb40f0cd320367d5f94d02e29b1efb13ab/src/configure.ts#L124)
 
 These properties will be available in the `argv` object of any command that
 uses [withGlobalBuilder](../../util/functions/withGlobalBuilder.md) to construct its `builder`.
@@ -28,7 +28,9 @@ keys may differ slightly (e.g. hyphens may be elided in favor of camelCase).
 
 ## Type Parameters
 
-• **Scope** *extends* `string` = [`DefaultGlobalScope`](../enumerations/DefaultGlobalScope.md)
+### Scope
+
+`Scope` *extends* `string` = [`DefaultGlobalScope`](../enumerations/DefaultGlobalScope.md)
 
 ## See
 

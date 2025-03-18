@@ -8,7 +8,7 @@
 
 > `const` **ErrorMessage**: `object`
 
-Defined in: [src/error.ts:61](https://github.com/Xunnamius/symbiote/blob/9f696d86c2382405dbee8c9ec7da955f46194e6a/src/error.ts#L61)
+Defined in: [src/error.ts:61](https://github.com/Xunnamius/symbiote/blob/beb889fb40f0cd320367d5f94d02e29b1efb13ab/src/error.ts#L61)
 
 A collection of possible error and warning messages.
 
@@ -547,6 +547,12 @@ punctuation and capitalization rules as the other error messages.
 
 `string`
 
+### CannotUseNodeOptionsOnNonNodeRuntime()
+
+#### Returns
+
+`string`
+
 ### CannotWriteFile()
 
 #### Parameters
@@ -670,6 +676,12 @@ readonly `string`[]
 ##### args
 
 `string`[]
+
+#### Returns
+
+`string`
+
+### InvalidRuntime()
 
 #### Returns
 

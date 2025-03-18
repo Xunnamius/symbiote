@@ -6,6 +6,6 @@
 
 # src/assets/transformers/\_.browserslistrc
 
-## Functions
+## Variables
 
-- [transformer](functions/transformer.md)
+- [transformer](variables/transformer.md)

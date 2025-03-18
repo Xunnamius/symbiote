@@ -6,7 +6,7 @@
 
 # Type Alias: MockedFunction\<T\>
 
-> **MockedFunction**\<`T`\>: [`MockInstance`](../interfaces/MockInstance.md)\<`ReturnType`\<`T`\>, [`ArgsType`](ArgsType.md)\<`T`\>, `T` *extends* (`this`, ...`args`) => `any` ? `C` : `never`\> & `T`
+> **MockedFunction**\<`T`\> = [`MockInstance`](../interfaces/MockInstance.md)\<`ReturnType`\<`T`\>, [`ArgsType`](ArgsType.md)\<`T`\>, `T` *extends* (`this`, ...`args`) => `any` ? `C` : `never`\> & `T`
 
 Defined in: node\_modules/@types/jest/index.d.ts:1264
 
@@ -14,7 +14,9 @@ Wrap a function with mock definitions
 
 ## Type Parameters
 
-• **T** *extends* (...`args`) => `any`
+### T
+
+`T` *extends* (...`args`) => `any`
 
 ## Example
 

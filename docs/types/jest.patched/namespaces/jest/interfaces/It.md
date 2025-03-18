@@ -6,7 +6,7 @@
 
 # Interface: It()
 
-Defined in: [types/jest.patched.d.ts:10](https://github.com/Xunnamius/symbiote/blob/9f696d86c2382405dbee8c9ec7da955f46194e6a/types/jest.patched.d.ts#L10)
+Defined in: [types/jest.patched.d.ts:10](https://github.com/Xunnamius/symbiote/blob/beb889fb40f0cd320367d5f94d02e29b1efb13ab/types/jest.patched.d.ts#L10)
 
 Creates a test closure
 
@@ -44,7 +44,7 @@ The timeout for an async function test
 
 ### concurrent
 
-> **concurrent**: [`It`](It.md)
+> **concurrent**: `It`
 
 Defined in: node\_modules/@types/jest/index.d.ts:568
 
@@ -101,7 +101,7 @@ ${2} | ${1} | ${3}
 
 ### failing
 
-> **failing**: [`It`](It.md)
+> **failing**: `It`
 
 Defined in: node\_modules/@types/jest/index.d.ts:556
 
@@ -113,9 +113,9 @@ Only available in the default `jest-circus` runner.
 
 ### noskip
 
-> **noskip**: [`It`](It.md)
+> **noskip**: `It`
 
-Defined in: [types/jest.patched.d.ts:15](https://github.com/Xunnamius/symbiote/blob/9f696d86c2382405dbee8c9ec7da955f46194e6a/types/jest.patched.d.ts#L15)
+Defined in: [types/jest.patched.d.ts:15](https://github.com/Xunnamius/symbiote/blob/beb889fb40f0cd320367d5f94d02e29b1efb13ab/types/jest.patched.d.ts#L15)
 
 Ensures this test is run regardless of the invocation of
 `reconfigureJestGlobalsToSkipTestsInThisFileIfRequested`.
@@ -124,7 +124,7 @@ Ensures this test is run regardless of the invocation of
 
 ### only
 
-> **only**: [`It`](It.md)
+> **only**: `It`
 
 Defined in: node\_modules/@types/jest/index.d.ts:550
 
@@ -134,7 +134,7 @@ Only runs this test in the current file.
 
 ### skip
 
-> **skip**: [`It`](It.md)
+> **skip**: `It`
 
 Defined in: node\_modules/@types/jest/index.d.ts:560
 

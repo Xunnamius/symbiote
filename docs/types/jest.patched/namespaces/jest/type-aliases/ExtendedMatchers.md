@@ -6,14 +6,20 @@
 
 # Type Alias: ExtendedMatchers\<TMatchers, TMatcherReturn, TActual\>
 
-> **ExtendedMatchers**\<`TMatchers`, `TMatcherReturn`, `TActual`\>: [`Matchers`](../interfaces/Matchers.md)\<`TMatcherReturn`, `TActual`\> & `{ [K in keyof TMatchers]: CustomJestMatcher<TMatchers[K], TMatcherReturn> }`
+> **ExtendedMatchers**\<`TMatchers`, `TMatcherReturn`, `TActual`\> = [`Matchers`](../interfaces/Matchers.md)\<`TMatcherReturn`, `TActual`\> & `{ [K in keyof TMatchers]: CustomJestMatcher<TMatchers[K], TMatcherReturn> }`
 
 Defined in: node\_modules/@types/jest/index.d.ts:1180
 
 ## Type Parameters
 
-• **TMatchers** *extends* [`ExpectExtendMap`](../interfaces/ExpectExtendMap.md)
+### TMatchers
 
-• **TMatcherReturn**
+`TMatchers` *extends* [`ExpectExtendMap`](../interfaces/ExpectExtendMap.md)
 
-• **TActual**
+### TMatcherReturn
+
+`TMatcherReturn`
+
+### TActual
+
+`TActual`

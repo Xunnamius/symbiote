@@ -6,6 +6,6 @@
 
 # Type Alias: SetAccessor
 
-> **SetAccessor**: `"set"`
+> **SetAccessor** = `"set"`
 
 Defined in: node\_modules/@types/jest/index.d.ts:479

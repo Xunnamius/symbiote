@@ -10,11 +10,17 @@ Defined in: node\_modules/@types/jest/index.d.ts:1514
 
 ## Type Parameters
 
-• **T**
+### T
 
-• **Y** *extends* `any`[]
+`T`
 
-• **C** = `any`
+### Y
+
+`Y` *extends* `any`[]
+
+### C
+
+`C` = `any`
 
 ## Properties
 

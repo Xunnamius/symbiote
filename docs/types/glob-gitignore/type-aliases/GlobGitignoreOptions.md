@@ -6,9 +6,9 @@
 
 # Type Alias: GlobGitignoreOptions
 
-> **GlobGitignoreOptions**: `Omit`\<`GlobOptions`, `"ignore"`\> & `object`
+> **GlobGitignoreOptions** = `Omit`\<`GlobOptions`, `"ignore"`\> & `object`
 
-Defined in: [types/glob-gitignore.d.ts:4](https://github.com/Xunnamius/symbiote/blob/9f696d86c2382405dbee8c9ec7da955f46194e6a/types/glob-gitignore.d.ts#L4)
+Defined in: [types/glob-gitignore.d.ts:4](https://github.com/Xunnamius/symbiote/blob/beb889fb40f0cd320367d5f94d02e29b1efb13ab/types/glob-gitignore.d.ts#L4)
 
 ## Type declaration
 

@@ -6,10 +6,12 @@
 
 # Type Alias: ConstructorArgumentsOf\<T\>
 
-> **ConstructorArgumentsOf**\<`T`\>: `T` *extends* (...`args`) => `any` ? `A` : `never`
+> **ConstructorArgumentsOf**\<`T`\> = `T` *extends* (...`args`) => `any` ? `A` : `never`
 
 Defined in: node\_modules/@types/jest/index.d.ts:439
 
 ## Type Parameters
 
-• **T**
+### T
+
+`T`

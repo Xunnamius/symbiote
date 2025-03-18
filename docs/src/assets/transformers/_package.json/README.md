@@ -13,6 +13,7 @@
 ## Variables
 
 - [githubUrlRegExp](variables/githubUrlRegExp.md)
+- [transformer](variables/transformer.md)
 
 ## Functions
 
@@ -24,4 +25,3 @@
 - [generatePolyrepoXPackageJson](functions/generatePolyrepoXPackageJson.md)
 - [generateSubRootXPackageJson](functions/generateSubRootXPackageJson.md)
 - [parsePackageJsonRepositoryIntoOwnerAndRepo](functions/parsePackageJsonRepositoryIntoOwnerAndRepo.md)
-- [transformer](functions/transformer.md)

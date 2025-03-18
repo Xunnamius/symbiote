@@ -6,10 +6,12 @@
 
 # Type Alias: RemoveFirstFromTuple\<T\>
 
-> **RemoveFirstFromTuple**\<`T`\>: `T`\[`"length"`\] *extends* `0` ? \[\] : (...`b`) => `void` *extends* (`a`, ...`b`) => `void` ? `I` : \[\]
+> **RemoveFirstFromTuple**\<`T`\> = `T`\[`"length"`\] *extends* `0` ? \[\] : (...`b`) => `void` *extends* (`a`, ...`b`) => `void` ? `I` : \[\]
 
 Defined in: node\_modules/@types/jest/index.d.ts:1152
 
 ## Type Parameters
 
-• **T** *extends* `any`[]
+### T
+
+`T` *extends* `any`[]

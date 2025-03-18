@@ -14,7 +14,9 @@ Defined in: node\_modules/@types/jest/index.d.ts:511
 
 ## Type Parameters
 
-• **T** *extends* `any`[] \| \[`any`\]
+### T
+
+`T` *extends* `any`[] \| \[`any`\]
 
 ## Parameters
 
@@ -50,7 +52,9 @@ Defined in: node\_modules/@types/jest/index.d.ts:516
 
 ## Type Parameters
 
-• **T** *extends* readonly `any`[]
+### T
+
+`T` *extends* readonly `any`[]
 
 ## Parameters
 
@@ -86,7 +90,9 @@ Defined in: node\_modules/@types/jest/index.d.ts:522
 
 ## Type Parameters
 
-• **T**
+### T
+
+`T`
 
 ## Parameters
 

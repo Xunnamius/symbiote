@@ -6,7 +6,7 @@
 
 # Type Alias: Mocked\<T\>
 
-> **Mocked**\<`T`\>: `{ [P in keyof T]: T[P] extends (this: infer C, args: any[]) => any ? MockInstance<ReturnType<T[P]>, ArgsType<T[P]>, C> : T[P] extends Constructable ? MockedClass<T[P]> : T[P] }` & `T`
+> **Mocked**\<`T`\> = `{ [P in keyof T]: T[P] extends (this: infer C, args: any[]) => any ? MockInstance<ReturnType<T[P]>, ArgsType<T[P]>, C> : T[P] extends Constructable ? MockedClass<T[P]> : T[P] }` & `T`
 
 Defined in: node\_modules/@types/jest/index.d.ts:1308
 
@@ -14,7 +14,9 @@ Wrap an object or a module with mock definitions
 
 ## Type Parameters
 
-• **T**
+### T
+
+`T`
 
 ## Example
 
