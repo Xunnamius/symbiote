@@ -90,7 +90,7 @@
     "start": "./node_modules/@-xun/symbiote/dist/src/cli.js start --env NODE_NO_WARNINGS=1 --",
     "test": "npm run test:package:unit --",
     "test:package:all": "./node_modules/@-xun/symbiote/dist/src/cli.js test --env NODE_NO_WARNINGS=1 --tests all-local --coverage",
-    "test:package:e2e": "./node_modules/@-xun/symbiote/dist/src/cli.js test --env NODE_NO_WARNINGS=1 --tests end-to-end",
+    "test:package:e2e": "./node_modules/@-xun/symbiote/dist/src/cli.js test --env NODE_NO_WARNINGS=1 --tests e2e-local",
     "test:package:integration": "./node_modules/@-xun/symbiote/dist/src/cli.js test --env NODE_NO_WARNINGS=1 --tests integration",
     "test:package:unit": "./node_modules/@-xun/symbiote/dist/src/cli.js test --env NODE_NO_WARNINGS=1 --tests unit type",
     "test:packages:all": "./node_modules/@-xun/symbiote/dist/src/cli.js test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage",

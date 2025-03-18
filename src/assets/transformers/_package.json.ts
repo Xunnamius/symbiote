@@ -170,7 +170,7 @@ export function generateBaseXPackageJson(
       test: 'npm run test:package:unit --',
       'test:package:all':
         'symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --coverage',
-      'test:package:e2e': 'symbiote test --env NODE_NO_WARNINGS=1 --tests end-to-end',
+      'test:package:e2e': 'symbiote test --env NODE_NO_WARNINGS=1 --tests e2e-local',
       'test:package:integration':
         'symbiote test --env NODE_NO_WARNINGS=1 --tests integration',
       'test:package:unit': 'symbiote test --env NODE_NO_WARNINGS=1 --tests unit type',
