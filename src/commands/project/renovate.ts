@@ -2008,13 +2008,7 @@ See the symbiote wiki documentation for more details on this command and all ava
     async run(argv_, { debug, log }) {
       const argv = argv_ as RenovationTaskArgv;
 
-      const {
-        force,
-        silent: isSilenced,
-        quiet: isQuieted,
-        [$executionContext]: globalExecutionContext
-      } = argv;
-
+      const { force, [$executionContext]: globalExecutionContext } = argv;
       const { projectMetadata } = globalExecutionContext;
       const preset = argv.assetsPreset as AssetPreset;
       const onlyAliases = argv.onlyAliases as boolean;

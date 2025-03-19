@@ -28,7 +28,6 @@ import buildChangelog, { OutputOrder } from 'universe:commands/build/changelog.t
 import projectPrepare from 'universe:commands/project/prepare.ts';
 
 import {
-  $executionContext,
   configureExecutionContext,
   ThisPackageGlobalScope,
   UnlimitedGlobalScope
