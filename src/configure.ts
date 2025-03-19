@@ -174,6 +174,16 @@ export const configureExecutionContext = async function (context) {
   let isUsingLocalInstallation = false;
 
   if (projectMetadata) {
+    const stateExtensions: { transfer?: unknown[] } = new Object(
+      standardContext.state.extensions
+    );
+
+    // ? Ensure that projectMetadata is never cloned by BFE
+    standardContext.state.extensions = {
+      ...stateExtensions,
+      transfer: [...(stateExtensions.transfer || []), projectMetadata]
+    };
+
     const {
       rootPackage: { root: projectRoot }
     } = projectMetadata;
