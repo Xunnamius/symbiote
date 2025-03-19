@@ -420,9 +420,6 @@ export async function generateNotes(
   );
 
   await projectPrepareHandler({
-    [$executionContext]: pseudoBfGlobalExecutionContext,
-    $0: 'build changelog',
-    _: [],
     env: [],
     scope: UnlimitedGlobalScope.Unlimited,
     silent: true,
@@ -466,9 +463,6 @@ export async function generateNotes(
     generateNotesDebug('rebuilding changelog (calling out to symbiote api)');
 
     await buildChangelogHandler({
-      [$executionContext]: pseudoBfGlobalExecutionContext,
-      $0: 'build changelog',
-      _: [],
       env: [],
       scope: ThisPackageGlobalScope.ThisPackage,
       silent: true,
@@ -494,9 +488,6 @@ export async function generateNotes(
   );
 
   await buildChangelogHandler({
-    [$executionContext]: pseudoBfGlobalExecutionContext,
-    $0: 'build changelog',
-    _: [],
     env: [],
     scope: ThisPackageGlobalScope.ThisPackage,
     silent: true,

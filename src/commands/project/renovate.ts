@@ -2184,6 +2184,24 @@ See the symbiote wiki documentation for more details on this command and all ava
         GlobalExecutionContext
       >(format, globalExecutionContext);
 
+      const promisedFormatter = Promise.resolve().then(() => {
+        if (!force) {
+          return formatHandler({
+            env: [],
+            scope: DefaultGlobalScope.Unlimited,
+            silent: true,
+            quiet: true,
+            hush: true,
+            renumberReferences: false,
+            skipIgnored: true,
+            skipUnknown: false,
+            onlyPackageJson: false,
+            onlyMarkdown: false,
+            onlyPrettier: false
+          });
+        }
+      });
+
       let threw = false;
 
       try {
@@ -2217,48 +2235,33 @@ See the symbiote wiki documentation for more details on this command and all ava
             [LogTag.IF_NOT_QUIETED],
             'Skipped running formatter due to --force'
           );
+
+          // ? Is a no-op
+          await promisedFormatter;
         } else {
           log(
             [LogTag.IF_NOT_QUIETED],
             'Waiting for formatter sub-command to complete...'
           );
 
-          // TODO: fix the "crosstalk" bug, then move this back up above error
-          // TODO: output code and await it here (save time)
-          await formatHandler({
-            ...argv,
-            $0: 'format',
-            _: [],
-            env: [],
-            scope: DefaultGlobalScope.Unlimited,
-            silent: isSilenced,
-            quiet: isQuieted,
-            hush: true,
-            renumberReferences: false,
-            skipIgnored: true,
-            skipUnknown: false,
-            onlyPackageJson: false,
-            onlyMarkdown: false,
-            onlyPrettier: false
-          }).then(
-            () =>
-              log(
-                [LogTag.IF_NOT_QUIETED],
-                'Formatter sub-command completed successfully'
-              ),
-            (error: unknown) => {
-              debug.error('formatter sub-command failed:', error);
-              log.warn(
-                [LogTag.IF_NOT_SILENCED],
-                `Formatter sub-command experienced a fatal error${threw ? ' (that was ignored due to another error)' : ''}:`
-              );
-              log.warn([LogTag.IF_NOT_SILENCED], error);
+          try {
+            await promisedFormatter;
+            log([LogTag.IF_NOT_QUIETED], 'Formatter sub-command completed successfully');
+          } catch (error) {
+            debug.error('formatter sub-command failed:', error);
 
-              if (!threw) {
-                throw error;
-              }
+            log.warn(
+              [LogTag.IF_NOT_SILENCED],
+              `Formatter sub-command experienced a fatal error${threw ? ' (that was ignored due to another error)' : ''}:`
+            );
+
+            log.warn([LogTag.IF_NOT_SILENCED], error);
+
+            if (!threw) {
+              // eslint-disable-next-line no-unsafe-finally
+              throw error;
             }
-          );
+          }
         }
       }
 
@@ -2594,9 +2597,6 @@ See the symbiote wiki documentation for more details on this command and all ava
           >(format, globalExecutionContext);
 
           await formatHandler({
-            ...argv,
-            $0: 'format',
-            _: [],
             env: [],
             scope: DefaultGlobalScope.Unlimited,
             files: [ourPackageJsonPath],

@@ -486,9 +486,6 @@ Use --import-section-file to add a custom release section to the changelog. The 
         >(format, globalExecutionContext);
 
         await formatHandler({
-          ...argv,
-          $0: 'format',
-          _: [],
           env: [],
           scope: DefaultGlobalScope.ThisPackage,
           files: [changelogFile],

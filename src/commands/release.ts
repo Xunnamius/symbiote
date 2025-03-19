@@ -442,6 +442,7 @@ WARNING: this command is NOT DESIGNED TO HANDLE CONCURRENT EXECUTION ON THE SAME
         ci,
         dryRun,
         force,
+        env,
         parallel,
         skipTasks,
         skipTaskMissingScripts,
@@ -703,9 +704,8 @@ WARNING: this command is NOT DESIGNED TO HANDLE CONCURRENT EXECUTION ON THE SAME
         );
 
         await projectPrepareHandler({
-          ...argv,
-          $0: 'project prepare',
-          _: [],
+          force,
+          parallel,
           env: [],
           scope: UnlimitedGlobalScope.Unlimited,
           silent: isSilenced,
@@ -1099,9 +1099,6 @@ const protoPrereleaseTasks: ProtoPrereleaseTask[][] = [
         >(projectRenovate, globalExecutionContext);
 
         await projectRenovateHandler({
-          ...argv,
-          $0: 'project renovate',
-          _: [],
           env: [],
           scope: DefaultGlobalScope.ThisPackage,
 
