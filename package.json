@@ -120,7 +120,7 @@
     "@eslint/eslintrc": "^3.3.0",
     "@eslint/js": "^9.22.0",
     "@octokit/plugin-retry": "^7.2.0",
-    "@octokit/plugin-throttling": "^9.4.0",
+    "@octokit/plugin-throttling": "^9.6.0",
     "@octokit/rest": "^21.1.1",
     "@semantic-release/exec": "^7.0.3",
     "@semantic-release/git": "^10.0.1",
