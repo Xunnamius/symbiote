@@ -8,7 +8,7 @@
 
 > **default**(`globalExecutionContext`): `Promise`\<`Partial`\<`Configuration`\<[`CustomCliArguments`](../distributables/type-aliases/CustomCliArguments.md), [`GlobalExecutionContext`](../../../configure/type-aliases/GlobalExecutionContext.md)\>\>\>
 
-Defined in: [src/commands/build/index.ts:10](https://github.com/Xunnamius/symbiote/blob/3cb0503ce3cd2a8bfb437c5dfd67c1fcba9d10cc/src/commands/build/index.ts#L10)
+Defined in: [src/commands/build/index.ts:10](https://github.com/Xunnamius/symbiote/blob/901f1662c62c89e7826ae22e0dbc393e9af16ca8/src/commands/build/index.ts#L10)
 
 ## Parameters
 
