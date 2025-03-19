@@ -2,10 +2,9 @@ import assert from 'node:assert';
 import childProcess from 'node:child_process';
 
 import { interpolateTemplate, toSentenceCase } from '@-xun/cli/util';
+import { safeDeepClone } from '@-xun/js';
 import { analyzeProjectStructure, xchangelogConfigProjectBase } from '@-xun/project';
 import escapeStringRegExp from 'escape-string-regexp~4';
-import clone from 'lodash.clone';
-import cloneDeepWith from 'lodash.clonedeepwith';
 import deepMerge from 'lodash.mergewith';
 import { createDebugLogger } from 'rejoinder';
 import semver from 'semver';
@@ -946,31 +945,6 @@ function mergeCustomizer(
   }
 
   return undefined;
-}
-
-/**
- * A smarter more useful cloning algorithm based on "structured clone" that
- * passes through as-is items that cannot be cloned.
- */
-// TODO: replace this with the latest version exported from @-xun/js (see bfe)
-function safeDeepClone<T>(o: T): T {
-  return cloneDeepWith(o, (value) => {
-    const attempt = clone(value);
-
-    if (
-      attempt &&
-      typeof attempt === 'object' &&
-      Object.keys(attempt).length === 0 &&
-      // ? Essentially an "instanceof" that doesn't crawl the prototype chain
-      Object.getPrototypeOf(attempt) === Object.prototype &&
-      // ? Do NOT return the original value if it is itself an empty object
-      Object.getPrototypeOf(value) !== Object.prototype
-    ) {
-      return value;
-    }
-
-    return undefined;
-  });
 }
 
 /**
