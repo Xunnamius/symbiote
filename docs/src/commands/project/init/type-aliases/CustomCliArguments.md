@@ -8,4 +8,4 @@
 
 > **CustomCliArguments** = [`GlobalCliArguments`](../../../../configure/type-aliases/GlobalCliArguments.md)\<[`UnlimitedGlobalScope`](../../../../configure/enumerations/UnlimitedGlobalScope.md)\> & `object`
 
-Defined in: [src/commands/project/init.ts:23](https://github.com/Xunnamius/symbiote/blob/beb889fb40f0cd320367d5f94d02e29b1efb13ab/src/commands/project/init.ts#L23)
+Defined in: [src/commands/project/init.ts:23](https://github.com/Xunnamius/symbiote/blob/3cb0503ce3cd2a8bfb437c5dfd67c1fcba9d10cc/src/commands/project/init.ts#L23)

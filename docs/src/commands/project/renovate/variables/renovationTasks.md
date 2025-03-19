@@ -8,7 +8,7 @@
 
 > `const` **renovationTasks**: `object`
 
-Defined in: [src/commands/project/renovate.ts:765](https://github.com/Xunnamius/symbiote/blob/beb889fb40f0cd320367d5f94d02e29b1efb13ab/src/commands/project/renovate.ts#L765)
+Defined in: [src/commands/project/renovate.ts:765](https://github.com/Xunnamius/symbiote/blob/3cb0503ce3cd2a8bfb437c5dfd67c1fcba9d10cc/src/commands/project/renovate.ts#L765)
 
 ## Type declaration
 
@@ -237,7 +237,7 @@ boolean, interpret option as a boolean flag, see `boolean()`
 > `optional` **check**: `BfeCheckFunction`\<`Record`\<`string`, `unknown`\>, [`GlobalExecutionContext`](../../../../configure/type-aliases/GlobalExecutionContext.md)\> \| `BfeCheckFunction`\<`Record`\<..., ...\>, [`GlobalExecutionContext`](../../../../configure/type-aliases/GlobalExecutionContext.md)\>[]
 
 `check` is the declarative option-specific version of vanilla yargs's
-`yargs::check()`. Also supports async and promise-returning functions.
+`yargs::check()`. It also supports async and promise-returning functions.
 
 This function receives the `currentArgumentValue`, which you are free to
 type as you please, and the fully parsed `argv`. If this function throws,
@@ -248,6 +248,11 @@ anything), Black Flag will throw a `CliError` on your behalf.
 You may also pass an array of check functions, each being executed after
 the other. Note that providing an array of one or more async check
 functions will result in them being awaited concurrently.
+
+Note that `check` runs _at the very end of Black Flag's second parsing
+pass_, meaning it runs _after_ things like `coerce` and `subOptionOf`, and
+therefore receives the _final_ version of `argv` (the one passed to a
+command's `handler`).
 
 See [the
 documentation](https://github.com/Xunnamius/black-flag/tree/main/packages/extensions/README.md#check)
@@ -1098,7 +1103,7 @@ boolean, interpret option as a boolean flag, see `boolean()`
 > `optional` **check**: `BfeCheckFunction`\<`Record`\<`string`, `unknown`\>, [`GlobalExecutionContext`](../../../../configure/type-aliases/GlobalExecutionContext.md)\> \| `BfeCheckFunction`\<`Record`\<..., ...\>, [`GlobalExecutionContext`](../../../../configure/type-aliases/GlobalExecutionContext.md)\>[]
 
 `check` is the declarative option-specific version of vanilla yargs's
-`yargs::check()`. Also supports async and promise-returning functions.
+`yargs::check()`. It also supports async and promise-returning functions.
 
 This function receives the `currentArgumentValue`, which you are free to
 type as you please, and the fully parsed `argv`. If this function throws,
@@ -1109,6 +1114,11 @@ anything), Black Flag will throw a `CliError` on your behalf.
 You may also pass an array of check functions, each being executed after
 the other. Note that providing an array of one or more async check
 functions will result in them being awaited concurrently.
+
+Note that `check` runs _at the very end of Black Flag's second parsing
+pass_, meaning it runs _after_ things like `coerce` and `subOptionOf`, and
+therefore receives the _final_ version of `argv` (the one passed to a
+command's `handler`).
 
 See [the
 documentation](https://github.com/Xunnamius/black-flag/tree/main/packages/extensions/README.md#check)
@@ -1524,7 +1534,7 @@ boolean, interpret option as a boolean flag, see `boolean()`
 > `optional` **check**: `BfeCheckFunction`\<`Record`\<`string`, `unknown`\>, [`GlobalExecutionContext`](../../../../configure/type-aliases/GlobalExecutionContext.md)\> \| `BfeCheckFunction`\<`Record`\<..., ...\>, [`GlobalExecutionContext`](../../../../configure/type-aliases/GlobalExecutionContext.md)\>[]
 
 `check` is the declarative option-specific version of vanilla yargs's
-`yargs::check()`. Also supports async and promise-returning functions.
+`yargs::check()`. It also supports async and promise-returning functions.
 
 This function receives the `currentArgumentValue`, which you are free to
 type as you please, and the fully parsed `argv`. If this function throws,
@@ -1535,6 +1545,11 @@ anything), Black Flag will throw a `CliError` on your behalf.
 You may also pass an array of check functions, each being executed after
 the other. Note that providing an array of one or more async check
 functions will result in them being awaited concurrently.
+
+Note that `check` runs _at the very end of Black Flag's second parsing
+pass_, meaning it runs _after_ things like `coerce` and `subOptionOf`, and
+therefore receives the _final_ version of `argv` (the one passed to a
+command's `handler`).
 
 See [the
 documentation](https://github.com/Xunnamius/black-flag/tree/main/packages/extensions/README.md#check)
@@ -2038,7 +2053,7 @@ boolean, interpret option as a boolean flag, see `boolean()`
 > `optional` **check**: `BfeCheckFunction`\<`Record`\<`string`, `unknown`\>, [`GlobalExecutionContext`](../../../../configure/type-aliases/GlobalExecutionContext.md)\> \| `BfeCheckFunction`\<`Record`\<..., ...\>, [`GlobalExecutionContext`](../../../../configure/type-aliases/GlobalExecutionContext.md)\>[]
 
 `check` is the declarative option-specific version of vanilla yargs's
-`yargs::check()`. Also supports async and promise-returning functions.
+`yargs::check()`. It also supports async and promise-returning functions.
 
 This function receives the `currentArgumentValue`, which you are free to
 type as you please, and the fully parsed `argv`. If this function throws,
@@ -2049,6 +2064,11 @@ anything), Black Flag will throw a `CliError` on your behalf.
 You may also pass an array of check functions, each being executed after
 the other. Note that providing an array of one or more async check
 functions will result in them being awaited concurrently.
+
+Note that `check` runs _at the very end of Black Flag's second parsing
+pass_, meaning it runs _after_ things like `coerce` and `subOptionOf`, and
+therefore receives the _final_ version of `argv` (the one passed to a
+command's `handler`).
 
 See [the
 documentation](https://github.com/Xunnamius/black-flag/tree/main/packages/extensions/README.md#check)

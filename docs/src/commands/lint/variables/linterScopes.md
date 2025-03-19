@@ -8,7 +8,7 @@
 
 > `const` **linterScopes**: [`DefaultGlobalScope`](../../../configure/enumerations/DefaultGlobalScope.md)[]
 
-Defined in: [src/commands/lint.ts:49](https://github.com/Xunnamius/symbiote/blob/beb889fb40f0cd320367d5f94d02e29b1efb13ab/src/commands/lint.ts#L49)
+Defined in: [src/commands/lint.ts:49](https://github.com/Xunnamius/symbiote/blob/3cb0503ce3cd2a8bfb437c5dfd67c1fcba9d10cc/src/commands/lint.ts#L49)
 
 ## See
 
