@@ -181,7 +181,7 @@ export default function command({
           choices: tests,
           description: 'Which kinds of test to run',
           // ? If this changes, endToEndMode's initial value needs to change too
-          default: allActualTests,
+          default: [allActualTests],
           defaultDescription: `"${Test.AllLocal}"`,
           check: checkArrayNotEmpty('--tests'),
           coerce(tests: Test[]) {
@@ -230,7 +230,9 @@ export default function command({
               update(oldOptionConfig) {
                 return {
                   ...oldOptionConfig,
+                  description: `Which kind of test to run ("${Test.Type}" means TsTyche only, all others mean Jest only)`,
                   default: [Test.Unit],
+                  defaultDescription: `Jest tests only`,
                   demandThisOption: true,
                   // ? Either Jest or Tstyche run in baseline mode, but not both
                   check: [oldOptionConfig.check || []]
