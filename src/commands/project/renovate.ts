@@ -2474,7 +2474,7 @@ See the symbiote wiki documentation for more details on this command and all ava
     shortHelpDescription:
       'Update package.json dependencies to match their monorepo versions',
     longHelpDescription:
-      "This renovation will analyze dependencies in one or more package.json files (depending on --scope), select dependencies in those files that match a package name in this project, and update those dependencies' ranges to match their respective package versions as they are in the project. This is useful in monorepos with published packages that rely on other published packages in the same repo. This renovation ensures a package released from this project will always install the latest version of the other packages released from this project.\n\nIf this repository is a polyrepo, this renovation is essentially a no-op.",
+      'This renovation will analyze "dependencies" (that is: not "devDependencies", etc) in one or more package.json files with respect to --scope, select dependencies in those files that match a package name in this project, update those dependencies\' ranges to match their respective package versions as they are in the project, and committing the changes (as one unified "build" commit).\n\nThis renovation ensures a package released from this monorepo will always install the latest version of the other packages released from this same monorepo.\n\nIf this project is a polyrepo, this renovation is essentially a no-op.',
     requiresForce: false,
     supportedScopes: projectRenovateScopes,
     subOptions: {},
@@ -2616,6 +2616,16 @@ See the symbiote wiki documentation for more details on this command and all ava
             `Wrote out updated dependencies to:\n${SHORT_TAB}%O`,
             ourPackageJsonPath
           );
+
+          log([LogTag.IF_NOT_SILENCED], `Committing changes...`);
+
+          await runWithInheritedIo('git', ['add', ourPackageJsonPath]);
+          await runWithInheritedIo('git', [
+            'commit',
+            '--no-verify',
+            '-m',
+            `build(deps): bump internal monorepo interdependencies to latest versions`
+          ]);
         }
 
         log(
