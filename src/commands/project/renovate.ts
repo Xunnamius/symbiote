@@ -755,14 +755,40 @@ const conflictingUpstreamRenovationTasks = [
   'generate-alias-tags',
   'full-deprecate',
   'full-undeprecate'
-].map((t) => ({ [t]: true }));
+];
+
+/**
+ * These renovation tasks CANNOT be run in parallel with one another since they
+ * all rely on exclusive read-write access to the git repository and filesystem.
+ */
+const conflictingFilesystemRenovationTasks = [
+  'github-rename-root',
+  'github-clone-remote-wiki',
+  'github-kill-master',
+  'full-deprecate',
+  'full-undeprecate',
+  'regenerate-assets',
+  'update-dependencies',
+  'synchronize-interdependencies'
+];
+
+function getRenovationConflicts(renovation: string) {
+  return [
+    ...(conflictingUpstreamRenovationTasks.includes(renovation)
+      ? conflictingUpstreamRenovationTasks.filter((r) => r !== renovation)
+      : []),
+    ...(conflictingFilesystemRenovationTasks.includes(renovation)
+      ? conflictingFilesystemRenovationTasks.filter((r) => r !== renovation)
+      : [])
+  ].map((conflictingRenovation) => ({ [conflictingRenovation]: true }));
+}
 
 // TODO: When we settle on a unified task-runner API, these should be placed
 // TODO: into their own files. Maybe they should be so placed before then...
 /**
  * @see {@link RenovationTask}
  */
-export const renovationTasks = {
+const renovationTasks = {
   'github-reconfigure-repo': {
     emoji: '🎚️',
     taskAliases: [],
@@ -809,9 +835,7 @@ Due to the current limitations of GitHub's REST API, the following renovations a
 
 By default, this command will preserve the origin repository's pre-existing configuration. Run this command with --force to overwrite any pre-existing configuration EXCEPT the origin repository's description and homepage, which can never be overwritten by this renovation.`,
     requiresForce: false,
-    conflicts: conflictingUpstreamRenovationTasks.filter(
-      (o) => !o['github-reconfigure-repo']
-    ),
+    conflicts: getRenovationConflicts('github-reconfigure-repo'),
     supportedScopes: [ProjectRenovateScope.Unlimited],
     subOptions: {},
     async run(argv_, { debug, log }) {
@@ -1333,9 +1357,7 @@ To create and recreate alias tags for existing release tags more generally, see 
         }
       }
     },
-    conflicts: conflictingUpstreamRenovationTasks.filter(
-      (o) => !o['github-rename-root']
-    ),
+    conflicts: getRenovationConflicts('github-rename-root'),
     async run(argv_, { log, debug }) {
       const argv = argv_ as RenovationTaskArgv;
       checkRuntimeIsReadyForGithub(argv, log);
@@ -1576,9 +1598,7 @@ npm deprecate '${oldRootPackageName}' 'This package has been superseded by \`${u
     requiresForce: false,
     supportedScopes: [ProjectRenovateScope.Unlimited],
     subOptions: {},
-    conflicts: conflictingUpstreamRenovationTasks.filter(
-      (o) => !o['github-pause-rulesets']
-    ),
+    conflicts: getRenovationConflicts('github-pause-rulesets'),
     async run(argv_, { log, debug }) {
       const argv = argv_ as RenovationTaskArgv;
       checkRuntimeIsReadyForGithub(argv, log);
@@ -1692,9 +1712,7 @@ npm deprecate '${oldRootPackageName}' 'This package has been superseded by \`${u
     requiresForce: true,
     supportedScopes: projectRenovateScopes,
     subOptions: {},
-    conflicts: conflictingUpstreamRenovationTasks.filter(
-      (o) => !o['github-delete-all-releases']
-    ),
+    conflicts: getRenovationConflicts('github-delete-all-releases'),
     async run(argv_, { log }) {
       const argv = argv_ as RenovationTaskArgv;
       checkRuntimeIsReadyForGithub(argv, log);
@@ -1715,9 +1733,7 @@ npm deprecate '${oldRootPackageName}' 'This package has been superseded by \`${u
     requiresForce: false,
     supportedScopes: [ProjectRenovateScope.Unlimited],
     subOptions: {},
-    conflicts: conflictingUpstreamRenovationTasks.filter(
-      (o) => !o['github-clone-remote-wiki']
-    ),
+    conflicts: getRenovationConflicts('github-clone-remote-wiki'),
     async run(argv_, { log }) {
       const argv = argv_ as RenovationTaskArgv;
       checkRuntimeIsReadyForGithub(argv, log);
@@ -1740,9 +1756,7 @@ npm deprecate '${oldRootPackageName}' 'This package has been superseded by \`${u
     requiresForce: false,
     supportedScopes: [ProjectRenovateScope.Unlimited],
     subOptions: {},
-    conflicts: conflictingUpstreamRenovationTasks.filter(
-      (o) => !o['github-kill-master']
-    ),
+    conflicts: getRenovationConflicts('github-kill-master'),
     async run(argv_, { log }) {
       const argv = argv_ as RenovationTaskArgv;
       checkRuntimeIsReadyForGithub(argv, log);
@@ -1800,9 +1814,7 @@ Note that this command never deletes tags.`,
         default: false
       }
     },
-    conflicts: conflictingUpstreamRenovationTasks.filter(
-      (o) => !o['generate-alias-tags']
-    ),
+    conflicts: getRenovationConflicts('generate-alias-tags'),
     async run(argv_, { debug, log }) {
       const argv = argv_ as RenovationTaskArgv;
 
@@ -1878,7 +1890,7 @@ Note that this command never deletes tags.`,
     requiresForce: true,
     supportedScopes: [ProjectRenovateScope.ThisPackage],
     subOptions: {},
-    conflicts: conflictingUpstreamRenovationTasks.filter((o) => !o['full-deprecate']),
+    conflicts: getRenovationConflicts('full-deprecate'),
     async run(argv_, { log }) {
       const argv = argv_ as RenovationTaskArgv;
 
@@ -1901,7 +1913,7 @@ Note that this command never deletes tags.`,
     requiresForce: true,
     supportedScopes: [ProjectRenovateScope.ThisPackage],
     subOptions: {},
-    conflicts: conflictingUpstreamRenovationTasks.filter((o) => !o['full-undeprecate']),
+    conflicts: getRenovationConflicts('full-undeprecate'),
     async run(argv_, { log }) {
       const argv = argv_ as RenovationTaskArgv;
 
@@ -1997,14 +2009,7 @@ See the symbiote wiki documentation for more details on this command and all ava
         looseImplications: true
       }
     },
-    // ? These renovations modify the filesystem, so only one can run at once
-    conflicts: [
-      'synchronize-interdependencies',
-      'full-deprecate',
-      'full-undeprecate',
-      'github-rename-root',
-      'github-clone-remote-wiki'
-    ],
+    conflicts: getRenovationConflicts('regenerate-assets'),
     async run(argv_, { debug, log }) {
       const argv = argv_ as RenovationTaskArgv;
 
@@ -2473,8 +2478,7 @@ See the symbiote wiki documentation for more details on this command and all ava
     requiresForce: false,
     supportedScopes: projectRenovateScopes,
     subOptions: {},
-    // ? These renovations modify the filesystem, so only one can run at once
-    conflicts: ['full-deprecate', 'full-undeprecate', 'github-rename-root'],
+    conflicts: getRenovationConflicts('synchronize-interdependencies'),
     async run(argv_, { debug, log }) {
       const argv = argv_ as RenovationTaskArgv;
 
