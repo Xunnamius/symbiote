@@ -14,7 +14,6 @@
 ## Variables
 
 - [projectRenovateScopes](variables/projectRenovateScopes.md)
-- [renovationTasks](variables/renovationTasks.md)
 
 ## Functions
 

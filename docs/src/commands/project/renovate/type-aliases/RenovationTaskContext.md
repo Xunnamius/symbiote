@@ -8,7 +8,7 @@
 
 > **RenovationTaskContext** = `object`
 
-Defined in: [src/commands/project/renovate.ts:190](https://github.com/Xunnamius/symbiote/blob/901f1662c62c89e7826ae22e0dbc393e9af16ca8/src/commands/project/renovate.ts#L190)
+Defined in: [src/commands/project/renovate.ts:190](https://github.com/Xunnamius/symbiote/blob/2a4f9c137a879b6e0d19dc7269398051d3a84f5e/src/commands/project/renovate.ts#L190)
 
 The context passed to each individual task.
 
@@ -18,7 +18,7 @@ The context passed to each individual task.
 
 > **debug**: `ExtendedDebugger`
 
-Defined in: [src/commands/project/renovate.ts:193](https://github.com/Xunnamius/symbiote/blob/901f1662c62c89e7826ae22e0dbc393e9af16ca8/src/commands/project/renovate.ts#L193)
+Defined in: [src/commands/project/renovate.ts:193](https://github.com/Xunnamius/symbiote/blob/2a4f9c137a879b6e0d19dc7269398051d3a84f5e/src/commands/project/renovate.ts#L193)
 
 ***
 
@@ -26,7 +26,7 @@ Defined in: [src/commands/project/renovate.ts:193](https://github.com/Xunnamius/
 
 > **log**: `ExtendedLogger`
 
-Defined in: [src/commands/project/renovate.ts:192](https://github.com/Xunnamius/symbiote/blob/901f1662c62c89e7826ae22e0dbc393e9af16ca8/src/commands/project/renovate.ts#L192)
+Defined in: [src/commands/project/renovate.ts:192](https://github.com/Xunnamius/symbiote/blob/2a4f9c137a879b6e0d19dc7269398051d3a84f5e/src/commands/project/renovate.ts#L192)
 
 ***
 
@@ -34,4 +34,4 @@ Defined in: [src/commands/project/renovate.ts:192](https://github.com/Xunnamius/
 
 > **self**: `RenovationTask`
 
-Defined in: [src/commands/project/renovate.ts:191](https://github.com/Xunnamius/symbiote/blob/901f1662c62c89e7826ae22e0dbc393e9af16ca8/src/commands/project/renovate.ts#L191)
+Defined in: [src/commands/project/renovate.ts:191](https://github.com/Xunnamius/symbiote/blob/2a4f9c137a879b6e0d19dc7269398051d3a84f5e/src/commands/project/renovate.ts#L191)
