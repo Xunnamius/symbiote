@@ -247,9 +247,9 @@ export function moduleExport({
         '@semantic-release/github',
         {
           successComment:
-            '🚀✨ This ${issue.pull_request ? "pull request" : "issue\'s resolution"} was included in ' +
+            '🚀 This ${issue.pull_request ? "pull request" : "issue\'s resolution"} was included in ' +
             cwdPackageName +
-            '@${nextRelease.version} ✨🚀' +
+            '@${nextRelease.version} ✨' +
             String.raw`<%
           const releaseInfos = releases.filter((release) => Boolean(release.name));
 
