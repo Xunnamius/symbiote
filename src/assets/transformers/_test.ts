@@ -10,6 +10,9 @@ import {
 
 const bt = '`';
 
+// TODO: when module-system === esm, tests need to use esm-ready syntax for json
+// TODO: imports
+
 export const { transformer } = makeTransformer(async function (context) {
   const { toProjectAbsolutePath, forceOverwritePotentiallyDestructive: force } = context;
 
