@@ -8,6 +8,6 @@
 
 > `const` **extensionsAcceptedByBabel**: readonly \[`".ts"`, `".cts"`, `".mts"`, `".tsx"`, `".js"`, `".mjs"`, `".cjs"`, `".jsx"`\]
 
-Defined in: [src/assets/transformers/\_babel.config.cjs.ts:135](https://github.com/Xunnamius/symbiote/blob/2a4f9c137a879b6e0d19dc7269398051d3a84f5e/src/assets/transformers/_babel.config.cjs.ts#L135)
+Defined in: node\_modules/@-xun/project-graph/dist/packages/graph/src/constant.d.ts:306
 
 All possible extensions accepted by Babel using standard symbiote configs.

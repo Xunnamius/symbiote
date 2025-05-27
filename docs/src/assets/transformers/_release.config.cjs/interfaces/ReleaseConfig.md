@@ -18,6 +18,8 @@ configuration file and shareable configurations.
 
 \[`name`: `string`\]: `any`
 
+Any other options supported by plugins.
+
 ## Properties
 
 ### branches?

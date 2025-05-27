@@ -34,7 +34,7 @@ Defined in: node\_modules/@types/jest/index.d.ts:446
 
 ## Constructors
 
-### new MockWithArgs()
+### Constructor
 
 > **new MockWithArgs**(...`args`): `T`
 
@@ -132,7 +132,7 @@ don't access stale data.
 
 ### mockImplementation()
 
-> **mockImplementation**(`fn`?): `this`
+> **mockImplementation**(`fn?`): `this`
 
 Defined in: node\_modules/@types/jest/index.d.ts:1365
 

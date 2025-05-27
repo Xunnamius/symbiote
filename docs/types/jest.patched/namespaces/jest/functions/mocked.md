@@ -8,7 +8,7 @@
 
 ## Call Signature
 
-> **mocked**\<`T`\>(`source`, `options`?): [`MaybeMockedDeep`](../type-aliases/MaybeMockedDeep.md)\<`T`\>
+> **mocked**\<`T`\>(`source`, `options?`): [`MaybeMockedDeep`](../type-aliases/MaybeMockedDeep.md)\<`T`\>
 
 Defined in: node\_modules/@types/jest/index.d.ts:248
 

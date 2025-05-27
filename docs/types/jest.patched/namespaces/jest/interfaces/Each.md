@@ -8,184 +8,194 @@
 
 Defined in: node\_modules/@types/jest/index.d.ts:509
 
-> **Each**\<`T`\>(`cases`): (`name`, `fn`, `timeout`?) => `void`
+## Call Signature
+
+> **Each**\<`T`\>(`cases`): (`name`, `fn`, `timeout?`) => `void`
 
 Defined in: node\_modules/@types/jest/index.d.ts:511
 
-## Type Parameters
+### Type Parameters
 
-### T
+#### T
 
 `T` *extends* `any`[] \| \[`any`\]
 
-## Parameters
+### Parameters
 
-### cases
+#### cases
 
 readonly `T`[]
 
-## Returns
+### Returns
 
-`Function`
+> (`name`, `fn`, `timeout?`): `void`
 
-### Parameters
+#### Parameters
 
-#### name
+##### name
 
 `string`
 
-#### fn
+##### fn
 
 (...`args`) => `any`
 
-#### timeout?
+##### timeout?
 
 `number`
 
-### Returns
+#### Returns
 
 `void`
 
-> **Each**\<`T`\>(`cases`): (`name`, `fn`, `timeout`?) => `void`
+## Call Signature
+
+> **Each**\<`T`\>(`cases`): (`name`, `fn`, `timeout?`) => `void`
 
 Defined in: node\_modules/@types/jest/index.d.ts:516
 
-## Type Parameters
+### Type Parameters
 
-### T
+#### T
 
 `T` *extends* readonly `any`[]
 
-## Parameters
+### Parameters
 
-### cases
+#### cases
 
 readonly `T`[]
 
-## Returns
+### Returns
 
-`Function`
+> (`name`, `fn`, `timeout?`): `void`
 
-### Parameters
+#### Parameters
 
-#### name
+##### name
 
 `string`
 
-#### fn
+##### fn
 
 (...`args`) => `any`
 
-#### timeout?
+##### timeout?
 
 `number`
 
-### Returns
+#### Returns
 
 `void`
 
-> **Each**\<`T`\>(`cases`): (`name`, `fn`, `timeout`?) => `void`
+## Call Signature
+
+> **Each**\<`T`\>(`cases`): (`name`, `fn`, `timeout?`) => `void`
 
 Defined in: node\_modules/@types/jest/index.d.ts:522
 
-## Type Parameters
+### Type Parameters
 
-### T
+#### T
 
 `T`
 
-## Parameters
+### Parameters
 
-### cases
+#### cases
 
 readonly `T`[]
 
-## Returns
+### Returns
 
-`Function`
+> (`name`, `fn`, `timeout?`): `void`
 
-### Parameters
+#### Parameters
 
-#### name
+##### name
 
 `string`
 
-#### fn
+##### fn
 
 (`arg`, `done`) => `any`
 
-#### timeout?
+##### timeout?
 
 `number`
 
-### Returns
+#### Returns
 
 `void`
 
-> **Each**(`cases`): (`name`, `fn`, `timeout`?) => `void`
+## Call Signature
+
+> **Each**(`cases`): (`name`, `fn`, `timeout?`) => `void`
 
 Defined in: node\_modules/@types/jest/index.d.ts:523
 
-## Parameters
+### Parameters
 
-### cases
+#### cases
 
 readonly readonly `any`[][]
 
-## Returns
+### Returns
 
-`Function`
+> (`name`, `fn`, `timeout?`): `void`
 
-### Parameters
+#### Parameters
 
-#### name
+##### name
 
 `string`
 
-#### fn
+##### fn
 
 (...`args`) => `any`
 
-#### timeout?
+##### timeout?
 
 `number`
 
-### Returns
+#### Returns
 
 `void`
 
-> **Each**(`strings`, ...`placeholders`): (`name`, `fn`, `timeout`?) => `void`
+## Call Signature
+
+> **Each**(`strings`, ...`placeholders`): (`name`, `fn`, `timeout?`) => `void`
 
 Defined in: node\_modules/@types/jest/index.d.ts:528
 
-## Parameters
+### Parameters
 
-### strings
+#### strings
 
 `TemplateStringsArray`
 
-### placeholders
+#### placeholders
 
 ...`any`[]
 
-## Returns
+### Returns
 
-`Function`
+> (`name`, `fn`, `timeout?`): `void`
 
-### Parameters
+#### Parameters
 
-#### name
+##### name
 
 `string`
 
-#### fn
+##### fn
 
 (`arg`, `done`) => `any`
 
-#### timeout?
+##### timeout?
 
 `number`
 
-### Returns
+#### Returns
 
 `void`

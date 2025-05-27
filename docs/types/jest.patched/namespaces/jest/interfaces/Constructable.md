@@ -10,7 +10,7 @@ Defined in: node\_modules/@types/jest/index.d.ts:1204
 
 ## Constructors
 
-### new Constructable()
+### Constructor
 
 > **new Constructable**(...`args`): `any`
 

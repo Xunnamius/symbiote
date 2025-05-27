@@ -6,7 +6,7 @@
 
 # Function: setSystemTime()
 
-> **setSystemTime**(`now`?): `void`
+> **setSystemTime**(`now?`): `void`
 
 Defined in: node\_modules/@types/jest/index.d.ts:167
 

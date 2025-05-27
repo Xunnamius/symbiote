@@ -6,13 +6,13 @@
 
 # Function: assertEnvironment()
 
-> **assertEnvironment**(): `Omit`\<\{ `derivedAliases`: \{\}; `isDebugging`: `boolean`; `skipSlowTestsLevel`: `number`; \}, `"derivedAliases"`\>
+> **assertEnvironment**(): `Omit`\<`Parameters`\<*typeof* [`moduleExport`](moduleExport.md)\>\[`0`\], `"derivedAliases"`\>
 
-Defined in: [src/assets/transformers/\_jest.config.mjs.ts:204](https://github.com/Xunnamius/symbiote/blob/2a4f9c137a879b6e0d19dc7269398051d3a84f5e/src/assets/transformers/_jest.config.mjs.ts#L204)
+Defined in: [src/assets/transformers/\_jest.config.mjs.ts:204](https://github.com/Xunnamius/symbiote/blob/c0ad42f4c6445e4425455b816e9c7314dfae3311/src/assets/transformers/_jest.config.mjs.ts#L204)
 
 ## Returns
 
-`Omit`\<\{ `derivedAliases`: \{\}; `isDebugging`: `boolean`; `skipSlowTestsLevel`: `number`; \}, `"derivedAliases"`\>
+`Omit`\<`Parameters`\<*typeof* [`moduleExport`](moduleExport.md)\>\[`0`\], `"derivedAliases"`\>
 
 ## See
 

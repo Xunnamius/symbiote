@@ -26,7 +26,7 @@ Defined in: node\_modules/@types/jest/index.d.ts:495
 
 ### fail()
 
-> **fail**(`error`?): `any`
+> **fail**(`error?`): `any`
 
 Defined in: node\_modules/@types/jest/index.d.ts:496
 

@@ -6,9 +6,9 @@
 
 # Function: assertEnvironment()
 
-> **assertEnvironment**(`__namedParameters`): `Omit`\<`Pick`\<[`PluginConfig`](../type-aliases/PluginConfig.md), `"parserOpts"` \| `"writerOpts"`\> & `object`, `"derivedAliases"`\>
+> **assertEnvironment**(`__namedParameters`): `Omit`\<`Parameters`\<*typeof* [`moduleExport`](moduleExport.md)\>\[`0`\], `"derivedAliases"`\>
 
-Defined in: [src/assets/transformers/\_release.config.cjs.ts:347](https://github.com/Xunnamius/symbiote/blob/2a4f9c137a879b6e0d19dc7269398051d3a84f5e/src/assets/transformers/_release.config.cjs.ts#L347)
+Defined in: [src/assets/transformers/\_release.config.cjs.ts:347](https://github.com/Xunnamius/symbiote/blob/c0ad42f4c6445e4425455b816e9c7314dfae3311/src/assets/transformers/_release.config.cjs.ts#L347)
 
 ## Parameters
 
@@ -20,7 +20,7 @@ Defined in: [src/assets/transformers/\_release.config.cjs.ts:347](https://github
 
 ## Returns
 
-`Omit`\<`Pick`\<[`PluginConfig`](../type-aliases/PluginConfig.md), `"parserOpts"` \| `"writerOpts"`\> & `object`, `"derivedAliases"`\>
+`Omit`\<`Parameters`\<*typeof* [`moduleExport`](moduleExport.md)\>\[`0`\], `"derivedAliases"`\>
 
 ## See
 

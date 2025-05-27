@@ -8,7 +8,7 @@
 
 > **transformSelectEsmPackagesToCjs**(`config`, `packageNames`): `void`
 
-Defined in: [src/assets/transformers/\_jest.config.mjs.ts:264](https://github.com/Xunnamius/symbiote/blob/2a4f9c137a879b6e0d19dc7269398051d3a84f5e/src/assets/transformers/_jest.config.mjs.ts#L264)
+Defined in: [src/assets/transformers/\_jest.config.mjs.ts:264](https://github.com/Xunnamius/symbiote/blob/c0ad42f4c6445e4425455b816e9c7314dfae3311/src/assets/transformers/_jest.config.mjs.ts#L264)
 
 This function prepends a single regular expression _pattern string_ to
 [JestConfig.transformIgnorePatterns](moduleExport.md#moduleexport) in `config`. This will result in
@@ -102,15 +102,15 @@ transformIgnorePatterns: [String.raw`\.pnp\.[^/]+$`]
 
 #### coverageReporters?
 
-(`"json"` \| `"none"` \| `"clover"` \| `"cobertura"` \| `"html-spa"` \| `"html"` \| `"json-summary"` \| `"lcov"` \| `"lcovonly"` \| `"teamcity"` \| `"text"` \| `"text-lcov"` \| `"text-summary"` \| \[`"json"` \| `"none"` \| `"clover"` \| `"cobertura"` \| `"html-spa"` \| `"html"` \| `"json-summary"` \| `"lcov"` \| `"lcovonly"` \| `"teamcity"` \| `"text"` \| `"text-lcov"` \| `"text-summary"`, \{\}\])[]
+(`"json"` \| `"none"` \| `"clover"` \| `"cobertura"` \| `"html-spa"` \| `"html"` \| `"json-summary"` \| `"lcov"` \| `"lcovonly"` \| `"teamcity"` \| `"text"` \| `"text-lcov"` \| `"text-summary"` \| \[`"json"` \| `"none"` \| `"clover"` \| `"cobertura"` \| `"html-spa"` \| `"html"` \| `"json-summary"` \| `"lcov"` \| `"lcovonly"` \| `"teamcity"` \| `"text"` \| `"text-lcov"` \| `"text-summary"`, \{[`key`: `string`]: `unknown`; \}\])[]
 
 #### coverageThreshold?
 
-\{ `[path: string]`: `object`;  `global`: \{ `branches`: `number`; `functions`: `number`; `lines`: `number`; `statements`: `number`; \}; \}
+\{[`path`: `string`]: `object`; `global`: \{ `branches?`: `number`; `functions?`: `number`; `lines?`: `number`; `statements?`: `number`; \}; \}
 
 #### coverageThreshold.global
 
-\{ `branches`: `number`; `functions`: `number`; `lines`: `number`; `statements`: `number`; \}
+\{ `branches?`: `number`; `functions?`: `number`; `lines?`: `number`; `statements?`: `number`; \}
 
 #### coverageThreshold.global.branches?
 
@@ -178,7 +178,7 @@ transformIgnorePatterns: [String.raw`\.pnp\.[^/]+$`]
 
 #### globals?
 
-\{\}
+\{[`key`: `string`]: `unknown`; \}
 
 #### globalSetup?
 
@@ -190,7 +190,7 @@ transformIgnorePatterns: [String.raw`\.pnp\.[^/]+$`]
 
 #### haste?
 
-\{ `computeSha1`: `boolean`; `defaultPlatform`: `null` \| `string`; `enableSymlinks`: `boolean`; `forceNodeFilesystemAPI`: `boolean`; `hasteImplModulePath`: `string`; `hasteMapModulePath`: `string`; `platforms`: `string`[]; `retainAllFiles`: `boolean`; `throwOnModuleCollision`: `boolean`; \}
+\{ `computeSha1?`: `boolean`; `defaultPlatform?`: `null` \| `string`; `enableSymlinks?`: `boolean`; `forceNodeFilesystemAPI?`: `boolean`; `hasteImplModulePath?`: `string`; `hasteMapModulePath?`: `string`; `platforms?`: `string`[]; `retainAllFiles?`: `boolean`; `throwOnModuleCollision?`: `boolean`; \}
 
 #### haste.computeSha1?
 
@@ -270,7 +270,7 @@ transformIgnorePatterns: [String.raw`\.pnp\.[^/]+$`]
 
 #### moduleNameMapper?
 
-\{\}
+\{[`key`: `string`]: `string` \| `string`[]; \}
 
 #### modulePathIgnorePatterns?
 
@@ -322,7 +322,7 @@ transformIgnorePatterns: [String.raw`\.pnp\.[^/]+$`]
 
 #### projects?
 
-(`string` \| \{\})[]
+(`string` \| \{[`key`: `string`]: `unknown`; \})[]
 
 #### randomize?
 
@@ -334,7 +334,7 @@ transformIgnorePatterns: [String.raw`\.pnp\.[^/]+$`]
 
 #### reporters?
 
-(`string` \| \[`string`, \{\}\])[]
+(`string` \| \[`string`, \{[`key`: `string`]: `unknown`; \}\])[]
 
 #### resetMocks?
 
@@ -406,7 +406,7 @@ transformIgnorePatterns: [String.raw`\.pnp\.[^/]+$`]
 
 #### snapshotFormat?
 
-\{ `callToJSON`: `boolean`; `compareKeys`: `null`; `escapeRegex`: `boolean`; `escapeString`: `boolean`; `highlight`: `boolean`; `indent`: `number`; `maxDepth`: `number`; `maxWidth`: `number`; `min`: `boolean`; `printBasicPrototype`: `boolean`; `printFunctionName`: `boolean`; `theme`: \{ `comment`: `string`; `content`: `string`; `prop`: `string`; `tag`: `string`; `value`: `string`; \}; \}
+\{ `callToJSON?`: `boolean`; `compareKeys?`: `null`; `escapeRegex?`: `boolean`; `escapeString?`: `boolean`; `highlight?`: `boolean`; `indent?`: `number`; `maxDepth?`: `number`; `maxWidth?`: `number`; `min?`: `boolean`; `printBasicPrototype?`: `boolean`; `printFunctionName?`: `boolean`; `theme?`: \{ `comment?`: `string`; `content?`: `string`; `prop?`: `string`; `tag?`: `string`; `value?`: `string`; \}; \}
 
 #### snapshotFormat.callToJSON?
 
@@ -454,7 +454,7 @@ transformIgnorePatterns: [String.raw`\.pnp\.[^/]+$`]
 
 #### snapshotFormat.theme?
 
-\{ `comment`: `string`; `content`: `string`; `prop`: `string`; `tag`: `string`; `value`: `string`; \}
+\{ `comment?`: `string`; `content?`: `string`; `prop?`: `string`; `tag?`: `string`; `value?`: `string`; \}
 
 #### snapshotFormat.theme.comment?
 
@@ -490,7 +490,7 @@ transformIgnorePatterns: [String.raw`\.pnp\.[^/]+$`]
 
 #### testEnvironmentOptions?
 
-\{\}
+\{[`key`: `string`]: `unknown`; \}
 
 #### testFailureExitCode?
 
@@ -534,7 +534,7 @@ transformIgnorePatterns: [String.raw`\.pnp\.[^/]+$`]
 
 #### transform?
 
-\{\}
+\{[`key`: `string`]: `string` \| \[`string`, `unknown`\]; \}
 
 #### transformIgnorePatterns?
 

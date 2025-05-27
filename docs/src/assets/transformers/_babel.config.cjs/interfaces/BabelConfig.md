@@ -12,7 +12,7 @@ Defined in: node\_modules/@types/babel\_\_core/index.d.ts:29
 
 ### assumptions?
 
-> `optional` **assumptions**: `null` \| \{\}
+> `optional` **assumptions**: `null` \| \{[`name`: `string`]: `boolean`; \}
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:36
 
@@ -205,7 +205,7 @@ Default: `"."`
 
 ### env?
 
-> `optional` **env**: `null` \| \{\}
+> `optional` **env**: `null` \| \{[`index`: `string`]: `undefined` \| `null` \| `TransformOptions`; \}
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:178
 
@@ -556,7 +556,7 @@ Default: `("module")`
 
 ### targets?
 
-> `optional` **targets**: `string` \| `string`[] \| \{ `android`: `string`; `browsers`: `string` \| `string`[]; `chrome`: `string`; `deno`: `string`; `edge`: `string`; `electron`: `string`; `esmodules`: `boolean`; `firefox`: `string`; `ie`: `string`; `ios`: `string`; `node`: `true` \| `"current"` \| `Omit`\<`string`, `"current"`\>; `opera`: `string`; `rhino`: `string`; `safari`: `"tp"` \| `Omit`\<`string`, `"tp"`\>; `samsung`: `string`; \}
+> `optional` **targets**: `string` \| `string`[] \| \{ `android?`: `string`; `browsers?`: `string` \| `string`[]; `chrome?`: `string`; `deno?`: `string`; `edge?`: `string`; `electron?`: `string`; `esmodules?`: `boolean`; `firefox?`: `string`; `ie?`: `string`; `ios?`: `string`; `node?`: `true` \| `"current"` \| `Omit`\<`string`, `"current"`\>; `opera?`: `string`; `rhino?`: `string`; `safari?`: `"tp"` \| `Omit`\<`string`, `"tp"`\>; `samsung?`: `string`; \}
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:359
 

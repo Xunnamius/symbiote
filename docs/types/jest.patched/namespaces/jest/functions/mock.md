@@ -6,7 +6,7 @@
 
 # Function: mock()
 
-> **mock**\<`T`\>(`moduleName`, `factory`?, `options`?): *typeof* [`jest`](../README.md)
+> **mock**\<`T`\>(`moduleName`, `factory?`, `options?`): *typeof* [`jest`](../README.md)
 
 Defined in: node\_modules/@types/jest/index.d.ts:242
 

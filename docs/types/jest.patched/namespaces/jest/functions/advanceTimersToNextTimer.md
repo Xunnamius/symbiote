@@ -6,7 +6,7 @@
 
 # Function: advanceTimersToNextTimer()
 
-> **advanceTimersToNextTimer**(`step`?): `void`
+> **advanceTimersToNextTimer**(`step?`): `void`
 
 Defined in: node\_modules/@types/jest/index.d.ts:348
 

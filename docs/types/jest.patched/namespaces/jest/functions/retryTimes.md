@@ -6,7 +6,7 @@
 
 # Function: retryTimes()
 
-> **retryTimes**(`numRetries`, `options`?): *typeof* [`jest`](../README.md)
+> **retryTimes**(`numRetries`, `options?`): *typeof* [`jest`](../README.md)
 
 Defined in: node\_modules/@types/jest/index.d.ts:284
 

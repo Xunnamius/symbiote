@@ -6,7 +6,7 @@
 
 # Function: advanceTimersToNextTimerAsync()
 
-> **advanceTimersToNextTimerAsync**(`steps`?): `Promise`\<`void`\>
+> **advanceTimersToNextTimerAsync**(`steps?`): `Promise`\<`void`\>
 
 Defined in: node\_modules/@types/jest/index.d.ts:356
 

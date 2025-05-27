@@ -8,7 +8,7 @@
 
 ## Call Signature
 
-> **asMocked**\<`T`\>(`options`?): [`MaybeMockedDeep`](../../../types/jest.patched/namespaces/jest/type-aliases/MaybeMockedDeep.md)\<`T`\>
+> **asMocked**\<`T`\>(`options?`): [`MaybeMockedDeep`](../../../types/jest.patched/namespaces/jest/type-aliases/MaybeMockedDeep.md)\<`T`\>
 
 Defined in: node\_modules/@-xun/jest/dist/packages/jest/src/index.d.ts:47
 
@@ -91,7 +91,7 @@ expect(mockRepresentingMyFunctionType.mock.calls[0][0]).toBe(42);
 
 ## Call Signature
 
-> **asMocked**\<`T`\>(`source`, `options`?): [`MaybeMockedDeep`](../../../types/jest.patched/namespaces/jest/type-aliases/MaybeMockedDeep.md)\<`T`\>
+> **asMocked**\<`T`\>(`source`, `options?`): [`MaybeMockedDeep`](../../../types/jest.patched/namespaces/jest/type-aliases/MaybeMockedDeep.md)\<`T`\>
 
 Defined in: node\_modules/@-xun/jest/dist/packages/jest/src/index.d.ts:83
 

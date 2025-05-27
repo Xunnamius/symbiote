@@ -20,7 +20,7 @@ Creates a mock function. Optionally takes a mock implementation.
 
 ## Call Signature
 
-> **fn**\<`T`, `Y`, `C`\>(`implementation`?): [`Mock`](../interfaces/Mock.md)\<`T`, `Y`, `C`\>
+> **fn**\<`T`, `Y`, `C`\>(`implementation?`): [`Mock`](../interfaces/Mock.md)\<`T`, `Y`, `C`\>
 
 Defined in: node\_modules/@types/jest/index.d.ts:216
 

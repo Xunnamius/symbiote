@@ -30,8 +30,8 @@ matcher can be chained. If the promise is rejected the assertion fails.
 
 ### TNonPromise
 
-`TNonPromise` *extends* `object` = \{\}
+`TNonPromise` *extends* `object` = \{ \}
 
 ### TPromise
 
-`TPromise` *extends* `object` = \{\}
+`TPromise` *extends* `object` = \{ \}

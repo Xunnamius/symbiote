@@ -6,7 +6,7 @@
 
 # Type Alias: Lifecycle()
 
-> **Lifecycle** = (`fn`, `timeout`?) => `any`
+> **Lifecycle** = (`fn`, `timeout?`) => `any`
 
 Defined in: node\_modules/@types/jest/index.d.ts:503
 

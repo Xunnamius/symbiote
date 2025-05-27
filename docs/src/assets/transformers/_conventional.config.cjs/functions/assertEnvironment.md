@@ -6,13 +6,13 @@
 
 # Function: assertEnvironment()
 
-> **assertEnvironment**(): `Omit`\<\{ `configOverrides`: (`config`) => `XchangelogConfig` \| `Partial`\<`XchangelogConfig`\>; `projectMetadata`: `ProjectMetadata`; `specialInitialCommit`: `string`; \}, `"configOverrides"`\>
+> **assertEnvironment**(): `Omit`\<`Parameters`\<*typeof* [`moduleExport`](moduleExport.md)\>\[`0`\], `"configOverrides"`\>
 
-Defined in: [src/assets/transformers/\_conventional.config.cjs.ts:345](https://github.com/Xunnamius/symbiote/blob/2a4f9c137a879b6e0d19dc7269398051d3a84f5e/src/assets/transformers/_conventional.config.cjs.ts#L345)
+Defined in: [src/assets/transformers/\_conventional.config.cjs.ts:345](https://github.com/Xunnamius/symbiote/blob/c0ad42f4c6445e4425455b816e9c7314dfae3311/src/assets/transformers/_conventional.config.cjs.ts#L345)
 
 ## Returns
 
-`Omit`\<\{ `configOverrides`: (`config`) => `XchangelogConfig` \| `Partial`\<`XchangelogConfig`\>; `projectMetadata`: `ProjectMetadata`; `specialInitialCommit`: `string`; \}, `"configOverrides"`\>
+`Omit`\<`Parameters`\<*typeof* [`moduleExport`](moduleExport.md)\>\[`0`\], `"configOverrides"`\>
 
 ## See
 

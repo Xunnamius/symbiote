@@ -6,7 +6,7 @@
 
 # Function: useFakeTimers()
 
-> **useFakeTimers**(`config`?): *typeof* [`jest`](../README.md)
+> **useFakeTimers**(`config?`): *typeof* [`jest`](../README.md)
 
 Defined in: node\_modules/@types/jest/index.d.ts:425
 

@@ -8,7 +8,7 @@
 
 > `const` **ErrorMessage**: `object`
 
-Defined in: [src/error.ts:61](https://github.com/Xunnamius/symbiote/blob/2a4f9c137a879b6e0d19dc7269398051d3a84f5e/src/error.ts#L61)
+Defined in: [src/error.ts:61](https://github.com/Xunnamius/symbiote/blob/c0ad42f4c6445e4425455b816e9c7314dfae3311/src/error.ts#L61)
 
 A collection of possible error and warning messages.
 
@@ -24,6 +24,8 @@ of an Error instance, but are reported to the user in other ways
 punctuation and capitalization rules as the other error messages.
 
 #### specialized.BabelCorejsDependencyMissing()
+
+> **BabelCorejsDependencyMissing**(`coreJsLibraryVersion`, `CORE_JS_LIBRARY_VERSION`, `cwdPackageCoreJsDependency`, `packageName`, `packageRoot`): `string`
 
 ##### Parameters
 
@@ -53,6 +55,8 @@ punctuation and capitalization rules as the other error messages.
 
 #### specialized.BabelCorejsEgregiousPackageJsonFileInBuildOutput()
 
+> **BabelCorejsEgregiousPackageJsonFileInBuildOutput**(`originalSpecifier`, `inputFilepath`): `string`
+
 ##### Parameters
 
 ###### originalSpecifier
@@ -68,6 +72,8 @@ punctuation and capitalization rules as the other error messages.
 `string`
 
 #### specialized.BabelCorejsVersionUnresolvable()
+
+> **BabelCorejsVersionUnresolvable**(`coreJsLibraryVersion`, `CORE_JS_LIBRARY_VERSION`): `string`
 
 ##### Parameters
 
@@ -85,11 +91,15 @@ punctuation and capitalization rules as the other error messages.
 
 #### specialized.BuildOutputIntermediates()
 
+> **BuildOutputIntermediates**(): `string`
+
 ##### Returns
 
 `string`
 
 #### specialized.BuildOutputPartial()
+
+> **BuildOutputPartial**(): `string`
 
 ##### Returns
 
@@ -97,11 +107,15 @@ punctuation and capitalization rules as the other error messages.
 
 #### specialized.BuildSucceededButOutputCheckFailed()
 
+> **BuildSucceededButOutputCheckFailed**(): `string`
+
 ##### Returns
 
 `string`
 
 #### specialized.DependenciesExtraneous()
+
+> **DependenciesExtraneous**(`packagesMeta`): `string`
 
 ##### Parameters
 
@@ -115,6 +129,8 @@ punctuation and capitalization rules as the other error messages.
 
 #### specialized.DistributablesSpecifiersDependenciesMissing()
 
+> **DistributablesSpecifiersDependenciesMissing**(`packageSpecifiers`): `string`
+
 ##### Parameters
 
 ###### packageSpecifiers
@@ -126,6 +142,8 @@ punctuation and capitalization rules as the other error messages.
 `string`
 
 #### specialized.DistributablesSpecifiersPointOutsideDist()
+
+> **DistributablesSpecifiersPointOutsideDist**(`specifiers`): `string`
 
 ##### Parameters
 
@@ -139,6 +157,8 @@ punctuation and capitalization rules as the other error messages.
 
 #### specialized.DistributablesSpecifiersPointToInaccessible()
 
+> **DistributablesSpecifiersPointToInaccessible**(`specifiers`): `string`
+
 ##### Parameters
 
 ###### specifiers
@@ -150,6 +170,8 @@ punctuation and capitalization rules as the other error messages.
 `string`
 
 #### specialized.ExportSubpathsPointsToInaccessible()
+
+> **ExportSubpathsPointsToInaccessible**(`subpaths`): `string`
 
 ##### Parameters
 
@@ -163,6 +185,8 @@ punctuation and capitalization rules as the other error messages.
 
 #### specialized.OthersSpecifiersDependenciesMissing()
 
+> **OthersSpecifiersDependenciesMissing**(`packageSpecifiers`): `string`
+
 ##### Parameters
 
 ###### packageSpecifiers
@@ -174,6 +198,8 @@ punctuation and capitalization rules as the other error messages.
 `string`
 
 ### ActionAttemptedOnPrivatePackage()
+
+> **ActionAttemptedOnPrivatePackage**(`actionNoun`): `string`
 
 #### Parameters
 
@@ -187,6 +213,8 @@ punctuation and capitalization rules as the other error messages.
 
 ### ActionAttemptedWithADirtyRepo()
 
+> **ActionAttemptedWithADirtyRepo**(`actionNoun`): `string`
+
 #### Parameters
 
 ##### actionNoun
@@ -198,6 +226,8 @@ punctuation and capitalization rules as the other error messages.
 `string`
 
 ### ActionAttemptedWithIllegalExperimentalVersion()
+
+> **ActionAttemptedWithIllegalExperimentalVersion**(`actionNoun`, `modernStyleTag`): `string`
 
 #### Parameters
 
@@ -215,6 +245,8 @@ punctuation and capitalization rules as the other error messages.
 
 ### AssetRetrievalFailed()
 
+> **AssetRetrievalFailed**(`path`): `string`
+
 #### Parameters
 
 ##### path
@@ -226,6 +258,8 @@ punctuation and capitalization rules as the other error messages.
 `string`
 
 ### BabelCorejsInstalledVersionRangeNotSatisfactory()
+
+> **BabelCorejsInstalledVersionRangeNotSatisfactory**(`coreJsLibraryVersion`, `CORE_JS_LIBRARY_VERSION`, `cwdPackageCoreJsDependency`, `packageName`, `packageRoot`): `string`
 
 #### Parameters
 
@@ -255,6 +289,8 @@ punctuation and capitalization rules as the other error messages.
 
 ### BabelCorejsInstalledVersionTooOld()
 
+> **BabelCorejsInstalledVersionTooOld**(`coreJsLibraryVersion`, `CORE_JS_LIBRARY_VERSION`, `resolvedCoreJsVersion`, `packageRoot`): `string`
+
 #### Parameters
 
 ##### coreJsLibraryVersion
@@ -279,6 +315,8 @@ punctuation and capitalization rules as the other error messages.
 
 ### BadAdditionalChangelogSection()
 
+> **BadAdditionalChangelogSection**(`path`): `string`
+
 #### Parameters
 
 ##### path
@@ -290,6 +328,8 @@ punctuation and capitalization rules as the other error messages.
 `string`
 
 ### BadEnginesNodeInPackageJson()
+
+> **BadEnginesNodeInPackageJson**(`path`): `string`
 
 #### Parameters
 
@@ -303,17 +343,23 @@ punctuation and capitalization rules as the other error messages.
 
 ### BadExportsInDistributablePackageJson()
 
+> **BadExportsInDistributablePackageJson**(): `string`
+
 #### Returns
 
 `string`
 
 ### BadGeneratedChangelogSection()
 
+> **BadGeneratedChangelogSection**(): `string`
+
 #### Returns
 
 `string`
 
 ### BadMjsImport()
+
+> **BadMjsImport**(`path`): `string`
 
 #### Parameters
 
@@ -326,6 +372,8 @@ punctuation and capitalization rules as the other error messages.
 `string`
 
 ### BadOptionValue()
+
+> **BadOptionValue**(`name`, `value`, `context?`): `string`
 
 #### Parameters
 
@@ -347,6 +395,8 @@ punctuation and capitalization rules as the other error messages.
 
 ### BadParameter()
 
+> **BadParameter**(`name`): `string`
+
 #### Parameters
 
 ##### name
@@ -359,11 +409,15 @@ punctuation and capitalization rules as the other error messages.
 
 ### BadParserOpts()
 
+> **BadParserOpts**(): `string`
+
 #### Returns
 
 `string`
 
 ### BadPostNpmInstallScript()
+
+> **BadPostNpmInstallScript**(`path`): `string`
 
 #### Parameters
 
@@ -377,17 +431,23 @@ punctuation and capitalization rules as the other error messages.
 
 ### BadProjectNameInDistributablePackageJson()
 
+> **BadProjectNameInDistributablePackageJson**(): `string`
+
 #### Returns
 
 `string`
 
 ### BadReleaseSectionPath()
 
+> **BadReleaseSectionPath**(): `string`
+
 #### Returns
 
 `string`
 
 ### BadRepositoryInPackageJson()
+
+> **BadRepositoryInPackageJson**(`packageName`): `string`
 
 #### Parameters
 
@@ -401,11 +461,15 @@ punctuation and capitalization rules as the other error messages.
 
 ### BadSkipArgs()
 
+> **BadSkipArgs**(): `string`
+
 #### Returns
 
 `string`
 
 ### BadWriterOpts()
+
+> **BadWriterOpts**(): `string`
 
 #### Returns
 
@@ -413,11 +477,15 @@ punctuation and capitalization rules as the other error messages.
 
 ### BuildOutputChecksFailed()
 
+> **BuildOutputChecksFailed**(): `string`
+
 #### Returns
 
 `string`
 
 ### CannotAccessDirectory()
+
+> **CannotAccessDirectory**(`path`): `string`
 
 #### Parameters
 
@@ -430,6 +498,8 @@ punctuation and capitalization rules as the other error messages.
 `string`
 
 ### CannotCopyFile()
+
+> **CannotCopyFile**(`from`, `to`): `string`
 
 #### Parameters
 
@@ -447,11 +517,15 @@ punctuation and capitalization rules as the other error messages.
 
 ### CannotExtractTestPathIgnorePatternsFromJestConfig()
 
+> **CannotExtractTestPathIgnorePatternsFromJestConfig**(): `string`
+
 #### Returns
 
 `string`
 
 ### CannotGenerateCurrentPackagePathInUnlimitedScope()
+
+> **CannotGenerateCurrentPackagePathInUnlimitedScope**(`pathsLike`): `string`
 
 #### Parameters
 
@@ -465,6 +539,8 @@ punctuation and capitalization rules as the other error messages.
 
 ### CannotImportConventionalConfig()
 
+> **CannotImportConventionalConfig**(`path`): `string`
+
 #### Parameters
 
 ##### path
@@ -476,6 +552,8 @@ punctuation and capitalization rules as the other error messages.
 `string`
 
 ### CannotImportJestConfig()
+
+> **CannotImportJestConfig**(`path`): `string`
 
 #### Parameters
 
@@ -489,11 +567,15 @@ punctuation and capitalization rules as the other error messages.
 
 ### CannotImportTsconfig()
 
+> **CannotImportTsconfig**(): `string`
+
 #### Returns
 
 `string`
 
 ### CannotMakeDirectory()
+
+> **CannotMakeDirectory**(`path`): `string`
 
 #### Parameters
 
@@ -507,6 +589,8 @@ punctuation and capitalization rules as the other error messages.
 
 ### CannotReadFile()
 
+> **CannotReadFile**(`path`): `string`
+
 #### Parameters
 
 ##### path
@@ -519,17 +603,23 @@ punctuation and capitalization rules as the other error messages.
 
 ### CannotRunInNonHybridMonorepoRootPackage()
 
+> **CannotRunInNonHybridMonorepoRootPackage**(): `string`
+
 #### Returns
 
 `string`
 
 ### CannotRunOutsideRoot()
 
+> **CannotRunOutsideRoot**(): `string`
+
 #### Returns
 
 `string`
 
 ### CannotStatOutputTarget()
+
+> **CannotStatOutputTarget**(`outputTarget`): `string`
 
 #### Parameters
 
@@ -543,17 +633,23 @@ punctuation and capitalization rules as the other error messages.
 
 ### CannotUseIgnoresWithPathsOutsideProjectRoot()
 
+> **CannotUseIgnoresWithPathsOutsideProjectRoot**(): `string`
+
 #### Returns
 
 `string`
 
 ### CannotUseNodeOptionsOnNonNodeRuntime()
 
+> **CannotUseNodeOptionsOnNonNodeRuntime**(): `string`
+
 #### Returns
 
 `string`
 
 ### CannotWriteFile()
+
+> **CannotWriteFile**(`path`): `string`
 
 #### Parameters
 
@@ -567,11 +663,15 @@ punctuation and capitalization rules as the other error messages.
 
 ### CleanCalledWithoutForce()
 
+> **CleanCalledWithoutForce**(): `string`
+
 #### Returns
 
 `string`
 
 ### CliProjectHasBadBinConfig()
+
+> **CliProjectHasBadBinConfig**(): `string`
 
 #### Returns
 
@@ -579,11 +679,15 @@ punctuation and capitalization rules as the other error messages.
 
 ### CodecovDownloaderOnlySupportsLinux()
 
+> **CodecovDownloaderOnlySupportsLinux**(): `string`
+
 #### Returns
 
 `string`
 
 ### CodecovRetrievalFailed()
+
+> **CodecovRetrievalFailed**(`url`): `string`
 
 #### Parameters
 
@@ -597,6 +701,8 @@ punctuation and capitalization rules as the other error messages.
 
 ### CommandDidNotComplete()
 
+> **CommandDidNotComplete**(`command`): `string`
+
 #### Parameters
 
 ##### command
@@ -608,6 +714,8 @@ punctuation and capitalization rules as the other error messages.
 `string`
 
 ### ConfigAssetEnvironmentValidationFailed()
+
+> **ConfigAssetEnvironmentValidationFailed**(`subject`, `badValue`, `validValues`): `string`
 
 #### Parameters
 
@@ -629,6 +737,8 @@ readonly `string`[]
 
 ### DangerousRenovationRequiresForce()
 
+> **DangerousRenovationRequiresForce**(`taskName`): `string`
+
 #### Parameters
 
 ##### taskName
@@ -641,11 +751,15 @@ readonly `string`[]
 
 ### DefaultImportFalsy()
 
+> **DefaultImportFalsy**(): `string`
+
 #### Returns
 
 `string`
 
 ### EslintPluginReturnedSomethingUnexpected()
+
+> **EslintPluginReturnedSomethingUnexpected**(`identifier`): `string`
 
 #### Parameters
 
@@ -659,17 +773,23 @@ readonly `string`[]
 
 ### FailedToInstallCodecov()
 
+> **FailedToInstallCodecov**(): `string`
+
 #### Returns
 
 `string`
 
 ### GuruMeditation()
 
+> **GuruMeditation**(): `string`
+
 #### Returns
 
 `string`
 
 ### IgnoredOptions()
+
+> **IgnoredOptions**(`args`): `string`
 
 #### Parameters
 
@@ -683,17 +803,23 @@ readonly `string`[]
 
 ### InvalidRuntime()
 
+> **InvalidRuntime**(): `string`
+
 #### Returns
 
 `string`
 
 ### IssuePrefixContainsIllegalCharacters()
 
+> **IssuePrefixContainsIllegalCharacters**(): `string`
+
 #### Returns
 
 `string`
 
 ### JestChangelogMonkeyPatchFailedToTake()
+
+> **JestChangelogMonkeyPatchFailedToTake**(`error`): `string`
 
 #### Parameters
 
@@ -707,17 +833,23 @@ readonly `string`[]
 
 ### LintingFailed()
 
+> **LintingFailed**(): `string`
+
 #### Returns
 
 `string`
 
 ### MarkdownNoUndefinedReferences()
 
+> **MarkdownNoUndefinedReferences**(): `string`
+
 #### Returns
 
 `string`
 
 ### MissingConfigurationFile()
+
+> **MissingConfigurationFile**(`path`): `string`
 
 #### Parameters
 
@@ -731,6 +863,8 @@ readonly `string`[]
 
 ### MissingSymbioteEnvironmentVariable()
 
+> **MissingSymbioteEnvironmentVariable**(`variableName`): `string`
+
 #### Parameters
 
 ##### variableName
@@ -742,6 +876,8 @@ readonly `string`[]
 `string`
 
 ### MultipleConfigsWhenExpectingOnlyOne()
+
+> **MultipleConfigsWhenExpectingOnlyOne**(`filename1`, `filename2`): `string`
 
 #### Parameters
 
@@ -759,11 +895,15 @@ readonly `string`[]
 
 ### MustChooseDeployEnvironment()
 
+> **MustChooseDeployEnvironment**(): `string`
+
 #### Returns
 
 `string`
 
 ### NoCurrentBranch()
+
+> **NoCurrentBranch**(): `string`
 
 #### Returns
 
@@ -771,11 +911,15 @@ readonly `string`[]
 
 ### PreparationRunnerExecutionFailed()
 
+> **PreparationRunnerExecutionFailed**(): `string`
+
 #### Returns
 
 `string`
 
 ### ReleaseEnvironmentValidationFailed()
+
+> **ReleaseEnvironmentValidationFailed**(): `string`
 
 #### Returns
 
@@ -783,11 +927,15 @@ readonly `string`[]
 
 ### ReleaseFailedRepoRolledBack()
 
+> **ReleaseFailedRepoRolledBack**(): `string`
+
 #### Returns
 
 `string`
 
 ### ReleaseFinishedWithADirtyRepo()
+
+> **ReleaseFinishedWithADirtyRepo**(): `string`
 
 #### Returns
 
@@ -795,11 +943,15 @@ readonly `string`[]
 
 ### ReleaseRepositoryStateValidationFailed()
 
+> **ReleaseRepositoryStateValidationFailed**(): `string`
+
 #### Returns
 
 `string`
 
 ### ReleaseRunnerExecutionFailed()
+
+> **ReleaseRunnerExecutionFailed**(): `string`
 
 #### Returns
 
@@ -807,17 +959,23 @@ readonly `string`[]
 
 ### ReleaseScriptExecutionFailed()
 
+> **ReleaseScriptExecutionFailed**(): `string`
+
 #### Returns
 
 `string`
 
 ### RenovateEnvironmentValidationFailed()
 
+> **RenovateEnvironmentValidationFailed**(): `string`
+
 #### Returns
 
 `string`
 
 ### RenovationDestinationAlreadyExists()
+
+> **RenovationDestinationAlreadyExists**(`path`): `string`
 
 #### Parameters
 
@@ -831,6 +989,8 @@ readonly `string`[]
 
 ### RenovationEncounteredObsoleteProtectionRules()
 
+> **RenovationEncounteredObsoleteProtectionRules**(`branch`): `string`
+
 #### Parameters
 
 ##### branch
@@ -842,6 +1002,8 @@ readonly `string`[]
 `string`
 
 ### RenovationRepositoryExtraneousRuleset()
+
+> **RenovationRepositoryExtraneousRuleset**(`rulesetName`): `string`
 
 #### Parameters
 
@@ -855,11 +1017,15 @@ readonly `string`[]
 
 ### RenovationRunnerExecutionFailed()
 
+> **RenovationRunnerExecutionFailed**(): `string`
+
 #### Returns
 
 `string`
 
 ### RenovationSubtaskOperationFailed()
+
+> **RenovationSubtaskOperationFailed**(`index`): `string`
 
 #### Parameters
 
@@ -873,6 +1039,8 @@ readonly `string`[]
 
 ### RenovationTagAliasAlreadyExists()
 
+> **RenovationTagAliasAlreadyExists**(`tag`): `string`
+
 #### Parameters
 
 ##### tag
@@ -884,6 +1052,8 @@ readonly `string`[]
 `string`
 
 ### TaskNotRunnable()
+
+> **TaskNotRunnable**(`id`, `npmScripts`): `string`
 
 #### Parameters
 
@@ -901,17 +1071,23 @@ readonly `string`[]
 
 ### TestingFailed()
 
+> **TestingFailed**(): `string`
+
 #### Returns
 
 `string`
 
 ### TopologyRunScriptExecutionFailed()
 
+> **TopologyRunScriptExecutionFailed**(): `string`
+
 #### Returns
 
 `string`
 
 ### TranspilationReturnedNothing()
+
+> **TranspilationReturnedNothing**(`sourcePath`, `outputPath`): `string`
 
 #### Parameters
 
@@ -929,6 +1105,8 @@ readonly `string`[]
 
 ### UnmatchedCommitType()
 
+> **UnmatchedCommitType**(`type`, `variableName`): `string`
+
 #### Parameters
 
 ##### type
@@ -945,11 +1123,15 @@ readonly `string`[]
 
 ### UnsupportedCommand()
 
+> **UnsupportedCommand**(): `string`
+
 #### Returns
 
 `string`
 
 ### UnsupportedRenovationScope()
+
+> **UnsupportedRenovationScope**(`taskName`, `givenScope`, `supportedScopes`): `string`
 
 #### Parameters
 
@@ -970,6 +1152,8 @@ readonly `string`[]
 `string`
 
 ### WrongProjectAttributes()
+
+> **WrongProjectAttributes**(`expected`, `actual`, `preposition`): `string`
 
 #### Parameters
 
@@ -1032,6 +1216,8 @@ readonly `string`[]
 `string`
 
 ### XChangelogMonkeyPatchFailedToTake()
+
+> **XChangelogMonkeyPatchFailedToTake**(`filename`): `string`
 
 #### Parameters
 

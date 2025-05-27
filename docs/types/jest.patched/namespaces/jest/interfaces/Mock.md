@@ -46,7 +46,7 @@ Defined in: node\_modules/@types/jest/index.d.ts:1211
 
 ## Constructors
 
-### new Mock()
+### Constructor
 
 > **new Mock**(...`args`): `T`
 
@@ -186,7 +186,7 @@ A constructor function can control which objects are recognized as its instances
 
 ### apply()
 
-> **apply**(`this`, `thisArg`, `argArray`?): `any`
+> **apply**(`this`, `thisArg`, `argArray?`): `any`
 
 Defined in: node\_modules/typescript/lib/lib.es5.d.ts:281
 
@@ -355,7 +355,7 @@ don't access stale data.
 
 ### mockImplementation()
 
-> **mockImplementation**(`fn`?): `this`
+> **mockImplementation**(`fn?`): `this`
 
 Defined in: node\_modules/@types/jest/index.d.ts:1365
 
