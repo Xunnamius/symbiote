@@ -146,7 +146,7 @@
     "confusing-browser-globals": "^1.0.11",
     "core-js": "^3.42.0",
     "doctoc": "^2.2.1",
-    "dotenv": "^16.4.7",
+    "dotenv": "^16.5.0",
     "dotenv-cli": "^8.0.0",
     "escape-string-regexp~4": "npm:escape-string-regexp@^4.0.0",
     "eslint": "^9.22.0",
