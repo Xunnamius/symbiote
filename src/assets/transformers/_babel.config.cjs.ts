@@ -147,8 +147,8 @@ const endsWithPackageJsonRegExp = new RegExp(
 const includesNodeModulesRegExp = /(^|\/)node_modules\//;
 const grabEverythingUpToAndIncludingNodeModulesRegExp = /^(.*\/)?node_modules\//;
 // ! Must end with a dollar sign
-const translateJsExtensionsToTsRegExp = /(.+)\.(c|m)?ts(x)?$/;
-const translateJsExtensionsToTsRegExpReplacer = '$1.$2js$3';
+const translateTsExtensionsToJsRegExp = /(.+)\.(c|m)?ts(x)?$/;
+const translateTsExtensionsToJsRegExpReplacer = '$1.$2js$3';
 
 const dTsExtensionsToReplaceRegExp = new RegExp(
   `\\.(${dTsExtensionsToReplace
@@ -164,10 +164,10 @@ debug(
   'grabEverythingUpToAndIncludingNodeModulesRegExp: %O',
   grabEverythingUpToAndIncludingNodeModulesRegExp
 );
-debug('translateJsExtensionsToTsRegExp: %O', translateJsExtensionsToTsRegExp);
+debug('translateTsExtensionsToJsRegExp: %O', translateTsExtensionsToJsRegExp);
 debug(
-  'translateJsExtensionsToTsRegExpReplacer: %O',
-  translateJsExtensionsToTsRegExpReplacer
+  'translateTsExtensionsToJsRegExpReplacer: %O',
+  translateTsExtensionsToJsRegExpReplacer
 );
 
 debug('dTsExtensionsToReplace: %O', dTsExtensionsToReplace);
@@ -198,8 +198,8 @@ function makeTransformRewriteImportsSourceModuleResolver(
           )
         ),
         // ? Replace any TS extensions with their JS equivalents
-        [translateJsExtensionsToTsRegExp.toString().slice(1, -1)]:
-          translateJsExtensionsToTsRegExpReplacer
+        [translateTsExtensionsToJsRegExp.toString().slice(1, -1)]:
+          translateTsExtensionsToJsRegExpReplacer
       }
     } satisfies TransformRewriteImportsOptions
   ] as const;
@@ -314,7 +314,7 @@ export function moduleExport({
           //'babel-plugin-explicit-exports-references'
         ]
       },
-      // * Used by `npm run build` for compiling CJS to code output in ./dist
+      // * Used by `npm run build` for compiling Node.js CJS to code in ./dist
       'production-cjs': {
         presets: [
           [
@@ -699,10 +699,10 @@ function makeDistReplacerEntry(
               // ? Ensure proper extension is used
               .replace(
                 type === 'source'
-                  ? translateJsExtensionsToTsRegExp
+                  ? translateTsExtensionsToJsRegExp
                   : dTsExtensionsToReplaceRegExp,
                 type === 'source'
-                  ? translateJsExtensionsToTsRegExpReplacer
+                  ? translateTsExtensionsToJsRegExpReplacer
                   : extensionsJavascript[0]
               )
       );
