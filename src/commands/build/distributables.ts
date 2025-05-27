@@ -611,11 +611,7 @@ Finally, note that, when attempting to build a Next.js package, this command wil
           hardAssert(skipOutputChecks !== undefined, ErrorMessage.GuruMeditation());
           hardAssert(partialFilters !== undefined, ErrorMessage.GuruMeditation());
 
-          outputExtension ??=
-            moduleSystem === ModuleSystem.Cjs ||
-            generateIntermediatesFor === IntermediateTranspilationEnvironment.Test
-              ? '.js'
-              : '.mjs';
+          outputExtension ??= extensionsJavascript[0];
 
           debug('outputExtension (final): %O', outputExtension);
 
