@@ -198,6 +198,11 @@ export default async function command({
         }
       };
 
+    const defaultModuleSystem =
+      projectMetadata_?.cwdPackage.json.type === 'module'
+        ? ModuleSystem.Esm
+        : ModuleSystem.Cjs;
+
     const additionalParameters: BfeBuilderObject<
       CustomCliArguments,
       GlobalExecutionContext
@@ -284,7 +289,8 @@ export default async function command({
         string: true,
         choices: moduleSystems,
         description: 'Which module system to transpile into',
-        default: ModuleSystem.Cjs
+        default: defaultModuleSystem,
+        defaultDescription: `derived from package.json (currently "${defaultModuleSystem}")`
       },
       multiversal: {
         boolean: true,
