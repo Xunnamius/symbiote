@@ -17,7 +17,14 @@ import {
 import {
   babelConfigProjectBase,
   deriveAliasesForBabel,
+  extensionsAcceptedByBabel,
+  extensionsJavascript,
+  extensionsTypescript,
+  extensionTypescriptDefinition,
   generateRawAliasMap,
+  hasExtensionAcceptedByBabel,
+  hasJavascriptExtension,
+  hasTypescriptExtension,
   isLocalLookingRegExp,
   packageJsonConfigPackageBase,
   readXPackageJsonAtRoot
@@ -106,36 +113,15 @@ export const CORE_JS_LIBRARY_VERSION = '3.41';
 // ? https://nodejs.org/en/about/releases
 export const NODE_LTS = 'maintained node versions';
 
-/**
- * All known TypeScript file extensions supported by Babel (except {@link extensionTypescriptDefinition}).
- */
-export const extensionsTypescript = ['.ts', '.cts', '.mts', '.tsx'] as const;
-
-/**
- * The known file extension for TypeScript definition files.
- *
- * @see {@link extensionsTypescript}
- */
-export const extensionTypescriptDefinition = '.d.ts';
-
-/**
- * All known JavaScript file extensions supported by Babel.
- */
-export const extensionsJavascript = [
-  // ! .js must be the first extension in this array
-  '.js',
-  '.mjs',
-  '.cjs',
-  '.jsx'
-] as const;
-
-/**
- * All possible extensions accepted by Babel using standard symbiote configs.
- */
-export const extensionsAcceptedByBabel = [
-  ...extensionsTypescript,
-  ...extensionsJavascript
-] as const;
+export {
+  extensionsAcceptedByBabel,
+  extensionsJavascript,
+  extensionsTypescript,
+  extensionTypescriptDefinition,
+  hasExtensionAcceptedByBabel,
+  hasJavascriptExtension,
+  hasTypescriptExtension
+};
 
 debug('CORE_JS_LIBRARY_VERSION: %O', CORE_JS_LIBRARY_VERSION);
 debug('NODE_LTS: %O', NODE_LTS);
@@ -143,35 +129,6 @@ debug('extensionsTypescript: %O', extensionsTypescript);
 debug('extensionTypescriptDefinition: %O', extensionTypescriptDefinition);
 debug('extensionsJavascript: %O', extensionsJavascript);
 debug('extensionsAcceptedByBabel: %O', extensionsAcceptedByBabel);
-
-/**
- * Returns `true` if `path` points to a file with an extension accepted by Babel
- * (including `.d.ts`).
- *
- * @see {@link extensionsAcceptedByBabel}
- */
-export function hasExtensionAcceptedByBabel(path: string) {
-  return extensionsAcceptedByBabel.some((extension) => path.endsWith(extension));
-}
-
-/**
- * Returns `true` if `path` points to a file with a TypeScript extension
- * (including `.d.ts`).
- *
- * @see {@link extensionsTypescript}
- */
-export function hasTypescriptExtension(path: string) {
-  return extensionsTypescript.some((extension) => path.endsWith(extension));
-}
-
-/**
- * Returns `true` if `path` points to a file with a JavaScript extension.
- *
- * @see {@link extensionsJavascript}
- */
-export function hasJavascriptExtension(path: string) {
-  return extensionsTypescript.some((extension) => path.endsWith(extension));
-}
 
 const dTsExtensionsToReplace = [
   // ! Multi-dot extensions (like .d.ts) must go before single-dot extensions
