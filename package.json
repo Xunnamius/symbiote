@@ -133,7 +133,7 @@
     "@types/lodash.get": "^4.4.9",
     "@types/lodash.mergewith": "^4.6.9",
     "@types/node": "^22.15.21",
-    "@types/react": "^19.0.12",
+    "@types/react": "^19.1.5",
     "@types/semver": "^7.5.8",
     "@types/yargs": "^17.0.33",
     "@typescript-eslint/parser": "^8.27.0",
