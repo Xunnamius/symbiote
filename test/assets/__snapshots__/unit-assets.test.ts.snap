@@ -8614,15 +8614,15 @@ incompleteCommitsGrep=$(echo "$log" | grep -q -i -e 'mergeme' -e '\\[WIP\\]' -e 
 
 interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^|/)(\\.husky|assets/templates/husky)/' | grep -vE '\\.snap$')
 
-incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 
 interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -vE '/CHANGELOG.md$')
 
-incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 
 interestingTestFiles=$(echo "$interestingXxxFiles" | grep '\\.test\\.ts$')
 
-incompleteTestFilesGrep=$(echo "$interestingTestFiles" | xargs -P 0 sh -c 'if grep -q -i -E -e "(it|test|describe)\\.only\\(" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+incompleteTestFilesGrep=$(echo "$interestingTestFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -E -e "(it|test|describe)\\.only\\(" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 
 set -e
 
@@ -8645,21 +8645,21 @@ if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$
     echo
     echo 'husky-hook::pre-push: markdown files at HEAD with unmerged replacer regions:'
     echo
-    echo "$interestingMdFiles" | xargs -P 0 grep -i -l -H -F -e '-✄-' | prepend '  ⋗ '
+    echo "$interestingMdFiles" | xargs -d '\\n' -P 0 grep -i -l -H -F -e '-✄-' | prepend '  ⋗ '
   fi
 
   if [ "$incompleteXxxFilesGrep" != 0 ]; then
     echo
     echo 'husky-hook::pre-push: files at HEAD with "XXX" error comments:'
     echo
-    echo "$interestingXxxFiles" | xargs -P 0 grep -l -H -F -e 'XXX: ' | prepend '  ⋗ '
+    echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 grep -l -H -F -e 'XXX: ' | prepend '  ⋗ '
   fi
 
   if [ "$incompleteTestFilesGrep" != 0 ]; then
     echo
     echo 'husky-hook::pre-push: files at HEAD with erroneously focused tests:'
     echo
-    echo "$interestingTestFiles" | xargs -P 0 grep -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
+    echo "$interestingTestFiles" | xargs -d '\\n' -P 0 grep -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
   fi
 
   echo
@@ -8744,15 +8744,15 @@ incompleteCommitsGrep=$(echo "$log" | grep -q -i -e 'mergeme' -e '\\[WIP\\]' -e 
 
 interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^|/)(\\.husky|assets/templates/husky)/' | grep -vE '\\.snap$')
 
-incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 
 interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -vE '/CHANGELOG.md$')
 
-incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 
 interestingTestFiles=$(echo "$interestingXxxFiles" | grep '\\.test\\.ts$')
 
-incompleteTestFilesGrep=$(echo "$interestingTestFiles" | xargs -P 0 sh -c 'if grep -q -i -E -e "(it|test|describe)\\.only\\(" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+incompleteTestFilesGrep=$(echo "$interestingTestFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -E -e "(it|test|describe)\\.only\\(" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 
 set -e
 
@@ -8775,21 +8775,21 @@ if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$
     echo
     echo 'husky-hook::pre-push: markdown files at HEAD with unmerged replacer regions:'
     echo
-    echo "$interestingMdFiles" | xargs -P 0 grep -i -l -H -F -e '-✄-' | prepend '  ⋗ '
+    echo "$interestingMdFiles" | xargs -d '\\n' -P 0 grep -i -l -H -F -e '-✄-' | prepend '  ⋗ '
   fi
 
   if [ "$incompleteXxxFilesGrep" != 0 ]; then
     echo
     echo 'husky-hook::pre-push: files at HEAD with "XXX" error comments:'
     echo
-    echo "$interestingXxxFiles" | xargs -P 0 grep -l -H -F -e 'XXX: ' | prepend '  ⋗ '
+    echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 grep -l -H -F -e 'XXX: ' | prepend '  ⋗ '
   fi
 
   if [ "$incompleteTestFilesGrep" != 0 ]; then
     echo
     echo 'husky-hook::pre-push: files at HEAD with erroneously focused tests:'
     echo
-    echo "$interestingTestFiles" | xargs -P 0 grep -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
+    echo "$interestingTestFiles" | xargs -d '\\n' -P 0 grep -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
   fi
 
   echo
@@ -8874,15 +8874,15 @@ incompleteCommitsGrep=$(echo "$log" | grep -q -i -e 'mergeme' -e '\\[WIP\\]' -e 
 
 interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^|/)(\\.husky|assets/templates/husky)/' | grep -vE '\\.snap$')
 
-incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 
 interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -vE '/CHANGELOG.md$')
 
-incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 
 interestingTestFiles=$(echo "$interestingXxxFiles" | grep '\\.test\\.ts$')
 
-incompleteTestFilesGrep=$(echo "$interestingTestFiles" | xargs -P 0 sh -c 'if grep -q -i -E -e "(it|test|describe)\\.only\\(" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+incompleteTestFilesGrep=$(echo "$interestingTestFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -E -e "(it|test|describe)\\.only\\(" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 
 set -e
 
@@ -8905,21 +8905,21 @@ if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$
     echo
     echo 'husky-hook::pre-push: markdown files at HEAD with unmerged replacer regions:'
     echo
-    echo "$interestingMdFiles" | xargs -P 0 grep -i -l -H -F -e '-✄-' | prepend '  ⋗ '
+    echo "$interestingMdFiles" | xargs -d '\\n' -P 0 grep -i -l -H -F -e '-✄-' | prepend '  ⋗ '
   fi
 
   if [ "$incompleteXxxFilesGrep" != 0 ]; then
     echo
     echo 'husky-hook::pre-push: files at HEAD with "XXX" error comments:'
     echo
-    echo "$interestingXxxFiles" | xargs -P 0 grep -l -H -F -e 'XXX: ' | prepend '  ⋗ '
+    echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 grep -l -H -F -e 'XXX: ' | prepend '  ⋗ '
   fi
 
   if [ "$incompleteTestFilesGrep" != 0 ]; then
     echo
     echo 'husky-hook::pre-push: files at HEAD with erroneously focused tests:'
     echo
-    echo "$interestingTestFiles" | xargs -P 0 grep -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
+    echo "$interestingTestFiles" | xargs -d '\\n' -P 0 grep -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
   fi
 
   echo
@@ -9004,15 +9004,15 @@ incompleteCommitsGrep=$(echo "$log" | grep -q -i -e 'mergeme' -e '\\[WIP\\]' -e 
 
 interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^|/)(\\.husky|assets/templates/husky)/' | grep -vE '\\.snap$')
 
-incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 
 interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -vE '/CHANGELOG.md$')
 
-incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 
 interestingTestFiles=$(echo "$interestingXxxFiles" | grep '\\.test\\.ts$')
 
-incompleteTestFilesGrep=$(echo "$interestingTestFiles" | xargs -P 0 sh -c 'if grep -q -i -E -e "(it|test|describe)\\.only\\(" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+incompleteTestFilesGrep=$(echo "$interestingTestFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -E -e "(it|test|describe)\\.only\\(" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 
 set -e
 
@@ -9035,21 +9035,21 @@ if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$
     echo
     echo 'husky-hook::pre-push: markdown files at HEAD with unmerged replacer regions:'
     echo
-    echo "$interestingMdFiles" | xargs -P 0 grep -i -l -H -F -e '-✄-' | prepend '  ⋗ '
+    echo "$interestingMdFiles" | xargs -d '\\n' -P 0 grep -i -l -H -F -e '-✄-' | prepend '  ⋗ '
   fi
 
   if [ "$incompleteXxxFilesGrep" != 0 ]; then
     echo
     echo 'husky-hook::pre-push: files at HEAD with "XXX" error comments:'
     echo
-    echo "$interestingXxxFiles" | xargs -P 0 grep -l -H -F -e 'XXX: ' | prepend '  ⋗ '
+    echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 grep -l -H -F -e 'XXX: ' | prepend '  ⋗ '
   fi
 
   if [ "$incompleteTestFilesGrep" != 0 ]; then
     echo
     echo 'husky-hook::pre-push: files at HEAD with erroneously focused tests:'
     echo
-    echo "$interestingTestFiles" | xargs -P 0 grep -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
+    echo "$interestingTestFiles" | xargs -d '\\n' -P 0 grep -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
   fi
 
   echo
@@ -9134,15 +9134,15 @@ incompleteCommitsGrep=$(echo "$log" | grep -q -i -e 'mergeme' -e '\\[WIP\\]' -e 
 
 interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^|/)(\\.husky|assets/templates/husky)/' | grep -vE '\\.snap$')
 
-incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 
 interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -vE '/CHANGELOG.md$')
 
-incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 
 interestingTestFiles=$(echo "$interestingXxxFiles" | grep '\\.test\\.ts$')
 
-incompleteTestFilesGrep=$(echo "$interestingTestFiles" | xargs -P 0 sh -c 'if grep -q -i -E -e "(it|test|describe)\\.only\\(" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+incompleteTestFilesGrep=$(echo "$interestingTestFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -E -e "(it|test|describe)\\.only\\(" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 
 set -e
 
@@ -9165,21 +9165,21 @@ if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$
     echo
     echo 'husky-hook::pre-push: markdown files at HEAD with unmerged replacer regions:'
     echo
-    echo "$interestingMdFiles" | xargs -P 0 grep -i -l -H -F -e '-✄-' | prepend '  ⋗ '
+    echo "$interestingMdFiles" | xargs -d '\\n' -P 0 grep -i -l -H -F -e '-✄-' | prepend '  ⋗ '
   fi
 
   if [ "$incompleteXxxFilesGrep" != 0 ]; then
     echo
     echo 'husky-hook::pre-push: files at HEAD with "XXX" error comments:'
     echo
-    echo "$interestingXxxFiles" | xargs -P 0 grep -l -H -F -e 'XXX: ' | prepend '  ⋗ '
+    echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 grep -l -H -F -e 'XXX: ' | prepend '  ⋗ '
   fi
 
   if [ "$incompleteTestFilesGrep" != 0 ]; then
     echo
     echo 'husky-hook::pre-push: files at HEAD with erroneously focused tests:'
     echo
-    echo "$interestingTestFiles" | xargs -P 0 grep -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
+    echo "$interestingTestFiles" | xargs -d '\\n' -P 0 grep -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
   fi
 
   echo
@@ -9264,15 +9264,15 @@ incompleteCommitsGrep=$(echo "$log" | grep -q -i -e 'mergeme' -e '\\[WIP\\]' -e 
 
 interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^|/)(\\.husky|assets/templates/husky)/' | grep -vE '\\.snap$')
 
-incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 
 interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -vE '/CHANGELOG.md$')
 
-incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 
 interestingTestFiles=$(echo "$interestingXxxFiles" | grep '\\.test\\.ts$')
 
-incompleteTestFilesGrep=$(echo "$interestingTestFiles" | xargs -P 0 sh -c 'if grep -q -i -E -e "(it|test|describe)\\.only\\(" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+incompleteTestFilesGrep=$(echo "$interestingTestFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -E -e "(it|test|describe)\\.only\\(" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 
 set -e
 
@@ -9295,21 +9295,21 @@ if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$
     echo
     echo 'husky-hook::pre-push: markdown files at HEAD with unmerged replacer regions:'
     echo
-    echo "$interestingMdFiles" | xargs -P 0 grep -i -l -H -F -e '-✄-' | prepend '  ⋗ '
+    echo "$interestingMdFiles" | xargs -d '\\n' -P 0 grep -i -l -H -F -e '-✄-' | prepend '  ⋗ '
   fi
 
   if [ "$incompleteXxxFilesGrep" != 0 ]; then
     echo
     echo 'husky-hook::pre-push: files at HEAD with "XXX" error comments:'
     echo
-    echo "$interestingXxxFiles" | xargs -P 0 grep -l -H -F -e 'XXX: ' | prepend '  ⋗ '
+    echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 grep -l -H -F -e 'XXX: ' | prepend '  ⋗ '
   fi
 
   if [ "$incompleteTestFilesGrep" != 0 ]; then
     echo
     echo 'husky-hook::pre-push: files at HEAD with erroneously focused tests:'
     echo
-    echo "$interestingTestFiles" | xargs -P 0 grep -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
+    echo "$interestingTestFiles" | xargs -d '\\n' -P 0 grep -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
   fi
 
   echo
@@ -9394,15 +9394,15 @@ incompleteCommitsGrep=$(echo "$log" | grep -q -i -e 'mergeme' -e '\\[WIP\\]' -e 
 
 interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^|/)(\\.husky|assets/templates/husky)/' | grep -vE '\\.snap$')
 
-incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 
 interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -vE '/CHANGELOG.md$')
 
-incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 
 interestingTestFiles=$(echo "$interestingXxxFiles" | grep '\\.test\\.ts$')
 
-incompleteTestFilesGrep=$(echo "$interestingTestFiles" | xargs -P 0 sh -c 'if grep -q -i -E -e "(it|test|describe)\\.only\\(" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+incompleteTestFilesGrep=$(echo "$interestingTestFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -E -e "(it|test|describe)\\.only\\(" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 
 set -e
 
@@ -9425,21 +9425,21 @@ if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$
     echo
     echo 'husky-hook::pre-push: markdown files at HEAD with unmerged replacer regions:'
     echo
-    echo "$interestingMdFiles" | xargs -P 0 grep -i -l -H -F -e '-✄-' | prepend '  ⋗ '
+    echo "$interestingMdFiles" | xargs -d '\\n' -P 0 grep -i -l -H -F -e '-✄-' | prepend '  ⋗ '
   fi
 
   if [ "$incompleteXxxFilesGrep" != 0 ]; then
     echo
     echo 'husky-hook::pre-push: files at HEAD with "XXX" error comments:'
     echo
-    echo "$interestingXxxFiles" | xargs -P 0 grep -l -H -F -e 'XXX: ' | prepend '  ⋗ '
+    echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 grep -l -H -F -e 'XXX: ' | prepend '  ⋗ '
   fi
 
   if [ "$incompleteTestFilesGrep" != 0 ]; then
     echo
     echo 'husky-hook::pre-push: files at HEAD with erroneously focused tests:'
     echo
-    echo "$interestingTestFiles" | xargs -P 0 grep -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
+    echo "$interestingTestFiles" | xargs -d '\\n' -P 0 grep -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
   fi
 
   echo
@@ -9524,15 +9524,15 @@ incompleteCommitsGrep=$(echo "$log" | grep -q -i -e 'mergeme' -e '\\[WIP\\]' -e 
 
 interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^|/)(\\.husky|assets/templates/husky)/' | grep -vE '\\.snap$')
 
-incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 
 interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -vE '/CHANGELOG.md$')
 
-incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 
 interestingTestFiles=$(echo "$interestingXxxFiles" | grep '\\.test\\.ts$')
 
-incompleteTestFilesGrep=$(echo "$interestingTestFiles" | xargs -P 0 sh -c 'if grep -q -i -E -e "(it|test|describe)\\.only\\(" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+incompleteTestFilesGrep=$(echo "$interestingTestFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -E -e "(it|test|describe)\\.only\\(" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 
 set -e
 
@@ -9555,21 +9555,21 @@ if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$
     echo
     echo 'husky-hook::pre-push: markdown files at HEAD with unmerged replacer regions:'
     echo
-    echo "$interestingMdFiles" | xargs -P 0 grep -i -l -H -F -e '-✄-' | prepend '  ⋗ '
+    echo "$interestingMdFiles" | xargs -d '\\n' -P 0 grep -i -l -H -F -e '-✄-' | prepend '  ⋗ '
   fi
 
   if [ "$incompleteXxxFilesGrep" != 0 ]; then
     echo
     echo 'husky-hook::pre-push: files at HEAD with "XXX" error comments:'
     echo
-    echo "$interestingXxxFiles" | xargs -P 0 grep -l -H -F -e 'XXX: ' | prepend '  ⋗ '
+    echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 grep -l -H -F -e 'XXX: ' | prepend '  ⋗ '
   fi
 
   if [ "$incompleteTestFilesGrep" != 0 ]; then
     echo
     echo 'husky-hook::pre-push: files at HEAD with erroneously focused tests:'
     echo
-    echo "$interestingTestFiles" | xargs -P 0 grep -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
+    echo "$interestingTestFiles" | xargs -d '\\n' -P 0 grep -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
   fi
 
   echo
@@ -25483,7 +25483,7 @@ scope: this-package
   "author": "Xunnamius",
   "sideEffects": false,
   "engines": {
-    "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
   },
   "private": true,
   "files": [
@@ -25578,7 +25578,7 @@ scope: unlimited
   "sideEffects": false,
   "type": "commonjs",
   "engines": {
-    "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
   },
   "private": true,
   "exports": {
@@ -25711,7 +25711,7 @@ scope: unlimited
     "cli": "./dist/packages/cli/src/cli.js"
   },
   "engines": {
-    "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -25780,7 +25780,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
   },
   "scripts": {
     "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
@@ -25856,7 +25856,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -25915,7 +25915,7 @@ scope: unlimited
   "author": "Xunnamius",
   "sideEffects": false,
   "engines": {
-    "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
   },
   "private": true,
   "files": [
@@ -26049,7 +26049,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -26113,7 +26113,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
   },
   "scripts": {
     "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
@@ -26184,7 +26184,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -26258,7 +26258,7 @@ scope: this-package
     }
   },
   "engines": {
-    "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -26315,7 +26315,7 @@ scope: unlimited
   "sideEffects": false,
   "type": "commonjs",
   "engines": {
-    "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
   },
   "private": true,
   "scripts": {
@@ -26407,7 +26407,7 @@ scope: unlimited
     "pkg-1": "./dist/packages/pkg-1/src/cli.js"
   },
   "engines": {
-    "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -26502,7 +26502,7 @@ scope: unlimited
     "pkg": "./dist/packages/pkg-2/src/cli.js"
   },
   "engines": {
-    "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -26583,7 +26583,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -26639,7 +26639,7 @@ scope: unlimited
   "author": "Xunnamius",
   "sideEffects": false,
   "engines": {
-    "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
   },
   "private": true,
   "scripts": {
@@ -26719,7 +26719,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -26804,7 +26804,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -26880,7 +26880,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -26949,7 +26949,7 @@ scope: unlimited
     "/README.md"
   ],
   "engines": {
-    "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
   },
   "publishConfig": {
     "access": "public",
@@ -27035,7 +27035,7 @@ scope: this-package
     "/README.md"
   ],
   "engines": {
-    "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
   },
   "publishConfig": {
     "access": "public",
@@ -27116,7 +27116,7 @@ scope: unlimited
     "/README.md"
   ],
   "engines": {
-    "node": "^18.20.0 || ^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
   },
   "publishConfig": {
     "access": "public",
