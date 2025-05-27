@@ -112,7 +112,7 @@
     "@babel/plugin-proposal-export-default-from": "^7.27.1",
     "@babel/plugin-syntax-typescript": "^7.27.1",
     "@babel/preset-env": "^7.27.2",
-    "@babel/preset-react": "^7.26.3",
+    "@babel/preset-react": "^7.27.1",
     "@babel/preset-typescript": "^7.26.0",
     "@commitlint/cli": "^19.8.0",
     "@commitlint/config-conventional": "^19.8.0",
