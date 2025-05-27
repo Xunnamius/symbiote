@@ -340,7 +340,57 @@ export function moduleExport({
           )
         ]
       },
-      // TODO: add production-esm too
+      // * Used by `npm run build` for compiling Node.js ESM to code in ./dist
+      'production-esm': {
+        presets: [
+          [
+            // {@symbiote/notExtraneous @babel/preset-env @types/babel__preset-env}
+            '@babel/preset-env',
+            {
+              // ? https://babeljs.io/docs/en/babel-preset-env#modules
+              modules: false,
+              targets: NODE_LTS,
+              ...commonPresetEnvConfig
+            } satisfies BabelPresetEnvConfig
+          ],
+          // {@symbiote/notExtraneous @babel/preset-typescript}
+          ['@babel/preset-typescript', { allowDeclareFields: true }],
+          // {@symbiote/notExtraneous @babel/preset-react}
+          ['@babel/preset-react', { runtime: 'automatic' }]
+        ],
+        plugins: [
+          makeTransformRewriteImportsSourceModuleResolver(
+            derivedAliases,
+            packageRoot,
+            projectRoot
+          )
+        ]
+      },
+      'production-browser': {
+        presets: [
+          [
+            // {@symbiote/notExtraneous @babel/preset-env @types/babel__preset-env}
+            '@babel/preset-env',
+            {
+              // ? https://babeljs.io/docs/en/babel-preset-env#modules
+              modules: false,
+              targets: 'defaults',
+              ...commonPresetEnvConfig
+            } satisfies BabelPresetEnvConfig
+          ],
+          // {@symbiote/notExtraneous @babel/preset-typescript}
+          ['@babel/preset-typescript', { allowDeclareFields: true }],
+          // {@symbiote/notExtraneous @babel/preset-react}
+          ['@babel/preset-react', { runtime: 'automatic' }]
+        ],
+        plugins: [
+          makeTransformRewriteImportsSourceModuleResolver(
+            derivedAliases,
+            packageRoot,
+            projectRoot
+          )
+        ]
+      },
       // * Used by `npm run build` for fixing declaration file imports in ./dist
       'production-types': {
         comments: true,
@@ -356,6 +406,9 @@ export function moduleExport({
       }
     }
   };
+
+  // ? Fallback environment for tools like webpack
+  config.env!.production = config.env!['production-browser'];
 
   dbgModuleExport('config: %O', config);
   return config;

@@ -27,6 +27,7 @@ import {
   directoryTestPackageBase,
   directoryTypesProjectBase,
   ensureRawSpecifierOk,
+  extensionsJavascript,
   gatherImportEntriesFromFiles,
   gatherPackageBuildTargets,
   gatherPackageFiles,
@@ -122,8 +123,18 @@ export enum IntermediateTranspilationEnvironment {
  * Which module system to use for transpiled output.
  */
 export enum ModuleSystem {
+  /**
+   * Compiled specifically for Node.js (or compatible runtime).
+   */
+  Cjs = 'cjs',
+  /**
+   * Compiled specifically for Node.js (or compatible runtime).
+   */
   Esm = 'esm',
-  Cjs = 'cjs'
+  /**
+   * ESM compiled specifically for the browser.
+   */
+  Browser = 'esm-browser'
 }
 
 /**
