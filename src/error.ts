@@ -126,7 +126,9 @@ export const ErrorMessage = {
   CannotStatOutputTarget(outputTarget: string) {
     return `failed to stat output target: ${outputTarget}
 
-This error typically occurs when TypeScript's compiler generates a bad path in a definition file. That usually happens when your source is relying on non-portable type inference when exporting types, such as that of a function with a return type that is not trivially inferable. If the output target points to a file within a package under node_modules in a monorepo, you may attempt the following:
+This error can occur when TypeScript's compiler generates a bad path in a definition file. This could have something to do with extension juggling (.js vs .d.ts vs no extension in the specifier). Check for .d.ts files in the dist directory.
+
+It can also happen when your source is relying on non-portable type inference when exporting types, such as that of a function with a return type that is not trivially inferable. If the output target points to a file within a package under node_modules *in a monorepo*, consider attempting the following:
 
   1. Un-hoist the package using @-xun/no-hoist or by moving it under the affected package's node_modules directory.
   2. Run the build process again. TypeScript should now alert you to the cause of the issue.

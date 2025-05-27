@@ -763,19 +763,47 @@ function makeDistReplacerEntry(
         if (!(specifierTargetOutputPath in knownEntrypoints)) {
           dbgResolver('cache miss; resolution to package entry point will be attempted');
 
-          const isDir = (() => {
+          const specifierTargetOutputPathParent = toDirname(specifierTargetOutputPath);
+
+          const isDir: boolean = (() => {
             try {
               return statSync(specifierTargetOutputPath).isDirectory();
             } catch (error) {
-              throw new ProjectError(
-                ErrorMessage.CannotStatOutputTarget(specifierTargetOutputPath),
-                { cause: error }
+              dbgResolver.warn(
+                'encountered potentially bad specifier target output path: %O',
+                specifierTargetOutputPath
               );
+
+              try {
+                if (statSync(specifierTargetOutputPathParent).isDirectory()) {
+                  dbgResolver.message(
+                    'aforementioned "potentially bad specifier target output path" is probably ok'
+                  );
+
+                  return false;
+                } else {
+                  dbgResolver.error(
+                    'aforementioned "potentially bad specifier target output path" is NOT OK!'
+                  );
+
+                  throw new Error(ErrorMessage.GuruMeditation());
+                }
+              } catch (subError) {
+                throw new ProjectError(
+                  ErrorMessage.CannotStatOutputTarget(specifierTargetOutputPath),
+                  {
+                    cause: new AggregateError(
+                      [error, subError],
+                      ErrorMessage.GuruMeditation()
+                    )
+                  }
+                );
+              }
             }
           })();
 
           const packageJsonPath = findUp.sync('package.json', {
-            cwd: isDir ? specifierTargetOutputPath : toDirname(specifierTargetOutputPath)
+            cwd: isDir ? specifierTargetOutputPath : specifierTargetOutputPathParent
           }) as AbsolutePath | undefined;
 
           dbgResolver('isDir: %O', isDir);
