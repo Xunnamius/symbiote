@@ -162,7 +162,7 @@
     "husky": "^9.1.7",
     "jest": "^30.0.0-alpha.6",
     "jest-circus": "30.0.0-beta.3",
-    "jest-extended": "^4.0.2",
+    "jest-extended": "^5.0.3",
     "jest-silent-reporter": "^0.6.0",
     "libsodium-wrappers": "^0.7.15",
     "lint-staged": "^15.5.0",
