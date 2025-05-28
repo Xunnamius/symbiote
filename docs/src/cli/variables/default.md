@@ -8,6 +8,6 @@
 
 > **default**: `RunProgramReturnType`\<[`GlobalExecutionContext`](../../configure/type-aliases/GlobalExecutionContext.md)\>
 
-Defined in: [src/cli.ts:11](https://github.com/Xunnamius/symbiote/blob/c0ad42f4c6445e4425455b816e9c7314dfae3311/src/cli.ts#L11)
+Defined in: [src/cli.ts:11](https://github.com/Xunnamius/symbiote/blob/3bc9175601936ce1e29ce6f32d229d0639c2bec1/src/cli.ts#L11)
 
 This is the simple CLI entry point executed directly by node.

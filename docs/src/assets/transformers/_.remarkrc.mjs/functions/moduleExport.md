@@ -8,7 +8,7 @@
 
 > **moduleExport**(`__namedParameters`): [`RemarkConfig`](../type-aliases/RemarkConfig.md)
 
-Defined in: [src/assets/transformers/\_.remarkrc.mjs.ts:218](https://github.com/Xunnamius/symbiote/blob/c0ad42f4c6445e4425455b816e9c7314dfae3311/src/assets/transformers/_.remarkrc.mjs.ts#L218)
+Defined in: [src/assets/transformers/\_.remarkrc.mjs.ts:218](https://github.com/Xunnamius/symbiote/blob/3bc9175601936ce1e29ce6f32d229d0639c2bec1/src/assets/transformers/_.remarkrc.mjs.ts#L218)
 
 ## Parameters
 

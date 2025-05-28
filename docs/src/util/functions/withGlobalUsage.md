@@ -40,12 +40,27 @@ true
 
 `boolean`
 
-Whether the string `' [...options]'` will be appended to the first line of usage text
+Whether the string `' [...options]'` will be appended to the first line
+of usage text (after `includeSubCommand`).
 
 **Default**
 
 ```ts
 options.prependNewlines
+```
+
+#### includeSubCommand?
+
+`boolean` \| `"required"`
+
+Whether some variation of the string `' [subcommand]'` will be appended
+to the first line of usage text (before `includeOptions`). Set to `true`
+or `required` when generating usage for a command with subcommands.
+
+**Default**
+
+```ts
+false
 ```
 
 #### prependNewlines?
