@@ -15,7 +15,8 @@ export default function command(
     aliases: [],
     description: 'Manage project-wide concerns',
     usage: withGlobalUsage(
-      `This command is a direct alias for "symbiote project info". See that command's help text for more information.`
+      `This command is a direct alias for "symbiote project info". See that command's help text for more information.`,
+      { includeSubCommand: true }
     )
   };
 }

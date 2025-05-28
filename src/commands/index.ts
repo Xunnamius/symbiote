@@ -31,7 +31,7 @@ export default function command({
     builder,
     description:
       "A collection of commands for interacting with Xunnamius's NPM-based projects",
-    usage: withGlobalUsage(),
+    usage: withGlobalUsage({ includeSubCommand: 'required' }),
     handler: withGlobalHandler(function ({ $0: scriptFullName }) {
       const debug = standardDebug.extend(`handler-${scriptBasename(scriptFullName)}`);
       debug('entered handler');
