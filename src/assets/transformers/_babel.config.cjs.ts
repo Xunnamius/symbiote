@@ -106,9 +106,11 @@ export const wellKnownNodeEnvValues = [
 /**
  * Should be bumped manually and with caution.
  *
+ * Search terms: corejs, core-js, corejs_, _core
+ *
  * ! MUST ALWAYS FOLLOW THE SYNTAX X.X -OR- X.X.X (WHERE "X" ARE NUMERIC CHARS)
  */
-export const CORE_JS_LIBRARY_VERSION = '3.41';
+export const CORE_JS_LIBRARY_VERSION = '3.42';
 
 // ? https://nodejs.org/en/about/releases
 export const NODE_LTS = 'maintained node versions';
