@@ -988,10 +988,6 @@ distrib root: ${absoluteOutputDirPath}
             NODE_ENV: generateIntermediatesFor ?? `production-${moduleSystem}`
           };
 
-          if (generateIntermediatesFor) {
-            babelNodeEnvironment.SYMBIOTE_TEST_JEST_TRANSPILED = 'true';
-          }
-
           genericLogger.newline([LogTag.IF_NOT_HUSHED]);
 
           // * Mirror relevant bits of the project's structure at ./dist that
