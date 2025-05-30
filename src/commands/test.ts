@@ -482,6 +482,8 @@ Provide --skip-slow-tests (or -x) to set the SYMBIOTE_TEST_JEST_SKIP_SLOW_TESTS 
 
       if (scope === TesterScope.ThisPackageIntermediates) {
         env.SYMBIOTE_TEST_JEST_TRANSPILED = 'true';
+        // ? For the benefit of later local imports of jest assets
+        process.env.SYMBIOTE_TEST_JEST_TRANSPILED = 'true';
       }
 
       if (skipSlowTests) {
@@ -588,6 +590,7 @@ Provide --skip-slow-tests (or -x) to set the SYMBIOTE_TEST_JEST_SKIP_SLOW_TESTS 
             targets: { external: externalBuildTargets_ }
           } = await gatherPackageBuildTargets(cwdPackage, {
             allowMultiversalImports: true,
+            includeInternalTestFiles: scope === TesterScope.ThisPackageIntermediates,
             useCached: true
           });
 
@@ -639,22 +642,19 @@ Provide --skip-slow-tests (or -x) to set the SYMBIOTE_TEST_JEST_SKIP_SLOW_TESTS 
           }
         }
 
-        // * When scope is set for intermediates, that's handled elsewhere by
-        // * setting jest's "rootDir" config dynamically.
-
         if (tests.includes(Test.Unit)) {
           // ? These sorts of patterns match at any depth (leading / isn't root)
-          jestTestPathPatterns.push(String.raw`/test(/.*)?/unit(-.*)?\.test\.tsx?`);
+          jestTestPathPatterns.push(String.raw`/test(/.*)?/unit(-.*)?\.test\.(j|t)sx?`);
         }
 
         if (tests.includes(Test.Integration)) {
           jestTestPathPatterns.push(
-            String.raw`/test(/.*)?/integration(-.*)?\.test\.tsx?`
+            String.raw`/test(/.*)?/integration(-.*)?\.test\.(j|t)sx?`
           );
         }
 
         if (tests.includes(Test.EndToEnd)) {
-          jestTestPathPatterns.push(String.raw`/test(/.*)?/e2e(-.*)?\.test\.tsx?`);
+          jestTestPathPatterns.push(String.raw`/test(/.*)?/e2e(-.*)?\.test\.(j|t)sx?`);
         }
 
         // ? These are all the paths (mostly package roots) that should NOT have

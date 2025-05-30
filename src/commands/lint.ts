@@ -326,6 +326,7 @@ Provide --allow-warning-comments to set the SYMBIOTE_LINT_ALLOW_WARNING_COMMENTS
               gatherPackageFiles(cwdPackage, { useCached: true }),
               gatherPackageBuildTargets(cwdPackage, {
                 allowMultiversalImports: true,
+                includeInternalTestFiles: false,
                 useCached: true
               })
             ]);

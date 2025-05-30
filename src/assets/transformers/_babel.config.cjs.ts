@@ -210,6 +210,26 @@ function makeTransformRewriteImportsSourceModuleResolver(
   return plugin;
 }
 
+function makeTransformRewriteImportsIntermediatesModuleResolver() {
+  const plugin = [
+    // {@symbiote/notExtraneous babel-plugin-transform-rewrite-imports}
+    'babel-plugin-transform-rewrite-imports',
+    {
+      appendExtension: extensionsJavascript[0],
+      recognizedExtensions: [...extensionsJavascript, '.json'],
+      injectDynamicRewriter: 'never',
+      replaceExtensions: {
+        // ? Replace any TS extensions with their JS equivalents
+        [translateTsExtensionsToJsRegExp.toString().slice(1, -1)]:
+          translateTsExtensionsToJsRegExpReplacer
+      }
+    } satisfies TransformRewriteImportsOptions
+  ] as const;
+
+  dbgMakePlugin.warn('intermediates module resolver plugin config: %O', plugin);
+  return plugin;
+}
+
 function makeTransformRewriteImportsDefinitionModuleResolver(
   derivedAliases: ReturnType<typeof deriveAliasesForBabel>,
   packageRoot: AbsolutePath,
@@ -269,7 +289,10 @@ export function moduleExport({
     exclude: ['transform-dynamic-import']
   };
 
+  const isBuildingTranspiledForJest = !!process.env.SYMBIOTE_TEST_JEST_TRANSPILED;
+
   dbgModuleExport('commonPresetEnvConfig: %O', commonPresetEnvConfig);
+  dbgModuleExport('isBuildingTranspiledForJest: %O', isBuildingTranspiledForJest);
 
   const config: BabelConfig = {
     comments: false,
@@ -306,8 +329,12 @@ export function moduleExport({
           // ? We don't care about minification
         ],
         plugins: [
-          // ? Jest handles transforming specifiers on its own
+          // ? Jest handles transforming specifiers just fine on its own...
           //babelPluginTransformRewriteImportsSourceModuleResolver
+          // ? ... except when we're building intermediates before Jest runs
+          ...(isBuildingTranspiledForJest
+            ? [makeTransformRewriteImportsIntermediatesModuleResolver()]
+            : [])
           // TODO: explicit-exports-references need to be updated to work with
           // TODO: latest babel mode (need to rename usage, rather than exports)
           // ? Only active when testing, the plugin solves the following problem:
@@ -406,6 +433,8 @@ export function moduleExport({
           )
         ]
       }
+      // TODO: will eventually have to support "development" intermediates,
+      // TODO: maybe as an alias to the "test" environment?
     }
   };
 

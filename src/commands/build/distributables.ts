@@ -576,6 +576,12 @@ Finally, note that, when attempting to build a Next.js package, this command wil
           }
 
           if (generateIntermediatesFor) {
+            softAssert(
+              generateIntermediatesFor !==
+                IntermediateTranspilationEnvironment.Development,
+              ErrorMessage.UnsupportedFeature('transpiling "developer" intermediates')
+            );
+
             genericLogger.warn(
               [LogTag.IF_NOT_QUIETED],
               'Building intermediate non-production non-distributables...'
@@ -667,14 +673,6 @@ Finally, note that, when attempting to build a Next.js package, this command wil
 
           debug('skipOutputBijectionCheckFor (final): %O', skipOutputBijectionCheckFor);
 
-          const { targets: buildTargets, metadata: buildMetadata } =
-            await gatherPackageBuildTargets(cwdPackage, {
-              allowMultiversalImports: multiversal,
-              excludeInternalsPatterns: excludeInternalFiles,
-              includeExternalsPatterns: includeExternalFiles,
-              useCached: true
-            });
-
           // TODO: this needs to be split off into symbiote project lint along
           // TODO: with the other half of the bijection checks below. For now,
           // TODO: we'll keep them here in this command:
@@ -682,6 +680,20 @@ Finally, note that, when attempting to build a Next.js package, this command wil
             packageRoot,
             projectRootTypesPathEndingWithSeparator
           );
+
+          const isTranspilingTestIntermediates =
+            generateIntermediatesFor === IntermediateTranspilationEnvironment.Test;
+
+          debug('isTranspilingTestIntermediates: %O', isTranspilingTestIntermediates);
+
+          const { targets: buildTargets, metadata: buildMetadata } =
+            await gatherPackageBuildTargets(cwdPackage, {
+              allowMultiversalImports: multiversal,
+              includeInternalTestFiles: isTranspilingTestIntermediates,
+              excludeInternalsPatterns: excludeInternalFiles,
+              includeExternalsPatterns: includeExternalFiles,
+              useCached: true
+            });
 
           debug('initial build targets: %O', buildTargets);
           debug('build metadata: %O', buildMetadata);
@@ -691,18 +703,16 @@ Finally, note that, when attempting to build a Next.js package, this command wil
             Array.from(buildTargets.external.normal)
           );
 
-          if (generateIntermediatesFor === IntermediateTranspilationEnvironment.Test) {
-            const { test: testFiles } = await gatherPackageFiles(cwdPackage, {
-              skipGitIgnored: false,
-              // ! ./dist isn't cleared yet, so the value cached by this call to
-              // ! gatherPackageFiles is dirty! This is why we don't use cache
-              // ! when we call this function later on.
-              useCached: true
-            });
-
-            for (const filepath of testFiles) {
-              allBuildTargets_.push(toRelativePath(projectRoot, filepath));
+          if (isTranspilingTestIntermediates) {
+            if (!isCwdTheProjectRoot) {
+              // ? We add the root package's setup.ts file to transpilation
+              // ? targets when generating intermediates for subroot packages.
+              allBuildTargets_.push(toRelativePath(toPath('test', 'setup.ts')));
             }
+
+            // ? We also add the root package.json file to transpilation targets
+            // ? when generating intermediates.
+            allBuildTargets_.push(toRelativePath('package.json'));
           }
 
           // * Note that this is filtered by partialFilters
@@ -727,7 +737,12 @@ Finally, note that, when attempting to build a Next.js package, this command wil
             const isTargetTheCurrentPackageJsonFile =
               target === cwdPackageJsonRelativePath;
 
-            if (isTargetTheCurrentPackageJsonFile) {
+            const isTargetTheRootPackageJsonFile = target === 'package.json';
+
+            if (
+              (!isTranspilingTestIntermediates || !isTargetTheRootPackageJsonFile) &&
+              isTargetTheCurrentPackageJsonFile
+            ) {
               debug.message(
                 "silently ignored asset %O because the current package's package.json file is never considered a build target",
                 target

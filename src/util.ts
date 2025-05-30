@@ -689,6 +689,7 @@ export function deriveScopeNarrowingPathspecs({
   } = gatherPackageBuildTargets.sync(cwdPackage, {
     // ? We'll leave this decision to other layers of symbiote
     allowMultiversalImports: true,
+    includeInternalTestFiles: false,
     useCached: true
   });
 

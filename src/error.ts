@@ -338,6 +338,9 @@ It can also happen when your source is relying on non-portable type inference wh
   RenovationTagAliasAlreadyExists(tag: string) {
     return `alias tag "${tag}" cannot be created because it already exists (try again with --force to delete and recreate)`;
   },
+  UnsupportedFeature(feature: string) {
+    return `${feature} is not currently supported`;
+  },
   /**
    * These are "error" messages that are not necessarily meant to be the message
    * of an {@link Error} instance, but are reported to the user in other ways

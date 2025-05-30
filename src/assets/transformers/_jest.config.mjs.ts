@@ -66,7 +66,10 @@ export function baseConfig({
    * @default false
    */
   isDebugging?: boolean;
-} = {}) {
+}) {
+  const isTestingIntermediates = !!process.env.SYMBIOTE_TEST_JEST_TRANSPILED;
+  debug('isTestingIntermediates: %O', isTestingIntermediates);
+
   return {
     restoreMocks: true,
     resetMocks: true,
@@ -93,13 +96,13 @@ export function baseConfig({
       '/node_modules/',
       '/dist/',
       '/src/',
-      '/.transpiled/',
+      ...(isTestingIntermediates ? [] : ['/.transpiled/']),
       '/test/fixtures/',
       '<rootDir>/dummies/',
       String.raw`/([^/\\]*\.ignore(\.[^/\\]+)?(/|$))|/(ignore\.[^/\\]+(/|$))`,
       tstycheTargetRegExp.source
     ],
-    setupFilesAfterEnv: ['./test/setup.ts'],
+    setupFilesAfterEnv: [`<rootDir>/test/setup.${isTestingIntermediates ? 'js' : 'ts'}`],
     // ? This is computed dynamically by symbiote
     //collectCoverageFrom: [],
     // ? Tell Jest to transpile node_modules (for ESM interop)
@@ -108,7 +111,7 @@ export function baseConfig({
     // ? also means snapshot files from these dirs are ignored as well)
     modulePathIgnorePatterns: [
       '/test/fixtures/',
-      '/.transpiled/',
+      ...(isTestingIntermediates ? [] : ['/.transpiled/']),
       String.raw`/([^/\\]*\.ignore(\.[^/\\]+)?(/|$))|/(ignore\.[^/\\]+(/|$))`
     ]
   } as const satisfies JestConfig;
@@ -159,7 +162,10 @@ export const { transformer } = makeTransformer(function (context) {
           additionalRawAliasMappings.concat(generateRawAliasMap(projectMetadata))
         ),
         4
-      ).replace(/^}/m, '  }')}`
+      ).replace(/^}/m, '  }')}`.replaceAll(
+        /^(\s*"[^"]*": )"([^"\n]*)\.ts"(,?)$/gm,
+        '$1`$2.${extension}`$3'
+      )
     : 'return {}';
 
   // * Only the root package gets these files
@@ -189,6 +195,8 @@ export default config;
 debug('exported config: %O', config);
 
 function getJestAliases() {
+  const extension = process.env.SYMBIOTE_TEST_JEST_TRANSPILED ? 'js' : 'ts';
+
 ${makeGeneratedAliasesWarningComment(2)}
   ${derivedAliasesSourceSnippet}
 }
