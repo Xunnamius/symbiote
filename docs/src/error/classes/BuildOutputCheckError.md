@@ -6,7 +6,7 @@
 
 # Class: BuildOutputCheckError
 
-Defined in: [src/error.ts:39](https://github.com/Xunnamius/symbiote/blob/3bc9175601936ce1e29ce6f32d229d0639c2bec1/src/error.ts#L39)
+Defined in: [src/error.ts:39](https://github.com/Xunnamius/symbiote/blob/b4ce62825fc0ab0648e371a38e522f8ee71b6ea1/src/error.ts#L39)
 
 Represents encountering a project that is not a git repository.
 
@@ -20,7 +20,7 @@ Represents encountering a project that is not a git repository.
 
 > **new BuildOutputCheckError**(): `BuildOutputCheckError`
 
-Defined in: [src/error.ts:45](https://github.com/Xunnamius/symbiote/blob/3bc9175601936ce1e29ce6f32d229d0639c2bec1/src/error.ts#L45)
+Defined in: [src/error.ts:45](https://github.com/Xunnamius/symbiote/blob/b4ce62825fc0ab0648e371a38e522f8ee71b6ea1/src/error.ts#L45)
 
 Represents encountering a project that is not a git repository.
 
@@ -36,7 +36,7 @@ Represents encountering a project that is not a git repository.
 
 > **new BuildOutputCheckError**(`message`): `BuildOutputCheckError`
 
-Defined in: [src/error.ts:50](https://github.com/Xunnamius/symbiote/blob/3bc9175601936ce1e29ce6f32d229d0639c2bec1/src/error.ts#L50)
+Defined in: [src/error.ts:50](https://github.com/Xunnamius/symbiote/blob/b4ce62825fc0ab0648e371a38e522f8ee71b6ea1/src/error.ts#L50)
 
 This constructor syntax is used by subclasses when calling this constructor
 via `super`.
@@ -61,7 +61,7 @@ via `super`.
 
 > **\[$type\]**: `symbol`[]
 
-Defined in: [src/error.ts:41](https://github.com/Xunnamius/symbiote/blob/3bc9175601936ce1e29ce6f32d229d0639c2bec1/src/error.ts#L41)
+Defined in: [src/error.ts:41](https://github.com/Xunnamius/symbiote/blob/b4ce62825fc0ab0648e371a38e522f8ee71b6ea1/src/error.ts#L41)
 
 ***
 

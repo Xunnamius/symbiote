@@ -8,7 +8,7 @@
 
 > **assertEnvironment**(): `Promise`\<`Omit`\<\{ `cwdTsconfigFile`: `AbsolutePath`; `derivedAliases`: `string`[][]; `packageJsonEnginesNode`: `string`; `shouldAllowTodoComments`: `boolean`; \}, `"derivedAliases"`\>\>
 
-Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:870](https://github.com/Xunnamius/symbiote/blob/3bc9175601936ce1e29ce6f32d229d0639c2bec1/src/assets/transformers/_eslint.config.mjs.ts#L870)
+Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:872](https://github.com/Xunnamius/symbiote/blob/b4ce62825fc0ab0648e371a38e522f8ee71b6ea1/src/assets/transformers/_eslint.config.mjs.ts#L872)
 
 ## Returns
 

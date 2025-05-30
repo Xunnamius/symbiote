@@ -8,7 +8,7 @@
 
 > **deriveScopeNarrowingPathspecs**(`__namedParameters`): `string`[]
 
-Defined in: [src/util.ts:613](https://github.com/Xunnamius/symbiote/blob/3bc9175601936ce1e29ce6f32d229d0639c2bec1/src/util.ts#L613)
+Defined in: [src/util.ts:613](https://github.com/Xunnamius/symbiote/blob/b4ce62825fc0ab0648e371a38e522f8ee71b6ea1/src/util.ts#L613)
 
 Return pathspecs for including only certain paths for consideration depending
 on the project structure and the current working directory.

@@ -8,7 +8,7 @@
 
 > `const` **testerScopes**: ([`ThisPackage`](../../../configure/enumerations/DefaultGlobalScope.md#thispackage) \| [`Unlimited`](../../../configure/enumerations/DefaultGlobalScope.md#unlimited) \| [`ThisPackageIntermediates`](../enumerations/TesterScope.md#thispackageintermediates))[]
 
-Defined in: [src/commands/test.ts:141](https://github.com/Xunnamius/symbiote/blob/3bc9175601936ce1e29ce6f32d229d0639c2bec1/src/commands/test.ts#L141)
+Defined in: [src/commands/test.ts:141](https://github.com/Xunnamius/symbiote/blob/b4ce62825fc0ab0648e371a38e522f8ee71b6ea1/src/commands/test.ts#L141)
 
 ## See
 

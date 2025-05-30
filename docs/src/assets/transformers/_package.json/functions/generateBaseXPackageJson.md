@@ -8,7 +8,7 @@
 
 > **generateBaseXPackageJson**(...`__namedParameters`): `object`
 
-Defined in: [src/assets/transformers/\_package.json.ts:58](https://github.com/Xunnamius/symbiote/blob/3bc9175601936ce1e29ce6f32d229d0639c2bec1/src/assets/transformers/_package.json.ts#L58)
+Defined in: [src/assets/transformers/\_package.json.ts:58](https://github.com/Xunnamius/symbiote/blob/b4ce62825fc0ab0648e371a38e522f8ee71b6ea1/src/assets/transformers/_package.json.ts#L58)
 
 ## Parameters
 
@@ -741,7 +741,7 @@ transitive dependencies).
 ##### Example
 
 ```ts
-`symbiote test --scope this-package --tests end-to-end`
+`symbiote test --scope this-package --tests e2e-local`
 ```
 
 #### scripts.test:package:integration

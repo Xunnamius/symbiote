@@ -8,4 +8,4 @@
 
 > `const` **flatConfigs**: `Record`\<`string`, `Linter.Config`\>
 
-Defined in: [types/eslint-plugin-import.d.ts:5](https://github.com/Xunnamius/symbiote/blob/3bc9175601936ce1e29ce6f32d229d0639c2bec1/types/eslint-plugin-import.d.ts#L5)
+Defined in: [types/eslint-plugin-import.d.ts:5](https://github.com/Xunnamius/symbiote/blob/b4ce62825fc0ab0648e371a38e522f8ee71b6ea1/types/eslint-plugin-import.d.ts#L5)

@@ -8,7 +8,7 @@
 
 > **moduleExport**(`__namedParameters`): [`WritableReleaseConfig`](../type-aliases/WritableReleaseConfig.md)
 
-Defined in: [src/assets/transformers/\_release.config.cjs.ts:112](https://github.com/Xunnamius/symbiote/blob/3bc9175601936ce1e29ce6f32d229d0639c2bec1/src/assets/transformers/_release.config.cjs.ts#L112)
+Defined in: [src/assets/transformers/\_release.config.cjs.ts:112](https://github.com/Xunnamius/symbiote/blob/b4ce62825fc0ab0648e371a38e522f8ee71b6ea1/src/assets/transformers/_release.config.cjs.ts#L112)
 
 ## Parameters
 
