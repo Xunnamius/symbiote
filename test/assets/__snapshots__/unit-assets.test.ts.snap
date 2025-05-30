@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`::compileTemplate accepts a template file path and returns a compilation result string: SECURITY.md 1`] = `
 "# Security ☠️ [![Known Vulnerabilities][2]][1]
@@ -10612,78 +10612,6 @@ scope: this-package
         //"!**/node_modules/*jest*/**"
         //"!**/node_modules/@-xun/**"
       ]
-    },
-    {
-      "type": "node",
-      "name": "jest-active-file",
-      "request": "launch",
-      "program": "\${workspaceFolder}/node_modules/.bin/jest",
-      "args": ["--runInBand", "--watchAll=false", "\${file}"],
-      "cwd": "\${workspaceFolder}",
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "env": {
-        "NODE_ENV": "test",
-        "NODE_OPTIONS": "--no-warnings --experimental-vm-modules",
-        "DEBUG_COLORS": "false"
-      },
-      "windows": {
-        "program": "\${workspaceFolder}/node_modules/jest/bin/jest"
-      },
-
-      // ! Note that these settings do NOT affect MANUALLY LAUNCHED debug
-      // ! terminals! To affect stepping while using the debug terminal
-      // ! manually, you'll need to configure settings.json (non-workspace) or
-      // ! *.code-workspace (workspace) and set
-      // ! \`debug.javascript.terminalOptions.skipFiles/smartStep\` appropriately.
-      // * You MAY need to reload vscode/vscode-jest before changes take effect!
-      // ? Set to false to step through node internals
-      "smartStep": true,
-      // ? Selectively comment out entries for deeper debugging
-      "skipFiles": [
-        "<node_internals>/**",
-        "**/node_modules/**"
-
-        //"!**/node_modules/*jest*/**"
-        //"!**/node_modules/@-xun/**"
-      ]
-    },
-    {
-      "type": "node",
-      "name": "jest-transpiled",
-      "request": "launch",
-      "program": "\${workspaceFolder}/node_modules/.bin/jest",
-      "args": ["--runInBand", "--watchAll=false", "\${file}"],
-      "cwd": "\${workspaceFolder}",
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "sourceMaps": false,
-      "env": {
-        "NODE_ENV": "test",
-        "NODE_OPTIONS": "--no-warnings --experimental-vm-modules",
-        "DEBUG_COLORS": "false",
-        "SYMBIOTE_TEST_JEST_TRANSPILED": "true"
-      },
-      "windows": {
-        "program": "\${workspaceFolder}/node_modules/jest/bin/jest"
-      },
-
-      // ! Note that these settings do NOT affect MANUALLY LAUNCHED debug
-      // ! terminals! To affect stepping while using the debug terminal
-      // ! manually, you'll need to configure settings.json (non-workspace) or
-      // ! *.code-workspace (workspace) and set
-      // ! \`debug.javascript.terminalOptions.skipFiles/smartStep\` appropriately.
-      // * You MAY need to reload vscode/vscode-jest before changes take effect!
-      // ? Set to false to step through node internals
-      "smartStep": true,
-      // ? Selectively comment out entries for deeper debugging
-      "skipFiles": [
-        "<node_internals>/**",
-        "**/node_modules/**"
-
-        //"!**/node_modules/*jest*/**"
-        //"!**/node_modules/@-xun/**"
-      ]
     }
   ]
 }
@@ -10791,78 +10719,6 @@ scope: unlimited
         //"!**/node_modules/*jest*/**"
         //"!**/node_modules/@-xun/**"
       ]
-    },
-    {
-      "type": "node",
-      "name": "jest-active-file",
-      "request": "launch",
-      "program": "\${workspaceFolder}/node_modules/.bin/jest",
-      "args": ["--runInBand", "--watchAll=false", "\${file}"],
-      "cwd": "\${workspaceFolder}",
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "env": {
-        "NODE_ENV": "test",
-        "NODE_OPTIONS": "--no-warnings --experimental-vm-modules",
-        "DEBUG_COLORS": "false"
-      },
-      "windows": {
-        "program": "\${workspaceFolder}/node_modules/jest/bin/jest"
-      },
-
-      // ! Note that these settings do NOT affect MANUALLY LAUNCHED debug
-      // ! terminals! To affect stepping while using the debug terminal
-      // ! manually, you'll need to configure settings.json (non-workspace) or
-      // ! *.code-workspace (workspace) and set
-      // ! \`debug.javascript.terminalOptions.skipFiles/smartStep\` appropriately.
-      // * You MAY need to reload vscode/vscode-jest before changes take effect!
-      // ? Set to false to step through node internals
-      "smartStep": true,
-      // ? Selectively comment out entries for deeper debugging
-      "skipFiles": [
-        "<node_internals>/**",
-        "**/node_modules/**"
-
-        //"!**/node_modules/*jest*/**"
-        //"!**/node_modules/@-xun/**"
-      ]
-    },
-    {
-      "type": "node",
-      "name": "jest-transpiled",
-      "request": "launch",
-      "program": "\${workspaceFolder}/node_modules/.bin/jest",
-      "args": ["--runInBand", "--watchAll=false", "\${file}"],
-      "cwd": "\${workspaceFolder}",
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "sourceMaps": false,
-      "env": {
-        "NODE_ENV": "test",
-        "NODE_OPTIONS": "--no-warnings --experimental-vm-modules",
-        "DEBUG_COLORS": "false",
-        "SYMBIOTE_TEST_JEST_TRANSPILED": "true"
-      },
-      "windows": {
-        "program": "\${workspaceFolder}/node_modules/jest/bin/jest"
-      },
-
-      // ! Note that these settings do NOT affect MANUALLY LAUNCHED debug
-      // ! terminals! To affect stepping while using the debug terminal
-      // ! manually, you'll need to configure settings.json (non-workspace) or
-      // ! *.code-workspace (workspace) and set
-      // ! \`debug.javascript.terminalOptions.skipFiles/smartStep\` appropriately.
-      // * You MAY need to reload vscode/vscode-jest before changes take effect!
-      // ? Set to false to step through node internals
-      "smartStep": true,
-      // ? Selectively comment out entries for deeper debugging
-      "skipFiles": [
-        "<node_internals>/**",
-        "**/node_modules/**"
-
-        //"!**/node_modules/*jest*/**"
-        //"!**/node_modules/@-xun/**"
-      ]
     }
   ]
 }
@@ -10895,78 +10751,6 @@ scope: unlimited
         "NODE_ENV": "test",
         "NODE_OPTIONS": "--no-warnings --experimental-vm-modules",
         "DEBUG_COLORS": "false"
-      },
-      "windows": {
-        "program": "\${workspaceFolder}/node_modules/jest/bin/jest"
-      },
-
-      // ! Note that these settings do NOT affect MANUALLY LAUNCHED debug
-      // ! terminals! To affect stepping while using the debug terminal
-      // ! manually, you'll need to configure settings.json (non-workspace) or
-      // ! *.code-workspace (workspace) and set
-      // ! \`debug.javascript.terminalOptions.skipFiles/smartStep\` appropriately.
-      // * You MAY need to reload vscode/vscode-jest before changes take effect!
-      // ? Set to false to step through node internals
-      "smartStep": true,
-      // ? Selectively comment out entries for deeper debugging
-      "skipFiles": [
-        "<node_internals>/**",
-        "**/node_modules/**"
-
-        //"!**/node_modules/*jest*/**"
-        //"!**/node_modules/@-xun/**"
-      ]
-    },
-    {
-      "type": "node",
-      "name": "jest-active-file",
-      "request": "launch",
-      "program": "\${workspaceFolder}/node_modules/.bin/jest",
-      "args": ["--runInBand", "--watchAll=false", "\${file}"],
-      "cwd": "\${workspaceFolder}",
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "env": {
-        "NODE_ENV": "test",
-        "NODE_OPTIONS": "--no-warnings --experimental-vm-modules",
-        "DEBUG_COLORS": "false"
-      },
-      "windows": {
-        "program": "\${workspaceFolder}/node_modules/jest/bin/jest"
-      },
-
-      // ! Note that these settings do NOT affect MANUALLY LAUNCHED debug
-      // ! terminals! To affect stepping while using the debug terminal
-      // ! manually, you'll need to configure settings.json (non-workspace) or
-      // ! *.code-workspace (workspace) and set
-      // ! \`debug.javascript.terminalOptions.skipFiles/smartStep\` appropriately.
-      // * You MAY need to reload vscode/vscode-jest before changes take effect!
-      // ? Set to false to step through node internals
-      "smartStep": true,
-      // ? Selectively comment out entries for deeper debugging
-      "skipFiles": [
-        "<node_internals>/**",
-        "**/node_modules/**"
-
-        //"!**/node_modules/*jest*/**"
-        //"!**/node_modules/@-xun/**"
-      ]
-    },
-    {
-      "type": "node",
-      "name": "jest-transpiled",
-      "request": "launch",
-      "program": "\${workspaceFolder}/node_modules/.bin/jest",
-      "args": ["--runInBand", "--watchAll=false", "\${file}"],
-      "cwd": "\${workspaceFolder}",
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "sourceMaps": false,
-      "env": {
-        "NODE_ENV": "test",
-        "NODE_OPTIONS": "--no-warnings --experimental-vm-modules",
-        "DEBUG_COLORS": "false",
-        "SYMBIOTE_TEST_JEST_TRANSPILED": "true"
       },
       "windows": {
         "program": "\${workspaceFolder}/node_modules/jest/bin/jest"
@@ -11129,78 +10913,6 @@ scope: unlimited
         //"!**/node_modules/*jest*/**"
         //"!**/node_modules/@-xun/**"
       ]
-    },
-    {
-      "type": "node",
-      "name": "jest-active-file",
-      "request": "launch",
-      "program": "\${workspaceFolder}/node_modules/.bin/jest",
-      "args": ["--runInBand", "--watchAll=false", "\${file}"],
-      "cwd": "\${workspaceFolder}",
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "env": {
-        "NODE_ENV": "test",
-        "NODE_OPTIONS": "--no-warnings --experimental-vm-modules",
-        "DEBUG_COLORS": "false"
-      },
-      "windows": {
-        "program": "\${workspaceFolder}/node_modules/jest/bin/jest"
-      },
-
-      // ! Note that these settings do NOT affect MANUALLY LAUNCHED debug
-      // ! terminals! To affect stepping while using the debug terminal
-      // ! manually, you'll need to configure settings.json (non-workspace) or
-      // ! *.code-workspace (workspace) and set
-      // ! \`debug.javascript.terminalOptions.skipFiles/smartStep\` appropriately.
-      // * You MAY need to reload vscode/vscode-jest before changes take effect!
-      // ? Set to false to step through node internals
-      "smartStep": true,
-      // ? Selectively comment out entries for deeper debugging
-      "skipFiles": [
-        "<node_internals>/**",
-        "**/node_modules/**"
-
-        //"!**/node_modules/*jest*/**"
-        //"!**/node_modules/@-xun/**"
-      ]
-    },
-    {
-      "type": "node",
-      "name": "jest-transpiled",
-      "request": "launch",
-      "program": "\${workspaceFolder}/node_modules/.bin/jest",
-      "args": ["--runInBand", "--watchAll=false", "\${file}"],
-      "cwd": "\${workspaceFolder}",
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "sourceMaps": false,
-      "env": {
-        "NODE_ENV": "test",
-        "NODE_OPTIONS": "--no-warnings --experimental-vm-modules",
-        "DEBUG_COLORS": "false",
-        "SYMBIOTE_TEST_JEST_TRANSPILED": "true"
-      },
-      "windows": {
-        "program": "\${workspaceFolder}/node_modules/jest/bin/jest"
-      },
-
-      // ! Note that these settings do NOT affect MANUALLY LAUNCHED debug
-      // ! terminals! To affect stepping while using the debug terminal
-      // ! manually, you'll need to configure settings.json (non-workspace) or
-      // ! *.code-workspace (workspace) and set
-      // ! \`debug.javascript.terminalOptions.skipFiles/smartStep\` appropriately.
-      // * You MAY need to reload vscode/vscode-jest before changes take effect!
-      // ? Set to false to step through node internals
-      "smartStep": true,
-      // ? Selectively comment out entries for deeper debugging
-      "skipFiles": [
-        "<node_internals>/**",
-        "**/node_modules/**"
-
-        //"!**/node_modules/*jest*/**"
-        //"!**/node_modules/@-xun/**"
-      ]
     }
   ]
 }
@@ -11308,78 +11020,6 @@ scope: unlimited
         //"!**/node_modules/*jest*/**"
         //"!**/node_modules/@-xun/**"
       ]
-    },
-    {
-      "type": "node",
-      "name": "jest-active-file",
-      "request": "launch",
-      "program": "\${workspaceFolder}/node_modules/.bin/jest",
-      "args": ["--runInBand", "--watchAll=false", "\${file}"],
-      "cwd": "\${workspaceFolder}",
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "env": {
-        "NODE_ENV": "test",
-        "NODE_OPTIONS": "--no-warnings --experimental-vm-modules",
-        "DEBUG_COLORS": "false"
-      },
-      "windows": {
-        "program": "\${workspaceFolder}/node_modules/jest/bin/jest"
-      },
-
-      // ! Note that these settings do NOT affect MANUALLY LAUNCHED debug
-      // ! terminals! To affect stepping while using the debug terminal
-      // ! manually, you'll need to configure settings.json (non-workspace) or
-      // ! *.code-workspace (workspace) and set
-      // ! \`debug.javascript.terminalOptions.skipFiles/smartStep\` appropriately.
-      // * You MAY need to reload vscode/vscode-jest before changes take effect!
-      // ? Set to false to step through node internals
-      "smartStep": true,
-      // ? Selectively comment out entries for deeper debugging
-      "skipFiles": [
-        "<node_internals>/**",
-        "**/node_modules/**"
-
-        //"!**/node_modules/*jest*/**"
-        //"!**/node_modules/@-xun/**"
-      ]
-    },
-    {
-      "type": "node",
-      "name": "jest-transpiled",
-      "request": "launch",
-      "program": "\${workspaceFolder}/node_modules/.bin/jest",
-      "args": ["--runInBand", "--watchAll=false", "\${file}"],
-      "cwd": "\${workspaceFolder}",
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "sourceMaps": false,
-      "env": {
-        "NODE_ENV": "test",
-        "NODE_OPTIONS": "--no-warnings --experimental-vm-modules",
-        "DEBUG_COLORS": "false",
-        "SYMBIOTE_TEST_JEST_TRANSPILED": "true"
-      },
-      "windows": {
-        "program": "\${workspaceFolder}/node_modules/jest/bin/jest"
-      },
-
-      // ! Note that these settings do NOT affect MANUALLY LAUNCHED debug
-      // ! terminals! To affect stepping while using the debug terminal
-      // ! manually, you'll need to configure settings.json (non-workspace) or
-      // ! *.code-workspace (workspace) and set
-      // ! \`debug.javascript.terminalOptions.skipFiles/smartStep\` appropriately.
-      // * You MAY need to reload vscode/vscode-jest before changes take effect!
-      // ? Set to false to step through node internals
-      "smartStep": true,
-      // ? Selectively comment out entries for deeper debugging
-      "skipFiles": [
-        "<node_internals>/**",
-        "**/node_modules/**"
-
-        //"!**/node_modules/*jest*/**"
-        //"!**/node_modules/@-xun/**"
-      ]
     }
   ]
 }
@@ -11412,78 +11052,6 @@ scope: unlimited
         "NODE_ENV": "test",
         "NODE_OPTIONS": "--no-warnings --experimental-vm-modules",
         "DEBUG_COLORS": "false"
-      },
-      "windows": {
-        "program": "\${workspaceFolder}/node_modules/jest/bin/jest"
-      },
-
-      // ! Note that these settings do NOT affect MANUALLY LAUNCHED debug
-      // ! terminals! To affect stepping while using the debug terminal
-      // ! manually, you'll need to configure settings.json (non-workspace) or
-      // ! *.code-workspace (workspace) and set
-      // ! \`debug.javascript.terminalOptions.skipFiles/smartStep\` appropriately.
-      // * You MAY need to reload vscode/vscode-jest before changes take effect!
-      // ? Set to false to step through node internals
-      "smartStep": true,
-      // ? Selectively comment out entries for deeper debugging
-      "skipFiles": [
-        "<node_internals>/**",
-        "**/node_modules/**"
-
-        //"!**/node_modules/*jest*/**"
-        //"!**/node_modules/@-xun/**"
-      ]
-    },
-    {
-      "type": "node",
-      "name": "jest-active-file",
-      "request": "launch",
-      "program": "\${workspaceFolder}/node_modules/.bin/jest",
-      "args": ["--runInBand", "--watchAll=false", "\${file}"],
-      "cwd": "\${workspaceFolder}",
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "env": {
-        "NODE_ENV": "test",
-        "NODE_OPTIONS": "--no-warnings --experimental-vm-modules",
-        "DEBUG_COLORS": "false"
-      },
-      "windows": {
-        "program": "\${workspaceFolder}/node_modules/jest/bin/jest"
-      },
-
-      // ! Note that these settings do NOT affect MANUALLY LAUNCHED debug
-      // ! terminals! To affect stepping while using the debug terminal
-      // ! manually, you'll need to configure settings.json (non-workspace) or
-      // ! *.code-workspace (workspace) and set
-      // ! \`debug.javascript.terminalOptions.skipFiles/smartStep\` appropriately.
-      // * You MAY need to reload vscode/vscode-jest before changes take effect!
-      // ? Set to false to step through node internals
-      "smartStep": true,
-      // ? Selectively comment out entries for deeper debugging
-      "skipFiles": [
-        "<node_internals>/**",
-        "**/node_modules/**"
-
-        //"!**/node_modules/*jest*/**"
-        //"!**/node_modules/@-xun/**"
-      ]
-    },
-    {
-      "type": "node",
-      "name": "jest-transpiled",
-      "request": "launch",
-      "program": "\${workspaceFolder}/node_modules/.bin/jest",
-      "args": ["--runInBand", "--watchAll=false", "\${file}"],
-      "cwd": "\${workspaceFolder}",
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "sourceMaps": false,
-      "env": {
-        "NODE_ENV": "test",
-        "NODE_OPTIONS": "--no-warnings --experimental-vm-modules",
-        "DEBUG_COLORS": "false",
-        "SYMBIOTE_TEST_JEST_TRANSPILED": "true"
       },
       "windows": {
         "program": "\${workspaceFolder}/node_modules/jest/bin/jest"
@@ -11646,78 +11214,6 @@ scope: unlimited
         //"!**/node_modules/*jest*/**"
         //"!**/node_modules/@-xun/**"
       ]
-    },
-    {
-      "type": "node",
-      "name": "jest-active-file",
-      "request": "launch",
-      "program": "\${workspaceFolder}/node_modules/.bin/jest",
-      "args": ["--runInBand", "--watchAll=false", "\${file}"],
-      "cwd": "\${workspaceFolder}",
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "env": {
-        "NODE_ENV": "test",
-        "NODE_OPTIONS": "--no-warnings --experimental-vm-modules",
-        "DEBUG_COLORS": "false"
-      },
-      "windows": {
-        "program": "\${workspaceFolder}/node_modules/jest/bin/jest"
-      },
-
-      // ! Note that these settings do NOT affect MANUALLY LAUNCHED debug
-      // ! terminals! To affect stepping while using the debug terminal
-      // ! manually, you'll need to configure settings.json (non-workspace) or
-      // ! *.code-workspace (workspace) and set
-      // ! \`debug.javascript.terminalOptions.skipFiles/smartStep\` appropriately.
-      // * You MAY need to reload vscode/vscode-jest before changes take effect!
-      // ? Set to false to step through node internals
-      "smartStep": true,
-      // ? Selectively comment out entries for deeper debugging
-      "skipFiles": [
-        "<node_internals>/**",
-        "**/node_modules/**"
-
-        //"!**/node_modules/*jest*/**"
-        //"!**/node_modules/@-xun/**"
-      ]
-    },
-    {
-      "type": "node",
-      "name": "jest-transpiled",
-      "request": "launch",
-      "program": "\${workspaceFolder}/node_modules/.bin/jest",
-      "args": ["--runInBand", "--watchAll=false", "\${file}"],
-      "cwd": "\${workspaceFolder}",
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "sourceMaps": false,
-      "env": {
-        "NODE_ENV": "test",
-        "NODE_OPTIONS": "--no-warnings --experimental-vm-modules",
-        "DEBUG_COLORS": "false",
-        "SYMBIOTE_TEST_JEST_TRANSPILED": "true"
-      },
-      "windows": {
-        "program": "\${workspaceFolder}/node_modules/jest/bin/jest"
-      },
-
-      // ! Note that these settings do NOT affect MANUALLY LAUNCHED debug
-      // ! terminals! To affect stepping while using the debug terminal
-      // ! manually, you'll need to configure settings.json (non-workspace) or
-      // ! *.code-workspace (workspace) and set
-      // ! \`debug.javascript.terminalOptions.skipFiles/smartStep\` appropriately.
-      // * You MAY need to reload vscode/vscode-jest before changes take effect!
-      // ? Set to false to step through node internals
-      "smartStep": true,
-      // ? Selectively comment out entries for deeper debugging
-      "skipFiles": [
-        "<node_internals>/**",
-        "**/node_modules/**"
-
-        //"!**/node_modules/*jest*/**"
-        //"!**/node_modules/@-xun/**"
-      ]
     }
   ]
 }
@@ -11804,78 +11300,6 @@ scope: unlimited
         "NODE_ENV": "test",
         "NODE_OPTIONS": "--no-warnings --experimental-vm-modules",
         "DEBUG_COLORS": "false"
-      },
-      "windows": {
-        "program": "\${workspaceFolder}/node_modules/jest/bin/jest"
-      },
-
-      // ! Note that these settings do NOT affect MANUALLY LAUNCHED debug
-      // ! terminals! To affect stepping while using the debug terminal
-      // ! manually, you'll need to configure settings.json (non-workspace) or
-      // ! *.code-workspace (workspace) and set
-      // ! \`debug.javascript.terminalOptions.skipFiles/smartStep\` appropriately.
-      // * You MAY need to reload vscode/vscode-jest before changes take effect!
-      // ? Set to false to step through node internals
-      "smartStep": true,
-      // ? Selectively comment out entries for deeper debugging
-      "skipFiles": [
-        "<node_internals>/**",
-        "**/node_modules/**"
-
-        //"!**/node_modules/*jest*/**"
-        //"!**/node_modules/@-xun/**"
-      ]
-    },
-    {
-      "type": "node",
-      "name": "jest-active-file",
-      "request": "launch",
-      "program": "\${workspaceFolder}/node_modules/.bin/jest",
-      "args": ["--runInBand", "--watchAll=false", "\${file}"],
-      "cwd": "\${workspaceFolder}",
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "env": {
-        "NODE_ENV": "test",
-        "NODE_OPTIONS": "--no-warnings --experimental-vm-modules",
-        "DEBUG_COLORS": "false"
-      },
-      "windows": {
-        "program": "\${workspaceFolder}/node_modules/jest/bin/jest"
-      },
-
-      // ! Note that these settings do NOT affect MANUALLY LAUNCHED debug
-      // ! terminals! To affect stepping while using the debug terminal
-      // ! manually, you'll need to configure settings.json (non-workspace) or
-      // ! *.code-workspace (workspace) and set
-      // ! \`debug.javascript.terminalOptions.skipFiles/smartStep\` appropriately.
-      // * You MAY need to reload vscode/vscode-jest before changes take effect!
-      // ? Set to false to step through node internals
-      "smartStep": true,
-      // ? Selectively comment out entries for deeper debugging
-      "skipFiles": [
-        "<node_internals>/**",
-        "**/node_modules/**"
-
-        //"!**/node_modules/*jest*/**"
-        //"!**/node_modules/@-xun/**"
-      ]
-    },
-    {
-      "type": "node",
-      "name": "jest-transpiled",
-      "request": "launch",
-      "program": "\${workspaceFolder}/node_modules/.bin/jest",
-      "args": ["--runInBand", "--watchAll=false", "\${file}"],
-      "cwd": "\${workspaceFolder}",
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "sourceMaps": false,
-      "env": {
-        "NODE_ENV": "test",
-        "NODE_OPTIONS": "--no-warnings --experimental-vm-modules",
-        "DEBUG_COLORS": "false",
-        "SYMBIOTE_TEST_JEST_TRANSPILED": "true"
       },
       "windows": {
         "program": "\${workspaceFolder}/node_modules/jest/bin/jest"
@@ -12004,78 +11428,6 @@ scope: this-package
         //"!**/node_modules/*jest*/**"
         //"!**/node_modules/@-xun/**"
       ]
-    },
-    {
-      "type": "node",
-      "name": "jest-active-file",
-      "request": "launch",
-      "program": "\${workspaceFolder}/node_modules/.bin/jest",
-      "args": ["--runInBand", "--watchAll=false", "\${file}"],
-      "cwd": "\${workspaceFolder}",
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "env": {
-        "NODE_ENV": "test",
-        "NODE_OPTIONS": "--no-warnings --experimental-vm-modules",
-        "DEBUG_COLORS": "false"
-      },
-      "windows": {
-        "program": "\${workspaceFolder}/node_modules/jest/bin/jest"
-      },
-
-      // ! Note that these settings do NOT affect MANUALLY LAUNCHED debug
-      // ! terminals! To affect stepping while using the debug terminal
-      // ! manually, you'll need to configure settings.json (non-workspace) or
-      // ! *.code-workspace (workspace) and set
-      // ! \`debug.javascript.terminalOptions.skipFiles/smartStep\` appropriately.
-      // * You MAY need to reload vscode/vscode-jest before changes take effect!
-      // ? Set to false to step through node internals
-      "smartStep": true,
-      // ? Selectively comment out entries for deeper debugging
-      "skipFiles": [
-        "<node_internals>/**",
-        "**/node_modules/**"
-
-        //"!**/node_modules/*jest*/**"
-        //"!**/node_modules/@-xun/**"
-      ]
-    },
-    {
-      "type": "node",
-      "name": "jest-transpiled",
-      "request": "launch",
-      "program": "\${workspaceFolder}/node_modules/.bin/jest",
-      "args": ["--runInBand", "--watchAll=false", "\${file}"],
-      "cwd": "\${workspaceFolder}",
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "sourceMaps": false,
-      "env": {
-        "NODE_ENV": "test",
-        "NODE_OPTIONS": "--no-warnings --experimental-vm-modules",
-        "DEBUG_COLORS": "false",
-        "SYMBIOTE_TEST_JEST_TRANSPILED": "true"
-      },
-      "windows": {
-        "program": "\${workspaceFolder}/node_modules/jest/bin/jest"
-      },
-
-      // ! Note that these settings do NOT affect MANUALLY LAUNCHED debug
-      // ! terminals! To affect stepping while using the debug terminal
-      // ! manually, you'll need to configure settings.json (non-workspace) or
-      // ! *.code-workspace (workspace) and set
-      // ! \`debug.javascript.terminalOptions.skipFiles/smartStep\` appropriately.
-      // * You MAY need to reload vscode/vscode-jest before changes take effect!
-      // ? Set to false to step through node internals
-      "smartStep": true,
-      // ? Selectively comment out entries for deeper debugging
-      "skipFiles": [
-        "<node_internals>/**",
-        "**/node_modules/**"
-
-        //"!**/node_modules/*jest*/**"
-        //"!**/node_modules/@-xun/**"
-      ]
     }
   ]
 }
@@ -12108,78 +11460,6 @@ scope: this-package
         "NODE_ENV": "test",
         "NODE_OPTIONS": "--no-warnings --experimental-vm-modules",
         "DEBUG_COLORS": "false"
-      },
-      "windows": {
-        "program": "\${workspaceFolder}/node_modules/jest/bin/jest"
-      },
-
-      // ! Note that these settings do NOT affect MANUALLY LAUNCHED debug
-      // ! terminals! To affect stepping while using the debug terminal
-      // ! manually, you'll need to configure settings.json (non-workspace) or
-      // ! *.code-workspace (workspace) and set
-      // ! \`debug.javascript.terminalOptions.skipFiles/smartStep\` appropriately.
-      // * You MAY need to reload vscode/vscode-jest before changes take effect!
-      // ? Set to false to step through node internals
-      "smartStep": true,
-      // ? Selectively comment out entries for deeper debugging
-      "skipFiles": [
-        "<node_internals>/**",
-        "**/node_modules/**"
-
-        //"!**/node_modules/*jest*/**"
-        //"!**/node_modules/@-xun/**"
-      ]
-    },
-    {
-      "type": "node",
-      "name": "jest-active-file",
-      "request": "launch",
-      "program": "\${workspaceFolder}/node_modules/.bin/jest",
-      "args": ["--runInBand", "--watchAll=false", "\${file}"],
-      "cwd": "\${workspaceFolder}",
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "env": {
-        "NODE_ENV": "test",
-        "NODE_OPTIONS": "--no-warnings --experimental-vm-modules",
-        "DEBUG_COLORS": "false"
-      },
-      "windows": {
-        "program": "\${workspaceFolder}/node_modules/jest/bin/jest"
-      },
-
-      // ! Note that these settings do NOT affect MANUALLY LAUNCHED debug
-      // ! terminals! To affect stepping while using the debug terminal
-      // ! manually, you'll need to configure settings.json (non-workspace) or
-      // ! *.code-workspace (workspace) and set
-      // ! \`debug.javascript.terminalOptions.skipFiles/smartStep\` appropriately.
-      // * You MAY need to reload vscode/vscode-jest before changes take effect!
-      // ? Set to false to step through node internals
-      "smartStep": true,
-      // ? Selectively comment out entries for deeper debugging
-      "skipFiles": [
-        "<node_internals>/**",
-        "**/node_modules/**"
-
-        //"!**/node_modules/*jest*/**"
-        //"!**/node_modules/@-xun/**"
-      ]
-    },
-    {
-      "type": "node",
-      "name": "jest-transpiled",
-      "request": "launch",
-      "program": "\${workspaceFolder}/node_modules/.bin/jest",
-      "args": ["--runInBand", "--watchAll=false", "\${file}"],
-      "cwd": "\${workspaceFolder}",
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "sourceMaps": false,
-      "env": {
-        "NODE_ENV": "test",
-        "NODE_OPTIONS": "--no-warnings --experimental-vm-modules",
-        "DEBUG_COLORS": "false",
-        "SYMBIOTE_TEST_JEST_TRANSPILED": "true"
       },
       "windows": {
         "program": "\${workspaceFolder}/node_modules/jest/bin/jest"
@@ -12321,78 +11601,6 @@ scope: unlimited
         "NODE_ENV": "test",
         "NODE_OPTIONS": "--no-warnings --experimental-vm-modules",
         "DEBUG_COLORS": "false"
-      },
-      "windows": {
-        "program": "\${workspaceFolder}/node_modules/jest/bin/jest"
-      },
-
-      // ! Note that these settings do NOT affect MANUALLY LAUNCHED debug
-      // ! terminals! To affect stepping while using the debug terminal
-      // ! manually, you'll need to configure settings.json (non-workspace) or
-      // ! *.code-workspace (workspace) and set
-      // ! \`debug.javascript.terminalOptions.skipFiles/smartStep\` appropriately.
-      // * You MAY need to reload vscode/vscode-jest before changes take effect!
-      // ? Set to false to step through node internals
-      "smartStep": true,
-      // ? Selectively comment out entries for deeper debugging
-      "skipFiles": [
-        "<node_internals>/**",
-        "**/node_modules/**"
-
-        //"!**/node_modules/*jest*/**"
-        //"!**/node_modules/@-xun/**"
-      ]
-    },
-    {
-      "type": "node",
-      "name": "jest-active-file",
-      "request": "launch",
-      "program": "\${workspaceFolder}/node_modules/.bin/jest",
-      "args": ["--runInBand", "--watchAll=false", "\${file}"],
-      "cwd": "\${workspaceFolder}",
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "env": {
-        "NODE_ENV": "test",
-        "NODE_OPTIONS": "--no-warnings --experimental-vm-modules",
-        "DEBUG_COLORS": "false"
-      },
-      "windows": {
-        "program": "\${workspaceFolder}/node_modules/jest/bin/jest"
-      },
-
-      // ! Note that these settings do NOT affect MANUALLY LAUNCHED debug
-      // ! terminals! To affect stepping while using the debug terminal
-      // ! manually, you'll need to configure settings.json (non-workspace) or
-      // ! *.code-workspace (workspace) and set
-      // ! \`debug.javascript.terminalOptions.skipFiles/smartStep\` appropriately.
-      // * You MAY need to reload vscode/vscode-jest before changes take effect!
-      // ? Set to false to step through node internals
-      "smartStep": true,
-      // ? Selectively comment out entries for deeper debugging
-      "skipFiles": [
-        "<node_internals>/**",
-        "**/node_modules/**"
-
-        //"!**/node_modules/*jest*/**"
-        //"!**/node_modules/@-xun/**"
-      ]
-    },
-    {
-      "type": "node",
-      "name": "jest-transpiled",
-      "request": "launch",
-      "program": "\${workspaceFolder}/node_modules/.bin/jest",
-      "args": ["--runInBand", "--watchAll=false", "\${file}"],
-      "cwd": "\${workspaceFolder}",
-      "console": "integratedTerminal",
-      "internalConsoleOptions": "neverOpen",
-      "sourceMaps": false,
-      "env": {
-        "NODE_ENV": "test",
-        "NODE_OPTIONS": "--no-warnings --experimental-vm-modules",
-        "DEBUG_COLORS": "false",
-        "SYMBIOTE_TEST_JEST_TRANSPILED": "true"
       },
       "windows": {
         "program": "\${workspaceFolder}/node_modules/jest/bin/jest"
@@ -22829,12 +22037,6 @@ function getBabelAliases() {
     "^multiverse\\\\+unnamed\\\\x2dcjs$": "./packages/unnamed-cjs/src/index.js",
     "^multiverse\\\\+unnamed\\\\x2desm$": "./packages/unnamed-esm/src/index.js",
     "^multiverse\\\\+webpack$": "./packages/webpack/src/index.js",
-    "^rootverse\\\\+cli:(.+)$": "./packages/cli/$1",
-    "^rootverse\\\\+private:(.+)$": "./packages/private/$1",
-    "^rootverse\\\\+unnamed\\\\x2dcjs:(.+)$": "./packages/unnamed-cjs/$1",
-    "^rootverse\\\\+unnamed\\\\x2desm:(.+)$": "./packages/unnamed-esm/$1",
-    "^rootverse\\\\+webpack:(.+)$": "./packages/webpack/$1",
-    "^rootverse:(.+)$": "./$1",
     "^universe\\\\+cli:(.+)$": "./packages/cli/src/$1",
     "^universe\\\\+private:(.+)$": "./packages/private/src/$1",
     "^universe\\\\+unnamed\\\\x2dcjs:(.+)$": "./packages/unnamed-cjs/src/$1",
@@ -22853,7 +22055,13 @@ function getBabelAliases() {
     "^testverse\\\\+unnamed\\\\x2desm:(.+)$": "./packages/unnamed-esm/test/$1",
     "^testverse\\\\+webpack:(.+)$": "./packages/webpack/test/$1",
     "^testverse:(.+)$": "./test/$1",
-    "^typeverse:(.+)$": "./types/$1"
+    "^typeverse:(.+)$": "./types/$1",
+    "^rootverse\\\\+cli:(.+)$": "./packages/cli/$1",
+    "^rootverse\\\\+private:(.+)$": "./packages/private/$1",
+    "^rootverse\\\\+unnamed\\\\x2dcjs:(.+)$": "./packages/unnamed-cjs/$1",
+    "^rootverse\\\\+unnamed\\\\x2desm:(.+)$": "./packages/unnamed-esm/$1",
+    "^rootverse\\\\+webpack:(.+)$": "./packages/webpack/$1",
+    "^rootverse:(.+)$": "./$1"
   }
 
 }
@@ -22905,12 +22113,6 @@ function getBabelAliases() {
     "^multiverse\\\\+unnamed\\\\x2dcjs$": "./packages/unnamed-cjs/src/index.js",
     "^multiverse\\\\+unnamed\\\\x2desm$": "./packages/unnamed-esm/src/index.js",
     "^multiverse\\\\+webpack$": "./packages/webpack/src/index.js",
-    "^rootverse\\\\+cli:(.+)$": "./packages/cli/$1",
-    "^rootverse\\\\+private:(.+)$": "./packages/private/$1",
-    "^rootverse\\\\+unnamed\\\\x2dcjs:(.+)$": "./packages/unnamed-cjs/$1",
-    "^rootverse\\\\+unnamed\\\\x2desm:(.+)$": "./packages/unnamed-esm/$1",
-    "^rootverse\\\\+webpack:(.+)$": "./packages/webpack/$1",
-    "^rootverse:(.+)$": "./$1",
     "^universe\\\\+cli:(.+)$": "./packages/cli/src/$1",
     "^universe\\\\+private:(.+)$": "./packages/private/src/$1",
     "^universe\\\\+unnamed\\\\x2dcjs:(.+)$": "./packages/unnamed-cjs/src/$1",
@@ -22929,7 +22131,13 @@ function getBabelAliases() {
     "^testverse\\\\+unnamed\\\\x2desm:(.+)$": "./packages/unnamed-esm/test/$1",
     "^testverse\\\\+webpack:(.+)$": "./packages/webpack/test/$1",
     "^testverse:(.+)$": "./test/$1",
-    "^typeverse:(.+)$": "./types/$1"
+    "^typeverse:(.+)$": "./types/$1",
+    "^rootverse\\\\+cli:(.+)$": "./packages/cli/$1",
+    "^rootverse\\\\+private:(.+)$": "./packages/private/$1",
+    "^rootverse\\\\+unnamed\\\\x2dcjs:(.+)$": "./packages/unnamed-cjs/$1",
+    "^rootverse\\\\+unnamed\\\\x2desm:(.+)$": "./packages/unnamed-esm/$1",
+    "^rootverse\\\\+webpack:(.+)$": "./packages/webpack/$1",
+    "^rootverse:(.+)$": "./$1"
   }
 
 }
@@ -22981,12 +22189,6 @@ function getBabelAliases() {
     "^multiverse\\\\+unnamed\\\\x2dcjs$": "./packages/unnamed-cjs/src/index.js",
     "^multiverse\\\\+unnamed\\\\x2desm$": "./packages/unnamed-esm/src/index.js",
     "^multiverse\\\\+webpack$": "./packages/webpack/src/index.js",
-    "^rootverse\\\\+cli:(.+)$": "./packages/cli/$1",
-    "^rootverse\\\\+private:(.+)$": "./packages/private/$1",
-    "^rootverse\\\\+unnamed\\\\x2dcjs:(.+)$": "./packages/unnamed-cjs/$1",
-    "^rootverse\\\\+unnamed\\\\x2desm:(.+)$": "./packages/unnamed-esm/$1",
-    "^rootverse\\\\+webpack:(.+)$": "./packages/webpack/$1",
-    "^rootverse:(.+)$": "./$1",
     "^universe\\\\+cli:(.+)$": "./packages/cli/src/$1",
     "^universe\\\\+private:(.+)$": "./packages/private/src/$1",
     "^universe\\\\+unnamed\\\\x2dcjs:(.+)$": "./packages/unnamed-cjs/src/$1",
@@ -23005,7 +22207,13 @@ function getBabelAliases() {
     "^testverse\\\\+unnamed\\\\x2desm:(.+)$": "./packages/unnamed-esm/test/$1",
     "^testverse\\\\+webpack:(.+)$": "./packages/webpack/test/$1",
     "^testverse:(.+)$": "./test/$1",
-    "^typeverse:(.+)$": "./types/$1"
+    "^typeverse:(.+)$": "./types/$1",
+    "^rootverse\\\\+cli:(.+)$": "./packages/cli/$1",
+    "^rootverse\\\\+private:(.+)$": "./packages/private/$1",
+    "^rootverse\\\\+unnamed\\\\x2dcjs:(.+)$": "./packages/unnamed-cjs/$1",
+    "^rootverse\\\\+unnamed\\\\x2desm:(.+)$": "./packages/unnamed-esm/$1",
+    "^rootverse\\\\+webpack:(.+)$": "./packages/webpack/$1",
+    "^rootverse:(.+)$": "./$1"
   }
 
 }
@@ -23057,12 +22265,6 @@ function getBabelAliases() {
     "^multiverse\\\\+pkg\\\\x2dimport$": "./packages/pkg-import/src/index.js",
     "^multiverse\\\\+unnamed\\\\x2dpkg\\\\x2d1$": "./packages/unnamed-pkg-1/src/index.js",
     "^multiverse\\\\+unnamed\\\\x2dpkg\\\\x2d2$": "./packages/unnamed-pkg-2/src/index.js",
-    "^rootverse\\\\+pkg\\\\x2d1:(.+)$": "./packages/pkg-1/$1",
-    "^rootverse\\\\+pkg\\\\x2d2:(.+)$": "./packages/pkg-2/$1",
-    "^rootverse\\\\+pkg\\\\x2dimport:(.+)$": "./packages/pkg-import/$1",
-    "^rootverse\\\\+unnamed\\\\x2dpkg\\\\x2d1:(.+)$": "./packages/unnamed-pkg-1/$1",
-    "^rootverse\\\\+unnamed\\\\x2dpkg\\\\x2d2:(.+)$": "./packages/unnamed-pkg-2/$1",
-    "^rootverse:(.+)$": "./$1",
     "^universe\\\\+pkg\\\\x2d1:(.+)$": "./packages/pkg-1/src/$1",
     "^universe\\\\+pkg\\\\x2d2:(.+)$": "./packages/pkg-2/src/$1",
     "^universe\\\\+pkg\\\\x2dimport:(.+)$": "./packages/pkg-import/src/$1",
@@ -23081,7 +22283,13 @@ function getBabelAliases() {
     "^testverse\\\\+unnamed\\\\x2dpkg\\\\x2d1:(.+)$": "./packages/unnamed-pkg-1/test/$1",
     "^testverse\\\\+unnamed\\\\x2dpkg\\\\x2d2:(.+)$": "./packages/unnamed-pkg-2/test/$1",
     "^testverse:(.+)$": "./test/$1",
-    "^typeverse:(.+)$": "./types/$1"
+    "^typeverse:(.+)$": "./types/$1",
+    "^rootverse\\\\+pkg\\\\x2d1:(.+)$": "./packages/pkg-1/$1",
+    "^rootverse\\\\+pkg\\\\x2d2:(.+)$": "./packages/pkg-2/$1",
+    "^rootverse\\\\+pkg\\\\x2dimport:(.+)$": "./packages/pkg-import/$1",
+    "^rootverse\\\\+unnamed\\\\x2dpkg\\\\x2d1:(.+)$": "./packages/unnamed-pkg-1/$1",
+    "^rootverse\\\\+unnamed\\\\x2dpkg\\\\x2d2:(.+)$": "./packages/unnamed-pkg-2/$1",
+    "^rootverse:(.+)$": "./$1"
   }
 
 }
@@ -23133,12 +22341,6 @@ function getBabelAliases() {
     "^multiverse\\\\+pkg\\\\x2dimport$": "./packages/pkg-import/src/index.js",
     "^multiverse\\\\+unnamed\\\\x2dpkg\\\\x2d1$": "./packages/unnamed-pkg-1/src/index.js",
     "^multiverse\\\\+unnamed\\\\x2dpkg\\\\x2d2$": "./packages/unnamed-pkg-2/src/index.js",
-    "^rootverse\\\\+pkg\\\\x2d1:(.+)$": "./packages/pkg-1/$1",
-    "^rootverse\\\\+pkg\\\\x2d2:(.+)$": "./packages/pkg-2/$1",
-    "^rootverse\\\\+pkg\\\\x2dimport:(.+)$": "./packages/pkg-import/$1",
-    "^rootverse\\\\+unnamed\\\\x2dpkg\\\\x2d1:(.+)$": "./packages/unnamed-pkg-1/$1",
-    "^rootverse\\\\+unnamed\\\\x2dpkg\\\\x2d2:(.+)$": "./packages/unnamed-pkg-2/$1",
-    "^rootverse:(.+)$": "./$1",
     "^universe\\\\+pkg\\\\x2d1:(.+)$": "./packages/pkg-1/src/$1",
     "^universe\\\\+pkg\\\\x2d2:(.+)$": "./packages/pkg-2/src/$1",
     "^universe\\\\+pkg\\\\x2dimport:(.+)$": "./packages/pkg-import/src/$1",
@@ -23157,7 +22359,13 @@ function getBabelAliases() {
     "^testverse\\\\+unnamed\\\\x2dpkg\\\\x2d1:(.+)$": "./packages/unnamed-pkg-1/test/$1",
     "^testverse\\\\+unnamed\\\\x2dpkg\\\\x2d2:(.+)$": "./packages/unnamed-pkg-2/test/$1",
     "^testverse:(.+)$": "./test/$1",
-    "^typeverse:(.+)$": "./types/$1"
+    "^typeverse:(.+)$": "./types/$1",
+    "^rootverse\\\\+pkg\\\\x2d1:(.+)$": "./packages/pkg-1/$1",
+    "^rootverse\\\\+pkg\\\\x2d2:(.+)$": "./packages/pkg-2/$1",
+    "^rootverse\\\\+pkg\\\\x2dimport:(.+)$": "./packages/pkg-import/$1",
+    "^rootverse\\\\+unnamed\\\\x2dpkg\\\\x2d1:(.+)$": "./packages/unnamed-pkg-1/$1",
+    "^rootverse\\\\+unnamed\\\\x2dpkg\\\\x2d2:(.+)$": "./packages/unnamed-pkg-2/$1",
+    "^rootverse:(.+)$": "./$1"
   }
 
 }
@@ -23199,11 +22407,11 @@ function getBabelAliases() {
   // ! directly, consider regenerating aliases across the entire project with:
   // ! \`npx symbiote project renovate --regenerate-assets --assets-preset ...\`
   return {
-    "^rootverse:(.+)$": "./$1",
     "^universe:(.+)$": "./src/$1",
     "^universe$": "./src/index.js",
     "^testverse:(.+)$": "./test/$1",
-    "^typeverse:(.+)$": "./types/$1"
+    "^typeverse:(.+)$": "./types/$1",
+    "^rootverse:(.+)$": "./$1"
   }
 
 }
@@ -23245,11 +22453,11 @@ function getBabelAliases() {
   // ! directly, consider regenerating aliases across the entire project with:
   // ! \`npx symbiote project renovate --regenerate-assets --assets-preset ...\`
   return {
-    "^rootverse:(.+)$": "./$1",
     "^universe:(.+)$": "./src/$1",
     "^universe$": "./src/index.js",
     "^testverse:(.+)$": "./test/$1",
-    "^typeverse:(.+)$": "./types/$1"
+    "^typeverse:(.+)$": "./types/$1",
+    "^rootverse:(.+)$": "./$1"
   }
 
 }
@@ -23291,11 +22499,11 @@ function getBabelAliases() {
   // ! directly, consider regenerating aliases across the entire project with:
   // ! \`npx symbiote project renovate --regenerate-assets --assets-preset ...\`
   return {
-    "^rootverse:(.+)$": "./$1",
     "^universe:(.+)$": "./src/$1",
     "^universe$": "./src/index.js",
     "^testverse:(.+)$": "./test/$1",
-    "^typeverse:(.+)$": "./types/$1"
+    "^typeverse:(.+)$": "./types/$1",
+    "^rootverse:(.+)$": "./$1"
   }
 
 }
@@ -24639,6 +23847,8 @@ export default config;
 debug('exported config: %O', config);
 
 function getJestAliases() {
+  const extension = process.env.SYMBIOTE_TEST_JEST_TRANSPILED ? 'js' : 'ts';
+
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
   // ! directly, consider regenerating aliases across the entire project with:
   // ! \`npx symbiote project renovate --regenerate-assets --assets-preset ...\`
@@ -24648,36 +23858,36 @@ function getJestAliases() {
     "^multiverse\\\\+unnamed\\\\x2dcjs:(.+)$": "<rootDir>/packages/unnamed-cjs/src/$1",
     "^multiverse\\\\+unnamed\\\\x2desm:(.+)$": "<rootDir>/packages/unnamed-esm/src/$1",
     "^multiverse\\\\+webpack:(.+)$": "<rootDir>/packages/webpack/src/$1",
-    "^multiverse\\\\+cli$": "<rootDir>/packages/cli/src/index.ts",
-    "^multiverse\\\\+private$": "<rootDir>/packages/private/src/index.ts",
-    "^multiverse\\\\+unnamed\\\\x2dcjs$": "<rootDir>/packages/unnamed-cjs/src/index.ts",
-    "^multiverse\\\\+unnamed\\\\x2desm$": "<rootDir>/packages/unnamed-esm/src/index.ts",
-    "^multiverse\\\\+webpack$": "<rootDir>/packages/webpack/src/index.ts",
-    "^rootverse\\\\+cli:(.+)$": "<rootDir>/packages/cli/$1",
-    "^rootverse\\\\+private:(.+)$": "<rootDir>/packages/private/$1",
-    "^rootverse\\\\+unnamed\\\\x2dcjs:(.+)$": "<rootDir>/packages/unnamed-cjs/$1",
-    "^rootverse\\\\+unnamed\\\\x2desm:(.+)$": "<rootDir>/packages/unnamed-esm/$1",
-    "^rootverse\\\\+webpack:(.+)$": "<rootDir>/packages/webpack/$1",
-    "^rootverse:(.+)$": "<rootDir>/$1",
+    "^multiverse\\\\+cli$": \`<rootDir>/packages/cli/src/index.\${extension}\`,
+    "^multiverse\\\\+private$": \`<rootDir>/packages/private/src/index.\${extension}\`,
+    "^multiverse\\\\+unnamed\\\\x2dcjs$": \`<rootDir>/packages/unnamed-cjs/src/index.\${extension}\`,
+    "^multiverse\\\\+unnamed\\\\x2desm$": \`<rootDir>/packages/unnamed-esm/src/index.\${extension}\`,
+    "^multiverse\\\\+webpack$": \`<rootDir>/packages/webpack/src/index.\${extension}\`,
     "^universe\\\\+cli:(.+)$": "<rootDir>/packages/cli/src/$1",
     "^universe\\\\+private:(.+)$": "<rootDir>/packages/private/src/$1",
     "^universe\\\\+unnamed\\\\x2dcjs:(.+)$": "<rootDir>/packages/unnamed-cjs/src/$1",
     "^universe\\\\+unnamed\\\\x2desm:(.+)$": "<rootDir>/packages/unnamed-esm/src/$1",
     "^universe\\\\+webpack:(.+)$": "<rootDir>/packages/webpack/src/$1",
-    "^universe\\\\+cli$": "<rootDir>/packages/cli/src/index.ts",
-    "^universe\\\\+private$": "<rootDir>/packages/private/src/index.ts",
-    "^universe\\\\+unnamed\\\\x2dcjs$": "<rootDir>/packages/unnamed-cjs/src/index.ts",
-    "^universe\\\\+unnamed\\\\x2desm$": "<rootDir>/packages/unnamed-esm/src/index.ts",
-    "^universe\\\\+webpack$": "<rootDir>/packages/webpack/src/index.ts",
+    "^universe\\\\+cli$": \`<rootDir>/packages/cli/src/index.\${extension}\`,
+    "^universe\\\\+private$": \`<rootDir>/packages/private/src/index.\${extension}\`,
+    "^universe\\\\+unnamed\\\\x2dcjs$": \`<rootDir>/packages/unnamed-cjs/src/index.\${extension}\`,
+    "^universe\\\\+unnamed\\\\x2desm$": \`<rootDir>/packages/unnamed-esm/src/index.\${extension}\`,
+    "^universe\\\\+webpack$": \`<rootDir>/packages/webpack/src/index.\${extension}\`,
     "^universe:(.+)$": "<rootDir>/src/$1",
-    "^universe$": "<rootDir>/src/index.ts",
+    "^universe$": \`<rootDir>/src/index.\${extension}\`,
     "^testverse\\\\+cli:(.+)$": "<rootDir>/packages/cli/test/$1",
     "^testverse\\\\+private:(.+)$": "<rootDir>/packages/private/test/$1",
     "^testverse\\\\+unnamed\\\\x2dcjs:(.+)$": "<rootDir>/packages/unnamed-cjs/test/$1",
     "^testverse\\\\+unnamed\\\\x2desm:(.+)$": "<rootDir>/packages/unnamed-esm/test/$1",
     "^testverse\\\\+webpack:(.+)$": "<rootDir>/packages/webpack/test/$1",
     "^testverse:(.+)$": "<rootDir>/test/$1",
-    "^typeverse:(.+)$": "<rootDir>/types/$1"
+    "^typeverse:(.+)$": "<rootDir>/types/$1",
+    "^rootverse\\\\+cli:(.+)$": "<rootDir>/packages/cli/$1",
+    "^rootverse\\\\+private:(.+)$": "<rootDir>/packages/private/$1",
+    "^rootverse\\\\+unnamed\\\\x2dcjs:(.+)$": "<rootDir>/packages/unnamed-cjs/$1",
+    "^rootverse\\\\+unnamed\\\\x2desm:(.+)$": "<rootDir>/packages/unnamed-esm/$1",
+    "^rootverse\\\\+webpack:(.+)$": "<rootDir>/packages/webpack/$1",
+    "^rootverse:(.+)$": "<rootDir>/$1"
   }
 
 }
@@ -24709,6 +23919,8 @@ export default config;
 debug('exported config: %O', config);
 
 function getJestAliases() {
+  const extension = process.env.SYMBIOTE_TEST_JEST_TRANSPILED ? 'js' : 'ts';
+
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
   // ! directly, consider regenerating aliases across the entire project with:
   // ! \`npx symbiote project renovate --regenerate-assets --assets-preset ...\`
@@ -24718,36 +23930,36 @@ function getJestAliases() {
     "^multiverse\\\\+unnamed\\\\x2dcjs:(.+)$": "<rootDir>/packages/unnamed-cjs/src/$1",
     "^multiverse\\\\+unnamed\\\\x2desm:(.+)$": "<rootDir>/packages/unnamed-esm/src/$1",
     "^multiverse\\\\+webpack:(.+)$": "<rootDir>/packages/webpack/src/$1",
-    "^multiverse\\\\+cli$": "<rootDir>/packages/cli/src/index.ts",
-    "^multiverse\\\\+private$": "<rootDir>/packages/private/src/index.ts",
-    "^multiverse\\\\+unnamed\\\\x2dcjs$": "<rootDir>/packages/unnamed-cjs/src/index.ts",
-    "^multiverse\\\\+unnamed\\\\x2desm$": "<rootDir>/packages/unnamed-esm/src/index.ts",
-    "^multiverse\\\\+webpack$": "<rootDir>/packages/webpack/src/index.ts",
-    "^rootverse\\\\+cli:(.+)$": "<rootDir>/packages/cli/$1",
-    "^rootverse\\\\+private:(.+)$": "<rootDir>/packages/private/$1",
-    "^rootverse\\\\+unnamed\\\\x2dcjs:(.+)$": "<rootDir>/packages/unnamed-cjs/$1",
-    "^rootverse\\\\+unnamed\\\\x2desm:(.+)$": "<rootDir>/packages/unnamed-esm/$1",
-    "^rootverse\\\\+webpack:(.+)$": "<rootDir>/packages/webpack/$1",
-    "^rootverse:(.+)$": "<rootDir>/$1",
+    "^multiverse\\\\+cli$": \`<rootDir>/packages/cli/src/index.\${extension}\`,
+    "^multiverse\\\\+private$": \`<rootDir>/packages/private/src/index.\${extension}\`,
+    "^multiverse\\\\+unnamed\\\\x2dcjs$": \`<rootDir>/packages/unnamed-cjs/src/index.\${extension}\`,
+    "^multiverse\\\\+unnamed\\\\x2desm$": \`<rootDir>/packages/unnamed-esm/src/index.\${extension}\`,
+    "^multiverse\\\\+webpack$": \`<rootDir>/packages/webpack/src/index.\${extension}\`,
     "^universe\\\\+cli:(.+)$": "<rootDir>/packages/cli/src/$1",
     "^universe\\\\+private:(.+)$": "<rootDir>/packages/private/src/$1",
     "^universe\\\\+unnamed\\\\x2dcjs:(.+)$": "<rootDir>/packages/unnamed-cjs/src/$1",
     "^universe\\\\+unnamed\\\\x2desm:(.+)$": "<rootDir>/packages/unnamed-esm/src/$1",
     "^universe\\\\+webpack:(.+)$": "<rootDir>/packages/webpack/src/$1",
-    "^universe\\\\+cli$": "<rootDir>/packages/cli/src/index.ts",
-    "^universe\\\\+private$": "<rootDir>/packages/private/src/index.ts",
-    "^universe\\\\+unnamed\\\\x2dcjs$": "<rootDir>/packages/unnamed-cjs/src/index.ts",
-    "^universe\\\\+unnamed\\\\x2desm$": "<rootDir>/packages/unnamed-esm/src/index.ts",
-    "^universe\\\\+webpack$": "<rootDir>/packages/webpack/src/index.ts",
+    "^universe\\\\+cli$": \`<rootDir>/packages/cli/src/index.\${extension}\`,
+    "^universe\\\\+private$": \`<rootDir>/packages/private/src/index.\${extension}\`,
+    "^universe\\\\+unnamed\\\\x2dcjs$": \`<rootDir>/packages/unnamed-cjs/src/index.\${extension}\`,
+    "^universe\\\\+unnamed\\\\x2desm$": \`<rootDir>/packages/unnamed-esm/src/index.\${extension}\`,
+    "^universe\\\\+webpack$": \`<rootDir>/packages/webpack/src/index.\${extension}\`,
     "^universe:(.+)$": "<rootDir>/src/$1",
-    "^universe$": "<rootDir>/src/index.ts",
+    "^universe$": \`<rootDir>/src/index.\${extension}\`,
     "^testverse\\\\+cli:(.+)$": "<rootDir>/packages/cli/test/$1",
     "^testverse\\\\+private:(.+)$": "<rootDir>/packages/private/test/$1",
     "^testverse\\\\+unnamed\\\\x2dcjs:(.+)$": "<rootDir>/packages/unnamed-cjs/test/$1",
     "^testverse\\\\+unnamed\\\\x2desm:(.+)$": "<rootDir>/packages/unnamed-esm/test/$1",
     "^testverse\\\\+webpack:(.+)$": "<rootDir>/packages/webpack/test/$1",
     "^testverse:(.+)$": "<rootDir>/test/$1",
-    "^typeverse:(.+)$": "<rootDir>/types/$1"
+    "^typeverse:(.+)$": "<rootDir>/types/$1",
+    "^rootverse\\\\+cli:(.+)$": "<rootDir>/packages/cli/$1",
+    "^rootverse\\\\+private:(.+)$": "<rootDir>/packages/private/$1",
+    "^rootverse\\\\+unnamed\\\\x2dcjs:(.+)$": "<rootDir>/packages/unnamed-cjs/$1",
+    "^rootverse\\\\+unnamed\\\\x2desm:(.+)$": "<rootDir>/packages/unnamed-esm/$1",
+    "^rootverse\\\\+webpack:(.+)$": "<rootDir>/packages/webpack/$1",
+    "^rootverse:(.+)$": "<rootDir>/$1"
   }
 
 }
@@ -24779,6 +23991,8 @@ export default config;
 debug('exported config: %O', config);
 
 function getJestAliases() {
+  const extension = process.env.SYMBIOTE_TEST_JEST_TRANSPILED ? 'js' : 'ts';
+
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
   // ! directly, consider regenerating aliases across the entire project with:
   // ! \`npx symbiote project renovate --regenerate-assets --assets-preset ...\`
@@ -24788,36 +24002,36 @@ function getJestAliases() {
     "^multiverse\\\\+unnamed\\\\x2dcjs:(.+)$": "<rootDir>/packages/unnamed-cjs/src/$1",
     "^multiverse\\\\+unnamed\\\\x2desm:(.+)$": "<rootDir>/packages/unnamed-esm/src/$1",
     "^multiverse\\\\+webpack:(.+)$": "<rootDir>/packages/webpack/src/$1",
-    "^multiverse\\\\+cli$": "<rootDir>/packages/cli/src/index.ts",
-    "^multiverse\\\\+private$": "<rootDir>/packages/private/src/index.ts",
-    "^multiverse\\\\+unnamed\\\\x2dcjs$": "<rootDir>/packages/unnamed-cjs/src/index.ts",
-    "^multiverse\\\\+unnamed\\\\x2desm$": "<rootDir>/packages/unnamed-esm/src/index.ts",
-    "^multiverse\\\\+webpack$": "<rootDir>/packages/webpack/src/index.ts",
-    "^rootverse\\\\+cli:(.+)$": "<rootDir>/packages/cli/$1",
-    "^rootverse\\\\+private:(.+)$": "<rootDir>/packages/private/$1",
-    "^rootverse\\\\+unnamed\\\\x2dcjs:(.+)$": "<rootDir>/packages/unnamed-cjs/$1",
-    "^rootverse\\\\+unnamed\\\\x2desm:(.+)$": "<rootDir>/packages/unnamed-esm/$1",
-    "^rootverse\\\\+webpack:(.+)$": "<rootDir>/packages/webpack/$1",
-    "^rootverse:(.+)$": "<rootDir>/$1",
+    "^multiverse\\\\+cli$": \`<rootDir>/packages/cli/src/index.\${extension}\`,
+    "^multiverse\\\\+private$": \`<rootDir>/packages/private/src/index.\${extension}\`,
+    "^multiverse\\\\+unnamed\\\\x2dcjs$": \`<rootDir>/packages/unnamed-cjs/src/index.\${extension}\`,
+    "^multiverse\\\\+unnamed\\\\x2desm$": \`<rootDir>/packages/unnamed-esm/src/index.\${extension}\`,
+    "^multiverse\\\\+webpack$": \`<rootDir>/packages/webpack/src/index.\${extension}\`,
     "^universe\\\\+cli:(.+)$": "<rootDir>/packages/cli/src/$1",
     "^universe\\\\+private:(.+)$": "<rootDir>/packages/private/src/$1",
     "^universe\\\\+unnamed\\\\x2dcjs:(.+)$": "<rootDir>/packages/unnamed-cjs/src/$1",
     "^universe\\\\+unnamed\\\\x2desm:(.+)$": "<rootDir>/packages/unnamed-esm/src/$1",
     "^universe\\\\+webpack:(.+)$": "<rootDir>/packages/webpack/src/$1",
-    "^universe\\\\+cli$": "<rootDir>/packages/cli/src/index.ts",
-    "^universe\\\\+private$": "<rootDir>/packages/private/src/index.ts",
-    "^universe\\\\+unnamed\\\\x2dcjs$": "<rootDir>/packages/unnamed-cjs/src/index.ts",
-    "^universe\\\\+unnamed\\\\x2desm$": "<rootDir>/packages/unnamed-esm/src/index.ts",
-    "^universe\\\\+webpack$": "<rootDir>/packages/webpack/src/index.ts",
+    "^universe\\\\+cli$": \`<rootDir>/packages/cli/src/index.\${extension}\`,
+    "^universe\\\\+private$": \`<rootDir>/packages/private/src/index.\${extension}\`,
+    "^universe\\\\+unnamed\\\\x2dcjs$": \`<rootDir>/packages/unnamed-cjs/src/index.\${extension}\`,
+    "^universe\\\\+unnamed\\\\x2desm$": \`<rootDir>/packages/unnamed-esm/src/index.\${extension}\`,
+    "^universe\\\\+webpack$": \`<rootDir>/packages/webpack/src/index.\${extension}\`,
     "^universe:(.+)$": "<rootDir>/src/$1",
-    "^universe$": "<rootDir>/src/index.ts",
+    "^universe$": \`<rootDir>/src/index.\${extension}\`,
     "^testverse\\\\+cli:(.+)$": "<rootDir>/packages/cli/test/$1",
     "^testverse\\\\+private:(.+)$": "<rootDir>/packages/private/test/$1",
     "^testverse\\\\+unnamed\\\\x2dcjs:(.+)$": "<rootDir>/packages/unnamed-cjs/test/$1",
     "^testverse\\\\+unnamed\\\\x2desm:(.+)$": "<rootDir>/packages/unnamed-esm/test/$1",
     "^testverse\\\\+webpack:(.+)$": "<rootDir>/packages/webpack/test/$1",
     "^testverse:(.+)$": "<rootDir>/test/$1",
-    "^typeverse:(.+)$": "<rootDir>/types/$1"
+    "^typeverse:(.+)$": "<rootDir>/types/$1",
+    "^rootverse\\\\+cli:(.+)$": "<rootDir>/packages/cli/$1",
+    "^rootverse\\\\+private:(.+)$": "<rootDir>/packages/private/$1",
+    "^rootverse\\\\+unnamed\\\\x2dcjs:(.+)$": "<rootDir>/packages/unnamed-cjs/$1",
+    "^rootverse\\\\+unnamed\\\\x2desm:(.+)$": "<rootDir>/packages/unnamed-esm/$1",
+    "^rootverse\\\\+webpack:(.+)$": "<rootDir>/packages/webpack/$1",
+    "^rootverse:(.+)$": "<rootDir>/$1"
   }
 
 }
@@ -24849,6 +24063,8 @@ export default config;
 debug('exported config: %O', config);
 
 function getJestAliases() {
+  const extension = process.env.SYMBIOTE_TEST_JEST_TRANSPILED ? 'js' : 'ts';
+
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
   // ! directly, consider regenerating aliases across the entire project with:
   // ! \`npx symbiote project renovate --regenerate-assets --assets-preset ...\`
@@ -24858,36 +24074,36 @@ function getJestAliases() {
     "^multiverse\\\\+pkg\\\\x2dimport:(.+)$": "<rootDir>/packages/pkg-import/src/$1",
     "^multiverse\\\\+unnamed\\\\x2dpkg\\\\x2d1:(.+)$": "<rootDir>/packages/unnamed-pkg-1/src/$1",
     "^multiverse\\\\+unnamed\\\\x2dpkg\\\\x2d2:(.+)$": "<rootDir>/packages/unnamed-pkg-2/src/$1",
-    "^multiverse\\\\+pkg\\\\x2d1$": "<rootDir>/packages/pkg-1/src/index.ts",
-    "^multiverse\\\\+pkg\\\\x2d2$": "<rootDir>/packages/pkg-2/src/index.ts",
-    "^multiverse\\\\+pkg\\\\x2dimport$": "<rootDir>/packages/pkg-import/src/index.ts",
-    "^multiverse\\\\+unnamed\\\\x2dpkg\\\\x2d1$": "<rootDir>/packages/unnamed-pkg-1/src/index.ts",
-    "^multiverse\\\\+unnamed\\\\x2dpkg\\\\x2d2$": "<rootDir>/packages/unnamed-pkg-2/src/index.ts",
-    "^rootverse\\\\+pkg\\\\x2d1:(.+)$": "<rootDir>/packages/pkg-1/$1",
-    "^rootverse\\\\+pkg\\\\x2d2:(.+)$": "<rootDir>/packages/pkg-2/$1",
-    "^rootverse\\\\+pkg\\\\x2dimport:(.+)$": "<rootDir>/packages/pkg-import/$1",
-    "^rootverse\\\\+unnamed\\\\x2dpkg\\\\x2d1:(.+)$": "<rootDir>/packages/unnamed-pkg-1/$1",
-    "^rootverse\\\\+unnamed\\\\x2dpkg\\\\x2d2:(.+)$": "<rootDir>/packages/unnamed-pkg-2/$1",
-    "^rootverse:(.+)$": "<rootDir>/$1",
+    "^multiverse\\\\+pkg\\\\x2d1$": \`<rootDir>/packages/pkg-1/src/index.\${extension}\`,
+    "^multiverse\\\\+pkg\\\\x2d2$": \`<rootDir>/packages/pkg-2/src/index.\${extension}\`,
+    "^multiverse\\\\+pkg\\\\x2dimport$": \`<rootDir>/packages/pkg-import/src/index.\${extension}\`,
+    "^multiverse\\\\+unnamed\\\\x2dpkg\\\\x2d1$": \`<rootDir>/packages/unnamed-pkg-1/src/index.\${extension}\`,
+    "^multiverse\\\\+unnamed\\\\x2dpkg\\\\x2d2$": \`<rootDir>/packages/unnamed-pkg-2/src/index.\${extension}\`,
     "^universe\\\\+pkg\\\\x2d1:(.+)$": "<rootDir>/packages/pkg-1/src/$1",
     "^universe\\\\+pkg\\\\x2d2:(.+)$": "<rootDir>/packages/pkg-2/src/$1",
     "^universe\\\\+pkg\\\\x2dimport:(.+)$": "<rootDir>/packages/pkg-import/src/$1",
     "^universe\\\\+unnamed\\\\x2dpkg\\\\x2d1:(.+)$": "<rootDir>/packages/unnamed-pkg-1/src/$1",
     "^universe\\\\+unnamed\\\\x2dpkg\\\\x2d2:(.+)$": "<rootDir>/packages/unnamed-pkg-2/src/$1",
-    "^universe\\\\+pkg\\\\x2d1$": "<rootDir>/packages/pkg-1/src/index.ts",
-    "^universe\\\\+pkg\\\\x2d2$": "<rootDir>/packages/pkg-2/src/index.ts",
-    "^universe\\\\+pkg\\\\x2dimport$": "<rootDir>/packages/pkg-import/src/index.ts",
-    "^universe\\\\+unnamed\\\\x2dpkg\\\\x2d1$": "<rootDir>/packages/unnamed-pkg-1/src/index.ts",
-    "^universe\\\\+unnamed\\\\x2dpkg\\\\x2d2$": "<rootDir>/packages/unnamed-pkg-2/src/index.ts",
+    "^universe\\\\+pkg\\\\x2d1$": \`<rootDir>/packages/pkg-1/src/index.\${extension}\`,
+    "^universe\\\\+pkg\\\\x2d2$": \`<rootDir>/packages/pkg-2/src/index.\${extension}\`,
+    "^universe\\\\+pkg\\\\x2dimport$": \`<rootDir>/packages/pkg-import/src/index.\${extension}\`,
+    "^universe\\\\+unnamed\\\\x2dpkg\\\\x2d1$": \`<rootDir>/packages/unnamed-pkg-1/src/index.\${extension}\`,
+    "^universe\\\\+unnamed\\\\x2dpkg\\\\x2d2$": \`<rootDir>/packages/unnamed-pkg-2/src/index.\${extension}\`,
     "^universe:(.+)$": "<rootDir>/src/$1",
-    "^universe$": "<rootDir>/src/index.ts",
+    "^universe$": \`<rootDir>/src/index.\${extension}\`,
     "^testverse\\\\+pkg\\\\x2d1:(.+)$": "<rootDir>/packages/pkg-1/test/$1",
     "^testverse\\\\+pkg\\\\x2d2:(.+)$": "<rootDir>/packages/pkg-2/test/$1",
     "^testverse\\\\+pkg\\\\x2dimport:(.+)$": "<rootDir>/packages/pkg-import/test/$1",
     "^testverse\\\\+unnamed\\\\x2dpkg\\\\x2d1:(.+)$": "<rootDir>/packages/unnamed-pkg-1/test/$1",
     "^testverse\\\\+unnamed\\\\x2dpkg\\\\x2d2:(.+)$": "<rootDir>/packages/unnamed-pkg-2/test/$1",
     "^testverse:(.+)$": "<rootDir>/test/$1",
-    "^typeverse:(.+)$": "<rootDir>/types/$1"
+    "^typeverse:(.+)$": "<rootDir>/types/$1",
+    "^rootverse\\\\+pkg\\\\x2d1:(.+)$": "<rootDir>/packages/pkg-1/$1",
+    "^rootverse\\\\+pkg\\\\x2d2:(.+)$": "<rootDir>/packages/pkg-2/$1",
+    "^rootverse\\\\+pkg\\\\x2dimport:(.+)$": "<rootDir>/packages/pkg-import/$1",
+    "^rootverse\\\\+unnamed\\\\x2dpkg\\\\x2d1:(.+)$": "<rootDir>/packages/unnamed-pkg-1/$1",
+    "^rootverse\\\\+unnamed\\\\x2dpkg\\\\x2d2:(.+)$": "<rootDir>/packages/unnamed-pkg-2/$1",
+    "^rootverse:(.+)$": "<rootDir>/$1"
   }
 
 }
@@ -24919,6 +24135,8 @@ export default config;
 debug('exported config: %O', config);
 
 function getJestAliases() {
+  const extension = process.env.SYMBIOTE_TEST_JEST_TRANSPILED ? 'js' : 'ts';
+
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
   // ! directly, consider regenerating aliases across the entire project with:
   // ! \`npx symbiote project renovate --regenerate-assets --assets-preset ...\`
@@ -24928,36 +24146,36 @@ function getJestAliases() {
     "^multiverse\\\\+pkg\\\\x2dimport:(.+)$": "<rootDir>/packages/pkg-import/src/$1",
     "^multiverse\\\\+unnamed\\\\x2dpkg\\\\x2d1:(.+)$": "<rootDir>/packages/unnamed-pkg-1/src/$1",
     "^multiverse\\\\+unnamed\\\\x2dpkg\\\\x2d2:(.+)$": "<rootDir>/packages/unnamed-pkg-2/src/$1",
-    "^multiverse\\\\+pkg\\\\x2d1$": "<rootDir>/packages/pkg-1/src/index.ts",
-    "^multiverse\\\\+pkg\\\\x2d2$": "<rootDir>/packages/pkg-2/src/index.ts",
-    "^multiverse\\\\+pkg\\\\x2dimport$": "<rootDir>/packages/pkg-import/src/index.ts",
-    "^multiverse\\\\+unnamed\\\\x2dpkg\\\\x2d1$": "<rootDir>/packages/unnamed-pkg-1/src/index.ts",
-    "^multiverse\\\\+unnamed\\\\x2dpkg\\\\x2d2$": "<rootDir>/packages/unnamed-pkg-2/src/index.ts",
-    "^rootverse\\\\+pkg\\\\x2d1:(.+)$": "<rootDir>/packages/pkg-1/$1",
-    "^rootverse\\\\+pkg\\\\x2d2:(.+)$": "<rootDir>/packages/pkg-2/$1",
-    "^rootverse\\\\+pkg\\\\x2dimport:(.+)$": "<rootDir>/packages/pkg-import/$1",
-    "^rootverse\\\\+unnamed\\\\x2dpkg\\\\x2d1:(.+)$": "<rootDir>/packages/unnamed-pkg-1/$1",
-    "^rootverse\\\\+unnamed\\\\x2dpkg\\\\x2d2:(.+)$": "<rootDir>/packages/unnamed-pkg-2/$1",
-    "^rootverse:(.+)$": "<rootDir>/$1",
+    "^multiverse\\\\+pkg\\\\x2d1$": \`<rootDir>/packages/pkg-1/src/index.\${extension}\`,
+    "^multiverse\\\\+pkg\\\\x2d2$": \`<rootDir>/packages/pkg-2/src/index.\${extension}\`,
+    "^multiverse\\\\+pkg\\\\x2dimport$": \`<rootDir>/packages/pkg-import/src/index.\${extension}\`,
+    "^multiverse\\\\+unnamed\\\\x2dpkg\\\\x2d1$": \`<rootDir>/packages/unnamed-pkg-1/src/index.\${extension}\`,
+    "^multiverse\\\\+unnamed\\\\x2dpkg\\\\x2d2$": \`<rootDir>/packages/unnamed-pkg-2/src/index.\${extension}\`,
     "^universe\\\\+pkg\\\\x2d1:(.+)$": "<rootDir>/packages/pkg-1/src/$1",
     "^universe\\\\+pkg\\\\x2d2:(.+)$": "<rootDir>/packages/pkg-2/src/$1",
     "^universe\\\\+pkg\\\\x2dimport:(.+)$": "<rootDir>/packages/pkg-import/src/$1",
     "^universe\\\\+unnamed\\\\x2dpkg\\\\x2d1:(.+)$": "<rootDir>/packages/unnamed-pkg-1/src/$1",
     "^universe\\\\+unnamed\\\\x2dpkg\\\\x2d2:(.+)$": "<rootDir>/packages/unnamed-pkg-2/src/$1",
-    "^universe\\\\+pkg\\\\x2d1$": "<rootDir>/packages/pkg-1/src/index.ts",
-    "^universe\\\\+pkg\\\\x2d2$": "<rootDir>/packages/pkg-2/src/index.ts",
-    "^universe\\\\+pkg\\\\x2dimport$": "<rootDir>/packages/pkg-import/src/index.ts",
-    "^universe\\\\+unnamed\\\\x2dpkg\\\\x2d1$": "<rootDir>/packages/unnamed-pkg-1/src/index.ts",
-    "^universe\\\\+unnamed\\\\x2dpkg\\\\x2d2$": "<rootDir>/packages/unnamed-pkg-2/src/index.ts",
+    "^universe\\\\+pkg\\\\x2d1$": \`<rootDir>/packages/pkg-1/src/index.\${extension}\`,
+    "^universe\\\\+pkg\\\\x2d2$": \`<rootDir>/packages/pkg-2/src/index.\${extension}\`,
+    "^universe\\\\+pkg\\\\x2dimport$": \`<rootDir>/packages/pkg-import/src/index.\${extension}\`,
+    "^universe\\\\+unnamed\\\\x2dpkg\\\\x2d1$": \`<rootDir>/packages/unnamed-pkg-1/src/index.\${extension}\`,
+    "^universe\\\\+unnamed\\\\x2dpkg\\\\x2d2$": \`<rootDir>/packages/unnamed-pkg-2/src/index.\${extension}\`,
     "^universe:(.+)$": "<rootDir>/src/$1",
-    "^universe$": "<rootDir>/src/index.ts",
+    "^universe$": \`<rootDir>/src/index.\${extension}\`,
     "^testverse\\\\+pkg\\\\x2d1:(.+)$": "<rootDir>/packages/pkg-1/test/$1",
     "^testverse\\\\+pkg\\\\x2d2:(.+)$": "<rootDir>/packages/pkg-2/test/$1",
     "^testverse\\\\+pkg\\\\x2dimport:(.+)$": "<rootDir>/packages/pkg-import/test/$1",
     "^testverse\\\\+unnamed\\\\x2dpkg\\\\x2d1:(.+)$": "<rootDir>/packages/unnamed-pkg-1/test/$1",
     "^testverse\\\\+unnamed\\\\x2dpkg\\\\x2d2:(.+)$": "<rootDir>/packages/unnamed-pkg-2/test/$1",
     "^testverse:(.+)$": "<rootDir>/test/$1",
-    "^typeverse:(.+)$": "<rootDir>/types/$1"
+    "^typeverse:(.+)$": "<rootDir>/types/$1",
+    "^rootverse\\\\+pkg\\\\x2d1:(.+)$": "<rootDir>/packages/pkg-1/$1",
+    "^rootverse\\\\+pkg\\\\x2d2:(.+)$": "<rootDir>/packages/pkg-2/$1",
+    "^rootverse\\\\+pkg\\\\x2dimport:(.+)$": "<rootDir>/packages/pkg-import/$1",
+    "^rootverse\\\\+unnamed\\\\x2dpkg\\\\x2d1:(.+)$": "<rootDir>/packages/unnamed-pkg-1/$1",
+    "^rootverse\\\\+unnamed\\\\x2dpkg\\\\x2d2:(.+)$": "<rootDir>/packages/unnamed-pkg-2/$1",
+    "^rootverse:(.+)$": "<rootDir>/$1"
   }
 
 }
@@ -24989,15 +24207,17 @@ export default config;
 debug('exported config: %O', config);
 
 function getJestAliases() {
+  const extension = process.env.SYMBIOTE_TEST_JEST_TRANSPILED ? 'js' : 'ts';
+
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
   // ! directly, consider regenerating aliases across the entire project with:
   // ! \`npx symbiote project renovate --regenerate-assets --assets-preset ...\`
   return {
-    "^rootverse:(.+)$": "<rootDir>/$1",
     "^universe:(.+)$": "<rootDir>/src/$1",
-    "^universe$": "<rootDir>/src/index.ts",
+    "^universe$": \`<rootDir>/src/index.\${extension}\`,
     "^testverse:(.+)$": "<rootDir>/test/$1",
-    "^typeverse:(.+)$": "<rootDir>/types/$1"
+    "^typeverse:(.+)$": "<rootDir>/types/$1",
+    "^rootverse:(.+)$": "<rootDir>/$1"
   }
 
 }
@@ -25029,15 +24249,17 @@ export default config;
 debug('exported config: %O', config);
 
 function getJestAliases() {
+  const extension = process.env.SYMBIOTE_TEST_JEST_TRANSPILED ? 'js' : 'ts';
+
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
   // ! directly, consider regenerating aliases across the entire project with:
   // ! \`npx symbiote project renovate --regenerate-assets --assets-preset ...\`
   return {
-    "^rootverse:(.+)$": "<rootDir>/$1",
     "^universe:(.+)$": "<rootDir>/src/$1",
-    "^universe$": "<rootDir>/src/index.ts",
+    "^universe$": \`<rootDir>/src/index.\${extension}\`,
     "^testverse:(.+)$": "<rootDir>/test/$1",
-    "^typeverse:(.+)$": "<rootDir>/types/$1"
+    "^typeverse:(.+)$": "<rootDir>/types/$1",
+    "^rootverse:(.+)$": "<rootDir>/$1"
   }
 
 }
@@ -25069,15 +24291,17 @@ export default config;
 debug('exported config: %O', config);
 
 function getJestAliases() {
+  const extension = process.env.SYMBIOTE_TEST_JEST_TRANSPILED ? 'js' : 'ts';
+
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
   // ! directly, consider regenerating aliases across the entire project with:
   // ! \`npx symbiote project renovate --regenerate-assets --assets-preset ...\`
   return {
-    "^rootverse:(.+)$": "<rootDir>/$1",
     "^universe:(.+)$": "<rootDir>/src/$1",
-    "^universe$": "<rootDir>/src/index.ts",
+    "^universe$": \`<rootDir>/src/index.\${extension}\`,
     "^testverse:(.+)$": "<rootDir>/test/$1",
-    "^typeverse:(.+)$": "<rootDir>/types/$1"
+    "^typeverse:(.+)$": "<rootDir>/types/$1",
+    "^rootverse:(.+)$": "<rootDir>/$1"
   }
 
 }
@@ -30637,12 +29861,6 @@ scope: this-package
       "multiverse+unnamed-cjs": ["packages/unnamed-cjs/src/index.ts"],
       "multiverse+unnamed-esm": ["packages/unnamed-esm/src/index.ts"],
       "multiverse+webpack": ["packages/webpack/src/index.ts"],
-      "rootverse+cli:*": ["packages/cli/*"],
-      "rootverse+private:*": ["packages/private/*"],
-      "rootverse+unnamed-cjs:*": ["packages/unnamed-cjs/*"],
-      "rootverse+unnamed-esm:*": ["packages/unnamed-esm/*"],
-      "rootverse+webpack:*": ["packages/webpack/*"],
-      "rootverse:*": ["*"],
       "universe+cli:*": ["packages/cli/src/*"],
       "universe+private:*": ["packages/private/src/*"],
       "universe+unnamed-cjs:*": ["packages/unnamed-cjs/src/*"],
@@ -30661,7 +29879,13 @@ scope: this-package
       "testverse+unnamed-esm:*": ["packages/unnamed-esm/test/*"],
       "testverse+webpack:*": ["packages/webpack/test/*"],
       "testverse:*": ["test/*"],
-      "typeverse:*": ["types/*"]
+      "typeverse:*": ["types/*"],
+      "rootverse+cli:*": ["packages/cli/*"],
+      "rootverse+private:*": ["packages/private/*"],
+      "rootverse+unnamed-cjs:*": ["packages/unnamed-cjs/*"],
+      "rootverse+unnamed-esm:*": ["packages/unnamed-esm/*"],
+      "rootverse+webpack:*": ["packages/webpack/*"],
+      "rootverse:*": ["*"]
     }
 ,
     "resolveJsonModule": true,
@@ -31189,12 +30413,6 @@ scope: unlimited
       "multiverse+unnamed-cjs": ["packages/unnamed-cjs/src/index.ts"],
       "multiverse+unnamed-esm": ["packages/unnamed-esm/src/index.ts"],
       "multiverse+webpack": ["packages/webpack/src/index.ts"],
-      "rootverse+cli:*": ["packages/cli/*"],
-      "rootverse+private:*": ["packages/private/*"],
-      "rootverse+unnamed-cjs:*": ["packages/unnamed-cjs/*"],
-      "rootverse+unnamed-esm:*": ["packages/unnamed-esm/*"],
-      "rootverse+webpack:*": ["packages/webpack/*"],
-      "rootverse:*": ["*"],
       "universe+cli:*": ["packages/cli/src/*"],
       "universe+private:*": ["packages/private/src/*"],
       "universe+unnamed-cjs:*": ["packages/unnamed-cjs/src/*"],
@@ -31213,7 +30431,13 @@ scope: unlimited
       "testverse+unnamed-esm:*": ["packages/unnamed-esm/test/*"],
       "testverse+webpack:*": ["packages/webpack/test/*"],
       "testverse:*": ["test/*"],
-      "typeverse:*": ["types/*"]
+      "typeverse:*": ["types/*"],
+      "rootverse+cli:*": ["packages/cli/*"],
+      "rootverse+private:*": ["packages/private/*"],
+      "rootverse+unnamed-cjs:*": ["packages/unnamed-cjs/*"],
+      "rootverse+unnamed-esm:*": ["packages/unnamed-esm/*"],
+      "rootverse+webpack:*": ["packages/webpack/*"],
+      "rootverse:*": ["*"]
     }
 ,
     "resolveJsonModule": true,
@@ -31741,12 +30965,6 @@ scope: unlimited
       "multiverse+unnamed-cjs": ["packages/unnamed-cjs/src/index.ts"],
       "multiverse+unnamed-esm": ["packages/unnamed-esm/src/index.ts"],
       "multiverse+webpack": ["packages/webpack/src/index.ts"],
-      "rootverse+cli:*": ["packages/cli/*"],
-      "rootverse+private:*": ["packages/private/*"],
-      "rootverse+unnamed-cjs:*": ["packages/unnamed-cjs/*"],
-      "rootverse+unnamed-esm:*": ["packages/unnamed-esm/*"],
-      "rootverse+webpack:*": ["packages/webpack/*"],
-      "rootverse:*": ["*"],
       "universe+cli:*": ["packages/cli/src/*"],
       "universe+private:*": ["packages/private/src/*"],
       "universe+unnamed-cjs:*": ["packages/unnamed-cjs/src/*"],
@@ -31765,7 +30983,13 @@ scope: unlimited
       "testverse+unnamed-esm:*": ["packages/unnamed-esm/test/*"],
       "testverse+webpack:*": ["packages/webpack/test/*"],
       "testverse:*": ["test/*"],
-      "typeverse:*": ["types/*"]
+      "typeverse:*": ["types/*"],
+      "rootverse+cli:*": ["packages/cli/*"],
+      "rootverse+private:*": ["packages/private/*"],
+      "rootverse+unnamed-cjs:*": ["packages/unnamed-cjs/*"],
+      "rootverse+unnamed-esm:*": ["packages/unnamed-esm/*"],
+      "rootverse+webpack:*": ["packages/webpack/*"],
+      "rootverse:*": ["*"]
     }
 ,
     "resolveJsonModule": true,
@@ -32298,12 +31522,6 @@ scope: unlimited
       "multiverse+pkg-import": ["packages/pkg-import/src/index.ts"],
       "multiverse+unnamed-pkg-1": ["packages/unnamed-pkg-1/src/index.ts"],
       "multiverse+unnamed-pkg-2": ["packages/unnamed-pkg-2/src/index.ts"],
-      "rootverse+pkg-1:*": ["packages/pkg-1/*"],
-      "rootverse+pkg-2:*": ["packages/pkg-2/*"],
-      "rootverse+pkg-import:*": ["packages/pkg-import/*"],
-      "rootverse+unnamed-pkg-1:*": ["packages/unnamed-pkg-1/*"],
-      "rootverse+unnamed-pkg-2:*": ["packages/unnamed-pkg-2/*"],
-      "rootverse:*": ["*"],
       "universe+pkg-1:*": ["packages/pkg-1/src/*"],
       "universe+pkg-2:*": ["packages/pkg-2/src/*"],
       "universe+pkg-import:*": ["packages/pkg-import/src/*"],
@@ -32322,7 +31540,13 @@ scope: unlimited
       "testverse+unnamed-pkg-1:*": ["packages/unnamed-pkg-1/test/*"],
       "testverse+unnamed-pkg-2:*": ["packages/unnamed-pkg-2/test/*"],
       "testverse:*": ["test/*"],
-      "typeverse:*": ["types/*"]
+      "typeverse:*": ["types/*"],
+      "rootverse+pkg-1:*": ["packages/pkg-1/*"],
+      "rootverse+pkg-2:*": ["packages/pkg-2/*"],
+      "rootverse+pkg-import:*": ["packages/pkg-import/*"],
+      "rootverse+unnamed-pkg-1:*": ["packages/unnamed-pkg-1/*"],
+      "rootverse+unnamed-pkg-2:*": ["packages/unnamed-pkg-2/*"],
+      "rootverse:*": ["*"]
     }
 ,
     "resolveJsonModule": true,
@@ -32750,12 +31974,6 @@ scope: unlimited
       "multiverse+pkg-import": ["packages/pkg-import/src/index.ts"],
       "multiverse+unnamed-pkg-1": ["packages/unnamed-pkg-1/src/index.ts"],
       "multiverse+unnamed-pkg-2": ["packages/unnamed-pkg-2/src/index.ts"],
-      "rootverse+pkg-1:*": ["packages/pkg-1/*"],
-      "rootverse+pkg-2:*": ["packages/pkg-2/*"],
-      "rootverse+pkg-import:*": ["packages/pkg-import/*"],
-      "rootverse+unnamed-pkg-1:*": ["packages/unnamed-pkg-1/*"],
-      "rootverse+unnamed-pkg-2:*": ["packages/unnamed-pkg-2/*"],
-      "rootverse:*": ["*"],
       "universe+pkg-1:*": ["packages/pkg-1/src/*"],
       "universe+pkg-2:*": ["packages/pkg-2/src/*"],
       "universe+pkg-import:*": ["packages/pkg-import/src/*"],
@@ -32774,7 +31992,13 @@ scope: unlimited
       "testverse+unnamed-pkg-1:*": ["packages/unnamed-pkg-1/test/*"],
       "testverse+unnamed-pkg-2:*": ["packages/unnamed-pkg-2/test/*"],
       "testverse:*": ["test/*"],
-      "typeverse:*": ["types/*"]
+      "typeverse:*": ["types/*"],
+      "rootverse+pkg-1:*": ["packages/pkg-1/*"],
+      "rootverse+pkg-2:*": ["packages/pkg-2/*"],
+      "rootverse+pkg-import:*": ["packages/pkg-import/*"],
+      "rootverse+unnamed-pkg-1:*": ["packages/unnamed-pkg-1/*"],
+      "rootverse+unnamed-pkg-2:*": ["packages/unnamed-pkg-2/*"],
+      "rootverse:*": ["*"]
     }
 ,
     "resolveJsonModule": true,
@@ -32977,11 +32201,11 @@ scope: unlimited
     // ! directly, consider regenerating aliases across the entire project with:
     // ! \`npx symbiote project renovate --regenerate-assets --assets-preset ...\`
     "paths": {
-      "rootverse:*": ["*"],
       "universe:*": ["src/*"],
       "universe": ["src/index.ts"],
       "testverse:*": ["test/*"],
-      "typeverse:*": ["types/*"]
+      "typeverse:*": ["types/*"],
+      "rootverse:*": ["*"]
     }
 ,
     "resolveJsonModule": true,
@@ -33184,11 +32408,11 @@ scope: this-package
     // ! directly, consider regenerating aliases across the entire project with:
     // ! \`npx symbiote project renovate --regenerate-assets --assets-preset ...\`
     "paths": {
-      "rootverse:*": ["*"],
       "universe:*": ["src/*"],
       "universe": ["src/index.ts"],
       "testverse:*": ["test/*"],
-      "typeverse:*": ["types/*"]
+      "typeverse:*": ["types/*"],
+      "rootverse:*": ["*"]
     }
 ,
     "resolveJsonModule": true,
@@ -33391,11 +32615,11 @@ scope: unlimited
     // ! directly, consider regenerating aliases across the entire project with:
     // ! \`npx symbiote project renovate --regenerate-assets --assets-preset ...\`
     "paths": {
-      "rootverse:*": ["*"],
       "universe:*": ["src/*"],
       "universe": ["src/index.ts"],
       "testverse:*": ["test/*"],
-      "typeverse:*": ["types/*"]
+      "typeverse:*": ["types/*"],
+      "rootverse:*": ["*"]
     }
 ,
     "resolveJsonModule": true,

@@ -816,7 +816,9 @@ export const { transformer } = makeTransformer(function ({
   const derivedAliasesSourceSnippet = shouldDeriveAliases
     ? `return ${stringifyJson(
         deriveAliasesForEslint(
-          additionalRawAliasMappings.concat(generateRawAliasMap(projectMetadata))
+          additionalRawAliasMappings.concat(
+            generateRawAliasMap(projectMetadata, 'for-import-ordering')
+          )
         ),
         4
       )
