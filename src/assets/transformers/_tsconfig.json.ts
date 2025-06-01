@@ -292,7 +292,9 @@ export const { transformer } = makeTransformer(async function (context) {
   const derivedAliasesSourceSnippet = shouldDeriveAliases
     ? stringifyJson(
         deriveAliasesForTypeScript(
-          additionalRawAliasMappings.concat(generateRawAliasMap(projectMetadata))
+          additionalRawAliasMappings.concat(
+            generateRawAliasMap(projectMetadata, 'for-import-hinting')
+          )
         ),
         6
       )
