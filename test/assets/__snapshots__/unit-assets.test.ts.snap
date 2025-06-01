@@ -8616,6 +8616,10 @@ interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^
 
 incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 
+interestingPackageJsonFiles=$(echo "$interestingXxxFiles" | grep -E '^(packages/[^/]+/)?package\\.json$')
+
+incompletePackageJsonFilesGrep=$(echo "$interestingPackageJsonFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -P -e "--assets-preset [^\\x22]*?(\\x27|((basic|cli|lib|react|nextjs) [^\\x22]*){3})" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+
 interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -vE '/CHANGELOG.md$')
 
 incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
@@ -8628,9 +8632,9 @@ set -e
 
 # ? Make sure no commits to be pushed contain "mergeme" etc in their headers, no
 # ? relevant markdown files contain "-✄-" in their contents, no files anywhere
-# ? anywhere contain "XXX: " in their contents, and no test files contain
-# ? erroneously focused tests
-if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$incompleteXxxFilesGrep" != 0 ] || [ "$incompleteTestFilesGrep" != 0 ]; then
+# ? anywhere contain "XXX: " in their contents, no test files contain
+# ? erroneously focused tests, and no package.json files have incomplete scripts
+if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$incompleteXxxFilesGrep" != 0 ] || [ "$incompleteTestFilesGrep" != 0 ] || [ "$incompletePackageJsonFilesGrep" != 0 ]; then
   echo 'husky-hook::pre-push: BAD COMMIT(S) DETECTED!'
   echo 'husky-hook::pre-push: merge, delete, reword, or otherwise rectify the following commits before trying again:'
 
@@ -8659,7 +8663,14 @@ if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$
     echo
     echo 'husky-hook::pre-push: files at HEAD with erroneously focused tests:'
     echo
-    echo "$interestingTestFiles" | xargs -d '\\n' -P 0 grep -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
+    echo "$interestingTestFiles" | xargs -d '\\n' -P 0 grep -i -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
+  fi
+
+  if [ "$incompletePackageJsonFilesGrep" != 0 ]; then
+    echo
+    echo 'husky-hook::pre-push: package.json files at HEAD with incomplete scripts:'
+    echo
+    echo "$interestingPackageJsonFiles" | xargs -d '\\n' -P 0 grep -i -l -H -P -e "--assets-preset [^\\x22]*?(\\x27|((basic|cli|lib|react|nextjs) [^\\x22]*){3})" | prepend '  ⋗ '
   fi
 
   echo
@@ -8746,6 +8757,10 @@ interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^
 
 incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 
+interestingPackageJsonFiles=$(echo "$interestingXxxFiles" | grep -E '^(packages/[^/]+/)?package\\.json$')
+
+incompletePackageJsonFilesGrep=$(echo "$interestingPackageJsonFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -P -e "--assets-preset [^\\x22]*?(\\x27|((basic|cli|lib|react|nextjs) [^\\x22]*){3})" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+
 interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -vE '/CHANGELOG.md$')
 
 incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
@@ -8758,9 +8773,9 @@ set -e
 
 # ? Make sure no commits to be pushed contain "mergeme" etc in their headers, no
 # ? relevant markdown files contain "-✄-" in their contents, no files anywhere
-# ? anywhere contain "XXX: " in their contents, and no test files contain
-# ? erroneously focused tests
-if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$incompleteXxxFilesGrep" != 0 ] || [ "$incompleteTestFilesGrep" != 0 ]; then
+# ? anywhere contain "XXX: " in their contents, no test files contain
+# ? erroneously focused tests, and no package.json files have incomplete scripts
+if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$incompleteXxxFilesGrep" != 0 ] || [ "$incompleteTestFilesGrep" != 0 ] || [ "$incompletePackageJsonFilesGrep" != 0 ]; then
   echo 'husky-hook::pre-push: BAD COMMIT(S) DETECTED!'
   echo 'husky-hook::pre-push: merge, delete, reword, or otherwise rectify the following commits before trying again:'
 
@@ -8789,7 +8804,14 @@ if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$
     echo
     echo 'husky-hook::pre-push: files at HEAD with erroneously focused tests:'
     echo
-    echo "$interestingTestFiles" | xargs -d '\\n' -P 0 grep -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
+    echo "$interestingTestFiles" | xargs -d '\\n' -P 0 grep -i -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
+  fi
+
+  if [ "$incompletePackageJsonFilesGrep" != 0 ]; then
+    echo
+    echo 'husky-hook::pre-push: package.json files at HEAD with incomplete scripts:'
+    echo
+    echo "$interestingPackageJsonFiles" | xargs -d '\\n' -P 0 grep -i -l -H -P -e "--assets-preset [^\\x22]*?(\\x27|((basic|cli|lib|react|nextjs) [^\\x22]*){3})" | prepend '  ⋗ '
   fi
 
   echo
@@ -8876,6 +8898,10 @@ interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^
 
 incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 
+interestingPackageJsonFiles=$(echo "$interestingXxxFiles" | grep -E '^(packages/[^/]+/)?package\\.json$')
+
+incompletePackageJsonFilesGrep=$(echo "$interestingPackageJsonFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -P -e "--assets-preset [^\\x22]*?(\\x27|((basic|cli|lib|react|nextjs) [^\\x22]*){3})" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+
 interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -vE '/CHANGELOG.md$')
 
 incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
@@ -8888,9 +8914,9 @@ set -e
 
 # ? Make sure no commits to be pushed contain "mergeme" etc in their headers, no
 # ? relevant markdown files contain "-✄-" in their contents, no files anywhere
-# ? anywhere contain "XXX: " in their contents, and no test files contain
-# ? erroneously focused tests
-if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$incompleteXxxFilesGrep" != 0 ] || [ "$incompleteTestFilesGrep" != 0 ]; then
+# ? anywhere contain "XXX: " in their contents, no test files contain
+# ? erroneously focused tests, and no package.json files have incomplete scripts
+if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$incompleteXxxFilesGrep" != 0 ] || [ "$incompleteTestFilesGrep" != 0 ] || [ "$incompletePackageJsonFilesGrep" != 0 ]; then
   echo 'husky-hook::pre-push: BAD COMMIT(S) DETECTED!'
   echo 'husky-hook::pre-push: merge, delete, reword, or otherwise rectify the following commits before trying again:'
 
@@ -8919,7 +8945,14 @@ if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$
     echo
     echo 'husky-hook::pre-push: files at HEAD with erroneously focused tests:'
     echo
-    echo "$interestingTestFiles" | xargs -d '\\n' -P 0 grep -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
+    echo "$interestingTestFiles" | xargs -d '\\n' -P 0 grep -i -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
+  fi
+
+  if [ "$incompletePackageJsonFilesGrep" != 0 ]; then
+    echo
+    echo 'husky-hook::pre-push: package.json files at HEAD with incomplete scripts:'
+    echo
+    echo "$interestingPackageJsonFiles" | xargs -d '\\n' -P 0 grep -i -l -H -P -e "--assets-preset [^\\x22]*?(\\x27|((basic|cli|lib|react|nextjs) [^\\x22]*){3})" | prepend '  ⋗ '
   fi
 
   echo
@@ -9006,6 +9039,10 @@ interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^
 
 incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 
+interestingPackageJsonFiles=$(echo "$interestingXxxFiles" | grep -E '^(packages/[^/]+/)?package\\.json$')
+
+incompletePackageJsonFilesGrep=$(echo "$interestingPackageJsonFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -P -e "--assets-preset [^\\x22]*?(\\x27|((basic|cli|lib|react|nextjs) [^\\x22]*){3})" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+
 interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -vE '/CHANGELOG.md$')
 
 incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
@@ -9018,9 +9055,9 @@ set -e
 
 # ? Make sure no commits to be pushed contain "mergeme" etc in their headers, no
 # ? relevant markdown files contain "-✄-" in their contents, no files anywhere
-# ? anywhere contain "XXX: " in their contents, and no test files contain
-# ? erroneously focused tests
-if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$incompleteXxxFilesGrep" != 0 ] || [ "$incompleteTestFilesGrep" != 0 ]; then
+# ? anywhere contain "XXX: " in their contents, no test files contain
+# ? erroneously focused tests, and no package.json files have incomplete scripts
+if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$incompleteXxxFilesGrep" != 0 ] || [ "$incompleteTestFilesGrep" != 0 ] || [ "$incompletePackageJsonFilesGrep" != 0 ]; then
   echo 'husky-hook::pre-push: BAD COMMIT(S) DETECTED!'
   echo 'husky-hook::pre-push: merge, delete, reword, or otherwise rectify the following commits before trying again:'
 
@@ -9049,7 +9086,14 @@ if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$
     echo
     echo 'husky-hook::pre-push: files at HEAD with erroneously focused tests:'
     echo
-    echo "$interestingTestFiles" | xargs -d '\\n' -P 0 grep -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
+    echo "$interestingTestFiles" | xargs -d '\\n' -P 0 grep -i -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
+  fi
+
+  if [ "$incompletePackageJsonFilesGrep" != 0 ]; then
+    echo
+    echo 'husky-hook::pre-push: package.json files at HEAD with incomplete scripts:'
+    echo
+    echo "$interestingPackageJsonFiles" | xargs -d '\\n' -P 0 grep -i -l -H -P -e "--assets-preset [^\\x22]*?(\\x27|((basic|cli|lib|react|nextjs) [^\\x22]*){3})" | prepend '  ⋗ '
   fi
 
   echo
@@ -9136,6 +9180,10 @@ interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^
 
 incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 
+interestingPackageJsonFiles=$(echo "$interestingXxxFiles" | grep -E '^(packages/[^/]+/)?package\\.json$')
+
+incompletePackageJsonFilesGrep=$(echo "$interestingPackageJsonFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -P -e "--assets-preset [^\\x22]*?(\\x27|((basic|cli|lib|react|nextjs) [^\\x22]*){3})" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+
 interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -vE '/CHANGELOG.md$')
 
 incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
@@ -9148,9 +9196,9 @@ set -e
 
 # ? Make sure no commits to be pushed contain "mergeme" etc in their headers, no
 # ? relevant markdown files contain "-✄-" in their contents, no files anywhere
-# ? anywhere contain "XXX: " in their contents, and no test files contain
-# ? erroneously focused tests
-if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$incompleteXxxFilesGrep" != 0 ] || [ "$incompleteTestFilesGrep" != 0 ]; then
+# ? anywhere contain "XXX: " in their contents, no test files contain
+# ? erroneously focused tests, and no package.json files have incomplete scripts
+if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$incompleteXxxFilesGrep" != 0 ] || [ "$incompleteTestFilesGrep" != 0 ] || [ "$incompletePackageJsonFilesGrep" != 0 ]; then
   echo 'husky-hook::pre-push: BAD COMMIT(S) DETECTED!'
   echo 'husky-hook::pre-push: merge, delete, reword, or otherwise rectify the following commits before trying again:'
 
@@ -9179,7 +9227,14 @@ if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$
     echo
     echo 'husky-hook::pre-push: files at HEAD with erroneously focused tests:'
     echo
-    echo "$interestingTestFiles" | xargs -d '\\n' -P 0 grep -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
+    echo "$interestingTestFiles" | xargs -d '\\n' -P 0 grep -i -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
+  fi
+
+  if [ "$incompletePackageJsonFilesGrep" != 0 ]; then
+    echo
+    echo 'husky-hook::pre-push: package.json files at HEAD with incomplete scripts:'
+    echo
+    echo "$interestingPackageJsonFiles" | xargs -d '\\n' -P 0 grep -i -l -H -P -e "--assets-preset [^\\x22]*?(\\x27|((basic|cli|lib|react|nextjs) [^\\x22]*){3})" | prepend '  ⋗ '
   fi
 
   echo
@@ -9266,6 +9321,10 @@ interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^
 
 incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 
+interestingPackageJsonFiles=$(echo "$interestingXxxFiles" | grep -E '^(packages/[^/]+/)?package\\.json$')
+
+incompletePackageJsonFilesGrep=$(echo "$interestingPackageJsonFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -P -e "--assets-preset [^\\x22]*?(\\x27|((basic|cli|lib|react|nextjs) [^\\x22]*){3})" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+
 interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -vE '/CHANGELOG.md$')
 
 incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
@@ -9278,9 +9337,9 @@ set -e
 
 # ? Make sure no commits to be pushed contain "mergeme" etc in their headers, no
 # ? relevant markdown files contain "-✄-" in their contents, no files anywhere
-# ? anywhere contain "XXX: " in their contents, and no test files contain
-# ? erroneously focused tests
-if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$incompleteXxxFilesGrep" != 0 ] || [ "$incompleteTestFilesGrep" != 0 ]; then
+# ? anywhere contain "XXX: " in their contents, no test files contain
+# ? erroneously focused tests, and no package.json files have incomplete scripts
+if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$incompleteXxxFilesGrep" != 0 ] || [ "$incompleteTestFilesGrep" != 0 ] || [ "$incompletePackageJsonFilesGrep" != 0 ]; then
   echo 'husky-hook::pre-push: BAD COMMIT(S) DETECTED!'
   echo 'husky-hook::pre-push: merge, delete, reword, or otherwise rectify the following commits before trying again:'
 
@@ -9309,7 +9368,14 @@ if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$
     echo
     echo 'husky-hook::pre-push: files at HEAD with erroneously focused tests:'
     echo
-    echo "$interestingTestFiles" | xargs -d '\\n' -P 0 grep -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
+    echo "$interestingTestFiles" | xargs -d '\\n' -P 0 grep -i -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
+  fi
+
+  if [ "$incompletePackageJsonFilesGrep" != 0 ]; then
+    echo
+    echo 'husky-hook::pre-push: package.json files at HEAD with incomplete scripts:'
+    echo
+    echo "$interestingPackageJsonFiles" | xargs -d '\\n' -P 0 grep -i -l -H -P -e "--assets-preset [^\\x22]*?(\\x27|((basic|cli|lib|react|nextjs) [^\\x22]*){3})" | prepend '  ⋗ '
   fi
 
   echo
@@ -9396,6 +9462,10 @@ interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^
 
 incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 
+interestingPackageJsonFiles=$(echo "$interestingXxxFiles" | grep -E '^(packages/[^/]+/)?package\\.json$')
+
+incompletePackageJsonFilesGrep=$(echo "$interestingPackageJsonFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -P -e "--assets-preset [^\\x22]*?(\\x27|((basic|cli|lib|react|nextjs) [^\\x22]*){3})" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+
 interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -vE '/CHANGELOG.md$')
 
 incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
@@ -9408,9 +9478,9 @@ set -e
 
 # ? Make sure no commits to be pushed contain "mergeme" etc in their headers, no
 # ? relevant markdown files contain "-✄-" in their contents, no files anywhere
-# ? anywhere contain "XXX: " in their contents, and no test files contain
-# ? erroneously focused tests
-if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$incompleteXxxFilesGrep" != 0 ] || [ "$incompleteTestFilesGrep" != 0 ]; then
+# ? anywhere contain "XXX: " in their contents, no test files contain
+# ? erroneously focused tests, and no package.json files have incomplete scripts
+if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$incompleteXxxFilesGrep" != 0 ] || [ "$incompleteTestFilesGrep" != 0 ] || [ "$incompletePackageJsonFilesGrep" != 0 ]; then
   echo 'husky-hook::pre-push: BAD COMMIT(S) DETECTED!'
   echo 'husky-hook::pre-push: merge, delete, reword, or otherwise rectify the following commits before trying again:'
 
@@ -9439,7 +9509,14 @@ if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$
     echo
     echo 'husky-hook::pre-push: files at HEAD with erroneously focused tests:'
     echo
-    echo "$interestingTestFiles" | xargs -d '\\n' -P 0 grep -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
+    echo "$interestingTestFiles" | xargs -d '\\n' -P 0 grep -i -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
+  fi
+
+  if [ "$incompletePackageJsonFilesGrep" != 0 ]; then
+    echo
+    echo 'husky-hook::pre-push: package.json files at HEAD with incomplete scripts:'
+    echo
+    echo "$interestingPackageJsonFiles" | xargs -d '\\n' -P 0 grep -i -l -H -P -e "--assets-preset [^\\x22]*?(\\x27|((basic|cli|lib|react|nextjs) [^\\x22]*){3})" | prepend '  ⋗ '
   fi
 
   echo
@@ -9526,6 +9603,10 @@ interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^
 
 incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
 
+interestingPackageJsonFiles=$(echo "$interestingXxxFiles" | grep -E '^(packages/[^/]+/)?package\\.json$')
+
+incompletePackageJsonFilesGrep=$(echo "$interestingPackageJsonFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -P -e "--assets-preset [^\\x22]*?(\\x27|((basic|cli|lib|react|nextjs) [^\\x22]*){3})" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+
 interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -vE '/CHANGELOG.md$')
 
 incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
@@ -9538,9 +9619,9 @@ set -e
 
 # ? Make sure no commits to be pushed contain "mergeme" etc in their headers, no
 # ? relevant markdown files contain "-✄-" in their contents, no files anywhere
-# ? anywhere contain "XXX: " in their contents, and no test files contain
-# ? erroneously focused tests
-if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$incompleteXxxFilesGrep" != 0 ] || [ "$incompleteTestFilesGrep" != 0 ]; then
+# ? anywhere contain "XXX: " in their contents, no test files contain
+# ? erroneously focused tests, and no package.json files have incomplete scripts
+if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$incompleteXxxFilesGrep" != 0 ] || [ "$incompleteTestFilesGrep" != 0 ] || [ "$incompletePackageJsonFilesGrep" != 0 ]; then
   echo 'husky-hook::pre-push: BAD COMMIT(S) DETECTED!'
   echo 'husky-hook::pre-push: merge, delete, reword, or otherwise rectify the following commits before trying again:'
 
@@ -9569,7 +9650,14 @@ if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$
     echo
     echo 'husky-hook::pre-push: files at HEAD with erroneously focused tests:'
     echo
-    echo "$interestingTestFiles" | xargs -d '\\n' -P 0 grep -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
+    echo "$interestingTestFiles" | xargs -d '\\n' -P 0 grep -i -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
+  fi
+
+  if [ "$incompletePackageJsonFilesGrep" != 0 ]; then
+    echo
+    echo 'husky-hook::pre-push: package.json files at HEAD with incomplete scripts:'
+    echo
+    echo "$interestingPackageJsonFiles" | xargs -d '\\n' -P 0 grep -i -l -H -P -e "--assets-preset [^\\x22]*?(\\x27|((basic|cli|lib|react|nextjs) [^\\x22]*){3})" | prepend '  ⋗ '
   fi
 
   echo
@@ -24707,7 +24795,7 @@ scope: this-package
   "author": "Xunnamius",
   "sideEffects": false,
   "engines": {
-    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || >=22.12.0"
   },
   "private": true,
   "files": [
@@ -24802,7 +24890,7 @@ scope: unlimited
   "sideEffects": false,
   "type": "commonjs",
   "engines": {
-    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || >=22.12.0"
   },
   "private": true,
   "exports": {
@@ -24935,7 +25023,7 @@ scope: unlimited
     "cli": "./dist/packages/cli/src/cli.js"
   },
   "engines": {
-    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || >=22.12.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -25004,7 +25092,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || >=22.12.0"
   },
   "scripts": {
     "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
@@ -25080,7 +25168,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || >=22.12.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -25139,7 +25227,7 @@ scope: unlimited
   "author": "Xunnamius",
   "sideEffects": false,
   "engines": {
-    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || >=22.12.0"
   },
   "private": true,
   "files": [
@@ -25273,7 +25361,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || >=22.12.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -25337,7 +25425,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || >=22.12.0"
   },
   "scripts": {
     "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
@@ -25408,7 +25496,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || >=22.12.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -25482,7 +25570,7 @@ scope: this-package
     }
   },
   "engines": {
-    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || >=22.12.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -25539,7 +25627,7 @@ scope: unlimited
   "sideEffects": false,
   "type": "commonjs",
   "engines": {
-    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || >=22.12.0"
   },
   "private": true,
   "scripts": {
@@ -25631,7 +25719,7 @@ scope: unlimited
     "pkg-1": "./dist/packages/pkg-1/src/cli.js"
   },
   "engines": {
-    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || >=22.12.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -25726,7 +25814,7 @@ scope: unlimited
     "pkg": "./dist/packages/pkg-2/src/cli.js"
   },
   "engines": {
-    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || >=22.12.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -25807,7 +25895,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || >=22.12.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -25863,7 +25951,7 @@ scope: unlimited
   "author": "Xunnamius",
   "sideEffects": false,
   "engines": {
-    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || >=22.12.0"
   },
   "private": true,
   "scripts": {
@@ -25943,7 +26031,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || >=22.12.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -26028,7 +26116,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || >=22.12.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -26104,7 +26192,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || >=22.12.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -26173,7 +26261,7 @@ scope: unlimited
     "/README.md"
   ],
   "engines": {
-    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || >=22.12.0"
   },
   "publishConfig": {
     "access": "public",
@@ -26259,7 +26347,7 @@ scope: this-package
     "/README.md"
   ],
   "engines": {
-    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || >=22.12.0"
   },
   "publishConfig": {
     "access": "public",
@@ -26340,7 +26428,7 @@ scope: unlimited
     "/README.md"
   ],
   "engines": {
-    "node": "^20.18.0 || ^22.12.0 || >=23.3.0"
+    "node": "^20.18.0 || >=22.12.0"
   },
   "publishConfig": {
     "access": "public",
