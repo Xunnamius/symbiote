@@ -8,7 +8,7 @@
 
 > **CustomCliArguments** = [`GlobalCliArguments`](../../../configure/type-aliases/GlobalCliArguments.md) & `object`
 
-Defined in: [src/commands/lint.ts:51](https://github.com/Xunnamius/symbiote/blob/b6645a7e13ad9c4a85e6a278cbf060db1e4bf320/src/commands/lint.ts#L51)
+Defined in: [src/commands/lint.ts:51](https://github.com/Xunnamius/symbiote/blob/167e0f9b786b0a4f8ab8478cb4284deee6916ad7/src/commands/lint.ts#L51)
 
 ## Type declaration
 

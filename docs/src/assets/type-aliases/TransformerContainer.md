@@ -8,7 +8,7 @@
 
 > **TransformerContainer** = `object`
 
-Defined in: [src/assets.ts:187](https://github.com/Xunnamius/symbiote/blob/b6645a7e13ad9c4a85e6a278cbf060db1e4bf320/src/assets.ts#L187)
+Defined in: [src/assets.ts:187](https://github.com/Xunnamius/symbiote/blob/167e0f9b786b0a4f8ab8478cb4284deee6916ad7/src/assets.ts#L187)
 
 An object containing a [Transformer](Transformer.md) and related context/helpers.
 
@@ -21,4 +21,4 @@ Rather than tediously construct such an object manually, consider using
 
 > **transformer**: [`Transformer`](Transformer.md)
 
-Defined in: [src/assets.ts:188](https://github.com/Xunnamius/symbiote/blob/b6645a7e13ad9c4a85e6a278cbf060db1e4bf320/src/assets.ts#L188)
+Defined in: [src/assets.ts:188](https://github.com/Xunnamius/symbiote/blob/167e0f9b786b0a4f8ab8478cb4284deee6916ad7/src/assets.ts#L188)

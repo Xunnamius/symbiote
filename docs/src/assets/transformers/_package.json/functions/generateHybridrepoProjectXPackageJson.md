@@ -8,7 +8,7 @@
 
 > **generateHybridrepoProjectXPackageJson**(...`__namedParameters`): `object`
 
-Defined in: [src/assets/transformers/\_package.json.ts:304](https://github.com/Xunnamius/symbiote/blob/b6645a7e13ad9c4a85e6a278cbf060db1e4bf320/src/assets/transformers/_package.json.ts#L304)
+Defined in: [src/assets/transformers/\_package.json.ts:304](https://github.com/Xunnamius/symbiote/blob/167e0f9b786b0a4f8ab8478cb4284deee6916ad7/src/assets/transformers/_package.json.ts#L304)
 
 ## Parameters
 
