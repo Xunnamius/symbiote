@@ -989,7 +989,7 @@ const protoPrereleaseTasks: ProtoPrereleaseTask[][] = [
         } else {
           failLogger('No relevant version tags found for this package 🫥');
           failLogger.warn(
-            `ALL COMMITS SINCE THE INITIAL COMMIT ARE ELIGIBLE FOR RELEASE ANALYSIS AND WILL BE INCLUDED IN THE CHANGELOG! If this is a mistake, interrupt this process now (CTRL+C) and create an initializing tag for this package (replace "HEAD" with the proper commit-ish):\ngit tag -a '${cwdPackageName}@0.0.0-init' -m 'commit analysis (changelog/release) starting point for: ${cwdPackageName}' HEAD`
+            `ALL COMMITS SINCE THE INITIAL COMMIT ARE ELIGIBLE FOR RELEASE ANALYSIS AND WILL BE INCLUDED IN THE CHANGELOG! If this is a mistake, interrupt this process now (CTRL+C) and create an initializing tag for this package (replace "HEAD" with the proper commit-ish):\ngit tag -a '${cwdPackageName}@0.0.0-init' -m 'commit analysis (changelog/release) starting point for: ${cwdPackageName}' HEAD\nTo do the same thing but for every package at once, use the "[INIT]" xpipeline command in a commit message:\ngit commit -m 'chore(package): re-initialize project [INIT]'`
           );
 
           failLogger('Otherwise, the release process will resume in 10 seconds...');
