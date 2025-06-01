@@ -21,6 +21,7 @@ export const { transformer } = makeTransformer(function (context) {
 
   // * Only the root package gets these files
   return generateRootOnlyAssets(context, async function () {
+    // TODO: need to do something about projectName being potentially outdated
     // ? Only create this file if it doesn't already exist
     if (!(await isAccessible(path, { useCached: true }))) {
       return [
