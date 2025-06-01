@@ -2080,11 +2080,7 @@ See the symbiote wiki documentation for more details on this command and all ava
             .join('\n') || '<!-- TODO: a list of packages goes here -->',
 
         lintNpmScript: projectAttributes.monorepo ? 'lint:packages' : 'lint:package',
-        testNpmScript:
-          projectAttributes.monorepo &&
-          (!projectAttributes.hybridrepo || !projectAttributes.multiversal)
-            ? 'test:packages:all:unit'
-            : 'test',
+        testNpmScript: 'test:packages:all:unit',
 
         repoOwner,
         repoName,
