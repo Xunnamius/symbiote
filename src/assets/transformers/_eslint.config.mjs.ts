@@ -412,8 +412,11 @@ function jestRules(): NonNullable<EslintConfig['rules']> {
       'error',
       {
         allowedFunctionCalls: [
-          'reconfigureJestGlobalsToSkipTestsInThisFileIfRequested',
-          'debug'
+          'debug',
+          'createDebugLogger',
+          'createGenericLogger',
+          'setupMemoryServerOverride',
+          'reconfigureJestGlobalsToSkipTestsInThisFileIfRequested'
         ]
       }
     ],
