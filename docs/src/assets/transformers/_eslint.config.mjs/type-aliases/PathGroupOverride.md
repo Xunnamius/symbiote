@@ -8,7 +8,7 @@
 
 > **PathGroupOverride** = `object`
 
-Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:88](https://github.com/Xunnamius/symbiote/blob/62ec6fdd59d5511dd7b872237f3ff5bf7673e789/src/assets/transformers/_eslint.config.mjs.ts#L88)
+Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:88](https://github.com/Xunnamius/symbiote/blob/14162458f85eafaca24a0ffc1c3f7cc0eb8b25d7/src/assets/transformers/_eslint.config.mjs.ts#L88)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:88](https://github.c
 
 > **action**: `string`
 
-Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:88](https://github.com/Xunnamius/symbiote/blob/62ec6fdd59d5511dd7b872237f3ff5bf7673e789/src/assets/transformers/_eslint.config.mjs.ts#L88)
+Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:88](https://github.com/Xunnamius/symbiote/blob/14162458f85eafaca24a0ffc1c3f7cc0eb8b25d7/src/assets/transformers/_eslint.config.mjs.ts#L88)
 
 ***
 
@@ -24,4 +24,4 @@ Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:88](https://github.c
 
 > **pattern**: `string`
 
-Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:88](https://github.com/Xunnamius/symbiote/blob/62ec6fdd59d5511dd7b872237f3ff5bf7673e789/src/assets/transformers/_eslint.config.mjs.ts#L88)
+Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:88](https://github.com/Xunnamius/symbiote/blob/14162458f85eafaca24a0ffc1c3f7cc0eb8b25d7/src/assets/transformers/_eslint.config.mjs.ts#L88)
