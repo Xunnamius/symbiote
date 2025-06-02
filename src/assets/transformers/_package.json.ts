@@ -43,6 +43,10 @@ import type {
 import type { Jsonifiable } from 'type-fest';
 import type { TransformerContext } from 'universe:assets.ts';
 
+// TODO: FOR NEXTJS Next.js:
+// TODO: when generating over next.js project, remove: keywords, publishconfig,
+// TODO: exports, typesVersions, sideEffects, files. For scripts, add: deploy
+
 export type GeneratorParameters = [
   json: Package['json'] &
     Required<Pick<Package['json'], 'name' | 'version' | 'description'>>,

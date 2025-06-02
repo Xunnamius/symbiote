@@ -433,8 +433,29 @@ export function moduleExport({
           )
         ]
       }
-      // TODO: will eventually have to support "development" intermediates,
-      // TODO: maybe as an alias to the "test" environment?
+      // TODO: FOR NEXTJS Next.js:
+      // // * Used by Vercel, `npm start`, and `npm run build`
+      // production: {
+      //   // ? Source maps are handled by Next.js and Webpack
+      //   presets: [nextBabelPreset]
+      //   // ? Minification is handled by Webpack
+      // },
+      // // * Used by `npm run dev`; is also the default environment
+      // development: {
+      //   // ? Source maps are handled by Next.js and Webpack
+      //   presets: [nextBabelPreset],
+      //   // ? https://reactjs.org/docs/error-boundaries.html#how-about-event-handlers
+      //   plugins: ['@babel/plugin-transform-react-jsx-source']
+      //   // ? We don't care about minification
+      // },
+      // // * Used by `npm run build-externals`
+      // external: {
+      //   presets: [
+      //     ['@babel/preset-env', { targets: { node: true } }],
+      //     ['@babel/preset-typescript', { allowDeclareFields: true }]
+      //     // ? Minification is handled by Webpack
+      //   ]
+      // }
     }
   };
 
@@ -444,6 +465,9 @@ export function moduleExport({
   dbgModuleExport('config: %O', config);
   return config;
 }
+
+// TODO: FOR NEXTJS Next.js:
+// TODO:
 
 /**
  * @see {@link assertEnvironment}
