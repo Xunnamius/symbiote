@@ -413,6 +413,7 @@ function jestRules(): NonNullable<EslintConfig['rules']> {
       {
         allowedFunctionCalls: [
           'debug',
+          'useMockDateNow',
           'createDebugLogger',
           'createGenericLogger',
           'setupMemoryServerOverride',
