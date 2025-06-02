@@ -8,7 +8,7 @@
 
 > **GatherAssetsFromTransformerOptions** = `object`
 
-Defined in: [src/assets.ts:340](https://github.com/Xunnamius/symbiote/blob/14162458f85eafaca24a0ffc1c3f7cc0eb8b25d7/src/assets.ts#L340)
+Defined in: [src/assets.ts:340](https://github.com/Xunnamius/symbiote/blob/1ec1b7bdf126210dcfd31b34e7c9448cbcc26d1c/src/assets.ts#L340)
 
 Options to tweak the runtime of [gatherAssetsFromTransformer](../functions/gatherAssetsFromTransformer.md) and
 related functions.
@@ -19,7 +19,7 @@ related functions.
 
 > `optional` **transformerFiletype**: `"js"` \| `"ts"`
 
-Defined in: [src/assets.ts:350](https://github.com/Xunnamius/symbiote/blob/14162458f85eafaca24a0ffc1c3f7cc0eb8b25d7/src/assets.ts#L350)
+Defined in: [src/assets.ts:350](https://github.com/Xunnamius/symbiote/blob/1ec1b7bdf126210dcfd31b34e7c9448cbcc26d1c/src/assets.ts#L350)
 
 Whether an attempt should be made to retrieve a transformer file ending in
 `.js` versus `.ts`.

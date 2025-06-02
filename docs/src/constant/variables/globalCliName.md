@@ -8,6 +8,6 @@
 
 > `const` **globalCliName**: `"symbiote"` = `'symbiote'`
 
-Defined in: [src/constant.ts:4](https://github.com/Xunnamius/symbiote/blob/14162458f85eafaca24a0ffc1c3f7cc0eb8b25d7/src/constant.ts#L4)
+Defined in: [src/constant.ts:4](https://github.com/Xunnamius/symbiote/blob/1ec1b7bdf126210dcfd31b34e7c9448cbcc26d1c/src/constant.ts#L4)
 
 The name of the command line interface.
