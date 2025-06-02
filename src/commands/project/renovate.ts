@@ -2317,6 +2317,7 @@ See the symbiote wiki documentation for more details on this command and all ava
 
         await runWithInheritedIo('npx', [
           'npm-check-updates',
+          '--install=never',
           '--interactive',
           '--dep=dev,prod',
           '--packageFile',
