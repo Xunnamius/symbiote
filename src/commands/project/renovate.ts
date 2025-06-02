@@ -1954,6 +1954,7 @@ See the symbiote wiki documentation for more details on this command and all ava
 `,
     requiresForce: false,
     implies: { hush: true },
+    looseImplications: true,
     supportedScopes: [ProjectRenovateScope.Unlimited],
     subOptions: {
       'assets-preset': {
