@@ -8,7 +8,7 @@
 
 > **\_\_write\_file\_sync**(`path`, `contents`): `void`
 
-Defined in: [src/util.ts:1101](https://github.com/Xunnamius/symbiote/blob/450f56aebb4b9ee6be666259169f3898916253ca/src/util.ts#L1101)
+Defined in: [src/util.ts:1101](https://github.com/Xunnamius/symbiote/blob/98da9097288b635bb2e9adaa0711ed948dd02274/src/util.ts#L1101)
 
 ## Parameters
 
