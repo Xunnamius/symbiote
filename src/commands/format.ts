@@ -40,6 +40,7 @@ export type CustomCliArguments = GlobalCliArguments & {
   onlyPackageJson: boolean;
   onlyMarkdown: boolean;
   onlyPrettier: boolean;
+  onlyEslintFix: boolean;
 };
 
 export default function command({
@@ -96,14 +97,16 @@ export default function command({
       default: false,
       conflicts: [
         'renumber-references',
-        { 'only-markdown': true, 'only-prettier': true }
+        { 'only-markdown': true, 'only-prettier': true, 'only-eslint': true }
       ]
     },
     'only-markdown': {
       boolean: true,
       description: 'Only target Markdown files for formatting',
       default: false,
-      conflicts: [{ 'only-package-json': true, 'only-prettier': true }]
+      conflicts: [
+        { 'only-package-json': true, 'only-prettier': true, 'only-eslint': true }
+      ]
     },
     'only-prettier': {
       boolean: true,
@@ -111,14 +114,24 @@ export default function command({
       default: false,
       conflicts: [
         'renumber-references',
-        { 'only-package-json': true, 'only-markdown': true }
+        { 'only-package-json': true, 'only-markdown': true, 'only-eslint': true }
+      ]
+    },
+    'only-eslint': {
+      boolean: true,
+      description: 'Only run Eslint-based file formatting (via eslint --fix)',
+      default: false,
+      conflicts: [
+        'renumber-references',
+        { 'only-package-json': true, 'only-markdown': true, 'only-prettier': true }
       ]
     }
   });
 
   return {
     builder,
-    description: 'Run formatters (e.g. prettier, remark) across all relevant files',
+    description:
+      'Run formatters (e.g. prettier, remark, eslint --fix) across all relevant files',
     usage: withGlobalUsage(
       `$1.
 
@@ -137,6 +150,7 @@ With respect to .prettierignore being the single source of truth for formatters:
       onlyPackageJson,
       onlyMarkdown,
       onlyPrettier,
+      onlyEslintFix,
       hush: isHushed,
       quiet: isQuieted
     }) {
@@ -169,6 +183,7 @@ With respect to .prettierignore being the single source of truth for formatters:
       debug('onlyPackageJson: %O', onlyPackageJson);
       debug('onlyMarkdown: %O', onlyMarkdown);
       debug('onlyPrettier: %O', onlyPrettier);
+      debug('onlyEslintFix: %O', onlyEslintFix);
 
       let sawMarkdownFilesOutsideProjectRoot = false as boolean;
 
@@ -285,14 +300,24 @@ With respect to .prettierignore being the single source of truth for formatters:
       debug('targetPackageJsonFiles: %O', targetPackageJsonFiles);
 
       const shouldDoPackageJson =
-        !onlyMarkdown && !onlyPrettier && targetPackageJsonFiles.length > 0;
+        !onlyMarkdown &&
+        !onlyPrettier &&
+        !onlyEslintFix &&
+        targetPackageJsonFiles.length > 0;
+
       const shouldDoMarkdown =
-        !onlyPackageJson && !onlyPrettier && targetMarkdownFiles.length > 0;
-      const shouldDoPrettier = !onlyPackageJson && !onlyMarkdown;
+        !onlyPackageJson &&
+        !onlyPrettier &&
+        !onlyEslintFix &&
+        targetMarkdownFiles.length > 0;
+
+      const shouldDoPrettier = !onlyPackageJson && !onlyMarkdown && !onlyEslintFix;
+      const shouldDoEslint = !onlyPackageJson && !onlyMarkdown && !onlyPrettier;
 
       debug('shouldDoPackageJson: %O', shouldDoPackageJson);
       debug('shouldDoMarkdown: %O', shouldDoMarkdown);
       debug('shouldDoPrettier: %O', shouldDoPrettier);
+      debug('shouldDoEslint: %O', shouldDoEslint);
 
       if (shouldDoMarkdown) {
         // TODO: gain noticeable speedups by switching to node-only API instead
@@ -348,13 +373,17 @@ With respect to .prettierignore being the single source of truth for formatters:
       const status: Record<
         'sort' | 'doctoc' | 'allContrib' | 'remark',
         boolean | null | undefined
-      > & { failed: unknown; prettier: number | false | null | undefined } = {
+      > &
+        Record<'prettier' | 'eslint', number | false | null | undefined> & {
+          failed: unknown;
+        } = {
         failed: false,
         sort: undefined,
         doctoc: undefined,
         allContrib: undefined,
         remark: undefined,
-        prettier: undefined
+        prettier: undefined,
+        eslint: undefined
       };
 
       try {
@@ -374,6 +403,16 @@ With respect to .prettierignore being the single source of truth for formatters:
               throw error;
             })
           : Promise.resolve();
+
+        if (shouldDoEslint) {
+          // TODO: this
+
+          genericLogger.warn(
+            'eslint --fix functionality is not yet implemented (implement me!)'
+          );
+
+          status.eslint = undefined;
+        }
 
         if (shouldDoMarkdown) {
           // ? These have to run sequentially to prevent data corruption.
@@ -548,11 +587,12 @@ With respect to .prettierignore being the single source of truth for formatters:
           `${SHORT_TAB}Synchronized TOCs: ${statusToEmoji(status.doctoc)}`,
           `${SHORT_TAB}Regenerated contributor table: ${statusToEmoji(status.allContrib)}`,
           `${SHORT_TAB}Reformatted files: ${statusToEmoji(status.remark)}`,
-          `Prettified files ${
-            scope === DefaultGlobalScope.ThisPackage
-              ? 'in this package'
-              : 'across the entire project'
-          }: ${
+          `Fixed up files: ${
+            typeof status.eslint === 'number'
+              ? status.eslint
+              : statusToEmoji(status.eslint)
+          }`,
+          `Prettified files: ${
             typeof status.prettier === 'number'
               ? status.prettier
               : statusToEmoji(status.prettier)
