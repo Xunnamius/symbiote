@@ -66,6 +66,8 @@ const log = createGenericLogger({
 const $scheme = Symbol('scheme');
 const extensionsTsAndJs = [...extensionsTypescript, ...extensionsJavascript];
 
+// TODO: consider incorporating @next/eslint-plugin-next for next.js projects
+
 const sharedRestrictedImportRules = [
   // ! This must always be the first restrict import configuration object since
   // ! it is an "IDE-only" linting error (only appears in the IDE)
