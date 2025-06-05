@@ -289,6 +289,12 @@ export function moduleExport({
     exclude: ['transform-dynamic-import']
   };
 
+  // * https://babeljs.io/docs/babel-preset-react
+  const commonPresetReactConfig = {
+    runtime: 'automatic',
+    development: !process.env.NODE_ENV?.startsWith('production')
+  };
+
   const isBuildingTranspiledForJest = !!process.env.SYMBIOTE_TEST_JEST_TRANSPILED;
 
   dbgModuleExport('commonPresetEnvConfig: %O', commonPresetEnvConfig);
@@ -325,7 +331,7 @@ export function moduleExport({
           // {@symbiote/notExtraneous @babel/preset-typescript}
           ['@babel/preset-typescript', { allowDeclareFields: true }],
           // {@symbiote/notExtraneous @babel/preset-react}
-          ['@babel/preset-react', { runtime: 'automatic' }]
+          ['@babel/preset-react', commonPresetReactConfig]
           // ? We don't care about minification
         ],
         plugins: [
@@ -359,7 +365,7 @@ export function moduleExport({
           // {@symbiote/notExtraneous @babel/preset-typescript}
           ['@babel/preset-typescript', { allowDeclareFields: true }],
           // {@symbiote/notExtraneous @babel/preset-react}
-          ['@babel/preset-react', { runtime: 'automatic' }]
+          ['@babel/preset-react', commonPresetReactConfig]
         ],
         plugins: [
           makeTransformRewriteImportsSourceModuleResolver(
@@ -385,7 +391,7 @@ export function moduleExport({
           // {@symbiote/notExtraneous @babel/preset-typescript}
           ['@babel/preset-typescript', { allowDeclareFields: true }],
           // {@symbiote/notExtraneous @babel/preset-react}
-          ['@babel/preset-react', { runtime: 'automatic' }]
+          ['@babel/preset-react', commonPresetReactConfig]
         ],
         plugins: [
           makeTransformRewriteImportsSourceModuleResolver(
@@ -410,7 +416,7 @@ export function moduleExport({
           // {@symbiote/notExtraneous @babel/preset-typescript}
           ['@babel/preset-typescript', { allowDeclareFields: true }],
           // {@symbiote/notExtraneous @babel/preset-react}
-          ['@babel/preset-react', { runtime: 'automatic' }]
+          ['@babel/preset-react', commonPresetReactConfig]
         ],
         plugins: [
           makeTransformRewriteImportsSourceModuleResolver(
