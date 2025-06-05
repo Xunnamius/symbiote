@@ -40,7 +40,7 @@ export type CustomCliArguments = GlobalCliArguments & {
   onlyPackageJson: boolean;
   onlyMarkdown: boolean;
   onlyPrettier: boolean;
-  onlyEslintFix: boolean;
+  onlyEslint: boolean;
 };
 
 export default function command({
@@ -150,7 +150,7 @@ With respect to .prettierignore being the single source of truth for formatters:
       onlyPackageJson,
       onlyMarkdown,
       onlyPrettier,
-      onlyEslintFix,
+      onlyEslint,
       hush: isHushed,
       quiet: isQuieted
     }) {
@@ -183,7 +183,7 @@ With respect to .prettierignore being the single source of truth for formatters:
       debug('onlyPackageJson: %O', onlyPackageJson);
       debug('onlyMarkdown: %O', onlyMarkdown);
       debug('onlyPrettier: %O', onlyPrettier);
-      debug('onlyEslintFix: %O', onlyEslintFix);
+      debug('onlyEslintFix: %O', onlyEslint);
 
       let sawMarkdownFilesOutsideProjectRoot = false as boolean;
 
@@ -302,16 +302,16 @@ With respect to .prettierignore being the single source of truth for formatters:
       const shouldDoPackageJson =
         !onlyMarkdown &&
         !onlyPrettier &&
-        !onlyEslintFix &&
+        !onlyEslint &&
         targetPackageJsonFiles.length > 0;
 
       const shouldDoMarkdown =
         !onlyPackageJson &&
         !onlyPrettier &&
-        !onlyEslintFix &&
+        !onlyEslint &&
         targetMarkdownFiles.length > 0;
 
-      const shouldDoPrettier = !onlyPackageJson && !onlyMarkdown && !onlyEslintFix;
+      const shouldDoPrettier = !onlyPackageJson && !onlyMarkdown && !onlyEslint;
       const shouldDoEslint = !onlyPackageJson && !onlyMarkdown && !onlyPrettier;
 
       debug('shouldDoPackageJson: %O', shouldDoPackageJson);

@@ -497,7 +497,8 @@ Use --import-section-file to add a custom release section to the changelog. The 
           skipUnknown: false,
           onlyPackageJson: false,
           onlyMarkdown: false,
-          onlyPrettier: false
+          onlyPrettier: false,
+          onlyEslint: false
         });
 
         debug('sub-command completed successfully');
