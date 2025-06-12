@@ -272,6 +272,9 @@ It can also happen when your source is relying on non-portable type inference wh
   IssuePrefixContainsIllegalCharacters() {
     return 'issue prefixes cannot contain characters recognized by the RegExp constructor';
   },
+  MustInstallSymbioteToRunThisCommand() {
+    return `to use this command, symbiote must be invoked locally, not globally. If this error occurs during NPM install invoked by a globally-installed symbiote instance, run "npx symbiote project prepare" manually`;
+  },
   CannotImportConventionalConfig(path: string) {
     return `failed to import conventional configuration file: ${path}`;
   },

@@ -85,7 +85,7 @@ export default function command({
     usage: withGlobalUsage(
       `$1. The tasks executed by this command are, in order:
 
-1. If the runtime pre-checks fail, exit
+1. If the runtime pre-checks fail or a globally-installed Symbiote instance was invoked, exit
 2. If the project is a hybridrepo, symlink into the project root node_modules directory a self-reference to the root package if such a link does not already exist
 3. Symlink into the project root node_modules directory any dependencies explicitly bundled with symbiote if these links do not already exist
 4. If the npm_command environment variable is not "install" or "ci", and --force is not provided, exit
@@ -125,6 +125,10 @@ This command runs all its tasks asynchronously and concurrently where possible. 
 
       // * 1
       try {
+        if (!isUsingLocalInstallation) {
+          throw new Error(ErrorMessage.MustInstallSymbioteToRunThisCommand());
+        }
+
         await runGlobalPreChecks({
           standardDebug: standardDebug,
           projectMetadata_,
