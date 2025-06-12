@@ -6,7 +6,7 @@
 
 # Enumeration: \_TesterScope
 
-Defined in: [src/commands/test.ts:112](https://github.com/Xunnamius/symbiote/blob/ffa2219b5458551337af8081b76f7ffb8422c513/src/commands/test.ts#L112)
+Defined in: [src/commands/test.ts:112](https://github.com/Xunnamius/symbiote/blob/a1f5561e6e036b3d2f78a95f5bba872cff737ed5/src/commands/test.ts#L112)
 
 ## Enumeration Members
 
@@ -14,7 +14,7 @@ Defined in: [src/commands/test.ts:112](https://github.com/Xunnamius/symbiote/blo
 
 > **ThisPackageIntermediates**: `"this-package-intermediates"`
 
-Defined in: [src/commands/test.ts:117](https://github.com/Xunnamius/symbiote/blob/ffa2219b5458551337af8081b76f7ffb8422c513/src/commands/test.ts#L117)
+Defined in: [src/commands/test.ts:117](https://github.com/Xunnamius/symbiote/blob/a1f5561e6e036b3d2f78a95f5bba872cff737ed5/src/commands/test.ts#L117)
 
 Limit the command to relevant _transpiled_ tests (aka "intermediates")
 within `./.transpiled` (with respect to the current working directory).

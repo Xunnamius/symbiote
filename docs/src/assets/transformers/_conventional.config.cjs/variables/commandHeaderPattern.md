@@ -8,7 +8,7 @@
 
 > `const` **commandHeaderPattern**: `RegExp`
 
-Defined in: [src/assets/transformers/\_conventional.config.cjs.ts:235](https://github.com/Xunnamius/symbiote/blob/ffa2219b5458551337af8081b76f7ffb8422c513/src/assets/transformers/_conventional.config.cjs.ts#L235)
+Defined in: [src/assets/transformers/\_conventional.config.cjs.ts:235](https://github.com/Xunnamius/symbiote/blob/a1f5561e6e036b3d2f78a95f5bba872cff737ed5/src/assets/transformers/_conventional.config.cjs.ts#L235)
 
 This regular expression matches well-known xpipeline command strings that may
 appear as commands in commit headers and is used to remove said commands so
