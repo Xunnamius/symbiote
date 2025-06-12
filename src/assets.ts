@@ -716,12 +716,14 @@ export async function generatePerPackageAssets(
   } = transformerContext;
 
   if (scope === DefaultGlobalScope.ThisPackage) {
+    const toPackageAbsolutePath = toSpecificPackageAbsolutePath(cwdPackage);
     return Promise.resolve(
       adder({
         package_: cwdPackage,
-        toPackageAbsolutePath: toSpecificPackageAbsolutePath(cwdPackage),
+        toPackageAbsolutePath,
         contextWithCwdPackage: {
-          ...transformerContext
+          ...transformerContext,
+          toPackageAbsolutePath
           // ? Unlike the all-packages version below, this version expects
           // ? the incoming transformerContext to already be configured for the
           // ? current package, so there's nothing further to do here :)
@@ -740,12 +742,14 @@ export async function generatePerPackageAssets(
     }
 
     const allPackagesAssets = await Promise.all(
-      allPackages.map(async (package_) =>
-        adder({
+      allPackages.map(async (package_) => {
+        const toPackageAbsolutePath = toSpecificPackageAbsolutePath(package_);
+        return adder({
           package_: package_,
-          toPackageAbsolutePath: toSpecificPackageAbsolutePath(package_),
+          toPackageAbsolutePath,
           contextWithCwdPackage: {
             ...transformerContext,
+            toPackageAbsolutePath,
             codecovFlag: (await deriveCodecovPackageFlag(package_)).flag,
             cwdPackagePartialImportSpecifier: isRootPackage(package_)
               ? ''
@@ -755,8 +759,8 @@ export async function generatePerPackageAssets(
               cwdPackage: package_
             }
           }
-        })
-      )
+        });
+      })
     );
 
     return allPackagesAssets.flat().filter((asset) => !!asset);

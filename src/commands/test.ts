@@ -41,6 +41,12 @@ import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:config
 
 const tstycheVacuousSuccessMessage = `Tstyche tests vacuously succeeded: no files found matching ${tstycheTargetRegExp.toString()}`;
 
+// TODO: for testing built test intermediates: --use-jest-directly to use node &
+// TODO: jest directly and NOT set NODE_OPTIONS environment variable. This will
+// TODO: allow testing intermediates with symbiote to work with vscode's debug
+// TODO: terminal. Currently it does not because NODE_OPTIONS cannot be set AND
+// TODO: have the debug terminal attach properly.
+
 /**
  * Which kind of test to run.
  */
