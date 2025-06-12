@@ -410,6 +410,7 @@ function jestRules(): NonNullable<EslintConfig['rules']> {
     'jest/padding-around-all': 'off',
     'jest/padding-around-expect-groups': 'off',
     'jest/padding-around-test-blocks': 'off',
+    'jest/prefer-ending-with-an-expect': 'off',
     'jest/require-hook': [
       'error',
       {
