@@ -10,7 +10,7 @@
 
 > **expectExceptionsWithMatchingErrors**\<`Params`\>(`spec`, `errorFn`, `options`): `Promise`\<`void`\>
 
-Defined in: node\_modules/@-xun/jest/dist/packages/jest/src/index.d.ts:275
+Defined in: node\_modules/@-xun/jest/dist/packages/jest/src/index.d.ts:274
 
 Maps each element of the `spec` array into a Jest expectation asserting that
 `errorFn` either throws an error or rejects. If an assertion fails, a helpful
@@ -28,10 +28,9 @@ await expectExceptionsWithMatchingErrors([
 });
 ```
 
-Note: if you're getting a type error about no matching overloads, make sure
-you've set `options.singleParameter` to `true` if you're passing in a
-[ExpectExceptionsWithMatchingErrorsSpec](../type-aliases/ExpectExceptionsWithMatchingErrorsSpec.md) typed with
-`'single-parameter'` as its second type parameter.
+Note: if you're getting a type error about no matching overloads and/or an
+untyped `errorFn`, make sure you've set `options.singleParameter`
+accordingly.
 
 ### Type Parameters
 
@@ -61,7 +60,7 @@ you've set `options.singleParameter` to `true` if you're passing in a
 
 > **expectExceptionsWithMatchingErrors**\<`Params`\>(`spec`, `errorFn`, `options?`): `Promise`\<`void`\>
 
-Defined in: node\_modules/@-xun/jest/dist/packages/jest/src/index.d.ts:278
+Defined in: node\_modules/@-xun/jest/dist/packages/jest/src/index.d.ts:277
 
 Maps each element of the `spec` array into a Jest expectation asserting that
 `errorFn` either throws an error or rejects. If an assertion fails, a helpful
@@ -79,10 +78,9 @@ await expectExceptionsWithMatchingErrors([
 });
 ```
 
-Note: if you're getting a type error about no matching overloads, make sure
-you've set `options.singleParameter` to `true` if you're passing in a
-[ExpectExceptionsWithMatchingErrorsSpec](../type-aliases/ExpectExceptionsWithMatchingErrorsSpec.md) typed with
-`'single-parameter'` as its second type parameter.
+Note: if you're getting a type error about no matching overloads and/or an
+untyped `errorFn`, make sure you've set `options.singleParameter`
+accordingly.
 
 ### Type Parameters
 

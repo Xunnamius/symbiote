@@ -8,7 +8,7 @@
 
 > **generateNotes**(`pluginConfig`, `context`): `Promise`\<`string`\>
 
-Defined in: [types/release-notes-generator.d.ts:5](https://github.com/Xunnamius/symbiote/blob/cdf76d04fad879da3fde112c8b68cb31ead45b72/types/release-notes-generator.d.ts#L5)
+Defined in: [types/release-notes-generator.d.ts:5](https://github.com/Xunnamius/symbiote/blob/ffa2219b5458551337af8081b76f7ffb8422c513/types/release-notes-generator.d.ts#L5)
 
 ## Parameters
 

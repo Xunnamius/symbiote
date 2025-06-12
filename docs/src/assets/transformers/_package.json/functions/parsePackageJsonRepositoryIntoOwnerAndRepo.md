@@ -8,7 +8,7 @@
 
 > **parsePackageJsonRepositoryIntoOwnerAndRepo**(`__namedParameters`): `object`
 
-Defined in: [src/assets/transformers/\_package.json.ts:419](https://github.com/Xunnamius/symbiote/blob/cdf76d04fad879da3fde112c8b68cb31ead45b72/src/assets/transformers/_package.json.ts#L419)
+Defined in: [src/assets/transformers/\_package.json.ts:419](https://github.com/Xunnamius/symbiote/blob/ffa2219b5458551337af8081b76f7ffb8422c513/src/assets/transformers/_package.json.ts#L419)
 
 Takes an XPackageJson instance and returns the repository owner and
 name or throws if said information is not derivable.

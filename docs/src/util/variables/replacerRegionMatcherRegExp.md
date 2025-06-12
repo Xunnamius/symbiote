@@ -8,7 +8,7 @@
 
 > `const` **replacerRegionMatcherRegExp**: `RegExp`
 
-Defined in: [src/util.ts:176](https://github.com/Xunnamius/symbiote/blob/cdf76d04fad879da3fde112c8b68cb31ead45b72/src/util.ts#L176)
+Defined in: [src/util.ts:176](https://github.com/Xunnamius/symbiote/blob/ffa2219b5458551337af8081b76f7ffb8422c513/src/util.ts#L176)
 
 A regular expression that will match a replacer region in a string. Contains
 two unnamed matching groups: `id` and `contents`.

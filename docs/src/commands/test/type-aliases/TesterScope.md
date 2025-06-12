@@ -8,6 +8,6 @@
 
 > **TesterScope** = [`DefaultGlobalScope`](../../../configure/enumerations/DefaultGlobalScope.md) \| [`_TesterScope`](../enumerations/TesterScope.md)
 
-Defined in: [src/commands/test.ts:126](https://github.com/Xunnamius/symbiote/blob/cdf76d04fad879da3fde112c8b68cb31ead45b72/src/commands/test.ts#L126)
+Defined in: [src/commands/test.ts:132](https://github.com/Xunnamius/symbiote/blob/ffa2219b5458551337af8081b76f7ffb8422c513/src/commands/test.ts#L132)
 
 The context in which to search for test files.

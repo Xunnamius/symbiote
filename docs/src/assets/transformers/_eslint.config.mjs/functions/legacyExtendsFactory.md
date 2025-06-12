@@ -8,7 +8,7 @@
 
 > **legacyExtendsFactory**(`flatCompat`): (`extension`, `name`) => `Config`
 
-Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:980](https://github.com/Xunnamius/symbiote/blob/cdf76d04fad879da3fde112c8b68cb31ead45b72/src/assets/transformers/_eslint.config.mjs.ts#L980)
+Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:981](https://github.com/Xunnamius/symbiote/blob/ffa2219b5458551337af8081b76f7ffb8422c513/src/assets/transformers/_eslint.config.mjs.ts#L981)
 
 Returns a function that, when invoked, returns an `eslint@>=9` configuration
 object that adapts a legacy `eslint@<9` plugin's exposed rule extension.

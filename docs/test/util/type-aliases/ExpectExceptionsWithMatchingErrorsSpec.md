@@ -6,7 +6,7 @@
 
 # Type Alias: ExpectExceptionsWithMatchingErrorsSpec\<Params, SingleParameter\>
 
-> **ExpectExceptionsWithMatchingErrorsSpec**\<`Params`, `SingleParameter`\> = `Tagged`\<\[`"single-parameter"` *extends* `SingleParameter` ? `Params`\[`0`\] : `Params`, `string`\][], `SingleParameter`\>
+> **ExpectExceptionsWithMatchingErrorsSpec**\<`Params`, `SingleParameter`\> = \[`"single-parameter"` *extends* `SingleParameter` ? `Params`\[`0`\] : `Params`, `string`\][]
 
 Defined in: node\_modules/@-xun/jest/dist/packages/jest/src/index.d.ts:225
 
