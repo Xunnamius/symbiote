@@ -336,6 +336,8 @@ function genericRules(
           res: false,
           ctx: false,
           num: false,
+          prop: false,
+          props: false,
           param: false,
           params: false
         },
