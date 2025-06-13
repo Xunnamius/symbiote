@@ -8,7 +8,7 @@
 
 > `const` **ErrorMessage**: `object`
 
-Defined in: [src/error.ts:61](https://github.com/Xunnamius/symbiote/blob/6ed00ca6896b0b8cec3f95d250dcb8a4cc24b2a7/src/error.ts#L61)
+Defined in: [src/error.ts:61](https://github.com/Xunnamius/symbiote/blob/de44cf3f9abbc7550310bea0f718d51d9fdbe834/src/error.ts#L61)
 
 A collection of possible error and warning messages.
 
@@ -462,6 +462,20 @@ punctuation and capitalization rules as the other error messages.
 ### BadSkipArgs()
 
 > **BadSkipArgs**(): `string`
+
+#### Returns
+
+`string`
+
+### BadUserGroup()
+
+> **BadUserGroup**(`userGroup`): `string`
+
+#### Parameters
+
+##### userGroup
+
+`string`
 
 #### Returns
 

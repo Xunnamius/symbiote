@@ -8,7 +8,7 @@
 
 > **deriveGitHubUrl**(`__namedParameters`): `string`
 
-Defined in: [src/assets/transformers/\_package.json.ts:452](https://github.com/Xunnamius/symbiote/blob/6ed00ca6896b0b8cec3f95d250dcb8a4cc24b2a7/src/assets/transformers/_package.json.ts#L452)
+Defined in: [src/assets/transformers/\_package.json.ts:452](https://github.com/Xunnamius/symbiote/blob/de44cf3f9abbc7550310bea0f718d51d9fdbe834/src/assets/transformers/_package.json.ts#L452)
 
 Takes an `owner` and a `repo` and returns a URL pointing to a GitHub
 repository.

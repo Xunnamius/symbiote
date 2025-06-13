@@ -8,7 +8,7 @@
 
 > **default**(`executionContext`): `ChildConfiguration`\<[`CustomCliArguments`](../type-aliases/CustomCliArguments.md), [`GlobalExecutionContext`](../../../../configure/type-aliases/GlobalExecutionContext.md)\>
 
-Defined in: [src/commands/project/renovate.ts:290](https://github.com/Xunnamius/symbiote/blob/6ed00ca6896b0b8cec3f95d250dcb8a4cc24b2a7/src/commands/project/renovate.ts#L290)
+Defined in: [src/commands/project/renovate.ts:290](https://github.com/Xunnamius/symbiote/blob/de44cf3f9abbc7550310bea0f718d51d9fdbe834/src/commands/project/renovate.ts#L290)
 
 ## Parameters
 
