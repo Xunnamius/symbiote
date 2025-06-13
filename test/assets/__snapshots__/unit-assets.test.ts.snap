@@ -27220,7 +27220,7 @@ export {};
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tailwind.config.mjs generates expected assets at hybridrepo (scope=this-package): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/tailwind.config.mjs 1`] = `
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tailwind.config.ts generates expected assets at hybridrepo (scope=this-package): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/tailwind.config.mjs 1`] = `
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/tailwind.config.mjs
 scope: this-package
 ⏶⏷⏶⏷⏶
@@ -27228,7 +27228,7 @@ scope: this-package
 'use strict';
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
-import { moduleExport } from '@-xun/symbiote/assets/tailwind.config.mjs';
+import { moduleExport } from '@-xun/symbiote/assets/tailwind.config.ts';
 import { createDebugLogger } from 'rejoinder';
 
 const debug = createDebugLogger({ namespace: 'symbiote:config:tailwind' });
@@ -27243,7 +27243,7 @@ debug('exported config: %O', config);
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tailwind.config.mjs generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/tailwind.config.mjs 1`] = `
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tailwind.config.ts generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/tailwind.config.mjs 1`] = `
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/tailwind.config.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
@@ -27251,7 +27251,7 @@ scope: unlimited
 'use strict';
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
-import { moduleExport } from '@-xun/symbiote/assets/tailwind.config.mjs';
+import { moduleExport } from '@-xun/symbiote/assets/tailwind.config.ts';
 import { createDebugLogger } from 'rejoinder';
 
 const debug = createDebugLogger({ namespace: 'symbiote:config:tailwind' });
@@ -27266,7 +27266,7 @@ debug('exported config: %O', config);
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tailwind.config.mjs generates expected assets at hybridrepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/tailwind.config.mjs 1`] = `
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tailwind.config.ts generates expected assets at hybridrepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/tailwind.config.mjs 1`] = `
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/tailwind.config.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
@@ -27274,7 +27274,7 @@ scope: unlimited
 'use strict';
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
-import { moduleExport } from '@-xun/symbiote/assets/tailwind.config.mjs';
+import { moduleExport } from '@-xun/symbiote/assets/tailwind.config.ts';
 import { createDebugLogger } from 'rejoinder';
 
 const debug = createDebugLogger({ namespace: 'symbiote:config:tailwind' });
@@ -27289,7 +27289,7 @@ debug('exported config: %O', config);
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tailwind.config.mjs generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/tailwind.config.mjs 1`] = `
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tailwind.config.ts generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/tailwind.config.mjs 1`] = `
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/tailwind.config.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
@@ -27297,7 +27297,7 @@ scope: unlimited
 'use strict';
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
-import { moduleExport } from '@-xun/symbiote/assets/tailwind.config.mjs';
+import { moduleExport } from '@-xun/symbiote/assets/tailwind.config.ts';
 import { createDebugLogger } from 'rejoinder';
 
 const debug = createDebugLogger({ namespace: 'symbiote:config:tailwind' });
@@ -27312,7 +27312,7 @@ debug('exported config: %O', config);
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tailwind.config.mjs generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/tailwind.config.mjs 1`] = `
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tailwind.config.ts generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/tailwind.config.mjs 1`] = `
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/tailwind.config.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
@@ -27320,7 +27320,7 @@ scope: unlimited
 'use strict';
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
-import { moduleExport } from '@-xun/symbiote/assets/tailwind.config.mjs';
+import { moduleExport } from '@-xun/symbiote/assets/tailwind.config.ts';
 import { createDebugLogger } from 'rejoinder';
 
 const debug = createDebugLogger({ namespace: 'symbiote:config:tailwind' });
@@ -27335,7 +27335,7 @@ debug('exported config: %O', config);
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tailwind.config.mjs generates expected assets for polyrepo (scope=this-package): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/tailwind.config.mjs 1`] = `
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tailwind.config.ts generates expected assets for polyrepo (scope=this-package): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/tailwind.config.mjs 1`] = `
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/tailwind.config.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
@@ -27343,7 +27343,7 @@ scope: unlimited
 'use strict';
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
-import { moduleExport } from '@-xun/symbiote/assets/tailwind.config.mjs';
+import { moduleExport } from '@-xun/symbiote/assets/tailwind.config.ts';
 import { createDebugLogger } from 'rejoinder';
 
 const debug = createDebugLogger({ namespace: 'symbiote:config:tailwind' });
@@ -27358,7 +27358,7 @@ debug('exported config: %O', config);
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tailwind.config.mjs generates expected assets for polyrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/tailwind.config.mjs 1`] = `
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tailwind.config.ts generates expected assets for polyrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/tailwind.config.mjs 1`] = `
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/tailwind.config.mjs
 scope: this-package
 ⏶⏷⏶⏷⏶
@@ -27366,7 +27366,7 @@ scope: this-package
 'use strict';
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
-import { moduleExport } from '@-xun/symbiote/assets/tailwind.config.mjs';
+import { moduleExport } from '@-xun/symbiote/assets/tailwind.config.ts';
 import { createDebugLogger } from 'rejoinder';
 
 const debug = createDebugLogger({ namespace: 'symbiote:config:tailwind' });
@@ -27381,7 +27381,7 @@ debug('exported config: %O', config);
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tailwind.config.mjs generates expected assets for polyrepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/tailwind.config.mjs 1`] = `
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tailwind.config.ts generates expected assets for polyrepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/tailwind.config.mjs 1`] = `
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/tailwind.config.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
@@ -27389,7 +27389,7 @@ scope: unlimited
 'use strict';
 
 import { deepMergeConfig } from '@-xun/symbiote/assets';
-import { moduleExport } from '@-xun/symbiote/assets/tailwind.config.mjs';
+import { moduleExport } from '@-xun/symbiote/assets/tailwind.config.ts';
 import { createDebugLogger } from 'rejoinder';
 
 const debug = createDebugLogger({ namespace: 'symbiote:config:tailwind' });
