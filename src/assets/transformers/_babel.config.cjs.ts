@@ -97,10 +97,12 @@ export type { BabelConfig };
 export const wellKnownNodeEnvValues = [
   'development',
   'test',
-  //'production',
+  // ? Synonymous with production-browser
+  'production',
   'production-esm',
   'production-cjs',
-  'production-types'
+  'production-types',
+  'production-browser'
 ] as const;
 
 /**
