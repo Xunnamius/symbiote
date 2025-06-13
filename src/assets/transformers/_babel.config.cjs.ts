@@ -408,8 +408,9 @@ export function moduleExport({
             '@babel/preset-env',
             {
               // ? https://babeljs.io/docs/en/babel-preset-env#modules
-              modules: false,
-              targets: 'defaults',
+              modules: isBuildingTranspiledForJest ? false : 'auto',
+              // ? Handled by .browserslistrc
+              //targets: 'defaults',
               ...commonPresetEnvConfig
             } satisfies BabelPresetEnvConfig
           ],
