@@ -2,9 +2,9 @@
 
 ***
 
-[@-xun/symbiote](../../../../README.md) / src/assets/transformers/\_tailwind.config.mjs
+[@-xun/symbiote](../../../../README.md) / src/assets/transformers/\_tailwind.config.ts
 
-# src/assets/transformers/\_tailwind.config.mjs
+# src/assets/transformers/\_tailwind.config.ts
 
 ## Variables
 

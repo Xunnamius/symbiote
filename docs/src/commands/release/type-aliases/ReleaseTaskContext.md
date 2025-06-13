@@ -8,7 +8,7 @@
 
 > **ReleaseTaskContext** = `object`
 
-Defined in: [src/commands/release.ts:131](https://github.com/Xunnamius/symbiote/blob/a1f5561e6e036b3d2f78a95f5bba872cff737ed5/src/commands/release.ts#L131)
+Defined in: [src/commands/release.ts:131](https://github.com/Xunnamius/symbiote/blob/5bc8cc1bc3878913c89597fb873ade336adb86bd/src/commands/release.ts#L131)
 
 The context passed to each individual task.
 
@@ -18,7 +18,7 @@ The context passed to each individual task.
 
 > **debug**: `ExtendedDebugger`
 
-Defined in: [src/commands/release.ts:134](https://github.com/Xunnamius/symbiote/blob/a1f5561e6e036b3d2f78a95f5bba872cff737ed5/src/commands/release.ts#L134)
+Defined in: [src/commands/release.ts:134](https://github.com/Xunnamius/symbiote/blob/5bc8cc1bc3878913c89597fb873ade336adb86bd/src/commands/release.ts#L134)
 
 ***
 
@@ -26,7 +26,7 @@ Defined in: [src/commands/release.ts:134](https://github.com/Xunnamius/symbiote/
 
 > **log**: `ExtendedLogger`
 
-Defined in: [src/commands/release.ts:133](https://github.com/Xunnamius/symbiote/blob/a1f5561e6e036b3d2f78a95f5bba872cff737ed5/src/commands/release.ts#L133)
+Defined in: [src/commands/release.ts:133](https://github.com/Xunnamius/symbiote/blob/5bc8cc1bc3878913c89597fb873ade336adb86bd/src/commands/release.ts#L133)
 
 ***
 
@@ -34,4 +34,4 @@ Defined in: [src/commands/release.ts:133](https://github.com/Xunnamius/symbiote/
 
 > **self**: [`ReleaseTask`](ReleaseTask.md)
 
-Defined in: [src/commands/release.ts:132](https://github.com/Xunnamius/symbiote/blob/a1f5561e6e036b3d2f78a95f5bba872cff737ed5/src/commands/release.ts#L132)
+Defined in: [src/commands/release.ts:132](https://github.com/Xunnamius/symbiote/blob/5bc8cc1bc3878913c89597fb873ade336adb86bd/src/commands/release.ts#L132)

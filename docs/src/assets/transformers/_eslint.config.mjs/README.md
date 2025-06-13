@@ -23,3 +23,4 @@
 - [makeEslintFlatCompat](functions/makeEslintFlatCompat.md)
 - [moduleExport](functions/moduleExport.md)
 - [overwriteProperty](functions/overwriteProperty.md)
+- [toCommaSeparatedExtensionList](functions/toCommaSeparatedExtensionList.md)

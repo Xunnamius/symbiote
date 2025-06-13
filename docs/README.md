@@ -41,7 +41,7 @@
 - [src/assets/transformers/\_release.config.cjs](src/assets/transformers/_release.config.cjs/README.md)
 - [src/assets/transformers/\_SECURITY.md](src/assets/transformers/_SECURITY.md/README.md)
 - [src/assets/transformers/\_src](src/assets/transformers/_src/README.md)
-- [src/assets/transformers/\_tailwind.config.mjs](src/assets/transformers/_tailwind.config.mjs/README.md)
+- [src/assets/transformers/\_tailwind.config.ts](src/assets/transformers/_tailwind.config.ts/README.md)
 - [src/assets/transformers/\_test](src/assets/transformers/_test/README.md)
 - [src/assets/transformers/\_tsconfig.json](src/assets/transformers/_tsconfig.json/README.md)
 - [src/assets/transformers/\_tstyche.config.json](src/assets/transformers/_tstyche.config.json/README.md)
