@@ -562,13 +562,17 @@ export function assertEnvironment({
     '(undefined)') as (typeof wellKnownNodeEnvValues)[number];
 
   if (!wellKnownNodeEnvValues.includes(mode)) {
-    throw new ProjectError(
-      ErrorMessage.ConfigAssetEnvironmentValidationFailed(
-        'babel',
-        mode,
-        wellKnownNodeEnvValues
-      )
-    );
+    if (process.env.SYMBIOTE_ALLOW_UNKNOWN_NODE_ENV) {
+      debug.warn('SYMBIOTE_ALLOW_UNKNOWN_NODE_ENV is active for %O', mode);
+    } else {
+      throw new ProjectError(
+        ErrorMessage.ConfigAssetEnvironmentValidationFailed(
+          'babel',
+          mode,
+          wellKnownNodeEnvValues
+        )
+      );
+    }
   }
 
   const packageRoot = getCurrentWorkingDirectory();
