@@ -8,7 +8,7 @@
 
 > **verifyConditions**(`pluginConfig`, `_context`): `void`
 
-Defined in: [src/assets/transformers/\_release.config.cjs.ts:375](https://github.com/Xunnamius/symbiote/blob/5bc8cc1bc3878913c89597fb873ade336adb86bd/src/assets/transformers/_release.config.cjs.ts#L375)
+Defined in: [src/assets/transformers/\_release.config.cjs.ts:375](https://github.com/Xunnamius/symbiote/blob/6ed00ca6896b0b8cec3f95d250dcb8a4cc24b2a7/src/assets/transformers/_release.config.cjs.ts#L375)
 
 This is a custom semantic-release plugin step that validates the options
 passed via `release.config.cjs`.
