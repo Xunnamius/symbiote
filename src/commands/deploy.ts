@@ -311,6 +311,11 @@ When using --target=ssh, it is assumed the key pair necessary to authenticate wi
             `${host}:${remoteTmpdirPath}`
           ]);
 
+          genericLogger.warn(
+            'WARNING! THE FOLLOWING PATH WILL BE "rm -rf"-ED: %O',
+            toPath
+          );
+
           process.stdout.write(`Enter sudo password for remote ${host}: `);
           const sudoPassword = await askPassword(process.stdin);
 
