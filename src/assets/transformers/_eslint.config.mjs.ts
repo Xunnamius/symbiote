@@ -339,7 +339,9 @@ function genericRules(
           prop: false,
           props: false,
           param: false,
-          params: false
+          params: false,
+          ref: false,
+          refs: false
         },
         ignore: [/stderr/i]
       }
