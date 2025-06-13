@@ -8,7 +8,7 @@
 
 > **moduleExport**(`__namedParameters`): [`BabelConfig`](../interfaces/BabelConfig.md)
 
-Defined in: [src/assets/transformers/\_babel.config.cjs.ts:272](https://github.com/Xunnamius/symbiote/blob/7fbd108cee2f783e7fe92308d969f39ae3bc1d0c/src/assets/transformers/_babel.config.cjs.ts#L272)
+Defined in: [src/assets/transformers/\_babel.config.cjs.ts:274](https://github.com/Xunnamius/symbiote/blob/877e3120bdc7f2c76a05ae6085d5ac57197fd79f/src/assets/transformers/_babel.config.cjs.ts#L274)
 
 ## Parameters
 
