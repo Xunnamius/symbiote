@@ -989,6 +989,9 @@ export function legacyExtendsFactory(
   };
 }
 
-function toCommaSeparatedExtensionList(extensions: readonly string[]) {
+/**
+ * Utility function to turn an array of extensions into a comma-separated list.
+ */
+export function toCommaSeparatedExtensionList(extensions: readonly string[]) {
   return extensions.map((extension) => extension.slice(1)).join(',');
 }
