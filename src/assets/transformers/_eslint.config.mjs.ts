@@ -299,9 +299,9 @@ function genericRules(
     '@typescript-eslint/no-useless-constructor': 'off',
     // ? This rule is broken: it can actually introduce bugs if applied blindly.
     '@typescript-eslint/prefer-nullish-coalescing': 'off',
-    // // ? This rule is broken: it just doesn't work (maybe open an issue).
-    // ? Re-enabled for now...
+    // ? These rules are semi-broken, but still useful. Re-enabled for now...
     '@typescript-eslint/no-unnecessary-type-assertion': 'warn',
+    '@typescript-eslint/restrict-plus-operands': 'warn',
 
     // * unicorn
     'unicorn/no-keyword-prefix': 'warn',
