@@ -38,6 +38,7 @@
 - [compileTemplateInMemory](functions/compileTemplateInMemory.md)
 - [compileTemplates](functions/compileTemplates.md)
 - [deepMergeConfig](functions/deepMergeConfig.md)
+- [defaultCustomReplacer](functions/defaultCustomReplacer.md)
 - [gatherAssetsFromAllTransformers](functions/gatherAssetsFromAllTransformers.md)
 - [gatherAssetsFromTransformer](functions/gatherAssetsFromTransformer.md)
 - [generatePerPackageAssets](functions/generatePerPackageAssets.md)

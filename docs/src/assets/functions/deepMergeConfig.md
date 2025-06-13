@@ -6,12 +6,17 @@
 
 # Function: deepMergeConfig()
 
-> **deepMergeConfig**\<`ConfigurationType`\>(`originalConfiguration`, `overwrites`, `customReplacer?`): `ConfigurationType`
+> **deepMergeConfig**\<`ConfigurationType`\>(`originalConfiguration`, `overwrites`, `customReplacer`): `ConfigurationType`
 
-Defined in: [src/assets.ts:624](https://github.com/Xunnamius/symbiote/blob/877e3120bdc7f2c76a05ae6085d5ac57197fd79f/src/assets.ts#L624)
+Defined in: [src/assets.ts:632](https://github.com/Xunnamius/symbiote/blob/cdafea2baa38b239d5977b443b3a3091b1a1c2e6/src/assets.ts#L632)
 
 A thin wrapper around lodash's mergeWith that does not mutate
 `originalConfiguration`.
+
+By default, a custom replacer is provided that **does not** recursively merge
+array values, only a shallow non-recursive merge is performed (latter array
+values are concatenated to the old array). Additionally, `undefined`
+properties will unset previously defined properties.
 
 ## Type Parameters
 
@@ -29,10 +34,15 @@ A thin wrapper around lodash's mergeWith that does not mutate
 
 `ConfigurationType` | `EmptyObject`
 
-### customReplacer?
+### customReplacer
 
 (`value`, `srcValue`, `key`, `object`, `source`, `stack`) => `any`
 
 ## Returns
 
 `ConfigurationType`
+
+## See
+
+ - [defaultCustomReplacer](defaultCustomReplacer.md)
+ - https://lodash.info/doc/merge
