@@ -420,13 +420,6 @@ export function moduleExport({
           ['@babel/preset-typescript', { allowDeclareFields: true }],
           // {@symbiote/notExtraneous @babel/preset-react}
           ['@babel/preset-react', commonPresetReactConfig]
-        ],
-        plugins: [
-          makeTransformRewriteImportsSourceModuleResolver(
-            derivedAliases,
-            packageRoot,
-            projectRoot
-          )
         ]
       },
       // * Used by `npm run build` for fixing declaration file imports in ./dist
