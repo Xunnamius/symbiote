@@ -620,13 +620,56 @@ export type MergeWithCustomizer = Parameters<typeof mergeWith<unknown, unknown>>
 /**
  * A thin wrapper around lodash's {@link mergeWith} that does not mutate
  * `originalConfiguration`.
+ *
+ * By default, a custom replacer is provided that **does not** recursively merge
+ * array values, only a shallow non-recursive merge is performed (latter array
+ * values are concatenated to the old array). Additionally, `undefined`
+ * properties will unset previously defined properties.
+ *
+ * @see {@link defaultCustomReplacer}
+ * @see https://lodash.info/doc/merge
  */
 export function deepMergeConfig<ConfigurationType>(
   originalConfiguration: ConfigurationType,
   overwrites: ConfigurationType | EmptyObject = {},
-  customReplacer?: MergeWithCustomizer
+  customReplacer: MergeWithCustomizer = defaultCustomReplacer
 ): ConfigurationType {
   return mergeWith({}, originalConfiguration, overwrites, customReplacer);
+}
+
+/**
+ * Custom lodash merge customizer that causes successive `undefined` source
+ * values to unset (delete) the destination property if it exists, and to
+ * completely overwrite the destination property if the source property is an
+ * array.
+ *
+ * Additionally, this customizer **does not** recursively merge array values,
+ * only a shallow non-recursive merge is performed (latter array values are
+ * concatenated to the old array).
+ *
+ * @see https://lodash.com/docs/4.17.15#mergeWith
+ */
+export function defaultCustomReplacer(
+  objValue: unknown,
+  srcValue: unknown,
+  key: string,
+  object: Record<string, unknown> | undefined,
+  source: Record<string, unknown> | undefined
+) {
+  if (object && source) {
+    if (srcValue === undefined && key in source) {
+      // eslint-disable-next-line @typescript-eslint/no-dynamic-delete
+      delete object[key];
+    } else if (Array.isArray(srcValue)) {
+      if (Array.isArray(objValue)) {
+        return objValue.concat(srcValue);
+      }
+
+      return srcValue;
+    }
+  }
+
+  return undefined;
 }
 
 async function invokeTransformerAndReifyAssets({

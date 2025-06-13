@@ -1429,6 +1429,83 @@ describe('::deepMergeConfig', () => {
 
     expect(originalConfiguration).toStrictEqual({ a: 1 });
   });
+
+  it('merges nested arrays non-recursively (only one level deep)', async () => {
+    expect.hasAssertions();
+
+    {
+      const originalConfiguration: Record<string, unknown> = { a: ['b', { c: 'd' }] };
+
+      expect(
+        deepMergeConfig(originalConfiguration, { a: [['b', { e: 'f' }]] })
+      ).toStrictEqual({
+        a: ['b', { c: 'd' }, ['b', { e: 'f' }]]
+      });
+
+      expect(
+        deepMergeConfig(originalConfiguration, { a: [['x', { y: 'z' }]] })
+      ).toStrictEqual({
+        a: ['b', { c: 'd' }, ['x', { y: 'z' }]]
+      });
+
+      expect(originalConfiguration).toStrictEqual({ a: ['b', { c: 'd' }] });
+    }
+
+    {
+      const originalConfiguration: Record<string, unknown> = { a: [['b', { c: 'd' }]] };
+
+      expect(
+        deepMergeConfig(originalConfiguration, { a: [['b', { e: 'f' }]] })
+      ).toStrictEqual({
+        a: [
+          ['b', { c: 'd' }],
+          ['b', { e: 'f' }]
+        ]
+      });
+
+      expect(
+        deepMergeConfig(originalConfiguration, { a: [['x', { y: 'z' }]] })
+      ).toStrictEqual({
+        a: [
+          ['b', { c: 'd' }],
+          ['x', { y: 'z' }]
+        ]
+      });
+
+      expect(originalConfiguration).toStrictEqual({ a: [['b', { c: 'd' }]] });
+    }
+
+    {
+      const originalConfiguration: Record<string, unknown> = {
+        a: [
+          //
+          [['b', { c: 'd' }]]
+        ]
+      };
+
+      expect(
+        deepMergeConfig(originalConfiguration, { a: [[['b', { e: 'f' }]]] })
+      ).toStrictEqual({
+        a: [
+          //
+          [['b', { c: 'd' }]],
+          [['b', { e: 'f' }]]
+        ]
+      });
+
+      expect(
+        deepMergeConfig(originalConfiguration, { a: [[['x', { y: 'z' }]]] })
+      ).toStrictEqual({
+        a: [
+          //
+          [['b', { c: 'd' }]],
+          [['x', { y: 'z' }]]
+        ]
+      });
+
+      expect(originalConfiguration).toStrictEqual({ a: [[['b', { c: 'd' }]]] });
+    }
+  });
 });
 
 describe('::generatePerPackageAssets', () => {
