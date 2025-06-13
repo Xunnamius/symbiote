@@ -48,6 +48,7 @@ export type CustomCliArguments = GlobalCliArguments<DeployScope> & {
         target: DeployTarget.Ssh;
         host: string;
         toPath: string;
+        userGroup: string;
       }
   );
 
@@ -195,6 +196,40 @@ export default function command({
           }
         ]
       }
+    },
+    'user-group': {
+      string: true,
+      description: 'The ssh deploy user and group (via chown)',
+      requires: { target: DeployTarget.Ssh },
+      check(userGroup: string) {
+        return (
+          (userGroup.includes(':') &&
+            userGroup.indexOf(':') === userGroup.lastIndexOf(':')) ||
+          ErrorMessage.BadUserGroup(userGroup)
+        );
+      },
+      subOptionOf: {
+        target: [
+          {
+            when: (target) => target === DeployTarget.Ssh,
+            update(oldOptionConfig) {
+              return {
+                ...oldOptionConfig,
+                demandThisOption: true
+              };
+            }
+          },
+          {
+            when: (target) => target !== DeployTarget.Ssh,
+            update(oldOptionConfig) {
+              return {
+                ...oldOptionConfig,
+                hidden: true
+              };
+            }
+          }
+        ]
+      }
     }
   });
 
@@ -214,6 +249,7 @@ When using --target=ssh, it is assumed the key pair necessary to authenticate wi
       const debug = standardDebug.extend(`handler-${handlerName}`);
 
       debug('entered handler');
+      debug('argv: %O', argv);
 
       const { projectMetadata } = await runGlobalPreChecks({
         standardDebug: standardDebug,
@@ -265,7 +301,7 @@ When using --target=ssh, it is assumed the key pair necessary to authenticate wi
         case DeployTarget.Ssh: {
           genericLogger([LogTag.IF_NOT_QUIETED], deployMessage('ssh'));
 
-          const { host, toPath } = argv;
+          const { host, toPath, userGroup } = argv;
           const remoteTmpdirPath = uniqueFilename('/tmp', 'x-deploy');
 
           await run('rsync', [
@@ -281,7 +317,7 @@ When using --target=ssh, it is assumed the key pair necessary to authenticate wi
           const uploadScript = [
             `echo ${sudoPassword.toString('utf8')} | sudo -S rm -rf ${toPath}`,
             `echo ${sudoPassword.toString('utf8')} | sudo -S mv ${remoteTmpdirPath}/dist ${toPath}`,
-            `echo ${sudoPassword.toString('utf8')} | sudo -S chown -R www-data:www-data ${toPath}`
+            `echo ${sudoPassword.toString('utf8')} | sudo -S chown -R ${userGroup} ${toPath}`
           ];
 
           await run('ssh', [host, uploadScript.join(' && ')]);

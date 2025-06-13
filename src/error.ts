@@ -60,6 +60,9 @@ makeNamedError(BuildOutputCheckError, 'BuildOutputCheckError');
 /* istanbul ignore next */
 export const ErrorMessage = {
   ...UpstreamErrorMessage,
+  BadUserGroup(userGroup: string) {
+    return `invalid user-group '${userGroup}'; must be valid user and group of the form 'username:groupname'`;
+  },
   EslintPluginReturnedSomethingUnexpected(identifier: string) {
     return `assertion failed: the eslint plugin "${identifier}" returned something unexpected`;
   },
