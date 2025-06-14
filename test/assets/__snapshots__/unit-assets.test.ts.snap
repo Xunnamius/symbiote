@@ -1137,7 +1137,7 @@ exports[`::gatherAssetsFromAllTransformers preset: default (no preset) generates
   "prettier.config.mjs",
   "release.config.cjs",
   "packages/webpack/src/index.ts",
-  "tailwind.config.mjs",
+  "tailwind.config.ts",
   "packages/webpack/test/unit.test.ts",
   "packages/webpack/test/type.test.ts",
   "packages/webpack/test/integration/.config.ts",
@@ -1228,7 +1228,7 @@ exports[`::gatherAssetsFromAllTransformers preset: default (no preset) generates
   "release.config.cjs",
   "packages/pkg-1/src/index.ts",
   "packages/pkg-import/src/index.ts",
-  "tailwind.config.mjs",
+  "tailwind.config.ts",
   "test/util.ts",
   "test/setup.ts",
   "packages/pkg-1/test/unit.test.ts",
@@ -1320,7 +1320,7 @@ exports[`::gatherAssetsFromAllTransformers preset: default (no preset) generates
   "prettier.config.mjs",
   "release.config.cjs",
   "src/index.ts",
-  "tailwind.config.mjs",
+  "tailwind.config.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
   "tsc.package.types.json",
@@ -2098,7 +2098,7 @@ exports[`::gatherAssetsFromAllTransformers preset: nextjs generates expected ass
   "prettier.config.mjs",
   "release.config.cjs",
   "packages/webpack/src/index.ts",
-  "tailwind.config.mjs",
+  "tailwind.config.ts",
   "packages/webpack/test/unit.test.ts",
   "packages/webpack/test/type.test.ts",
   "packages/webpack/test/integration/.config.ts",
@@ -2181,7 +2181,7 @@ exports[`::gatherAssetsFromAllTransformers preset: nextjs generates expected ass
   "release.config.cjs",
   "packages/pkg-1/src/index.ts",
   "packages/pkg-import/src/index.ts",
-  "tailwind.config.mjs",
+  "tailwind.config.ts",
   "test/util.ts",
   "test/setup.ts",
   "packages/pkg-1/test/unit.test.ts",
@@ -2268,7 +2268,7 @@ exports[`::gatherAssetsFromAllTransformers preset: nextjs generates expected ass
   "prettier.config.mjs",
   "release.config.cjs",
   "src/index.ts",
-  "tailwind.config.mjs",
+  "tailwind.config.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
   "tsc.package.types.json",
@@ -2331,7 +2331,7 @@ exports[`::gatherAssetsFromAllTransformers preset: react generates expected asse
   "prettier.config.mjs",
   "release.config.cjs",
   "packages/webpack/src/index.ts",
-  "tailwind.config.mjs",
+  "tailwind.config.ts",
   "packages/webpack/test/unit.test.ts",
   "packages/webpack/test/type.test.ts",
   "packages/webpack/test/integration/.config.ts",
@@ -2411,7 +2411,7 @@ exports[`::gatherAssetsFromAllTransformers preset: react generates expected asse
   "release.config.cjs",
   "packages/pkg-1/src/index.ts",
   "packages/pkg-import/src/index.ts",
-  "tailwind.config.mjs",
+  "tailwind.config.ts",
   "test/util.ts",
   "test/setup.ts",
   "packages/pkg-1/test/unit.test.ts",
@@ -2495,7 +2495,7 @@ exports[`::gatherAssetsFromAllTransformers preset: react generates expected asse
   "prettier.config.mjs",
   "release.config.cjs",
   "src/index.ts",
-  "tailwind.config.mjs",
+  "tailwind.config.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
   "tsc.package.types.json",
@@ -24865,7 +24865,6 @@ scope: this-package
   },
   "license": "MIT",
   "author": "Xunnamius",
-  "sideEffects": false,
   "engines": {
     "node": "^20.18.0 || >=22.12.0"
   },
@@ -24959,7 +24958,6 @@ scope: unlimited
   },
   "license": "MIT",
   "author": "Xunnamius",
-  "sideEffects": false,
   "type": "commonjs",
   "engines": {
     "node": "^20.18.0 || >=22.12.0"
@@ -25057,7 +25055,6 @@ scope: unlimited
   },
   "license": "MIT",
   "author": "Xunnamius",
-  "sideEffects": false,
   "type": "commonjs",
   "exports": {
     ".": {
@@ -25143,7 +25140,6 @@ scope: unlimited
   },
   "license": "MIT",
   "author": "Xunnamius",
-  "sideEffects": false,
   "type": "commonjs",
   "exports": {
     ".": {
@@ -25219,7 +25215,6 @@ scope: unlimited
   },
   "license": "MIT",
   "author": "Xunnamius",
-  "sideEffects": false,
   "type": "commonjs",
   "exports": {
     ".": {
@@ -25297,7 +25292,6 @@ scope: unlimited
   },
   "license": "MIT",
   "author": "Xunnamius",
-  "sideEffects": false,
   "engines": {
     "node": "^20.18.0 || >=22.12.0"
   },
@@ -25399,7 +25393,6 @@ scope: unlimited
   },
   "license": "MIT",
   "author": "Xunnamius",
-  "sideEffects": false,
   "exports": {
     ".": {
       "types": "./dist/packages/cli/src/cli.d.ts",
@@ -25485,7 +25478,6 @@ scope: unlimited
   },
   "license": "MIT",
   "author": "Xunnamius",
-  "sideEffects": false,
   "typesVersions": {
     "*": {
       "index": [
@@ -25556,7 +25548,6 @@ scope: unlimited
   },
   "license": "MIT",
   "author": "Xunnamius",
-  "sideEffects": false,
   "typesVersions": {
     "*": {
       "index": [
@@ -25630,7 +25621,6 @@ scope: this-package
   },
   "license": "MIT",
   "author": "Xunnamius",
-  "sideEffects": false,
   "typesVersions": {
     "*": {
       "index": [
@@ -25696,7 +25686,6 @@ scope: unlimited
   },
   "license": "MIT",
   "author": "Xunnamius",
-  "sideEffects": false,
   "type": "commonjs",
   "engines": {
     "node": "^20.18.0 || >=22.12.0"
@@ -25753,7 +25742,6 @@ scope: unlimited
   },
   "license": "MIT",
   "author": "Xunnamius",
-  "sideEffects": false,
   "type": "commonjs",
   "exports": {
     ".": {
@@ -25848,7 +25836,6 @@ scope: unlimited
   },
   "license": "MIT",
   "author": "Xunnamius",
-  "sideEffects": false,
   "type": "commonjs",
   "exports": {
     ".": {
@@ -25946,7 +25933,6 @@ scope: unlimited
   },
   "license": "MIT",
   "author": "Xunnamius",
-  "sideEffects": false,
   "type": "commonjs",
   "exports": {
     ".": {
@@ -26021,7 +26007,6 @@ scope: unlimited
   },
   "license": "MIT",
   "author": "Xunnamius",
-  "sideEffects": false,
   "engines": {
     "node": "^20.18.0 || >=22.12.0"
   },
@@ -26085,7 +26070,6 @@ scope: unlimited
   },
   "license": "MIT",
   "author": "Xunnamius",
-  "sideEffects": false,
   "typesVersions": {
     "*": {
       "index": [
@@ -26170,7 +26154,6 @@ scope: unlimited
   },
   "license": "MIT",
   "author": "Xunnamius",
-  "sideEffects": false,
   "typesVersions": {
     "*": {
       "index": [
@@ -26252,7 +26235,6 @@ scope: unlimited
   },
   "license": "MIT",
   "author": "Xunnamius",
-  "sideEffects": false,
   "typesVersions": {
     "*": {
       "index": [
@@ -26315,7 +26297,6 @@ scope: unlimited
   },
   "license": "MIT",
   "author": "Xunnamius",
-  "sideEffects": false,
   "typesVersions": {
     "*": {
       "index": [
@@ -26392,7 +26373,6 @@ scope: this-package
   },
   "license": "MIT",
   "author": "Xunnamius",
-  "sideEffects": false,
   "type": "commonjs",
   "exports": {
     ".": {
@@ -26482,7 +26462,6 @@ scope: unlimited
   },
   "license": "MIT",
   "author": "Xunnamius",
-  "sideEffects": false,
   "typesVersions": {
     "*": {
       "index": [
@@ -27220,8 +27199,8 @@ export {};
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tailwind.config.ts generates expected assets at hybridrepo (scope=this-package): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/tailwind.config.mjs 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/tailwind.config.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tailwind.config.ts generates expected assets at hybridrepo (scope=this-package): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/tailwind.config.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/tailwind.config.ts
 scope: this-package
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -27243,8 +27222,8 @@ debug('exported config: %O', config);
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tailwind.config.ts generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/tailwind.config.mjs 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/tailwind.config.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tailwind.config.ts generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/tailwind.config.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/tailwind.config.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -27266,8 +27245,8 @@ debug('exported config: %O', config);
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tailwind.config.ts generates expected assets at hybridrepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/tailwind.config.mjs 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/tailwind.config.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tailwind.config.ts generates expected assets at hybridrepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/tailwind.config.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/tailwind.config.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -27289,8 +27268,8 @@ debug('exported config: %O', config);
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tailwind.config.ts generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/tailwind.config.mjs 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/tailwind.config.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tailwind.config.ts generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/tailwind.config.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/tailwind.config.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -27312,8 +27291,8 @@ debug('exported config: %O', config);
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tailwind.config.ts generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/tailwind.config.mjs 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/tailwind.config.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tailwind.config.ts generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/tailwind.config.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/tailwind.config.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -27335,8 +27314,8 @@ debug('exported config: %O', config);
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tailwind.config.ts generates expected assets for polyrepo (scope=this-package): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/tailwind.config.mjs 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/tailwind.config.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tailwind.config.ts generates expected assets for polyrepo (scope=this-package): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/tailwind.config.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/tailwind.config.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -27358,8 +27337,8 @@ debug('exported config: %O', config);
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tailwind.config.ts generates expected assets for polyrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/tailwind.config.mjs 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/tailwind.config.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tailwind.config.ts generates expected assets for polyrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/tailwind.config.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/tailwind.config.ts
 scope: this-package
 ⏶⏷⏶⏷⏶
 // @ts-check
@@ -27381,8 +27360,8 @@ debug('exported config: %O', config);
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tailwind.config.ts generates expected assets for polyrepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/tailwind.config.mjs 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/tailwind.config.mjs
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> tailwind.config.ts generates expected assets for polyrepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/tailwind.config.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/tailwind.config.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
 // @ts-check
