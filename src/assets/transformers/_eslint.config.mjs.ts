@@ -659,79 +659,81 @@ export async function moduleExport({
     // ? Keep in mind that JS files can use @ts-check and "become" TS files,
     // ? hence the existence of this block. Logically, most rules should be
     // ? loaded here.
-    ...[
-      { ...eslintJs.configs.recommended, name: '@eslint/js:recommended' },
-      eslintTsConfigs.strictTypeChecked,
-      eslintTsConfigs.stylisticTypeChecked,
-      eslintTsConfigs.eslintRecommended,
-      eslintPluginImportFlatConfigs.recommended,
-      eslintPluginImportFlatConfigs.typescript,
-      eslintPluginUnicornRecommended,
-      {
-        name: '@-xun/symbiote:js-and-ts',
-        // ? Facilitates the usage of the xxx/no-warning-comments rule (above)
-        plugins: {
-          xxx: {
-            rules: {
-              // eslint-disable-next-line @typescript-eslint/no-deprecated
-              'no-warning-comments': eslintJsCoreRules.get('no-warning-comments')!
-            }
-          }
-        },
-        rules: reifiedGenericRules,
-        languageOptions: {
-          ecmaVersion: 'latest',
-          sourceType: 'module',
-          parser: eslintTsParser,
-          parserOptions: {
-            //tsconfigRootDir: cwd,
-            project: cwdTsconfigFile,
-            ecmaFeatures: {
-              impliedStrict: true,
-              jsx: true
-            },
-            babelOptions: {
-              rootMode: 'upward'
+    ...(
+      [
+        { ...eslintJs.configs.recommended, name: '@eslint/js:recommended' },
+        eslintTsConfigs.strictTypeChecked,
+        eslintTsConfigs.stylisticTypeChecked,
+        eslintTsConfigs.eslintRecommended,
+        eslintPluginImportFlatConfigs.recommended,
+        eslintPluginImportFlatConfigs.typescript,
+        eslintPluginUnicornRecommended,
+        {
+          name: '@-xun/symbiote:js-and-ts',
+          // ? Facilitates the usage of the xxx/no-warning-comments rule (above)
+          plugins: {
+            xxx: {
+              rules: {
+                // eslint-disable-next-line @typescript-eslint/no-deprecated
+                'no-warning-comments': eslintJsCoreRules.get('no-warning-comments')!
+              }
             }
           },
-          globals
-        },
-        linterOptions: { reportUnusedDisableDirectives: 'warn' },
-        // ? Shared settings used to configure many rules at once
-        settings: {
-          react: { version: 'detect' },
-          'import/extensions': extensionsTsAndJs,
-          // ? Switch parsers depending on which type of file we're looking at
-          'import/parsers': {
-            // ! Note how Babel is NOT being used to transpile TypeScript here!
-            // {@symbiote/notExtraneous @typescript-eslint/parser}
-            '@typescript-eslint/parser': extensionsTypescript,
-            // {@symbiote/notExtraneous @babel/eslint-parser}
-            '@babel/eslint-parser': extensionsJavascript
-          },
-          'import/resolver': {
-            // ? Aliases come from tsconfig's paths now
-            // {@symbiote/notExtraneous eslint-import-resolver-typescript}
-            typescript: {
-              alwaysTryTypes: true,
-              project: cwdTsconfigFile
+          rules: reifiedGenericRules,
+          languageOptions: {
+            ecmaVersion: 'latest',
+            sourceType: 'module',
+            parser: eslintTsParser,
+            parserOptions: {
+              //tsconfigRootDir: cwd,
+              project: cwdTsconfigFile,
+              ecmaFeatures: {
+                impliedStrict: true,
+                jsx: true
+              },
+              babelOptions: {
+                rootMode: 'upward'
+              }
             },
-            node: true
+            globals
           },
-          'import/ignore': [
-            // ? Don't go complaining about anything that we don't own
-            '.*/node_modules/.*',
-            '.*/bin/.*'
-          ],
-          node: {
-            // ? Seems eslint-plugin-n is struggling to get engines.node...
-            version: packageJsonEnginesNode,
-            tsconfigPath: cwdTsconfigFile
+          linterOptions: { reportUnusedDisableDirectives: 'warn' },
+          // ? Shared settings used to configure many rules at once
+          settings: {
+            react: { version: 'detect' },
+            'import/extensions': extensionsTsAndJs,
+            // ? Switch parsers depending on which type of file we're looking at
+            'import/parsers': {
+              // ! Note how Babel is NOT being used to transpile TypeScript here!
+              // {@symbiote/notExtraneous @typescript-eslint/parser}
+              '@typescript-eslint/parser': extensionsTypescript,
+              // {@symbiote/notExtraneous @babel/eslint-parser}
+              '@babel/eslint-parser': extensionsJavascript
+            },
+            'import/resolver': {
+              // ? Aliases come from tsconfig's paths now
+              // {@symbiote/notExtraneous eslint-import-resolver-typescript}
+              typescript: {
+                alwaysTryTypes: true,
+                project: cwdTsconfigFile
+              },
+              node: true
+            },
+            'import/ignore': [
+              // ? Don't go complaining about anything that we don't own
+              '.*/node_modules/.*',
+              '.*/bin/.*'
+            ],
+            node: {
+              // ? Seems eslint-plugin-n is struggling to get engines.node...
+              version: packageJsonEnginesNode,
+              tsconfigPath: cwdTsconfigFile
+            }
           }
-        }
-      } satisfies EslintConfig
-    ].flatMap((configs) =>
-      overwriteProperty(configs!, 'files', [
+        } satisfies EslintConfig
+      ] as EslintConfig[]
+    ).flatMap((configs) =>
+      overwriteProperty(configs, 'files', [
         `**/*.{${toCommaSeparatedExtensionList(extensionsTsAndJs)}}`
       ])
     ),
@@ -782,7 +784,7 @@ export async function moduleExport({
         ...nodeRules(reifiedRestrictedImportRules),
         ...mjsRules()
       }
-    },
+    } as EslintConfig,
 
     // * Rules applying only to TypeScript files
     {
@@ -810,7 +812,7 @@ export async function moduleExport({
         ...eslintPluginJestAll.rules,
         ...jestRules()
       }
-    }
+    } as EslintConfig
   );
 }
 
