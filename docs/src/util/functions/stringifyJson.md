@@ -8,7 +8,7 @@
 
 > **stringifyJson**(`o`, `spaceTabs`): `string`
 
-Defined in: [src/util.ts:1037](https://github.com/Xunnamius/symbiote/blob/cdafea2baa38b239d5977b443b3a3091b1a1c2e6/src/util.ts#L1037)
+Defined in: [src/util.ts:1037](https://github.com/Xunnamius/symbiote/blob/75014db0d306eae609fdd593e692bde4e3ec6d31/src/util.ts#L1037)
 
 Take a JavaScript object and return its stringified form with some semblance
 of proper formatting. Also appends a newline.

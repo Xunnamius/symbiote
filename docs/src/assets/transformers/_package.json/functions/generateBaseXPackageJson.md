@@ -8,7 +8,7 @@
 
 > **generateBaseXPackageJson**(...`__namedParameters`): `object`
 
-Defined in: [src/assets/transformers/\_package.json.ts:62](https://github.com/Xunnamius/symbiote/blob/cdafea2baa38b239d5977b443b3a3091b1a1c2e6/src/assets/transformers/_package.json.ts#L62)
+Defined in: [src/assets/transformers/\_package.json.ts:64](https://github.com/Xunnamius/symbiote/blob/75014db0d306eae609fdd593e692bde4e3ec6d31/src/assets/transformers/_package.json.ts#L64)
 
 ## Parameters
 
@@ -816,9 +816,13 @@ Run **before** the package is uninstalled.
 
 Run **before** bump the package version.
 
-### sideEffects
+### sideEffects?
 
-> `readonly` **sideEffects**: `boolean` \| `string`[]
+> `readonly` `optional` **sideEffects**: `boolean` \| `string`[]
+
+Denote which files in your project are "pure" and therefore safe for Webpack to prune if unused.
+
+[Read more.](https://webpack.js.org/guides/tree-shaking/)
 
 ### type
 

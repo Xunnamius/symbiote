@@ -8,7 +8,7 @@
 
 > **moduleExport**(): `object`
 
-Defined in: [src/assets/transformers/\_postcss.config.mjs.ts:11](https://github.com/Xunnamius/symbiote/blob/cdafea2baa38b239d5977b443b3a3091b1a1c2e6/src/assets/transformers/_postcss.config.mjs.ts#L11)
+Defined in: [src/assets/transformers/\_postcss.config.mjs.ts:11](https://github.com/Xunnamius/symbiote/blob/75014db0d306eae609fdd593e692bde4e3ec6d31/src/assets/transformers/_postcss.config.mjs.ts#L11)
 
 ## Returns
 
