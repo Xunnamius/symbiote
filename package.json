@@ -172,7 +172,7 @@
     "named-app-errors": "^4.0.2",
     "npm-check-updates": "^18.0.1",
     "prettier": "^3.5.3",
-    "rejoinder": "^2.0.0",
+    "rejoinder": "^2.0.1",
     "rejoinder-github-actions": "^2.0.0",
     "remark-capitalize-headings": "^2.0.1",
     "remark-cli": "^12.0.1",
