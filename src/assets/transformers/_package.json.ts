@@ -43,7 +43,7 @@ import type {
 import type { Jsonifiable } from 'type-fest';
 import type { TransformerContext } from 'universe:assets.ts';
 
-// TODO: FOR NEXTJS Next.js:
+// TODO: FOR react NEXTJS Next.js (and production/development if not lib):
 // TODO: when generating over next.js project, remove: keywords, publishconfig,
 // TODO: exports, typesVersions, sideEffects, files. For scripts, add: deploy
 
@@ -58,6 +58,8 @@ export type GeneratorParameters = [
 
 // ! Can never use the global (g) flag
 export const githubUrlRegExp = /github.com\/([^/]+)\/([^/]+?)(?:\.git)?$/;
+
+// TODO: generators should probably be simplified, they seem a little spaghetti
 
 export function generateBaseXPackageJson(
   ...[
@@ -85,7 +87,11 @@ export function generateBaseXPackageJson(
     repository: deriveJsonRepositoryValue(repoUrl),
     license: incomingPackageJson.license ?? 'MIT',
     author: incomingPackageJson.author ?? 'Xunnamius',
-    sideEffects: incomingPackageJson.sideEffects ?? false,
+    // ! "sideEffects" can NEVER appear w/ react/next.js preset or webpack makes
+    // ! orphans!
+    ...('sideEffects' in incomingPackageJson || preset?.startsWith('lib-')
+      ? { sideEffects: incomingPackageJson.sideEffects ?? false }
+      : {}),
     type: incomingPackageJson.type ?? 'commonjs',
     exports: incomingPackageJson.exports ?? {
       // ? CLI scope has its own exports entries
