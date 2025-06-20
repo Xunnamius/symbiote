@@ -885,7 +885,6 @@ config.push(
   //   },
   //   { ...eslintPluginJsxA11yFlatConfigs.recommended, name: 'jsx-a11y:recommended' }
   // ].flatMap((configs) =>
-  //   // @ts-expect-error: likely irrelevant
   //   overwriteProperty(configs, 'files', [
   //     \`**/*.{${toCommaSeparatedExtensionList(extensionsTypescript)}}\`
   //   ])
