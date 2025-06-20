@@ -8,7 +8,7 @@
 
 > **deriveJsonRepositoryValue**(`repoUrl`): `object`
 
-Defined in: [src/assets/transformers/\_package.json.ts:447](https://github.com/Xunnamius/symbiote/blob/eabdf496b63a01bba079125634c7ec566eb20891/src/assets/transformers/_package.json.ts#L447)
+Defined in: [src/assets/transformers/\_package.json.ts:447](https://github.com/Xunnamius/symbiote/blob/c1464a297410c83c8e7e7e880f016b0d4a6a426a/src/assets/transformers/_package.json.ts#L447)
 
 Takes a `repoUrl` and returns a XPackageJson.repository non-primitive
 object.
