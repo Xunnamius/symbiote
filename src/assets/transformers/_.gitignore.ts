@@ -55,7 +55,7 @@ bower_components
 build/Release
 .vercel
 .next
-next-env.d.ts
+.wrangler
 
 # Ignore cloned GitHub wiki (do not regard it as a so-called "submodule")
 # ? Note that this complex path is relative to this file

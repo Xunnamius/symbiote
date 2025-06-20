@@ -641,17 +641,19 @@ export async function moduleExport({
       ignores: [
         '**/dist/**/*',
         '**/test/fixtures/**/*',
-        '**/node_modules/**/*',
-        '**/*.ignore',
-        '**/*.ignore.*/**/*',
-        '**/ignore.*',
         '**/coverage/**/*',
         '**/bin/**/*',
-        '**/.transpiled/**/*',
-        '**/__*__/**',
-        // TODO: delete these after we rename build => .next for Next.js repos
+        // TODO: delete next line after we rename build => .next for Next.js
         '**/build/**/*',
-        '!**/src/**/*'
+        '!**/src/**/*',
+        '**/.next/**/*',
+        '**/.wrangler/**/*',
+        '**/.transpiled/**/*',
+        '**/node_modules/**/*',
+        '**/__*__/**',
+        '**/*.ignore',
+        '**/*.ignore.*/**/*',
+        '**/ignore.*'
       ]
     },
 

@@ -75,6 +75,8 @@ ${makeGeneratedAliasesWarningComment(4)}
   ],
   "exclude": [
     "**/dist/**/*",
+    "**/.next/**/*",
+    "**/.wrangler/**/*",
     "**/node_modules/**/*",
     "**/*.ignore",
     "**/*.ignore.*/**/*",
@@ -97,6 +99,8 @@ ${makeGeneratedAliasesWarningComment(4)}
   "include": ["**/*", "**/.*/**/*", "**/.*"],
   "exclude": [
     "**/dist/**/*",
+    "**/.next/**/*",
+    "**/.wrangler/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
     "**/*.ignore",
@@ -120,6 +124,8 @@ ${makeGeneratedAliasesWarningComment(4)}
   "include": ["**/*", "**/.*/**/*", "**/.*"],
   "exclude": [
     "**/dist/**/*",
+    "**/.next/**/*",
+    "**/.wrangler/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
     "${directoryPackagesProjectBase}/**/*",
@@ -150,6 +156,8 @@ ${makeGeneratedAliasesWarningComment(4)}
   ],
   "exclude": [
     "**/dist/**/*",
+    "**/.next/**/*",
+    "**/.wrangler/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
     "**/*.ignore",
@@ -174,6 +182,8 @@ ${makeGeneratedAliasesWarningComment(4)}
   "include": ["types/**/*", "src/**/*", "test/**/*"],
   "exclude": [
     "**/dist/**/*",
+    "**/.next/**/*",
+    "**/.wrangler/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
     "${directoryPackagesProjectBase}/**/*",
@@ -203,6 +213,8 @@ ${makeGeneratedAliasesWarningComment(4)}
   ],
   "exclude": [
     "**/dist/**/*",
+    "**/.next/**/*",
+    "**/.wrangler/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
     "**/*.ignore",
@@ -237,6 +249,8 @@ ${makeGeneratedAliasesWarningComment(4)}
   "include": ["types/**/*", "src/**/*"],
   "exclude": [
     "**/dist/**/*",
+    "**/.next/**/*",
+    "**/.wrangler/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
     "${directoryPackagesProjectBase}/**/*",
@@ -271,6 +285,8 @@ ${makeGeneratedAliasesWarningComment(4)}
   "include": ["../../types/**/*", "src/**/*"],
   "exclude": [
     "**/dist/**/*",
+    "**/.next/**/*",
+    "**/.wrangler/**/*",
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
     "**/*.ignore",

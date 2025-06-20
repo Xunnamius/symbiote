@@ -53,6 +53,8 @@ coverage
 .vercel
 .next
 next-env.d.ts
+.wrangler
+worker-configuration.d.ts
 CHANGELOG.md
 LICENSE
 LICENSE.md
