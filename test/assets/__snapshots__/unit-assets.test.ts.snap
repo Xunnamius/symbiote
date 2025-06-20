@@ -7654,6 +7654,7 @@ build/Release
 .vercel
 .next
 .wrangler
+.turbo
 
 # Ignore cloned GitHub wiki (do not regard it as a so-called "submodule")
 # ? Note that this complex path is relative to this file
@@ -7771,6 +7772,7 @@ build/Release
 .vercel
 .next
 .wrangler
+.turbo
 
 # Ignore cloned GitHub wiki (do not regard it as a so-called "submodule")
 # ? Note that this complex path is relative to this file
@@ -7888,6 +7890,7 @@ build/Release
 .vercel
 .next
 .wrangler
+.turbo
 
 # Ignore cloned GitHub wiki (do not regard it as a so-called "submodule")
 # ? Note that this complex path is relative to this file
@@ -8005,6 +8008,7 @@ build/Release
 .vercel
 .next
 .wrangler
+.turbo
 
 # Ignore cloned GitHub wiki (do not regard it as a so-called "submodule")
 # ? Note that this complex path is relative to this file
@@ -8122,6 +8126,7 @@ build/Release
 .vercel
 .next
 .wrangler
+.turbo
 
 # Ignore cloned GitHub wiki (do not regard it as a so-called "submodule")
 # ? Note that this complex path is relative to this file
@@ -8239,6 +8244,7 @@ build/Release
 .vercel
 .next
 .wrangler
+.turbo
 
 # Ignore cloned GitHub wiki (do not regard it as a so-called "submodule")
 # ? Note that this complex path is relative to this file
@@ -8356,6 +8362,7 @@ build/Release
 .vercel
 .next
 .wrangler
+.turbo
 
 # Ignore cloned GitHub wiki (do not regard it as a so-called "submodule")
 # ? Note that this complex path is relative to this file
@@ -8473,6 +8480,7 @@ build/Release
 .vercel
 .next
 .wrangler
+.turbo
 
 # Ignore cloned GitHub wiki (do not regard it as a so-called "submodule")
 # ? Note that this complex path is relative to this file
@@ -9909,6 +9917,8 @@ coverage
 next-env.d.ts
 .wrangler
 worker-configuration.d.ts
+.turbo
+.vscode/browser-debugger-profile
 CHANGELOG.md
 LICENSE
 LICENSE.md
@@ -9980,6 +9990,8 @@ coverage
 next-env.d.ts
 .wrangler
 worker-configuration.d.ts
+.turbo
+.vscode/browser-debugger-profile
 CHANGELOG.md
 LICENSE
 LICENSE.md
@@ -10051,6 +10063,8 @@ coverage
 next-env.d.ts
 .wrangler
 worker-configuration.d.ts
+.turbo
+.vscode/browser-debugger-profile
 CHANGELOG.md
 LICENSE
 LICENSE.md
@@ -10122,6 +10136,8 @@ coverage
 next-env.d.ts
 .wrangler
 worker-configuration.d.ts
+.turbo
+.vscode/browser-debugger-profile
 CHANGELOG.md
 LICENSE
 LICENSE.md
@@ -10193,6 +10209,8 @@ coverage
 next-env.d.ts
 .wrangler
 worker-configuration.d.ts
+.turbo
+.vscode/browser-debugger-profile
 CHANGELOG.md
 LICENSE
 LICENSE.md
@@ -10264,6 +10282,8 @@ coverage
 next-env.d.ts
 .wrangler
 worker-configuration.d.ts
+.turbo
+.vscode/browser-debugger-profile
 CHANGELOG.md
 LICENSE
 LICENSE.md
@@ -10335,6 +10355,8 @@ coverage
 next-env.d.ts
 .wrangler
 worker-configuration.d.ts
+.turbo
+.vscode/browser-debugger-profile
 CHANGELOG.md
 LICENSE
 LICENSE.md
@@ -10406,6 +10428,8 @@ coverage
 next-env.d.ts
 .wrangler
 worker-configuration.d.ts
+.turbo
+.vscode/browser-debugger-profile
 CHANGELOG.md
 LICENSE
 LICENSE.md
@@ -23279,7 +23303,6 @@ config.push(
   //   },
   //   { ...eslintPluginJsxA11yFlatConfigs.recommended, name: 'jsx-a11y:recommended' }
   // ].flatMap((configs) =>
-  //   // @ts-expect-error: likely irrelevant
   //   overwriteProperty(configs, 'files', [
   //     \`**/*.{ts,cts,mts,tsx}\`
   //   ])
@@ -23383,7 +23406,6 @@ config.push(
   //   },
   //   { ...eslintPluginJsxA11yFlatConfigs.recommended, name: 'jsx-a11y:recommended' }
   // ].flatMap((configs) =>
-  //   // @ts-expect-error: likely irrelevant
   //   overwriteProperty(configs, 'files', [
   //     \`**/*.{ts,cts,mts,tsx}\`
   //   ])
@@ -23487,7 +23509,6 @@ config.push(
   //   },
   //   { ...eslintPluginJsxA11yFlatConfigs.recommended, name: 'jsx-a11y:recommended' }
   // ].flatMap((configs) =>
-  //   // @ts-expect-error: likely irrelevant
   //   overwriteProperty(configs, 'files', [
   //     \`**/*.{ts,cts,mts,tsx}\`
   //   ])
@@ -23591,7 +23612,6 @@ config.push(
   //   },
   //   { ...eslintPluginJsxA11yFlatConfigs.recommended, name: 'jsx-a11y:recommended' }
   // ].flatMap((configs) =>
-  //   // @ts-expect-error: likely irrelevant
   //   overwriteProperty(configs, 'files', [
   //     \`**/*.{ts,cts,mts,tsx}\`
   //   ])
@@ -23695,7 +23715,6 @@ config.push(
   //   },
   //   { ...eslintPluginJsxA11yFlatConfigs.recommended, name: 'jsx-a11y:recommended' }
   // ].flatMap((configs) =>
-  //   // @ts-expect-error: likely irrelevant
   //   overwriteProperty(configs, 'files', [
   //     \`**/*.{ts,cts,mts,tsx}\`
   //   ])
@@ -23799,7 +23818,6 @@ config.push(
   //   },
   //   { ...eslintPluginJsxA11yFlatConfigs.recommended, name: 'jsx-a11y:recommended' }
   // ].flatMap((configs) =>
-  //   // @ts-expect-error: likely irrelevant
   //   overwriteProperty(configs, 'files', [
   //     \`**/*.{ts,cts,mts,tsx}\`
   //   ])
@@ -23903,7 +23921,6 @@ config.push(
   //   },
   //   { ...eslintPluginJsxA11yFlatConfigs.recommended, name: 'jsx-a11y:recommended' }
   // ].flatMap((configs) =>
-  //   // @ts-expect-error: likely irrelevant
   //   overwriteProperty(configs, 'files', [
   //     \`**/*.{ts,cts,mts,tsx}\`
   //   ])
@@ -23977,7 +23994,6 @@ config.push(
   //   },
   //   { ...eslintPluginJsxA11yFlatConfigs.recommended, name: 'jsx-a11y:recommended' }
   // ].flatMap((configs) =>
-  //   // @ts-expect-error: likely irrelevant
   //   overwriteProperty(configs, 'files', [
   //     \`**/*.{ts,cts,mts,tsx}\`
   //   ])
@@ -24051,7 +24067,6 @@ config.push(
   //   },
   //   { ...eslintPluginJsxA11yFlatConfigs.recommended, name: 'jsx-a11y:recommended' }
   // ].flatMap((configs) =>
-  //   // @ts-expect-error: likely irrelevant
   //   overwriteProperty(configs, 'files', [
   //     \`**/*.{ts,cts,mts,tsx}\`
   //   ])
