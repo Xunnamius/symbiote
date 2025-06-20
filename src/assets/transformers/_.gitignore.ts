@@ -56,6 +56,7 @@ build/Release
 .vercel
 .next
 .wrangler
+.turbo
 
 # Ignore cloned GitHub wiki (do not regard it as a so-called "submodule")
 # ? Note that this complex path is relative to this file

@@ -55,6 +55,8 @@ coverage
 next-env.d.ts
 .wrangler
 worker-configuration.d.ts
+.turbo
+.vscode/browser-debugger-profile
 CHANGELOG.md
 LICENSE
 LICENSE.md
