@@ -8,7 +8,7 @@
 
 > **ReleaseTaskRunner** = (`argv`, `taskContextPartial`) => `Promise`\<`void`\>
 
-Defined in: [src/commands/release.ts:140](https://github.com/Xunnamius/symbiote/blob/5258a5e58c9282dd65c5ac4b37e65d4dd5e8274f/src/commands/release.ts#L140)
+Defined in: [src/commands/release.ts:140](https://github.com/Xunnamius/symbiote/blob/090a7857a95973f8ad6febe2e79edda5e1f32856/src/commands/release.ts#L140)
 
 A reified [ProtoReleaseTaskRunner](ProtoReleaseTaskRunner.md). Generated automatically by tooling.
 

@@ -8,7 +8,7 @@
 
 > **toCommaSeparatedExtensionList**(`extensions`): `string`
 
-Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:1035](https://github.com/Xunnamius/symbiote/blob/5258a5e58c9282dd65c5ac4b37e65d4dd5e8274f/src/assets/transformers/_eslint.config.mjs.ts#L1035)
+Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:1035](https://github.com/Xunnamius/symbiote/blob/090a7857a95973f8ad6febe2e79edda5e1f32856/src/assets/transformers/_eslint.config.mjs.ts#L1035)
 
 Utility function to turn an array of extensions into a comma-separated list.
 
