@@ -319,10 +319,13 @@ When using --target=ssh, it is assumed the key pair necessary to authenticate wi
           process.stdout.write(`Enter sudo password for remote ${host}: `);
           const sudoPassword = await askPassword(process.stdin);
 
+          genericLogger.newline();
+
           const uploadScript = [
             `echo ${sudoPassword.toString('utf8')} | sudo -S rm -rf ${toPath}`,
             `echo ${sudoPassword.toString('utf8')} | sudo -S mv ${remoteTmpdirPath}/dist ${toPath}`,
-            `echo ${sudoPassword.toString('utf8')} | sudo -S chown -R ${userGroup} ${toPath}`
+            `echo ${sudoPassword.toString('utf8')} | sudo -S chown -R ${userGroup} ${toPath}`,
+            `echo ${sudoPassword.toString('utf8')} | sudo -S chmod o-rwx ${toPath}`
           ];
 
           await run('ssh', [host, uploadScript.join(' && ')]);
