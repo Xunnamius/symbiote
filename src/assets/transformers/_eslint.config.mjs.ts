@@ -864,9 +864,39 @@ const config = await moduleExport({
   ...(await assertEnvironment())
 });
 
-config.push({
-  /* Add custom config here, such as disabling certain rules */
-});
+// TODO: include react stuff automatically for react and next projects and come
+// TODO: up with a different example in the below comment:
+
+/* Add custom config objects here, such as those disabling certain rules */
+config.push(
+  // ? Paths listed here are ignored by Eslint and related tooling.
+  // { ignores: [] },
+  // * Configs applying to both JavaScript & TypeScript files (all extensions)
+  // ? Keep in mind that JS files can use @ts-check and "become" TS files,
+  // ? hence the existence of this block. Logically, most rules should be
+  // ? loaded here.
+  // ...[
+  //   { ...eslintPluginReactConfigs.flat.recommended, name: 'react:recommended' },
+  //   // ? For react@>=17
+  //   { ...eslintPluginReactConfigs.flat['jsx-runtime'], name: 'react:jsx-runtime' },
+  //   {
+  //     ...eslintPluginReactHooksConfigs['recommended-latest'],
+  //     name: 'react-hooks:recommended-latest'
+  //   },
+  //   { ...eslintPluginJsxA11yFlatConfigs.recommended, name: 'jsx-a11y:recommended' }
+  // ].flatMap((configs) =>
+  //   // @ts-expect-error: likely irrelevant
+  //   overwriteProperty(configs, 'files', [
+  //     \`**/*.{${toCommaSeparatedExtensionList(extensionsTypescript)}}\`
+  //   ])
+  // ),
+  // {
+  //   rules: {
+  //     'unicorn/no-keyword-prefix': 'off',
+  //     'no-restricted-syntax': 'off'
+  //   }
+  // }
+);
 
 export default config;
 
