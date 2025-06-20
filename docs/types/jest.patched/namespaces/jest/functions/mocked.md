@@ -10,7 +10,7 @@
 
 > **mocked**\<`T`\>(`source`, `options?`): [`MaybeMockedDeep`](../type-aliases/MaybeMockedDeep.md)\<`T`\>
 
-Defined in: node\_modules/@types/jest/index.d.ts:248
+Defined in: node\_modules/@types/jest/index.d.ts:277
 
 Wraps types of the `source` object and its deep members with type definitions
 of Jest mock function. Pass `{shallow: true}` option to disable the deeply
@@ -42,7 +42,7 @@ mocked behavior.
 
 > **mocked**\<`T`\>(`source`, `options`): [`MaybeMocked`](../type-aliases/MaybeMocked.md)\<`T`\>
 
-Defined in: node\_modules/@types/jest/index.d.ts:252
+Defined in: node\_modules/@types/jest/index.d.ts:281
 
 Wraps types of the `source` object with type definitions of Jest mock function.
 

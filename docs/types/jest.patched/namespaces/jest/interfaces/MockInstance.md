@@ -6,7 +6,7 @@
 
 # Interface: MockInstance\<T, Y, C\>
 
-Defined in: node\_modules/@types/jest/index.d.ts:1317
+Defined in: node\_modules/@types/jest/index.d.ts:1259
 
 ## Extended by
 
@@ -34,7 +34,7 @@ Defined in: node\_modules/@types/jest/index.d.ts:1317
 
 > **mock**: [`MockContext`](MockContext.md)\<`T`, `Y`, `C`\>
 
-Defined in: node\_modules/@types/jest/index.d.ts:1321
+Defined in: node\_modules/@types/jest/index.d.ts:1263
 
 Provides access to the mock's metadata
 
@@ -44,7 +44,7 @@ Provides access to the mock's metadata
 
 > **getMockImplementation**(): `undefined` \| (...`args`) => `T`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1357
+Defined in: node\_modules/@types/jest/index.d.ts:1299
 
 Returns the function that was set as the implementation of the mock (using mockImplementation).
 
@@ -58,7 +58,7 @@ Returns the function that was set as the implementation of the mock (using mockI
 
 > **getMockName**(): `string`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1319
+Defined in: node\_modules/@types/jest/index.d.ts:1261
 
 Returns the mock name string set by calling `mockFn.mockName(value)`.
 
@@ -72,7 +72,7 @@ Returns the mock name string set by calling `mockFn.mockName(value)`.
 
 > **mockClear**(): `this`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1331
+Defined in: node\_modules/@types/jest/index.d.ts:1273
 
 Resets all information stored in the mockFn.mock.calls and mockFn.mock.instances arrays.
 
@@ -92,7 +92,7 @@ don't access stale data.
 
 > **mockImplementation**(`fn?`): `this`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1365
+Defined in: node\_modules/@types/jest/index.d.ts:1307
 
 Accepts a function that should be used as the implementation of the mock. The mock itself will still record
 all calls that go into and instances that come from itself – the only difference is that the implementation
@@ -116,7 +116,7 @@ Note: `jest.fn(implementation)` is a shorthand for `jest.fn().mockImplementation
 
 > **mockImplementationOnce**(`fn`): `this`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1381
+Defined in: node\_modules/@types/jest/index.d.ts:1323
 
 Accepts a function that will be used as an implementation of the mock for one call to the mocked function.
 Can be chained so that multiple function calls produce different results.
@@ -150,7 +150,7 @@ myMockFn((err, val) => console.log(val)); // false
 
 > **mockName**(`name`): `this`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1397
+Defined in: node\_modules/@types/jest/index.d.ts:1339
 
 Sets the name of the mock.
 
@@ -170,7 +170,7 @@ Sets the name of the mock.
 
 > **mockRejectedValue**(`value`): `this`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1470
+Defined in: node\_modules/@types/jest/index.d.ts:1412
 
 Simple sugar function for: `jest.fn().mockImplementation(() => Promise.reject(value));`
 
@@ -200,7 +200,7 @@ test('async test', async () => {
 
 > **mockRejectedValueOnce**(`value`): `this`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1487
+Defined in: node\_modules/@types/jest/index.d.ts:1429
 
 Simple sugar function for: `jest.fn().mockImplementationOnce(() => Promise.reject(value));`
 
@@ -234,7 +234,7 @@ test('async test', async () => {
 
 > **mockReset**(): `this`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1341
+Defined in: node\_modules/@types/jest/index.d.ts:1283
 
 Resets all information stored in the mock, including any initial implementation and mock name given.
 
@@ -254,7 +254,7 @@ don't access stale data.
 
 > **mockResolvedValue**(`value`): `this`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1439
+Defined in: node\_modules/@types/jest/index.d.ts:1381
 
 Simple sugar function for: `jest.fn().mockImplementation(() => Promise.resolve(value));`
 
@@ -274,7 +274,7 @@ Simple sugar function for: `jest.fn().mockImplementation(() => Promise.resolve(v
 
 > **mockResolvedValueOnce**(`value`): `this`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1458
+Defined in: node\_modules/@types/jest/index.d.ts:1400
 
 Simple sugar function for: `jest.fn().mockImplementationOnce(() => Promise.resolve(value));`
 
@@ -311,7 +311,7 @@ test('async test', async () => {
 
 > **mockRestore**(): `void`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1353
+Defined in: node\_modules/@types/jest/index.d.ts:1295
 
 Does everything that `mockFn.mockReset()` does, and also restores the original (non-mocked) implementation.
 
@@ -333,7 +333,7 @@ to restore mocks automatically between tests.
 
 > **mockReturnThis**(): `this`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1407
+Defined in: node\_modules/@types/jest/index.d.ts:1349
 
 Just a simple sugar function for:
 
@@ -355,7 +355,7 @@ jest.fn(function() {
 
 > **mockReturnValue**(`value`): `this`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1419
+Defined in: node\_modules/@types/jest/index.d.ts:1361
 
 Accepts a value that will be returned whenever the mock function is called.
 
@@ -385,7 +385,7 @@ mock(); // 43
 
 > **mockReturnValueOnce**(`value`): `this`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1435
+Defined in: node\_modules/@types/jest/index.d.ts:1377
 
 Accepts a value that will be returned for one call to the mock function. Can be chained so that
 successive calls to the mock function return different values. When there are no more
@@ -421,7 +421,7 @@ console.log(myMockFn(), myMockFn(), myMockFn(), myMockFn());
 
 > **withImplementation**(`fn`, `callback`): `Promise`\<`void`\>
 
-Defined in: node\_modules/@types/jest/index.d.ts:1390
+Defined in: node\_modules/@types/jest/index.d.ts:1332
 
 Temporarily overrides the default mock implementation within the callback,
 then restores its previous implementation.
@@ -449,7 +449,7 @@ Awaiting the promise will await the callback and reset the implementation.
 
 > **withImplementation**(`fn`, `callback`): `void`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1395
+Defined in: node\_modules/@types/jest/index.d.ts:1337
 
 Temporarily overrides the default mock implementation within the callback,
 then restores its previous implementation.

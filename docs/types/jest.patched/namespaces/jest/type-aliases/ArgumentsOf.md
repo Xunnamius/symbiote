@@ -8,7 +8,7 @@
 
 > **ArgumentsOf**\<`T`\> = `T` *extends* (...`args`) => `any` ? `A` : `never`
 
-Defined in: node\_modules/@types/jest/index.d.ts:438
+Defined in: node\_modules/@types/jest/index.d.ts:459
 
 ## Type Parameters
 

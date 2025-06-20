@@ -8,7 +8,7 @@
 
 > **getTimerCount**(): `number`
 
-Defined in: node\_modules/@types/jest/index.d.ts:156
+Defined in: node\_modules/@types/jest/index.d.ts:191
 
 Returns the number of fake timers still left to run.
 

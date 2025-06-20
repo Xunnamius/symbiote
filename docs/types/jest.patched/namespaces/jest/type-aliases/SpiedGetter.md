@@ -8,7 +8,7 @@
 
 > **SpiedGetter**\<`T`\> = [`SpyInstance`](../interfaces/SpyInstance.md)\<`T`, \[\]\>
 
-Defined in: node\_modules/@types/jest/index.d.ts:1237
+Defined in: node\_modules/@types/jest/index.d.ts:1179
 
 Constructs the type of a spied getter.
 

@@ -8,7 +8,7 @@
 
 > **setTimeout**(`timeout`): *typeof* [`jest`](../README.md)
 
-Defined in: node\_modules/@types/jest/index.d.ts:367
+Defined in: node\_modules/@types/jest/index.d.ts:388
 
 Set the default timeout interval for tests and before/after hooks in milliseconds.
 Note: The default timeout interval is 5 seconds if this method is not called.

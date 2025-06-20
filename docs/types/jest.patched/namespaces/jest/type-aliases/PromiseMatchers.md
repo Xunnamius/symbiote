@@ -8,7 +8,7 @@
 
 > **PromiseMatchers**\<`T`\> = `Omit`\<`T`\[`"resolves"`\], `"not"`\>
 
-Defined in: node\_modules/@types/jest/index.d.ts:1202
+Defined in: node\_modules/@types/jest/index.d.ts:1144
 
 ## Type Parameters
 

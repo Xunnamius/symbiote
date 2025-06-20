@@ -8,7 +8,7 @@
 
 > **ArgsType**\<`T`\> = `T` *extends* (...`args`) => `any` ? `A` : `never`
 
-Defined in: node\_modules/@types/jest/index.d.ts:470
+Defined in: node\_modules/@types/jest/index.d.ts:491
 
 ## Type Parameters
 

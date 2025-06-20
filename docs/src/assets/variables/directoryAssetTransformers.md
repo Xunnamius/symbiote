@@ -8,7 +8,7 @@
 
 > `const` **directoryAssetTransformers**: `AbsolutePath`
 
-Defined in: [src/assets.ts:46](https://github.com/Xunnamius/symbiote/blob/75014db0d306eae609fdd593e692bde4e3ec6d31/src/assets.ts#L46)
+Defined in: [src/assets.ts:46](https://github.com/Xunnamius/symbiote/blob/eabdf496b63a01bba079125634c7ec566eb20891/src/assets.ts#L46)
 
 The directory containing files exporting functions that transform
 [TransformerContext](../type-aliases/TransformerContext.md) instances into reified asset strings.

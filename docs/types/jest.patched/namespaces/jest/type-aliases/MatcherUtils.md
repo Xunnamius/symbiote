@@ -8,4 +8,4 @@
 
 > **MatcherUtils** = `MatcherUtils` & `object`
 
-Defined in: node\_modules/@types/jest/index.d.ts:622
+Defined in: node\_modules/@types/jest/index.d.ts:643

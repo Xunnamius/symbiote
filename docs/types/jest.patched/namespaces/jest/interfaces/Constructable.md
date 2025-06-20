@@ -6,7 +6,7 @@
 
 # Interface: Constructable
 
-Defined in: node\_modules/@types/jest/index.d.ts:1204
+Defined in: node\_modules/@types/jest/index.d.ts:1146
 
 ## Constructors
 
@@ -14,7 +14,7 @@ Defined in: node\_modules/@types/jest/index.d.ts:1204
 
 > **new Constructable**(...`args`): `any`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1205
+Defined in: node\_modules/@types/jest/index.d.ts:1147
 
 #### Parameters
 

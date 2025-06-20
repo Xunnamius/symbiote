@@ -8,7 +8,7 @@
 
 > **AndNot**\<`T`\> = `T` & `object`
 
-Defined in: node\_modules/@types/jest/index.d.ts:796
+Defined in: node\_modules/@types/jest/index.d.ts:828
 
 ## Type declaration
 

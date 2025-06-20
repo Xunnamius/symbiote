@@ -8,7 +8,7 @@
 
 > **PropertyAccessors**\<`M`, `T`\> = `M` *extends* [`NonFunctionPropertyNames`](NonFunctionPropertyNames.md)\<`Required`\<`T`\>\> ? [`GetAccessor`](GetAccessor.md) \| [`SetAccessor`](SetAccessor.md) : `never`
 
-Defined in: node\_modules/@types/jest/index.d.ts:480
+Defined in: node\_modules/@types/jest/index.d.ts:501
 
 ## Type Parameters
 

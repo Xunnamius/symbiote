@@ -8,7 +8,7 @@
 
 > **EmptyFunction** = () => `void`
 
-Defined in: node\_modules/@types/jest/index.d.ts:469
+Defined in: node\_modules/@types/jest/index.d.ts:490
 
 ## Returns
 

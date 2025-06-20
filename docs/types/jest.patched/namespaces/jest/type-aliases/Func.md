@@ -8,7 +8,7 @@
 
 > **Func** = (...`args`) => `any`
 
-Defined in: node\_modules/@types/jest/index.d.ts:472
+Defined in: node\_modules/@types/jest/index.d.ts:493
 
 ## Parameters
 

@@ -8,7 +8,7 @@
 
 > **EqualityTester** = (`a`, `b`) => `boolean` \| `undefined`
 
-Defined in: node\_modules/@types/jest/index.d.ts:620
+Defined in: node\_modules/@types/jest/index.d.ts:641
 
 ## Parameters
 

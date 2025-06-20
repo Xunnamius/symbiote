@@ -8,7 +8,7 @@
 
 > **ExtendedExpectFunction**\<`TMatchers`\> = \<`TActual`\>(`actual`) => [`JestExtendedMatchers`](JestExtendedMatchers.md)\<`TMatchers`, `TActual`\>
 
-Defined in: node\_modules/@types/jest/index.d.ts:1192
+Defined in: node\_modules/@types/jest/index.d.ts:1134
 
 ## Type Parameters
 

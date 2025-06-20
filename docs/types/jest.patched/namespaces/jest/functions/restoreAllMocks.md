@@ -8,7 +8,7 @@
 
 > **restoreAllMocks**(): *typeof* [`jest`](../README.md)
 
-Defined in: node\_modules/@types/jest/index.d.ts:146
+Defined in: node\_modules/@types/jest/index.d.ts:181
 
 Restores all mocks and replaced properties back to their original value.
 Equivalent to calling `.mockRestore()` on every mocked function

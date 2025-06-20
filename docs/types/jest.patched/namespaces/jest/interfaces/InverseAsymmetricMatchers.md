@@ -50,7 +50,7 @@ The value to apply matchers against.
 
 > **not**: `InverseAsymmetricMatchers`
 
-Defined in: node\_modules/@types/jest/index.d.ts:776
+Defined in: node\_modules/@types/jest/index.d.ts:808
 
 #### Inherited from
 
@@ -62,7 +62,7 @@ Defined in: node\_modules/@types/jest/index.d.ts:776
 
 > **addSnapshotSerializer**(`serializer`): `void`
 
-Defined in: node\_modules/@types/jest/index.d.ts:757
+Defined in: node\_modules/@types/jest/index.d.ts:789
 
 Adds a module to format application-specific data structures for serialization.
 
@@ -86,10 +86,10 @@ Adds a module to format application-specific data structures for serialization.
 
 > **any**(`classType`): `any`
 
-Defined in: node\_modules/@types/jest/index.d.ts:721
+Defined in: node\_modules/@types/jest/index.d.ts:748
 
 Matches anything that was created with the given constructor.
-You can use it inside `toEqual` or `toBeCalledWith` instead of a literal value.
+You can use it inside `toEqual` or `toHaveBeenCalledWith` instead of a literal value.
 
 #### Parameters
 
@@ -111,7 +111,7 @@ function randocall(fn) {
 test('randocall calls its callback with a number', () => {
   const mock = jest.fn();
   randocall(mock);
-  expect(mock).toBeCalledWith(expect.any(Number));
+  expect(mock).toHaveBeenCalledWith(expect.any(Number));
 });
 ```
 
@@ -125,9 +125,9 @@ test('randocall calls its callback with a number', () => {
 
 > **anything**(): `any`
 
-Defined in: node\_modules/@types/jest/index.d.ts:704
+Defined in: node\_modules/@types/jest/index.d.ts:731
 
-Matches anything but null or undefined. You can use it inside `toEqual` or `toBeCalledWith` instead
+Matches anything but null or undefined. You can use it inside `toEqual` or `toHaveBeenCalledWith` instead
 of a literal value. For example, if you want to check that a mock function is called with a
 non-null argument:
 
@@ -141,7 +141,7 @@ non-null argument:
 test('map calls its argument with a non-null argument', () => {
   const mock = jest.fn();
   [1].map(x => mock(x));
-  expect(mock).toBeCalledWith(expect.anything());
+  expect(mock).toHaveBeenCalledWith(expect.anything());
 });
 ```
 
@@ -155,7 +155,7 @@ test('map calls its argument with a non-null argument', () => {
 
 > **arrayContaining**\<`E`\>(`arr`): `any`
 
-Defined in: node\_modules/@types/jest/index.d.ts:652
+Defined in: node\_modules/@types/jest/index.d.ts:673
 
 `expect.not.arrayContaining(array)` matches a received array which
 does not contain all of the elements in the expected array. That is,
@@ -186,11 +186,42 @@ readonly `E`[]
 
 ***
 
+### arrayOf()
+
+> **arrayOf**\<`E`\>(`arr`): `any`
+
+Defined in: node\_modules/@types/jest/index.d.ts:679
+
+Validate every element of an array against a condition or type It is the
+inverse of `expect.arrayOf`.
+
+#### Type Parameters
+
+##### E
+
+`E` = `any`
+
+#### Parameters
+
+##### arr
+
+`E`
+
+#### Returns
+
+`any`
+
+#### Inherited from
+
+[`Expect`](Expect.md).[`arrayOf`](Expect.md#arrayof)
+
+***
+
 ### assertions()
 
 > **assertions**(`num`): `void`
 
-Defined in: node\_modules/@types/jest/index.d.ts:735
+Defined in: node\_modules/@types/jest/index.d.ts:767
 
 Verifies that a certain number of assertions are called during a test.
 This is often useful when testing asynchronous code, in order to
@@ -216,7 +247,7 @@ make sure that assertions in a callback actually got called.
 
 > **closeTo**(`num`, `numDigits?`): `any`
 
-Defined in: node\_modules/@types/jest/index.d.ts:743
+Defined in: node\_modules/@types/jest/index.d.ts:775
 
 Useful when comparing floating point numbers in object properties or array item.
 If you need to compare a number, use `.toBeCloseTo` instead.
@@ -248,7 +279,7 @@ For the default value 2, the test criterion is `Math.abs(expected - received) < 
 
 > **extend**(`obj`): `void`
 
-Defined in: node\_modules/@types/jest/index.d.ts:753
+Defined in: node\_modules/@types/jest/index.d.ts:785
 
 You can use `expect.extend` to add your own matchers to Jest.
 
@@ -297,7 +328,7 @@ Failing assertion
 
 > **getState**(): `MatcherState` & `Record`\<`string`, `any`\>
 
-Defined in: node\_modules/@types/jest/index.d.ts:779
+Defined in: node\_modules/@types/jest/index.d.ts:811
 
 #### Returns
 
@@ -313,7 +344,7 @@ Defined in: node\_modules/@types/jest/index.d.ts:779
 
 > **hasAssertions**(): `void`
 
-Defined in: node\_modules/@types/jest/index.d.ts:749
+Defined in: node\_modules/@types/jest/index.d.ts:781
 
 Verifies that at least one assertion is called during a test.
 This is often useful when testing asynchronous code, in order to
@@ -333,7 +364,7 @@ make sure that assertions in a callback actually got called.
 
 > **objectContaining**\<`E`\>(`obj`): `any`
 
-Defined in: node\_modules/@types/jest/index.d.ts:664
+Defined in: node\_modules/@types/jest/index.d.ts:691
 
 `expect.not.objectContaining(object)` matches any received object
 that does not recursively match the expected properties. That is, the
@@ -395,7 +426,7 @@ Passing assertion
 
 > **setState**(`state`): `void`
 
-Defined in: node\_modules/@types/jest/index.d.ts:778
+Defined in: node\_modules/@types/jest/index.d.ts:810
 
 #### Parameters
 
@@ -417,7 +448,7 @@ Defined in: node\_modules/@types/jest/index.d.ts:778
 
 > **stringContaining**(`str`): `any`
 
-Defined in: node\_modules/@types/jest/index.d.ts:676
+Defined in: node\_modules/@types/jest/index.d.ts:703
 
 `expect.not.stringContaining(string)` matches the received string
 that does not contain the exact expected string. It is the inverse of
@@ -443,7 +474,7 @@ that does not contain the exact expected string. It is the inverse of
 
 > **stringMatching**(`str`): `any`
 
-Defined in: node\_modules/@types/jest/index.d.ts:670
+Defined in: node\_modules/@types/jest/index.d.ts:697
 
 `expect.not.stringMatching(string | regexp)` matches the received
 string that does not match the expected regexp. It is the inverse of

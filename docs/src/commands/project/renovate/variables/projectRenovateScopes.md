@@ -8,7 +8,7 @@
 
 > `const` **projectRenovateScopes**: [`DefaultGlobalScope`](../../../../configure/enumerations/DefaultGlobalScope.md)[]
 
-Defined in: [src/commands/project/renovate.ts:182](https://github.com/Xunnamius/symbiote/blob/75014db0d306eae609fdd593e692bde4e3ec6d31/src/commands/project/renovate.ts#L182)
+Defined in: [src/commands/project/renovate.ts:182](https://github.com/Xunnamius/symbiote/blob/eabdf496b63a01bba079125634c7ec566eb20891/src/commands/project/renovate.ts#L182)
 
 ## See
 

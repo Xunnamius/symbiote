@@ -8,7 +8,7 @@
 
 > **advanceTimersToNextTimerAsync**(`steps?`): `Promise`\<`void`\>
 
-Defined in: node\_modules/@types/jest/index.d.ts:356
+Defined in: node\_modules/@types/jest/index.d.ts:149
 
 Asynchronous equivalent of `jest.advanceTimersToNextTimer()`. It also yields to the event loop,
 allowing any scheduled promise callbacks to execute _before_ running the timers.

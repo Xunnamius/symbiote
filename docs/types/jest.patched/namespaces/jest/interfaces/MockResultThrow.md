@@ -6,7 +6,7 @@
 
 # Interface: MockResultThrow
 
-Defined in: node\_modules/@types/jest/index.d.ts:1507
+Defined in: node\_modules/@types/jest/index.d.ts:1449
 
 Represents the result of a single call to a mock function with a thrown error.
 
@@ -16,7 +16,7 @@ Represents the result of a single call to a mock function with a thrown error.
 
 > **type**: `"throw"`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1508
+Defined in: node\_modules/@types/jest/index.d.ts:1450
 
 ***
 
@@ -24,4 +24,4 @@ Defined in: node\_modules/@types/jest/index.d.ts:1508
 
 > **value**: `any`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1509
+Defined in: node\_modules/@types/jest/index.d.ts:1451

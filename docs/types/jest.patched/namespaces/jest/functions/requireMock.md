@@ -8,7 +8,7 @@
 
 > **requireMock**\<`TModule`\>(`moduleName`): `TModule`
 
-Defined in: node\_modules/@types/jest/index.d.ts:264
+Defined in: node\_modules/@types/jest/index.d.ts:303
 
 Returns a mock module instead of the actual module, bypassing all checks
 on whether the module should be required normally or not.

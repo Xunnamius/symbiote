@@ -8,7 +8,7 @@
 
 > **FunctionProperties**\<`T`\> = `{ [K in keyof T as T[K] extends (args: any[]) => any ? K : never]: T[K] }`
 
-Defined in: node\_modules/@types/jest/index.d.ts:483
+Defined in: node\_modules/@types/jest/index.d.ts:504
 
 ## Type Parameters
 

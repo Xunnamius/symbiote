@@ -8,7 +8,7 @@
 
 > **isMockFunction**(`fn`): `fn is Mock<any, any, any>`
 
-Defined in: node\_modules/@types/jest/index.d.ts:237
+Defined in: node\_modules/@types/jest/index.d.ts:266
 
 Returns whether the given function is a mock function.
 

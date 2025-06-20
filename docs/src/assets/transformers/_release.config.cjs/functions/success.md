@@ -8,7 +8,7 @@
 
 > **success**(`_`, `context`): `Promise`\<`void`\>
 
-Defined in: [src/assets/transformers/\_release.config.cjs.ts:540](https://github.com/Xunnamius/symbiote/blob/75014db0d306eae609fdd593e692bde4e3ec6d31/src/assets/transformers/_release.config.cjs.ts#L540)
+Defined in: [src/assets/transformers/\_release.config.cjs.ts:540](https://github.com/Xunnamius/symbiote/blob/eabdf496b63a01bba079125634c7ec566eb20891/src/assets/transformers/_release.config.cjs.ts#L540)
 
 This is a custom semantic-release plugin step that logs a GitHub Actions (or
 other) warning if the release pipeline ends with the repository in an unclean

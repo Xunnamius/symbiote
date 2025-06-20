@@ -8,7 +8,7 @@
 
 > **ConstructorArgumentsOf**\<`T`\> = `T` *extends* (...`args`) => `any` ? `A` : `never`
 
-Defined in: node\_modules/@types/jest/index.d.ts:439
+Defined in: node\_modules/@types/jest/index.d.ts:460
 
 ## Type Parameters
 

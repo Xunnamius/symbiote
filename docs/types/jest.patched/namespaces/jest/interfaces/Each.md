@@ -6,13 +6,13 @@
 
 # Interface: Each()
 
-Defined in: node\_modules/@types/jest/index.d.ts:509
+Defined in: node\_modules/@types/jest/index.d.ts:530
 
 ## Call Signature
 
 > **Each**\<`T`\>(`cases`): (`name`, `fn`, `timeout?`) => `void`
 
-Defined in: node\_modules/@types/jest/index.d.ts:511
+Defined in: node\_modules/@types/jest/index.d.ts:532
 
 ### Type Parameters
 
@@ -52,7 +52,7 @@ readonly `T`[]
 
 > **Each**\<`T`\>(`cases`): (`name`, `fn`, `timeout?`) => `void`
 
-Defined in: node\_modules/@types/jest/index.d.ts:516
+Defined in: node\_modules/@types/jest/index.d.ts:537
 
 ### Type Parameters
 
@@ -92,7 +92,7 @@ readonly `T`[]
 
 > **Each**\<`T`\>(`cases`): (`name`, `fn`, `timeout?`) => `void`
 
-Defined in: node\_modules/@types/jest/index.d.ts:522
+Defined in: node\_modules/@types/jest/index.d.ts:543
 
 ### Type Parameters
 
@@ -132,7 +132,7 @@ readonly `T`[]
 
 > **Each**(`cases`): (`name`, `fn`, `timeout?`) => `void`
 
-Defined in: node\_modules/@types/jest/index.d.ts:523
+Defined in: node\_modules/@types/jest/index.d.ts:544
 
 ### Parameters
 
@@ -166,7 +166,7 @@ readonly readonly `any`[][]
 
 > **Each**(`strings`, ...`placeholders`): (`name`, `fn`, `timeout?`) => `void`
 
-Defined in: node\_modules/@types/jest/index.d.ts:528
+Defined in: node\_modules/@types/jest/index.d.ts:549
 
 ### Parameters
 

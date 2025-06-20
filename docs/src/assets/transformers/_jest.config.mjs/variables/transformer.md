@@ -8,4 +8,4 @@
 
 > **transformer**: [`Transformer`](../../../type-aliases/Transformer.md)
 
-Defined in: [src/assets/transformers/\_jest.config.mjs.ts:150](https://github.com/Xunnamius/symbiote/blob/75014db0d306eae609fdd593e692bde4e3ec6d31/src/assets/transformers/_jest.config.mjs.ts#L150)
+Defined in: [src/assets/transformers/\_jest.config.mjs.ts:150](https://github.com/Xunnamius/symbiote/blob/eabdf496b63a01bba079125634c7ec566eb20891/src/assets/transformers/_jest.config.mjs.ts#L150)

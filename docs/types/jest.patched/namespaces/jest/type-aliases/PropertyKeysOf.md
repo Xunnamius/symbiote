@@ -8,7 +8,7 @@
 
 > **PropertyKeysOf**\<`T`\> = `{ [K in keyof T]: T[K] extends MockableFunction ? never : K }`\[keyof `T`\]
 
-Defined in: node\_modules/@types/jest/index.d.ts:437
+Defined in: node\_modules/@types/jest/index.d.ts:458
 
 ## Type Parameters
 

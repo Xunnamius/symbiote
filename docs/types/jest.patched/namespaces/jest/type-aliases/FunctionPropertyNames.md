@@ -8,7 +8,7 @@
 
 > **FunctionPropertyNames**\<`T`\> = keyof [`FunctionProperties`](FunctionProperties.md)\<`T`\>
 
-Defined in: node\_modules/@types/jest/index.d.ts:484
+Defined in: node\_modules/@types/jest/index.d.ts:505
 
 ## Type Parameters
 

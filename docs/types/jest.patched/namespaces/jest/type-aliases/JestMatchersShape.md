@@ -8,7 +8,7 @@
 
 > **JestMatchersShape**\<`TNonPromise`, `TPromise`\> = `object` & [`AndNot`](AndNot.md)\<`TNonPromise`\>
 
-Defined in: node\_modules/@types/jest/index.d.ts:784
+Defined in: node\_modules/@types/jest/index.d.ts:816
 
 ## Type declaration
 

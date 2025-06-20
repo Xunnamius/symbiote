@@ -8,7 +8,7 @@
 
 > **requireActual**\<`TModule`\>(`moduleName`): `TModule`
 
-Defined in: node\_modules/@types/jest/index.d.ts:258
+Defined in: node\_modules/@types/jest/index.d.ts:297
 
 Returns the actual module instead of a mock, bypassing all checks on
 whether the module should receive a mock implementation or not.

@@ -6,7 +6,7 @@
 
 # Interface: FunctionLike
 
-Defined in: node\_modules/@types/jest/index.d.ts:505
+Defined in: node\_modules/@types/jest/index.d.ts:526
 
 ## Properties
 
@@ -14,4 +14,4 @@ Defined in: node\_modules/@types/jest/index.d.ts:505
 
 > `readonly` **name**: `string`
 
-Defined in: node\_modules/@types/jest/index.d.ts:506
+Defined in: node\_modules/@types/jest/index.d.ts:527

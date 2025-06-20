@@ -6,7 +6,7 @@
 
 # Interface: CustomMatcherResult
 
-Defined in: node\_modules/@types/jest/index.d.ts:635
+Defined in: node\_modules/@types/jest/index.d.ts:656
 
 ## Properties
 
@@ -14,7 +14,7 @@ Defined in: node\_modules/@types/jest/index.d.ts:635
 
 > **message**: () => `string`
 
-Defined in: node\_modules/@types/jest/index.d.ts:637
+Defined in: node\_modules/@types/jest/index.d.ts:658
 
 #### Returns
 
@@ -26,4 +26,4 @@ Defined in: node\_modules/@types/jest/index.d.ts:637
 
 > **pass**: `boolean`
 
-Defined in: node\_modules/@types/jest/index.d.ts:636
+Defined in: node\_modules/@types/jest/index.d.ts:657

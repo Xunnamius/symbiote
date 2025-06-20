@@ -8,7 +8,7 @@
 
 > **advanceTimersByTime**(`msToRun`): `void`
 
-Defined in: node\_modules/@types/jest/index.d.ts:335
+Defined in: node\_modules/@types/jest/index.d.ts:120
 
 Advances all timers by `msToRun` milliseconds. All pending macro-tasks that have been
 queued by `setTimeout()`, `setInterval()` and `setImmediate()`, and would be executed

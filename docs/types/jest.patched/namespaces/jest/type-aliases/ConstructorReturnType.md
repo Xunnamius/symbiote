@@ -8,7 +8,7 @@
 
 > **ConstructorReturnType**\<`T`\> = `T` *extends* (...`args`) => infer C ? `C` : `any`
 
-Defined in: node\_modules/@types/jest/index.d.ts:440
+Defined in: node\_modules/@types/jest/index.d.ts:461
 
 ## Type Parameters
 

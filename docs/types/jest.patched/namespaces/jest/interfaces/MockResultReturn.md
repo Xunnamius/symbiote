@@ -6,7 +6,7 @@
 
 # Interface: MockResultReturn\<T\>
 
-Defined in: node\_modules/@types/jest/index.d.ts:1493
+Defined in: node\_modules/@types/jest/index.d.ts:1435
 
 Represents the result of a single call to a mock function with a return value.
 
@@ -22,7 +22,7 @@ Represents the result of a single call to a mock function with a return value.
 
 > **type**: `"return"`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1494
+Defined in: node\_modules/@types/jest/index.d.ts:1436
 
 ***
 
@@ -30,4 +30,4 @@ Defined in: node\_modules/@types/jest/index.d.ts:1494
 
 > **value**: `T`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1495
+Defined in: node\_modules/@types/jest/index.d.ts:1437

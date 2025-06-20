@@ -8,7 +8,7 @@
 
 > **runAllTimersAsync**(): `Promise`\<`void`\>
 
-Defined in: node\_modules/@types/jest/index.d.ts:316
+Defined in: node\_modules/@types/jest/index.d.ts:358
 
 Asynchronous equivalent of `jest.runAllTimers()`. It also yields to the event loop,
 allowing any scheduled promise callbacks to execute _before_ running the timers.

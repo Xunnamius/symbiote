@@ -8,7 +8,7 @@
 
 > **SpiedFunction**\<`T`\> = [`SpyInstance`](../interfaces/SpyInstance.md)\<`ReturnType`\<`T`\>, [`ArgsType`](ArgsType.md)\<`T`\>, `T` *extends* (`this`, ...`args`) => `any` ? `C` : `never`\>
 
-Defined in: node\_modules/@types/jest/index.d.ts:1228
+Defined in: node\_modules/@types/jest/index.d.ts:1170
 
 Constructs the type of a spied function.
 

@@ -6,7 +6,7 @@
 
 # Interface: MockResultIncomplete
 
-Defined in: node\_modules/@types/jest/index.d.ts:1500
+Defined in: node\_modules/@types/jest/index.d.ts:1442
 
 Represents the result of a single incomplete call to a mock function.
 
@@ -16,7 +16,7 @@ Represents the result of a single incomplete call to a mock function.
 
 > **type**: `"incomplete"`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1501
+Defined in: node\_modules/@types/jest/index.d.ts:1443
 
 ***
 
@@ -24,4 +24,4 @@ Defined in: node\_modules/@types/jest/index.d.ts:1501
 
 > **value**: `undefined`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1502
+Defined in: node\_modules/@types/jest/index.d.ts:1444

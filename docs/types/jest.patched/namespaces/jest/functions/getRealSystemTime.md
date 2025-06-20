@@ -8,7 +8,7 @@
 
 > **getRealSystemTime**(): `number`
 
-Defined in: node\_modules/@types/jest/index.d.ts:176
+Defined in: node\_modules/@types/jest/index.d.ts:211
 
 When mocking time, Date.now() will also be mocked. If you for some
 reason need access to the real current time, you can invoke this

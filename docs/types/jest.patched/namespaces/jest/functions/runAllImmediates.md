@@ -8,7 +8,7 @@
 
 > **runAllImmediates**(): `void`
 
-Defined in: node\_modules/@types/jest/index.d.ts:298
+Defined in: node\_modules/@types/jest/index.d.ts:340
 
 Exhausts tasks queued by `setImmediate()`.
 

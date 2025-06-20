@@ -8,7 +8,7 @@
 
 > **mock**\<`T`\>(`moduleName`, `factory?`, `options?`): *typeof* [`jest`](../README.md)
 
-Defined in: node\_modules/@types/jest/index.d.ts:242
+Defined in: node\_modules/@types/jest/index.d.ts:271
 
 Mocks a module with an auto-mocked version when it is being required.
 

@@ -8,7 +8,7 @@
 
 > **MockedFunctionDeep**\<`T`\> = [`MockWithArgs`](../interfaces/MockWithArgs.md)\<`T`\> & [`MockedObjectDeep`](MockedObjectDeep.md)\<`T`\>
 
-Defined in: node\_modules/@types/jest/index.d.ts:452
+Defined in: node\_modules/@types/jest/index.d.ts:473
 
 ## Type Parameters
 

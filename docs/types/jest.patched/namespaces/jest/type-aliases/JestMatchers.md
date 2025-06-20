@@ -8,7 +8,7 @@
 
 > **JestMatchers**\<`T`\> = [`JestMatchersShape`](JestMatchersShape.md)\<[`Matchers`](../interfaces/Matchers.md)\<`void`, `T`\>, [`Matchers`](../interfaces/Matchers.md)\<`Promise`\<`void`\>, `T`\>\>
 
-Defined in: node\_modules/@types/jest/index.d.ts:782
+Defined in: node\_modules/@types/jest/index.d.ts:814
 
 ## Type Parameters
 

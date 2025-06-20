@@ -8,7 +8,7 @@
 
 > **CustomMatcher** = (`this`, `received`, ...`actual`) => [`CustomMatcherResult`](../interfaces/CustomMatcherResult.md) \| `Promise`\<[`CustomMatcherResult`](../interfaces/CustomMatcherResult.md)\>
 
-Defined in: node\_modules/@types/jest/index.d.ts:629
+Defined in: node\_modules/@types/jest/index.d.ts:650
 
 ## Parameters
 

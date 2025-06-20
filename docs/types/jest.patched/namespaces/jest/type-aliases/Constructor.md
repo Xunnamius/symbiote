@@ -8,7 +8,7 @@
 
 > **Constructor** = (...`args`) => `any`
 
-Defined in: node\_modules/@types/jest/index.d.ts:471
+Defined in: node\_modules/@types/jest/index.d.ts:492
 
 ## Parameters
 

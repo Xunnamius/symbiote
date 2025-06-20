@@ -8,7 +8,7 @@
 
 > **SpiedSetter**\<`T`\> = [`SpyInstance`](../interfaces/SpyInstance.md)\<`void`, \[`T`\]\>
 
-Defined in: node\_modules/@types/jest/index.d.ts:1242
+Defined in: node\_modules/@types/jest/index.d.ts:1184
 
 Constructs the type of a spied setter.
 

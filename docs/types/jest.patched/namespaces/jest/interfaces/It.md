@@ -6,13 +6,13 @@
 
 # Interface: It()
 
-Defined in: [types/jest.patched.d.ts:10](https://github.com/Xunnamius/symbiote/blob/75014db0d306eae609fdd593e692bde4e3ec6d31/types/jest.patched.d.ts#L10)
+Defined in: [types/jest.patched.d.ts:10](https://github.com/Xunnamius/symbiote/blob/eabdf496b63a01bba079125634c7ec566eb20891/types/jest.patched.d.ts#L10)
 
 Creates a test closure
 
 > **It**(`name`, `fn?`, `timeout?`): `void`
 
-Defined in: node\_modules/@types/jest/index.d.ts:546
+Defined in: node\_modules/@types/jest/index.d.ts:567
 
 Creates a test closure
 
@@ -46,7 +46,7 @@ The timeout for an async function test
 
 > **concurrent**: `It`
 
-Defined in: node\_modules/@types/jest/index.d.ts:568
+Defined in: node\_modules/@types/jest/index.d.ts:589
 
 Experimental and should be avoided.
 
@@ -56,7 +56,7 @@ Experimental and should be avoided.
 
 > **each**: [`Each`](Each.md)
 
-Defined in: node\_modules/@types/jest/index.d.ts:607
+Defined in: node\_modules/@types/jest/index.d.ts:628
 
 Use if you keep duplicating the same test with different data. `.each` allows you to write the
 test once and pass data in.
@@ -103,7 +103,7 @@ ${2} | ${1} | ${3}
 
 > **failing**: `It`
 
-Defined in: node\_modules/@types/jest/index.d.ts:556
+Defined in: node\_modules/@types/jest/index.d.ts:577
 
 Mark this test as expecting to fail.
 
@@ -115,7 +115,7 @@ Only available in the default `jest-circus` runner.
 
 > **noskip**: `It`
 
-Defined in: [types/jest.patched.d.ts:15](https://github.com/Xunnamius/symbiote/blob/75014db0d306eae609fdd593e692bde4e3ec6d31/types/jest.patched.d.ts#L15)
+Defined in: [types/jest.patched.d.ts:15](https://github.com/Xunnamius/symbiote/blob/eabdf496b63a01bba079125634c7ec566eb20891/types/jest.patched.d.ts#L15)
 
 Ensures this test is run regardless of the invocation of
 `reconfigureJestGlobalsToSkipTestsInThisFileIfRequested`.
@@ -126,7 +126,7 @@ Ensures this test is run regardless of the invocation of
 
 > **only**: `It`
 
-Defined in: node\_modules/@types/jest/index.d.ts:550
+Defined in: node\_modules/@types/jest/index.d.ts:571
 
 Only runs this test in the current file.
 
@@ -136,7 +136,7 @@ Only runs this test in the current file.
 
 > **skip**: `It`
 
-Defined in: node\_modules/@types/jest/index.d.ts:560
+Defined in: node\_modules/@types/jest/index.d.ts:581
 
 Skips running this test in the current file.
 
@@ -146,7 +146,7 @@ Skips running this test in the current file.
 
 > **todo**: (`name`) => `void`
 
-Defined in: node\_modules/@types/jest/index.d.ts:564
+Defined in: node\_modules/@types/jest/index.d.ts:585
 
 Sketch out which tests to write in the future.
 

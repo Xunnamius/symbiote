@@ -8,7 +8,7 @@
 
 > **now**(): `number`
 
-Defined in: node\_modules/@types/jest/index.d.ts:185
+Defined in: node\_modules/@types/jest/index.d.ts:220
 
 Returns the current time in ms of the fake timer clock.
 

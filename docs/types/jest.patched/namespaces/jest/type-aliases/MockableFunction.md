@@ -8,7 +8,7 @@
 
 > **MockableFunction** = (...`args`) => `any`
 
-Defined in: node\_modules/@types/jest/index.d.ts:435
+Defined in: node\_modules/@types/jest/index.d.ts:456
 
 ## Parameters
 

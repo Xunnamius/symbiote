@@ -8,7 +8,7 @@
 
 > **MockedFn**\<`T`\> = [`MockWithArgs`](../interfaces/MockWithArgs.md)\<`T`\> & `{ [K in keyof T]: T[K] }`
 
-Defined in: node\_modules/@types/jest/index.d.ts:451
+Defined in: node\_modules/@types/jest/index.d.ts:472
 
 ## Type Parameters
 

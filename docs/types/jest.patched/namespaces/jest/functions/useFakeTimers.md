@@ -8,7 +8,7 @@
 
 > **useFakeTimers**(`config?`): *typeof* [`jest`](../README.md)
 
-Defined in: node\_modules/@types/jest/index.d.ts:425
+Defined in: node\_modules/@types/jest/index.d.ts:446
 
 Instructs Jest to use fake versions of the standard timer functions.
 

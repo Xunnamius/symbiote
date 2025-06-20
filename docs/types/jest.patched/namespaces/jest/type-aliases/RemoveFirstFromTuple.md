@@ -8,7 +8,7 @@
 
 > **RemoveFirstFromTuple**\<`T`\> = `T`\[`"length"`\] *extends* `0` ? \[\] : (...`b`) => `void` *extends* (`a`, ...`b`) => `void` ? `I` : \[\]
 
-Defined in: node\_modules/@types/jest/index.d.ts:1152
+Defined in: node\_modules/@types/jest/index.d.ts:1094
 
 ## Type Parameters
 

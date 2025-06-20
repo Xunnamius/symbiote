@@ -8,7 +8,7 @@
 
 > **MethodKeysOf**\<`T`\> = `{ [K in keyof T]: T[K] extends MockableFunction ? K : never }`\[keyof `T`\]
 
-Defined in: node\_modules/@types/jest/index.d.ts:436
+Defined in: node\_modules/@types/jest/index.d.ts:457
 
 ## Type Parameters
 

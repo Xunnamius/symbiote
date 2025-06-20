@@ -8,7 +8,7 @@
 
 > **CustomJestMatcher**\<`TMatcher`, `TMatcherReturn`\> = (...`args`) => `TMatcherReturn`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1170
+Defined in: node\_modules/@types/jest/index.d.ts:1112
 
 ## Type Parameters
 

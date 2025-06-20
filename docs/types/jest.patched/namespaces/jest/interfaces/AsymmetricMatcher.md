@@ -6,7 +6,7 @@
 
 # Interface: AsymmetricMatcher
 
-Defined in: node\_modules/@types/jest/index.d.ts:1156
+Defined in: node\_modules/@types/jest/index.d.ts:1098
 
 ## Methods
 
@@ -14,7 +14,7 @@ Defined in: node\_modules/@types/jest/index.d.ts:1156
 
 > **asymmetricMatch**(`other`): `boolean`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1157
+Defined in: node\_modules/@types/jest/index.d.ts:1099
 
 #### Parameters
 

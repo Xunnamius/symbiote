@@ -8,6 +8,6 @@
 
 > `const` **defaultChangelogTopmatter**: `string`
 
-Defined in: [src/assets/transformers/\_conventional.config.cjs.ts:151](https://github.com/Xunnamius/symbiote/blob/75014db0d306eae609fdd593e692bde4e3ec6d31/src/assets/transformers/_conventional.config.cjs.ts#L151)
+Defined in: [src/assets/transformers/\_conventional.config.cjs.ts:151](https://github.com/Xunnamius/symbiote/blob/eabdf496b63a01bba079125634c7ec566eb20891/src/assets/transformers/_conventional.config.cjs.ts#L151)
 
 The preamble prefixed to any generated the changelog file.

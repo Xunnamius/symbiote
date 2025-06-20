@@ -6,7 +6,7 @@
 
 # Interface: MockContext\<T, Y, C\>
 
-Defined in: node\_modules/@types/jest/index.d.ts:1514
+Defined in: node\_modules/@types/jest/index.d.ts:1456
 
 ## Type Parameters
 
@@ -28,7 +28,7 @@ Defined in: node\_modules/@types/jest/index.d.ts:1514
 
 > **calls**: `Y`[]
 
-Defined in: node\_modules/@types/jest/index.d.ts:1518
+Defined in: node\_modules/@types/jest/index.d.ts:1460
 
 List of the call arguments of all calls that have been made to the mock.
 
@@ -38,7 +38,7 @@ List of the call arguments of all calls that have been made to the mock.
 
 > **contexts**: `C`[]
 
-Defined in: node\_modules/@types/jest/index.d.ts:1522
+Defined in: node\_modules/@types/jest/index.d.ts:1464
 
 List of the call contexts of all calls that have been made to the mock.
 
@@ -48,7 +48,7 @@ List of the call contexts of all calls that have been made to the mock.
 
 > **instances**: `T`[]
 
-Defined in: node\_modules/@types/jest/index.d.ts:1526
+Defined in: node\_modules/@types/jest/index.d.ts:1468
 
 List of all the object instances that have been instantiated from the mock.
 
@@ -58,7 +58,7 @@ List of all the object instances that have been instantiated from the mock.
 
 > **invocationCallOrder**: `number`[]
 
-Defined in: node\_modules/@types/jest/index.d.ts:1531
+Defined in: node\_modules/@types/jest/index.d.ts:1473
 
 List of the call order indexes of the mock. Jest is indexing the order of
 invocations of all mocks in a test file. The index is starting with `1`.
@@ -69,7 +69,7 @@ invocations of all mocks in a test file. The index is starting with `1`.
 
 > `optional` **lastCall**: `Y`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1536
+Defined in: node\_modules/@types/jest/index.d.ts:1478
 
 List of the call arguments of the last call that was made to the mock.
 If the function was not called, it will return `undefined`.
@@ -80,6 +80,6 @@ If the function was not called, it will return `undefined`.
 
 > **results**: [`MockResult`](../type-aliases/MockResult.md)\<`T`\>[]
 
-Defined in: node\_modules/@types/jest/index.d.ts:1540
+Defined in: node\_modules/@types/jest/index.d.ts:1482
 
 List of the results of all calls that have been made to the mock.

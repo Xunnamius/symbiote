@@ -8,7 +8,7 @@
 
 > **replaceProperty**\<`T`, `K`\>(`obj`, `key`, `value`): [`ReplaceProperty`](../interfaces/ReplaceProperty.md)\<`T`\[`K`\]\>
 
-Defined in: node\_modules/@types/jest/index.d.ts:291
+Defined in: node\_modules/@types/jest/index.d.ts:333
 
 Replaces property on an object with another value.
 

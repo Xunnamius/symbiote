@@ -8,7 +8,7 @@
 
 > **ConstructorPropertyNames**\<`T`\> = [`RemoveIndex`](RemoveIndex.md)\<keyof [`ConstructorProperties`](ConstructorProperties.md)\<`T`\>\>
 
-Defined in: node\_modules/@types/jest/index.d.ts:492
+Defined in: node\_modules/@types/jest/index.d.ts:513
 
 ## Type Parameters
 

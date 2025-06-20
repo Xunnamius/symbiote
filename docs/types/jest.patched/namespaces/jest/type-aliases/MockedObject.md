@@ -8,7 +8,7 @@
 
 > **MockedObject**\<`T`\> = [`MaybeMockedConstructor`](MaybeMockedConstructor.md)\<`T`\> & `{ [K in MethodKeysOf<T>]: T[K] extends MockableFunction ? MockedFn<T[K]> : T[K] }` & `{ [K in PropertyKeysOf<T>]: T[K] }`
 
-Defined in: node\_modules/@types/jest/index.d.ts:453
+Defined in: node\_modules/@types/jest/index.d.ts:474
 
 ## Type Parameters
 

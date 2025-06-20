@@ -8,7 +8,7 @@
 
 > **NonPromiseMatchers**\<`T`\> = `Omit`\<`T`, `"resolves"` \| `"rejects"` \| `"not"`\>
 
-Defined in: node\_modules/@types/jest/index.d.ts:1201
+Defined in: node\_modules/@types/jest/index.d.ts:1143
 
 ## Type Parameters
 

@@ -6,7 +6,7 @@
 
 # Interface: ExpectExtendMap
 
-Defined in: node\_modules/@types/jest/index.d.ts:624
+Defined in: node\_modules/@types/jest/index.d.ts:645
 
 ## Indexable
 

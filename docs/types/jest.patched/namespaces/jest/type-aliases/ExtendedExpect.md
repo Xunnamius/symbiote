@@ -8,7 +8,7 @@
 
 > **ExtendedExpect**\<`TMatchers`\> = [`ExpectProperties`](ExpectProperties.md) & [`AndNot`](AndNot.md)\<[`CustomAsyncMatchers`](CustomAsyncMatchers.md)\<`TMatchers`\>\> & [`ExtendedExpectFunction`](ExtendedExpectFunction.md)\<`TMatchers`\>
 
-Defined in: node\_modules/@types/jest/index.d.ts:1196
+Defined in: node\_modules/@types/jest/index.d.ts:1138
 
 ## Type Parameters
 

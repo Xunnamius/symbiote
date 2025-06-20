@@ -8,7 +8,7 @@
 
 > **Lifecycle** = (`fn`, `timeout?`) => `any`
 
-Defined in: node\_modules/@types/jest/index.d.ts:503
+Defined in: node\_modules/@types/jest/index.d.ts:524
 
 ## Parameters
 

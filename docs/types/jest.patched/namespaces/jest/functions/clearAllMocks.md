@@ -8,7 +8,7 @@
 
 > **clearAllMocks**(): *typeof* [`jest`](../README.md)
 
-Defined in: node\_modules/@types/jest/index.d.ts:127
+Defined in: node\_modules/@types/jest/index.d.ts:162
 
 Clears the mock.calls and mock.instances properties of all mocks.
 Equivalent to calling .mockClear() on every mocked function.

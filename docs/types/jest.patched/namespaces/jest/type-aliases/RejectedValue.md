@@ -8,7 +8,7 @@
 
 > **RejectedValue**\<`T`\> = `T` *extends* `PromiseLike`\<`any`\> ? `any` : `never`
 
-Defined in: node\_modules/@types/jest/index.d.ts:474
+Defined in: node\_modules/@types/jest/index.d.ts:495
 
 ## Type Parameters
 

@@ -41,146 +41,6 @@ Failing assertion
 
 ***
 
-### ~~lastCalledWith()~~
-
-> **lastCalledWith**\<`E`\>(...`args`): `R`
-
-Defined in: node\_modules/@types/jest/index.d.ts:811
-
-Ensures the last call to a mock function was provided specific args.
-
-Optionally, you can provide a type for the expected arguments via a generic.
-Note that the type must be either an array or a tuple.
-
-#### Type Parameters
-
-##### E
-
-`E` *extends* `any`[]
-
-#### Parameters
-
-##### args
-
-...`E`
-
-#### Returns
-
-`R`
-
-#### Deprecated
-
-in favor of `toHaveBeenLastCalledWith`
-
-***
-
-### ~~lastReturnedWith()~~
-
-> **lastReturnedWith**\<`E`\>(`expected?`): `R`
-
-Defined in: node\_modules/@types/jest/index.d.ts:821
-
-Ensure that the last call to a mock function has returned a specified value.
-
-Optionally, you can provide a type for the expected value via a generic.
-This is particularly useful for ensuring expected objects have the right structure.
-
-#### Type Parameters
-
-##### E
-
-`E` = `any`
-
-#### Parameters
-
-##### expected?
-
-`E`
-
-#### Returns
-
-`R`
-
-#### Deprecated
-
-in favor of `toHaveLastReturnedWith`
-
-***
-
-### ~~nthCalledWith()~~
-
-> **nthCalledWith**\<`E`\>(`nthCall`, ...`params`): `R`
-
-Defined in: node\_modules/@types/jest/index.d.ts:831
-
-Ensure that a mock function is called with specific arguments on an Nth call.
-
-Optionally, you can provide a type for the expected arguments via a generic.
-Note that the type must be either an array or a tuple.
-
-#### Type Parameters
-
-##### E
-
-`E` *extends* `any`[]
-
-#### Parameters
-
-##### nthCall
-
-`number`
-
-##### params
-
-...`E`
-
-#### Returns
-
-`R`
-
-#### Deprecated
-
-in favor of `toHaveBeenNthCalledWith`
-
-***
-
-### ~~nthReturnedWith()~~
-
-> **nthReturnedWith**\<`E`\>(`n`, `expected?`): `R`
-
-Defined in: node\_modules/@types/jest/index.d.ts:841
-
-Ensure that the nth call to a mock function has returned a specified value.
-
-Optionally, you can provide a type for the expected value via a generic.
-This is particularly useful for ensuring expected objects have the right structure.
-
-#### Type Parameters
-
-##### E
-
-`E` = `any`
-
-#### Parameters
-
-##### n
-
-`number`
-
-##### expected?
-
-`E`
-
-#### Returns
-
-`R`
-
-#### Deprecated
-
-in favor of `toHaveNthReturnedWith`
-
-***
-
 ### pass()
 
 > **pass**(`message`): `R`
@@ -206,7 +66,7 @@ Passing assertion
 
 > **toBe**\<`E`\>(`expected`): `R`
 
-Defined in: node\_modules/@types/jest/index.d.ts:850
+Defined in: node\_modules/@types/jest/index.d.ts:842
 
 Checks that a value is what you expect. It uses `Object.is` to check strict equality.
 Don't use `toBe` with floating-point numbers.
@@ -398,86 +258,11 @@ Use `.toBeBoolean` when checking if a value is a `Boolean`.
 
 ***
 
-### ~~toBeCalled()~~
-
-> **toBeCalled**(): `R`
-
-Defined in: node\_modules/@types/jest/index.d.ts:856
-
-Ensures that a mock function is called.
-
-#### Returns
-
-`R`
-
-#### Deprecated
-
-in favor of `toHaveBeenCalled`
-
-***
-
-### ~~toBeCalledTimes()~~
-
-> **toBeCalledTimes**(`expected`): `R`
-
-Defined in: node\_modules/@types/jest/index.d.ts:862
-
-Ensures that a mock function is called an exact number of times.
-
-#### Parameters
-
-##### expected
-
-`number`
-
-#### Returns
-
-`R`
-
-#### Deprecated
-
-in favor of `toHaveBeenCalledTimes`
-
-***
-
-### ~~toBeCalledWith()~~
-
-> **toBeCalledWith**\<`E`\>(...`args`): `R`
-
-Defined in: node\_modules/@types/jest/index.d.ts:872
-
-Ensure that a mock function is called with specific arguments.
-
-Optionally, you can provide a type for the expected arguments via a generic.
-Note that the type must be either an array or a tuple.
-
-#### Type Parameters
-
-##### E
-
-`E` *extends* `any`[]
-
-#### Parameters
-
-##### args
-
-...`E`
-
-#### Returns
-
-`R`
-
-#### Deprecated
-
-in favor of `toHaveBeenCalledWith`
-
-***
-
 ### toBeCloseTo()
 
 > **toBeCloseTo**(`expected`, `numDigits?`): `R`
 
-Defined in: node\_modules/@types/jest/index.d.ts:878
+Defined in: node\_modules/@types/jest/index.d.ts:848
 
 Using exact equality with floating point numbers is a bad idea.
 Rounding means that intuitive things fail.
@@ -531,7 +316,7 @@ Use `.toBeDateString` when checking if a value is a valid date string.
 
 > **toBeDefined**(): `R`
 
-Defined in: node\_modules/@types/jest/index.d.ts:882
+Defined in: node\_modules/@types/jest/index.d.ts:852
 
 Ensure that a variable is not undefined.
 
@@ -615,7 +400,7 @@ Use `.toBeFalse` when checking a value is equal (===) to `false`.
 
 > **toBeFalsy**(): `R`
 
-Defined in: node\_modules/@types/jest/index.d.ts:887
+Defined in: node\_modules/@types/jest/index.d.ts:857
 
 When you don't care what a value is, you just want to
 ensure a value is false in a boolean context.
@@ -672,7 +457,7 @@ Use `.toBeFunction` when checking if a value is a `Function`.
 
 > **toBeGreaterThan**(`expected`): `R`
 
-Defined in: node\_modules/@types/jest/index.d.ts:891
+Defined in: node\_modules/@types/jest/index.d.ts:861
 
 For comparing floating point or big integer numbers.
 
@@ -692,7 +477,7 @@ For comparing floating point or big integer numbers.
 
 > **toBeGreaterThanOrEqual**(`expected`): `R`
 
-Defined in: node\_modules/@types/jest/index.d.ts:895
+Defined in: node\_modules/@types/jest/index.d.ts:865
 
 For comparing floating point or big integer numbers.
 
@@ -751,7 +536,7 @@ Supports both number and BigInt values.
 
 > **toBeInstanceOf**\<`E`\>(`expected`): `R`
 
-Defined in: node\_modules/@types/jest/index.d.ts:904
+Defined in: node\_modules/@types/jest/index.d.ts:874
 
 Ensure that an object is an instance of a class.
 This matcher uses `instanceof` underneath.
@@ -795,7 +580,7 @@ Use `.toBeInteger` when checking if a value is an integer.
 
 > **toBeLessThan**(`expected`): `R`
 
-Defined in: node\_modules/@types/jest/index.d.ts:908
+Defined in: node\_modules/@types/jest/index.d.ts:878
 
 For comparing floating point or big integer numbers.
 
@@ -815,7 +600,7 @@ For comparing floating point or big integer numbers.
 
 > **toBeLessThanOrEqual**(`expected`): `R`
 
-Defined in: node\_modules/@types/jest/index.d.ts:912
+Defined in: node\_modules/@types/jest/index.d.ts:882
 
 For comparing floating point or big integer numbers.
 
@@ -849,7 +634,7 @@ Use `.toBeNaN` when checking a value is `NaN`.
 
 > **toBeNaN**(): `R`
 
-Defined in: node\_modules/@types/jest/index.d.ts:931
+Defined in: node\_modules/@types/jest/index.d.ts:901
 
 Used to check that a variable is NaN.
 
@@ -891,7 +676,7 @@ Use `.toBeNil` when checking a value is `null` or `undefined`.
 
 > **toBeNull**(): `R`
 
-Defined in: node\_modules/@types/jest/index.d.ts:917
+Defined in: node\_modules/@types/jest/index.d.ts:887
 
 This is the same as `.toBe(null)` but the error messages are a bit nicer.
 So use `.toBeNull()` when you want to check that something is null.
@@ -1044,7 +829,7 @@ Use `.toBeTrue` when checking a value is equal (===) to `true`.
 
 > **toBeTruthy**(): `R`
 
-Defined in: node\_modules/@types/jest/index.d.ts:923
+Defined in: node\_modules/@types/jest/index.d.ts:893
 
 Use when you don't care what a value is, you just want to ensure a value
 is true in a boolean context. In JavaScript, there are six falsy values:
@@ -1060,7 +845,7 @@ is true in a boolean context. In JavaScript, there are six falsy values:
 
 > **toBeUndefined**(): `R`
 
-Defined in: node\_modules/@types/jest/index.d.ts:927
+Defined in: node\_modules/@types/jest/index.d.ts:897
 
 Used to check that a variable is undefined.
 
@@ -1192,7 +977,7 @@ Use `.toChangeTo` when checking if a value changed to a specific value.
 
 > **toContain**\<`E`\>(`expected`): `R`
 
-Defined in: node\_modules/@types/jest/index.d.ts:941
+Defined in: node\_modules/@types/jest/index.d.ts:911
 
 Used when you want to check that an item is in a list.
 For testing the items in the list, this uses `===`, a strict equality check.
@@ -1431,7 +1216,7 @@ readonly \[keyof `E`, `E`\[keyof `E`\]\]
 
 > **toContainEqual**\<`E`\>(`expected`): `R`
 
-Defined in: node\_modules/@types/jest/index.d.ts:951
+Defined in: node\_modules/@types/jest/index.d.ts:921
 
 Used when you want to check that an item is in a list.
 For testing the items in the list, this matcher recursively checks the
@@ -1586,7 +1371,7 @@ Use `.toEndWith` when checking if a `String` ends with a given `String` suffix.
 
 > **toEqual**\<`E`\>(`expected`): `R`
 
-Defined in: node\_modules/@types/jest/index.d.ts:960
+Defined in: node\_modules/@types/jest/index.d.ts:930
 
 Used when you want to check that two objects have the same value.
 This matcher recursively checks the equality of all fields, rather than checking for object identity.
@@ -1656,7 +1441,7 @@ Use `.toEqualIgnoringWhitespace` when checking if a `String` is equal (===) to g
 
 > **toHaveBeenCalled**(): `R`
 
-Defined in: node\_modules/@types/jest/index.d.ts:964
+Defined in: node\_modules/@types/jest/index.d.ts:934
 
 Ensures that a mock function is called.
 
@@ -1756,7 +1541,7 @@ Use `.toHaveBeenCalledOnce` to check if a `Mock` was called exactly one time.
 
 > **toHaveBeenCalledTimes**(`expected`): `R`
 
-Defined in: node\_modules/@types/jest/index.d.ts:968
+Defined in: node\_modules/@types/jest/index.d.ts:938
 
 Ensures that a mock function is called an exact number of times.
 
@@ -1776,7 +1561,7 @@ Ensures that a mock function is called an exact number of times.
 
 > **toHaveBeenCalledWith**\<`E`\>(...`params`): `R`
 
-Defined in: node\_modules/@types/jest/index.d.ts:976
+Defined in: node\_modules/@types/jest/index.d.ts:946
 
 Ensure that a mock function is called with specific arguments.
 
@@ -1805,7 +1590,7 @@ Note that the type must be either an array or a tuple.
 
 > **toHaveBeenLastCalledWith**\<`E`\>(...`params`): `R`
 
-Defined in: node\_modules/@types/jest/index.d.ts:993
+Defined in: node\_modules/@types/jest/index.d.ts:963
 
 If you have a mock function, you can use `.toHaveBeenLastCalledWith`
 to test what arguments it was last called with.
@@ -1835,7 +1620,7 @@ Note that the type must be either an array or a tuple.
 
 > **toHaveBeenNthCalledWith**\<`E`\>(`nthCall`, ...`params`): `R`
 
-Defined in: node\_modules/@types/jest/index.d.ts:984
+Defined in: node\_modules/@types/jest/index.d.ts:954
 
 Ensure that a mock function is called with specific arguments on an Nth call.
 
@@ -1868,7 +1653,7 @@ Note that the type must be either an array or a tuple.
 
 > **toHaveLastReturnedWith**\<`E`\>(`expected?`): `R`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1003
+Defined in: node\_modules/@types/jest/index.d.ts:973
 
 Use to test the specific value that a mock function last returned.
 If the last call to the mock function threw an error, then this matcher will fail
@@ -1899,7 +1684,7 @@ This is particularly useful for ensuring expected objects have the right structu
 
 > **toHaveLength**(`expected`): `R`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1008
+Defined in: node\_modules/@types/jest/index.d.ts:978
 
 Used to check that an object has a `.length` property
 and it is set to a certain numeric value.
@@ -1920,7 +1705,7 @@ and it is set to a certain numeric value.
 
 > **toHaveNthReturnedWith**\<`E`\>(`nthCall`, `expected?`): `R`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1018
+Defined in: node\_modules/@types/jest/index.d.ts:988
 
 Use to test the specific value that a mock function returned for the nth call.
 If the nth call to the mock function threw an error, then this matcher will fail
@@ -1955,7 +1740,7 @@ This is particularly useful for ensuring expected objects have the right structu
 
 > **toHaveProperty**\<`E`\>(`propertyPath`, `value?`): `R`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1033
+Defined in: node\_modules/@types/jest/index.d.ts:1003
 
 Use to check if property at provided reference keyPath exists for an object.
 For checking deeply nested properties in an object you may use dot notation or an array containing
@@ -1997,7 +1782,7 @@ expect(houseForSale).toHaveProperty('kitchen.area', 20);
 
 > **toHaveReturned**(): `R`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1037
+Defined in: node\_modules/@types/jest/index.d.ts:1007
 
 Use to test that the mock function successfully returned (i.e., did not throw an error) at least one time
 
@@ -2011,7 +1796,7 @@ Use to test that the mock function successfully returned (i.e., did not throw an
 
 > **toHaveReturnedTimes**(`expected`): `R`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1042
+Defined in: node\_modules/@types/jest/index.d.ts:1012
 
 Use to ensure that a mock function returned successfully (i.e., did not throw an error) an exact number of times.
 Any calls to the mock function that throw an error are not counted toward the number of times the function returned.
@@ -2032,7 +1817,7 @@ Any calls to the mock function that throw an error are not counted toward the nu
 
 > **toHaveReturnedWith**\<`E`\>(`expected?`): `R`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1050
+Defined in: node\_modules/@types/jest/index.d.ts:1020
 
 Use to ensure that a mock function returned a specific value.
 
@@ -2255,7 +2040,7 @@ readonly `E`[]
 
 > **toMatch**(`expected`): `R`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1054
+Defined in: node\_modules/@types/jest/index.d.ts:1024
 
 Check that a string matches a regular expression.
 
@@ -2277,7 +2062,7 @@ Check that a string matches a regular expression.
 
 > **toMatchInlineSnapshot**\<`U`\>(`propertyMatchers`, `snapshot?`): `R`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1094
+Defined in: node\_modules/@types/jest/index.d.ts:1064
 
 This ensures that a value matches the most recent snapshot with property matchers.
 Instead of writing the snapshot value to a .snap file, it will be written into the source code automatically.
@@ -2307,7 +2092,7 @@ Check out [the Snapshot Testing guide](http://facebook.github.io/jest/docs/snaps
 
 > **toMatchInlineSnapshot**(`snapshot?`): `R`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1100
+Defined in: node\_modules/@types/jest/index.d.ts:1070
 
 This ensures that a value matches the most recent snapshot with property matchers.
 Instead of writing the snapshot value to a .snap file, it will be written into the source code automatically.
@@ -2329,7 +2114,7 @@ Check out [the Snapshot Testing guide](http://facebook.github.io/jest/docs/snaps
 
 > **toMatchObject**\<`E`\>(`expected`): `R`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1076
+Defined in: node\_modules/@types/jest/index.d.ts:1046
 
 Used to check that a JavaScript object matches a subset of the properties of an object
 
@@ -2376,7 +2161,7 @@ expect(desiredHouse).toMatchObject<House>({...standardHouse, kitchen: {area: 20}
 
 > **toMatchSnapshot**\<`U`\>(`propertyMatchers`, `snapshotName?`): `R`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1082
+Defined in: node\_modules/@types/jest/index.d.ts:1052
 
 This ensures that a value matches the most recent snapshot with property matchers.
 Check out [the Snapshot Testing guide](http://facebook.github.io/jest/docs/snapshot-testing.html) for more information.
@@ -2405,7 +2190,7 @@ Check out [the Snapshot Testing guide](http://facebook.github.io/jest/docs/snaps
 
 > **toMatchSnapshot**(`snapshotName?`): `R`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1087
+Defined in: node\_modules/@types/jest/index.d.ts:1057
 
 This ensures that a value matches the most recent snapshot.
 Check out [the Snapshot Testing guide](http://facebook.github.io/jest/docs/snapshot-testing.html) for more information.
@@ -2473,81 +2258,6 @@ Use `.toResolve` when checking if a promise resolves.
 #### Returns
 
 `Promise`\<`R`\>
-
-***
-
-### ~~toReturn()~~
-
-> **toReturn**(): `R`
-
-Defined in: node\_modules/@types/jest/index.d.ts:1106
-
-Ensure that a mock function has returned (as opposed to thrown) at least once.
-
-#### Returns
-
-`R`
-
-#### Deprecated
-
-in favor of `toHaveReturned`
-
-***
-
-### ~~toReturnTimes()~~
-
-> **toReturnTimes**(`count`): `R`
-
-Defined in: node\_modules/@types/jest/index.d.ts:1112
-
-Ensure that a mock function has returned (as opposed to thrown) a specified number of times.
-
-#### Parameters
-
-##### count
-
-`number`
-
-#### Returns
-
-`R`
-
-#### Deprecated
-
-in favor of `toHaveReturnedTimes`
-
-***
-
-### ~~toReturnWith()~~
-
-> **toReturnWith**\<`E`\>(`value?`): `R`
-
-Defined in: node\_modules/@types/jest/index.d.ts:1122
-
-Ensure that a mock function has returned a specified value at least once.
-
-Optionally, you can provide a type for the expected value via a generic.
-This is particularly useful for ensuring expected objects have the right structure.
-
-#### Type Parameters
-
-##### E
-
-`E` = `any`
-
-#### Parameters
-
-##### value?
-
-`E`
-
-#### Returns
-
-`R`
-
-#### Deprecated
-
-in favor of `toHaveReturnedWith`
 
 ***
 
@@ -2647,7 +2357,7 @@ Use `.toStartWith` when checking if a `String` starts with a given `String` pref
 
 > **toStrictEqual**\<`E`\>(`expected`): `R`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1130
+Defined in: node\_modules/@types/jest/index.d.ts:1078
 
 Use to test that objects have the same types as well as structure.
 
@@ -2676,7 +2386,7 @@ This is particularly useful for ensuring expected objects have the right structu
 
 > **toThrow**(`error?`): `R`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1134
+Defined in: node\_modules/@types/jest/index.d.ts:1082
 
 Used to test that a function throws when it is called.
 
@@ -2692,35 +2402,11 @@ Used to test that a function throws when it is called.
 
 ***
 
-### ~~toThrowError()~~
-
-> **toThrowError**(`error?`): `R`
-
-Defined in: node\_modules/@types/jest/index.d.ts:1140
-
-If you want to test that a specific error is thrown inside a function.
-
-#### Parameters
-
-##### error?
-
-`string` | `RegExp` | `Error` | [`Constructable`](Constructable.md)
-
-#### Returns
-
-`R`
-
-#### Deprecated
-
-in favor of `toThrow`
-
-***
-
 ### toThrowErrorMatchingInlineSnapshot()
 
 > **toThrowErrorMatchingInlineSnapshot**(`snapshot?`): `R`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1149
+Defined in: node\_modules/@types/jest/index.d.ts:1091
 
 Used to test that a function throws a error matching the most recent snapshot when it is called.
 Instead of writing the snapshot value to a .snap file, it will be written into the source code automatically.
@@ -2741,7 +2427,7 @@ Instead of writing the snapshot value to a .snap file, it will be written into t
 
 > **toThrowErrorMatchingSnapshot**(`snapshotName?`): `R`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1144
+Defined in: node\_modules/@types/jest/index.d.ts:1086
 
 Used to test that a function throws a error matching the most recent snapshot when it is called.
 

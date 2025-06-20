@@ -6,11 +6,11 @@
 
 # Interface: Describe()
 
-Defined in: [types/jest.patched.d.ts:2](https://github.com/Xunnamius/symbiote/blob/75014db0d306eae609fdd593e692bde4e3ec6d31/types/jest.patched.d.ts#L2)
+Defined in: [types/jest.patched.d.ts:2](https://github.com/Xunnamius/symbiote/blob/eabdf496b63a01bba079125634c7ec566eb20891/types/jest.patched.d.ts#L2)
 
 > **Describe**(`name`, `fn`): `void`
 
-Defined in: node\_modules/@types/jest/index.d.ts:612
+Defined in: node\_modules/@types/jest/index.d.ts:633
 
 ## Parameters
 
@@ -32,7 +32,7 @@ Defined in: node\_modules/@types/jest/index.d.ts:612
 
 > **each**: [`Each`](Each.md)
 
-Defined in: node\_modules/@types/jest/index.d.ts:617
+Defined in: node\_modules/@types/jest/index.d.ts:638
 
 ***
 
@@ -40,7 +40,7 @@ Defined in: node\_modules/@types/jest/index.d.ts:617
 
 > **noskip**: `Describe`
 
-Defined in: [types/jest.patched.d.ts:7](https://github.com/Xunnamius/symbiote/blob/75014db0d306eae609fdd593e692bde4e3ec6d31/types/jest.patched.d.ts#L7)
+Defined in: [types/jest.patched.d.ts:7](https://github.com/Xunnamius/symbiote/blob/eabdf496b63a01bba079125634c7ec566eb20891/types/jest.patched.d.ts#L7)
 
 Ensures the test contained by this function are run regardless of the
 invocation of `reconfigureJestGlobalsToSkipTestsInThisFileIfRequested`.
@@ -51,7 +51,7 @@ invocation of `reconfigureJestGlobalsToSkipTestsInThisFileIfRequested`.
 
 > **only**: `Describe`
 
-Defined in: node\_modules/@types/jest/index.d.ts:614
+Defined in: node\_modules/@types/jest/index.d.ts:635
 
 Only runs the tests inside this `describe` for the current file
 
@@ -61,6 +61,6 @@ Only runs the tests inside this `describe` for the current file
 
 > **skip**: `Describe`
 
-Defined in: node\_modules/@types/jest/index.d.ts:616
+Defined in: node\_modules/@types/jest/index.d.ts:637
 
 Skips running the tests inside this `describe` for the current file

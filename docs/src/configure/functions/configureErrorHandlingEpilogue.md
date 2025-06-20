@@ -8,7 +8,7 @@
 
 > **configureErrorHandlingEpilogue**(`meta`, `argv`, `context`): `Promisable`\<`void`\>
 
-Defined in: [src/configure.ts:274](https://github.com/Xunnamius/symbiote/blob/75014db0d306eae609fdd593e692bde4e3ec6d31/src/configure.ts#L274)
+Defined in: [src/configure.ts:274](https://github.com/Xunnamius/symbiote/blob/eabdf496b63a01bba079125634c7ec566eb20891/src/configure.ts#L274)
 
 ## Parameters
 

@@ -8,7 +8,7 @@
 
 > **MockedClass**\<`T`\> = [`MockInstance`](../interfaces/MockInstance.md)\<`InstanceType`\<`T`\>, `T` *extends* (...`args`) => `any` ? `P` : `never`, `T` *extends* (...`args`) => infer C ? `C` : `never`\> & `object` & `T`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1286
+Defined in: node\_modules/@types/jest/index.d.ts:1228
 
 Wrap a class with mock definitions
 

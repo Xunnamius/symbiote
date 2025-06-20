@@ -8,7 +8,7 @@
 
 > **isolateModulesAsync**(`fn`): `Promise`\<`void`\>
 
-Defined in: node\_modules/@types/jest/index.d.ts:279
+Defined in: node\_modules/@types/jest/index.d.ts:318
 
 Equivalent of `jest.isolateModules()` for async functions to be wrapped.
 The caller is expected to `await` the completion of `jest.isolateModulesAsync()`.

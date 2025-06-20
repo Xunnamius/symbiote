@@ -8,7 +8,7 @@
 
 > **Spied**\<`T`\> = `T` *extends* (...`args`) => `any` ? [`SpiedClass`](SpiedClass.md)\<`T`\> : `T` *extends* (...`args`) => `any` ? [`SpiedFunction`](SpiedFunction.md)\<`T`\> : `never`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1247
+Defined in: node\_modules/@types/jest/index.d.ts:1189
 
 Constructs the type of a spied class or function.
 

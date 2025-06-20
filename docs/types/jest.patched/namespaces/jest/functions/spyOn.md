@@ -10,7 +10,7 @@
 
 > **spyOn**\<`T`, `Key`, `A`, `Value`\>(`object`, `method`, `accessType`): `A` *extends* `"set"` ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`void`, \[`Value`\], `any`\> : `A` *extends* `"get"` ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`Value`, \[\], `any`\> : `Value` *extends* [`Constructor`](../type-aliases/Constructor.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`InstanceType`\<`Value`\<`Value`\>\>, [`ConstructorArgsType`](../type-aliases/ConstructorArgsType.md)\<`Value`\<`Value`\>\>, `any`\> : `Value` *extends* [`Func`](../type-aliases/Func.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`ReturnType`\<`Value`\<`Value`\>\>, [`ArgsType`](../type-aliases/ArgsType.md)\<`Value`\<`Value`\>\>, `any`\> : `never`
 
-Defined in: node\_modules/@types/jest/index.d.ts:389
+Defined in: node\_modules/@types/jest/index.d.ts:410
 
 Creates a mock function similar to jest.fn but also tracks calls to `object[methodName]`
 
@@ -74,7 +74,7 @@ test('plays video', () => {
 
 > **spyOn**\<`T`, `M`\>(`object`, `method`): [`ConstructorProperties`](../type-aliases/ConstructorProperties.md)\<`Required`\<`T`\>\>\[`M`\] *extends* (...`args`) => `any` ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`InstanceType`\<`any`\[`any`\]\>, [`ConstructorArgsType`](../type-aliases/ConstructorArgsType.md)\<`any`\[`any`\]\>, `any`\> : `never`
 
-Defined in: node\_modules/@types/jest/index.d.ts:403
+Defined in: node\_modules/@types/jest/index.d.ts:424
 
 Creates a mock function similar to jest.fn but also tracks calls to `object[methodName]`
 
@@ -126,7 +126,7 @@ test('plays video', () => {
 
 > **spyOn**\<`T`, `M`\>(`object`, `method`): [`FunctionProperties`](../type-aliases/FunctionProperties.md)\<`Required`\<`T`\>\>\[`M`\] *extends* [`Func`](../type-aliases/Func.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`ReturnType`\<`any`\[`any`\]\>, [`ArgsType`](../type-aliases/ArgsType.md)\<`any`\[`any`\]\>, `any`\> : `never`
 
-Defined in: node\_modules/@types/jest/index.d.ts:411
+Defined in: node\_modules/@types/jest/index.d.ts:432
 
 Creates a mock function similar to jest.fn but also tracks calls to `object[methodName]`
 

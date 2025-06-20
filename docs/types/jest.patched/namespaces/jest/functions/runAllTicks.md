@@ -8,7 +8,7 @@
 
 > **runAllTicks**(): `void`
 
-Defined in: node\_modules/@types/jest/index.d.ts:302
+Defined in: node\_modules/@types/jest/index.d.ts:344
 
 Exhausts the micro-task queue (i.e., tasks in Node.js scheduled with `process.nextTick()`).
 

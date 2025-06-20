@@ -8,7 +8,7 @@
 
 > **CustomAsyncMatchers**\<`TMatchers`\> = `{ [K in NonAsyncMatchers<TMatchers>]: CustomAsymmetricMatcher<TMatchers[K]> }`
 
-Defined in: node\_modules/@types/jest/index.d.ts:1162
+Defined in: node\_modules/@types/jest/index.d.ts:1104
 
 ## Type Parameters
 

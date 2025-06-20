@@ -6,11 +6,11 @@
 
 # Interface: DoneCallback()
 
-Defined in: node\_modules/@types/jest/index.d.ts:494
+Defined in: node\_modules/@types/jest/index.d.ts:515
 
 > **DoneCallback**(...`args`): `any`
 
-Defined in: node\_modules/@types/jest/index.d.ts:495
+Defined in: node\_modules/@types/jest/index.d.ts:516
 
 ## Parameters
 
@@ -28,7 +28,7 @@ Defined in: node\_modules/@types/jest/index.d.ts:495
 
 > **fail**(`error?`): `any`
 
-Defined in: node\_modules/@types/jest/index.d.ts:496
+Defined in: node\_modules/@types/jest/index.d.ts:517
 
 #### Parameters
 

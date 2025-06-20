@@ -8,4 +8,4 @@
 
 > **GetAccessor** = `"get"`
 
-Defined in: node\_modules/@types/jest/index.d.ts:478
+Defined in: node\_modules/@types/jest/index.d.ts:499

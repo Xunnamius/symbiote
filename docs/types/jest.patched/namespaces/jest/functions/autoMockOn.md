@@ -8,7 +8,7 @@
 
 > **autoMockOn**(): *typeof* [`jest`](../README.md)
 
-Defined in: node\_modules/@types/jest/index.d.ts:122
+Defined in: node\_modules/@types/jest/index.d.ts:157
 
 Enables automatic mocking in the module loader.
 

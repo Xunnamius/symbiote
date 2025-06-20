@@ -8,7 +8,7 @@
 
 > **resetAllMocks**(): *typeof* [`jest`](../README.md)
 
-Defined in: node\_modules/@types/jest/index.d.ts:137
+Defined in: node\_modules/@types/jest/index.d.ts:172
 
 Resets the state of all mocks.
 Equivalent to calling .mockReset() on every mocked function.

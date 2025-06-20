@@ -10,7 +10,7 @@
 
 > **fn**(): [`Mock`](../interfaces/Mock.md)
 
-Defined in: node\_modules/@types/jest/index.d.ts:212
+Defined in: node\_modules/@types/jest/index.d.ts:247
 
 Creates a mock function. Optionally takes a mock implementation.
 
@@ -22,7 +22,7 @@ Creates a mock function. Optionally takes a mock implementation.
 
 > **fn**\<`T`, `Y`, `C`\>(`implementation?`): [`Mock`](../interfaces/Mock.md)\<`T`, `Y`, `C`\>
 
-Defined in: node\_modules/@types/jest/index.d.ts:216
+Defined in: node\_modules/@types/jest/index.d.ts:251
 
 Creates a mock function. Optionally takes a mock implementation.
 
