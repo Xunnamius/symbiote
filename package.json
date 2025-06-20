@@ -160,7 +160,7 @@
     "glob-gitignore": "^1.0.15",
     "globals": "^16.2.0",
     "husky": "^9.1.7",
-    "jest": "^30.0.0",
+    "jest": "^30.0.2",
     "jest-circus": "30.0.0",
     "jest-extended": "^6.0.0",
     "jest-silent-reporter": "^0.6.0",
