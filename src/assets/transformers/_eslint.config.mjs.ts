@@ -648,6 +648,8 @@ export async function moduleExport({
         '!**/src/**/*',
         '**/.next/**/*',
         '**/.wrangler/**/*',
+        '**/worker-configuration.d.ts/**/*',
+        '**/next-env.d.ts/**/*',
         '**/.transpiled/**/*',
         '**/node_modules/**/*',
         '**/__*__/**',
