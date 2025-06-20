@@ -651,6 +651,7 @@ export async function moduleExport({
         '**/worker-configuration.d.ts/**/*',
         '**/next-env.d.ts/**/*',
         '**/.transpiled/**/*',
+        '**/.vscode/browser-debugger-profile/**/*',
         '**/node_modules/**/*',
         '**/__*__/**',
         '**/*.ignore',
