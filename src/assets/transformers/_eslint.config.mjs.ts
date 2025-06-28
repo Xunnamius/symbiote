@@ -184,7 +184,7 @@ function genericRules(
         // * Controls the spacing between and within type-only import groups
         'newlines-between-types': 'never',
         // * Enables sorting type-only imports and exports amongst themselves
-        sortTypesAmongThemselves: true,
+        sortTypesGroup: true,
         // * Ensures multiline imports are separated and singleline are collected
         consolidateIslands: 'inside-groups'
       }
