@@ -8,7 +8,7 @@
 
 > **CustomCliArguments** = [`GlobalCliArguments`](../../../../configure/type-aliases/GlobalCliArguments.md)\<[`ThisPackageGlobalScope`](../../../../configure/enumerations/ThisPackageGlobalScope.md)\> & `object`
 
-Defined in: [src/commands/build/changelog.ts:127](https://github.com/Xunnamius/symbiote/blob/6f50d53faef5aceb9ab30a8a468d34a5aa510945/src/commands/build/changelog.ts#L127)
+Defined in: [src/commands/build/changelog.ts:127](https://github.com/Xunnamius/symbiote/blob/6c12fe85338c1ca20a9b3dedd0e391ce548a98a4/src/commands/build/changelog.ts#L127)
 
 ## Type declaration
 
