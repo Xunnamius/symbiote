@@ -643,8 +643,6 @@ export async function moduleExport({
         '**/test/fixtures/**/*',
         '**/coverage/**/*',
         '**/bin/**/*',
-        // TODO: delete next line after we rename build => .next for Next.js
-        '**/build/**/*',
         '!**/src/**/*',
         '**/.next/**/*',
         '**/.wrangler/**/*',

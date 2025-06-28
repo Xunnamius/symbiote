@@ -40,11 +40,6 @@ ignore.*
 
 # Ignore relevant build artifacts in any subdir (with exceptions)
 *.tsbuildinfo
-# ? Preceding AND proceeding asterisks (**) are needed to match any build subdir
-# ? in monorepos and allow subsequent negations to be interpreted properly.
-**/build/**
-# ? This negation must end in "/**" to be interpreted properly.
-!**/src/**/build/**
 # ? Preceding AND proceeding asterisks (**) are needed to match any docs subdir
 # ? in monorepos and allow subsequent negations to be interpreted properly.
 **/docs/**

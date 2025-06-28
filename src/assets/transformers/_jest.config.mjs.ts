@@ -95,6 +95,8 @@ export function baseConfig({
     testPathIgnorePatterns: [
       '/node_modules/',
       '/dist/',
+      '/.next/',
+      '/.wrangler/',
       '/src/',
       ...(isTestingIntermediates ? [] : ['/.transpiled/']),
       '/test/fixtures/',

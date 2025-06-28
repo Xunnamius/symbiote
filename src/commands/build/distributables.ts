@@ -521,8 +521,9 @@ Finally, note that, when attempting to build a Next.js package, this command wil
       try {
         if (isCwdANextJsPackage) {
           if (cleanOutputDir) {
-            debug('forcefully deleting build output directory: ./build');
-            await forceDeletePaths('./build');
+            // TODO: grab these from next.config.mjs instead
+            debug('forcefully deleting build output directory: ./.next');
+            await forceDeletePaths('./.next');
           }
 
           debug('running next build');

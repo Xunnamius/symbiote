@@ -39,14 +39,6 @@ tmp
 
 # Ignore relevant build artifacts in any subdir (with exceptions)
 *.tsbuildinfo
-# ? Preceding asterisks "**/" are needed to match any build subdir in monorepos
-# ? and proceeding asterisks "/**" allow subsequent negations to be interpreted
-# ? properly. See: https://git-scm.com/docs/gitignore#_pattern_format
-**/build/**
-# ? This and other negations must end in "/**" to be interpreted properly.
-!**/src/**/build/**
-# ? This and other negations must end in "/**" to be interpreted properly.
-!**/docs/**/build/**
 dist
 coverage
 lib-cov
@@ -54,7 +46,6 @@ lib-cov
 .grunt
 bower_components
 .lock-wscript
-build/Release
 .vercel
 .next
 .wrangler
