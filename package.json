@@ -149,7 +149,7 @@
     "dotenv": "^17.0.0",
     "dotenv-cli": "^8.0.0",
     "escape-string-regexp~4": "npm:escape-string-regexp@^4.0.0",
-    "eslint": "^9.29.0",
+    "eslint": "^9.30.0",
     "eslint-import-resolver-typescript": "^4.4.3",
     "eslint-plugin-import": "npm:@-xun/eslint-plugin-import-experimental@^2.32.0",
     "eslint-plugin-jest": "^29.0.1",
