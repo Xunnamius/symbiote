@@ -848,6 +848,8 @@ export const { transformer } = makeTransformer(function ({
   return [
     {
       path: toProjectAbsolutePath(eslintConfigProjectBase),
+      // TODO: include react stuff automatically for react and next projects and come
+      // TODO: up with a different example in the below comment:
       generate: () => /*js*/ `
 // @ts-check
 
@@ -864,9 +866,6 @@ const config = await moduleExport({
   derivedAliases: getEslintAliases(),
   ...(await assertEnvironment())
 });
-
-// TODO: include react stuff automatically for react and next projects and come
-// TODO: up with a different example in the below comment:
 
 /* Add custom config objects here, such as those disabling certain rules */
 config.push(
