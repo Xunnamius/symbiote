@@ -8,7 +8,7 @@
 
 > **assertEnvironment**(`__namedParameters`): `Omit`\<`Parameters`\<*typeof* [`moduleExport`](moduleExport.md)\>\[`0`\], `"derivedAliases"`\>
 
-Defined in: [src/assets/transformers/\_babel.config.cjs.ts:549](https://github.com/Xunnamius/symbiote/blob/090a7857a95973f8ad6febe2e79edda5e1f32856/src/assets/transformers/_babel.config.cjs.ts#L549)
+Defined in: [src/assets/transformers/\_babel.config.cjs.ts:549](https://github.com/Xunnamius/symbiote/blob/d690f89078e542b7ce30292e44cc1a492eab16bd/src/assets/transformers/_babel.config.cjs.ts#L549)
 
 ## Parameters
 

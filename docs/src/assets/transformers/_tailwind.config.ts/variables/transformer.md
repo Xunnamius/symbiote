@@ -8,4 +8,4 @@
 
 > **transformer**: [`Transformer`](../../../type-aliases/Transformer.md)
 
-Defined in: [src/assets/transformers/\_tailwind.config.ts.ts:17](https://github.com/Xunnamius/symbiote/blob/090a7857a95973f8ad6febe2e79edda5e1f32856/src/assets/transformers/_tailwind.config.ts.ts#L17)
+Defined in: [src/assets/transformers/\_tailwind.config.ts.ts:17](https://github.com/Xunnamius/symbiote/blob/d690f89078e542b7ce30292e44cc1a492eab16bd/src/assets/transformers/_tailwind.config.ts.ts#L17)

@@ -8,7 +8,7 @@
 
 > **baseConfig**(`__namedParameters`): `object`
 
-Defined in: [src/assets/transformers/\_jest.config.mjs.ts:62](https://github.com/Xunnamius/symbiote/blob/090a7857a95973f8ad6febe2e79edda5e1f32856/src/assets/transformers/_jest.config.mjs.ts#L62)
+Defined in: [src/assets/transformers/\_jest.config.mjs.ts:62](https://github.com/Xunnamius/symbiote/blob/d690f89078e542b7ce30292e44cc1a492eab16bd/src/assets/transformers/_jest.config.mjs.ts#L62)
 
 Return a partial configuration that must be initialized further.
 
@@ -60,7 +60,7 @@ false
 
 ### testPathIgnorePatterns
 
-> `readonly` **testPathIgnorePatterns**: \[`"/node_modules/"`, `"/dist/"`, `"/src/"`, `...string[]`, `"/test/fixtures/"`, `"<rootDir>/dummies/"`, `string`, `string`\]
+> `readonly` **testPathIgnorePatterns**: \[`"/node_modules/"`, `"/dist/"`, `"/.next/"`, `"/.wrangler/"`, `"/src/"`, `...string[]`, `"/test/fixtures/"`, `"<rootDir>/dummies/"`, `string`, `string`\]
 
 ### testRunner
 
