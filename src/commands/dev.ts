@@ -43,7 +43,7 @@ export default function command({
 
   return {
     builder,
-    description: 'Deploy a local development environment, if applicable',
+    description: 'Deploy a local Webpack or Next.js development environment',
     usage: withGlobalUsage(),
     handler: withGlobalHandler(async function ({ $0: scriptFullName, scope }) {
       const handlerName = scriptBasename(scriptFullName);
@@ -73,7 +73,7 @@ export default function command({
         if (projectAttributes[ProjectAttribute.Next]) {
           const port = await acquirePort();
           genericLogger([LogTag.IF_NOT_QUIETED], passControlMessage('Next.js'));
-          await runWithInheritedIo(ProjectAttribute.Next, ['-p', port]);
+          await runWithInheritedIo('npx', ['next', '-p', port]);
         } else if (projectAttributes[ProjectAttribute.Webpack]) {
           const port = await acquirePort();
 
