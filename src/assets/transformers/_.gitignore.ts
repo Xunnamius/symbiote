@@ -25,6 +25,8 @@ tmp
 
 # Ignore sensitive files in any subdir
 .env
+.dev.vars
+.dev.vars.*
 .npmrc
 *.local
 
