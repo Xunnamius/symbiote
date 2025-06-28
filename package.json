@@ -171,7 +171,7 @@
     "mdast-util-to-markdown": "^2.1.2",
     "named-app-errors": "^4.0.2",
     "npm-check-updates": "^18.0.1",
-    "prettier": "^3.5.3",
+    "prettier": "^3.6.2",
     "rejoinder": "^2.0.1",
     "rejoinder-github-actions": "^2.0.0",
     "remark-capitalize-headings": "^2.0.1",
