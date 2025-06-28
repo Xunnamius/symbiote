@@ -7623,6 +7623,8 @@ tmp
 
 # Ignore sensitive files in any subdir
 .env
+.dev.vars
+.dev.vars.*
 .npmrc
 *.local
 
@@ -7635,14 +7637,6 @@ tmp
 
 # Ignore relevant build artifacts in any subdir (with exceptions)
 *.tsbuildinfo
-# ? Preceding asterisks "**/" are needed to match any build subdir in monorepos
-# ? and proceeding asterisks "/**" allow subsequent negations to be interpreted
-# ? properly. See: https://git-scm.com/docs/gitignore#_pattern_format
-**/build/**
-# ? This and other negations must end in "/**" to be interpreted properly.
-!**/src/**/build/**
-# ? This and other negations must end in "/**" to be interpreted properly.
-!**/docs/**/build/**
 dist
 coverage
 lib-cov
@@ -7650,7 +7644,6 @@ lib-cov
 .grunt
 bower_components
 .lock-wscript
-build/Release
 .vercel
 .next
 .wrangler
@@ -7741,6 +7734,8 @@ tmp
 
 # Ignore sensitive files in any subdir
 .env
+.dev.vars
+.dev.vars.*
 .npmrc
 *.local
 
@@ -7753,14 +7748,6 @@ tmp
 
 # Ignore relevant build artifacts in any subdir (with exceptions)
 *.tsbuildinfo
-# ? Preceding asterisks "**/" are needed to match any build subdir in monorepos
-# ? and proceeding asterisks "/**" allow subsequent negations to be interpreted
-# ? properly. See: https://git-scm.com/docs/gitignore#_pattern_format
-**/build/**
-# ? This and other negations must end in "/**" to be interpreted properly.
-!**/src/**/build/**
-# ? This and other negations must end in "/**" to be interpreted properly.
-!**/docs/**/build/**
 dist
 coverage
 lib-cov
@@ -7768,7 +7755,6 @@ lib-cov
 .grunt
 bower_components
 .lock-wscript
-build/Release
 .vercel
 .next
 .wrangler
@@ -7859,6 +7845,8 @@ tmp
 
 # Ignore sensitive files in any subdir
 .env
+.dev.vars
+.dev.vars.*
 .npmrc
 *.local
 
@@ -7871,14 +7859,6 @@ tmp
 
 # Ignore relevant build artifacts in any subdir (with exceptions)
 *.tsbuildinfo
-# ? Preceding asterisks "**/" are needed to match any build subdir in monorepos
-# ? and proceeding asterisks "/**" allow subsequent negations to be interpreted
-# ? properly. See: https://git-scm.com/docs/gitignore#_pattern_format
-**/build/**
-# ? This and other negations must end in "/**" to be interpreted properly.
-!**/src/**/build/**
-# ? This and other negations must end in "/**" to be interpreted properly.
-!**/docs/**/build/**
 dist
 coverage
 lib-cov
@@ -7886,7 +7866,6 @@ lib-cov
 .grunt
 bower_components
 .lock-wscript
-build/Release
 .vercel
 .next
 .wrangler
@@ -7977,6 +7956,8 @@ tmp
 
 # Ignore sensitive files in any subdir
 .env
+.dev.vars
+.dev.vars.*
 .npmrc
 *.local
 
@@ -7989,14 +7970,6 @@ tmp
 
 # Ignore relevant build artifacts in any subdir (with exceptions)
 *.tsbuildinfo
-# ? Preceding asterisks "**/" are needed to match any build subdir in monorepos
-# ? and proceeding asterisks "/**" allow subsequent negations to be interpreted
-# ? properly. See: https://git-scm.com/docs/gitignore#_pattern_format
-**/build/**
-# ? This and other negations must end in "/**" to be interpreted properly.
-!**/src/**/build/**
-# ? This and other negations must end in "/**" to be interpreted properly.
-!**/docs/**/build/**
 dist
 coverage
 lib-cov
@@ -8004,7 +7977,6 @@ lib-cov
 .grunt
 bower_components
 .lock-wscript
-build/Release
 .vercel
 .next
 .wrangler
@@ -8095,6 +8067,8 @@ tmp
 
 # Ignore sensitive files in any subdir
 .env
+.dev.vars
+.dev.vars.*
 .npmrc
 *.local
 
@@ -8107,14 +8081,6 @@ tmp
 
 # Ignore relevant build artifacts in any subdir (with exceptions)
 *.tsbuildinfo
-# ? Preceding asterisks "**/" are needed to match any build subdir in monorepos
-# ? and proceeding asterisks "/**" allow subsequent negations to be interpreted
-# ? properly. See: https://git-scm.com/docs/gitignore#_pattern_format
-**/build/**
-# ? This and other negations must end in "/**" to be interpreted properly.
-!**/src/**/build/**
-# ? This and other negations must end in "/**" to be interpreted properly.
-!**/docs/**/build/**
 dist
 coverage
 lib-cov
@@ -8122,7 +8088,6 @@ lib-cov
 .grunt
 bower_components
 .lock-wscript
-build/Release
 .vercel
 .next
 .wrangler
@@ -8213,6 +8178,8 @@ tmp
 
 # Ignore sensitive files in any subdir
 .env
+.dev.vars
+.dev.vars.*
 .npmrc
 *.local
 
@@ -8225,14 +8192,6 @@ tmp
 
 # Ignore relevant build artifacts in any subdir (with exceptions)
 *.tsbuildinfo
-# ? Preceding asterisks "**/" are needed to match any build subdir in monorepos
-# ? and proceeding asterisks "/**" allow subsequent negations to be interpreted
-# ? properly. See: https://git-scm.com/docs/gitignore#_pattern_format
-**/build/**
-# ? This and other negations must end in "/**" to be interpreted properly.
-!**/src/**/build/**
-# ? This and other negations must end in "/**" to be interpreted properly.
-!**/docs/**/build/**
 dist
 coverage
 lib-cov
@@ -8240,7 +8199,6 @@ lib-cov
 .grunt
 bower_components
 .lock-wscript
-build/Release
 .vercel
 .next
 .wrangler
@@ -8331,6 +8289,8 @@ tmp
 
 # Ignore sensitive files in any subdir
 .env
+.dev.vars
+.dev.vars.*
 .npmrc
 *.local
 
@@ -8343,14 +8303,6 @@ tmp
 
 # Ignore relevant build artifacts in any subdir (with exceptions)
 *.tsbuildinfo
-# ? Preceding asterisks "**/" are needed to match any build subdir in monorepos
-# ? and proceeding asterisks "/**" allow subsequent negations to be interpreted
-# ? properly. See: https://git-scm.com/docs/gitignore#_pattern_format
-**/build/**
-# ? This and other negations must end in "/**" to be interpreted properly.
-!**/src/**/build/**
-# ? This and other negations must end in "/**" to be interpreted properly.
-!**/docs/**/build/**
 dist
 coverage
 lib-cov
@@ -8358,7 +8310,6 @@ lib-cov
 .grunt
 bower_components
 .lock-wscript
-build/Release
 .vercel
 .next
 .wrangler
@@ -8449,6 +8400,8 @@ tmp
 
 # Ignore sensitive files in any subdir
 .env
+.dev.vars
+.dev.vars.*
 .npmrc
 *.local
 
@@ -8461,14 +8414,6 @@ tmp
 
 # Ignore relevant build artifacts in any subdir (with exceptions)
 *.tsbuildinfo
-# ? Preceding asterisks "**/" are needed to match any build subdir in monorepos
-# ? and proceeding asterisks "/**" allow subsequent negations to be interpreted
-# ? properly. See: https://git-scm.com/docs/gitignore#_pattern_format
-**/build/**
-# ? This and other negations must end in "/**" to be interpreted properly.
-!**/src/**/build/**
-# ? This and other negations must end in "/**" to be interpreted properly.
-!**/docs/**/build/**
 dist
 coverage
 lib-cov
@@ -8476,7 +8421,6 @@ lib-cov
 .grunt
 bower_components
 .lock-wscript
-build/Release
 .vercel
 .next
 .wrangler
@@ -9892,6 +9836,8 @@ ignore.*
 
 # Ignore sensitive files in any subdir
 .env
+.dev.vars
+.dev.vars.*
 .npmrc
 *.local
 
@@ -9900,11 +9846,6 @@ ignore.*
 
 # Ignore relevant build artifacts in any subdir (with exceptions)
 *.tsbuildinfo
-# ? Preceding AND proceeding asterisks (**) are needed to match any build subdir
-# ? in monorepos and allow subsequent negations to be interpreted properly.
-**/build/**
-# ? This negation must end in "/**" to be interpreted properly.
-!**/src/**/build/**
 # ? Preceding AND proceeding asterisks (**) are needed to match any docs subdir
 # ? in monorepos and allow subsequent negations to be interpreted properly.
 **/docs/**
@@ -9965,6 +9906,8 @@ ignore.*
 
 # Ignore sensitive files in any subdir
 .env
+.dev.vars
+.dev.vars.*
 .npmrc
 *.local
 
@@ -9973,11 +9916,6 @@ ignore.*
 
 # Ignore relevant build artifacts in any subdir (with exceptions)
 *.tsbuildinfo
-# ? Preceding AND proceeding asterisks (**) are needed to match any build subdir
-# ? in monorepos and allow subsequent negations to be interpreted properly.
-**/build/**
-# ? This negation must end in "/**" to be interpreted properly.
-!**/src/**/build/**
 # ? Preceding AND proceeding asterisks (**) are needed to match any docs subdir
 # ? in monorepos and allow subsequent negations to be interpreted properly.
 **/docs/**
@@ -10038,6 +9976,8 @@ ignore.*
 
 # Ignore sensitive files in any subdir
 .env
+.dev.vars
+.dev.vars.*
 .npmrc
 *.local
 
@@ -10046,11 +9986,6 @@ ignore.*
 
 # Ignore relevant build artifacts in any subdir (with exceptions)
 *.tsbuildinfo
-# ? Preceding AND proceeding asterisks (**) are needed to match any build subdir
-# ? in monorepos and allow subsequent negations to be interpreted properly.
-**/build/**
-# ? This negation must end in "/**" to be interpreted properly.
-!**/src/**/build/**
 # ? Preceding AND proceeding asterisks (**) are needed to match any docs subdir
 # ? in monorepos and allow subsequent negations to be interpreted properly.
 **/docs/**
@@ -10111,6 +10046,8 @@ ignore.*
 
 # Ignore sensitive files in any subdir
 .env
+.dev.vars
+.dev.vars.*
 .npmrc
 *.local
 
@@ -10119,11 +10056,6 @@ ignore.*
 
 # Ignore relevant build artifacts in any subdir (with exceptions)
 *.tsbuildinfo
-# ? Preceding AND proceeding asterisks (**) are needed to match any build subdir
-# ? in monorepos and allow subsequent negations to be interpreted properly.
-**/build/**
-# ? This negation must end in "/**" to be interpreted properly.
-!**/src/**/build/**
 # ? Preceding AND proceeding asterisks (**) are needed to match any docs subdir
 # ? in monorepos and allow subsequent negations to be interpreted properly.
 **/docs/**
@@ -10184,6 +10116,8 @@ ignore.*
 
 # Ignore sensitive files in any subdir
 .env
+.dev.vars
+.dev.vars.*
 .npmrc
 *.local
 
@@ -10192,11 +10126,6 @@ ignore.*
 
 # Ignore relevant build artifacts in any subdir (with exceptions)
 *.tsbuildinfo
-# ? Preceding AND proceeding asterisks (**) are needed to match any build subdir
-# ? in monorepos and allow subsequent negations to be interpreted properly.
-**/build/**
-# ? This negation must end in "/**" to be interpreted properly.
-!**/src/**/build/**
 # ? Preceding AND proceeding asterisks (**) are needed to match any docs subdir
 # ? in monorepos and allow subsequent negations to be interpreted properly.
 **/docs/**
@@ -10257,6 +10186,8 @@ ignore.*
 
 # Ignore sensitive files in any subdir
 .env
+.dev.vars
+.dev.vars.*
 .npmrc
 *.local
 
@@ -10265,11 +10196,6 @@ ignore.*
 
 # Ignore relevant build artifacts in any subdir (with exceptions)
 *.tsbuildinfo
-# ? Preceding AND proceeding asterisks (**) are needed to match any build subdir
-# ? in monorepos and allow subsequent negations to be interpreted properly.
-**/build/**
-# ? This negation must end in "/**" to be interpreted properly.
-!**/src/**/build/**
 # ? Preceding AND proceeding asterisks (**) are needed to match any docs subdir
 # ? in monorepos and allow subsequent negations to be interpreted properly.
 **/docs/**
@@ -10330,6 +10256,8 @@ ignore.*
 
 # Ignore sensitive files in any subdir
 .env
+.dev.vars
+.dev.vars.*
 .npmrc
 *.local
 
@@ -10338,11 +10266,6 @@ ignore.*
 
 # Ignore relevant build artifacts in any subdir (with exceptions)
 *.tsbuildinfo
-# ? Preceding AND proceeding asterisks (**) are needed to match any build subdir
-# ? in monorepos and allow subsequent negations to be interpreted properly.
-**/build/**
-# ? This negation must end in "/**" to be interpreted properly.
-!**/src/**/build/**
 # ? Preceding AND proceeding asterisks (**) are needed to match any docs subdir
 # ? in monorepos and allow subsequent negations to be interpreted properly.
 **/docs/**
@@ -10403,6 +10326,8 @@ ignore.*
 
 # Ignore sensitive files in any subdir
 .env
+.dev.vars
+.dev.vars.*
 .npmrc
 *.local
 
@@ -10411,11 +10336,6 @@ ignore.*
 
 # Ignore relevant build artifacts in any subdir (with exceptions)
 *.tsbuildinfo
-# ? Preceding AND proceeding asterisks (**) are needed to match any build subdir
-# ? in monorepos and allow subsequent negations to be interpreted properly.
-**/build/**
-# ? This negation must end in "/**" to be interpreted properly.
-!**/src/**/build/**
 # ? Preceding AND proceeding asterisks (**) are needed to match any docs subdir
 # ? in monorepos and allow subsequent negations to be interpreted properly.
 **/docs/**
