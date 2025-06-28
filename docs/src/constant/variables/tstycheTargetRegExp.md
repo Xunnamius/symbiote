@@ -8,6 +8,6 @@
 
 > `const` **tstycheTargetRegExp**: `RegExp`
 
-Defined in: [src/constant.ts:20](https://github.com/Xunnamius/symbiote/blob/d690f89078e542b7ce30292e44cc1a492eab16bd/src/constant.ts#L20)
+Defined in: [src/constant.ts:20](https://github.com/Xunnamius/symbiote/blob/6f50d53faef5aceb9ab30a8a468d34a5aa510945/src/constant.ts#L20)
 
 A regular expression matching any tstyche test file.
