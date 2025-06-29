@@ -89,7 +89,7 @@ export function generateBaseXPackageJson(
     author: incomingPackageJson.author ?? 'Xunnamius',
     // ! "sideEffects" can NEVER appear w/ react/next.js preset or webpack makes
     // ! orphans!
-    ...('sideEffects' in incomingPackageJson || preset?.startsWith('lib-')
+    ...('sideEffects' in incomingPackageJson || preset?.startsWith('lib')
       ? { sideEffects: incomingPackageJson.sideEffects ?? false }
       : {}),
     type: incomingPackageJson.type ?? 'commonjs',
