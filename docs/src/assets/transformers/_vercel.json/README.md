@@ -8,4 +8,5 @@
 
 ## Variables
 
+- [config](variables/config.md)
 - [transformer](variables/transformer.md)
