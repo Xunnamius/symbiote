@@ -1105,6 +1105,7 @@ exports[`::gatherAssetsFromAllTransformers preset: default (no preset) generates
   ".prettierignore",
   ".remarkrc.mjs",
   ".spellcheckignore",
+  ".vercelignore",
   ".vscode/launch.example.json",
   ".vscode/settings.json",
   ".vscode/tasks.example.json",
@@ -1199,6 +1200,7 @@ exports[`::gatherAssetsFromAllTransformers preset: default (no preset) generates
   ".prettierignore",
   ".remarkrc.mjs",
   ".spellcheckignore",
+  ".vercelignore",
   ".vscode/launch.example.json",
   ".vscode/settings.json",
   ".vscode/tasks.example.json",
@@ -1304,6 +1306,7 @@ exports[`::gatherAssetsFromAllTransformers preset: default (no preset) generates
   ".prettierignore",
   ".remarkrc.mjs",
   ".spellcheckignore",
+  ".vercelignore",
   ".vscode/launch.example.json",
   ".vscode/settings.json",
   ".vscode/tasks.example.json",
@@ -2081,6 +2084,7 @@ exports[`::gatherAssetsFromAllTransformers preset: nextjs generates expected ass
   ".prettierignore",
   ".remarkrc.mjs",
   ".spellcheckignore",
+  ".vercelignore",
   ".vscode/launch.example.json",
   ".vscode/settings.json",
   ".vscode/tasks.example.json",
@@ -2163,6 +2167,7 @@ exports[`::gatherAssetsFromAllTransformers preset: nextjs generates expected ass
   ".prettierignore",
   ".remarkrc.mjs",
   ".spellcheckignore",
+  ".vercelignore",
   ".vscode/launch.example.json",
   ".vscode/settings.json",
   ".vscode/tasks.example.json",
@@ -2257,6 +2262,7 @@ exports[`::gatherAssetsFromAllTransformers preset: nextjs generates expected ass
   ".prettierignore",
   ".remarkrc.mjs",
   ".spellcheckignore",
+  ".vercelignore",
   ".vscode/launch.example.json",
   ".vscode/settings.json",
   ".vscode/tasks.example.json",
@@ -10845,8 +10851,8 @@ scope: unlimited
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vercelignore generates expected assets at hybridrepo (scope=this-package): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.gitignore 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.gitignore
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vercelignore generates expected assets at hybridrepo (scope=this-package): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.vercelignore 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.vercelignore
 scope: this-package
 ⏶⏷⏶⏷⏶
 # shellcheck disable=all
@@ -10873,8 +10879,8 @@ scope: this-package
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vercelignore generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.gitignore 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.gitignore
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vercelignore generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.vercelignore 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.vercelignore
 scope: unlimited
 ⏶⏷⏶⏷⏶
 # shellcheck disable=all
@@ -10901,8 +10907,8 @@ scope: unlimited
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vercelignore generates expected assets at hybridrepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.gitignore 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.gitignore
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vercelignore generates expected assets at hybridrepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.vercelignore 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.vercelignore
 scope: unlimited
 ⏶⏷⏶⏷⏶
 # shellcheck disable=all
@@ -10929,8 +10935,8 @@ scope: unlimited
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vercelignore generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/.gitignore 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/.gitignore
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vercelignore generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/.vercelignore 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/.vercelignore
 scope: unlimited
 ⏶⏷⏶⏷⏶
 # shellcheck disable=all
@@ -10957,8 +10963,8 @@ scope: unlimited
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vercelignore generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/.gitignore 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/.gitignore
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vercelignore generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/.vercelignore 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/.vercelignore
 scope: unlimited
 ⏶⏷⏶⏷⏶
 # shellcheck disable=all
@@ -10985,8 +10991,8 @@ scope: unlimited
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vercelignore generates expected assets for polyrepo (scope=this-package): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.gitignore 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.gitignore
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vercelignore generates expected assets for polyrepo (scope=this-package): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.vercelignore 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.vercelignore
 scope: unlimited
 ⏶⏷⏶⏷⏶
 # shellcheck disable=all
@@ -11013,8 +11019,8 @@ scope: unlimited
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vercelignore generates expected assets for polyrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.gitignore 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.gitignore
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vercelignore generates expected assets for polyrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.vercelignore 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.vercelignore
 scope: this-package
 ⏶⏷⏶⏷⏶
 # shellcheck disable=all
@@ -11041,8 +11047,8 @@ scope: this-package
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vercelignore generates expected assets for polyrepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.gitignore 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.gitignore
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vercelignore generates expected assets for polyrepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.vercelignore 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.vercelignore
 scope: unlimited
 ⏶⏷⏶⏷⏶
 # shellcheck disable=all
