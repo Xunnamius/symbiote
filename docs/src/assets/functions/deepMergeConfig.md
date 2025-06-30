@@ -8,7 +8,7 @@
 
 > **deepMergeConfig**\<`ConfigurationType`\>(`originalConfiguration`, `overwrites`, `customReplacer`): `ConfigurationType`
 
-Defined in: [src/assets.ts:639](https://github.com/Xunnamius/symbiote/blob/69d7b76e5696ff589285094e16ec41aa92317af3/src/assets.ts#L639)
+Defined in: [src/assets.ts:639](https://github.com/Xunnamius/symbiote/blob/55c2dadee19da73b281c10518788cefdaefad80e/src/assets.ts#L639)
 
 A thin wrapper around lodash's mergeWith that does not mutate
 `originalConfiguration`.

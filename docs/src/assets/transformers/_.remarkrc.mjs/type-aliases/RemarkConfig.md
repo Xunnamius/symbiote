@@ -8,7 +8,7 @@
 
 > **RemarkConfig** = `object`
 
-Defined in: [src/assets/transformers/\_.remarkrc.mjs.ts:23](https://github.com/Xunnamius/symbiote/blob/69d7b76e5696ff589285094e16ec41aa92317af3/src/assets/transformers/_.remarkrc.mjs.ts#L23)
+Defined in: [src/assets/transformers/\_.remarkrc.mjs.ts:23](https://github.com/Xunnamius/symbiote/blob/55c2dadee19da73b281c10518788cefdaefad80e/src/assets/transformers/_.remarkrc.mjs.ts#L23)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [src/assets/transformers/\_.remarkrc.mjs.ts:23](https://github.com/X
 
 > `optional` **plugins**: `UnifiedEngineOptions`\[`"plugins"`\]
 
-Defined in: [src/assets/transformers/\_.remarkrc.mjs.ts:25](https://github.com/Xunnamius/symbiote/blob/69d7b76e5696ff589285094e16ec41aa92317af3/src/assets/transformers/_.remarkrc.mjs.ts#L25)
+Defined in: [src/assets/transformers/\_.remarkrc.mjs.ts:25](https://github.com/Xunnamius/symbiote/blob/55c2dadee19da73b281c10518788cefdaefad80e/src/assets/transformers/_.remarkrc.mjs.ts#L25)
 
 ***
 
@@ -24,4 +24,4 @@ Defined in: [src/assets/transformers/\_.remarkrc.mjs.ts:25](https://github.com/X
 
 > `optional` **settings**: `MdastUtilityToMarkdownOptions`
 
-Defined in: [src/assets/transformers/\_.remarkrc.mjs.ts:24](https://github.com/Xunnamius/symbiote/blob/69d7b76e5696ff589285094e16ec41aa92317af3/src/assets/transformers/_.remarkrc.mjs.ts#L24)
+Defined in: [src/assets/transformers/\_.remarkrc.mjs.ts:24](https://github.com/Xunnamius/symbiote/blob/55c2dadee19da73b281c10518788cefdaefad80e/src/assets/transformers/_.remarkrc.mjs.ts#L24)

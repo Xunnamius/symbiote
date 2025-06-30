@@ -8,4 +8,4 @@
 
 > `const` **noUndefinedReferencesPlugin**: [`PluggableListSupportingSpecifiers`](../type-aliases/PluggableListSupportingSpecifiers.md)
 
-Defined in: [src/assets/transformers/\_.remarkrc.mjs.ts:48](https://github.com/Xunnamius/symbiote/blob/69d7b76e5696ff589285094e16ec41aa92317af3/src/assets/transformers/_.remarkrc.mjs.ts#L48)
+Defined in: [src/assets/transformers/\_.remarkrc.mjs.ts:48](https://github.com/Xunnamius/symbiote/blob/55c2dadee19da73b281c10518788cefdaefad80e/src/assets/transformers/_.remarkrc.mjs.ts#L48)
