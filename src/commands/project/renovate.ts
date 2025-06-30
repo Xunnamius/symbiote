@@ -23,7 +23,7 @@ import {
   eslintConfigProjectBase,
   isAccessible,
   jestConfigProjectBase,
-  nextjsConfigProjectBase,
+  nextjsConfigPackageBase,
   packageJsonConfigPackageBase,
   ProjectAttribute,
   readXPackageJsonAtRoot,
@@ -118,7 +118,7 @@ const homepagePrefix = 'https://npm.im/';
 const assetsThatContainAliases = [
   Tsconfig.ProjectBase,
   jestConfigProjectBase,
-  nextjsConfigProjectBase,
+  nextjsConfigPackageBase,
   webpackConfigProjectBase,
   eslintConfigProjectBase,
   babelConfigProjectBase
@@ -1371,6 +1371,8 @@ To create and recreate alias tags for existing release tags more generally, see 
       } = argv;
 
       hardAssert(projectMetadata, ErrorMessage.GuruMeditation());
+
+      // TODO: advise user to regenerate assets afterwards
 
       const {
         // * Since "this-package" is not supported, we can't use cwdPackage

@@ -120,7 +120,14 @@ export enum AssetPreset {
    *
    * See the symbiote wiki for details.
    */
-  Nextjs = 'nextjs'
+  Nextjs = 'nextjs',
+  /**
+   * Represents the standard assets for an symbiote-compliant project built on
+   * Cloudflare's Wrangler tool.
+   *
+   * See the symbiote wiki for details.
+   */
+  Wrangler = 'wrangler'
 }
 
 /**

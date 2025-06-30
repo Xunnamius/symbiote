@@ -8,6 +8,11 @@ import {
 
 import { stringifyJson } from 'universe:util.ts';
 
+export const config = {
+  $schema: 'https://openapi.vercel.sh/vercel.json',
+  trailingSlash: false
+};
+
 export const { transformer } = makeTransformer(function (context) {
   const { toProjectAbsolutePath, assetPreset } = context;
 
@@ -19,9 +24,8 @@ export const { transformer } = makeTransformer(function (context) {
   return generateRootOnlyAssets(context, async function () {
     return [
       {
-        // TODO:
         path: toProjectAbsolutePath(vercelConfigProjectBase),
-        generate: () => stringifyJson({})
+        generate: () => stringifyJson(config)
       }
     ];
   });
