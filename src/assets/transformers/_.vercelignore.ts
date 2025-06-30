@@ -1,15 +1,23 @@
-import { gitignoreConfigProjectBase } from '@-xun/project';
+import { vercelignoreConfigProjectBase } from '@-xun/project';
 
-import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
+import {
+  AssetPreset,
+  generateRootOnlyAssets,
+  makeTransformer
+} from 'universe:assets.ts';
 
 export const { transformer } = makeTransformer(function (context) {
-  const { toProjectAbsolutePath } = context;
+  const { toProjectAbsolutePath, assetPreset } = context;
+
+  if (assetPreset && assetPreset !== AssetPreset.Nextjs) {
+    return [];
+  }
 
   // * Only the root package gets these files
   return generateRootOnlyAssets(context, async function () {
     return [
       {
-        path: toProjectAbsolutePath(gitignoreConfigProjectBase),
+        path: toProjectAbsolutePath(vercelignoreConfigProjectBase),
         generate: () => /* md */ `
 # shellcheck disable=all
 # This file's syntax is only KINDA similar like .gitignore...
