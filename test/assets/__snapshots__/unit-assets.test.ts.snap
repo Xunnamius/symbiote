@@ -1164,6 +1164,10 @@ exports[`::gatherAssetsFromAllTransformers preset: default (no preset) generates
   "types/_example-d.ts",
   "vercel.json",
   "webpack.config.mjs",
+  "wrangler.json",
+  "packages/cli/wrangler.json",
+  "packages/private/wrangler.json",
+  "packages/webpack/wrangler.json",
 ]
 `;
 
@@ -1268,6 +1272,9 @@ exports[`::gatherAssetsFromAllTransformers preset: default (no preset) generates
   "types/_example-d.ts",
   "vercel.json",
   "webpack.config.mjs",
+  "packages/pkg-1/wrangler.json",
+  "packages/pkg-2/wrangler.json",
+  "packages/pkg-import/wrangler.json",
 ]
 `;
 
@@ -1329,6 +1336,7 @@ exports[`::gatherAssetsFromAllTransformers preset: default (no preset) generates
   "tstyche.config.json",
   "vercel.json",
   "webpack.config.mjs",
+  "wrangler.json",
 ]
 `;
 
@@ -2502,6 +2510,230 @@ exports[`::gatherAssetsFromAllTransformers preset: react generates expected asse
   "tsc.package.lint.json",
   "tsc.package.docs.json",
   "tstyche.config.json",
+]
+`;
+
+exports[`::gatherAssetsFromAllTransformers preset: wrangler generates expected assets at hybridrepo 1`] = `
+[
+  ".codecov.yml",
+  ".editorconfig",
+  ".env.default",
+  ".env",
+  ".gitattributes",
+  ".github/ISSUE_TEMPLATE/BUG_REPORT.md",
+  ".github/ISSUE_TEMPLATE/config.yml",
+  ".github/ISSUE_TEMPLATE/FEATURE_REQUEST.md",
+  ".github/workflows/README.md",
+  ".github/CODE_OF_CONDUCT.md",
+  ".github/CODEOWNERS",
+  ".github/dependabot.yml",
+  ".github/FUNDING.yml",
+  ".github/pipeline.config.js",
+  ".github/PULL_REQUEST_TEMPLATE.md",
+  ".github/SUPPORT.md",
+  ".gitignore",
+  ".husky/commit-msg",
+  ".husky/pre-commit",
+  ".husky/pre-push",
+  ".ncurc.cjs",
+  ".prettierignore",
+  ".remarkrc.mjs",
+  ".spellcheckignore",
+  ".vscode/launch.example.json",
+  ".vscode/settings.json",
+  ".vscode/tasks.example.json",
+  "README.md",
+  "packages/cli/README.md",
+  "packages/private/README.md",
+  "packages/webpack/README.md",
+  "SECURITY.md",
+  "babel.config.cjs",
+  "changelog.patch.mjs",
+  "commitlint.config.mjs",
+  "conventional.config.cjs",
+  "eslint.config.mjs",
+  "gac.config.mjs",
+  "jest.config.mjs",
+  "lint-staged.config.mjs",
+  "package.json",
+  "packages/cli/package.json",
+  "packages/private/package.json",
+  "packages/webpack/package.json",
+  "prettier.config.mjs",
+  "release.config.cjs",
+  "packages/webpack/src/index.ts",
+  "packages/webpack/test/unit.test.ts",
+  "packages/webpack/test/type.test.ts",
+  "packages/webpack/test/integration/.config.ts",
+  "packages/webpack/test/integration/integration-smoke.test.ts",
+  "packages/webpack/test/integration/integration-client.test.ts",
+  "packages/webpack/test/end-to-end/.config.ts",
+  "packages/webpack/test/end-to-end/e2e.test.ts",
+  "tsconfig.json",
+  "tsc.project.lint.json",
+  "tsc.package.types.json",
+  "tsc.package.lint.json",
+  "tsc.package.docs.json",
+  "packages/cli/tsc.package.types.json",
+  "packages/cli/tsc.package.lint.json",
+  "packages/cli/tsc.package.docs.json",
+  "packages/private/tsc.package.types.json",
+  "packages/private/tsc.package.lint.json",
+  "packages/private/tsc.package.docs.json",
+  "packages/webpack/tsc.package.types.json",
+  "packages/webpack/tsc.package.lint.json",
+  "packages/webpack/tsc.package.docs.json",
+  "tstyche.config.json",
+  "types/global.ts",
+  "types/_example-d.ts",
+  "wrangler.json",
+  "packages/cli/wrangler.json",
+  "packages/private/wrangler.json",
+  "packages/webpack/wrangler.json",
+]
+`;
+
+exports[`::gatherAssetsFromAllTransformers preset: wrangler generates expected assets at non-hybrid monorepo 1`] = `
+[
+  ".codecov.yml",
+  ".editorconfig",
+  ".env.default",
+  ".env",
+  ".gitattributes",
+  ".github/ISSUE_TEMPLATE/BUG_REPORT.md",
+  ".github/ISSUE_TEMPLATE/config.yml",
+  ".github/ISSUE_TEMPLATE/FEATURE_REQUEST.md",
+  ".github/workflows/README.md",
+  ".github/CODE_OF_CONDUCT.md",
+  ".github/CODEOWNERS",
+  ".github/dependabot.yml",
+  ".github/FUNDING.yml",
+  ".github/pipeline.config.js",
+  ".github/PULL_REQUEST_TEMPLATE.md",
+  ".github/SUPPORT.md",
+  ".gitignore",
+  ".husky/commit-msg",
+  ".husky/pre-commit",
+  ".husky/pre-push",
+  ".ncurc.cjs",
+  ".prettierignore",
+  ".remarkrc.mjs",
+  ".spellcheckignore",
+  ".vscode/launch.example.json",
+  ".vscode/settings.json",
+  ".vscode/tasks.example.json",
+  "README.md",
+  "packages/pkg-1/README.md",
+  "packages/pkg-2/README.md",
+  "packages/pkg-import/README.md",
+  "SECURITY.md",
+  "babel.config.cjs",
+  "changelog.patch.mjs",
+  "commitlint.config.mjs",
+  "conventional.config.cjs",
+  "eslint.config.mjs",
+  "gac.config.mjs",
+  "jest.config.mjs",
+  "lint-staged.config.mjs",
+  "package.json",
+  "packages/pkg-1/package.json",
+  "packages/pkg-2/package.json",
+  "packages/pkg-import/package.json",
+  "prettier.config.mjs",
+  "release.config.cjs",
+  "packages/pkg-1/src/index.ts",
+  "packages/pkg-import/src/index.ts",
+  "test/util.ts",
+  "test/setup.ts",
+  "packages/pkg-1/test/unit.test.ts",
+  "packages/pkg-1/test/type.test.ts",
+  "packages/pkg-1/test/integration/.config.ts",
+  "packages/pkg-1/test/integration/integration-smoke.test.ts",
+  "packages/pkg-1/test/integration/integration-client.test.ts",
+  "packages/pkg-1/test/end-to-end/.config.ts",
+  "packages/pkg-1/test/end-to-end/e2e.test.ts",
+  "packages/pkg-2/test/unit.test.ts",
+  "packages/pkg-2/test/type.test.ts",
+  "packages/pkg-2/test/integration/.config.ts",
+  "packages/pkg-2/test/integration/integration-smoke.test.ts",
+  "packages/pkg-2/test/integration/integration-client.test.ts",
+  "packages/pkg-2/test/end-to-end/.config.ts",
+  "packages/pkg-2/test/end-to-end/e2e.test.ts",
+  "packages/pkg-import/test/unit.test.ts",
+  "packages/pkg-import/test/type.test.ts",
+  "packages/pkg-import/test/integration/.config.ts",
+  "packages/pkg-import/test/integration/integration-smoke.test.ts",
+  "packages/pkg-import/test/integration/integration-client.test.ts",
+  "packages/pkg-import/test/end-to-end/.config.ts",
+  "packages/pkg-import/test/end-to-end/e2e.test.ts",
+  "tsconfig.json",
+  "tsc.project.lint.json",
+  "packages/pkg-1/tsc.package.types.json",
+  "packages/pkg-1/tsc.package.lint.json",
+  "packages/pkg-1/tsc.package.docs.json",
+  "packages/pkg-2/tsc.package.types.json",
+  "packages/pkg-2/tsc.package.lint.json",
+  "packages/pkg-2/tsc.package.docs.json",
+  "packages/pkg-import/tsc.package.types.json",
+  "packages/pkg-import/tsc.package.lint.json",
+  "packages/pkg-import/tsc.package.docs.json",
+  "tstyche.config.json",
+  "types/global.ts",
+  "types/_example-d.ts",
+  "packages/pkg-1/wrangler.json",
+  "packages/pkg-2/wrangler.json",
+  "packages/pkg-import/wrangler.json",
+]
+`;
+
+exports[`::gatherAssetsFromAllTransformers preset: wrangler generates expected assets for polyrepo 1`] = `
+[
+  ".codecov.yml",
+  ".editorconfig",
+  ".gitattributes",
+  ".github/ISSUE_TEMPLATE/BUG_REPORT.md",
+  ".github/ISSUE_TEMPLATE/config.yml",
+  ".github/ISSUE_TEMPLATE/FEATURE_REQUEST.md",
+  ".github/workflows/README.md",
+  ".github/CODE_OF_CONDUCT.md",
+  ".github/CODEOWNERS",
+  ".github/dependabot.yml",
+  ".github/FUNDING.yml",
+  ".github/pipeline.config.js",
+  ".github/PULL_REQUEST_TEMPLATE.md",
+  ".github/SUPPORT.md",
+  ".gitignore",
+  ".husky/commit-msg",
+  ".husky/pre-commit",
+  ".husky/pre-push",
+  ".ncurc.cjs",
+  ".prettierignore",
+  ".remarkrc.mjs",
+  ".spellcheckignore",
+  ".vscode/launch.example.json",
+  ".vscode/settings.json",
+  ".vscode/tasks.example.json",
+  "README.md",
+  "SECURITY.md",
+  "babel.config.cjs",
+  "changelog.patch.mjs",
+  "commitlint.config.mjs",
+  "conventional.config.cjs",
+  "eslint.config.mjs",
+  "gac.config.mjs",
+  "jest.config.mjs",
+  "lint-staged.config.mjs",
+  "package.json",
+  "prettier.config.mjs",
+  "release.config.cjs",
+  "src/index.ts",
+  "tsconfig.json",
+  "tsc.project.lint.json",
+  "tsc.package.types.json",
+  "tsc.package.lint.json",
+  "tsc.package.docs.json",
+  "tstyche.config.json",
+  "wrangler.json",
 ]
 `;
 
@@ -10610,6 +10842,230 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .spel
 scope: unlimited
 ⏶⏷⏶⏷⏶
 
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vercelignore generates expected assets at hybridrepo (scope=this-package): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.gitignore 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.gitignore
+scope: this-package
+⏶⏷⏶⏷⏶
+# shellcheck disable=all
+# This file's syntax is only KINDA similar like .gitignore...
+
+# Ignore all root-level files
+/*
+
+# Re-add root-level dirs
+!/data
+!/public
+!/src
+!/types
+
+# Re-add root-level files
+!/.gitignore
+!/babel.config.js
+!/next.config.mjs
+!/package-lock.json
+!/package.json
+!/tsconfig.json
+
+# Custom adds
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vercelignore generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.gitignore 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.gitignore
+scope: unlimited
+⏶⏷⏶⏷⏶
+# shellcheck disable=all
+# This file's syntax is only KINDA similar like .gitignore...
+
+# Ignore all root-level files
+/*
+
+# Re-add root-level dirs
+!/data
+!/public
+!/src
+!/types
+
+# Re-add root-level files
+!/.gitignore
+!/babel.config.js
+!/next.config.mjs
+!/package-lock.json
+!/package.json
+!/tsconfig.json
+
+# Custom adds
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vercelignore generates expected assets at hybridrepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.gitignore 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.gitignore
+scope: unlimited
+⏶⏷⏶⏷⏶
+# shellcheck disable=all
+# This file's syntax is only KINDA similar like .gitignore...
+
+# Ignore all root-level files
+/*
+
+# Re-add root-level dirs
+!/data
+!/public
+!/src
+!/types
+
+# Re-add root-level files
+!/.gitignore
+!/babel.config.js
+!/next.config.mjs
+!/package-lock.json
+!/package.json
+!/tsconfig.json
+
+# Custom adds
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vercelignore generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/.gitignore 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/.gitignore
+scope: unlimited
+⏶⏷⏶⏷⏶
+# shellcheck disable=all
+# This file's syntax is only KINDA similar like .gitignore...
+
+# Ignore all root-level files
+/*
+
+# Re-add root-level dirs
+!/data
+!/public
+!/src
+!/types
+
+# Re-add root-level files
+!/.gitignore
+!/babel.config.js
+!/next.config.mjs
+!/package-lock.json
+!/package.json
+!/tsconfig.json
+
+# Custom adds
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vercelignore generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/.gitignore 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/.gitignore
+scope: unlimited
+⏶⏷⏶⏷⏶
+# shellcheck disable=all
+# This file's syntax is only KINDA similar like .gitignore...
+
+# Ignore all root-level files
+/*
+
+# Re-add root-level dirs
+!/data
+!/public
+!/src
+!/types
+
+# Re-add root-level files
+!/.gitignore
+!/babel.config.js
+!/next.config.mjs
+!/package-lock.json
+!/package.json
+!/tsconfig.json
+
+# Custom adds
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vercelignore generates expected assets for polyrepo (scope=this-package): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.gitignore 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.gitignore
+scope: unlimited
+⏶⏷⏶⏷⏶
+# shellcheck disable=all
+# This file's syntax is only KINDA similar like .gitignore...
+
+# Ignore all root-level files
+/*
+
+# Re-add root-level dirs
+!/data
+!/public
+!/src
+!/types
+
+# Re-add root-level files
+!/.gitignore
+!/babel.config.js
+!/next.config.mjs
+!/package-lock.json
+!/package.json
+!/tsconfig.json
+
+# Custom adds
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vercelignore generates expected assets for polyrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.gitignore 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.gitignore
+scope: this-package
+⏶⏷⏶⏷⏶
+# shellcheck disable=all
+# This file's syntax is only KINDA similar like .gitignore...
+
+# Ignore all root-level files
+/*
+
+# Re-add root-level dirs
+!/data
+!/public
+!/src
+!/types
+
+# Re-add root-level files
+!/.gitignore
+!/babel.config.js
+!/next.config.mjs
+!/package-lock.json
+!/package.json
+!/tsconfig.json
+
+# Custom adds
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .vercelignore generates expected assets for polyrepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.gitignore 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.gitignore
+scope: unlimited
+⏶⏷⏶⏷⏶
+# shellcheck disable=all
+# This file's syntax is only KINDA similar like .gitignore...
+
+# Ignore all root-level files
+/*
+
+# Re-add root-level dirs
+!/data
+!/public
+!/src
+!/types
+
+# Re-add root-level files
+!/.gitignore
+!/babel.config.js
+!/next.config.mjs
+!/package-lock.json
+!/package.json
+!/tsconfig.json
+
+# Custom adds
 "
 `;
 
@@ -23202,9 +23658,6 @@ const config = await moduleExport({
   ...(await assertEnvironment())
 });
 
-// TODO: include react stuff automatically for react and next projects and come
-// TODO: up with a different example in the below comment:
-
 /* Add custom config objects here, such as those disabling certain rules */
 config.push(
   // ? Paths listed here are ignored by Eslint and related tooling.
@@ -23304,9 +23757,6 @@ const config = await moduleExport({
   derivedAliases: getEslintAliases(),
   ...(await assertEnvironment())
 });
-
-// TODO: include react stuff automatically for react and next projects and come
-// TODO: up with a different example in the below comment:
 
 /* Add custom config objects here, such as those disabling certain rules */
 config.push(
@@ -23408,9 +23858,6 @@ const config = await moduleExport({
   ...(await assertEnvironment())
 });
 
-// TODO: include react stuff automatically for react and next projects and come
-// TODO: up with a different example in the below comment:
-
 /* Add custom config objects here, such as those disabling certain rules */
 config.push(
   // ? Paths listed here are ignored by Eslint and related tooling.
@@ -23510,9 +23957,6 @@ const config = await moduleExport({
   derivedAliases: getEslintAliases(),
   ...(await assertEnvironment())
 });
-
-// TODO: include react stuff automatically for react and next projects and come
-// TODO: up with a different example in the below comment:
 
 /* Add custom config objects here, such as those disabling certain rules */
 config.push(
@@ -23614,9 +24058,6 @@ const config = await moduleExport({
   ...(await assertEnvironment())
 });
 
-// TODO: include react stuff automatically for react and next projects and come
-// TODO: up with a different example in the below comment:
-
 /* Add custom config objects here, such as those disabling certain rules */
 config.push(
   // ? Paths listed here are ignored by Eslint and related tooling.
@@ -23716,9 +24157,6 @@ const config = await moduleExport({
   derivedAliases: getEslintAliases(),
   ...(await assertEnvironment())
 });
-
-// TODO: include react stuff automatically for react and next projects and come
-// TODO: up with a different example in the below comment:
 
 /* Add custom config objects here, such as those disabling certain rules */
 config.push(
@@ -23820,9 +24258,6 @@ const config = await moduleExport({
   ...(await assertEnvironment())
 });
 
-// TODO: include react stuff automatically for react and next projects and come
-// TODO: up with a different example in the below comment:
-
 /* Add custom config objects here, such as those disabling certain rules */
 config.push(
   // ? Paths listed here are ignored by Eslint and related tooling.
@@ -23893,9 +24328,6 @@ const config = await moduleExport({
   ...(await assertEnvironment())
 });
 
-// TODO: include react stuff automatically for react and next projects and come
-// TODO: up with a different example in the below comment:
-
 /* Add custom config objects here, such as those disabling certain rules */
 config.push(
   // ? Paths listed here are ignored by Eslint and related tooling.
@@ -23965,9 +24397,6 @@ const config = await moduleExport({
   derivedAliases: getEslintAliases(),
   ...(await assertEnvironment())
 });
-
-// TODO: include react stuff automatically for react and next projects and come
-// TODO: up with a different example in the below comment:
 
 /* Add custom config objects here, such as those disabling certain rules */
 config.push(
@@ -24886,7 +25315,11 @@ import { createDebugLogger } from 'rejoinder';
 
 const debug = createDebugLogger({ namespace: 'symbiote:config:next' });
 
-const config = deepMergeConfig(moduleExport(), {
+const config = deepMergeConfig(moduleExport(),
+/**
+ * @type {import('next').NextConfig}
+ */
+{
   // Any custom configs here will be deep merged with moduleExport's result
 });
 
@@ -24909,7 +25342,11 @@ import { createDebugLogger } from 'rejoinder';
 
 const debug = createDebugLogger({ namespace: 'symbiote:config:next' });
 
-const config = deepMergeConfig(moduleExport(), {
+const config = deepMergeConfig(moduleExport(),
+/**
+ * @type {import('next').NextConfig}
+ */
+{
   // Any custom configs here will be deep merged with moduleExport's result
 });
 
@@ -24932,7 +25369,11 @@ import { createDebugLogger } from 'rejoinder';
 
 const debug = createDebugLogger({ namespace: 'symbiote:config:next' });
 
-const config = deepMergeConfig(moduleExport(), {
+const config = deepMergeConfig(moduleExport(),
+/**
+ * @type {import('next').NextConfig}
+ */
+{
   // Any custom configs here will be deep merged with moduleExport's result
 });
 
@@ -24955,7 +25396,11 @@ import { createDebugLogger } from 'rejoinder';
 
 const debug = createDebugLogger({ namespace: 'symbiote:config:next' });
 
-const config = deepMergeConfig(moduleExport(), {
+const config = deepMergeConfig(moduleExport(),
+/**
+ * @type {import('next').NextConfig}
+ */
+{
   // Any custom configs here will be deep merged with moduleExport's result
 });
 
@@ -24978,7 +25423,11 @@ import { createDebugLogger } from 'rejoinder';
 
 const debug = createDebugLogger({ namespace: 'symbiote:config:next' });
 
-const config = deepMergeConfig(moduleExport(), {
+const config = deepMergeConfig(moduleExport(),
+/**
+ * @type {import('next').NextConfig}
+ */
+{
   // Any custom configs here will be deep merged with moduleExport's result
 });
 
@@ -25001,7 +25450,11 @@ import { createDebugLogger } from 'rejoinder';
 
 const debug = createDebugLogger({ namespace: 'symbiote:config:next' });
 
-const config = deepMergeConfig(moduleExport(), {
+const config = deepMergeConfig(moduleExport(),
+/**
+ * @type {import('next').NextConfig}
+ */
+{
   // Any custom configs here will be deep merged with moduleExport's result
 });
 
@@ -25024,7 +25477,11 @@ import { createDebugLogger } from 'rejoinder';
 
 const debug = createDebugLogger({ namespace: 'symbiote:config:next' });
 
-const config = deepMergeConfig(moduleExport(), {
+const config = deepMergeConfig(moduleExport(),
+/**
+ * @type {import('next').NextConfig}
+ */
+{
   // Any custom configs here will be deep merged with moduleExport's result
 });
 
@@ -25047,7 +25504,11 @@ import { createDebugLogger } from 'rejoinder';
 
 const debug = createDebugLogger({ namespace: 'symbiote:config:next' });
 
-const config = deepMergeConfig(moduleExport(), {
+const config = deepMergeConfig(moduleExport(),
+/**
+ * @type {import('next').NextConfig}
+ */
+{
   // Any custom configs here will be deep merged with moduleExport's result
 });
 
@@ -25130,8 +25591,8 @@ scope: this-package
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
     "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
     "release:topological": "symbiote project topology --run release --env NODE_NO_WARNINGS=1",
-    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --github-reconfigure-repo --regenerate-assets --assets-preset basic cli lib lib-esm lib-web react nextjs",
-    "renovate:aliases": "symbiote project renovate --env NODE_NO_WARNINGS=1 --regenerate-assets --assets-preset basic cli lib lib-esm lib-web react nextjs --only-aliases",
+    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --github-reconfigure-repo --regenerate-assets --assets-preset basic cli lib lib-esm lib-web react nextjs wrangler",
+    "renovate:aliases": "symbiote project renovate --env NODE_NO_WARNINGS=1 --regenerate-assets --assets-preset basic cli lib lib-esm lib-web react nextjs wrangler --only-aliases",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage",
     "test:packages:all:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit type --scope unlimited --coverage",
@@ -25224,8 +25685,8 @@ scope: unlimited
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
     "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
     "release:topological": "symbiote project topology --run release --env NODE_NO_WARNINGS=1",
-    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --github-reconfigure-repo --regenerate-assets --assets-preset basic cli lib lib-esm lib-web react nextjs",
-    "renovate:aliases": "symbiote project renovate --env NODE_NO_WARNINGS=1 --regenerate-assets --assets-preset basic cli lib lib-esm lib-web react nextjs --only-aliases",
+    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --github-reconfigure-repo --regenerate-assets --assets-preset basic cli lib lib-esm lib-web react nextjs wrangler",
+    "renovate:aliases": "symbiote project renovate --env NODE_NO_WARNINGS=1 --regenerate-assets --assets-preset basic cli lib lib-esm lib-web react nextjs wrangler --only-aliases",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage",
     "test:packages:all:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit type --scope unlimited --coverage",
@@ -25361,6 +25822,7 @@ scope: unlimited
   },
   "license": "MIT",
   "author": "Xunnamius",
+  "sideEffects": false,
   "type": "commonjs",
   "exports": {
     ".": {
@@ -25436,6 +25898,7 @@ scope: unlimited
   },
   "license": "MIT",
   "author": "Xunnamius",
+  "sideEffects": false,
   "type": "commonjs",
   "exports": {
     ".": {
@@ -25557,8 +26020,8 @@ scope: unlimited
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
     "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
     "release:topological": "symbiote project topology --run release --env NODE_NO_WARNINGS=1",
-    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --github-reconfigure-repo --regenerate-assets --assets-preset basic cli lib lib-esm lib-web react nextjs",
-    "renovate:aliases": "symbiote project renovate --env NODE_NO_WARNINGS=1 --regenerate-assets --assets-preset basic cli lib lib-esm lib-web react nextjs --only-aliases",
+    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --github-reconfigure-repo --regenerate-assets --assets-preset basic cli lib lib-esm lib-web react nextjs wrangler",
+    "renovate:aliases": "symbiote project renovate --env NODE_NO_WARNINGS=1 --regenerate-assets --assets-preset basic cli lib lib-esm lib-web react nextjs wrangler --only-aliases",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage",
     "test:packages:all:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit type --scope unlimited --coverage",
@@ -25699,6 +26162,7 @@ scope: unlimited
   },
   "license": "MIT",
   "author": "Xunnamius",
+  "sideEffects": false,
   "typesVersions": {
     "*": {
       "index": [
@@ -25769,6 +26233,7 @@ scope: unlimited
   },
   "license": "MIT",
   "author": "Xunnamius",
+  "sideEffects": false,
   "typesVersions": {
     "*": {
       "index": [
@@ -25923,8 +26388,8 @@ scope: unlimited
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope unlimited",
     "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
     "release:topological": "symbiote project topology --run release --env NODE_NO_WARNINGS=1",
-    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --github-reconfigure-repo --regenerate-assets --assets-preset basic cli lib lib-esm lib-web react nextjs",
-    "renovate:aliases": "symbiote project renovate --env NODE_NO_WARNINGS=1 --regenerate-assets --assets-preset basic cli lib lib-esm lib-web react nextjs --only-aliases",
+    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --github-reconfigure-repo --regenerate-assets --assets-preset basic cli lib lib-esm lib-web react nextjs wrangler",
+    "renovate:aliases": "symbiote project renovate --env NODE_NO_WARNINGS=1 --regenerate-assets --assets-preset basic cli lib lib-esm lib-web react nextjs wrangler --only-aliases",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage",
     "test:packages:all:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit type --scope unlimited --coverage",
@@ -26154,6 +26619,7 @@ scope: unlimited
   },
   "license": "MIT",
   "author": "Xunnamius",
+  "sideEffects": false,
   "type": "commonjs",
   "exports": {
     ".": {
@@ -26243,8 +26709,8 @@ scope: unlimited
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope unlimited",
     "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
     "release:topological": "symbiote project topology --run release --env NODE_NO_WARNINGS=1",
-    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --github-reconfigure-repo --regenerate-assets --assets-preset basic cli lib lib-esm lib-web react nextjs",
-    "renovate:aliases": "symbiote project renovate --env NODE_NO_WARNINGS=1 --regenerate-assets --assets-preset basic cli lib lib-esm lib-web react nextjs --only-aliases",
+    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --github-reconfigure-repo --regenerate-assets --assets-preset basic cli lib lib-esm lib-web react nextjs wrangler",
+    "renovate:aliases": "symbiote project renovate --env NODE_NO_WARNINGS=1 --regenerate-assets --assets-preset basic cli lib lib-esm lib-web react nextjs wrangler --only-aliases",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test:packages:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage",
     "test:packages:all:unit": "symbiote test --env NODE_NO_WARNINGS=1 --tests unit type --scope unlimited --coverage",
@@ -26456,6 +26922,7 @@ scope: unlimited
   },
   "license": "MIT",
   "author": "Xunnamius",
+  "sideEffects": false,
   "typesVersions": {
     "*": {
       "index": [
@@ -26556,8 +27023,8 @@ scope: unlimited
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
     "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
     "release": "symbiote release --env NODE_NO_WARNINGS=1",
-    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --github-reconfigure-repo --regenerate-assets --assets-preset basic cli lib lib-esm lib-web react nextjs",
-    "renovate:aliases": "symbiote project renovate --env NODE_NO_WARNINGS=1 --regenerate-assets --assets-preset basic cli lib lib-esm lib-web react nextjs --only-aliases",
+    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --github-reconfigure-repo --regenerate-assets --assets-preset basic cli lib lib-esm lib-web react nextjs wrangler",
+    "renovate:aliases": "symbiote project renovate --env NODE_NO_WARNINGS=1 --regenerate-assets --assets-preset basic cli lib lib-esm lib-web react nextjs wrangler --only-aliases",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "echo 'it works!'",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --coverage",
@@ -26641,8 +27108,8 @@ scope: this-package
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
     "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
     "release": "symbiote release --env NODE_NO_WARNINGS=1",
-    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --github-reconfigure-repo --regenerate-assets --assets-preset basic cli lib lib-esm lib-web react nextjs",
-    "renovate:aliases": "symbiote project renovate --env NODE_NO_WARNINGS=1 --regenerate-assets --assets-preset basic cli lib lib-esm lib-web react nextjs --only-aliases",
+    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --github-reconfigure-repo --regenerate-assets --assets-preset basic cli lib lib-esm lib-web react nextjs wrangler",
+    "renovate:aliases": "symbiote project renovate --env NODE_NO_WARNINGS=1 --regenerate-assets --assets-preset basic cli lib lib-esm lib-web react nextjs wrangler --only-aliases",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "npm run test:package:unit --",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --coverage",
@@ -26721,8 +27188,8 @@ scope: unlimited
     "list-tasks": "symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope this-package",
     "prepare": "symbiote project prepare --env NODE_NO_WARNINGS=1",
     "release": "symbiote release --env NODE_NO_WARNINGS=1",
-    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --github-reconfigure-repo --regenerate-assets --assets-preset basic cli lib lib-esm lib-web react nextjs",
-    "renovate:aliases": "symbiote project renovate --env NODE_NO_WARNINGS=1 --regenerate-assets --assets-preset basic cli lib lib-esm lib-web react nextjs --only-aliases",
+    "renovate": "symbiote project renovate --env NODE_NO_WARNINGS=1 --github-reconfigure-repo --regenerate-assets --assets-preset basic cli lib lib-esm lib-web react nextjs wrangler",
+    "renovate:aliases": "symbiote project renovate --env NODE_NO_WARNINGS=1 --regenerate-assets --assets-preset basic cli lib lib-esm lib-web react nextjs wrangler --only-aliases",
     "start": "symbiote start --env NODE_NO_WARNINGS=1 --",
     "test": "echo 'it works!'",
     "test:package:all": "symbiote test --env NODE_NO_WARNINGS=1 --tests all-local --coverage",
@@ -33499,7 +33966,10 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> verce
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/vercel.json
 scope: this-package
 ⏶⏷⏶⏷⏶
-{}
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "trailingSlash": false
+}
 "
 `;
 
@@ -33507,7 +33977,10 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> verce
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/vercel.json
 scope: unlimited
 ⏶⏷⏶⏷⏶
-{}
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "trailingSlash": false
+}
 "
 `;
 
@@ -33515,7 +33988,10 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> verce
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/vercel.json
 scope: unlimited
 ⏶⏷⏶⏷⏶
-{}
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "trailingSlash": false
+}
 "
 `;
 
@@ -33523,7 +33999,10 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> verce
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/vercel.json
 scope: unlimited
 ⏶⏷⏶⏷⏶
-{}
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "trailingSlash": false
+}
 "
 `;
 
@@ -33531,7 +34010,10 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> verce
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/vercel.json
 scope: unlimited
 ⏶⏷⏶⏷⏶
-{}
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "trailingSlash": false
+}
 "
 `;
 
@@ -33539,7 +34021,10 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> verce
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/vercel.json
 scope: unlimited
 ⏶⏷⏶⏷⏶
-{}
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "trailingSlash": false
+}
 "
 `;
 
@@ -33547,7 +34032,10 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> verce
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/vercel.json
 scope: this-package
 ⏶⏷⏶⏷⏶
-{}
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "trailingSlash": false
+}
 "
 `;
 
@@ -33555,7 +34043,10 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> verce
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/vercel.json
 scope: unlimited
 ⏶⏷⏶⏷⏶
-{}
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "trailingSlash": false
+}
 "
 `;
 
@@ -33740,5 +34231,613 @@ const config = deepMergeConfig(moduleExport(), {
 export default config;
 
 debug('exported config: %O', config);
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> wrangler.json generates expected assets at hybridrepo (scope=this-package): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/wrangler.json 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/wrangler.json
+scope: this-package
+⏶⏷⏶⏷⏶
+{
+  "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
+  "name": "unnamed-app-worker",
+  "main": "src/worker.ts",
+  "compatibility_date": "2025-5-30",
+  "workers_dev": false,
+  "vars": {},
+  "route": {
+    "pattern": "https://example.com/path/endpoint",
+    "zone_name": "example.com"
+  },
+  "env": {
+    "preview": {
+      "name": "prev-unnamed-app-worker",
+      "route": {
+        "pattern": "https://example.com/path/preview-endpoint",
+        "zone_name": "example.com"
+      }
+    },
+    "development": {
+      "name": "dev-unnamed-app-worker",
+      "vars": {}
+    }
+  }
+}
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> wrangler.json generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/cli/wrangler.json 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/cli/wrangler.json
+scope: unlimited
+⏶⏷⏶⏷⏶
+{
+  "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
+  "name": "unnamed-app-worker",
+  "main": "src/worker.ts",
+  "compatibility_date": "2025-5-30",
+  "workers_dev": false,
+  "vars": {},
+  "route": {
+    "pattern": "https://example.com/path/endpoint",
+    "zone_name": "example.com"
+  },
+  "env": {
+    "preview": {
+      "name": "prev-unnamed-app-worker",
+      "route": {
+        "pattern": "https://example.com/path/preview-endpoint",
+        "zone_name": "example.com"
+      }
+    },
+    "development": {
+      "name": "dev-unnamed-app-worker",
+      "vars": {}
+    }
+  }
+}
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> wrangler.json generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/private/wrangler.json 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/private/wrangler.json
+scope: unlimited
+⏶⏷⏶⏷⏶
+{
+  "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
+  "name": "unnamed-app-worker",
+  "main": "src/worker.ts",
+  "compatibility_date": "2025-5-30",
+  "workers_dev": false,
+  "vars": {},
+  "route": {
+    "pattern": "https://example.com/path/endpoint",
+    "zone_name": "example.com"
+  },
+  "env": {
+    "preview": {
+      "name": "prev-unnamed-app-worker",
+      "route": {
+        "pattern": "https://example.com/path/preview-endpoint",
+        "zone_name": "example.com"
+      }
+    },
+    "development": {
+      "name": "dev-unnamed-app-worker",
+      "vars": {}
+    }
+  }
+}
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> wrangler.json generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/wrangler.json 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/wrangler.json
+scope: unlimited
+⏶⏷⏶⏷⏶
+{
+  "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
+  "name": "unnamed-app-worker",
+  "main": "src/worker.ts",
+  "compatibility_date": "2025-5-30",
+  "workers_dev": false,
+  "vars": {},
+  "route": {
+    "pattern": "https://example.com/path/endpoint",
+    "zone_name": "example.com"
+  },
+  "env": {
+    "preview": {
+      "name": "prev-unnamed-app-worker",
+      "route": {
+        "pattern": "https://example.com/path/preview-endpoint",
+        "zone_name": "example.com"
+      }
+    },
+    "development": {
+      "name": "dev-unnamed-app-worker",
+      "vars": {}
+    }
+  }
+}
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> wrangler.json generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/wrangler.json 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/wrangler.json
+scope: unlimited
+⏶⏷⏶⏷⏶
+{
+  "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
+  "name": "unnamed-app-worker",
+  "main": "src/worker.ts",
+  "compatibility_date": "2025-5-30",
+  "workers_dev": false,
+  "vars": {},
+  "route": {
+    "pattern": "https://example.com/path/endpoint",
+    "zone_name": "example.com"
+  },
+  "env": {
+    "preview": {
+      "name": "prev-unnamed-app-worker",
+      "route": {
+        "pattern": "https://example.com/path/preview-endpoint",
+        "zone_name": "example.com"
+      }
+    },
+    "development": {
+      "name": "dev-unnamed-app-worker",
+      "vars": {}
+    }
+  }
+}
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> wrangler.json generates expected assets at hybridrepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/cli/wrangler.json 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/cli/wrangler.json
+scope: unlimited
+⏶⏷⏶⏷⏶
+{
+  "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
+  "name": "unnamed-app-worker",
+  "main": "src/worker.ts",
+  "compatibility_date": "2025-5-30",
+  "workers_dev": false,
+  "vars": {},
+  "route": {
+    "pattern": "https://example.com/path/endpoint",
+    "zone_name": "example.com"
+  },
+  "env": {
+    "preview": {
+      "name": "prev-unnamed-app-worker",
+      "route": {
+        "pattern": "https://example.com/path/preview-endpoint",
+        "zone_name": "example.com"
+      }
+    },
+    "development": {
+      "name": "dev-unnamed-app-worker",
+      "vars": {}
+    }
+  }
+}
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> wrangler.json generates expected assets at hybridrepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/private/wrangler.json 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/private/wrangler.json
+scope: unlimited
+⏶⏷⏶⏷⏶
+{
+  "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
+  "name": "unnamed-app-worker",
+  "main": "src/worker.ts",
+  "compatibility_date": "2025-5-30",
+  "workers_dev": false,
+  "vars": {},
+  "route": {
+    "pattern": "https://example.com/path/endpoint",
+    "zone_name": "example.com"
+  },
+  "env": {
+    "preview": {
+      "name": "prev-unnamed-app-worker",
+      "route": {
+        "pattern": "https://example.com/path/preview-endpoint",
+        "zone_name": "example.com"
+      }
+    },
+    "development": {
+      "name": "dev-unnamed-app-worker",
+      "vars": {}
+    }
+  }
+}
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> wrangler.json generates expected assets at hybridrepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/wrangler.json 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/wrangler.json
+scope: unlimited
+⏶⏷⏶⏷⏶
+{
+  "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
+  "name": "unnamed-app-worker",
+  "main": "src/worker.ts",
+  "compatibility_date": "2025-5-30",
+  "workers_dev": false,
+  "vars": {},
+  "route": {
+    "pattern": "https://example.com/path/endpoint",
+    "zone_name": "example.com"
+  },
+  "env": {
+    "preview": {
+      "name": "prev-unnamed-app-worker",
+      "route": {
+        "pattern": "https://example.com/path/preview-endpoint",
+        "zone_name": "example.com"
+      }
+    },
+    "development": {
+      "name": "dev-unnamed-app-worker",
+      "vars": {}
+    }
+  }
+}
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> wrangler.json generates expected assets at hybridrepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/wrangler.json 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/wrangler.json
+scope: unlimited
+⏶⏷⏶⏷⏶
+{
+  "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
+  "name": "unnamed-app-worker",
+  "main": "src/worker.ts",
+  "compatibility_date": "2025-5-30",
+  "workers_dev": false,
+  "vars": {},
+  "route": {
+    "pattern": "https://example.com/path/endpoint",
+    "zone_name": "example.com"
+  },
+  "env": {
+    "preview": {
+      "name": "prev-unnamed-app-worker",
+      "route": {
+        "pattern": "https://example.com/path/preview-endpoint",
+        "zone_name": "example.com"
+      }
+    },
+    "development": {
+      "name": "dev-unnamed-app-worker",
+      "vars": {}
+    }
+  }
+}
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> wrangler.json generates expected assets at non-hybrid monorepo (scope=this-package): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/wrangler.json 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/wrangler.json
+scope: this-package
+⏶⏷⏶⏷⏶
+{
+  "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
+  "name": "unnamed-app-worker",
+  "main": "src/worker.ts",
+  "compatibility_date": "2025-5-30",
+  "workers_dev": false,
+  "vars": {},
+  "route": {
+    "pattern": "https://example.com/path/endpoint",
+    "zone_name": "example.com"
+  },
+  "env": {
+    "preview": {
+      "name": "prev-unnamed-app-worker",
+      "route": {
+        "pattern": "https://example.com/path/preview-endpoint",
+        "zone_name": "example.com"
+      }
+    },
+    "development": {
+      "name": "dev-unnamed-app-worker",
+      "vars": {}
+    }
+  }
+}
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> wrangler.json generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/wrangler.json 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/wrangler.json
+scope: unlimited
+⏶⏷⏶⏷⏶
+{
+  "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
+  "name": "unnamed-app-worker",
+  "main": "src/worker.ts",
+  "compatibility_date": "2025-5-30",
+  "workers_dev": false,
+  "vars": {},
+  "route": {
+    "pattern": "https://example.com/path/endpoint",
+    "zone_name": "example.com"
+  },
+  "env": {
+    "preview": {
+      "name": "prev-unnamed-app-worker",
+      "route": {
+        "pattern": "https://example.com/path/preview-endpoint",
+        "zone_name": "example.com"
+      }
+    },
+    "development": {
+      "name": "dev-unnamed-app-worker",
+      "vars": {}
+    }
+  }
+}
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> wrangler.json generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/wrangler.json 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/wrangler.json
+scope: unlimited
+⏶⏷⏶⏷⏶
+{
+  "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
+  "name": "unnamed-app-worker",
+  "main": "src/worker.ts",
+  "compatibility_date": "2025-5-30",
+  "workers_dev": false,
+  "vars": {},
+  "route": {
+    "pattern": "https://example.com/path/endpoint",
+    "zone_name": "example.com"
+  },
+  "env": {
+    "preview": {
+      "name": "prev-unnamed-app-worker",
+      "route": {
+        "pattern": "https://example.com/path/preview-endpoint",
+        "zone_name": "example.com"
+      }
+    },
+    "development": {
+      "name": "dev-unnamed-app-worker",
+      "vars": {}
+    }
+  }
+}
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> wrangler.json generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/wrangler.json 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/wrangler.json
+scope: unlimited
+⏶⏷⏶⏷⏶
+{
+  "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
+  "name": "unnamed-app-worker",
+  "main": "src/worker.ts",
+  "compatibility_date": "2025-5-30",
+  "workers_dev": false,
+  "vars": {},
+  "route": {
+    "pattern": "https://example.com/path/endpoint",
+    "zone_name": "example.com"
+  },
+  "env": {
+    "preview": {
+      "name": "prev-unnamed-app-worker",
+      "route": {
+        "pattern": "https://example.com/path/preview-endpoint",
+        "zone_name": "example.com"
+      }
+    },
+    "development": {
+      "name": "dev-unnamed-app-worker",
+      "vars": {}
+    }
+  }
+}
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> wrangler.json generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/wrangler.json 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/wrangler.json
+scope: unlimited
+⏶⏷⏶⏷⏶
+{
+  "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
+  "name": "unnamed-app-worker",
+  "main": "src/worker.ts",
+  "compatibility_date": "2025-5-30",
+  "workers_dev": false,
+  "vars": {},
+  "route": {
+    "pattern": "https://example.com/path/endpoint",
+    "zone_name": "example.com"
+  },
+  "env": {
+    "preview": {
+      "name": "prev-unnamed-app-worker",
+      "route": {
+        "pattern": "https://example.com/path/preview-endpoint",
+        "zone_name": "example.com"
+      }
+    },
+    "development": {
+      "name": "dev-unnamed-app-worker",
+      "vars": {}
+    }
+  }
+}
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> wrangler.json generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/wrangler.json 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/wrangler.json
+scope: unlimited
+⏶⏷⏶⏷⏶
+{
+  "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
+  "name": "unnamed-app-worker",
+  "main": "src/worker.ts",
+  "compatibility_date": "2025-5-30",
+  "workers_dev": false,
+  "vars": {},
+  "route": {
+    "pattern": "https://example.com/path/endpoint",
+    "zone_name": "example.com"
+  },
+  "env": {
+    "preview": {
+      "name": "prev-unnamed-app-worker",
+      "route": {
+        "pattern": "https://example.com/path/preview-endpoint",
+        "zone_name": "example.com"
+      }
+    },
+    "development": {
+      "name": "dev-unnamed-app-worker",
+      "vars": {}
+    }
+  }
+}
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> wrangler.json generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/wrangler.json 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/wrangler.json
+scope: unlimited
+⏶⏷⏶⏷⏶
+{
+  "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
+  "name": "unnamed-app-worker",
+  "main": "src/worker.ts",
+  "compatibility_date": "2025-5-30",
+  "workers_dev": false,
+  "vars": {},
+  "route": {
+    "pattern": "https://example.com/path/endpoint",
+    "zone_name": "example.com"
+  },
+  "env": {
+    "preview": {
+      "name": "prev-unnamed-app-worker",
+      "route": {
+        "pattern": "https://example.com/path/preview-endpoint",
+        "zone_name": "example.com"
+      }
+    },
+    "development": {
+      "name": "dev-unnamed-app-worker",
+      "vars": {}
+    }
+  }
+}
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> wrangler.json generates expected assets for polyrepo (scope=this-package): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/wrangler.json 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/wrangler.json
+scope: unlimited
+⏶⏷⏶⏷⏶
+{
+  "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
+  "name": "unnamed-app-worker",
+  "main": "src/worker.ts",
+  "compatibility_date": "2025-5-30",
+  "workers_dev": false,
+  "vars": {},
+  "route": {
+    "pattern": "https://example.com/path/endpoint",
+    "zone_name": "example.com"
+  },
+  "env": {
+    "preview": {
+      "name": "prev-unnamed-app-worker",
+      "route": {
+        "pattern": "https://example.com/path/preview-endpoint",
+        "zone_name": "example.com"
+      }
+    },
+    "development": {
+      "name": "dev-unnamed-app-worker",
+      "vars": {}
+    }
+  }
+}
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> wrangler.json generates expected assets for polyrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/wrangler.json 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/wrangler.json
+scope: this-package
+⏶⏷⏶⏷⏶
+{
+  "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
+  "name": "unnamed-app-worker",
+  "main": "src/worker.ts",
+  "compatibility_date": "2025-5-30",
+  "workers_dev": false,
+  "vars": {},
+  "route": {
+    "pattern": "https://example.com/path/endpoint",
+    "zone_name": "example.com"
+  },
+  "env": {
+    "preview": {
+      "name": "prev-unnamed-app-worker",
+      "route": {
+        "pattern": "https://example.com/path/preview-endpoint",
+        "zone_name": "example.com"
+      }
+    },
+    "development": {
+      "name": "dev-unnamed-app-worker",
+      "vars": {}
+    }
+  }
+}
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> wrangler.json generates expected assets for polyrepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/wrangler.json 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/wrangler.json
+scope: unlimited
+⏶⏷⏶⏷⏶
+{
+  "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
+  "name": "unnamed-app-worker",
+  "main": "src/worker.ts",
+  "compatibility_date": "2025-5-30",
+  "workers_dev": false,
+  "vars": {},
+  "route": {
+    "pattern": "https://example.com/path/endpoint",
+    "zone_name": "example.com"
+  },
+  "env": {
+    "preview": {
+      "name": "prev-unnamed-app-worker",
+      "route": {
+        "pattern": "https://example.com/path/preview-endpoint",
+        "zone_name": "example.com"
+      }
+    },
+    "development": {
+      "name": "dev-unnamed-app-worker",
+      "vars": {}
+    }
+  }
+}
 "
 `;
