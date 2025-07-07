@@ -6,7 +6,7 @@
 
 # Enumeration: ModuleSystem
 
-Defined in: [src/commands/build/distributables.ts:125](https://github.com/Xunnamius/symbiote/blob/55c2dadee19da73b281c10518788cefdaefad80e/src/commands/build/distributables.ts#L125)
+Defined in: [src/commands/build/distributables.ts:125](https://github.com/Xunnamius/symbiote/blob/684c98756883770dff30034f576ce171f943b9a2/src/commands/build/distributables.ts#L125)
 
 Which module system to use for transpiled output.
 
@@ -16,7 +16,7 @@ Which module system to use for transpiled output.
 
 > **Browser**: `"esm-browser"`
 
-Defined in: [src/commands/build/distributables.ts:137](https://github.com/Xunnamius/symbiote/blob/55c2dadee19da73b281c10518788cefdaefad80e/src/commands/build/distributables.ts#L137)
+Defined in: [src/commands/build/distributables.ts:137](https://github.com/Xunnamius/symbiote/blob/684c98756883770dff30034f576ce171f943b9a2/src/commands/build/distributables.ts#L137)
 
 ESM compiled specifically for the browser.
 
@@ -26,7 +26,7 @@ ESM compiled specifically for the browser.
 
 > **Cjs**: `"cjs"`
 
-Defined in: [src/commands/build/distributables.ts:129](https://github.com/Xunnamius/symbiote/blob/55c2dadee19da73b281c10518788cefdaefad80e/src/commands/build/distributables.ts#L129)
+Defined in: [src/commands/build/distributables.ts:129](https://github.com/Xunnamius/symbiote/blob/684c98756883770dff30034f576ce171f943b9a2/src/commands/build/distributables.ts#L129)
 
 Compiled specifically for Node.js (or compatible runtime).
 
@@ -36,6 +36,6 @@ Compiled specifically for Node.js (or compatible runtime).
 
 > **Esm**: `"esm"`
 
-Defined in: [src/commands/build/distributables.ts:133](https://github.com/Xunnamius/symbiote/blob/55c2dadee19da73b281c10518788cefdaefad80e/src/commands/build/distributables.ts#L133)
+Defined in: [src/commands/build/distributables.ts:133](https://github.com/Xunnamius/symbiote/blob/684c98756883770dff30034f576ce171f943b9a2/src/commands/build/distributables.ts#L133)
 
 Compiled specifically for Node.js (or compatible runtime).

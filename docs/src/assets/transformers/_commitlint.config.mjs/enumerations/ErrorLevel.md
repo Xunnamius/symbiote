@@ -6,7 +6,7 @@
 
 # Enumeration: ErrorLevel
 
-Defined in: [src/assets/transformers/\_commitlint.config.mjs.ts:12](https://github.com/Xunnamius/symbiote/blob/55c2dadee19da73b281c10518788cefdaefad80e/src/assets/transformers/_commitlint.config.mjs.ts#L12)
+Defined in: [src/assets/transformers/\_commitlint.config.mjs.ts:12](https://github.com/Xunnamius/symbiote/blob/684c98756883770dff30034f576ce171f943b9a2/src/assets/transformers/_commitlint.config.mjs.ts#L12)
 
 ## See
 
@@ -18,7 +18,7 @@ https://github.com/conventional-changelog/commitlint/blob/master/docs/reference/
 
 > **Disabled**: `0`
 
-Defined in: [src/assets/transformers/\_commitlint.config.mjs.ts:13](https://github.com/Xunnamius/symbiote/blob/55c2dadee19da73b281c10518788cefdaefad80e/src/assets/transformers/_commitlint.config.mjs.ts#L13)
+Defined in: [src/assets/transformers/\_commitlint.config.mjs.ts:13](https://github.com/Xunnamius/symbiote/blob/684c98756883770dff30034f576ce171f943b9a2/src/assets/transformers/_commitlint.config.mjs.ts#L13)
 
 ***
 
@@ -26,7 +26,7 @@ Defined in: [src/assets/transformers/\_commitlint.config.mjs.ts:13](https://gith
 
 > **Error**: `2`
 
-Defined in: [src/assets/transformers/\_commitlint.config.mjs.ts:15](https://github.com/Xunnamius/symbiote/blob/55c2dadee19da73b281c10518788cefdaefad80e/src/assets/transformers/_commitlint.config.mjs.ts#L15)
+Defined in: [src/assets/transformers/\_commitlint.config.mjs.ts:15](https://github.com/Xunnamius/symbiote/blob/684c98756883770dff30034f576ce171f943b9a2/src/assets/transformers/_commitlint.config.mjs.ts#L15)
 
 ***
 
@@ -34,4 +34,4 @@ Defined in: [src/assets/transformers/\_commitlint.config.mjs.ts:15](https://gith
 
 > **Warn**: `1`
 
-Defined in: [src/assets/transformers/\_commitlint.config.mjs.ts:14](https://github.com/Xunnamius/symbiote/blob/55c2dadee19da73b281c10518788cefdaefad80e/src/assets/transformers/_commitlint.config.mjs.ts#L14)
+Defined in: [src/assets/transformers/\_commitlint.config.mjs.ts:14](https://github.com/Xunnamius/symbiote/blob/684c98756883770dff30034f576ce171f943b9a2/src/assets/transformers/_commitlint.config.mjs.ts#L14)

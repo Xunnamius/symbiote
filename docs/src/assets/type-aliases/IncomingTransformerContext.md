@@ -8,7 +8,7 @@
 
 > **IncomingTransformerContext** = `Omit`\<[`TransformerContext`](TransformerContext.md), `"asset"`\>
 
-Defined in: [src/assets.ts:369](https://github.com/Xunnamius/symbiote/blob/55c2dadee19da73b281c10518788cefdaefad80e/src/assets.ts#L369)
+Defined in: [src/assets.ts:369](https://github.com/Xunnamius/symbiote/blob/684c98756883770dff30034f576ce171f943b9a2/src/assets.ts#L369)
 
 A looser version of [TransformerContext](TransformerContext.md) used when constructing custom
 transformer contexts.
