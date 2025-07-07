@@ -112,6 +112,9 @@ export function baseConfig({
     // ? Make sure jest-haste-map doesn't try to parse and cache fixtures (which
     // ? also means snapshot files from these dirs are ignored as well)
     modulePathIgnorePatterns: [
+      '/dist/',
+      '/.next/',
+      '/.wrangler/',
       '/test/fixtures/',
       ...(isTestingIntermediates ? [] : ['/.transpiled/']),
       String.raw`/([^/\\]*\.ignore(\.[^/\\]+)?(/|$))|/(ignore\.[^/\\]+(/|$))`
