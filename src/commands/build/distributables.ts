@@ -78,12 +78,7 @@ import {
 
 import { TesterScope } from 'universe:commands/test.ts';
 import { ThisPackageGlobalScope as DistributablesBuilderScope } from 'universe:configure.ts';
-
-import {
-  BuildOutputCheckError,
-  ErrorMessage,
-  isBuildOutputCheckError
-} from 'universe:error.ts';
+import { BuildOutputCheckError, ErrorMessage } from 'universe:error.ts';
 
 import {
   copyFile,
@@ -1954,7 +1949,7 @@ distrib root: ${absoluteOutputDirPath}
 
         genericLogger([LogTag.IF_NOT_QUIETED], standardSuccessMessage);
       } catch (error) {
-        if (isBuildAlreadyOutput && isBuildOutputCheckError(error)) {
+        if (isBuildAlreadyOutput && BuildOutputCheckError.isError(error)) {
           genericLogger.warn(
             [LogTag.IF_NOT_SILENCED],
             ErrorMessage.specialized.BuildSucceededButOutputCheckFailed()

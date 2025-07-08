@@ -1,8 +1,8 @@
 import { isNativeError } from 'node:util/types';
 
 import { CliErrorMessage as UpstreamErrorMessage } from '@-xun/cli/error';
-import { isProjectError, ProjectError } from '@-xun/project/error';
-import { makeNamedError } from 'named-app-errors';
+import { makeNamedError } from '@-xun/error';
+import { ProjectError } from '@-xun/project/error';
 
 import { DefaultGlobalScope } from 'universe:configure.ts';
 
@@ -10,49 +10,28 @@ import type { ImportSpecifier, ProjectAttribute, RootPackage } from '@-xun/proje
 
 export { TaskError } from '@-xun/cli/error';
 
-// TODO: replace these HACKS with the official @-xun/instance-of and @-xun/error
-// TODO: packages!
-const $type = Symbol.for('object-type-hint');
-const $type_ProjectError = Symbol.for('object-type-hint:ProjectError');
-
-// TODO: replace a lot of all that follows with the official package(s),
-// TODO: including the symbol use below. Symbols and stuff need to be auto-generated.
-
-export const $type_BuildOutputCheckError = Symbol.for('object-type-hint:ProjectError');
-/**
- * Type guard for {@link ProjectError}.
- */
-// TODO: make-named-error should create and return this function automatically
-export function isBuildOutputCheckError(
-  parameter: unknown
-): parameter is BuildOutputCheckError {
-  return (
-    // TODO:
-    // @ts-expect-error: TODO: remove this comment once above HACKS are deleted
-    isProjectError(parameter) && parameter[$type].includes($type_BuildOutputCheckError)
-  );
-}
+export const { BuildOutputCheckError } = makeNamedError(
+  class BuildOutputCheckError extends ProjectError {
+    /**
+     * Represents encountering a project that is not a git repository.
+     */
+    constructor();
+    /**
+     * This constructor syntax is used by subclasses when calling this constructor
+     * via `super`.
+     */
+    constructor(message: string);
+    constructor(message: string | undefined = undefined) {
+      super(message ?? ErrorMessage.BuildOutputChecksFailed());
+    }
+  },
+  'BuildOutputCheckError'
+);
 
 /**
  * Represents encountering a project that is not a git repository.
  */
-export class BuildOutputCheckError extends ProjectError {
-  // TODO: this prop should be added by makeNamedError or whatever other fn
-  [$type] = [$type_BuildOutputCheckError, $type_ProjectError];
-  /**
-   * Represents encountering a project that is not a git repository.
-   */
-  constructor();
-  /**
-   * This constructor syntax is used by subclasses when calling this constructor
-   * via `super`.
-   */
-  constructor(message: string);
-  constructor(message: string | undefined = undefined) {
-    super(message ?? ErrorMessage.BuildOutputChecksFailed());
-  }
-}
-makeNamedError(BuildOutputCheckError, 'BuildOutputCheckError');
+export type BuildOutputCheckError = InstanceType<typeof BuildOutputCheckError>;
 
 /**
  * A collection of possible error and warning messages.
