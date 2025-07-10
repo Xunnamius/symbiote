@@ -653,8 +653,11 @@ export async function moduleExport({
         '**/node_modules/**/*',
         '**/__*__/**',
         '**/*.ignore',
-        '**/*.ignore.*/**/*',
-        '**/ignore.*'
+        '**/*.ignore/**/*',
+        '**/ignore.*',
+        '**/ignore.*/**/*',
+        '**/*.ignore.*',
+        '**/*.ignore.*/**/*'
       ]
     },
 

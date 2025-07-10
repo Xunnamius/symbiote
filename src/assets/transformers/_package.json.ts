@@ -292,7 +292,8 @@ export function generateNonHybridMonorepoProjectXPackageJson(
     },
     workspaces: incomingPackageJson.workspaces ?? [
       `${directoryPackagesProjectBase}/*`,
-      `!${directoryPackagesProjectBase}/*.ignore*`
+      `!${directoryPackagesProjectBase}/*.ignore*`,
+      `!${directoryPackagesProjectBase}/ignore.*`
     ],
     ...incomingBaseJson,
     name: incomingPackageJson.name.endsWith('-monorepo')

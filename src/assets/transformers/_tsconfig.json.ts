@@ -79,8 +79,11 @@ ${makeGeneratedAliasesWarningComment(4)}
     "**/.wrangler/**/*",
     "**/node_modules/**/*",
     "**/*.ignore",
-    "**/*.ignore.*/**/*",
-    "**/ignore.*"
+    "**/*.ignore/**/*",
+    "**/ignore.*",
+    "**/ignore.*/**/*",
+    "**/*.ignore.*",
+    "**/*.ignore.*/**/*"
   ]
 }`,
   [Tsconfig.ProjectLint]: `
@@ -104,8 +107,11 @@ ${makeGeneratedAliasesWarningComment(4)}
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
     "**/*.ignore",
-    "**/*.ignore.*/**/*",
-    "**/ignore.*"
+    "**/*.ignore/**/*",
+    "**/ignore.*",
+    "**/ignore.*/**/*",
+    "**/*.ignore.*",
+    "**/*.ignore.*/**/*"
   ]
 }`,
   [Tsconfig.PackageLint]: {
@@ -131,8 +137,11 @@ ${makeGeneratedAliasesWarningComment(4)}
     "${directoryPackagesProjectBase}/**/*",
     "${directoryPackagesProjectBase}/**/.*",
     "**/*.ignore",
-    "**/*.ignore.*/**/*",
-    "**/ignore.*"
+    "**/*.ignore/**/*",
+    "**/ignore.*",
+    "**/ignore.*/**/*",
+    "**/*.ignore.*",
+    "**/*.ignore.*/**/*"
   ]
 }`,
     subroot: `
@@ -161,8 +170,11 @@ ${makeGeneratedAliasesWarningComment(4)}
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
     "**/*.ignore",
-    "**/*.ignore.*/**/*",
-    "**/ignore.*"
+    "**/*.ignore/**/*",
+    "**/ignore.*",
+    "**/ignore.*/**/*",
+    "**/*.ignore.*",
+    "**/*.ignore.*/**/*"
   ]
 }`
   },
@@ -189,8 +201,11 @@ ${makeGeneratedAliasesWarningComment(4)}
     "${directoryPackagesProjectBase}/**/*",
     "${directoryPackagesProjectBase}/**/.*",
     "**/*.ignore",
-    "**/*.ignore.*/**/*",
-    "**/ignore.*"
+    "**/*.ignore/**/*",
+    "**/ignore.*",
+    "**/ignore.*/**/*",
+    "**/*.ignore.*",
+    "**/*.ignore.*/**/*"
   ]
 }`,
     subroot: `
@@ -218,8 +233,11 @@ ${makeGeneratedAliasesWarningComment(4)}
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
     "**/*.ignore",
-    "**/*.ignore.*/**/*",
-    "**/ignore.*"
+    "**/*.ignore/**/*",
+    "**/ignore.*",
+    "**/ignore.*/**/*",
+    "**/*.ignore.*",
+    "**/*.ignore.*/**/*"
   ]
 }`
   },
@@ -256,8 +274,11 @@ ${makeGeneratedAliasesWarningComment(4)}
     "${directoryPackagesProjectBase}/**/*",
     "${directoryPackagesProjectBase}/**/.*",
     "**/*.ignore",
-    "**/*.ignore.*/**/*",
-    "**/ignore.*"
+    "**/*.ignore/**/*",
+    "**/ignore.*",
+    "**/ignore.*/**/*",
+    "**/*.ignore.*",
+    "**/*.ignore.*/**/*"
   ]
 }`,
     subroot: `
@@ -290,8 +311,11 @@ ${makeGeneratedAliasesWarningComment(4)}
     "**/test/fixtures/**/*",
     "**/node_modules/**/*",
     "**/*.ignore",
-    "**/*.ignore.*/**/*",
-    "**/ignore.*"
+    "**/*.ignore/**/*",
+    "**/ignore.*",
+    "**/ignore.*/**/*",
+    "**/*.ignore.*",
+    "**/*.ignore.*/**/*"
   ]
 }`
   }
