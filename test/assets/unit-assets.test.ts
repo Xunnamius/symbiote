@@ -2102,10 +2102,9 @@ async function expectAssetsToMatchSnapshots(
 }
 
 function replaceDynamicValuesWithStableStrings(str: string | symbol) {
-  return String(str).replaceAll(
-    /"@-xun\/symbiote": "[^"]+"/g,
-    '"@-xun/symbiote": "<latest>"'
-  );
+  return String(str)
+    .replaceAll(/"@-xun\/symbiote": "[^"]+"/g, '"@-xun/symbiote": "<latest>"')
+    .replaceAll(/"compatibility_date": "[^"]+"/g, '"compatibility_date": "<latest>"');
 }
 
 async function toAssetsMap(assets: ReifiedAssets | Asset[]) {

@@ -34248,7 +34248,7 @@ scope: this-package
   "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
   "name": "unnamed-app-worker",
   "main": "src/worker.ts",
-  "compatibility_date": "2025-6-7",
+  "compatibility_date": "<latest>",
   "workers_dev": false,
   "vars": {},
   "route": {
@@ -34280,7 +34280,7 @@ scope: unlimited
   "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
   "name": "unnamed-app-worker",
   "main": "src/worker.ts",
-  "compatibility_date": "2025-6-7",
+  "compatibility_date": "<latest>",
   "workers_dev": false,
   "vars": {},
   "route": {
@@ -34312,7 +34312,7 @@ scope: unlimited
   "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
   "name": "unnamed-app-worker",
   "main": "src/worker.ts",
-  "compatibility_date": "2025-6-7",
+  "compatibility_date": "<latest>",
   "workers_dev": false,
   "vars": {},
   "route": {
@@ -34344,7 +34344,7 @@ scope: unlimited
   "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
   "name": "unnamed-app-worker",
   "main": "src/worker.ts",
-  "compatibility_date": "2025-6-7",
+  "compatibility_date": "<latest>",
   "workers_dev": false,
   "vars": {},
   "route": {
@@ -34376,7 +34376,7 @@ scope: unlimited
   "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
   "name": "unnamed-app-worker",
   "main": "src/worker.ts",
-  "compatibility_date": "2025-6-7",
+  "compatibility_date": "<latest>",
   "workers_dev": false,
   "vars": {},
   "route": {
@@ -34408,7 +34408,7 @@ scope: unlimited
   "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
   "name": "unnamed-app-worker",
   "main": "src/worker.ts",
-  "compatibility_date": "2025-6-7",
+  "compatibility_date": "<latest>",
   "workers_dev": false,
   "vars": {},
   "route": {
@@ -34440,7 +34440,7 @@ scope: unlimited
   "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
   "name": "unnamed-app-worker",
   "main": "src/worker.ts",
-  "compatibility_date": "2025-6-7",
+  "compatibility_date": "<latest>",
   "workers_dev": false,
   "vars": {},
   "route": {
@@ -34472,7 +34472,7 @@ scope: unlimited
   "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
   "name": "unnamed-app-worker",
   "main": "src/worker.ts",
-  "compatibility_date": "2025-6-7",
+  "compatibility_date": "<latest>",
   "workers_dev": false,
   "vars": {},
   "route": {
@@ -34504,7 +34504,7 @@ scope: unlimited
   "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
   "name": "unnamed-app-worker",
   "main": "src/worker.ts",
-  "compatibility_date": "2025-6-7",
+  "compatibility_date": "<latest>",
   "workers_dev": false,
   "vars": {},
   "route": {
@@ -34536,7 +34536,7 @@ scope: this-package
   "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
   "name": "unnamed-app-worker",
   "main": "src/worker.ts",
-  "compatibility_date": "2025-6-7",
+  "compatibility_date": "<latest>",
   "workers_dev": false,
   "vars": {},
   "route": {
@@ -34568,7 +34568,7 @@ scope: unlimited
   "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
   "name": "unnamed-app-worker",
   "main": "src/worker.ts",
-  "compatibility_date": "2025-6-7",
+  "compatibility_date": "<latest>",
   "workers_dev": false,
   "vars": {},
   "route": {
@@ -34600,7 +34600,7 @@ scope: unlimited
   "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
   "name": "unnamed-app-worker",
   "main": "src/worker.ts",
-  "compatibility_date": "2025-6-7",
+  "compatibility_date": "<latest>",
   "workers_dev": false,
   "vars": {},
   "route": {
@@ -34632,7 +34632,7 @@ scope: unlimited
   "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
   "name": "unnamed-app-worker",
   "main": "src/worker.ts",
-  "compatibility_date": "2025-6-7",
+  "compatibility_date": "<latest>",
   "workers_dev": false,
   "vars": {},
   "route": {
@@ -34664,7 +34664,7 @@ scope: unlimited
   "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
   "name": "unnamed-app-worker",
   "main": "src/worker.ts",
-  "compatibility_date": "2025-6-7",
+  "compatibility_date": "<latest>",
   "workers_dev": false,
   "vars": {},
   "route": {
@@ -34696,7 +34696,7 @@ scope: unlimited
   "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
   "name": "unnamed-app-worker",
   "main": "src/worker.ts",
-  "compatibility_date": "2025-6-7",
+  "compatibility_date": "<latest>",
   "workers_dev": false,
   "vars": {},
   "route": {
@@ -34728,7 +34728,7 @@ scope: unlimited
   "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
   "name": "unnamed-app-worker",
   "main": "src/worker.ts",
-  "compatibility_date": "2025-6-7",
+  "compatibility_date": "<latest>",
   "workers_dev": false,
   "vars": {},
   "route": {
@@ -34760,7 +34760,7 @@ scope: unlimited
   "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
   "name": "unnamed-app-worker",
   "main": "src/worker.ts",
-  "compatibility_date": "2025-6-7",
+  "compatibility_date": "<latest>",
   "workers_dev": false,
   "vars": {},
   "route": {
@@ -34792,7 +34792,7 @@ scope: this-package
   "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
   "name": "unnamed-app-worker",
   "main": "src/worker.ts",
-  "compatibility_date": "2025-6-7",
+  "compatibility_date": "<latest>",
   "workers_dev": false,
   "vars": {},
   "route": {
@@ -34824,7 +34824,7 @@ scope: unlimited
   "$schema": "https://unpkg.com/wrangler@latest/config-schema.json",
   "name": "unnamed-app-worker",
   "main": "src/worker.ts",
-  "compatibility_date": "2025-6-7",
+  "compatibility_date": "<latest>",
   "workers_dev": false,
   "vars": {},
   "route": {
