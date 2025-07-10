@@ -6,15 +6,13 @@
 
 # src/error
 
-## Classes
-
-- [TaskError](classes/TaskError.md)
-
 ## Type Aliases
 
 - [BuildOutputCheckError](type-aliases/BuildOutputCheckError.md)
+- [TaskError](type-aliases/TaskError.md)
 
 ## Variables
 
 - [BuildOutputCheckError](variables/BuildOutputCheckError.md)
 - [ErrorMessage](variables/ErrorMessage.md)
+- [TaskError](variables/TaskError.md)
