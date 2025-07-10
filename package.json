@@ -235,7 +235,7 @@
     "unique-filename": "^4.0.0"
   },
   "devDependencies": {
-    "@-xun/common-dummies": "^2.1.0",
+    "@-xun/common-dummies": "^2.1.2",
     "@-xun/symbiote": "^4.6.2"
   },
   "bundleDependencies": [
