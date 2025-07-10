@@ -8,14 +8,13 @@
 
 ## Classes
 
-- [BuildOutputCheckError](classes/BuildOutputCheckError.md)
 - [TaskError](classes/TaskError.md)
+
+## Type Aliases
+
+- [BuildOutputCheckError](type-aliases/BuildOutputCheckError.md)
 
 ## Variables
 
-- [$type\_BuildOutputCheckError](variables/$type_BuildOutputCheckError.md)
+- [BuildOutputCheckError](variables/BuildOutputCheckError.md)
 - [ErrorMessage](variables/ErrorMessage.md)
-
-## Functions
-
-- [isBuildOutputCheckError](functions/isBuildOutputCheckError.md)

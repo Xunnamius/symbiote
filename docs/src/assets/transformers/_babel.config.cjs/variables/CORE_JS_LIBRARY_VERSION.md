@@ -6,9 +6,9 @@
 
 # Variable: CORE\_JS\_LIBRARY\_VERSION
 
-> `const` **CORE\_JS\_LIBRARY\_VERSION**: `"3.42"` = `'3.42'`
+> `const` **CORE\_JS\_LIBRARY\_VERSION**: `"3.44"` = `'3.44'`
 
-Defined in: [src/assets/transformers/\_babel.config.cjs.ts:115](https://github.com/Xunnamius/symbiote/blob/684c98756883770dff30034f576ce171f943b9a2/src/assets/transformers/_babel.config.cjs.ts#L115)
+Defined in: [src/assets/transformers/\_babel.config.cjs.ts:115](https://github.com/Xunnamius/symbiote/blob/ee4f1b782c259495505171a8374c784c706e4a7d/src/assets/transformers/_babel.config.cjs.ts#L115)
 
 Should be bumped manually and with caution.
 

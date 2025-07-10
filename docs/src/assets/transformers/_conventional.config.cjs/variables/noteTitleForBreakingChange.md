@@ -8,7 +8,7 @@
 
 > `const` **noteTitleForBreakingChange**: `"BREAKING CHANGES"` = `'BREAKING CHANGES'`
 
-Defined in: [src/assets/transformers/\_conventional.config.cjs.ts:146](https://github.com/Xunnamius/symbiote/blob/684c98756883770dff30034f576ce171f943b9a2/src/assets/transformers/_conventional.config.cjs.ts#L146)
+Defined in: [src/assets/transformers/\_conventional.config.cjs.ts:146](https://github.com/Xunnamius/symbiote/blob/ee4f1b782c259495505171a8374c784c706e4a7d/src/assets/transformers/_conventional.config.cjs.ts#L146)
 
 The default text that headlines the "breaking changes" section in
 the changelog file.
