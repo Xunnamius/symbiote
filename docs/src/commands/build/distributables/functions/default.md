@@ -8,7 +8,7 @@
 
 > **default**(`__namedParameters`): `Promise`\<`Partial`\<`Configuration`\<[`CustomCliArguments`](../type-aliases/CustomCliArguments.md), [`GlobalExecutionContext`](../../../../configure/type-aliases/GlobalExecutionContext.md)\>\>\>
 
-Defined in: [src/commands/build/distributables.ts:175](https://github.com/Xunnamius/symbiote/blob/39b78f935df3d66a96654bd78c86b3952384b660/src/commands/build/distributables.ts#L175)
+Defined in: [src/commands/build/distributables.ts:175](https://github.com/Xunnamius/symbiote/blob/0c3e0bfece176e500e7e5d21eaaf5876e03a08a9/src/commands/build/distributables.ts#L175)
 
 ## Parameters
 

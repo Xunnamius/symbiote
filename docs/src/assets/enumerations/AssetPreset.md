@@ -6,7 +6,7 @@
 
 # Enumeration: AssetPreset
 
-Defined in: [src/assets.ts:66](https://github.com/Xunnamius/symbiote/blob/39b78f935df3d66a96654bd78c86b3952384b660/src/assets.ts#L66)
+Defined in: [src/assets.ts:66](https://github.com/Xunnamius/symbiote/blob/0c3e0bfece176e500e7e5d21eaaf5876e03a08a9/src/assets.ts#L66)
 
 These presets determine which assets will be returned by which transformers
 when they're invoked. By specifying a preset, only the assets it represents
@@ -20,7 +20,7 @@ See the symbiote wiki for details.
 
 > **Basic**: `"basic"`
 
-Defined in: [src/assets.ts:77](https://github.com/Xunnamius/symbiote/blob/39b78f935df3d66a96654bd78c86b3952384b660/src/assets.ts#L77)
+Defined in: [src/assets.ts:77](https://github.com/Xunnamius/symbiote/blob/0c3e0bfece176e500e7e5d21eaaf5876e03a08a9/src/assets.ts#L77)
 
 Represents the most basic assets necessary for symbiote to be fully
 functional.
@@ -37,7 +37,7 @@ See the symbiote wiki for details.
 
 > **Cli**: `"cli"`
 
-Defined in: [src/assets.ts:85](https://github.com/Xunnamius/symbiote/blob/39b78f935df3d66a96654bd78c86b3952384b660/src/assets.ts#L85)
+Defined in: [src/assets.ts:85](https://github.com/Xunnamius/symbiote/blob/0c3e0bfece176e500e7e5d21eaaf5876e03a08a9/src/assets.ts#L85)
 
 Represents the standard assets for an symbiote-compliant command-line
 interface project (such as `@-xun/cli`-powered tools like `symbiote`
@@ -51,7 +51,7 @@ See the symbiote wiki for details.
 
 > **Lib**: `"lib"`
 
-Defined in: [src/assets.ts:94](https://github.com/Xunnamius/symbiote/blob/39b78f935df3d66a96654bd78c86b3952384b660/src/assets.ts#L94)
+Defined in: [src/assets.ts:94](https://github.com/Xunnamius/symbiote/blob/0c3e0bfece176e500e7e5d21eaaf5876e03a08a9/src/assets.ts#L94)
 
 Represents the standard assets for an symbiote-compliant library project
 built for both CJS and ESM consumers (such as the case with
@@ -66,7 +66,7 @@ See the symbiote wiki for details.
 
 > **LibEsm**: `"lib-esm"`
 
-Defined in: [src/assets.ts:102](https://github.com/Xunnamius/symbiote/blob/39b78f935df3d66a96654bd78c86b3952384b660/src/assets.ts#L102)
+Defined in: [src/assets.ts:102](https://github.com/Xunnamius/symbiote/blob/0c3e0bfece176e500e7e5d21eaaf5876e03a08a9/src/assets.ts#L102)
 
 Represents the standard assets for an symbiote-compliant library project
 built exclusively for ESM and ESM-compatible consumers (such as the case
@@ -80,7 +80,7 @@ See the symbiote wiki for details.
 
 > **LibWeb**: `"lib-web"`
 
-Defined in: [src/assets.ts:110](https://github.com/Xunnamius/symbiote/blob/39b78f935df3d66a96654bd78c86b3952384b660/src/assets.ts#L110)
+Defined in: [src/assets.ts:110](https://github.com/Xunnamius/symbiote/blob/0c3e0bfece176e500e7e5d21eaaf5876e03a08a9/src/assets.ts#L110)
 
 Represents the standard assets for an symbiote-compliant library project
 built exclusively for ESM consumers operating in a browser-like runtime
@@ -94,7 +94,7 @@ See the symbiote wiki for details.
 
 > **Nextjs**: `"nextjs"`
 
-Defined in: [src/assets.ts:123](https://github.com/Xunnamius/symbiote/blob/39b78f935df3d66a96654bd78c86b3952384b660/src/assets.ts#L123)
+Defined in: [src/assets.ts:123](https://github.com/Xunnamius/symbiote/blob/0c3e0bfece176e500e7e5d21eaaf5876e03a08a9/src/assets.ts#L123)
 
 Represents the standard assets for an symbiote-compliant Next.js + React
 project.
@@ -107,7 +107,7 @@ See the symbiote wiki for details.
 
 > **React**: `"react"`
 
-Defined in: [src/assets.ts:116](https://github.com/Xunnamius/symbiote/blob/39b78f935df3d66a96654bd78c86b3952384b660/src/assets.ts#L116)
+Defined in: [src/assets.ts:116](https://github.com/Xunnamius/symbiote/blob/0c3e0bfece176e500e7e5d21eaaf5876e03a08a9/src/assets.ts#L116)
 
 Represents the standard assets for an symbiote-compliant React project.
 
@@ -119,7 +119,7 @@ See the symbiote wiki for details.
 
 > **Wrangler**: `"wrangler"`
 
-Defined in: [src/assets.ts:130](https://github.com/Xunnamius/symbiote/blob/39b78f935df3d66a96654bd78c86b3952384b660/src/assets.ts#L130)
+Defined in: [src/assets.ts:130](https://github.com/Xunnamius/symbiote/blob/0c3e0bfece176e500e7e5d21eaaf5876e03a08a9/src/assets.ts#L130)
 
 Represents the standard assets for an symbiote-compliant project built on
 Cloudflare's Wrangler tool.

@@ -8,7 +8,7 @@
 
 > **default**(`globalExecutionContext`): `ChildConfiguration`\<[`CustomCliArguments`](../info/type-aliases/CustomCliArguments.md), [`GlobalExecutionContext`](../../../configure/type-aliases/GlobalExecutionContext.md)\>
 
-Defined in: [src/commands/project/index.ts:10](https://github.com/Xunnamius/symbiote/blob/39b78f935df3d66a96654bd78c86b3952384b660/src/commands/project/index.ts#L10)
+Defined in: [src/commands/project/index.ts:10](https://github.com/Xunnamius/symbiote/blob/0c3e0bfece176e500e7e5d21eaaf5876e03a08a9/src/commands/project/index.ts#L10)
 
 ## Parameters
 

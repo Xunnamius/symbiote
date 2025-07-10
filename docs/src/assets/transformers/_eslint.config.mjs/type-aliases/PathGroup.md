@@ -8,7 +8,7 @@
 
 > **PathGroup** = `object`
 
-Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:83](https://github.com/Xunnamius/symbiote/blob/39b78f935df3d66a96654bd78c86b3952384b660/src/assets/transformers/_eslint.config.mjs.ts#L83)
+Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:83](https://github.com/Xunnamius/symbiote/blob/0c3e0bfece176e500e7e5d21eaaf5876e03a08a9/src/assets/transformers/_eslint.config.mjs.ts#L83)
 
 ## Properties
 
@@ -16,7 +16,7 @@ Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:83](https://github.c
 
 > **\[$scheme\]**: `string`
 
-Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:87](https://github.com/Xunnamius/symbiote/blob/39b78f935df3d66a96654bd78c86b3952384b660/src/assets/transformers/_eslint.config.mjs.ts#L87)
+Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:87](https://github.com/Xunnamius/symbiote/blob/0c3e0bfece176e500e7e5d21eaaf5876e03a08a9/src/assets/transformers/_eslint.config.mjs.ts#L87)
 
 ***
 
@@ -24,7 +24,7 @@ Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:87](https://github.c
 
 > **group**: `string`
 
-Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:85](https://github.com/Xunnamius/symbiote/blob/39b78f935df3d66a96654bd78c86b3952384b660/src/assets/transformers/_eslint.config.mjs.ts#L85)
+Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:85](https://github.com/Xunnamius/symbiote/blob/0c3e0bfece176e500e7e5d21eaaf5876e03a08a9/src/assets/transformers/_eslint.config.mjs.ts#L85)
 
 ***
 
@@ -32,7 +32,7 @@ Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:85](https://github.c
 
 > **pattern**: `string`
 
-Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:84](https://github.com/Xunnamius/symbiote/blob/39b78f935df3d66a96654bd78c86b3952384b660/src/assets/transformers/_eslint.config.mjs.ts#L84)
+Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:84](https://github.com/Xunnamius/symbiote/blob/0c3e0bfece176e500e7e5d21eaaf5876e03a08a9/src/assets/transformers/_eslint.config.mjs.ts#L84)
 
 ***
 
@@ -40,4 +40,4 @@ Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:84](https://github.c
 
 > **position**: `string`
 
-Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:86](https://github.com/Xunnamius/symbiote/blob/39b78f935df3d66a96654bd78c86b3952384b660/src/assets/transformers/_eslint.config.mjs.ts#L86)
+Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:86](https://github.com/Xunnamius/symbiote/blob/0c3e0bfece176e500e7e5d21eaaf5876e03a08a9/src/assets/transformers/_eslint.config.mjs.ts#L86)
