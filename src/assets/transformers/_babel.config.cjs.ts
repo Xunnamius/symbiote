@@ -241,8 +241,8 @@ function makeTransformRewriteImportsDefinitionModuleResolver(
     // {@symbiote/notExtraneous babel-plugin-transform-rewrite-imports}
     'babel-plugin-transform-rewrite-imports',
     {
-      // ? Don't append extensions to imports in .d.ts files (tsc sometimes spits
-      // ? out import specifiers that rely on cjs-style extensionless import
+      // ? Don't append extensions to imports in .d.ts files (tsc sometimes
+      // ? emits import specifiers that rely on cjs-style extensionless import
       // ? rules)
       //appendExtension: extensionsJavascript[0],
       recognizedExtensions: [extensionsJavascript[0]],
