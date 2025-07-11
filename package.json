@@ -238,7 +238,7 @@
     "@-xun/common-dummies": "^2.1.2",
     "@-xun/symbiote": "^4.6.5",
     "next": "^15.3.5",
-    "webpack": "^5.100.0"
+    "webpack": "^5.100.1"
   },
   "bundleDependencies": [
     "@-xun/changelog",
