@@ -1,4 +1,9 @@
+import assert from 'node:assert';
+import { fileURLToPath } from 'node:url';
+
+import { toPath } from '@-xun/fs';
 import { webpackConfigProjectBase } from '@-xun/project';
+import { createDebugLogger } from 'rejoinder';
 
 import {
   AssetPreset,
@@ -8,7 +13,11 @@ import {
 
 import { globalDebuggerNamespace } from 'universe:constant.ts';
 
-export function moduleExport() {
+const debug = createDebugLogger({
+  namespace: '${globalDebuggerNamespace}:asset:webpack'
+});
+
+export function moduleExport(): Record<string, unknown> {
   return {
     // TODO
   };
@@ -36,12 +45,15 @@ import { createDebugLogger } from 'rejoinder';
 
 const debug = createDebugLogger({ namespace: '${globalDebuggerNamespace}:config:webpack' });
 
-const config = deepMergeConfig(moduleExport(), {
+/**
+ * @type {import('webpack').WebpackOptionsNormalized}
+ */
+const baseConfig = moduleExport();
+const config = deepMergeConfig(baseConfig, {
   // Any custom configs here will be deep merged with moduleExport's result
 });
 
 export default config;
-
 debug('exported config: %O', config);
 `
       }

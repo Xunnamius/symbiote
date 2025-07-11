@@ -8,7 +8,7 @@ import {
 
 import { globalDebuggerNamespace } from 'universe:constant.ts';
 
-export function moduleExport() {
+export function moduleExport(): Record<string, unknown> {
   return {
     // * https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
     allowedDevOrigins: [
@@ -79,16 +79,16 @@ import { createDebugLogger } from 'rejoinder';
 
 const debug = createDebugLogger({ namespace: '${globalDebuggerNamespace}:config:next' });
 
-const config = deepMergeConfig(moduleExport(),
 /**
  * @type {import('next').NextConfig}
  */
-{
+const baseConfig = moduleExport();
+const config = deepMergeConfig(baseConfig, {
   // Any custom configs here will be deep merged with moduleExport's result
+  // ! Take care to overwrite certain configs (e.g. baseConfig.webpack) properly
 });
 
 export default config;
-
 debug('exported config: %O', config);
 `
       }
