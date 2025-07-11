@@ -8,7 +8,7 @@
 
 > `const` **CORE\_JS\_LIBRARY\_VERSION**: `"3.44"` = `'3.44'`
 
-Defined in: [src/assets/transformers/\_babel.config.cjs.ts:115](https://github.com/Xunnamius/symbiote/blob/0c3e0bfece176e500e7e5d21eaaf5876e03a08a9/src/assets/transformers/_babel.config.cjs.ts#L115)
+Defined in: [src/assets/transformers/\_babel.config.cjs.ts:115](https://github.com/Xunnamius/symbiote/blob/6725748dfdd624ec897edfc2b0854ca2e21094bc/src/assets/transformers/_babel.config.cjs.ts#L115)
 
 Should be bumped manually and with caution.
 

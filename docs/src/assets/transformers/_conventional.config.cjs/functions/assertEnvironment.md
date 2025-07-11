@@ -8,7 +8,7 @@
 
 > **assertEnvironment**(): `Omit`\<`Parameters`\<*typeof* [`moduleExport`](moduleExport.md)\>\[`0`\], `"configOverrides"`\>
 
-Defined in: [src/assets/transformers/\_conventional.config.cjs.ts:345](https://github.com/Xunnamius/symbiote/blob/0c3e0bfece176e500e7e5d21eaaf5876e03a08a9/src/assets/transformers/_conventional.config.cjs.ts#L345)
+Defined in: [src/assets/transformers/\_conventional.config.cjs.ts:345](https://github.com/Xunnamius/symbiote/blob/6725748dfdd624ec897edfc2b0854ca2e21094bc/src/assets/transformers/_conventional.config.cjs.ts#L345)
 
 ## Returns
 
