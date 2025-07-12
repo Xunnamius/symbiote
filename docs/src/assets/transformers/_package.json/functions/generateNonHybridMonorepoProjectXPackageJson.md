@@ -8,7 +8,7 @@
 
 > **generateNonHybridMonorepoProjectXPackageJson**(...`__namedParameters`): `object`
 
-Defined in: [src/assets/transformers/\_package.json.ts:242](https://github.com/Xunnamius/symbiote/blob/b62abf3b41ef4fb16014d3e799397a1e70b68b47/src/assets/transformers/_package.json.ts#L242)
+Defined in: [src/assets/transformers/\_package.json.ts:284](https://github.com/Xunnamius/symbiote/blob/0855f0d5d62e664369271e18eb03d2b348113c71/src/assets/transformers/_package.json.ts#L284)
 
 ## Parameters
 
@@ -146,13 +146,17 @@ Subpath imports to define internal package import maps that only apply to import
 
 JSPM configuration.
 
-### keywords
+### keywords?
 
-> `readonly` **keywords**: `string`[]
+> `readonly` `optional` **keywords**: `string`[]
 
-### license
+Keywords associated with package, listed in `npm search`.
 
-> `readonly` **license**: `string`
+### license?
+
+> `readonly` `optional` **license**: `string`
+
+The license for the package.
 
 ### licenses?
 
@@ -358,7 +362,7 @@ distributables to the appropriate remote system(s).
 
 #### scripts.dev?
 
-> `optional` **dev**: `string`
+> `optional` **dev**: `string` = `'next -p `npx -q acquire-port`'`
 
 Run by users, symbiote, and related tooling when spinning up a project's
 local development environment.

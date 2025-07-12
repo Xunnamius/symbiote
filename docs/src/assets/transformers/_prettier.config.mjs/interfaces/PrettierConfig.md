@@ -135,7 +135,7 @@ Control whether Prettier formats quoted code embedded in the file.
 
 ### endOfLine?
 
-> `optional` **endOfLine**: `"lf"` \| `"auto"` \| `"crlf"` \| `"cr"`
+> `optional` **endOfLine**: `"auto"` \| `"lf"` \| `"crlf"` \| `"cr"`
 
 Defined in: node\_modules/prettier/index.d.ts:417
 
@@ -405,7 +405,7 @@ Specify the line length that the printer will wrap on.
 
 ### proseWrap?
 
-> `optional` **proseWrap**: `"always"` \| `"never"` \| `"preserve"`
+> `optional` **proseWrap**: `"never"` \| `"always"` \| `"preserve"`
 
 Defined in: node\_modules/prettier/index.d.ts:398
 

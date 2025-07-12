@@ -24,6 +24,7 @@
 ## Functions
 
 - [assertEnvironment](functions/assertEnvironment.md)
+- [getNextJsBabelPreset](functions/getNextJsBabelPreset.md)
 - [hasExtensionAcceptedByBabel](functions/hasExtensionAcceptedByBabel.md)
 - [hasJavascriptExtension](functions/hasJavascriptExtension.md)
 - [hasTypescriptExtension](functions/hasTypescriptExtension.md)

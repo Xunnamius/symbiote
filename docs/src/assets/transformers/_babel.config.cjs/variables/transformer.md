@@ -8,4 +8,4 @@
 
 > **transformer**: [`Transformer`](../../../type-aliases/Transformer.md)
 
-Defined in: [src/assets/transformers/\_babel.config.cjs.ts:477](https://github.com/Xunnamius/symbiote/blob/b62abf3b41ef4fb16014d3e799397a1e70b68b47/src/assets/transformers/_babel.config.cjs.ts#L477)
+Defined in: [src/assets/transformers/\_babel.config.cjs.ts:460](https://github.com/Xunnamius/symbiote/blob/0855f0d5d62e664369271e18eb03d2b348113c71/src/assets/transformers/_babel.config.cjs.ts#L460)

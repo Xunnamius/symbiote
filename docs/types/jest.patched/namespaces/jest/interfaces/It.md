@@ -6,7 +6,7 @@
 
 # Interface: It()
 
-Defined in: [types/jest.patched.d.ts:10](https://github.com/Xunnamius/symbiote/blob/b62abf3b41ef4fb16014d3e799397a1e70b68b47/types/jest.patched.d.ts#L10)
+Defined in: [types/jest.patched.d.ts:10](https://github.com/Xunnamius/symbiote/blob/0855f0d5d62e664369271e18eb03d2b348113c71/types/jest.patched.d.ts#L10)
 
 Creates a test closure
 
@@ -115,7 +115,7 @@ Only available in the default `jest-circus` runner.
 
 > **noskip**: `It`
 
-Defined in: [types/jest.patched.d.ts:15](https://github.com/Xunnamius/symbiote/blob/b62abf3b41ef4fb16014d3e799397a1e70b68b47/types/jest.patched.d.ts#L15)
+Defined in: [types/jest.patched.d.ts:15](https://github.com/Xunnamius/symbiote/blob/0855f0d5d62e664369271e18eb03d2b348113c71/types/jest.patched.d.ts#L15)
 
 Ensures this test is run regardless of the invocation of
 `reconfigureJestGlobalsToSkipTestsInThisFileIfRequested`.

@@ -8,7 +8,7 @@
 
 > **generateHybridrepoProjectXPackageJson**(...`__namedParameters`): `object`
 
-Defined in: [src/assets/transformers/\_package.json.ts:315](https://github.com/Xunnamius/symbiote/blob/b62abf3b41ef4fb16014d3e799397a1e70b68b47/src/assets/transformers/_package.json.ts#L315)
+Defined in: [src/assets/transformers/\_package.json.ts:363](https://github.com/Xunnamius/symbiote/blob/0855f0d5d62e664369271e18eb03d2b348113c71/src/assets/transformers/_package.json.ts#L363)
 
 ## Parameters
 
@@ -108,13 +108,19 @@ Indicates the structure of the package.
 
 A module ID with untranspiled code that is the primary entry point to the program.
 
-### exports
+### exports?
 
-> `readonly` **exports**: `string` \| (`string` \| `ExportConditions`)[] \| `ExportConditions` \| \{ `.`: \{ `default`: `string`; `types`: `string`; \}; `./commands/*`: \{ `default`: `string`; `types`: `string`; \}; `./configure`: \{ `default`: `string`; `types`: `string`; \}; `./package`: `string`; `./package.json`: `string`; \} \| \{ `.`: \{ `default`: `string`; `types`: `string`; \}; `./package`: `string`; `./package.json`: `string`; \}
+> `readonly` `optional` **exports**: `null` \| `string` \| (`string` \| `ExportConditions`)[] \| `ExportConditions` \| \{ `.`: \{ `default`: `string`; `types`: `string`; \}; `./commands/*`: \{ `default`: `string`; `types`: `string`; \}; `./configure`: \{ `default`: `string`; `types`: `string`; \}; `./package`: `string`; `./package.json`: `string`; \} \| \{ `.`: \{ `default`: `string`; `types`: `string`; \}; `./package`: `string`; `./package.json`: `string`; \}
 
-### files
+Subpath exports to define entry points of the package.
 
-> `readonly` **files**: `string`[]
+[Read more.](https://nodejs.org/api/packages.html#subpath-exports)
+
+### files?
+
+> `readonly` `optional` **files**: `string`[]
+
+The files included in the package.
 
 ### flat?
 
@@ -156,13 +162,17 @@ Subpath imports to define internal package import maps that only apply to import
 
 JSPM configuration.
 
-### keywords
+### keywords?
 
-> `readonly` **keywords**: `string`[]
+> `readonly` `optional` **keywords**: `string`[]
 
-### license
+Keywords associated with package, listed in `npm search`.
 
-> `readonly` **license**: `string`
+### license?
+
+> `readonly` `optional` **license**: `string`
+
+The license for the package.
 
 ### licenses?
 
@@ -252,31 +262,11 @@ If set to `true`, a warning will be shown if package is installed locally. Usefu
 
 If set to `true`, then npm will refuse to publish it.
 
-### publishConfig
+### publishConfig?
 
-> `readonly` **publishConfig**: `object`
+> `readonly` `optional` **publishConfig**: `PublishConfig`
 
-#### publishConfig.access
-
-> **access**: `"public"` \| `"restricted"` = `'public'`
-
-When publishing scoped packages, the access level defaults to restricted. If you want your scoped package to be publicly viewable (and installable) set `--access=public`. The only valid values for access are public and restricted. Unscoped packages always have an access level of public.
-
-#### publishConfig.registry
-
-> **registry**: `string` = `'https://registry.npmjs.org'`
-
-The base URL of the npm registry.
-
-Default: `'https://registry.npmjs.org/'`
-
-#### publishConfig.tag?
-
-> `readonly` `optional` **tag**: `string`
-
-The tag to publish the package under.
-
-Default: `'latest'`
+A set of config values that will be used at publish-time. It's especially handy to set the tag, registry or access, to ensure that a given package is not tagged with 'latest', published to the global public registry or that a scoped module is private by default.
 
 ### repository
 
@@ -302,7 +292,7 @@ Selective version resolutions. Allows the definition of custom package versions 
 
 #### scripts.build
 
-> `readonly` **build**: `string` = `'npm run build:dist --'`
+> `readonly` **build**: `string`
 
 Run by users, symbiote, and related tooling when building the current
 package's production-ready distributables.
@@ -330,7 +320,7 @@ package's `CHANGELOG.md` file.
 
 #### scripts.build:dist
 
-> `readonly` **build:dist**: `string` = `'symbiote build distributables --env NODE_NO_WARNINGS=1 --not-multiversal'`
+> `readonly` **build:dist**: `string`
 
 Run by users, symbiote, and related tooling when building the current
 package's production-ready distributables.
@@ -343,7 +333,7 @@ package's production-ready distributables.
 
 #### scripts.build:docs
 
-> `readonly` **build:docs**: `string` = `'symbiote build docs --env NODE_NO_WARNINGS=1'`
+> `readonly` **build:docs**: `string`
 
 Run by users, symbiote, and related tooling when building the current
 package's documentation (typically found under `docs/`).
@@ -396,7 +386,7 @@ distributables to the appropriate remote system(s).
 
 #### scripts.dev?
 
-> `optional` **dev**: `string`
+> `optional` **dev**: `string` = `'next -p `npx -q acquire-port`'`
 
 Run by users, symbiote, and related tooling when spinning up a project's
 local development environment.
@@ -643,7 +633,7 @@ Run **after** the package is published.
 
 #### scripts.release
 
-> `readonly` **release**: `string` = `'symbiote release --env NODE_NO_WARNINGS=1'`
+> `readonly` **release**: `string`
 
 Run by users, symbiote, and related tooling when potentially releasing the
 next version of a package.
@@ -830,9 +820,11 @@ Denote which files in your project are "pure" and therefore safe for Webpack to 
 
 Location of the bundled TypeScript declaration file.
 
-### typesVersions
+### typesVersions?
 
-> `readonly` **typesVersions**: `Partial`\<`Record`\<`string`, `Partial`\<`Record`\<`string`, `string`[]\>\>\>\>
+> `readonly` `optional` **typesVersions**: `Partial`\<`Record`\<`string`, `Partial`\<`Record`\<`string`, `string`[]\>\>\>\>
+
+Version selection map of TypeScript.
 
 ### typings?
 
