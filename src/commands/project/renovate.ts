@@ -121,7 +121,8 @@ const assetsThatContainAliases = [
   nextjsConfigPackageBase,
   webpackConfigProjectBase,
   eslintConfigProjectBase,
-  babelConfigProjectBase
+  babelConfigProjectBase,
+  babelConfigProjectBase.replace(/\.cjs$/, '.js')
 ];
 
 const standardProtectRuleset: NewRuleset = {
