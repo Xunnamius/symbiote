@@ -31,6 +31,9 @@ export const { transformer } = makeTransformer(function (context) {
 !/src
 !/types
 
+# Re-add shared packages
+!/packages/shared
+
 # Re-add root-level files
 !/.gitignore
 !/babel.config.js
