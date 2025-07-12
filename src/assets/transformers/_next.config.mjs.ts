@@ -142,7 +142,7 @@ const debug = createDebugLogger({ namespace: '${globalDebuggerNamespace}:config:
  */
 const baseConfig = moduleExport({
   derivedAliases: getNextJsAliases(),
-  projectRoot: __dirname,
+  projectRoot: import.meta.dirname,
   configureWebpack(currentConfig) {
     return currentConfig;
   }
