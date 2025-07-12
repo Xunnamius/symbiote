@@ -673,6 +673,7 @@ exports[`::gatherAssetsFromAllTransformers preset: basic generates expected asse
   "prettier.config.mjs",
   "release.config.cjs",
   "packages/webpack/src/index.ts",
+  "packages/webpack/src/error.ts",
   "packages/webpack/test/unit.test.ts",
   "packages/webpack/test/type.test.ts",
   "packages/webpack/test/integration/.config.ts",
@@ -749,7 +750,9 @@ exports[`::gatherAssetsFromAllTransformers preset: basic generates expected asse
   "prettier.config.mjs",
   "release.config.cjs",
   "packages/pkg-1/src/index.ts",
+  "packages/pkg-1/src/error.ts",
   "packages/pkg-import/src/index.ts",
+  "packages/pkg-import/src/error.ts",
   "test/util.ts",
   "test/setup.ts",
   "packages/pkg-1/test/unit.test.ts",
@@ -831,6 +834,7 @@ exports[`::gatherAssetsFromAllTransformers preset: basic generates expected asse
   "prettier.config.mjs",
   "release.config.cjs",
   "src/index.ts",
+  "src/error.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
   "tsc.package.types.json",
@@ -897,6 +901,7 @@ exports[`::gatherAssetsFromAllTransformers preset: cli generates expected assets
   "prettier.config.mjs",
   "release.config.cjs",
   "packages/webpack/src/index.ts",
+  "packages/webpack/src/error.ts",
   "packages/webpack/test/unit.test.ts",
   "packages/webpack/test/type.test.ts",
   "packages/webpack/test/integration/.config.ts",
@@ -981,7 +986,9 @@ exports[`::gatherAssetsFromAllTransformers preset: cli generates expected assets
   "prettier.config.mjs",
   "release.config.cjs",
   "packages/pkg-1/src/index.ts",
+  "packages/pkg-1/src/error.ts",
   "packages/pkg-import/src/index.ts",
+  "packages/pkg-import/src/error.ts",
   "test/util.ts",
   "test/setup.ts",
   "packages/pkg-1/test/unit.test.ts",
@@ -1068,6 +1075,7 @@ exports[`::gatherAssetsFromAllTransformers preset: cli generates expected assets
   "prettier.config.mjs",
   "release.config.cjs",
   "src/index.ts",
+  "src/error.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
   "tsc.package.types.json",
@@ -1138,6 +1146,7 @@ exports[`::gatherAssetsFromAllTransformers preset: default (no preset) generates
   "prettier.config.mjs",
   "release.config.cjs",
   "packages/webpack/src/index.ts",
+  "packages/webpack/src/error.ts",
   "tailwind.config.ts",
   "packages/webpack/test/unit.test.ts",
   "packages/webpack/test/type.test.ts",
@@ -1233,7 +1242,9 @@ exports[`::gatherAssetsFromAllTransformers preset: default (no preset) generates
   "prettier.config.mjs",
   "release.config.cjs",
   "packages/pkg-1/src/index.ts",
+  "packages/pkg-1/src/error.ts",
   "packages/pkg-import/src/index.ts",
+  "packages/pkg-import/src/error.ts",
   "tailwind.config.ts",
   "test/util.ts",
   "test/setup.ts",
@@ -1330,6 +1341,7 @@ exports[`::gatherAssetsFromAllTransformers preset: default (no preset) generates
   "prettier.config.mjs",
   "release.config.cjs",
   "src/index.ts",
+  "src/error.ts",
   "tailwind.config.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
@@ -1400,6 +1412,7 @@ exports[`::gatherAssetsFromAllTransformers preset: lib generates expected assets
   "prettier.config.mjs",
   "release.config.cjs",
   "packages/webpack/src/index.ts",
+  "packages/webpack/src/error.ts",
   "packages/webpack/test/unit.test.ts",
   "packages/webpack/test/type.test.ts",
   "packages/webpack/test/integration/.config.ts",
@@ -1484,7 +1497,9 @@ exports[`::gatherAssetsFromAllTransformers preset: lib generates expected assets
   "prettier.config.mjs",
   "release.config.cjs",
   "packages/pkg-1/src/index.ts",
+  "packages/pkg-1/src/error.ts",
   "packages/pkg-import/src/index.ts",
+  "packages/pkg-import/src/error.ts",
   "test/util.ts",
   "test/setup.ts",
   "packages/pkg-1/test/unit.test.ts",
@@ -1571,6 +1586,7 @@ exports[`::gatherAssetsFromAllTransformers preset: lib generates expected assets
   "prettier.config.mjs",
   "release.config.cjs",
   "src/index.ts",
+  "src/error.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
   "tsc.package.types.json",
@@ -1637,6 +1653,7 @@ exports[`::gatherAssetsFromAllTransformers preset: lib-esm generates expected as
   "prettier.config.mjs",
   "release.config.cjs",
   "packages/webpack/src/index.ts",
+  "packages/webpack/src/error.ts",
   "packages/webpack/test/unit.test.ts",
   "packages/webpack/test/type.test.ts",
   "packages/webpack/test/integration/.config.ts",
@@ -1721,7 +1738,9 @@ exports[`::gatherAssetsFromAllTransformers preset: lib-esm generates expected as
   "prettier.config.mjs",
   "release.config.cjs",
   "packages/pkg-1/src/index.ts",
+  "packages/pkg-1/src/error.ts",
   "packages/pkg-import/src/index.ts",
+  "packages/pkg-import/src/error.ts",
   "test/util.ts",
   "test/setup.ts",
   "packages/pkg-1/test/unit.test.ts",
@@ -1808,6 +1827,7 @@ exports[`::gatherAssetsFromAllTransformers preset: lib-esm generates expected as
   "prettier.config.mjs",
   "release.config.cjs",
   "src/index.ts",
+  "src/error.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
   "tsc.package.types.json",
@@ -1875,6 +1895,7 @@ exports[`::gatherAssetsFromAllTransformers preset: lib-web generates expected as
   "prettier.config.mjs",
   "release.config.cjs",
   "packages/webpack/src/index.ts",
+  "packages/webpack/src/error.ts",
   "packages/webpack/test/unit.test.ts",
   "packages/webpack/test/type.test.ts",
   "packages/webpack/test/integration/.config.ts",
@@ -1960,7 +1981,9 @@ exports[`::gatherAssetsFromAllTransformers preset: lib-web generates expected as
   "prettier.config.mjs",
   "release.config.cjs",
   "packages/pkg-1/src/index.ts",
+  "packages/pkg-1/src/error.ts",
   "packages/pkg-import/src/index.ts",
+  "packages/pkg-import/src/error.ts",
   "test/util.ts",
   "test/setup.ts",
   "packages/pkg-1/test/unit.test.ts",
@@ -2048,6 +2071,7 @@ exports[`::gatherAssetsFromAllTransformers preset: lib-web generates expected as
   "prettier.config.mjs",
   "release.config.cjs",
   "src/index.ts",
+  "src/error.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
   "tsc.package.types.json",
@@ -2093,7 +2117,7 @@ exports[`::gatherAssetsFromAllTransformers preset: nextjs generates expected ass
   "packages/private/README.md",
   "packages/webpack/README.md",
   "SECURITY.md",
-  "babel.config.cjs",
+  "babel.config.js",
   "changelog.patch.mjs",
   "commitlint.config.mjs",
   "conventional.config.cjs",
@@ -2110,6 +2134,7 @@ exports[`::gatherAssetsFromAllTransformers preset: nextjs generates expected ass
   "prettier.config.mjs",
   "release.config.cjs",
   "packages/webpack/src/index.ts",
+  "packages/webpack/src/error.ts",
   "tailwind.config.ts",
   "packages/webpack/test/unit.test.ts",
   "packages/webpack/test/type.test.ts",
@@ -2176,7 +2201,7 @@ exports[`::gatherAssetsFromAllTransformers preset: nextjs generates expected ass
   "packages/pkg-2/README.md",
   "packages/pkg-import/README.md",
   "SECURITY.md",
-  "babel.config.cjs",
+  "babel.config.js",
   "changelog.patch.mjs",
   "commitlint.config.mjs",
   "conventional.config.cjs",
@@ -2193,7 +2218,9 @@ exports[`::gatherAssetsFromAllTransformers preset: nextjs generates expected ass
   "prettier.config.mjs",
   "release.config.cjs",
   "packages/pkg-1/src/index.ts",
+  "packages/pkg-1/src/error.ts",
   "packages/pkg-import/src/index.ts",
+  "packages/pkg-import/src/error.ts",
   "tailwind.config.ts",
   "test/util.ts",
   "test/setup.ts",
@@ -2268,7 +2295,7 @@ exports[`::gatherAssetsFromAllTransformers preset: nextjs generates expected ass
   ".vscode/tasks.example.json",
   "README.md",
   "SECURITY.md",
-  "babel.config.cjs",
+  "babel.config.js",
   "changelog.patch.mjs",
   "commitlint.config.mjs",
   "conventional.config.cjs",
@@ -2282,6 +2309,7 @@ exports[`::gatherAssetsFromAllTransformers preset: nextjs generates expected ass
   "prettier.config.mjs",
   "release.config.cjs",
   "src/index.ts",
+  "src/error.ts",
   "tailwind.config.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
@@ -2345,6 +2373,7 @@ exports[`::gatherAssetsFromAllTransformers preset: react generates expected asse
   "prettier.config.mjs",
   "release.config.cjs",
   "packages/webpack/src/index.ts",
+  "packages/webpack/src/error.ts",
   "tailwind.config.ts",
   "packages/webpack/test/unit.test.ts",
   "packages/webpack/test/type.test.ts",
@@ -2424,7 +2453,9 @@ exports[`::gatherAssetsFromAllTransformers preset: react generates expected asse
   "prettier.config.mjs",
   "release.config.cjs",
   "packages/pkg-1/src/index.ts",
+  "packages/pkg-1/src/error.ts",
   "packages/pkg-import/src/index.ts",
+  "packages/pkg-import/src/error.ts",
   "tailwind.config.ts",
   "test/util.ts",
   "test/setup.ts",
@@ -2509,6 +2540,7 @@ exports[`::gatherAssetsFromAllTransformers preset: react generates expected asse
   "prettier.config.mjs",
   "release.config.cjs",
   "src/index.ts",
+  "src/error.ts",
   "tailwind.config.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
@@ -2568,6 +2600,7 @@ exports[`::gatherAssetsFromAllTransformers preset: wrangler generates expected a
   "prettier.config.mjs",
   "release.config.cjs",
   "packages/webpack/src/index.ts",
+  "packages/webpack/src/error.ts",
   "packages/webpack/test/unit.test.ts",
   "packages/webpack/test/type.test.ts",
   "packages/webpack/test/integration/.config.ts",
@@ -2648,7 +2681,9 @@ exports[`::gatherAssetsFromAllTransformers preset: wrangler generates expected a
   "prettier.config.mjs",
   "release.config.cjs",
   "packages/pkg-1/src/index.ts",
+  "packages/pkg-1/src/error.ts",
   "packages/pkg-import/src/index.ts",
+  "packages/pkg-import/src/error.ts",
   "test/util.ts",
   "test/setup.ts",
   "packages/pkg-1/test/unit.test.ts",
@@ -2733,6 +2768,7 @@ exports[`::gatherAssetsFromAllTransformers preset: wrangler generates expected a
   "prettier.config.mjs",
   "release.config.cjs",
   "src/index.ts",
+  "src/error.ts",
   "tsconfig.json",
   "tsc.project.lint.json",
   "tsc.package.types.json",
@@ -10858,7 +10894,7 @@ scope: this-package
 # shellcheck disable=all
 # This file's syntax is only KINDA similar like .gitignore...
 
-# Ignore all root-level files
+# Ignore all files
 /*
 
 # Re-add root-level dirs
@@ -10867,12 +10903,17 @@ scope: this-package
 !/src
 !/types
 
-# Re-add shared packages
+# Re-add unpublished internal packages
+!/packages
+/packages/*
 !/packages/shared
+/packages/shared/*
+!/packages/shared/src
+!/packages/shared/package.json
 
 # Re-add root-level files
 !/.gitignore
-!/babel.config.js
+!/babel.config.cjs
 !/next.config.mjs
 !/package-lock.json
 !/package.json
@@ -10889,7 +10930,7 @@ scope: unlimited
 # shellcheck disable=all
 # This file's syntax is only KINDA similar like .gitignore...
 
-# Ignore all root-level files
+# Ignore all files
 /*
 
 # Re-add root-level dirs
@@ -10898,12 +10939,17 @@ scope: unlimited
 !/src
 !/types
 
-# Re-add shared packages
+# Re-add unpublished internal packages
+!/packages
+/packages/*
 !/packages/shared
+/packages/shared/*
+!/packages/shared/src
+!/packages/shared/package.json
 
 # Re-add root-level files
 !/.gitignore
-!/babel.config.js
+!/babel.config.cjs
 !/next.config.mjs
 !/package-lock.json
 !/package.json
@@ -10920,7 +10966,7 @@ scope: unlimited
 # shellcheck disable=all
 # This file's syntax is only KINDA similar like .gitignore...
 
-# Ignore all root-level files
+# Ignore all files
 /*
 
 # Re-add root-level dirs
@@ -10929,12 +10975,17 @@ scope: unlimited
 !/src
 !/types
 
-# Re-add shared packages
+# Re-add unpublished internal packages
+!/packages
+/packages/*
 !/packages/shared
+/packages/shared/*
+!/packages/shared/src
+!/packages/shared/package.json
 
 # Re-add root-level files
 !/.gitignore
-!/babel.config.js
+!/babel.config.cjs
 !/next.config.mjs
 !/package-lock.json
 !/package.json
@@ -10951,7 +11002,7 @@ scope: unlimited
 # shellcheck disable=all
 # This file's syntax is only KINDA similar like .gitignore...
 
-# Ignore all root-level files
+# Ignore all files
 /*
 
 # Re-add root-level dirs
@@ -10960,12 +11011,17 @@ scope: unlimited
 !/src
 !/types
 
-# Re-add shared packages
+# Re-add unpublished internal packages
+!/packages
+/packages/*
 !/packages/shared
+/packages/shared/*
+!/packages/shared/src
+!/packages/shared/package.json
 
 # Re-add root-level files
 !/.gitignore
-!/babel.config.js
+!/babel.config.cjs
 !/next.config.mjs
 !/package-lock.json
 !/package.json
@@ -10982,7 +11038,7 @@ scope: unlimited
 # shellcheck disable=all
 # This file's syntax is only KINDA similar like .gitignore...
 
-# Ignore all root-level files
+# Ignore all files
 /*
 
 # Re-add root-level dirs
@@ -10991,12 +11047,17 @@ scope: unlimited
 !/src
 !/types
 
-# Re-add shared packages
+# Re-add unpublished internal packages
+!/packages
+/packages/*
 !/packages/shared
+/packages/shared/*
+!/packages/shared/src
+!/packages/shared/package.json
 
 # Re-add root-level files
 !/.gitignore
-!/babel.config.js
+!/babel.config.cjs
 !/next.config.mjs
 !/package-lock.json
 !/package.json
@@ -11013,7 +11074,7 @@ scope: unlimited
 # shellcheck disable=all
 # This file's syntax is only KINDA similar like .gitignore...
 
-# Ignore all root-level files
+# Ignore all files
 /*
 
 # Re-add root-level dirs
@@ -11022,12 +11083,17 @@ scope: unlimited
 !/src
 !/types
 
-# Re-add shared packages
+# Re-add unpublished internal packages
+!/packages
+/packages/*
 !/packages/shared
+/packages/shared/*
+!/packages/shared/src
+!/packages/shared/package.json
 
 # Re-add root-level files
 !/.gitignore
-!/babel.config.js
+!/babel.config.cjs
 !/next.config.mjs
 !/package-lock.json
 !/package.json
@@ -11044,7 +11110,7 @@ scope: this-package
 # shellcheck disable=all
 # This file's syntax is only KINDA similar like .gitignore...
 
-# Ignore all root-level files
+# Ignore all files
 /*
 
 # Re-add root-level dirs
@@ -11053,12 +11119,17 @@ scope: this-package
 !/src
 !/types
 
-# Re-add shared packages
+# Re-add unpublished internal packages
+!/packages
+/packages/*
 !/packages/shared
+/packages/shared/*
+!/packages/shared/src
+!/packages/shared/package.json
 
 # Re-add root-level files
 !/.gitignore
-!/babel.config.js
+!/babel.config.cjs
 !/next.config.mjs
 !/package-lock.json
 !/package.json
@@ -11075,7 +11146,7 @@ scope: unlimited
 # shellcheck disable=all
 # This file's syntax is only KINDA similar like .gitignore...
 
-# Ignore all root-level files
+# Ignore all files
 /*
 
 # Re-add root-level dirs
@@ -11084,12 +11155,17 @@ scope: unlimited
 !/src
 !/types
 
-# Re-add shared packages
+# Re-add unpublished internal packages
+!/packages
+/packages/*
 !/packages/shared
+/packages/shared/*
+!/packages/shared/src
+!/packages/shared/package.json
 
 # Re-add root-level files
 !/.gitignore
-!/babel.config.js
+!/babel.config.cjs
 !/next.config.mjs
 !/package-lock.json
 !/package.json
@@ -25919,6 +25995,7 @@ scope: this-package
   },
   "license": "MIT",
   "author": "Xunnamius",
+  "sideEffects": false,
   "engines": {
     "node": "^20.18.0 || >=22.12.0"
   },
@@ -26013,6 +26090,7 @@ scope: unlimited
   },
   "license": "MIT",
   "author": "Xunnamius",
+  "sideEffects": false,
   "type": "commonjs",
   "engines": {
     "node": "^20.18.0 || >=22.12.0"
@@ -26110,6 +26188,7 @@ scope: unlimited
   },
   "license": "MIT",
   "author": "Xunnamius",
+  "sideEffects": false,
   "type": "commonjs",
   "exports": {
     ".": {
@@ -26349,6 +26428,7 @@ scope: unlimited
   },
   "license": "MIT",
   "author": "Xunnamius",
+  "sideEffects": false,
   "engines": {
     "node": "^20.18.0 || >=22.12.0"
   },
@@ -26450,6 +26530,7 @@ scope: unlimited
   },
   "license": "MIT",
   "author": "Xunnamius",
+  "sideEffects": false,
   "exports": {
     ".": {
       "types": "./dist/packages/cli/src/cli.d.ts",
@@ -26680,6 +26761,7 @@ scope: this-package
   },
   "license": "MIT",
   "author": "Xunnamius",
+  "sideEffects": false,
   "typesVersions": {
     "*": {
       "index": [
@@ -26746,6 +26828,7 @@ scope: unlimited
   },
   "license": "MIT",
   "author": "Xunnamius",
+  "sideEffects": false,
   "type": "commonjs",
   "engines": {
     "node": "^20.18.0 || >=22.12.0"
@@ -26802,6 +26885,7 @@ scope: unlimited
   },
   "license": "MIT",
   "author": "Xunnamius",
+  "sideEffects": false,
   "type": "commonjs",
   "exports": {
     ".": {
@@ -26896,6 +26980,7 @@ scope: unlimited
   },
   "license": "MIT",
   "author": "Xunnamius",
+  "sideEffects": false,
   "type": "commonjs",
   "exports": {
     ".": {
@@ -27068,6 +27153,7 @@ scope: unlimited
   },
   "license": "MIT",
   "author": "Xunnamius",
+  "sideEffects": false,
   "engines": {
     "node": "^20.18.0 || >=22.12.0"
   },
@@ -27131,6 +27217,7 @@ scope: unlimited
   },
   "license": "MIT",
   "author": "Xunnamius",
+  "sideEffects": false,
   "typesVersions": {
     "*": {
       "index": [
@@ -27215,6 +27302,7 @@ scope: unlimited
   },
   "license": "MIT",
   "author": "Xunnamius",
+  "sideEffects": false,
   "typesVersions": {
     "*": {
       "index": [
@@ -27359,6 +27447,7 @@ scope: unlimited
   },
   "license": "MIT",
   "author": "Xunnamius",
+  "sideEffects": false,
   "typesVersions": {
     "*": {
       "index": [
@@ -27435,6 +27524,7 @@ scope: this-package
   },
   "license": "MIT",
   "author": "Xunnamius",
+  "sideEffects": false,
   "type": "commonjs",
   "exports": {
     ".": {
@@ -27524,6 +27614,7 @@ scope: unlimited
   },
   "license": "MIT",
   "author": "Xunnamius",
+  "sideEffects": false,
   "typesVersions": {
     "*": {
       "index": [
@@ -28181,11 +28272,39 @@ debug('exported config: %O', module.exports);
 "
 `;
 
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> src generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/src/error.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/src/error.ts
+scope: unlimited
+⏶⏷⏶⏷⏶
+/**
+ * A collection of possible error and warning messages.
+ */
+/* istanbul ignore next */
+export const ErrorMessage = {
+  // Your exported error messages here
+};
+"
+`;
+
 exports[`::gatherAssetsFromTransformer <generated asset content snapshots> src generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/src/index.ts 1`] = `
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/src/index.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
 export {};
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> src generates expected assets at hybridrepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/src/error.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/src/error.ts
+scope: unlimited
+⏶⏷⏶⏷⏶
+/**
+ * A collection of possible error and warning messages.
+ */
+/* istanbul ignore next */
+export const ErrorMessage = {
+  // Your exported error messages here
+};
 "
 `;
 
@@ -28197,11 +28316,39 @@ export {};
 "
 `;
 
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> src generates expected assets at non-hybrid monorepo (scope=this-package): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/src/error.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/src/error.ts
+scope: this-package
+⏶⏷⏶⏷⏶
+/**
+ * A collection of possible error and warning messages.
+ */
+/* istanbul ignore next */
+export const ErrorMessage = {
+  // Your exported error messages here
+};
+"
+`;
+
 exports[`::gatherAssetsFromTransformer <generated asset content snapshots> src generates expected assets at non-hybrid monorepo (scope=this-package): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/src/index.ts 1`] = `
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/src/index.ts
 scope: this-package
 ⏶⏷⏶⏷⏶
 export {};
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> src generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/src/error.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/src/error.ts
+scope: unlimited
+⏶⏷⏶⏷⏶
+/**
+ * A collection of possible error and warning messages.
+ */
+/* istanbul ignore next */
+export const ErrorMessage = {
+  // Your exported error messages here
+};
 "
 `;
 
@@ -28213,11 +28360,39 @@ export {};
 "
 `;
 
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> src generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/src/error.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/src/error.ts
+scope: unlimited
+⏶⏷⏶⏷⏶
+/**
+ * A collection of possible error and warning messages.
+ */
+/* istanbul ignore next */
+export const ErrorMessage = {
+  // Your exported error messages here
+};
+"
+`;
+
 exports[`::gatherAssetsFromTransformer <generated asset content snapshots> src generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/src/index.ts 1`] = `
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/src/index.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
 export {};
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> src generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/src/error.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/src/error.ts
+scope: unlimited
+⏶⏷⏶⏷⏶
+/**
+ * A collection of possible error and warning messages.
+ */
+/* istanbul ignore next */
+export const ErrorMessage = {
+  // Your exported error messages here
+};
 "
 `;
 
@@ -28229,11 +28404,39 @@ export {};
 "
 `;
 
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> src generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/src/error.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/src/error.ts
+scope: unlimited
+⏶⏷⏶⏷⏶
+/**
+ * A collection of possible error and warning messages.
+ */
+/* istanbul ignore next */
+export const ErrorMessage = {
+  // Your exported error messages here
+};
+"
+`;
+
 exports[`::gatherAssetsFromTransformer <generated asset content snapshots> src generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/src/index.ts 1`] = `
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/src/index.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
 export {};
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> src generates expected assets for polyrepo (scope=this-package): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/src/error.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/src/error.ts
+scope: unlimited
+⏶⏷⏶⏷⏶
+/**
+ * A collection of possible error and warning messages.
+ */
+/* istanbul ignore next */
+export const ErrorMessage = {
+  // Your exported error messages here
+};
 "
 `;
 
@@ -28245,11 +28448,39 @@ export {};
 "
 `;
 
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> src generates expected assets for polyrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/src/error.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/src/error.ts
+scope: this-package
+⏶⏷⏶⏷⏶
+/**
+ * A collection of possible error and warning messages.
+ */
+/* istanbul ignore next */
+export const ErrorMessage = {
+  // Your exported error messages here
+};
+"
+`;
+
 exports[`::gatherAssetsFromTransformer <generated asset content snapshots> src generates expected assets for polyrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/src/index.ts 1`] = `
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/src/index.ts
 scope: this-package
 ⏶⏷⏶⏷⏶
 export {};
+"
+`;
+
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> src generates expected assets for polyrepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/src/error.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/src/error.ts
+scope: unlimited
+⏶⏷⏶⏷⏶
+/**
+ * A collection of possible error and warning messages.
+ */
+/* istanbul ignore next */
+export const ErrorMessage = {
+  // Your exported error messages here
+};
 "
 `;
 
