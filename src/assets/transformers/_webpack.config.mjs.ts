@@ -130,13 +130,13 @@ export class WebpackCustomSchemeAliasPlugin {
                 }
               );
 
-              debug(
+              localDebug(
                 'tapped NormalModule.hooks.readResourceForScheme for %O (%O)',
                 scheme,
                 schemePath
               );
             } else {
-              debug.message(
+              localDebug.message(
                 'skipped tapping NormalModule.hooks.readResourceForScheme for %O (%O)',
                 scheme,
                 schemePath
@@ -180,13 +180,13 @@ export class WebpackCustomSchemeAliasPlugin {
                 return true;
               });
 
-              debug(
+              localDebug(
                 'tapped normalModuleFactory.hooks.resolveForScheme for %O (%O)',
                 scheme,
                 schemePath
               );
             } else {
-              debug.message(
+              localDebug.message(
                 'skipped tapping normalModuleFactory.hooks.resolveForScheme for %O (%O)',
                 scheme,
                 schemePath
@@ -199,6 +199,6 @@ export class WebpackCustomSchemeAliasPlugin {
       }
     );
 
-    debug('tapped compiler.hooks.compilation');
+    this.#debug('tapped compiler.hooks.compilation');
   }
 }
