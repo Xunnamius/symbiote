@@ -1,4 +1,10 @@
-import { nextjsConfigPackageBase } from '@-xun/project';
+import {
+  deriveAliasesForNextJs,
+  generateRawAliasMap,
+  nextjsConfigPackageBase
+} from '@-xun/project';
+
+import { WebpackCustomSchemeAliasPlugin } from 'universe:assets/transformers/_webpack.config.mjs.ts';
 
 import {
   AssetPreset,
@@ -6,9 +12,25 @@ import {
   makeTransformer
 } from 'universe:assets.ts';
 
-import { globalDebuggerNamespace } from 'universe:constant.ts';
+import {
+  globalDebuggerNamespace,
+  makeGeneratedAliasesWarningComment
+} from 'universe:constant.ts';
 
-export function moduleExport(): Record<string, unknown> {
+import { stringifyJson } from 'universe:util.ts';
+
+import type { AbsolutePath } from '@-xun/fs';
+import type { AnyFunction } from '@-xun/types';
+
+export function moduleExport({
+  derivedAliases,
+  configureWebpack,
+  projectRoot
+}: {
+  derivedAliases: ReturnType<typeof deriveAliasesForNextJs>;
+  configureWebpack?: AnyFunction;
+  projectRoot: AbsolutePath;
+}): Record<string, unknown> {
   return {
     // * https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
     allowedDevOrigins: [
@@ -20,6 +42,24 @@ export function moduleExport(): Record<string, unknown> {
 
     // ? Default is explicitly provided for the benefit of tooling
     distDir: '.next',
+
+    webpack(currentConfig, context) {
+      currentConfig.resolve.alias = {
+        ...currentConfig.resolve.alias,
+        ...derivedAliases
+      };
+
+      currentConfig.plugins = [
+        ...currentConfig.plugins,
+        new WebpackCustomSchemeAliasPlugin(projectRoot, derivedAliases)
+      ];
+
+      if (configureWebpack) {
+        currentConfig = configureWebpack(currentConfig, context);
+      }
+
+      return currentConfig;
+    },
 
     // ? Select some environment variables defined in .env to push to the
     // ? client.
@@ -54,11 +94,11 @@ export function moduleExport(): Record<string, unknown> {
         }
       ];
     }
-  };
+  } satisfies import('next').NextConfig;
 }
 
 export const { transformer } = makeTransformer(function (context) {
-  const { asset, toProjectAbsolutePath, assetPreset } = context;
+  const { assetPreset } = context;
 
   if (assetPreset && assetPreset !== AssetPreset.Nextjs) {
     return [];
@@ -66,6 +106,24 @@ export const { transformer } = makeTransformer(function (context) {
 
   // * Only the root package gets these files
   return generateRootOnlyAssets(context, async function () {
+    const {
+      asset,
+      shouldDeriveAliases,
+      additionalRawAliasMappings,
+      projectMetadata,
+      toProjectAbsolutePath
+    } = context;
+
+    const derivedAliasesSourceSnippet = shouldDeriveAliases
+      ? `return ${stringifyJson(
+          deriveAliasesForNextJs(
+            additionalRawAliasMappings.concat(generateRawAliasMap(projectMetadata)),
+            projectMetadata.rootPackage.root
+          ),
+          4
+        ).replace(/^}/m, '  }')}`
+      : 'return {}';
+
     return [
       {
         path: toProjectAbsolutePath(nextjsConfigPackageBase),
@@ -82,14 +140,28 @@ const debug = createDebugLogger({ namespace: '${globalDebuggerNamespace}:config:
 /**
  * @type {import('next').NextConfig}
  */
-const baseConfig = moduleExport();
+const baseConfig = moduleExport({
+  derivedAliases: getNextJsAliases(),
+  projectRoot: __dirname,
+  configureWebpack(currentConfig) {
+    return currentConfig;
+  }
+});
+
 const config = deepMergeConfig(baseConfig, {
   // Any custom configs here will be deep merged with moduleExport's result
-  // ! Take care to overwrite certain configs (e.g. baseConfig.webpack) properly
+  // ! Take care not to overwrite certain configs (e.g. baseConfig.webpack)
 });
 
 export default config;
+
 debug('exported config: %O', config);
+
+// TODO: need to replace long path components with import.meta.dirname
+function getNextJsAliases() {
+${makeGeneratedAliasesWarningComment(2)}
+  ${derivedAliasesSourceSnippet}
+}
 `
       }
     ];
