@@ -7,6 +7,7 @@ import {
 } from '@-xun/project';
 
 import {
+  AssetPreset,
   generatePerPackageAssets,
   generateRootOnlyAssets,
   makeTransformer
@@ -44,7 +45,7 @@ const tsconfigFiles = {
     "lib": [
       "ESNext",
       "DOM",
-      "WebWorker.ImportScripts",
+      {commentSnippetIfNextJs}"WebWorker.ImportScripts",
       "ScriptHost",
       "DOM.Iterable"
     ],
@@ -351,10 +352,12 @@ export const { transformer } = makeTransformer(async function (context) {
         {
           path: toProjectAbsolutePath(Tsconfig.ProjectBase),
           generate: () =>
-            tsconfigFiles[Tsconfig.ProjectBase].replace(
-              '{derivedAliasesSourceSnippet}',
-              derivedAliasesSourceSnippet
-            )
+            tsconfigFiles[Tsconfig.ProjectBase]
+              .replace('{derivedAliasesSourceSnippet}', derivedAliasesSourceSnippet)
+              .replaceAll(
+                '{commentSnippetIfNextJs}',
+                context.assetPreset === AssetPreset.Nextjs ? '//' : ''
+              )
         },
         {
           path: toProjectAbsolutePath(Tsconfig.ProjectLint),
