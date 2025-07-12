@@ -698,6 +698,7 @@ exports[`::gatherAssetsFromAllTransformers preset: basic generates expected asse
   "tstyche.config.json",
   "types/global.ts",
   "types/_example-d.ts",
+  "webpack.config.mjs",
 ]
 `;
 
@@ -790,6 +791,7 @@ exports[`::gatherAssetsFromAllTransformers preset: basic generates expected asse
   "tstyche.config.json",
   "types/global.ts",
   "types/_example-d.ts",
+  "webpack.config.mjs",
 ]
 `;
 
@@ -841,6 +843,7 @@ exports[`::gatherAssetsFromAllTransformers preset: basic generates expected asse
   "tsc.package.lint.json",
   "tsc.package.docs.json",
   "tstyche.config.json",
+  "webpack.config.mjs",
 ]
 `;
 
@@ -2161,7 +2164,6 @@ exports[`::gatherAssetsFromAllTransformers preset: nextjs generates expected ass
   "types/global.ts",
   "types/_example-d.ts",
   "vercel.json",
-  "webpack.config.mjs",
 ]
 `;
 
@@ -2260,7 +2262,6 @@ exports[`::gatherAssetsFromAllTransformers preset: nextjs generates expected ass
   "types/global.ts",
   "types/_example-d.ts",
   "vercel.json",
-  "webpack.config.mjs",
 ]
 `;
 
@@ -2318,7 +2319,6 @@ exports[`::gatherAssetsFromAllTransformers preset: nextjs generates expected ass
   "tsc.package.docs.json",
   "tstyche.config.json",
   "vercel.json",
-  "webpack.config.mjs",
 ]
 `;
 
@@ -2399,6 +2399,7 @@ exports[`::gatherAssetsFromAllTransformers preset: react generates expected asse
   "tstyche.config.json",
   "types/global.ts",
   "types/_example-d.ts",
+  "webpack.config.mjs",
 ]
 `;
 
@@ -2494,6 +2495,7 @@ exports[`::gatherAssetsFromAllTransformers preset: react generates expected asse
   "tstyche.config.json",
   "types/global.ts",
   "types/_example-d.ts",
+  "webpack.config.mjs",
 ]
 `;
 
@@ -2548,6 +2550,7 @@ exports[`::gatherAssetsFromAllTransformers preset: react generates expected asse
   "tsc.package.lint.json",
   "tsc.package.docs.json",
   "tstyche.config.json",
+  "webpack.config.mjs",
 ]
 `;
 
@@ -22613,6 +22616,7 @@ const { deepMergeConfig } = require('@-xun/symbiote/assets');
 
 const {
   assertEnvironment,
+  getNextJsBabelPreset,
   moduleExport
 } = require('@-xun/symbiote/assets/babel.config.cjs');
 
@@ -22620,14 +22624,14 @@ const { createDebugLogger } = require('rejoinder');
 
 const debug = createDebugLogger({ namespace: 'symbiote:config:babel' });
 
-module.exports = deepMergeConfig(
+const config = deepMergeConfig(
   moduleExport({
     derivedAliases: getBabelAliases(),
     ...assertEnvironment({ projectRoot: __dirname })
   }),
   {
     // Any custom configs here will be deep merged with moduleExport's result
-
+    //
     // You may wish to enable explicit exports references for improved testing
     // DX, but be aware that it is currently a wee buggy as of 5/2025 (fix it!)
     //
@@ -22639,6 +22643,7 @@ module.exports = deepMergeConfig(
   }
 );
 
+module.exports = config;
 debug('exported config: %O', module.exports);
 
 function getBabelAliases() {
@@ -22698,6 +22703,7 @@ const { deepMergeConfig } = require('@-xun/symbiote/assets');
 
 const {
   assertEnvironment,
+  getNextJsBabelPreset,
   moduleExport
 } = require('@-xun/symbiote/assets/babel.config.cjs');
 
@@ -22705,14 +22711,14 @@ const { createDebugLogger } = require('rejoinder');
 
 const debug = createDebugLogger({ namespace: 'symbiote:config:babel' });
 
-module.exports = deepMergeConfig(
+const config = deepMergeConfig(
   moduleExport({
     derivedAliases: getBabelAliases(),
     ...assertEnvironment({ projectRoot: __dirname })
   }),
   {
     // Any custom configs here will be deep merged with moduleExport's result
-
+    //
     // You may wish to enable explicit exports references for improved testing
     // DX, but be aware that it is currently a wee buggy as of 5/2025 (fix it!)
     //
@@ -22724,6 +22730,7 @@ module.exports = deepMergeConfig(
   }
 );
 
+module.exports = config;
 debug('exported config: %O', module.exports);
 
 function getBabelAliases() {
@@ -22783,6 +22790,7 @@ const { deepMergeConfig } = require('@-xun/symbiote/assets');
 
 const {
   assertEnvironment,
+  getNextJsBabelPreset,
   moduleExport
 } = require('@-xun/symbiote/assets/babel.config.cjs');
 
@@ -22790,14 +22798,14 @@ const { createDebugLogger } = require('rejoinder');
 
 const debug = createDebugLogger({ namespace: 'symbiote:config:babel' });
 
-module.exports = deepMergeConfig(
+const config = deepMergeConfig(
   moduleExport({
     derivedAliases: getBabelAliases(),
     ...assertEnvironment({ projectRoot: __dirname })
   }),
   {
     // Any custom configs here will be deep merged with moduleExport's result
-
+    //
     // You may wish to enable explicit exports references for improved testing
     // DX, but be aware that it is currently a wee buggy as of 5/2025 (fix it!)
     //
@@ -22809,6 +22817,7 @@ module.exports = deepMergeConfig(
   }
 );
 
+module.exports = config;
 debug('exported config: %O', module.exports);
 
 function getBabelAliases() {
@@ -22868,6 +22877,7 @@ const { deepMergeConfig } = require('@-xun/symbiote/assets');
 
 const {
   assertEnvironment,
+  getNextJsBabelPreset,
   moduleExport
 } = require('@-xun/symbiote/assets/babel.config.cjs');
 
@@ -22875,14 +22885,14 @@ const { createDebugLogger } = require('rejoinder');
 
 const debug = createDebugLogger({ namespace: 'symbiote:config:babel' });
 
-module.exports = deepMergeConfig(
+const config = deepMergeConfig(
   moduleExport({
     derivedAliases: getBabelAliases(),
     ...assertEnvironment({ projectRoot: __dirname })
   }),
   {
     // Any custom configs here will be deep merged with moduleExport's result
-
+    //
     // You may wish to enable explicit exports references for improved testing
     // DX, but be aware that it is currently a wee buggy as of 5/2025 (fix it!)
     //
@@ -22894,6 +22904,7 @@ module.exports = deepMergeConfig(
   }
 );
 
+module.exports = config;
 debug('exported config: %O', module.exports);
 
 function getBabelAliases() {
@@ -22953,6 +22964,7 @@ const { deepMergeConfig } = require('@-xun/symbiote/assets');
 
 const {
   assertEnvironment,
+  getNextJsBabelPreset,
   moduleExport
 } = require('@-xun/symbiote/assets/babel.config.cjs');
 
@@ -22960,14 +22972,14 @@ const { createDebugLogger } = require('rejoinder');
 
 const debug = createDebugLogger({ namespace: 'symbiote:config:babel' });
 
-module.exports = deepMergeConfig(
+const config = deepMergeConfig(
   moduleExport({
     derivedAliases: getBabelAliases(),
     ...assertEnvironment({ projectRoot: __dirname })
   }),
   {
     // Any custom configs here will be deep merged with moduleExport's result
-
+    //
     // You may wish to enable explicit exports references for improved testing
     // DX, but be aware that it is currently a wee buggy as of 5/2025 (fix it!)
     //
@@ -22979,6 +22991,7 @@ module.exports = deepMergeConfig(
   }
 );
 
+module.exports = config;
 debug('exported config: %O', module.exports);
 
 function getBabelAliases() {
@@ -23038,6 +23051,7 @@ const { deepMergeConfig } = require('@-xun/symbiote/assets');
 
 const {
   assertEnvironment,
+  getNextJsBabelPreset,
   moduleExport
 } = require('@-xun/symbiote/assets/babel.config.cjs');
 
@@ -23045,14 +23059,14 @@ const { createDebugLogger } = require('rejoinder');
 
 const debug = createDebugLogger({ namespace: 'symbiote:config:babel' });
 
-module.exports = deepMergeConfig(
+const config = deepMergeConfig(
   moduleExport({
     derivedAliases: getBabelAliases(),
     ...assertEnvironment({ projectRoot: __dirname })
   }),
   {
     // Any custom configs here will be deep merged with moduleExport's result
-
+    //
     // You may wish to enable explicit exports references for improved testing
     // DX, but be aware that it is currently a wee buggy as of 5/2025 (fix it!)
     //
@@ -23064,6 +23078,7 @@ module.exports = deepMergeConfig(
   }
 );
 
+module.exports = config;
 debug('exported config: %O', module.exports);
 
 function getBabelAliases() {
@@ -23093,6 +23108,7 @@ const { deepMergeConfig } = require('@-xun/symbiote/assets');
 
 const {
   assertEnvironment,
+  getNextJsBabelPreset,
   moduleExport
 } = require('@-xun/symbiote/assets/babel.config.cjs');
 
@@ -23100,14 +23116,14 @@ const { createDebugLogger } = require('rejoinder');
 
 const debug = createDebugLogger({ namespace: 'symbiote:config:babel' });
 
-module.exports = deepMergeConfig(
+const config = deepMergeConfig(
   moduleExport({
     derivedAliases: getBabelAliases(),
     ...assertEnvironment({ projectRoot: __dirname })
   }),
   {
     // Any custom configs here will be deep merged with moduleExport's result
-
+    //
     // You may wish to enable explicit exports references for improved testing
     // DX, but be aware that it is currently a wee buggy as of 5/2025 (fix it!)
     //
@@ -23119,6 +23135,7 @@ module.exports = deepMergeConfig(
   }
 );
 
+module.exports = config;
 debug('exported config: %O', module.exports);
 
 function getBabelAliases() {
@@ -23148,6 +23165,7 @@ const { deepMergeConfig } = require('@-xun/symbiote/assets');
 
 const {
   assertEnvironment,
+  getNextJsBabelPreset,
   moduleExport
 } = require('@-xun/symbiote/assets/babel.config.cjs');
 
@@ -23155,14 +23173,14 @@ const { createDebugLogger } = require('rejoinder');
 
 const debug = createDebugLogger({ namespace: 'symbiote:config:babel' });
 
-module.exports = deepMergeConfig(
+const config = deepMergeConfig(
   moduleExport({
     derivedAliases: getBabelAliases(),
     ...assertEnvironment({ projectRoot: __dirname })
   }),
   {
     // Any custom configs here will be deep merged with moduleExport's result
-
+    //
     // You may wish to enable explicit exports references for improved testing
     // DX, but be aware that it is currently a wee buggy as of 5/2025 (fix it!)
     //
@@ -23174,6 +23192,7 @@ module.exports = deepMergeConfig(
   }
 );
 
+module.exports = config;
 debug('exported config: %O', module.exports);
 
 function getBabelAliases() {
@@ -25441,48 +25460,46 @@ export default config;
 
 debug('exported config: %O', config);
 
-// TODO: 1. Need to use relative paths instead of absolute
-// TODO: 2. Also need to append $ to 1-to-1 aliases (in alias/unit-alias)
 function getNextJsAliases() {
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
   // ! directly, consider regenerating aliases across the entire project with:
   // ! \`npx symbiote project renovate --regenerate-assets --assets-preset ...\`
   return {
-    "multiverse+cli:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/cli/src/",
-    "multiverse+private:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/private/src/",
-    "multiverse+unnamed-cjs:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/unnamed-cjs/src/",
-    "multiverse+unnamed-esm:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/unnamed-esm/src/",
-    "multiverse+webpack:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/src/",
-    "multiverse+cli": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/cli/src/index.ts",
-    "multiverse+private": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/private/src/index.ts",
-    "multiverse+unnamed-cjs": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/unnamed-cjs/src/index.ts",
-    "multiverse+unnamed-esm": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/unnamed-esm/src/index.ts",
-    "multiverse+webpack": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/src/index.ts",
-    "universe+cli:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/cli/src/",
-    "universe+private:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/private/src/",
-    "universe+unnamed-cjs:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/unnamed-cjs/src/",
-    "universe+unnamed-esm:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/unnamed-esm/src/",
-    "universe+webpack:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/src/",
-    "universe+cli": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/cli/src/index.ts",
-    "universe+private": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/private/src/index.ts",
-    "universe+unnamed-cjs": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/unnamed-cjs/src/index.ts",
-    "universe+unnamed-esm": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/unnamed-esm/src/index.ts",
-    "universe+webpack": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/src/index.ts",
-    "universe:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/src/",
-    "universe": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/src/index.ts",
-    "testverse+cli:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/cli/test/",
-    "testverse+private:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/private/test/",
-    "testverse+unnamed-cjs:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/unnamed-cjs/test/",
-    "testverse+unnamed-esm:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/unnamed-esm/test/",
-    "testverse+webpack:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/test/",
-    "testverse:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/test/",
-    "typeverse:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/types/",
-    "rootverse+cli:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/cli/",
-    "rootverse+private:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/private/",
-    "rootverse+unnamed-cjs:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/unnamed-cjs/",
-    "rootverse+unnamed-esm:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/unnamed-esm/",
-    "rootverse+webpack:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/",
-    "rootverse:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/"
+    "multiverse+cli:*": "packages/cli/src/*",
+    "multiverse+private:*": "packages/private/src/*",
+    "multiverse+unnamed-cjs:*": "packages/unnamed-cjs/src/*",
+    "multiverse+unnamed-esm:*": "packages/unnamed-esm/src/*",
+    "multiverse+webpack:*": "packages/webpack/src/*",
+    "multiverse+cli$": "packages/cli/src/index.ts",
+    "multiverse+private$": "packages/private/src/index.ts",
+    "multiverse+unnamed-cjs$": "packages/unnamed-cjs/src/index.ts",
+    "multiverse+unnamed-esm$": "packages/unnamed-esm/src/index.ts",
+    "multiverse+webpack$": "packages/webpack/src/index.ts",
+    "universe+cli:*": "packages/cli/src/*",
+    "universe+private:*": "packages/private/src/*",
+    "universe+unnamed-cjs:*": "packages/unnamed-cjs/src/*",
+    "universe+unnamed-esm:*": "packages/unnamed-esm/src/*",
+    "universe+webpack:*": "packages/webpack/src/*",
+    "universe+cli$": "packages/cli/src/index.ts",
+    "universe+private$": "packages/private/src/index.ts",
+    "universe+unnamed-cjs$": "packages/unnamed-cjs/src/index.ts",
+    "universe+unnamed-esm$": "packages/unnamed-esm/src/index.ts",
+    "universe+webpack$": "packages/webpack/src/index.ts",
+    "universe:*": "src/*",
+    "universe$": "src/index.ts",
+    "testverse+cli:*": "packages/cli/test/*",
+    "testverse+private:*": "packages/private/test/*",
+    "testverse+unnamed-cjs:*": "packages/unnamed-cjs/test/*",
+    "testverse+unnamed-esm:*": "packages/unnamed-esm/test/*",
+    "testverse+webpack:*": "packages/webpack/test/*",
+    "testverse:*": "test/*",
+    "typeverse:*": "types/*",
+    "rootverse+cli:*": "packages/cli/*",
+    "rootverse+private:*": "packages/private/*",
+    "rootverse+unnamed-cjs:*": "packages/unnamed-cjs/*",
+    "rootverse+unnamed-esm:*": "packages/unnamed-esm/*",
+    "rootverse+webpack:*": "packages/webpack/*",
+    "rootverse:*": "*"
   }
 
 }
@@ -25522,48 +25539,46 @@ export default config;
 
 debug('exported config: %O', config);
 
-// TODO: 1. Need to use relative paths instead of absolute
-// TODO: 2. Also need to append $ to 1-to-1 aliases (in alias/unit-alias)
 function getNextJsAliases() {
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
   // ! directly, consider regenerating aliases across the entire project with:
   // ! \`npx symbiote project renovate --regenerate-assets --assets-preset ...\`
   return {
-    "multiverse+cli:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/cli/src/",
-    "multiverse+private:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/private/src/",
-    "multiverse+unnamed-cjs:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/unnamed-cjs/src/",
-    "multiverse+unnamed-esm:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/unnamed-esm/src/",
-    "multiverse+webpack:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/src/",
-    "multiverse+cli": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/cli/src/index.ts",
-    "multiverse+private": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/private/src/index.ts",
-    "multiverse+unnamed-cjs": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/unnamed-cjs/src/index.ts",
-    "multiverse+unnamed-esm": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/unnamed-esm/src/index.ts",
-    "multiverse+webpack": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/src/index.ts",
-    "universe+cli:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/cli/src/",
-    "universe+private:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/private/src/",
-    "universe+unnamed-cjs:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/unnamed-cjs/src/",
-    "universe+unnamed-esm:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/unnamed-esm/src/",
-    "universe+webpack:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/src/",
-    "universe+cli": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/cli/src/index.ts",
-    "universe+private": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/private/src/index.ts",
-    "universe+unnamed-cjs": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/unnamed-cjs/src/index.ts",
-    "universe+unnamed-esm": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/unnamed-esm/src/index.ts",
-    "universe+webpack": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/src/index.ts",
-    "universe:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/src/",
-    "universe": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/src/index.ts",
-    "testverse+cli:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/cli/test/",
-    "testverse+private:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/private/test/",
-    "testverse+unnamed-cjs:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/unnamed-cjs/test/",
-    "testverse+unnamed-esm:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/unnamed-esm/test/",
-    "testverse+webpack:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/test/",
-    "testverse:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/test/",
-    "typeverse:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/types/",
-    "rootverse+cli:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/cli/",
-    "rootverse+private:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/private/",
-    "rootverse+unnamed-cjs:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/unnamed-cjs/",
-    "rootverse+unnamed-esm:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/unnamed-esm/",
-    "rootverse+webpack:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/",
-    "rootverse:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/"
+    "multiverse+cli:*": "packages/cli/src/*",
+    "multiverse+private:*": "packages/private/src/*",
+    "multiverse+unnamed-cjs:*": "packages/unnamed-cjs/src/*",
+    "multiverse+unnamed-esm:*": "packages/unnamed-esm/src/*",
+    "multiverse+webpack:*": "packages/webpack/src/*",
+    "multiverse+cli$": "packages/cli/src/index.ts",
+    "multiverse+private$": "packages/private/src/index.ts",
+    "multiverse+unnamed-cjs$": "packages/unnamed-cjs/src/index.ts",
+    "multiverse+unnamed-esm$": "packages/unnamed-esm/src/index.ts",
+    "multiverse+webpack$": "packages/webpack/src/index.ts",
+    "universe+cli:*": "packages/cli/src/*",
+    "universe+private:*": "packages/private/src/*",
+    "universe+unnamed-cjs:*": "packages/unnamed-cjs/src/*",
+    "universe+unnamed-esm:*": "packages/unnamed-esm/src/*",
+    "universe+webpack:*": "packages/webpack/src/*",
+    "universe+cli$": "packages/cli/src/index.ts",
+    "universe+private$": "packages/private/src/index.ts",
+    "universe+unnamed-cjs$": "packages/unnamed-cjs/src/index.ts",
+    "universe+unnamed-esm$": "packages/unnamed-esm/src/index.ts",
+    "universe+webpack$": "packages/webpack/src/index.ts",
+    "universe:*": "src/*",
+    "universe$": "src/index.ts",
+    "testverse+cli:*": "packages/cli/test/*",
+    "testverse+private:*": "packages/private/test/*",
+    "testverse+unnamed-cjs:*": "packages/unnamed-cjs/test/*",
+    "testverse+unnamed-esm:*": "packages/unnamed-esm/test/*",
+    "testverse+webpack:*": "packages/webpack/test/*",
+    "testverse:*": "test/*",
+    "typeverse:*": "types/*",
+    "rootverse+cli:*": "packages/cli/*",
+    "rootverse+private:*": "packages/private/*",
+    "rootverse+unnamed-cjs:*": "packages/unnamed-cjs/*",
+    "rootverse+unnamed-esm:*": "packages/unnamed-esm/*",
+    "rootverse+webpack:*": "packages/webpack/*",
+    "rootverse:*": "*"
   }
 
 }
@@ -25603,48 +25618,46 @@ export default config;
 
 debug('exported config: %O', config);
 
-// TODO: 1. Need to use relative paths instead of absolute
-// TODO: 2. Also need to append $ to 1-to-1 aliases (in alias/unit-alias)
 function getNextJsAliases() {
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
   // ! directly, consider regenerating aliases across the entire project with:
   // ! \`npx symbiote project renovate --regenerate-assets --assets-preset ...\`
   return {
-    "multiverse+cli:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/cli/src/",
-    "multiverse+private:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/private/src/",
-    "multiverse+unnamed-cjs:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/unnamed-cjs/src/",
-    "multiverse+unnamed-esm:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/unnamed-esm/src/",
-    "multiverse+webpack:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/src/",
-    "multiverse+cli": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/cli/src/index.ts",
-    "multiverse+private": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/private/src/index.ts",
-    "multiverse+unnamed-cjs": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/unnamed-cjs/src/index.ts",
-    "multiverse+unnamed-esm": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/unnamed-esm/src/index.ts",
-    "multiverse+webpack": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/src/index.ts",
-    "universe+cli:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/cli/src/",
-    "universe+private:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/private/src/",
-    "universe+unnamed-cjs:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/unnamed-cjs/src/",
-    "universe+unnamed-esm:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/unnamed-esm/src/",
-    "universe+webpack:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/src/",
-    "universe+cli": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/cli/src/index.ts",
-    "universe+private": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/private/src/index.ts",
-    "universe+unnamed-cjs": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/unnamed-cjs/src/index.ts",
-    "universe+unnamed-esm": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/unnamed-esm/src/index.ts",
-    "universe+webpack": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/src/index.ts",
-    "universe:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/src/",
-    "universe": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/src/index.ts",
-    "testverse+cli:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/cli/test/",
-    "testverse+private:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/private/test/",
-    "testverse+unnamed-cjs:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/unnamed-cjs/test/",
-    "testverse+unnamed-esm:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/unnamed-esm/test/",
-    "testverse+webpack:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/test/",
-    "testverse:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/test/",
-    "typeverse:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/types/",
-    "rootverse+cli:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/cli/",
-    "rootverse+private:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/private/",
-    "rootverse+unnamed-cjs:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/unnamed-cjs/",
-    "rootverse+unnamed-esm:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/unnamed-esm/",
-    "rootverse+webpack:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/",
-    "rootverse:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/"
+    "multiverse+cli:*": "packages/cli/src/*",
+    "multiverse+private:*": "packages/private/src/*",
+    "multiverse+unnamed-cjs:*": "packages/unnamed-cjs/src/*",
+    "multiverse+unnamed-esm:*": "packages/unnamed-esm/src/*",
+    "multiverse+webpack:*": "packages/webpack/src/*",
+    "multiverse+cli$": "packages/cli/src/index.ts",
+    "multiverse+private$": "packages/private/src/index.ts",
+    "multiverse+unnamed-cjs$": "packages/unnamed-cjs/src/index.ts",
+    "multiverse+unnamed-esm$": "packages/unnamed-esm/src/index.ts",
+    "multiverse+webpack$": "packages/webpack/src/index.ts",
+    "universe+cli:*": "packages/cli/src/*",
+    "universe+private:*": "packages/private/src/*",
+    "universe+unnamed-cjs:*": "packages/unnamed-cjs/src/*",
+    "universe+unnamed-esm:*": "packages/unnamed-esm/src/*",
+    "universe+webpack:*": "packages/webpack/src/*",
+    "universe+cli$": "packages/cli/src/index.ts",
+    "universe+private$": "packages/private/src/index.ts",
+    "universe+unnamed-cjs$": "packages/unnamed-cjs/src/index.ts",
+    "universe+unnamed-esm$": "packages/unnamed-esm/src/index.ts",
+    "universe+webpack$": "packages/webpack/src/index.ts",
+    "universe:*": "src/*",
+    "universe$": "src/index.ts",
+    "testverse+cli:*": "packages/cli/test/*",
+    "testverse+private:*": "packages/private/test/*",
+    "testverse+unnamed-cjs:*": "packages/unnamed-cjs/test/*",
+    "testverse+unnamed-esm:*": "packages/unnamed-esm/test/*",
+    "testverse+webpack:*": "packages/webpack/test/*",
+    "testverse:*": "test/*",
+    "typeverse:*": "types/*",
+    "rootverse+cli:*": "packages/cli/*",
+    "rootverse+private:*": "packages/private/*",
+    "rootverse+unnamed-cjs:*": "packages/unnamed-cjs/*",
+    "rootverse+unnamed-esm:*": "packages/unnamed-esm/*",
+    "rootverse+webpack:*": "packages/webpack/*",
+    "rootverse:*": "*"
   }
 
 }
@@ -25684,48 +25697,46 @@ export default config;
 
 debug('exported config: %O', config);
 
-// TODO: 1. Need to use relative paths instead of absolute
-// TODO: 2. Also need to append $ to 1-to-1 aliases (in alias/unit-alias)
 function getNextJsAliases() {
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
   // ! directly, consider regenerating aliases across the entire project with:
   // ! \`npx symbiote project renovate --regenerate-assets --assets-preset ...\`
   return {
-    "multiverse+pkg-1:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/src/",
-    "multiverse+pkg-2:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/src/",
-    "multiverse+pkg-import:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/src/",
-    "multiverse+unnamed-pkg-1:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/unnamed-pkg-1/src/",
-    "multiverse+unnamed-pkg-2:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/unnamed-pkg-2/src/",
-    "multiverse+pkg-1": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/src/index.ts",
-    "multiverse+pkg-2": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/src/index.ts",
-    "multiverse+pkg-import": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/src/index.ts",
-    "multiverse+unnamed-pkg-1": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/unnamed-pkg-1/src/index.ts",
-    "multiverse+unnamed-pkg-2": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/unnamed-pkg-2/src/index.ts",
-    "universe+pkg-1:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/src/",
-    "universe+pkg-2:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/src/",
-    "universe+pkg-import:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/src/",
-    "universe+unnamed-pkg-1:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/unnamed-pkg-1/src/",
-    "universe+unnamed-pkg-2:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/unnamed-pkg-2/src/",
-    "universe+pkg-1": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/src/index.ts",
-    "universe+pkg-2": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/src/index.ts",
-    "universe+pkg-import": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/src/index.ts",
-    "universe+unnamed-pkg-1": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/unnamed-pkg-1/src/index.ts",
-    "universe+unnamed-pkg-2": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/unnamed-pkg-2/src/index.ts",
-    "universe:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/src/",
-    "universe": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/src/index.ts",
-    "testverse+pkg-1:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/",
-    "testverse+pkg-2:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/test/",
-    "testverse+pkg-import:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/test/",
-    "testverse+unnamed-pkg-1:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/unnamed-pkg-1/test/",
-    "testverse+unnamed-pkg-2:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/unnamed-pkg-2/test/",
-    "testverse:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/test/",
-    "typeverse:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/types/",
-    "rootverse+pkg-1:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/",
-    "rootverse+pkg-2:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/",
-    "rootverse+pkg-import:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/",
-    "rootverse+unnamed-pkg-1:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/unnamed-pkg-1/",
-    "rootverse+unnamed-pkg-2:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/unnamed-pkg-2/",
-    "rootverse:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/"
+    "multiverse+pkg-1:*": "packages/pkg-1/src/*",
+    "multiverse+pkg-2:*": "packages/pkg-2/src/*",
+    "multiverse+pkg-import:*": "packages/pkg-import/src/*",
+    "multiverse+unnamed-pkg-1:*": "packages/unnamed-pkg-1/src/*",
+    "multiverse+unnamed-pkg-2:*": "packages/unnamed-pkg-2/src/*",
+    "multiverse+pkg-1$": "packages/pkg-1/src/index.ts",
+    "multiverse+pkg-2$": "packages/pkg-2/src/index.ts",
+    "multiverse+pkg-import$": "packages/pkg-import/src/index.ts",
+    "multiverse+unnamed-pkg-1$": "packages/unnamed-pkg-1/src/index.ts",
+    "multiverse+unnamed-pkg-2$": "packages/unnamed-pkg-2/src/index.ts",
+    "universe+pkg-1:*": "packages/pkg-1/src/*",
+    "universe+pkg-2:*": "packages/pkg-2/src/*",
+    "universe+pkg-import:*": "packages/pkg-import/src/*",
+    "universe+unnamed-pkg-1:*": "packages/unnamed-pkg-1/src/*",
+    "universe+unnamed-pkg-2:*": "packages/unnamed-pkg-2/src/*",
+    "universe+pkg-1$": "packages/pkg-1/src/index.ts",
+    "universe+pkg-2$": "packages/pkg-2/src/index.ts",
+    "universe+pkg-import$": "packages/pkg-import/src/index.ts",
+    "universe+unnamed-pkg-1$": "packages/unnamed-pkg-1/src/index.ts",
+    "universe+unnamed-pkg-2$": "packages/unnamed-pkg-2/src/index.ts",
+    "universe:*": "src/*",
+    "universe$": "src/index.ts",
+    "testverse+pkg-1:*": "packages/pkg-1/test/*",
+    "testverse+pkg-2:*": "packages/pkg-2/test/*",
+    "testverse+pkg-import:*": "packages/pkg-import/test/*",
+    "testverse+unnamed-pkg-1:*": "packages/unnamed-pkg-1/test/*",
+    "testverse+unnamed-pkg-2:*": "packages/unnamed-pkg-2/test/*",
+    "testverse:*": "test/*",
+    "typeverse:*": "types/*",
+    "rootverse+pkg-1:*": "packages/pkg-1/*",
+    "rootverse+pkg-2:*": "packages/pkg-2/*",
+    "rootverse+pkg-import:*": "packages/pkg-import/*",
+    "rootverse+unnamed-pkg-1:*": "packages/unnamed-pkg-1/*",
+    "rootverse+unnamed-pkg-2:*": "packages/unnamed-pkg-2/*",
+    "rootverse:*": "*"
   }
 
 }
@@ -25765,48 +25776,46 @@ export default config;
 
 debug('exported config: %O', config);
 
-// TODO: 1. Need to use relative paths instead of absolute
-// TODO: 2. Also need to append $ to 1-to-1 aliases (in alias/unit-alias)
 function getNextJsAliases() {
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
   // ! directly, consider regenerating aliases across the entire project with:
   // ! \`npx symbiote project renovate --regenerate-assets --assets-preset ...\`
   return {
-    "multiverse+pkg-1:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/src/",
-    "multiverse+pkg-2:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/src/",
-    "multiverse+pkg-import:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/src/",
-    "multiverse+unnamed-pkg-1:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/unnamed-pkg-1/src/",
-    "multiverse+unnamed-pkg-2:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/unnamed-pkg-2/src/",
-    "multiverse+pkg-1": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/src/index.ts",
-    "multiverse+pkg-2": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/src/index.ts",
-    "multiverse+pkg-import": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/src/index.ts",
-    "multiverse+unnamed-pkg-1": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/unnamed-pkg-1/src/index.ts",
-    "multiverse+unnamed-pkg-2": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/unnamed-pkg-2/src/index.ts",
-    "universe+pkg-1:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/src/",
-    "universe+pkg-2:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/src/",
-    "universe+pkg-import:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/src/",
-    "universe+unnamed-pkg-1:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/unnamed-pkg-1/src/",
-    "universe+unnamed-pkg-2:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/unnamed-pkg-2/src/",
-    "universe+pkg-1": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/src/index.ts",
-    "universe+pkg-2": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/src/index.ts",
-    "universe+pkg-import": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/src/index.ts",
-    "universe+unnamed-pkg-1": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/unnamed-pkg-1/src/index.ts",
-    "universe+unnamed-pkg-2": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/unnamed-pkg-2/src/index.ts",
-    "universe:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/src/",
-    "universe": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/src/index.ts",
-    "testverse+pkg-1:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/test/",
-    "testverse+pkg-2:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/test/",
-    "testverse+pkg-import:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/test/",
-    "testverse+unnamed-pkg-1:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/unnamed-pkg-1/test/",
-    "testverse+unnamed-pkg-2:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/unnamed-pkg-2/test/",
-    "testverse:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/test/",
-    "typeverse:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/types/",
-    "rootverse+pkg-1:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/",
-    "rootverse+pkg-2:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-2/",
-    "rootverse+pkg-import:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/",
-    "rootverse+unnamed-pkg-1:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/unnamed-pkg-1/",
-    "rootverse+unnamed-pkg-2:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/unnamed-pkg-2/",
-    "rootverse:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/"
+    "multiverse+pkg-1:*": "packages/pkg-1/src/*",
+    "multiverse+pkg-2:*": "packages/pkg-2/src/*",
+    "multiverse+pkg-import:*": "packages/pkg-import/src/*",
+    "multiverse+unnamed-pkg-1:*": "packages/unnamed-pkg-1/src/*",
+    "multiverse+unnamed-pkg-2:*": "packages/unnamed-pkg-2/src/*",
+    "multiverse+pkg-1$": "packages/pkg-1/src/index.ts",
+    "multiverse+pkg-2$": "packages/pkg-2/src/index.ts",
+    "multiverse+pkg-import$": "packages/pkg-import/src/index.ts",
+    "multiverse+unnamed-pkg-1$": "packages/unnamed-pkg-1/src/index.ts",
+    "multiverse+unnamed-pkg-2$": "packages/unnamed-pkg-2/src/index.ts",
+    "universe+pkg-1:*": "packages/pkg-1/src/*",
+    "universe+pkg-2:*": "packages/pkg-2/src/*",
+    "universe+pkg-import:*": "packages/pkg-import/src/*",
+    "universe+unnamed-pkg-1:*": "packages/unnamed-pkg-1/src/*",
+    "universe+unnamed-pkg-2:*": "packages/unnamed-pkg-2/src/*",
+    "universe+pkg-1$": "packages/pkg-1/src/index.ts",
+    "universe+pkg-2$": "packages/pkg-2/src/index.ts",
+    "universe+pkg-import$": "packages/pkg-import/src/index.ts",
+    "universe+unnamed-pkg-1$": "packages/unnamed-pkg-1/src/index.ts",
+    "universe+unnamed-pkg-2$": "packages/unnamed-pkg-2/src/index.ts",
+    "universe:*": "src/*",
+    "universe$": "src/index.ts",
+    "testverse+pkg-1:*": "packages/pkg-1/test/*",
+    "testverse+pkg-2:*": "packages/pkg-2/test/*",
+    "testverse+pkg-import:*": "packages/pkg-import/test/*",
+    "testverse+unnamed-pkg-1:*": "packages/unnamed-pkg-1/test/*",
+    "testverse+unnamed-pkg-2:*": "packages/unnamed-pkg-2/test/*",
+    "testverse:*": "test/*",
+    "typeverse:*": "types/*",
+    "rootverse+pkg-1:*": "packages/pkg-1/*",
+    "rootverse+pkg-2:*": "packages/pkg-2/*",
+    "rootverse+pkg-import:*": "packages/pkg-import/*",
+    "rootverse+unnamed-pkg-1:*": "packages/unnamed-pkg-1/*",
+    "rootverse+unnamed-pkg-2:*": "packages/unnamed-pkg-2/*",
+    "rootverse:*": "*"
   }
 
 }
@@ -25846,18 +25855,16 @@ export default config;
 
 debug('exported config: %O', config);
 
-// TODO: 1. Need to use relative paths instead of absolute
-// TODO: 2. Also need to append $ to 1-to-1 aliases (in alias/unit-alias)
 function getNextJsAliases() {
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
   // ! directly, consider regenerating aliases across the entire project with:
   // ! \`npx symbiote project renovate --regenerate-assets --assets-preset ...\`
   return {
-    "universe:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/src/",
-    "universe": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/src/index.ts",
-    "testverse:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/test/",
-    "typeverse:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/types/",
-    "rootverse:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/"
+    "universe:*": "src/*",
+    "universe$": "src/index.ts",
+    "testverse:*": "test/*",
+    "typeverse:*": "types/*",
+    "rootverse:*": "*"
   }
 
 }
@@ -25897,18 +25904,16 @@ export default config;
 
 debug('exported config: %O', config);
 
-// TODO: 1. Need to use relative paths instead of absolute
-// TODO: 2. Also need to append $ to 1-to-1 aliases (in alias/unit-alias)
 function getNextJsAliases() {
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
   // ! directly, consider regenerating aliases across the entire project with:
   // ! \`npx symbiote project renovate --regenerate-assets --assets-preset ...\`
   return {
-    "universe:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/src/",
-    "universe": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/src/index.ts",
-    "testverse:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/test/",
-    "typeverse:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/types/",
-    "rootverse:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/"
+    "universe:*": "src/*",
+    "universe$": "src/index.ts",
+    "testverse:*": "test/*",
+    "typeverse:*": "types/*",
+    "rootverse:*": "*"
   }
 
 }
@@ -25948,18 +25953,16 @@ export default config;
 
 debug('exported config: %O', config);
 
-// TODO: 1. Need to use relative paths instead of absolute
-// TODO: 2. Also need to append $ to 1-to-1 aliases (in alias/unit-alias)
 function getNextJsAliases() {
   // ! These aliases are auto-generated by symbiote. Instead of modifying them
   // ! directly, consider regenerating aliases across the entire project with:
   // ! \`npx symbiote project renovate --regenerate-assets --assets-preset ...\`
   return {
-    "universe:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/src/",
-    "universe": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/src/index.ts",
-    "testverse:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/test/",
-    "typeverse:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/types/",
-    "rootverse:": "/repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/"
+    "universe:*": "src/*",
+    "universe$": "src/index.ts",
+    "testverse:*": "test/*",
+    "typeverse:*": "types/*",
+    "rootverse:*": "*"
   }
 
 }
