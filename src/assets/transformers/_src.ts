@@ -19,6 +19,18 @@ export const { transformer } = makeTransformer(function (context) {
         {
           path: toProjectAbsolutePath(outputDir, 'index.ts'),
           generate: () => /*js*/ `export {};`
+        },
+        {
+          path: toProjectAbsolutePath(outputDir, 'error.ts'),
+          generate: () => /*js*/ `
+/**
+ * A collection of possible error and warning messages.
+ */
+/* istanbul ignore next */
+export const ErrorMessage = {
+  // Your exported error messages here
+};
+`
         }
       ];
     }
