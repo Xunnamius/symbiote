@@ -6,7 +6,7 @@
 
 # Class: WebpackCustomSchemeAliasPlugin
 
-Defined in: [src/assets/transformers/\_webpack.config.mjs.ts:72](https://github.com/Xunnamius/symbiote/blob/1c36264a9ee1bf4cdf92c895c1434941f105e56c/src/assets/transformers/_webpack.config.mjs.ts#L72)
+Defined in: [src/assets/transformers/\_webpack.config.mjs.ts:72](https://github.com/Xunnamius/symbiote/blob/83ef2df2474c2254d82f0b3ae0574d283c20aaeb/src/assets/transformers/_webpack.config.mjs.ts#L72)
 
 This class fills in the gap when using aliases that look like protocols since
 Webpack 5 does not properly respect `resolve.alias` when strings with
@@ -17,11 +17,15 @@ so-called "protocols" (e.g. `universe:api.ts` or
 
 ### Constructor
 
-> **new WebpackCustomSchemeAliasPlugin**(`projectRoot`, `resolverAliases`): `WebpackCustomSchemeAliasPlugin`
+> **new WebpackCustomSchemeAliasPlugin**(`debugHint`, `projectRoot`, `resolverAliases`): `WebpackCustomSchemeAliasPlugin`
 
-Defined in: [src/assets/transformers/\_webpack.config.mjs.ts:76](https://github.com/Xunnamius/symbiote/blob/1c36264a9ee1bf4cdf92c895c1434941f105e56c/src/assets/transformers/_webpack.config.mjs.ts#L76)
+Defined in: [src/assets/transformers/\_webpack.config.mjs.ts:77](https://github.com/Xunnamius/symbiote/blob/83ef2df2474c2254d82f0b3ae0574d283c20aaeb/src/assets/transformers/_webpack.config.mjs.ts#L77)
 
 #### Parameters
+
+##### debugHint
+
+`string`
 
 ##### projectRoot
 
@@ -47,7 +51,7 @@ If `resolverAliases` does not include at least one protocol-like key
 
 > **apply**(`compiler`): `void`
 
-Defined in: [src/assets/transformers/\_webpack.config.mjs.ts:97](https://github.com/Xunnamius/symbiote/blob/1c36264a9ee1bf4cdf92c895c1434941f105e56c/src/assets/transformers/_webpack.config.mjs.ts#L97)
+Defined in: [src/assets/transformers/\_webpack.config.mjs.ts:100](https://github.com/Xunnamius/symbiote/blob/83ef2df2474c2254d82f0b3ae0574d283c20aaeb/src/assets/transformers/_webpack.config.mjs.ts#L100)
 
 #### Parameters
 

@@ -6,7 +6,7 @@
 
 # Enumeration: OutputOrder
 
-Defined in: [src/commands/build/changelog.ts:101](https://github.com/Xunnamius/symbiote/blob/1c36264a9ee1bf4cdf92c895c1434941f105e56c/src/commands/build/changelog.ts#L101)
+Defined in: [src/commands/build/changelog.ts:101](https://github.com/Xunnamius/symbiote/blob/83ef2df2474c2254d82f0b3ae0574d283c20aaeb/src/commands/build/changelog.ts#L101)
 
 Determines the output format of the changelog file.
 
@@ -16,7 +16,7 @@ Determines the output format of the changelog file.
 
 > **Descending**: `"descending"`
 
-Defined in: [src/commands/build/changelog.ts:114](https://github.com/Xunnamius/symbiote/blob/1c36264a9ee1bf4cdf92c895c1434941f105e56c/src/commands/build/changelog.ts#L114)
+Defined in: [src/commands/build/changelog.ts:114](https://github.com/Xunnamius/symbiote/blob/83ef2df2474c2254d82f0b3ae0574d283c20aaeb/src/commands/build/changelog.ts#L114)
 
 The default changelog formatting where sections are listed in chronological
 release order.
@@ -27,7 +27,7 @@ release order.
 
 > **Storybook**: `"storybook"`
 
-Defined in: [src/commands/build/changelog.ts:109](https://github.com/Xunnamius/symbiote/blob/1c36264a9ee1bf4cdf92c895c1434941f105e56c/src/commands/build/changelog.ts#L109)
+Defined in: [src/commands/build/changelog.ts:109](https://github.com/Xunnamius/symbiote/blob/83ef2df2474c2254d82f0b3ae0574d283c20aaeb/src/commands/build/changelog.ts#L109)
 
 Sections (heading level 2) are comprised of major and minor releases with
 patch changes becoming subsections (heading level 3) of their nearest
