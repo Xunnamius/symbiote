@@ -42,7 +42,11 @@ import findUp from 'find-up~5';
 import { createDebugLogger, createGenericLogger } from 'rejoinder';
 import semver from 'semver';
 
-import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
+import {
+  AssetPreset,
+  generateRootOnlyAssets,
+  makeTransformer
+} from 'universe:assets.ts';
 
 import {
   globalDebuggerNamespace,
@@ -480,7 +484,8 @@ export const { transformer } = makeTransformer(function (context) {
     shouldDeriveAliases,
     additionalRawAliasMappings,
     projectMetadata,
-    toProjectAbsolutePath
+    toProjectAbsolutePath,
+    assetPreset
   } = context;
 
   const derivedAliasesSourceSnippet = shouldDeriveAliases
@@ -496,7 +501,12 @@ export const { transformer } = makeTransformer(function (context) {
   return generateRootOnlyAssets(context, async function () {
     return [
       {
-        path: toProjectAbsolutePath(babelConfigProjectBase),
+        path: toProjectAbsolutePath(
+          assetPreset === AssetPreset.Nextjs
+            ? // ? Next.js wants its babel.config file to end in ".js"
+              babelConfigProjectBase.replace(/\.cjs$/, '.js')
+            : babelConfigProjectBase
+        ),
         generate: () => /*js*/ `
 // @ts-check
 'use strict';
