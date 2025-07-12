@@ -29,7 +29,7 @@ export function moduleExport(): Record<string, unknown> {
 export const { transformer } = makeTransformer(function (context) {
   const { asset, toProjectAbsolutePath, assetPreset } = context;
 
-  if (assetPreset && assetPreset !== AssetPreset.Nextjs) {
+  if (assetPreset && ![AssetPreset.Basic, AssetPreset.React].includes(assetPreset)) {
     return [];
   }
 

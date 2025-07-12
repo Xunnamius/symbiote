@@ -127,8 +127,7 @@ export const { transformer } = makeTransformer(function (context) {
     const derivedAliasesSourceSnippet = shouldDeriveAliases
       ? `return ${stringifyJson(
           deriveAliasesForNextJs(
-            additionalRawAliasMappings.concat(generateRawAliasMap(projectMetadata)),
-            projectMetadata.rootPackage.root
+            additionalRawAliasMappings.concat(generateRawAliasMap(projectMetadata))
           ),
           4
         ).replace(/^}/m, '  }')}`
@@ -167,8 +166,6 @@ export default config;
 
 debug('exported config: %O', config);
 
-// TODO: 1. Need to use relative paths instead of absolute
-// TODO: 2. Also need to append $ to 1-to-1 aliases (in alias/unit-alias)
 function getNextJsAliases() {
 ${makeGeneratedAliasesWarningComment(2)}
   ${derivedAliasesSourceSnippet}

@@ -1,6 +1,7 @@
 import { directoryTestPackageBase, isAccessible, isRootPackage } from '@-xun/project';
 
 import {
+  AssetPreset,
   generatePerPackageAssets,
   generateRootOnlyAssets,
   makeTransformer
@@ -13,12 +14,23 @@ const bt = '`';
 // TODO: when module-system === esm, tests need to use esm-ready syntax for json
 // TODO: imports
 
-export const { transformer } = makeTransformer(async function (context) {
-  const { toProjectAbsolutePath, forceOverwritePotentiallyDestructive: force } = context;
+export const { transformer } = makeTransformer(async function (rootContext) {
+  const {
+    assetPreset: rootAssetPreset,
+    toProjectAbsolutePath,
+    forceOverwritePotentiallyDestructive: force
+  } = rootContext;
+
+  const isLibraryLike =
+    !rootAssetPreset ||
+    rootAssetPreset.startsWith('lib') ||
+    rootAssetPreset === AssetPreset.Cli;
+
+  const isReactLike = [AssetPreset.Nextjs, AssetPreset.React].includes(rootAssetPreset!);
 
   return [
     ...// * Only the root package gets these files
-    (await generateRootOnlyAssets(context, async function () {
+    (await generateRootOnlyAssets(rootContext, async function () {
       const outputDir = toProjectAbsolutePath(directoryTestPackageBase);
 
       // ? Only create this file if its parent directory does not already exist
@@ -51,14 +63,31 @@ export * from '@-xun/jest';`
 /**
  ** This file is automatically imported by Jest, and is responsible for
  **  bootstrapping the runtime for every test file.
- */
+ */${
+   isReactLike
+     ? `
+
+import { toPath } from '@-xun/fs';
+import { config as loadEnv } from 'dotenv';
+
+import '@testing-library/jest-dom';`
+     : ''
+ }
 
 // ? jest-extended will always come from @-xun/symbiote (i.e. transitively)
 // {@symbiote/notInvalid jest-extended}
 
 // ? https://github.com/jest-community/jest-extended#typescript
 import 'jest-extended';
-import 'jest-extended/all';`
+import 'jest-extended/all';${
+              isReactLike
+                ? `
+
+loadEnv({ path: toPath(__dirname, '..', '.env'), quiet: true });
+
+//jest.mock('@nhscc/backend-X~npm', () => require('@nhscc/backend-X'));`
+                : ''
+            }`
           }
         ];
       }
@@ -66,14 +95,15 @@ import 'jest-extended/all';`
 
     ...// * Every package gets these files except non-hybrid monorepo roots
     (await generatePerPackageAssets(
-      context,
+      rootContext,
       async function ({
         package_,
         toPackageAbsolutePath,
         contextWithCwdPackage: { cwdPackagePartialImportSpecifier }
       }) {
         const outputDir = toPackageAbsolutePath(directoryTestPackageBase);
-        const debugNamespace = isRootPackage(package_)
+        const isCwdPackageTheRoot = isRootPackage(package_);
+        const debugNamespace = isCwdPackageTheRoot
           ? package_.json.name.split('/').at(-1)!
           : package_.id;
 
@@ -81,19 +111,20 @@ import 'jest-extended/all';`
         // ? exist
         if (force || !(await isAccessible(outputDir, { useCached: true }))) {
           return [
-            {
-              path: toProjectAbsolutePath(outputDir, 'unit.test.ts'),
-              generate: () => /*js*/ `
+            ...(!isCwdPackageTheRoot || isLibraryLike
+              ? [
+                  {
+                    path: toProjectAbsolutePath(outputDir, 'unit.test.ts'),
+                    generate: () => /*js*/ `
 // * These tests ensure the exported interfaces under test function as expected.
 
 describe('::todo', () => {
   test.todo('this');
 });`
-            },
-
-            {
-              path: toProjectAbsolutePath(outputDir, 'type.test.ts'),
-              generate: () => /*js*/ `
+                  },
+                  {
+                    path: toProjectAbsolutePath(outputDir, 'type.test.ts'),
+                    generate: () => /*js*/ `
 // * These tests ensure the exported types under test function as expected.
 
 import { describe, test } from 'tstyche';
@@ -101,8 +132,9 @@ import { describe, test } from 'tstyche';
 describe('::todo', () => {
   test.todo('this');
 });`
-            },
-
+                  }
+                ]
+              : []),
             {
               path: toProjectAbsolutePath(outputDir, 'integration', '.config.ts'),
               generate: () => /*js*/ `
@@ -120,16 +152,16 @@ export {};`
 // * These brutally minimal "smoke" tests ensure this software can be invoked
 // * and, when it is, exits cleanly. Functionality testing is not the goal here.
 
-import { toAbsolutePath, toDirname } from '@-xun/fs';
+${isLibraryLike ? `import { toAbsolutePath, toDirname } from '@-xun/fs';` : ''}
 import { createDebugLogger } from 'rejoinder';
 
 import {
-  exports as packageExports,
+${isLibraryLike ? '  exports as packageExports,' : ''}
   name as packageName
 } from 'rootverse${cwdPackagePartialImportSpecifier}:package.json';
 
 import {
-  ensurePackageHasBeenBuilt,
+${isLibraryLike ? '  ensurePackageHasBeenBuilt,' : ''}
   reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
 } from 'testverse:util.ts';
 
@@ -139,7 +171,9 @@ const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(${bt}nodeVersion: "\${nodeVersion}" (process.version=\${process.version})${bt});
 
-reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });${
+                isLibraryLike
+                  ? `
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -147,7 +181,9 @@ beforeAll(async () => {
     packageName,
     packageExports
   );
-});
+});`
+                  : ''
+              }
 
 test.todo('this');`
             },
@@ -164,16 +200,16 @@ test.todo('this');`
 // * (e.g. mocking output handling and mocking networking while eschewing
 // * filesystem mocking) in favor of testing a "fully integrated" system.
 
-import { toAbsolutePath, toDirname } from '@-xun/fs';
+${isLibraryLike ? `import { toAbsolutePath, toDirname } from '@-xun/fs';` : ''}
 import { createDebugLogger } from 'rejoinder';
 
 import {
-  exports as packageExports,
+${isLibraryLike ? '  exports as packageExports,' : ''}
   name as packageName
 } from 'rootverse${cwdPackagePartialImportSpecifier}:package.json';
 
 import {
-  ensurePackageHasBeenBuilt,
+${isLibraryLike ? '  ensurePackageHasBeenBuilt,' : ''}
   reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
 } from 'testverse:util.ts';
 
@@ -183,7 +219,9 @@ const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(${bt}nodeVersion: "\${nodeVersion}" (process.version=\${process.version})${bt});
 
-reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });${
+                isLibraryLike
+                  ? `
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -191,7 +229,9 @@ beforeAll(async () => {
     packageName,
     packageExports
   );
-});
+});`
+                  : ''
+              }
 
 test.todo('this');`
             },
@@ -214,16 +254,16 @@ export {};`
 // * containers, and are built to run in GitHub Actions CI pipelines; some can
 // * also be run locally.
 
-import { toAbsolutePath, toDirname } from '@-xun/fs';
+${isLibraryLike ? `import { toAbsolutePath, toDirname } from '@-xun/fs';` : ''}
 import { createDebugLogger } from 'rejoinder';
 
 import {
-  exports as packageExports,
+${isLibraryLike ? '  exports as packageExports,' : ''}
   name as packageName
 } from 'rootverse${cwdPackagePartialImportSpecifier}:package.json';
 
 import {
-  ensurePackageHasBeenBuilt,
+${isLibraryLike ? '  ensurePackageHasBeenBuilt,' : ''}
   reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
 } from 'testverse:util.ts';
 
@@ -233,7 +273,9 @@ const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
 debug(${bt}nodeVersion: "\${nodeVersion}" (process.version=\${process.version})${bt});
 
-reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
+reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });${
+                isLibraryLike
+                  ? `
 
 beforeAll(async () => {
   await ensurePackageHasBeenBuilt(
@@ -241,7 +283,9 @@ beforeAll(async () => {
     packageName,
     packageExports
   );
-});
+});`
+                  : ''
+              }
 
 test.todo('this');`
             }

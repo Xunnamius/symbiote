@@ -66,7 +66,7 @@ import type {
   Options as TransformRewriteImportsOptions
 } from 'babel-plugin-transform-rewrite-imports';
 
-import type { PackageJson } from 'type-fest';
+import type { Merge, PackageJson } from 'type-fest';
 
 // {@symbiote/notExtraneous @babel/cli}
 
@@ -283,7 +283,7 @@ export function moduleExport({
   derivedAliases: ReturnType<typeof deriveAliasesForBabel>;
   packageRoot: AbsolutePath;
   projectRoot: AbsolutePath;
-}): BabelConfig {
+}) {
   dbgModuleExport('derivedAliases: %O', derivedAliases);
   dbgModuleExport('packageRoot: %O', packageRoot);
   dbgModuleExport('projectRoot: %O', projectRoot);
@@ -306,7 +306,7 @@ export function moduleExport({
   dbgModuleExport('commonPresetEnvConfig: %O', commonPresetEnvConfig);
   dbgModuleExport('isBuildingTranspiledForJest: %O', isBuildingTranspiledForJest);
 
-  const config: BabelConfig = {
+  const config = {
     comments: false,
     parserOpts: { strictMode: true },
     generatorOpts: { importAttributesKeyword: 'with' },
@@ -438,42 +438,21 @@ export function moduleExport({
             projectRoot
           )
         ]
-      }
-      // TODO: FOR NEXTJS Next.js:
-      // // * Used by Vercel, `npm start`, and `npm run build`
-      // production: {
-      //   // ? Source maps are handled by Next.js and Webpack
-      //   presets: [nextBabelPreset]
-      //   // ? Minification is handled by Webpack
-      // },
-      // // * Used by `npm run dev`; is also the default environment
-      // development: {
-      //   // ? Source maps are handled by Next.js and Webpack
-      //   presets: [nextBabelPreset],
-      //   // ? https://reactjs.org/docs/error-boundaries.html#how-about-event-handlers
-      //   plugins: ['@babel/plugin-transform-react-jsx-source']
-      //   // ? We don't care about minification
-      // },
-      // // * Used by `npm run build-externals`
-      // external: {
-      //   presets: [
-      //     ['@babel/preset-env', { targets: { node: true } }],
-      //     ['@babel/preset-typescript', { allowDeclareFields: true }]
-      //     // ? Minification is handled by Webpack
-      //   ]
-      // }
+      },
+      production: {},
+      development: {}
     }
-  };
+  } satisfies BabelConfig;
 
   // ? Fallback environment for tools like webpack
-  config.env!.production = config.env!['production-browser'];
+  config.env.production = config.env['production-browser'];
 
   dbgModuleExport('config: %O', config);
-  return config;
+  return config as Merge<
+    BabelConfig,
+    { env: { [key in keyof typeof config.env]?: BabelConfig } }
+  >;
 }
-
-// TODO: FOR NEXTJS Next.js:
-// TODO:
 
 /**
  * @see {@link assertEnvironment}
@@ -497,6 +476,8 @@ export const { transformer } = makeTransformer(function (context) {
       ).replace(/^}/m, '  }')}`
     : 'return {}';
 
+  const maybeComment = assetPreset === AssetPreset.Nextjs ? '' : '// ';
+
   // * Only the root package gets these files
   return generateRootOnlyAssets(context, async function () {
     return [
@@ -515,6 +496,7 @@ const { deepMergeConfig } = require('@-xun/symbiote/assets');
 
 const {
   assertEnvironment,
+  getNextJsBabelPreset,
   moduleExport
 } = require('@-xun/symbiote/assets/${asset}');
 
@@ -522,25 +504,44 @@ const { createDebugLogger } = require('rejoinder');
 
 const debug = createDebugLogger({ namespace: '${globalDebuggerNamespace}:config:babel' });
 
-module.exports = deepMergeConfig(
+const config = deepMergeConfig(
   moduleExport({
     derivedAliases: getBabelAliases(),
     ...assertEnvironment({ projectRoot: __dirname })
   }),
   {
     // Any custom configs here will be deep merged with moduleExport's result
-
+    //
     // You may wish to enable explicit exports references for improved testing
     // DX, but be aware that it is currently a wee buggy as of 5/2025 (fix it!)
     //
-    // env: {
-    //   test: {
-    //     plugins: ['babel-plugin-explicit-exports-references']
-    //   }
-    // }
+    ${maybeComment}env: {
+    ${maybeComment}  test: {
+    ${maybeComment}    plugins: ['babel-plugin-explicit-exports-references']
+    ${maybeComment}  }
+    ${maybeComment}}
   }
-);
+);${
+          assetPreset === AssetPreset.Nextjs
+            ? `
 
+// * Used by Vercel, \`npm start\`, and \`npm run build\`
+config.env.production = {
+  // ? Source maps are handled by Next.js/Webpack
+  presets: [getNextJsBabelPreset()]
+  // ? Minification is handled by Next.js/Webpack
+};
+
+// * Used by \`npm run dev\` and is also the default environment
+config.env.development = {
+  // ? Source maps are handled by Next.js/Webpack
+  presets: [getNextJsBabelPreset()]
+  // ? We don't care about minification
+};`
+            : ''
+        }
+
+module.exports = config;
 debug('exported config: %O', module.exports);
 
 function getBabelAliases() {
@@ -581,6 +582,38 @@ export function assertEnvironment({
   const packageRoot = getCurrentWorkingDirectory();
 
   return { projectRoot: toAbsolutePath(projectRoot), packageRoot };
+}
+
+/**
+ * Returns a `next/babel` configuration object specific to Next.js projects.
+ */
+export function getNextJsBabelPreset() {
+  return [
+    'next/babel',
+    {
+      'preset-env': {
+        targets: 'defaults',
+
+        // ? If users import all core-js they're probably not concerned with
+        // ? bundle size. We shouldn't rely on magic to try and shrink it.
+        useBuiltIns: false,
+
+        // ? Do not transform modules to CJS
+        // ! MUST BE FALSE (see: https://nextjs.org/docs/#customizing-babel-config)
+        modules: false,
+
+        // ? Exclude transforms that make all code slower
+        exclude: ['transform-typeof-symbol']
+      },
+      'preset-typescript': {
+        allowDeclareFields: true
+      },
+      'preset-react': {
+        runtime: 'automatic',
+        development: !process.env.NODE_ENV?.startsWith('production')
+      }
+    }
+  ];
 }
 
 /**

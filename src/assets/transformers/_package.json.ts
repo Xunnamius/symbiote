@@ -177,7 +177,9 @@ export function generateBaseXPackageJson(
     scripts: {
       build: isLibraryLike
         ? 'npm run build:dist --'
-        : 'rejoin This package is not buildable',
+        : preset === AssetPreset.Nextjs
+          ? 'NODE_ENV=production npx next build'
+          : 'rejoin This package is not buildable',
       'build:changelog': 'symbiote build changelog --env NODE_NO_WARNINGS=1',
       'build:dist': isLibraryLike
         ? 'symbiote build distributables --env NODE_NO_WARNINGS=1 --not-multiversal'
@@ -188,6 +190,7 @@ export function generateBaseXPackageJson(
       'build:topological':
         'symbiote project topology --run build --env NODE_NO_WARNINGS=1',
       clean: 'symbiote clean --env NODE_NO_WARNINGS=1',
+      ...(preset === AssetPreset.Nextjs ? { dev: 'next -p `npx -q acquire-port`' } : {}),
       format: 'symbiote format --env NODE_NO_WARNINGS=1 --hush',
       info: 'symbiote project info --env NODE_NO_WARNINGS=1',
       lint: 'npm run lint:package --',
@@ -326,9 +329,15 @@ export function generateNonHybridMonorepoProjectXPackageJson(
   incomingBaseScripts.format += scopeUnlimitedArg;
 
   return {
-    devDependencies: incomingPackageJson.devDependencies ?? {
-      '@-xun/symbiote': `^${symbioteVersion}`
-    },
+    devDependencies:
+      incomingPackageJson.devDependencies ??
+      // ? Only add symbiote dev dependency if it isn't a dependency already
+      (incomingPackageJson.dependencies?.['@-xun/symbiote'] ||
+      incomingPackageJson.peerDependencies?.['@-xun/symbiote']
+        ? {}
+        : {
+            '@-xun/symbiote': `^${symbioteVersion}`
+          }),
     workspaces: incomingPackageJson.workspaces ?? [
       `${directoryPackagesProjectBase}/*`,
       `!${directoryPackagesProjectBase}/*.ignore*`,
