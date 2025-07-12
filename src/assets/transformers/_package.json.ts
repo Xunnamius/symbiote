@@ -75,63 +75,81 @@ export function generateBaseXPackageJson(
     : '';
 
   const binName = incomingPackageJson.name.split('/').at(-1)!;
+  // ? For now, it's best to assume preset-less things are libs.
+  // TODO: retire entire "preset" architecture, replace with attributes only and
+  // TODO: use heuristics to figure out which roots have which attributes. This
+  // TODO: should completely replace the entire "presets" system 100%.
+  const isLibraryLike =
+    !preset || preset.startsWith('lib') || preset === AssetPreset.Cli;
 
   return {
     ...incomingPackageJson,
     name: incomingPackageJson.name,
     version: incomingPackageJson.version,
     description: incomingPackageJson.description,
-    keywords: incomingPackageJson.keywords || [],
+    ...('keywords' in incomingPackageJson || isLibraryLike
+      ? { keywords: incomingPackageJson.keywords || [] }
+      : {}),
     homepage: `${repoUrl}${packagePrefix ? `/tree/main${packagePrefix}` : ''}#readme`,
     bugs: { url: `${repoUrl}/issues` },
     repository: deriveJsonRepositoryValue(repoUrl),
-    license: incomingPackageJson.license ?? 'MIT',
+    ...('license' in incomingPackageJson || isLibraryLike
+      ? { license: incomingPackageJson.license ?? 'MIT' }
+      : {}),
     author: incomingPackageJson.author ?? 'Xunnamius',
     // ! "sideEffects" can NEVER appear w/ react/next.js preset or webpack makes
     // ! orphans!
-    ...('sideEffects' in incomingPackageJson || preset?.startsWith('lib')
+    ...('sideEffects' in incomingPackageJson || isLibraryLike
       ? { sideEffects: incomingPackageJson.sideEffects ?? false }
       : {}),
     type: incomingPackageJson.type ?? 'commonjs',
-    exports: incomingPackageJson.exports ?? {
-      // ? CLI scope has its own exports entries
-      ...(preset === AssetPreset.Cli
-        ? {
-            '.': {
-              types: `./dist${packagePrefix}/src/cli.d.ts`,
-              default: `./dist${packagePrefix}/src/cli.js`
-            },
-            './commands/*': {
-              types: `./dist${packagePrefix}/src/commands/*.d.ts`,
-              default: `./dist${packagePrefix}/src/commands/*.js`
-            },
-            './configure': {
-              types: `./dist${packagePrefix}/src/configure.d.ts`,
-              default: `./dist${packagePrefix}/src/configure.js`
+    ...('exports' in incomingPackageJson || isLibraryLike
+      ? {
+          exports: incomingPackageJson.exports ?? {
+            // ? CLI scope has its own exports entries
+            ...(preset === AssetPreset.Cli
+              ? {
+                  '.': {
+                    types: `./dist${packagePrefix}/src/cli.d.ts`,
+                    default: `./dist${packagePrefix}/src/cli.js`
+                  },
+                  './commands/*': {
+                    types: `./dist${packagePrefix}/src/commands/*.d.ts`,
+                    default: `./dist${packagePrefix}/src/commands/*.js`
+                  },
+                  './configure': {
+                    types: `./dist${packagePrefix}/src/configure.d.ts`,
+                    default: `./dist${packagePrefix}/src/configure.js`
+                  }
+                }
+              : {
+                  '.': {
+                    types: `./dist${packagePrefix}/src/index.d.ts`,
+                    default: `./dist${packagePrefix}/src/index.js`
+                  }
+                }),
+            './package': './package.json',
+            './package.json': './package.json'
+          }
+        }
+      : {}),
+    ...('typesVersions' in incomingPackageJson || isLibraryLike
+      ? {
+          typesVersions: incomingPackageJson.typesVersions ?? {
+            '*': {
+              // ? CLI scope has its own typesVersions entries
+              ...(preset === AssetPreset.Cli
+                ? {
+                    index: [`dist${packagePrefix}/src/cli.d.ts`],
+                    'commands/*': [`dist${packagePrefix}/src/commands/*.d.ts`],
+                    configure: [`dist${packagePrefix}/src/configure.d.ts`]
+                  }
+                : { index: [`dist${packagePrefix}/src/index.d.ts`] }),
+              package: ['package.json']
             }
           }
-        : {
-            '.': {
-              types: `./dist${packagePrefix}/src/index.d.ts`,
-              default: `./dist${packagePrefix}/src/index.js`
-            }
-          }),
-      './package': './package.json',
-      './package.json': './package.json'
-    },
-    typesVersions: incomingPackageJson.typesVersions ?? {
-      '*': {
-        // ? CLI scope has its own typesVersions entries
-        ...(preset === AssetPreset.Cli
-          ? {
-              index: [`dist${packagePrefix}/src/cli.d.ts`],
-              'commands/*': [`dist${packagePrefix}/src/commands/*.d.ts`],
-              configure: [`dist${packagePrefix}/src/configure.d.ts`]
-            }
-          : { index: [`dist${packagePrefix}/src/index.d.ts`] }),
-        package: ['package.json']
-      }
-    },
+        }
+      : {}),
     // ? CLI scope gets a "bin" field with proper value (always an object)
     ...(preset === AssetPreset.Cli
       ? {
@@ -146,18 +164,27 @@ export function generateBaseXPackageJson(
           }
         }
       : {}),
-    files: incomingPackageJson.files ?? [
-      '/dist',
-      '/LICENSE',
-      '/package.json',
-      '/README.md'
-    ],
+    ...('files' in incomingPackageJson || isLibraryLike
+      ? {
+          files: incomingPackageJson.files ?? [
+            '/dist',
+            '/LICENSE',
+            '/package.json',
+            '/README.md'
+          ]
+        }
+      : {}),
     scripts: {
-      build: 'npm run build:dist --',
+      build: isLibraryLike
+        ? 'npm run build:dist --'
+        : 'rejoin This package is not buildable',
       'build:changelog': 'symbiote build changelog --env NODE_NO_WARNINGS=1',
-      'build:dist':
-        'symbiote build distributables --env NODE_NO_WARNINGS=1 --not-multiversal',
-      'build:docs': 'symbiote build docs --env NODE_NO_WARNINGS=1',
+      'build:dist': isLibraryLike
+        ? 'symbiote build distributables --env NODE_NO_WARNINGS=1 --not-multiversal'
+        : 'rejoin This package is does not have buildable distributables',
+      'build:docs': isLibraryLike
+        ? 'symbiote build docs --env NODE_NO_WARNINGS=1'
+        : 'rejoin This package does not have buildable documentation',
       'build:topological':
         'symbiote project topology --run build --env NODE_NO_WARNINGS=1',
       clean: 'symbiote clean --env NODE_NO_WARNINGS=1',
@@ -171,7 +198,9 @@ export function generateBaseXPackageJson(
         'symbiote project topology --run lint --env NODE_NO_WARNINGS=1',
       'list-tasks': `symbiote list-tasks --env NODE_NO_WARNINGS=1 --scope ${DefaultGlobalScope.ThisPackage}`,
       prepare: 'symbiote project prepare --env NODE_NO_WARNINGS=1',
-      release: 'symbiote release --env NODE_NO_WARNINGS=1',
+      release: isLibraryLike
+        ? 'symbiote release --env NODE_NO_WARNINGS=1'
+        : 'rejoin This package is not releasable',
       'release:topological':
         'symbiote project topology --run release --env NODE_NO_WARNINGS=1',
       renovate: `symbiote project renovate --env NODE_NO_WARNINGS=1 --github-reconfigure-repo --regenerate-assets --assets-preset ${assetPresets.join(' ')}`,
@@ -193,11 +222,15 @@ export function generateBaseXPackageJson(
     engines: incomingPackageJson.engines ?? {
       node: generatePackageJsonEngineMaintainedNodeVersions({ format: 'engines' })
     },
-    publishConfig: {
-      access: 'public',
-      registry: 'https://registry.npmjs.org',
-      ...incomingPackageJson.publishConfig
-    }
+    ...('publishConfig' in incomingPackageJson || isLibraryLike
+      ? {
+          publishConfig: {
+            access: 'public',
+            registry: 'https://registry.npmjs.org',
+            ...incomingPackageJson.publishConfig
+          }
+        }
+      : {})
   } as const satisfies XPackageJson;
 }
 
@@ -232,9 +265,15 @@ export function generatePolyrepoXPackageJson(
     ...incomingBaseJson,
     scripts: incomingBaseScripts,
     dependencies: incomingPackageJson.dependencies ?? {},
-    devDependencies: incomingPackageJson.devDependencies ?? {
-      '@-xun/symbiote': `^${symbioteVersion}`
-    }
+    devDependencies:
+      incomingPackageJson.devDependencies ??
+      // ? Only add symbiote dev dependency if it isn't a dependency already
+      (incomingPackageJson.dependencies?.['@-xun/symbiote'] ||
+      incomingPackageJson.peerDependencies?.['@-xun/symbiote']
+        ? {}
+        : {
+            '@-xun/symbiote': `^${symbioteVersion}`
+          })
   } as const satisfies XPackageJsonPolyrepoRoot;
 }
 
