@@ -158,6 +158,7 @@ export default config;
 debug('exported config: %O', config);
 
 // TODO: need to replace long path components with import.meta.dirname
+// TODO: also need to append $ to single paths (in alias/unit-alias)
 function getNextJsAliases() {
 ${makeGeneratedAliasesWarningComment(2)}
   ${derivedAliasesSourceSnippet}
