@@ -1,3 +1,5 @@
+import { toAbsolutePath } from '@-xun/fs';
+
 import {
   deriveAliasesForNextJs,
   generateRawAliasMap,
@@ -51,7 +53,7 @@ export function moduleExport({
 
       currentConfig.plugins = [
         ...currentConfig.plugins,
-        new WebpackCustomSchemeAliasPlugin(projectRoot, derivedAliases)
+        new WebpackCustomSchemeAliasPlugin(toAbsolutePath(projectRoot), derivedAliases)
       ];
 
       if (configureWebpack) {
