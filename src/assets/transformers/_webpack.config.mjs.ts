@@ -70,10 +70,12 @@ debug('exported config: %O', config);
  * `multiverse+shared:something.ts`) are present.
  */
 export class WebpackCustomSchemeAliasPlugin {
-  #schemes = new Map();
+  #debugHint: string;
   #projectRoot: string;
+  #schemes = new Map();
 
   constructor(
+    debugHint: string,
     projectRoot: AbsolutePath,
     /**
      * An object of definitions for Webpack's `resolve.alias` (or Next.js)
@@ -84,6 +86,7 @@ export class WebpackCustomSchemeAliasPlugin {
      */
     resolverAliases: Record<string, string>
   ) {
+    this.#debugHint = debugHint;
     this.#projectRoot = projectRoot;
 
     Object.entries(resolverAliases).forEach(([k, v]) =>
@@ -108,7 +111,7 @@ export class WebpackCustomSchemeAliasPlugin {
             assert(typeof scheme === 'string', `non-string scheme "${String(scheme)}"`);
             assert(hook, 'undefined hook for scheme ' + scheme);
 
-            const localDebug = debug.extend('read:' + scheme);
+            const localDebug = debug.extend(`read:${scheme}:${this.#debugHint}`);
 
             if (schemePath !== undefined) {
               hook.tap(
@@ -148,7 +151,7 @@ export class WebpackCustomSchemeAliasPlugin {
             assert(typeof scheme === 'string', `non-string scheme "${String(scheme)}"`);
             assert(hook, 'undefined hook for scheme ' + scheme);
 
-            const localDebug = debug.extend('resolve:' + scheme);
+            const localDebug = debug.extend(`res:${scheme}:${this.#debugHint}`);
 
             if (schemePath !== undefined) {
               // * https://github.com/webpack/webpack/blob/ad1e3b46f46b9acd5bb9c377afcdc101338d5c96/lib/schemes/FileUriPlugin.js
@@ -168,7 +171,8 @@ export class WebpackCustomSchemeAliasPlugin {
                 resourceData.fragment = fragment;
                 resourceData.resource = path + query + fragment;
 
-                localDebug('updated resource data: %O', resourceData);
+                localDebug('updated resource data to: %O', resourceData);
+                localDebug.newline();
 
                 return true;
               });

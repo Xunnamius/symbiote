@@ -53,7 +53,15 @@ export function moduleExport({
 
       currentConfig.plugins = [
         ...currentConfig.plugins,
-        new WebpackCustomSchemeAliasPlugin(toAbsolutePath(projectRoot), derivedAliases)
+        new WebpackCustomSchemeAliasPlugin(
+          context.isServer
+            ? context.nextRuntime === 'nodejs'
+              ? 'server'
+              : 'edge'
+            : 'client',
+          toAbsolutePath(projectRoot),
+          derivedAliases
+        )
       ];
 
       if (configureWebpack) {
@@ -159,8 +167,8 @@ export default config;
 
 debug('exported config: %O', config);
 
-// TODO: need to replace long path components with import.meta.dirname
-// TODO: also need to append $ to single paths (in alias/unit-alias)
+// TODO: 1. Need to use relative paths instead of absolute
+// TODO: 2. Also need to append $ to 1-to-1 aliases (in alias/unit-alias)
 function getNextJsAliases() {
 ${makeGeneratedAliasesWarningComment(2)}
   ${derivedAliasesSourceSnippet}
