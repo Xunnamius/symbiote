@@ -22,7 +22,7 @@ export const { transformer } = makeTransformer(function (context) {
 # shellcheck disable=all
 # This file's syntax is only KINDA similar like .gitignore...
 
-# Ignore all root-level files
+# Ignore all files
 /*
 
 # Re-add root-level dirs
@@ -31,12 +31,17 @@ export const { transformer } = makeTransformer(function (context) {
 !/src
 !/types
 
-# Re-add shared packages
+# Re-add unpublished internal packages
+!/packages
+/packages/*
 !/packages/shared
+/packages/shared/*
+!/packages/shared/src
+!/packages/shared/package.json
 
 # Re-add root-level files
 !/.gitignore
-!/babel.config.js
+!/babel.config.cjs
 !/next.config.mjs
 !/package-lock.json
 !/package.json
