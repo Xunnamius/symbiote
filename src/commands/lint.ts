@@ -390,7 +390,12 @@ Provide --allow-warning-comments to set the SYMBIOTE_LINT_ALLOW_WARNING_COMMENTS
                 : perPackageMarkdownFiles.get(cwdPackage.id);
 
           hardAssert(targetFiles, ErrorMessage.GuruMeditation());
-          npxRemarkArguments.push(...targetFiles);
+
+          if (targetFiles.length) {
+            npxRemarkArguments.push(...targetFiles);
+          } else {
+            npxRemarkArguments.length = 0;
+          }
         }
 
         // * Debug args output and adding linter options is done in runLinter
@@ -398,12 +403,16 @@ Provide --allow-warning-comments to set the SYMBIOTE_LINT_ALLOW_WARNING_COMMENTS
         // TODO: gain noticeable speedups by switching to node-only API instead
         // TODO: of calling out via execa runners
         promisedLinters.push(
-          runLinter('npx', npxRemarkArguments, {
-            env: {
-              NODE_ENV: 'lint',
-              SYMBIOTE_LINT_ALLOW_WARNING_COMMENTS: allowWarningComments.toString()
-            }
-          })
+          baseline || npxRemarkArguments.length
+            ? runLinter('npx', npxRemarkArguments, {
+                env: {
+                  NODE_ENV: 'lint',
+                  SYMBIOTE_LINT_ALLOW_WARNING_COMMENTS: allowWarningComments.toString()
+                }
+              })
+            : Promise.resolve().then(() =>
+                debug.message('skipped remark linter: nothing to lint')
+              )
         );
       }
 
