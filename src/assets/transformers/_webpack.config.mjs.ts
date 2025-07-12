@@ -16,7 +16,7 @@ import { globalDebuggerNamespace } from 'universe:constant.ts';
 import type { AbsolutePath } from '@-xun/fs';
 
 const debug = createDebugLogger({
-  namespace: '${globalDebuggerNamespace}:asset:webpack'
+  namespace: `${globalDebuggerNamespace}:asset:webpack`
 });
 
 export function moduleExport(): Record<string, unknown> {
