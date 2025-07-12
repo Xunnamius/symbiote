@@ -1038,8 +1038,6 @@ export function stringifyJson(o: Jsonifiable, spaceTabs = 2) {
   return JSON.stringify(o, undefined, spaceTabs) + '\n';
 }
 
-// TODO: probably prudent to make these part of cli-utils
-
 export async function readFile(path: string) {
   try {
     return await fs.readFile(path, { encoding: 'utf8' });

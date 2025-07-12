@@ -252,7 +252,7 @@ export type TransformerContext = {
    * This is the preset that was passed in from a wider context, such as a
    * renovation or initialization command. Therefore, it only applies to the
    * current package and should be relied upon with caution when generating
-   * per-package assets. It is usually best to and assume a library-like preset
+   * per-package assets. It is usually best to assume a library-like preset
    * (e.g. "lib-cjs") and rely on each package's attributes (i.e.
    * `WorkspaceAttribute`).
    */
