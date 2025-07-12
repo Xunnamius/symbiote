@@ -29,7 +29,7 @@ export function moduleExport({
 }: {
   derivedAliases: ReturnType<typeof deriveAliasesForNextJs>;
   configureWebpack?: AnyFunction;
-  projectRoot: AbsolutePath;
+  projectRoot: AbsolutePath | string;
 }): Record<string, unknown> {
   return {
     // * https://nextjs.org/docs/app/api-reference/config/next-config-js/allowedDevOrigins
