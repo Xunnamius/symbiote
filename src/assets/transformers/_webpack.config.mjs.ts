@@ -93,8 +93,10 @@ export class WebpackCustomSchemeAliasPlugin {
       k.includes(':') ? this.#schemes.set(k.split(':')[0], v.split('*')[0]) : undefined
     );
 
-    debug('project root: %O', this.#projectRoot);
-    debug('registered alias schemes: %O', this.#schemes);
+    const localDebug = debug.extend(`construct:${this.#debugHint}`);
+
+    localDebug('project root: %O', this.#projectRoot);
+    localDebug('registered alias schemes: %O', this.#schemes);
   }
 
   apply(compiler: unknown) {
