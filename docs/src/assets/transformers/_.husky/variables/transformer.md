@@ -8,4 +8,4 @@
 
 > **transformer**: [`Transformer`](../../../type-aliases/Transformer.md)
 
-Defined in: [src/assets/transformers/\_.husky.ts:10](https://github.com/Xunnamius/symbiote/blob/6725748dfdd624ec897edfc2b0854ca2e21094bc/src/assets/transformers/_.husky.ts#L10)
+Defined in: [src/assets/transformers/\_.husky.ts:10](https://github.com/Xunnamius/symbiote/blob/1c36264a9ee1bf4cdf92c895c1434941f105e56c/src/assets/transformers/_.husky.ts#L10)

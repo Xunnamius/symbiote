@@ -8,4 +8,4 @@
 
 > **CustomCliArguments** = [`GlobalCliArguments`](../../../configure/type-aliases/GlobalCliArguments.md)
 
-Defined in: [src/commands/start.ts:29](https://github.com/Xunnamius/symbiote/blob/6725748dfdd624ec897edfc2b0854ca2e21094bc/src/commands/start.ts#L29)
+Defined in: [src/commands/start.ts:29](https://github.com/Xunnamius/symbiote/blob/1c36264a9ee1bf4cdf92c895c1434941f105e56c/src/commands/start.ts#L29)

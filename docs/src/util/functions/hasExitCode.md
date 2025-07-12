@@ -8,7 +8,7 @@
 
 > **hasExitCode**(`error`): `error is object & { exitCode: number }`
 
-Defined in: [src/util.ts:1112](https://github.com/Xunnamius/symbiote/blob/6725748dfdd624ec897edfc2b0854ca2e21094bc/src/util.ts#L1112)
+Defined in: [src/util.ts:1112](https://github.com/Xunnamius/symbiote/blob/1c36264a9ee1bf4cdf92c895c1434941f105e56c/src/util.ts#L1112)
 
 ## Parameters
 

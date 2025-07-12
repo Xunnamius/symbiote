@@ -6,9 +6,25 @@
 
 # Function: moduleExport()
 
-> **moduleExport**(): `Record`\<`string`, `unknown`\>
+> **moduleExport**(`__namedParameters`): `Record`\<`string`, `unknown`\>
 
-Defined in: [src/assets/transformers/\_next.config.mjs.ts:11](https://github.com/Xunnamius/symbiote/blob/6725748dfdd624ec897edfc2b0854ca2e21094bc/src/assets/transformers/_next.config.mjs.ts#L11)
+Defined in: [src/assets/transformers/\_next.config.mjs.ts:25](https://github.com/Xunnamius/symbiote/blob/1c36264a9ee1bf4cdf92c895c1434941f105e56c/src/assets/transformers/_next.config.mjs.ts#L25)
+
+## Parameters
+
+### \_\_namedParameters
+
+#### configureWebpack?
+
+`AnyFunction`
+
+#### derivedAliases
+
+\{[`k`: `string`]: `string`; \}
+
+#### projectRoot
+
+`AbsolutePath`
 
 ## Returns
 

@@ -6,7 +6,7 @@
 
 # Enumeration: ThisPackageGlobalScope
 
-Defined in: [src/configure.ts:95](https://github.com/Xunnamius/symbiote/blob/6725748dfdd624ec897edfc2b0854ca2e21094bc/src/configure.ts#L95)
+Defined in: [src/configure.ts:95](https://github.com/Xunnamius/symbiote/blob/1c36264a9ee1bf4cdf92c895c1434941f105e56c/src/configure.ts#L95)
 
 This enum represents a subset of [DefaultGlobalScope](DefaultGlobalScope.md), and is useful for type
 checking commands that only operate in the "this-package" scope.
@@ -21,7 +21,7 @@ checking commands that only operate in the "this-package" scope.
 
 > **ThisPackage**: `"this-package"`
 
-Defined in: [src/configure.ts:99](https://github.com/Xunnamius/symbiote/blob/6725748dfdd624ec897edfc2b0854ca2e21094bc/src/configure.ts#L99)
+Defined in: [src/configure.ts:99](https://github.com/Xunnamius/symbiote/blob/1c36264a9ee1bf4cdf92c895c1434941f105e56c/src/configure.ts#L99)
 
 #### See
 
