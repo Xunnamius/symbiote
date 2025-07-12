@@ -14,6 +14,7 @@ import {
 import { globalDebuggerNamespace } from 'universe:constant.ts';
 
 import type { AbsolutePath } from '@-xun/fs';
+import type { ExtendedDebugger } from 'rejoinder';
 
 const debug = createDebugLogger({
   namespace: `${globalDebuggerNamespace}:asset:webpack`
@@ -70,7 +71,7 @@ debug('exported config: %O', config);
  * `multiverse+shared:something.ts`) are present.
  */
 export class WebpackCustomSchemeAliasPlugin {
-  #debugHint: string;
+  #debug: ExtendedDebugger;
   #projectRoot: string;
   #schemes = new Map();
 
@@ -86,14 +87,14 @@ export class WebpackCustomSchemeAliasPlugin {
      */
     resolverAliases: Record<string, string>
   ) {
-    this.#debugHint = debugHint;
+    this.#debug = debug.extend(debugHint);
     this.#projectRoot = projectRoot;
 
     Object.entries(resolverAliases).forEach(([k, v]) =>
       k.includes(':') ? this.#schemes.set(k.split(':')[0], v.split('*')[0]) : undefined
     );
 
-    const localDebug = debug.extend(`construct:${this.#debugHint}`);
+    const localDebug = this.#debug.extend('construct');
 
     localDebug('project root: %O', this.#projectRoot);
     localDebug('registered alias schemes: %O', this.#schemes);
@@ -113,7 +114,7 @@ export class WebpackCustomSchemeAliasPlugin {
             assert(typeof scheme === 'string', `non-string scheme "${String(scheme)}"`);
             assert(hook, 'undefined hook for scheme ' + scheme);
 
-            const localDebug = debug.extend(`read:${scheme}:${this.#debugHint}`);
+            const localDebug = this.#debug.extend(`read:${scheme}`);
 
             if (schemePath !== undefined) {
               hook.tap(
@@ -153,7 +154,7 @@ export class WebpackCustomSchemeAliasPlugin {
             assert(typeof scheme === 'string', `non-string scheme "${String(scheme)}"`);
             assert(hook, 'undefined hook for scheme ' + scheme);
 
-            const localDebug = debug.extend(`res:${scheme}:${this.#debugHint}`);
+            const localDebug = this.#debug.extend(`resolve:${scheme}`);
 
             if (schemePath !== undefined) {
               // * https://github.com/webpack/webpack/blob/ad1e3b46f46b9acd5bb9c377afcdc101338d5c96/lib/schemes/FileUriPlugin.js
