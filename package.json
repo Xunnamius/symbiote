@@ -104,7 +104,7 @@
     "@-xun/jest": "^2.2.7",
     "@-xun/js": "^2.0.0",
     "@-xun/memoize": "^1.1.0",
-    "@-xun/project": "^2.0.9",
+    "@-xun/project": "^2.0.10",
     "@-xun/run": "^1.1.0",
     "@-xun/types": "^1.1.0",
     "@arethetypeswrong/cli": "^0.18.2",
