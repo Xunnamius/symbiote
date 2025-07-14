@@ -8,4 +8,4 @@
 
 > **BuildOutputCheckError**: `SpecificErrorClassConstructor`\<`BuildOutputCheckError`\> & `NamedErrorConstructorStaticProperties`\<`BuildOutputCheckError`\>
 
-Defined in: [src/error.ts:13](https://github.com/Xunnamius/symbiote/blob/0855f0d5d62e664369271e18eb03d2b348113c71/src/error.ts#L13)
+Defined in: [src/error.ts:13](https://github.com/Xunnamius/symbiote/blob/ff83c030b043e6b14171cac5526d31c5c826c51f/src/error.ts#L13)
