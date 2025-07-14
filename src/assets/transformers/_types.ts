@@ -1,4 +1,4 @@
-import { directoryTypesProjectBase, isAccessible } from '@-xun/project';
+import { directoryTypesProjectBase } from '@-xun/project';
 
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 
@@ -11,12 +11,7 @@ export const { transformer } = makeTransformer(function (context) {
   return generateRootOnlyAssets(context, async function () {
     const assets: Asset[] = [];
 
-    const outputDirAlreadyExists = await isAccessible(
-      toProjectAbsolutePath(directoryTypesProjectBase),
-      { useCached: true }
-    );
-
-    if (!outputDirAlreadyExists) {
+    if (context.forceOverwritePotentiallyDestructive) {
       assets.push(
         {
           path: toProjectAbsolutePath(directoryTypesProjectBase, 'global.ts'),
