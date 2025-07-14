@@ -169,7 +169,7 @@ const TEST_IDENTIFIER = ${bt}\${packageName.split('/').at(-1)!}-smoke${bt};
 const debug = createDebugLogger({ namespace: '${debugNamespace}' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(${bt}nodeVersion: "\${nodeVersion}" (process.version=\${process.version})${bt});
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });${
                 isLibraryLike
@@ -217,7 +217,7 @@ const TEST_IDENTIFIER = ${bt}\${packageName.split('/').at(-1)!}-client${bt};
 const debug = createDebugLogger({ namespace: '${debugNamespace}' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(${bt}nodeVersion: "\${nodeVersion}" (process.version=\${process.version})${bt});
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });${
                 isLibraryLike
@@ -271,7 +271,7 @@ const TEST_IDENTIFIER = ${bt}\${packageName.split('/').at(-1)!}-e2e${bt};
 const debug = createDebugLogger({ namespace: '${debugNamespace}' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(${bt}nodeVersion: "\${nodeVersion}" (process.version=\${process.version})${bt});
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });${
                 isLibraryLike
