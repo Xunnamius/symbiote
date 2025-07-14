@@ -495,8 +495,12 @@ export const { transformer } = makeTransformer(function (context) {
 const { deepMergeConfig } = require('@-xun/symbiote/assets');
 
 const {
-  assertEnvironment,
-  getNextJsBabelPreset,
+  assertEnvironment,${
+    assetPreset === AssetPreset.Nextjs
+      ? `
+  getNextJsBabelPreset,`
+      : ''
+  }
   moduleExport
 } = require('@-xun/symbiote/assets/${asset}');
 
