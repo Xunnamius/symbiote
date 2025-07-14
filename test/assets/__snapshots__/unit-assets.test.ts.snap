@@ -696,8 +696,6 @@ exports[`::gatherAssetsFromAllTransformers preset: basic generates expected asse
   "packages/webpack/tsc.package.lint.json",
   "packages/webpack/tsc.package.docs.json",
   "tstyche.config.json",
-  "types/global.ts",
-  "types/_example-d.ts",
   "webpack.config.mjs",
 ]
 `;
@@ -789,8 +787,6 @@ exports[`::gatherAssetsFromAllTransformers preset: basic generates expected asse
   "packages/pkg-import/tsc.package.lint.json",
   "packages/pkg-import/tsc.package.docs.json",
   "tstyche.config.json",
-  "types/global.ts",
-  "types/_example-d.ts",
   "webpack.config.mjs",
 ]
 `;
@@ -927,8 +923,6 @@ exports[`::gatherAssetsFromAllTransformers preset: cli generates expected assets
   "packages/webpack/tsc.package.lint.json",
   "packages/webpack/tsc.package.docs.json",
   "tstyche.config.json",
-  "types/global.ts",
-  "types/_example-d.ts",
 ]
 `;
 
@@ -1027,8 +1021,6 @@ exports[`::gatherAssetsFromAllTransformers preset: cli generates expected assets
   "packages/pkg-import/tsc.package.lint.json",
   "packages/pkg-import/tsc.package.docs.json",
   "tstyche.config.json",
-  "types/global.ts",
-  "types/_example-d.ts",
 ]
 `;
 
@@ -1173,8 +1165,6 @@ exports[`::gatherAssetsFromAllTransformers preset: default (no preset) generates
   "packages/webpack/tsc.package.lint.json",
   "packages/webpack/tsc.package.docs.json",
   "tstyche.config.json",
-  "types/global.ts",
-  "types/_example-d.ts",
   "vercel.json",
   "webpack.config.mjs",
   "wrangler.json",
@@ -1284,8 +1274,6 @@ exports[`::gatherAssetsFromAllTransformers preset: default (no preset) generates
   "packages/pkg-import/tsc.package.lint.json",
   "packages/pkg-import/tsc.package.docs.json",
   "tstyche.config.json",
-  "types/global.ts",
-  "types/_example-d.ts",
   "vercel.json",
   "webpack.config.mjs",
   "packages/pkg-1/wrangler.json",
@@ -1438,8 +1426,6 @@ exports[`::gatherAssetsFromAllTransformers preset: lib generates expected assets
   "packages/webpack/tsc.package.lint.json",
   "packages/webpack/tsc.package.docs.json",
   "tstyche.config.json",
-  "types/global.ts",
-  "types/_example-d.ts",
 ]
 `;
 
@@ -1538,8 +1524,6 @@ exports[`::gatherAssetsFromAllTransformers preset: lib generates expected assets
   "packages/pkg-import/tsc.package.lint.json",
   "packages/pkg-import/tsc.package.docs.json",
   "tstyche.config.json",
-  "types/global.ts",
-  "types/_example-d.ts",
 ]
 `;
 
@@ -1679,8 +1663,6 @@ exports[`::gatherAssetsFromAllTransformers preset: lib-esm generates expected as
   "packages/webpack/tsc.package.lint.json",
   "packages/webpack/tsc.package.docs.json",
   "tstyche.config.json",
-  "types/global.ts",
-  "types/_example-d.ts",
 ]
 `;
 
@@ -1779,8 +1761,6 @@ exports[`::gatherAssetsFromAllTransformers preset: lib-esm generates expected as
   "packages/pkg-import/tsc.package.lint.json",
   "packages/pkg-import/tsc.package.docs.json",
   "tstyche.config.json",
-  "types/global.ts",
-  "types/_example-d.ts",
 ]
 `;
 
@@ -1921,8 +1901,6 @@ exports[`::gatherAssetsFromAllTransformers preset: lib-web generates expected as
   "packages/webpack/tsc.package.lint.json",
   "packages/webpack/tsc.package.docs.json",
   "tstyche.config.json",
-  "types/global.ts",
-  "types/_example-d.ts",
 ]
 `;
 
@@ -2022,8 +2000,6 @@ exports[`::gatherAssetsFromAllTransformers preset: lib-web generates expected as
   "packages/pkg-import/tsc.package.lint.json",
   "packages/pkg-import/tsc.package.docs.json",
   "tstyche.config.json",
-  "types/global.ts",
-  "types/_example-d.ts",
 ]
 `;
 
@@ -2161,8 +2137,6 @@ exports[`::gatherAssetsFromAllTransformers preset: nextjs generates expected ass
   "packages/webpack/tsc.package.lint.json",
   "packages/webpack/tsc.package.docs.json",
   "tstyche.config.json",
-  "types/global.ts",
-  "types/_example-d.ts",
   "vercel.json",
 ]
 `;
@@ -2259,8 +2233,6 @@ exports[`::gatherAssetsFromAllTransformers preset: nextjs generates expected ass
   "packages/pkg-import/tsc.package.lint.json",
   "packages/pkg-import/tsc.package.docs.json",
   "tstyche.config.json",
-  "types/global.ts",
-  "types/_example-d.ts",
   "vercel.json",
 ]
 `;
@@ -2397,8 +2369,6 @@ exports[`::gatherAssetsFromAllTransformers preset: react generates expected asse
   "packages/webpack/tsc.package.lint.json",
   "packages/webpack/tsc.package.docs.json",
   "tstyche.config.json",
-  "types/global.ts",
-  "types/_example-d.ts",
   "webpack.config.mjs",
 ]
 `;
@@ -2493,8 +2463,6 @@ exports[`::gatherAssetsFromAllTransformers preset: react generates expected asse
   "packages/pkg-import/tsc.package.lint.json",
   "packages/pkg-import/tsc.package.docs.json",
   "tstyche.config.json",
-  "types/global.ts",
-  "types/_example-d.ts",
   "webpack.config.mjs",
 ]
 `;
@@ -2626,8 +2594,6 @@ exports[`::gatherAssetsFromAllTransformers preset: wrangler generates expected a
   "packages/webpack/tsc.package.lint.json",
   "packages/webpack/tsc.package.docs.json",
   "tstyche.config.json",
-  "types/global.ts",
-  "types/_example-d.ts",
   "wrangler.json",
   "packages/cli/wrangler.json",
   "packages/private/wrangler.json",
@@ -2722,8 +2688,6 @@ exports[`::gatherAssetsFromAllTransformers preset: wrangler generates expected a
   "packages/pkg-import/tsc.package.lint.json",
   "packages/pkg-import/tsc.package.docs.json",
   "tstyche.config.json",
-  "types/global.ts",
-  "types/_example-d.ts",
   "packages/pkg-1/wrangler.json",
   "packages/pkg-2/wrangler.json",
   "packages/pkg-import/wrangler.json",
@@ -22616,7 +22580,6 @@ const { deepMergeConfig } = require('@-xun/symbiote/assets');
 
 const {
   assertEnvironment,
-  getNextJsBabelPreset,
   moduleExport
 } = require('@-xun/symbiote/assets/babel.config.cjs');
 
@@ -22703,7 +22666,6 @@ const { deepMergeConfig } = require('@-xun/symbiote/assets');
 
 const {
   assertEnvironment,
-  getNextJsBabelPreset,
   moduleExport
 } = require('@-xun/symbiote/assets/babel.config.cjs');
 
@@ -22790,7 +22752,6 @@ const { deepMergeConfig } = require('@-xun/symbiote/assets');
 
 const {
   assertEnvironment,
-  getNextJsBabelPreset,
   moduleExport
 } = require('@-xun/symbiote/assets/babel.config.cjs');
 
@@ -22877,7 +22838,6 @@ const { deepMergeConfig } = require('@-xun/symbiote/assets');
 
 const {
   assertEnvironment,
-  getNextJsBabelPreset,
   moduleExport
 } = require('@-xun/symbiote/assets/babel.config.cjs');
 
@@ -22964,7 +22924,6 @@ const { deepMergeConfig } = require('@-xun/symbiote/assets');
 
 const {
   assertEnvironment,
-  getNextJsBabelPreset,
   moduleExport
 } = require('@-xun/symbiote/assets/babel.config.cjs');
 
@@ -23051,7 +23010,6 @@ const { deepMergeConfig } = require('@-xun/symbiote/assets');
 
 const {
   assertEnvironment,
-  getNextJsBabelPreset,
   moduleExport
 } = require('@-xun/symbiote/assets/babel.config.cjs');
 
@@ -23108,7 +23066,6 @@ const { deepMergeConfig } = require('@-xun/symbiote/assets');
 
 const {
   assertEnvironment,
-  getNextJsBabelPreset,
   moduleExport
 } = require('@-xun/symbiote/assets/babel.config.cjs');
 
@@ -23165,7 +23122,6 @@ const { deepMergeConfig } = require('@-xun/symbiote/assets');
 
 const {
   assertEnvironment,
-  getNextJsBabelPreset,
   moduleExport
 } = require('@-xun/symbiote/assets/babel.config.cjs');
 
@@ -28718,7 +28674,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
 const debug = createDebugLogger({ namespace: 'cli' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -28771,7 +28727,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
 const debug = createDebugLogger({ namespace: 'cli' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -28811,7 +28767,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
 const debug = createDebugLogger({ namespace: 'cli' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -28892,7 +28848,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
 const debug = createDebugLogger({ namespace: 'private' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -28945,7 +28901,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
 const debug = createDebugLogger({ namespace: 'private' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -28985,7 +28941,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
 const debug = createDebugLogger({ namespace: 'private' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -29066,7 +29022,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
 const debug = createDebugLogger({ namespace: 'webpack' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -29119,7 +29075,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
 const debug = createDebugLogger({ namespace: 'webpack' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -29159,7 +29115,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
 const debug = createDebugLogger({ namespace: 'webpack' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -29240,7 +29196,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
 const debug = createDebugLogger({ namespace: 'good-hybridrepo' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -29293,7 +29249,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
 const debug = createDebugLogger({ namespace: 'good-hybridrepo' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -29333,7 +29289,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
 const debug = createDebugLogger({ namespace: 'good-hybridrepo' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -29456,7 +29412,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
 const debug = createDebugLogger({ namespace: 'webpack' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -29509,7 +29465,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
 const debug = createDebugLogger({ namespace: 'webpack' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -29549,7 +29505,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
 const debug = createDebugLogger({ namespace: 'webpack' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -29630,7 +29586,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
 const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -29683,7 +29639,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
 const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -29723,7 +29679,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
 const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -29804,7 +29760,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
 const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -29857,7 +29813,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
 const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -29897,7 +29853,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
 const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -29978,7 +29934,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
 const debug = createDebugLogger({ namespace: 'pkg-2' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -30031,7 +29987,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
 const debug = createDebugLogger({ namespace: 'pkg-2' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -30071,7 +30027,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
 const debug = createDebugLogger({ namespace: 'pkg-2' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -30152,7 +30108,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
 const debug = createDebugLogger({ namespace: 'pkg-import' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -30205,7 +30161,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
 const debug = createDebugLogger({ namespace: 'pkg-import' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -30245,7 +30201,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
 const debug = createDebugLogger({ namespace: 'pkg-import' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -30368,7 +30324,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
 const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -30421,7 +30377,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
 const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -30461,7 +30417,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
 const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -30542,7 +30498,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
 const debug = createDebugLogger({ namespace: 'pkg-2' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -30595,7 +30551,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
 const debug = createDebugLogger({ namespace: 'pkg-2' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -30635,7 +30591,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
 const debug = createDebugLogger({ namespace: 'pkg-2' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -30716,7 +30672,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
 const debug = createDebugLogger({ namespace: 'pkg-import' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -30769,7 +30725,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
 const debug = createDebugLogger({ namespace: 'pkg-import' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -30809,7 +30765,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
 const debug = createDebugLogger({ namespace: 'pkg-import' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -30932,7 +30888,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
 const debug = createDebugLogger({ namespace: 'good-polyrepo-no-src' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -30985,7 +30941,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
 const debug = createDebugLogger({ namespace: 'good-polyrepo-no-src' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -31025,7 +30981,7 @@ const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
 const debug = createDebugLogger({ namespace: 'good-polyrepo-no-src' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
 
-debug(\`nodeVersion: "\${nodeVersion}" (process.version=\${process.version})\`);
+debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
 reconfigureJestGlobalsToSkipTestsInThisFileIfRequested({ it: true, test: true });
 
@@ -34589,46 +34545,6 @@ scope: unlimited
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> types generates expected assets at hybridrepo (scope=this-package): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/types/_example-d.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/types/_example-d.ts
-scope: this-package
-⏶⏷⏶⏷⏶
-declare module 'glob-gitignore' {
-  import type { GlobOptions } from 'glob';
-
-  export type GlobGitignoreOptions = Omit<GlobOptions, 'ignore'> & {
-    /**
-     * A string or array of strings used to determine which globbed paths are
-     * ignored. Typically this is the result of parsing a .gitignore file (or file
-     * with compatible format) split by \`"
-"\`.
-     */
-    ignore?: string | string[];
-  };
-
-  export async function glob(
-    patterns: string | string[],
-    options: GlobGitignoreOptions
-  ): Promise<string[]>;
-
-  export function sync(
-    patterns: string | string[],
-    options: GlobGitignoreOptions
-  ): string[];
-
-  export function hasMagic(patterns: string | string[], options?: GlobOptions): string;
-}
-"
-`;
-
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> types generates expected assets at hybridrepo (scope=this-package): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/types/global.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/types/global.ts
-scope: this-package
-⏶⏷⏶⏷⏶
-export type {};
-"
-`;
-
 exports[`::gatherAssetsFromTransformer <generated asset content snapshots> types generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/types/_example-d.ts 1`] = `
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/types/_example-d.ts
 scope: unlimited
@@ -34662,46 +34578,6 @@ declare module 'glob-gitignore' {
 `;
 
 exports[`::gatherAssetsFromTransformer <generated asset content snapshots> types generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/types/global.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/types/global.ts
-scope: unlimited
-⏶⏷⏶⏷⏶
-export type {};
-"
-`;
-
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> types generates expected assets at hybridrepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/types/_example-d.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/types/_example-d.ts
-scope: unlimited
-⏶⏷⏶⏷⏶
-declare module 'glob-gitignore' {
-  import type { GlobOptions } from 'glob';
-
-  export type GlobGitignoreOptions = Omit<GlobOptions, 'ignore'> & {
-    /**
-     * A string or array of strings used to determine which globbed paths are
-     * ignored. Typically this is the result of parsing a .gitignore file (or file
-     * with compatible format) split by \`"
-"\`.
-     */
-    ignore?: string | string[];
-  };
-
-  export async function glob(
-    patterns: string | string[],
-    options: GlobGitignoreOptions
-  ): Promise<string[]>;
-
-  export function sync(
-    patterns: string | string[],
-    options: GlobGitignoreOptions
-  ): string[];
-
-  export function hasMagic(patterns: string | string[], options?: GlobOptions): string;
-}
-"
-`;
-
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> types generates expected assets at hybridrepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/types/global.ts 1`] = `
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/types/global.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
@@ -34749,9 +34625,9 @@ export type {};
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> types generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/types/_example-d.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/types/_example-d.ts
-scope: unlimited
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> types generates expected assets for polyrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/types/_example-d.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/types/_example-d.ts
+scope: this-package
 ⏶⏷⏶⏷⏶
 declare module 'glob-gitignore' {
   import type { GlobOptions } from 'glob';
@@ -34781,9 +34657,9 @@ declare module 'glob-gitignore' {
 "
 `;
 
-exports[`::gatherAssetsFromTransformer <generated asset content snapshots> types generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/types/global.ts 1`] = `
-"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/types/global.ts
-scope: unlimited
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> types generates expected assets for polyrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/types/global.ts 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/types/global.ts
+scope: this-package
 ⏶⏷⏶⏷⏶
 export type {};
 "
