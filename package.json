@@ -106,7 +106,7 @@
     "@-xun/memoize": "^1.1.0",
     "@-xun/project": "^2.0.10",
     "@-xun/run": "^1.1.0",
-    "@-xun/types": "^1.1.0",
+    "@-xun/types": "^1.2.0",
     "@arethetypeswrong/cli": "^0.18.2",
     "@babel/cli": "^7.28.0",
     "@babel/core": "^7.28.0",
