@@ -6,7 +6,7 @@
 
 # Enumeration: Test
 
-Defined in: [src/commands/test.ts:53](https://github.com/Xunnamius/symbiote/blob/ff83c030b043e6b14171cac5526d31c5c826c51f/src/commands/test.ts#L53)
+Defined in: [src/commands/test.ts:54](https://github.com/Xunnamius/symbiote/blob/f7710f4f934dcf5d1854513049f64b1f4706241a/src/commands/test.ts#L54)
 
 Which kind of test to run.
 
@@ -16,7 +16,7 @@ Which kind of test to run.
 
 > **All**: `"all"`
 
-Defined in: [src/commands/test.ts:99](https://github.com/Xunnamius/symbiote/blob/ff83c030b043e6b14171cac5526d31c5c826c51f/src/commands/test.ts#L99)
+Defined in: [src/commands/test.ts:100](https://github.com/Xunnamius/symbiote/blob/f7710f4f934dcf5d1854513049f64b1f4706241a/src/commands/test.ts#L100)
 
 Include _all possible tests_ from the chosen scope, and runs end-to-end
 tests with the `SYMBIOTE_TEST_E2E_MODE=${EndToEndMode.Real}` environment
@@ -32,7 +32,7 @@ Will also include code coverage results by default when scope is
 
 > **AllLocal**: `"all-local"`
 
-Defined in: [src/commands/test.ts:109](https://github.com/Xunnamius/symbiote/blob/ff83c030b043e6b14171cac5526d31c5c826c51f/src/commands/test.ts#L109)
+Defined in: [src/commands/test.ts:110](https://github.com/Xunnamius/symbiote/blob/f7710f4f934dcf5d1854513049f64b1f4706241a/src/commands/test.ts#L110)
 
 This option is identical to [Test.All](#all) except it runs end-to-end
 tests with the `SYMBIOTE_TEST_E2E_MODE=${EndToEndMode.Simulated}`
@@ -48,7 +48,7 @@ Will also include code coverage results by default when scope is
 
 > **EndToEnd**: `"e2e"`
 
-Defined in: [src/commands/test.ts:80](https://github.com/Xunnamius/symbiote/blob/ff83c030b043e6b14171cac5526d31c5c826c51f/src/commands/test.ts#L80)
+Defined in: [src/commands/test.ts:81](https://github.com/Xunnamius/symbiote/blob/f7710f4f934dcf5d1854513049f64b1f4706241a/src/commands/test.ts#L81)
 
 Include end-to-end tests from the chosen scope with the
 `SYMBIOTE_TEST_E2E_MODE=${EndToEndMode.Real}` environment variable. This
@@ -63,7 +63,7 @@ Does not include code coverage results by default.
 
 > **EndToEndLocal**: `"e2e-local"`
 
-Defined in: [src/commands/test.ts:89](https://github.com/Xunnamius/symbiote/blob/ff83c030b043e6b14171cac5526d31c5c826c51f/src/commands/test.ts#L89)
+Defined in: [src/commands/test.ts:90](https://github.com/Xunnamius/symbiote/blob/f7710f4f934dcf5d1854513049f64b1f4706241a/src/commands/test.ts#L90)
 
 This option is identical to [Test.EndToEnd](#endtoend) except it runs end-to-end
 tests with the `SYMBIOTE_TEST_E2E_MODE=${EndToEndMode.Simulated}`
@@ -78,7 +78,7 @@ Does not include code coverage results by default.
 
 > **Integration**: `"integration"`
 
-Defined in: [src/commands/test.ts:71](https://github.com/Xunnamius/symbiote/blob/ff83c030b043e6b14171cac5526d31c5c826c51f/src/commands/test.ts#L71)
+Defined in: [src/commands/test.ts:72](https://github.com/Xunnamius/symbiote/blob/f7710f4f934dcf5d1854513049f64b1f4706241a/src/commands/test.ts#L72)
 
 Include integration tests from the chosen scope.
 
@@ -90,7 +90,7 @@ Does not include code coverage results by default.
 
 > **Type**: `"type"`
 
-Defined in: [src/commands/test.ts:59](https://github.com/Xunnamius/symbiote/blob/ff83c030b043e6b14171cac5526d31c5c826c51f/src/commands/test.ts#L59)
+Defined in: [src/commands/test.ts:60](https://github.com/Xunnamius/symbiote/blob/f7710f4f934dcf5d1854513049f64b1f4706241a/src/commands/test.ts#L60)
 
 Include type tests from the chosen scope.
 
@@ -102,7 +102,7 @@ Does not include code coverage results by default.
 
 > **Unit**: `"unit"`
 
-Defined in: [src/commands/test.ts:65](https://github.com/Xunnamius/symbiote/blob/ff83c030b043e6b14171cac5526d31c5c826c51f/src/commands/test.ts#L65)
+Defined in: [src/commands/test.ts:66](https://github.com/Xunnamius/symbiote/blob/f7710f4f934dcf5d1854513049f64b1f4706241a/src/commands/test.ts#L66)
 
 Include unit tests from the chosen scope.
 
