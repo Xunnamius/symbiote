@@ -1,3 +1,4 @@
+/* eslint-disable unicorn/prefer-single-call */
 /* eslint-disable no-await-in-loop */
 import { setTimeout as delay } from 'node:timers/promises';
 
@@ -689,13 +690,13 @@ Provide --skip-slow-tests (or -x) to set the SYMBIOTE_TEST_JEST_SKIP_SLOW_TESTS 
       debug('buildTargetPackages: %O', buildTargetPackages);
       debug('buildExtraneousPackages: %O', buildExtraneousPackages);
 
-      // ? Jest's CLI array intake ability is trash, so all array-taking
-      // ? args need to be followed by another arg (i.e. --something)
-      npxJestArguments.push('--inject-globals');
-
       if (isRepeating) {
         npxJestArguments.push('--reporters=jest-silent-reporter');
       }
+
+      // ? Jest's CLI array intake ability is trash, so all array-taking
+      // ? args need to be followed by another arg (i.e. --something)
+      npxJestArguments.push('--inject-globals');
 
       // ? Order matters, so keep these here due to how Jest CLI handles arrays.
       // ? E.g. the user might add extra array arguments, so they have to be
