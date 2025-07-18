@@ -1,8 +1,5 @@
-import { readFileSync, writeFileSync } from 'node:fs';
 import { cpus } from 'node:os';
 import { isRegExp } from 'node:util/types';
-
-import { getInitialWorkingDirectory, toPath } from '@-xun/fs';
 
 import {
   deriveAliasesForJest,
@@ -31,11 +28,11 @@ const debug = createDebugLogger({
   namespace: `${globalDebuggerNamespace}:asset:jest`
 });
 
-const monkeyPatchDebug = debug.extend('jest-patched');
-const monkeyPatchFootholdTarget =
-  'function shouldLoadAsEsm(path, extensionsToTreatAsEsm) {';
-const monkeyPatchFootholdStart = '/*beginning of symbiote patch*/';
-const monkeyPatchFootholdEnd = '/*end of symbiote patch*/';
+// const monkeyPatchDebug = debug.extend('jest-patched');
+// const monkeyPatchFootholdTarget =
+//   'function shouldLoadAsEsm(path, extensionsToTreatAsEsm) {';
+// const monkeyPatchFootholdStart = '/*beginning of symbiote patch*/';
+// const monkeyPatchFootholdEnd = '/*end of symbiote patch*/';
 
 export type { JestConfig };
 
@@ -237,7 +234,7 @@ export function assertEnvironment(): Omit<
   return { isDebugging, skipSlowTestsLevel };
 }
 
-// TODO: this function needs to be fixed for jest@30
+// TODO: this function's extended functionality may still be needed for jest@30
 /**
  * This function prepends a single regular expression _pattern string_ to
  * {@link JestConfig.transformIgnorePatterns} in `config`. This will result in
@@ -247,15 +244,6 @@ export function assertEnvironment(): Omit<
  *
  * This is useful when, for instance, an ESM package needs to be mocked via a
  * top-level import.
- *
- * This function engages in some heavy (but safe and
- * corruption-resistant/recoverable) monkey patching of jest internals to
- * prevent jest from complaining with `Must use import to load ES Module...`
- * when attempting to load the provided ESM packages while
- * `--experimental-vm-modules` is enabled in the runtime. Therefore, this
- * function should be invoked as few times as possible, only in
- * `jest.config.mjs`, and only after all other changes to `config` have been
- * made.
  *
  * Note that package names will have any special characters (in the context of
  * regular expressions) escaped. If you wish to supply a regular expression as a
@@ -289,72 +277,4 @@ export function transformSelectEsmPackagesToCjs(
   ];
 
   config.transformIgnorePatterns = transformIgnorePatterns;
-
-  const moduleJestResolvePath = toPath(
-    getInitialWorkingDirectory(),
-    'node_modules',
-    'jest-resolve',
-    'build',
-    'shouldLoadAsEsm.js'
-  );
-
-  const monkeyPatchNewPatch =
-    monkeyPatchFootholdStart +
-    /* ts */ `const $symbioteRegExps=${JSON.stringify(transformIgnorePatterns)}.map(pattern => new RegExp(pattern));` +
-    monkeyPatchFootholdTarget +
-    /* ts */ `if (path.includes('/node_modules/') && $symbioteRegExps.every(pattern => !pattern.test(path))) {return false};` +
-    monkeyPatchFootholdEnd;
-
-  const monkeyPatchRegExp = new RegExp(
-    escapeStringRegexp(monkeyPatchFootholdStart) +
-      '.*' +
-      escapeStringRegexp(monkeyPatchFootholdEnd)
-  );
-
-  monkeyPatchDebug('transformIgnorePatterns: %O', transformIgnorePatterns);
-  monkeyPatchDebug('moduleJestResolvePath: %O', moduleJestResolvePath);
-  monkeyPatchDebug('monkeyPatchFootholdTarget: %O', monkeyPatchFootholdTarget);
-  monkeyPatchDebug('monkeyPatchFootholdStart: %O', monkeyPatchFootholdStart);
-  monkeyPatchDebug('monkeyPatchFootholdEnd: %O', monkeyPatchFootholdEnd);
-  monkeyPatchDebug('monkeyPatchNewPatch: %O', monkeyPatchNewPatch);
-  monkeyPatchDebug('monkeyPatchRegExp: %O', monkeyPatchRegExp);
-
-  try {
-    const resolverFileContents = readFileSync(moduleJestResolvePath, 'utf8');
-
-    if (!resolverFileContents.includes(monkeyPatchFootholdTarget)) {
-      throw new Error(
-        'monkeyPatchFootholdTarget is missing (incompatible jest version?)'
-      );
-    }
-
-    const existingPatchMatch = resolverFileContents.match(monkeyPatchRegExp);
-    const [existingPatch] = existingPatchMatch || [];
-
-    if (existingPatch) {
-      monkeyPatchDebug('existing monkey patch detected');
-
-      if (existingPatch === monkeyPatchNewPatch) {
-        monkeyPatchDebug('skipped patching jest resolver: already patched');
-      } else {
-        writeFileSync(
-          moduleJestResolvePath,
-          resolverFileContents.replace(existingPatch, monkeyPatchNewPatch)
-        );
-
-        monkeyPatchDebug.message('monkey patched jest resolver');
-      }
-    } else {
-      monkeyPatchDebug('no existing monkey patch detected');
-
-      writeFileSync(
-        moduleJestResolvePath,
-        resolverFileContents.replace(monkeyPatchFootholdTarget, monkeyPatchNewPatch)
-      );
-
-      monkeyPatchDebug.message('monkey patched jest resolver');
-    }
-  } catch (error) {
-    throw new Error(ErrorMessage.JestChangelogMonkeyPatchFailedToTake(error));
-  }
 }
