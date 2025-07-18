@@ -8,7 +8,7 @@
 
 > **transformSelectEsmPackagesToCjs**(`config`, `packageNames`): `void`
 
-Defined in: [src/assets/transformers/\_jest.config.mjs.ts:278](https://github.com/Xunnamius/symbiote/blob/0557e914d494aeba06238075ebcfa60296d71fba/src/assets/transformers/_jest.config.mjs.ts#L278)
+Defined in: [src/assets/transformers/\_jest.config.mjs.ts:266](https://github.com/Xunnamius/symbiote/blob/b9e599602cbc0f1d65b094b7a5e8739743f64fd2/src/assets/transformers/_jest.config.mjs.ts#L266)
 
 This function prepends a single regular expression _pattern string_ to
 [JestConfig.transformIgnorePatterns](moduleExport.md#moduleexport) in `config`. This will result in
@@ -18,15 +18,6 @@ no transpilation) in every other case.
 
 This is useful when, for instance, an ESM package needs to be mocked via a
 top-level import.
-
-This function engages in some heavy (but safe and
-corruption-resistant/recoverable) monkey patching of jest internals to
-prevent jest from complaining with `Must use import to load ES Module...`
-when attempting to load the provided ESM packages while
-`--experimental-vm-modules` is enabled in the runtime. Therefore, this
-function should be invoked as few times as possible, only in
-`jest.config.mjs`, and only after all other changes to `config` have been
-made.
 
 Note that package names will have any special characters (in the context of
 regular expressions) escaped. If you wish to supply a regular expression as a
