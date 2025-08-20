@@ -239,7 +239,7 @@
     "@-xun/common-dummies": "^2.1.2",
     "@-xun/project-fs": "^2.0.5",
     "@-xun/symbiote": "^4.11.4",
-    "next": "^15.4.1",
+    "next": "^15.5.0",
     "webpack": "^5.100.2"
   },
   "bundleDependencies": [
