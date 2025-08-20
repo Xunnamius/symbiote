@@ -228,7 +228,7 @@
     "toss-expression": "^0.1.2",
     "tstyche": "^4.3.0",
     "type-fest": "^4.41.0",
-    "typedoc": "^0.28.7",
+    "typedoc": "^0.28.10",
     "typedoc-plugin-markdown": "^4.7.0",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.37.0",
