@@ -139,7 +139,7 @@
     "@types/semver": "^7.7.0",
     "@types/yargs": "^17.0.33",
     "@typescript-eslint/parser": "^8.40.0",
-    "all-contributors-cli": "^3.1.1",
+    "all-contributors-cli": "^6.26.1",
     "askpassword": "^2.0.2",
     "babel-jest": "next",
     "babel-plugin-explicit-exports-references": "^1.0.2",
