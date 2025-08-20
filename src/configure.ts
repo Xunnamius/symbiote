@@ -226,8 +226,7 @@ export const configureExecutionContext = async function (context) {
       // ! INVARIANT: package version must ALWAYS come first and either be
       // ! suffixed with at least one whitespace character or have no other
       // ! characters following it!
-      text:
-        String(packageVersion) + ` ${isRunningFromWithinCurrentProject ? '🏠' : '🌎'}`
+      text: packageVersion + ` ${isRunningFromWithinCurrentProject ? '🏠' : '🌎'}`
     };
 
     if (
@@ -255,7 +254,7 @@ export const configureExecutionContext = async function (context) {
       // ! INVARIANT: package version must ALWAYS come first and either be
       // ! suffixed with at least one whitespace character or have no other
       // ! characters following it!
-      text: String(packageVersion) + ' 🌎'
+      text: packageVersion + ' 🌎'
     };
   }
 

@@ -855,7 +855,7 @@ Provide --skip-slow-tests (or -x) to set the SYMBIOTE_TEST_JEST_SKIP_SLOW_TESTS 
           genericLogger.newline();
 
           // ? The only output will be if Jest is skipped
-          process.stdout.write(String(jestResult.all) + '\n');
+          process.stdout.write(jestResult.all + '\n');
         }
 
         if (isTstycheError || jestResult.exitCode !== 0) {

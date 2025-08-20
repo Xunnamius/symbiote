@@ -2,7 +2,6 @@ import assert from 'node:assert';
 import { chmod, mkdir, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { setTimeout as delay } from 'node:timers/promises';
-import { isNativeError } from 'node:util/types';
 
 // ? Patches global Proxy and spawn functions; see documentation for details
 import '@-xun/symbiote/assets/conventional.config.cjs';
@@ -756,7 +755,7 @@ WARNING: this command is NOT DESIGNED TO HANDLE CONCURRENT EXECUTION ON THE SAME
       return true;
     }
 
-    if (isNativeError(error)) {
+    if (Error.isError(error)) {
       return isGracefulExitSomewhereInCausalStack(error.cause);
     }
 

@@ -1,5 +1,3 @@
-import { isNativeError } from 'node:util/types';
-
 import { CliErrorMessage as UpstreamErrorMessage } from '@-xun/cli/error';
 import { makeNamedError } from '@-xun/error';
 import { ProjectError } from '@-xun/project/error';
@@ -139,7 +137,7 @@ It can also happen when your source is relying on non-portable type inference wh
     return `failed to acquire the patched global Proxy class in ${filename}`;
   },
   JestChangelogMonkeyPatchFailedToTake(error: unknown) {
-    return `unable to monkey patch jest resolver: ${isNativeError(error) ? error.stack || error : String(error)}`;
+    return `unable to monkey patch jest resolver: ${Error.isError(error) ? error.stack || error : String(error)}`;
   },
   WrongProjectAttributes(
     expected: ProjectAttribute[],
@@ -355,9 +353,7 @@ It can also happen when your source is relying on non-portable type inference wh
           packageName ? `"${packageName}"` : 'current'
         } package is missing a semver-valid "core-js" field in its package.json "dependencies" object; if this package does not use core-js in its distributables, you may ignore this message` +
         (cwdPackageCoreJsDependency
-          ? `\n  Saw "${String(
-              cwdPackageCoreJsDependency
-            )}" in ${packageRoot}/package.json`
+          ? `\n  Saw "${cwdPackageCoreJsDependency}" in ${packageRoot}/package.json`
           : '')
       );
     },

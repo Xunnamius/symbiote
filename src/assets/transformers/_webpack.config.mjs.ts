@@ -102,6 +102,7 @@ export class WebpackCustomSchemeAliasPlugin {
 
   apply(compiler: unknown) {
     // ? This is done this way so we can keep webpack as a dev dependency
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-conversion
     const { NormalModule } = require('webpack'.toString()) as typeof import('webpack');
 
     (compiler as InstanceType<typeof import('webpack').Compiler>).hooks.compilation.tap(

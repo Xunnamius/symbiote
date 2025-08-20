@@ -4,7 +4,6 @@ import { chmod, rename, stat, symlink } from 'node:fs/promises';
 import { builtinModules } from 'node:module';
 import { extname, sep as pathSeparator } from 'node:path';
 import { setTimeout as delay } from 'node:timers/promises';
-import { isNativeError } from 'node:util/types';
 
 import { checkIsNotNil } from '@-xun/cli';
 import { hardAssert, softAssert } from '@-xun/cli/error';
@@ -314,6 +313,7 @@ export default async function command({
         check: checkIsNotNil,
         defaultDescription: 'derived from other arguments',
         coerce(extension: string) {
+          // eslint-disable-next-line @typescript-eslint/no-unnecessary-type-conversion
           extension = String(extension);
           return extension.startsWith('.') ? extension : `.${extension}`;
         }
@@ -1289,7 +1289,7 @@ distrib root: ${absoluteOutputDirPath}
 
             if (errored) {
               genericLogger.newline([LogTag.IF_NOT_SILENCED]);
-              throw isNativeError(errored) ? errored : new BuildOutputCheckError();
+              throw Error.isError(errored) ? errored : new BuildOutputCheckError();
             }
 
             /**
