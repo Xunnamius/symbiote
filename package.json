@@ -229,7 +229,7 @@
     "tstyche": "^4.3.0",
     "type-fest": "^4.41.0",
     "typedoc": "^0.28.10",
-    "typedoc-plugin-markdown": "^4.7.0",
+    "typedoc-plugin-markdown": "^4.8.1",
     "typescript": "^5.8.3",
     "typescript-eslint": "^8.37.0",
     "unified-engine": "^11.2.2",
