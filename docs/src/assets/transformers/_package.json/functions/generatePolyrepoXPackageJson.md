@@ -8,7 +8,7 @@
 
 > **generatePolyrepoXPackageJson**(...`__namedParameters`): `object`
 
-Defined in: [src/assets/transformers/\_package.json.ts:241](https://github.com/Xunnamius/symbiote/blob/b9e599602cbc0f1d65b094b7a5e8739743f64fd2/src/assets/transformers/_package.json.ts#L241)
+Defined in: [src/assets/transformers/\_package.json.ts:241](https://github.com/Xunnamius/symbiote/blob/49b68300bfb7b09f7c437e515711c99015f99f81/src/assets/transformers/_package.json.ts#L241)
 
 ## Parameters
 
@@ -104,7 +104,7 @@ Indicates the structure of the package.
 
 ### esnext?
 
-> `readonly` `optional` **esnext**: `string` \| \{[`moduleName`: `string`]: `undefined` \| `string`; `browser?`: `string`; `main?`: `string`; \}
+> `readonly` `optional` **esnext**: `string` \| \{\[`moduleName`: `string`\]: `undefined` \| `string`; `browser?`: `string`; `main?`: `string`; \}
 
 A module ID with untranspiled code that is the primary entry point to the program.
 

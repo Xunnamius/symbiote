@@ -8,7 +8,7 @@
 
 > **moduleExport**(`__namedParameters`): `object`
 
-Defined in: [src/assets/transformers/\_babel.config.cjs.ts:278](https://github.com/Xunnamius/symbiote/blob/b9e599602cbc0f1d65b094b7a5e8739743f64fd2/src/assets/transformers/_babel.config.cjs.ts#L278)
+Defined in: [src/assets/transformers/\_babel.config.cjs.ts:278](https://github.com/Xunnamius/symbiote/blob/49b68300bfb7b09f7c437e515711c99015f99f81/src/assets/transformers/_babel.config.cjs.ts#L278)
 
 ## Parameters
 
@@ -16,7 +16,7 @@ Defined in: [src/assets/transformers/\_babel.config.cjs.ts:278](https://github.c
 
 #### derivedAliases
 
-\{[`k`: `string`]: `string`; \}
+\{\[`k`: `string`\]: `string`; \}
 
 #### packageRoot
 
@@ -30,7 +30,7 @@ Defined in: [src/assets/transformers/\_babel.config.cjs.ts:278](https://github.c
 
 ### assumptions?
 
-> `optional` **assumptions**: `null` \| \{[`name`: `string`]: `boolean`; \}
+> `optional` **assumptions**: `null` \| \{\[`name`: `string`\]: `boolean`; \}
 
 Specify which assumptions it can make about your code, to better optimize the compilation result. **NOTE**: This replaces the various `loose` options in plugins in favor of
 top-level options that can apply to multiple plugins

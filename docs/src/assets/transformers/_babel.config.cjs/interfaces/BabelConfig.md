@@ -12,7 +12,7 @@ Defined in: node\_modules/@types/babel\_\_core/index.d.ts:29
 
 ### assumptions?
 
-> `optional` **assumptions**: `null` \| \{[`name`: `string`]: `boolean`; \}
+> `optional` **assumptions**: `null` \| \{\[`name`: `string`\]: `boolean`; \}
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:36
 
@@ -205,7 +205,7 @@ Default: `"."`
 
 ### env?
 
-> `optional` **env**: `null` \| \{[`index`: `string`]: `undefined` \| `null` \| `TransformOptions`; \}
+> `optional` **env**: `null` \| \{\[`index`: `string`\]: `undefined` \| `null` \| `TransformOptions`; \}
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:178
 

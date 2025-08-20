@@ -8,7 +8,7 @@
 
 > **transformSelectEsmPackagesToCjs**(`config`, `packageNames`): `void`
 
-Defined in: [src/assets/transformers/\_jest.config.mjs.ts:266](https://github.com/Xunnamius/symbiote/blob/b9e599602cbc0f1d65b094b7a5e8739743f64fd2/src/assets/transformers/_jest.config.mjs.ts#L266)
+Defined in: [src/assets/transformers/\_jest.config.mjs.ts:266](https://github.com/Xunnamius/symbiote/blob/49b68300bfb7b09f7c437e515711c99015f99f81/src/assets/transformers/_jest.config.mjs.ts#L266)
 
 This function prepends a single regular expression _pattern string_ to
 [JestConfig.transformIgnorePatterns](moduleExport.md#moduleexport) in `config`. This will result in
@@ -93,11 +93,11 @@ transformIgnorePatterns: [String.raw`\.pnp\.[^/]+$`]
 
 #### coverageReporters?
 
-(`"json"` \| `"none"` \| `"clover"` \| `"cobertura"` \| `"html-spa"` \| `"html"` \| `"json-summary"` \| `"lcov"` \| `"lcovonly"` \| `"teamcity"` \| `"text"` \| `"text-lcov"` \| `"text-summary"` \| \[`"json"` \| `"none"` \| `"clover"` \| `"cobertura"` \| `"html-spa"` \| `"html"` \| `"json-summary"` \| `"lcov"` \| `"lcovonly"` \| `"teamcity"` \| `"text"` \| `"text-lcov"` \| `"text-summary"`, \{[`key`: `string`]: `unknown`; \}\])[]
+(`"json"` \| `"none"` \| `"clover"` \| `"cobertura"` \| `"html-spa"` \| `"html"` \| `"json-summary"` \| `"lcov"` \| `"lcovonly"` \| `"teamcity"` \| `"text"` \| `"text-lcov"` \| `"text-summary"` \| \[`"json"` \| `"none"` \| `"clover"` \| `"cobertura"` \| `"html-spa"` \| `"html"` \| `"json-summary"` \| `"lcov"` \| `"lcovonly"` \| `"teamcity"` \| `"text"` \| `"text-lcov"` \| `"text-summary"`, \{\[`key`: `string`\]: `unknown`; \}\])[]
 
 #### coverageThreshold?
 
-\{[`path`: `string`]: `object`; `global`: \{ `branches?`: `number`; `functions?`: `number`; `lines?`: `number`; `statements?`: `number`; \}; \}
+\{\[`path`: `string`\]: `object`; `global`: \{ `branches?`: `number`; `functions?`: `number`; `lines?`: `number`; `statements?`: `number`; \}; \}
 
 #### coverageThreshold.global
 
@@ -169,7 +169,7 @@ transformIgnorePatterns: [String.raw`\.pnp\.[^/]+$`]
 
 #### globals?
 
-\{[`key`: `string`]: `unknown`; \}
+\{\[`key`: `string`\]: `unknown`; \}
 
 #### globalSetup?
 
@@ -261,7 +261,7 @@ transformIgnorePatterns: [String.raw`\.pnp\.[^/]+$`]
 
 #### moduleNameMapper?
 
-\{[`key`: `string`]: `string` \| `string`[]; \}
+\{\[`key`: `string`\]: `string` \| `string`[]; \}
 
 #### modulePathIgnorePatterns?
 
@@ -313,7 +313,7 @@ transformIgnorePatterns: [String.raw`\.pnp\.[^/]+$`]
 
 #### projects?
 
-(`string` \| \{[`key`: `string`]: `unknown`; \})[]
+(`string` \| \{\[`key`: `string`\]: `unknown`; \})[]
 
 #### randomize?
 
@@ -325,7 +325,7 @@ transformIgnorePatterns: [String.raw`\.pnp\.[^/]+$`]
 
 #### reporters?
 
-(`string` \| \[`string`, \{[`key`: `string`]: `unknown`; \}\])[]
+(`string` \| \[`string`, \{\[`key`: `string`\]: `unknown`; \}\])[]
 
 #### resetMocks?
 
@@ -481,7 +481,7 @@ transformIgnorePatterns: [String.raw`\.pnp\.[^/]+$`]
 
 #### testEnvironmentOptions?
 
-\{[`key`: `string`]: `unknown`; \}
+\{\[`key`: `string`\]: `unknown`; \}
 
 #### testFailureExitCode?
 
@@ -493,7 +493,7 @@ transformIgnorePatterns: [String.raw`\.pnp\.[^/]+$`]
 
 #### testMatch?
 
-`string`[]
+`string` \| `string`[]
 
 #### testNamePattern?
 
@@ -525,7 +525,7 @@ transformIgnorePatterns: [String.raw`\.pnp\.[^/]+$`]
 
 #### transform?
 
-\{[`key`: `string`]: `string` \| \[`string`, `unknown`\]; \}
+\{\[`key`: `string`\]: `string` \| \[`string`, `unknown`\]; \}
 
 #### transformIgnorePatterns?
 

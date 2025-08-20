@@ -8,7 +8,7 @@
 
 > **moduleExport**(`__namedParameters`): `object`
 
-Defined in: [src/assets/transformers/\_jest.config.mjs.ts:125](https://github.com/Xunnamius/symbiote/blob/b9e599602cbc0f1d65b094b7a5e8739743f64fd2/src/assets/transformers/_jest.config.mjs.ts#L125)
+Defined in: [src/assets/transformers/\_jest.config.mjs.ts:125](https://github.com/Xunnamius/symbiote/blob/49b68300bfb7b09f7c437e515711c99015f99f81/src/assets/transformers/_jest.config.mjs.ts#L125)
 
 ## Parameters
 
@@ -16,7 +16,7 @@ Defined in: [src/assets/transformers/\_jest.config.mjs.ts:125](https://github.co
 
 #### derivedAliases
 
-\{[`k`: `string`]: `string`; \}
+\{\[`k`: `string`\]: `string`; \}
 
 #### isDebugging
 
@@ -89,7 +89,7 @@ as `1` while entirely skipping tests from files with names containing
 
 ### coverageReporters?
 
-> `optional` **coverageReporters**: (`"json"` \| `"none"` \| `"clover"` \| `"cobertura"` \| `"html-spa"` \| `"html"` \| `"json-summary"` \| `"lcov"` \| `"lcovonly"` \| `"teamcity"` \| `"text"` \| `"text-lcov"` \| `"text-summary"` \| \[`"json"` \| `"none"` \| `"clover"` \| `"cobertura"` \| `"html-spa"` \| `"html"` \| `"json-summary"` \| `"lcov"` \| `"lcovonly"` \| `"teamcity"` \| `"text"` \| `"text-lcov"` \| `"text-summary"`, \{[`key`: `string`]: `unknown`; \}\])[]
+> `optional` **coverageReporters**: (`"json"` \| `"none"` \| `"clover"` \| `"cobertura"` \| `"html-spa"` \| `"html"` \| `"json-summary"` \| `"lcov"` \| `"lcovonly"` \| `"teamcity"` \| `"text"` \| `"text-lcov"` \| `"text-summary"` \| \[`"json"` \| `"none"` \| `"clover"` \| `"cobertura"` \| `"html-spa"` \| `"html"` \| `"json-summary"` \| `"lcov"` \| `"lcovonly"` \| `"teamcity"` \| `"text"` \| `"text-lcov"` \| `"text-summary"`, \{\[`key`: `string`\]: `unknown`; \}\])[]
 
 ### coverageThreshold?
 
@@ -321,7 +321,7 @@ as `1` while entirely skipping tests from files with names containing
 
 ### projects?
 
-> `optional` **projects**: (`string` \| \{[`key`: `string`]: `unknown`; \})[]
+> `optional` **projects**: (`string` \| \{\[`key`: `string`\]: `unknown`; \})[]
 
 ### randomize?
 
@@ -333,7 +333,7 @@ as `1` while entirely skipping tests from files with names containing
 
 ### reporters?
 
-> `optional` **reporters**: (`string` \| \[`string`, \{[`key`: `string`]: `unknown`; \}\])[]
+> `optional` **reporters**: (`string` \| \[`string`, \{\[`key`: `string`\]: `unknown`; \}\])[]
 
 ### resetMocks?
 
@@ -505,7 +505,7 @@ as `1` while entirely skipping tests from files with names containing
 
 ### testMatch?
 
-> `optional` **testMatch**: `string`[]
+> `optional` **testMatch**: `string` \| `string`[]
 
 ### testNamePattern?
 
