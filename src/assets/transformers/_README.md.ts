@@ -97,7 +97,8 @@ async function replaceStandardStrings(
     repoName,
     assetPreset,
     projectMetadata: { cwdPackage },
-    toPackageAbsolutePath
+    toPackageAbsolutePath,
+    toProjectAbsolutePath
   }: TransformerContext
 ) {
   const {
@@ -106,9 +107,14 @@ async function replaceStandardStrings(
   const isPackageTheRootPackage = isRootPackage(cwdPackage);
   const willHaveGeneratedLicense =
     libAssetPresets.includes(assetPreset) ||
-    (await isAccessible(toPackageAbsolutePath(markdownLicensePackageBase), {
-      useCached: true
-    }));
+    (await isAccessible(
+      ('relativeRoot' in cwdPackage ? toPackageAbsolutePath : toProjectAbsolutePath)(
+        markdownLicensePackageBase
+      ),
+      {
+        useCached: true
+      }
+    ));
 
   let returnValue = content.replace(
     // ? Replace H1 with proper string
