@@ -140,6 +140,7 @@ describe('::todo', () => {
               generate: () => /*js*/ `
 // * Configuration state and metadata shared among all integration tests.
 
+// eslint-disable-next-line unicorn/require-module-specifiers
 export {};`
             },
             {
@@ -241,6 +242,7 @@ test.todo('this');`
               generate: () => /*js*/ `
 // * Configuration state and metadata shared among all end-to-end tests.
 
+// eslint-disable-next-line unicorn/require-module-specifiers
 export {};`
             },
             {

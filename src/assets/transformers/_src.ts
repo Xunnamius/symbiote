@@ -18,7 +18,10 @@ export const { transformer } = makeTransformer(function (context) {
       return [
         {
           path: toProjectAbsolutePath(outputDir, 'index.ts'),
-          generate: () => /*js*/ `export {};`
+          generate: () => /*js*/ `
+// eslint-disable-next-line unicorn/require-module-specifiers
+export {};
+`
         },
         {
           path: toProjectAbsolutePath(outputDir, 'error.ts'),

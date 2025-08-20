@@ -28249,6 +28249,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> src g
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/src/index.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
+// eslint-disable-next-line unicorn/require-module-specifiers
 export {};
 "
 `;
@@ -28271,6 +28272,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> src g
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/packages/webpack/src/index.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
+// eslint-disable-next-line unicorn/require-module-specifiers
 export {};
 "
 `;
@@ -28293,6 +28295,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> src g
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/src/index.ts
 scope: this-package
 ⏶⏷⏶⏷⏶
+// eslint-disable-next-line unicorn/require-module-specifiers
 export {};
 "
 `;
@@ -28315,6 +28318,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> src g
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/src/index.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
+// eslint-disable-next-line unicorn/require-module-specifiers
 export {};
 "
 `;
@@ -28337,6 +28341,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> src g
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/src/index.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
+// eslint-disable-next-line unicorn/require-module-specifiers
 export {};
 "
 `;
@@ -28359,6 +28364,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> src g
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-1/src/index.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
+// eslint-disable-next-line unicorn/require-module-specifiers
 export {};
 "
 `;
@@ -28381,6 +28387,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> src g
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/packages/pkg-import/src/index.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
+// eslint-disable-next-line unicorn/require-module-specifiers
 export {};
 "
 `;
@@ -28403,6 +28410,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> src g
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/src/index.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
+// eslint-disable-next-line unicorn/require-module-specifiers
 export {};
 "
 `;
@@ -28425,6 +28433,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> src g
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/src/index.ts
 scope: this-package
 ⏶⏷⏶⏷⏶
+// eslint-disable-next-line unicorn/require-module-specifiers
 export {};
 "
 `;
@@ -28447,6 +28456,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> src g
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/src/index.ts
 scope: unlimited
 ⏶⏷⏶⏷⏶
+// eslint-disable-next-line unicorn/require-module-specifiers
 export {};
 "
 `;
@@ -28641,6 +28651,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * Configuration state and metadata shared among all end-to-end tests.
 
+// eslint-disable-next-line unicorn/require-module-specifiers
 export {};
 "
 `;
@@ -28696,6 +28707,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * Configuration state and metadata shared among all integration tests.
 
+// eslint-disable-next-line unicorn/require-module-specifiers
 export {};
 "
 `;
@@ -28815,6 +28827,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * Configuration state and metadata shared among all end-to-end tests.
 
+// eslint-disable-next-line unicorn/require-module-specifiers
 export {};
 "
 `;
@@ -28870,6 +28883,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * Configuration state and metadata shared among all integration tests.
 
+// eslint-disable-next-line unicorn/require-module-specifiers
 export {};
 "
 `;
@@ -28989,6 +29003,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * Configuration state and metadata shared among all end-to-end tests.
 
+// eslint-disable-next-line unicorn/require-module-specifiers
 export {};
 "
 `;
@@ -29044,6 +29059,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * Configuration state and metadata shared among all integration tests.
 
+// eslint-disable-next-line unicorn/require-module-specifiers
 export {};
 "
 `;
@@ -29163,6 +29179,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * Configuration state and metadata shared among all end-to-end tests.
 
+// eslint-disable-next-line unicorn/require-module-specifiers
 export {};
 "
 `;
@@ -29218,6 +29235,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * Configuration state and metadata shared among all integration tests.
 
+// eslint-disable-next-line unicorn/require-module-specifiers
 export {};
 "
 `;
@@ -29379,6 +29397,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * Configuration state and metadata shared among all end-to-end tests.
 
+// eslint-disable-next-line unicorn/require-module-specifiers
 export {};
 "
 `;
@@ -29434,6 +29453,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * Configuration state and metadata shared among all integration tests.
 
+// eslint-disable-next-line unicorn/require-module-specifiers
 export {};
 "
 `;
@@ -29553,6 +29573,7 @@ scope: this-package
 ⏶⏷⏶⏷⏶
 // * Configuration state and metadata shared among all end-to-end tests.
 
+// eslint-disable-next-line unicorn/require-module-specifiers
 export {};
 "
 `;
@@ -29608,6 +29629,7 @@ scope: this-package
 ⏶⏷⏶⏷⏶
 // * Configuration state and metadata shared among all integration tests.
 
+// eslint-disable-next-line unicorn/require-module-specifiers
 export {};
 "
 `;
@@ -29727,6 +29749,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * Configuration state and metadata shared among all end-to-end tests.
 
+// eslint-disable-next-line unicorn/require-module-specifiers
 export {};
 "
 `;
@@ -29782,6 +29805,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * Configuration state and metadata shared among all integration tests.
 
+// eslint-disable-next-line unicorn/require-module-specifiers
 export {};
 "
 `;
@@ -29901,6 +29925,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * Configuration state and metadata shared among all end-to-end tests.
 
+// eslint-disable-next-line unicorn/require-module-specifiers
 export {};
 "
 `;
@@ -29956,6 +29981,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * Configuration state and metadata shared among all integration tests.
 
+// eslint-disable-next-line unicorn/require-module-specifiers
 export {};
 "
 `;
@@ -30075,6 +30101,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * Configuration state and metadata shared among all end-to-end tests.
 
+// eslint-disable-next-line unicorn/require-module-specifiers
 export {};
 "
 `;
@@ -30130,6 +30157,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * Configuration state and metadata shared among all integration tests.
 
+// eslint-disable-next-line unicorn/require-module-specifiers
 export {};
 "
 `;
@@ -30291,6 +30319,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * Configuration state and metadata shared among all end-to-end tests.
 
+// eslint-disable-next-line unicorn/require-module-specifiers
 export {};
 "
 `;
@@ -30346,6 +30375,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * Configuration state and metadata shared among all integration tests.
 
+// eslint-disable-next-line unicorn/require-module-specifiers
 export {};
 "
 `;
@@ -30465,6 +30495,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * Configuration state and metadata shared among all end-to-end tests.
 
+// eslint-disable-next-line unicorn/require-module-specifiers
 export {};
 "
 `;
@@ -30520,6 +30551,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * Configuration state and metadata shared among all integration tests.
 
+// eslint-disable-next-line unicorn/require-module-specifiers
 export {};
 "
 `;
@@ -30639,6 +30671,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * Configuration state and metadata shared among all end-to-end tests.
 
+// eslint-disable-next-line unicorn/require-module-specifiers
 export {};
 "
 `;
@@ -30694,6 +30727,7 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 // * Configuration state and metadata shared among all integration tests.
 
+// eslint-disable-next-line unicorn/require-module-specifiers
 export {};
 "
 `;
@@ -30855,6 +30889,7 @@ scope: this-package
 ⏶⏷⏶⏷⏶
 // * Configuration state and metadata shared among all end-to-end tests.
 
+// eslint-disable-next-line unicorn/require-module-specifiers
 export {};
 "
 `;
@@ -30910,6 +30945,7 @@ scope: this-package
 ⏶⏷⏶⏷⏶
 // * Configuration state and metadata shared among all integration tests.
 
+// eslint-disable-next-line unicorn/require-module-specifiers
 export {};
 "
 `;
