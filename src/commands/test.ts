@@ -356,7 +356,8 @@ export default function command({
         },
         runtime: {
           string: true,
-          description: 'Set the runtime used to execute Jest (not Tstyche) tests',
+          description:
+            'Set the runtime (passed to npx) used to execute Jest (not Tstyche) tests',
           default: 'default',
           defaultDescription: '"default" (node from PATH)',
           check(arg: string) {
