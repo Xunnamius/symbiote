@@ -371,10 +371,10 @@ With respect to .prettierignore being the single source of truth for formatters:
       // * null = running
       // * undefined = did not run
       const status: Record<
-        'sort' | 'doctoc' | 'allContrib' | 'remark',
+        'sort' | 'doctoc' | 'allContrib' | 'remark' | 'eslint',
         boolean | null | undefined
       > &
-        Record<'prettier' | 'eslint', number | false | null | undefined> & {
+        Record<'prettier', number | false | null | undefined> & {
           failed: unknown;
         } = {
         failed: false,
@@ -404,19 +404,48 @@ With respect to .prettierignore being the single source of truth for formatters:
             })
           : Promise.resolve();
 
+        // ? The rest of these have to run sequentially to prevent data
+        // ? corruption.
+
+        const prettierTargetFiles = files_?.length
+          ? // ? Prettier does markdown and json files too, so include them
+            targetOtherFiles.concat(targetMarkdownFiles, targetPackageJsonFiles)
+          : [
+              // ? cwd === projectRoot (with respect to '.')
+              (scope === DefaultGlobalScope.ThisPackage
+                ? toRelativePath(projectRoot, cwdPackage.root)
+                : '') || '.',
+              ...(scope === DefaultGlobalScope.ThisPackage
+                ? Array.from(subRootPackages?.values() || []).map(
+                    ({ root: packageRoot }) => {
+                      // ? cwd === projectRoot
+                      return `!${toRelativePath(projectRoot, packageRoot)}`;
+                    }
+                  )
+                : [])
+            ];
+
+        debug('prettierTargetFiles: %O', prettierTargetFiles);
+
         if (shouldDoEslint) {
-          // TODO: this
+          if (prettierTargetFiles.length) {
+            status.eslint = null;
+            await run('npx', ['eslint', '--fix', ...prettierTargetFiles], {
+              cwd: projectRoot
+            }).catch((error: unknown) => {
+              status.eslint = false;
+              throw error;
+            });
 
-          genericLogger.warn(
-            'eslint --fix functionality is not yet implemented (implement me!)'
-          );
-
-          status.eslint = undefined;
+            status.eslint = true;
+          } else {
+            debug(
+              'prettierTargetFiles was empty, so eslint --fix was not run (skipped)'
+            );
+          }
         }
 
         if (shouldDoMarkdown) {
-          // ? These have to run sequentially to prevent data corruption.
-
           status.doctoc = null;
 
           // {@symbiote/notExtraneous doctoc}
@@ -526,26 +555,6 @@ With respect to .prettierignore being the single source of truth for formatters:
         }
 
         if (shouldDoPrettier) {
-          const prettierTargetFiles = files_?.length
-            ? // ? Prettier does markdown and json files too, so include them
-              targetOtherFiles.concat(targetMarkdownFiles, targetPackageJsonFiles)
-            : [
-                // ? cwd === projectRoot (with respect to '.')
-                (scope === DefaultGlobalScope.ThisPackage
-                  ? toRelativePath(projectRoot, cwdPackage.root)
-                  : '') || '.',
-                ...(scope === DefaultGlobalScope.ThisPackage
-                  ? Array.from(subRootPackages?.values() || []).map(
-                      ({ root: packageRoot }) => {
-                        // ? cwd === projectRoot
-                        return `!${toRelativePath(projectRoot, packageRoot)}`;
-                      }
-                    )
-                  : [])
-              ];
-
-          debug('prettierTargetFiles: %O', prettierTargetFiles);
-
           if (prettierTargetFiles.length) {
             status.prettier = null;
             const { all: outputLines } = await run(
@@ -587,11 +596,7 @@ With respect to .prettierignore being the single source of truth for formatters:
           `${SHORT_TAB}Synchronized TOCs: ${statusToEmoji(status.doctoc)}`,
           `${SHORT_TAB}Regenerated contributor table: ${statusToEmoji(status.allContrib)}`,
           `${SHORT_TAB}Reformatted files: ${statusToEmoji(status.remark)}`,
-          `Fixed up files: ${
-            typeof status.eslint === 'number'
-              ? status.eslint
-              : statusToEmoji(status.eslint)
-          }`,
+          `Fixed up files: ${statusToEmoji(status.eslint)}`,
           `Prettified files: ${
             typeof status.prettier === 'number'
               ? status.prettier
