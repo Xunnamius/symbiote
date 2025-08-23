@@ -801,8 +801,8 @@ const renovationTasks = {
 ${SHORT_TAB} - Set description to package.json::description only if not already set
 ${SHORT_TAB}${SHORT_TAB} - With default emoji prefix: ${defaultDescriptionEmoji}
 ${SHORT_TAB} - Set homepage to "${homepagePrefix}pkg-name" only if not already set
-${SHORT_TAB} - Enable ambient repository-wide secret scanning
-${SHORT_TAB} - Enable scanning pushes for secrets
+${SHORT_TAB} - Enable ambient repository-wide secret scanning (unless repo is private)
+${SHORT_TAB} - Enable scanning pushes for secrets (unless repo is private)
 ${SHORT_TAB} - Enable issues
 ${SHORT_TAB} - Enable projects
 ${SHORT_TAB} - Enable squash merging for pull requests
@@ -891,21 +891,24 @@ By default, this command will preserve the origin repository's pre-existing conf
         }
       }
 
-      if (force || !incomingRepoData.security_and_analysis?.secret_scanning?.status) {
-        outgoingRepoData.security_and_analysis ||= {};
-        outgoingRepoData.security_and_analysis.secret_scanning = {
-          status: 'enabled'
-        };
-      }
+      if (!incomingRepoData.private) {
+        if (force || !incomingRepoData.security_and_analysis?.secret_scanning?.status) {
+          outgoingRepoData.security_and_analysis ||= {};
+          outgoingRepoData.security_and_analysis.secret_scanning = {
+            status: 'enabled'
+          };
+        }
 
-      if (
-        force ||
-        !incomingRepoData.security_and_analysis?.secret_scanning_push_protection?.status
-      ) {
-        outgoingRepoData.security_and_analysis ||= {};
-        outgoingRepoData.security_and_analysis.secret_scanning_push_protection = {
-          status: 'enabled'
-        };
+        if (
+          force ||
+          !incomingRepoData.security_and_analysis?.secret_scanning_push_protection
+            ?.status
+        ) {
+          outgoingRepoData.security_and_analysis ||= {};
+          outgoingRepoData.security_and_analysis.secret_scanning_push_protection = {
+            status: 'enabled'
+          };
+        }
       }
 
       if (force) {
