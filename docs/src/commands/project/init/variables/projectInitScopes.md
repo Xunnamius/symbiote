@@ -8,7 +8,7 @@
 
 > `const` **projectInitScopes**: [`Unlimited`](../../../../configure/enumerations/UnlimitedGlobalScope.md#unlimited)[]
 
-Defined in: [src/commands/project/init.ts:21](https://github.com/Xunnamius/symbiote/blob/49b68300bfb7b09f7c437e515711c99015f99f81/src/commands/project/init.ts#L21)
+Defined in: [src/commands/project/init.ts:21](https://github.com/Xunnamius/symbiote/blob/ed48d0dc6e3c473abf99750adfa07c536cba0e98/src/commands/project/init.ts#L21)
 
 ## See
 

@@ -8,7 +8,7 @@
 
 > **moduleExport**(): `object`
 
-Defined in: [src/assets/transformers/\_tailwind.config.ts.ts:11](https://github.com/Xunnamius/symbiote/blob/49b68300bfb7b09f7c437e515711c99015f99f81/src/assets/transformers/_tailwind.config.ts.ts#L11)
+Defined in: [src/assets/transformers/\_tailwind.config.ts.ts:11](https://github.com/Xunnamius/symbiote/blob/ed48d0dc6e3c473abf99750adfa07c536cba0e98/src/assets/transformers/_tailwind.config.ts.ts#L11)
 
 ## Returns
 
