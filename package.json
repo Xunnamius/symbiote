@@ -238,7 +238,7 @@
   "devDependencies": {
     "@-xun/common-dummies": "^2.1.2",
     "@-xun/project-fs": "^2.0.5",
-    "@-xun/symbiote": "^4.11.5",
+    "@-xun/symbiote": "^4.11.6",
     "next": "^15.5.0",
     "webpack": "^5.101.3"
   },
