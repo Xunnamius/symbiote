@@ -2156,10 +2156,11 @@ See the symbiote wiki documentation for more details on this command and all ava
                 useCached: true
               });
 
+              // ? Avoid any potential race conditions
               await rm(absoluteOutputPath, { force: true });
-              countAssetsDeleted += 1;
 
               if (wasAccessible) {
+                countAssetsDeleted += 1;
                 log([LogTag.IF_NOT_QUIETED], `🟥 ${relativeOutputPath}`);
               }
             } else {
