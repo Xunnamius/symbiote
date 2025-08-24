@@ -2152,9 +2152,16 @@ See the symbiote wiki documentation for more details on this command and all ava
                 absoluteOutputPath
               );
 
+              const wasAccessible = await isAccessible(absoluteOutputPath, {
+                useCached: true
+              });
+
               await rm(absoluteOutputPath, { force: true });
               countAssetsDeleted += 1;
-              log([LogTag.IF_NOT_QUIETED], `🟥 ${relativeOutputPath}`);
+
+              if (wasAccessible) {
+                log([LogTag.IF_NOT_QUIETED], `🟥 ${relativeOutputPath}`);
+              }
             } else {
               await mkdir(absoluteOutputParentPath, { mode: 0o775, recursive: true });
               // eslint-disable-next-line @typescript-eslint/no-base-to-string
