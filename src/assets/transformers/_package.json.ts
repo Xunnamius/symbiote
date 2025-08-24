@@ -43,10 +43,6 @@ import type {
 import type { Jsonifiable } from 'type-fest';
 import type { TransformerContext } from 'universe:assets.ts';
 
-// TODO: FOR react NEXTJS Next.js (and production/development if not lib):
-// TODO: when generating over next.js project, remove: keywords, publishconfig,
-// TODO: exports, typesVersions, sideEffects, files. For scripts, add: deploy
-
 export type GeneratorParameters = [
   json: Package['json'] &
     Required<Pick<Package['json'], 'name' | 'version' | 'description'>>,
@@ -78,16 +74,24 @@ export function generateBaseXPackageJson(
   // ? For now, it's best to assume preset-less things are libs.
   // TODO: retire entire "preset" architecture, replace with attributes only and
   // TODO: use heuristics to figure out which roots have which attributes. This
-  // TODO: should completely replace the entire "presets" system 100%.
+  // TODO: should completely replace the entire "presets" system 100% during
+  // TODO: renovations. For initialization, we can still use presets. Still,
+  // TODO: we need to retain "override" functionality wrt aforesaid heuristics
+  // TODO: in case we want to change a package into another type of package
+  // TODO: despite the heuristics.
+  // TODO:
+  // TODO: See commentary in _wrangler.json.ts for additional relevant TODOs
   const isLibraryLike =
     !preset || preset.startsWith('lib') || preset === AssetPreset.Cli;
+
+  const isReactOrNextJs = preset === AssetPreset.Nextjs || preset === AssetPreset.React;
 
   return {
     ...incomingPackageJson,
     name: incomingPackageJson.name,
     version: incomingPackageJson.version,
     description: incomingPackageJson.description,
-    ...('keywords' in incomingPackageJson || isLibraryLike
+    ...(!isReactOrNextJs && ('keywords' in incomingPackageJson || isLibraryLike)
       ? { keywords: incomingPackageJson.keywords || [] }
       : {}),
     homepage: `${repoUrl}${packagePrefix ? `/tree/main${packagePrefix}` : ''}#readme`,
@@ -99,11 +103,11 @@ export function generateBaseXPackageJson(
     author: incomingPackageJson.author ?? 'Xunnamius',
     // ! "sideEffects" can NEVER appear w/ react/next.js preset or webpack makes
     // ! orphans!
-    ...('sideEffects' in incomingPackageJson || isLibraryLike
+    ...(!isReactOrNextJs && ('sideEffects' in incomingPackageJson || isLibraryLike)
       ? { sideEffects: incomingPackageJson.sideEffects ?? false }
       : {}),
     type: incomingPackageJson.type ?? 'commonjs',
-    ...('exports' in incomingPackageJson || isLibraryLike
+    ...(!isReactOrNextJs && ('exports' in incomingPackageJson || isLibraryLike)
       ? {
           exports: incomingPackageJson.exports ?? {
             // ? CLI scope has its own exports entries
@@ -133,7 +137,7 @@ export function generateBaseXPackageJson(
           }
         }
       : {}),
-    ...('typesVersions' in incomingPackageJson || isLibraryLike
+    ...(!isReactOrNextJs && ('typesVersions' in incomingPackageJson || isLibraryLike)
       ? {
           typesVersions: incomingPackageJson.typesVersions ?? {
             '*': {
@@ -164,7 +168,7 @@ export function generateBaseXPackageJson(
           }
         }
       : {}),
-    ...('files' in incomingPackageJson || isLibraryLike
+    ...(!isReactOrNextJs && ('files' in incomingPackageJson || isLibraryLike)
       ? {
           files: incomingPackageJson.files ?? [
             '/dist',
@@ -190,6 +194,11 @@ export function generateBaseXPackageJson(
       'build:topological':
         'symbiote project topology --run build --env NODE_NO_WARNINGS=1',
       clean: 'symbiote clean --env NODE_NO_WARNINGS=1',
+      ...(isReactOrNextJs
+        ? {
+            deploy: 'rejoin The deploy command has not been configured'
+          }
+        : {}),
       ...(preset === AssetPreset.Nextjs ? { dev: 'next -p `npx -q acquire-port`' } : {}),
       format: 'symbiote format --env NODE_NO_WARNINGS=1 --hush',
       info: 'symbiote project info --env NODE_NO_WARNINGS=1',
@@ -225,7 +234,7 @@ export function generateBaseXPackageJson(
     engines: incomingPackageJson.engines ?? {
       node: generatePackageJsonEngineMaintainedNodeVersions({ format: 'engines' })
     },
-    ...('publishConfig' in incomingPackageJson || isLibraryLike
+    ...(!isReactOrNextJs && ('publishConfig' in incomingPackageJson || isLibraryLike)
       ? {
           publishConfig: {
             access: 'public',
