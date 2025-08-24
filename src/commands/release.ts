@@ -131,6 +131,12 @@ export type ReleaseTaskContext = {
   self: ReleaseTask;
   log: ExtendedLogger;
   debug: ExtendedDebugger;
+  findTaskByDescription: (
+    /**
+     * **WARNING: MUST NEVER BE A RegExp WITH A GLOBAL (g) FLAG!**
+     */
+    searchRegExp: RegExp
+  ) => ReleaseTask;
 };
 
 /**
@@ -285,7 +291,10 @@ export default function command(
 
   const { prereleaseTasks, postreleaseTasks, tasksInRunOrder } =
     // ! This is guaranteed by a hardAssert before task.run is called (below)
-    marshalTasks(executionContext as ExecutionContextWithProjectMetadata);
+    marshalTasks(
+      executionContext as ExecutionContextWithProjectMetadata,
+      findTaskByDescription
+    );
 
   const firstSkippablePrereleaseTaskId = prereleaseTasks.find(
     ({ skippable }) => skippable
@@ -633,7 +642,11 @@ WARNING: this command is NOT DESIGNED TO HANDLE CONCURRENT EXECUTION ON THE SAME
                     `${emoji}${actionDescription || `Running task #${id}`}`
                   );
 
-                  await taskRunner(argv, { log: taskLogger, debug: dbg });
+                  await taskRunner(argv, {
+                    log: taskLogger,
+                    debug: dbg,
+                    findTaskByDescription
+                  });
                 } else {
                   dbg('skipped runner function (does not exist)');
 
@@ -763,7 +776,10 @@ WARNING: this command is NOT DESIGNED TO HANDLE CONCURRENT EXECUTION ON THE SAME
   }
 }
 
-function marshalTasks(executionContext: ExecutionContextWithProjectMetadata) {
+function marshalTasks(
+  executionContext: ExecutionContextWithProjectMetadata,
+  findTaskByDescription: ReleaseTaskContext['findTaskByDescription']
+) {
   let count = 0;
 
   const prereleaseTasks = protoPrereleaseTasks.map(toReleaseTasks('pre'));
@@ -817,7 +833,8 @@ function marshalTasks(executionContext: ExecutionContextWithProjectMetadata) {
             return task.run!(executionContext, argv, {
               self: releaseTask,
               log,
-              debug
+              debug,
+              findTaskByDescription
             });
           } as ReleaseTask['run'])
         : undefined;
@@ -1083,6 +1100,8 @@ const protoPrereleaseTasks: ProtoPrereleaseTask[][] = [
       npmScripts: ['test:package:all', 'test'],
       helpDescription: 'symbiote test --scope=this-package --coverage'
     },
+    // ! This command should always mark the end of "manual" tasks so stuff like
+    // ! SkippableTasksGroup works
     {
       skippable: true,
       emoji: '🧹',
@@ -1355,8 +1374,8 @@ const protoPostreleaseTasks: ProtoPostreleaseTask[][] = [
             rootPackage: { root: projectRoot }
           }
         },
-        { dryRun, force, quiet: isQuieted, silent: isSilenced },
-        { log, debug }
+        { dryRun, force, quiet: isQuieted, silent: isSilenced, skipTasks },
+        { log, debug, findTaskByDescription }
       ) {
         const { root: packageRoot } = cwdPackage;
 
@@ -1367,6 +1386,14 @@ const protoPostreleaseTasks: ProtoPostreleaseTask[][] = [
           log.message(
             [LogTag.IF_NOT_SILENCED],
             '✖️ Task execution skipped: no codecov configuration file found at %O',
+            codecovConfigPath
+          );
+        } else if (
+          skipTasks.includes(findTaskByDescription(/symbiote test/).id.toString())
+        ) {
+          log.message(
+            [LogTag.IF_NOT_SILENCED],
+            '✖️ Task execution skipped: no fresh coverage data available because test runner task (%O) was skipped',
             codecovConfigPath
           );
         } else {
