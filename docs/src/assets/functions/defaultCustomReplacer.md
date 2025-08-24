@@ -8,7 +8,7 @@
 
 > **defaultCustomReplacer**(`objValue`, `srcValue`, `key`, `object`, `source`): `undefined` \| `any`[]
 
-Defined in: [src/assets.ts:659](https://github.com/Xunnamius/symbiote/blob/0a3ecc9e8bdf9588a85b031431b4261e563bc762/src/assets.ts#L659)
+Defined in: [src/assets.ts:668](https://github.com/Xunnamius/symbiote/blob/15958ef64db3e6bbd3a724cff425dee47b08713b/src/assets.ts#L668)
 
 Custom lodash merge customizer that causes successive `undefined` source
 values to unset (delete) the destination property if it exists, and to

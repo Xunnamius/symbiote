@@ -8,4 +8,4 @@
 
 > **CustomCliArguments** = [`GlobalCliArguments`](../../../../configure/type-aliases/GlobalCliArguments.md)\<[`UnlimitedGlobalScope`](../../../../configure/enumerations/UnlimitedGlobalScope.md)\> & `object`
 
-Defined in: [src/commands/project/lint.ts:21](https://github.com/Xunnamius/symbiote/blob/0a3ecc9e8bdf9588a85b031431b4261e563bc762/src/commands/project/lint.ts#L21)
+Defined in: [src/commands/project/lint.ts:21](https://github.com/Xunnamius/symbiote/blob/15958ef64db3e6bbd3a724cff425dee47b08713b/src/commands/project/lint.ts#L21)

@@ -22,6 +22,7 @@
 - [Transformer](type-aliases/Transformer.md)
 - [TransformerContainer](type-aliases/TransformerContainer.md)
 - [TransformerContext](type-aliases/TransformerContext.md)
+- [UniqueDeleteSymbol](type-aliases/UniqueDeleteSymbol.md)
 
 ## Variables
 

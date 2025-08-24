@@ -6,9 +6,9 @@
 
 # Variable: $delete
 
-> `const` **$delete**: *typeof* `$delete`
+> `const` **$delete**: [`UniqueDeleteSymbol`](../type-aliases/UniqueDeleteSymbol.md)
 
-Defined in: [src/assets.ts:38](https://github.com/Xunnamius/symbiote/blob/0a3ecc9e8bdf9588a85b031431b4261e563bc762/src/assets.ts#L38)
+Defined in: [src/assets.ts:45](https://github.com/Xunnamius/symbiote/blob/15958ef64db3e6bbd3a724cff425dee47b08713b/src/assets.ts#L45)
 
 The Symbol represents an asset to be deleted and can be returned as the
 result of an [Asset.generate](../type-aliases/Asset.md#generate) function instead of normal string

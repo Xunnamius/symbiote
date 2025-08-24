@@ -8,7 +8,7 @@
 
 > **moduleExport**(): `object`
 
-Defined in: [src/assets/transformers/\_commitlint.config.mjs.ts:26](https://github.com/Xunnamius/symbiote/blob/0a3ecc9e8bdf9588a85b031431b4261e563bc762/src/assets/transformers/_commitlint.config.mjs.ts#L26)
+Defined in: [src/assets/transformers/\_commitlint.config.mjs.ts:26](https://github.com/Xunnamius/symbiote/blob/15958ef64db3e6bbd3a724cff425dee47b08713b/src/assets/transformers/_commitlint.config.mjs.ts#L26)
 
 ## Returns
 

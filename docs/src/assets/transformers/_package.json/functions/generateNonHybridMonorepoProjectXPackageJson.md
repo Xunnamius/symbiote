@@ -8,7 +8,7 @@
 
 > **generateNonHybridMonorepoProjectXPackageJson**(...`__namedParameters`): `object`
 
-Defined in: [src/assets/transformers/\_package.json.ts:284](https://github.com/Xunnamius/symbiote/blob/0a3ecc9e8bdf9588a85b031431b4261e563bc762/src/assets/transformers/_package.json.ts#L284)
+Defined in: [src/assets/transformers/\_package.json.ts:293](https://github.com/Xunnamius/symbiote/blob/15958ef64db3e6bbd3a724cff425dee47b08713b/src/assets/transformers/_package.json.ts#L293)
 
 ## Parameters
 
@@ -348,7 +348,7 @@ project or package that are ignored by git (with exceptions).
 
 #### scripts.deploy?
 
-> `optional` **deploy**: `string`
+> `optional` **deploy**: `string` = `'rejoin The deploy command has not been configured'`
 
 Run by users, symbiote, and related tooling when deploying built
 distributables to the appropriate remote system(s).
