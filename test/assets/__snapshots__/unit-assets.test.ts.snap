@@ -3056,16 +3056,6 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .all-
 scope: this-package
 ⏶⏷⏶⏷⏶
 {
-  "projectName": "repo-name",
-  "projectOwner": "Xunnamius",
-  "repoType": "github",
-  "repoHost": "https://github.com",
-  "files": [
-    "README.md"
-  ],
-  "imageSize": 100,
-  "commit": false,
-  "commitConvention": "angular",
   "contributors": [
     {
       "login": "Xunnamius",
@@ -3082,6 +3072,16 @@ scope: this-package
       ]
     }
   ],
+  "projectName": "repo-name",
+  "projectOwner": "Xunnamius",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitConvention": "angular",
   "contributorsPerLine": 7,
   "linkToUsage": true
 }
@@ -3093,16 +3093,6 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .all-
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
-  "projectName": "repo-name",
-  "projectOwner": "Xunnamius",
-  "repoType": "github",
-  "repoHost": "https://github.com",
-  "files": [
-    "README.md"
-  ],
-  "imageSize": 100,
-  "commit": false,
-  "commitConvention": "angular",
   "contributors": [
     {
       "login": "Xunnamius",
@@ -3119,6 +3109,16 @@ scope: unlimited
       ]
     }
   ],
+  "projectName": "repo-name",
+  "projectOwner": "Xunnamius",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitConvention": "angular",
   "contributorsPerLine": 7,
   "linkToUsage": true
 }
@@ -3130,16 +3130,6 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .all-
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
-  "projectName": "repo-name",
-  "projectOwner": "Xunnamius",
-  "repoType": "github",
-  "repoHost": "https://github.com",
-  "files": [
-    "README.md"
-  ],
-  "imageSize": 100,
-  "commit": false,
-  "commitConvention": "angular",
   "contributors": [
     {
       "login": "Xunnamius",
@@ -3156,6 +3146,16 @@ scope: unlimited
       ]
     }
   ],
+  "projectName": "repo-name",
+  "projectOwner": "Xunnamius",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitConvention": "angular",
   "contributorsPerLine": 7,
   "linkToUsage": true
 }
@@ -3167,16 +3167,6 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .all-
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
-  "projectName": "repo-name",
-  "projectOwner": "Xunnamius",
-  "repoType": "github",
-  "repoHost": "https://github.com",
-  "files": [
-    "README.md"
-  ],
-  "imageSize": 100,
-  "commit": false,
-  "commitConvention": "angular",
   "contributors": [
     {
       "login": "Xunnamius",
@@ -3193,6 +3183,16 @@ scope: unlimited
       ]
     }
   ],
+  "projectName": "repo-name",
+  "projectOwner": "Xunnamius",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitConvention": "angular",
   "contributorsPerLine": 7,
   "linkToUsage": true
 }
@@ -3204,16 +3204,6 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .all-
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
-  "projectName": "repo-name",
-  "projectOwner": "Xunnamius",
-  "repoType": "github",
-  "repoHost": "https://github.com",
-  "files": [
-    "README.md"
-  ],
-  "imageSize": 100,
-  "commit": false,
-  "commitConvention": "angular",
   "contributors": [
     {
       "login": "Xunnamius",
@@ -3230,6 +3220,16 @@ scope: unlimited
       ]
     }
   ],
+  "projectName": "repo-name",
+  "projectOwner": "Xunnamius",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitConvention": "angular",
   "contributorsPerLine": 7,
   "linkToUsage": true
 }
@@ -3241,16 +3241,6 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .all-
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
-  "projectName": "repo-name",
-  "projectOwner": "Xunnamius",
-  "repoType": "github",
-  "repoHost": "https://github.com",
-  "files": [
-    "README.md"
-  ],
-  "imageSize": 100,
-  "commit": false,
-  "commitConvention": "angular",
   "contributors": [
     {
       "login": "Xunnamius",
@@ -3267,6 +3257,16 @@ scope: unlimited
       ]
     }
   ],
+  "projectName": "repo-name",
+  "projectOwner": "Xunnamius",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitConvention": "angular",
   "contributorsPerLine": 7,
   "linkToUsage": true
 }
@@ -3278,16 +3278,6 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .all-
 scope: this-package
 ⏶⏷⏶⏷⏶
 {
-  "projectName": "repo-name",
-  "projectOwner": "Xunnamius",
-  "repoType": "github",
-  "repoHost": "https://github.com",
-  "files": [
-    "README.md"
-  ],
-  "imageSize": 100,
-  "commit": false,
-  "commitConvention": "angular",
   "contributors": [
     {
       "login": "Xunnamius",
@@ -3304,6 +3294,16 @@ scope: this-package
       ]
     }
   ],
+  "projectName": "repo-name",
+  "projectOwner": "Xunnamius",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitConvention": "angular",
   "contributorsPerLine": 7,
   "linkToUsage": true
 }
@@ -3315,16 +3315,6 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .all-
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
-  "projectName": "repo-name",
-  "projectOwner": "Xunnamius",
-  "repoType": "github",
-  "repoHost": "https://github.com",
-  "files": [
-    "README.md"
-  ],
-  "imageSize": 100,
-  "commit": false,
-  "commitConvention": "angular",
   "contributors": [
     {
       "login": "Xunnamius",
@@ -3341,6 +3331,16 @@ scope: unlimited
       ]
     }
   ],
+  "projectName": "repo-name",
+  "projectOwner": "Xunnamius",
+  "repoType": "github",
+  "repoHost": "https://github.com",
+  "files": [
+    "README.md"
+  ],
+  "imageSize": 100,
+  "commit": false,
+  "commitConvention": "angular",
   "contributorsPerLine": 7,
   "linkToUsage": true
 }
