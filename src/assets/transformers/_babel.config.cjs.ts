@@ -481,59 +481,64 @@ export const { transformer } = makeTransformer(function (context) {
 
   // * Only the root package gets these files
   return generateRootOnlyAssets(context, async function () {
+    const target = toProjectAbsolutePath(
+      assetPreset === AssetPreset.Nextjs
+        ? // ? Next.js wants its babel.config file to end in ".js"
+          babelConfigProjectBase.replace(/\.cjs$/, '.js')
+        : babelConfigProjectBase
+    );
+
     return [
-      // ? We'll delete all possible permutations, then add back the one we want
+      ...[
+        {
+          path: toProjectAbsolutePath('babel.config.js'),
+          generate: () => $delete
+        },
+        {
+          path: toProjectAbsolutePath('babel.config.cjs'),
+          generate: () => $delete
+        },
+        {
+          path: toProjectAbsolutePath('babel.config.mjs'),
+          generate: () => $delete
+        },
+        {
+          path: toProjectAbsolutePath('babel.config.cts'),
+          generate: () => $delete
+        },
+        {
+          path: toProjectAbsolutePath('babel.config.json'),
+          generate: () => $delete
+        },
+        {
+          path: toProjectAbsolutePath('.babelrc'),
+          generate: () => $delete
+        },
+        {
+          path: toProjectAbsolutePath('.babelrc.js'),
+          generate: () => $delete
+        },
+        {
+          path: toProjectAbsolutePath('.babelrc.cjs'),
+          generate: () => $delete
+        },
+        {
+          path: toProjectAbsolutePath('.babelrc.mjs'),
+          generate: () => $delete
+        },
+        {
+          path: toProjectAbsolutePath('.babelrc.cts'),
+          generate: () => $delete
+        },
+        {
+          path: toProjectAbsolutePath('.babelrc.json'),
+          generate: () => $delete
+        }
+
+        // ? We'll delete all possible permutations except the one we want
+      ].filter(({ path }) => path !== target),
       {
-        path: toProjectAbsolutePath('babel.config.js'),
-        generate: () => $delete
-      },
-      {
-        path: toProjectAbsolutePath('babel.config.cjs'),
-        generate: () => $delete
-      },
-      {
-        path: toProjectAbsolutePath('babel.config.mjs'),
-        generate: () => $delete
-      },
-      {
-        path: toProjectAbsolutePath('babel.config.cts'),
-        generate: () => $delete
-      },
-      {
-        path: toProjectAbsolutePath('babel.config.json'),
-        generate: () => $delete
-      },
-      {
-        path: toProjectAbsolutePath('.babelrc'),
-        generate: () => $delete
-      },
-      {
-        path: toProjectAbsolutePath('.babelrc.js'),
-        generate: () => $delete
-      },
-      {
-        path: toProjectAbsolutePath('.babelrc.cjs'),
-        generate: () => $delete
-      },
-      {
-        path: toProjectAbsolutePath('.babelrc.mjs'),
-        generate: () => $delete
-      },
-      {
-        path: toProjectAbsolutePath('.babelrc.cts'),
-        generate: () => $delete
-      },
-      {
-        path: toProjectAbsolutePath('.babelrc.json'),
-        generate: () => $delete
-      },
-      {
-        path: toProjectAbsolutePath(
-          assetPreset === AssetPreset.Nextjs
-            ? // ? Next.js wants its babel.config file to end in ".js"
-              babelConfigProjectBase.replace(/\.cjs$/, '.js')
-            : babelConfigProjectBase
-        ),
+        path: target,
         generate: () => /*js*/ `
 // @ts-check
 'use strict';

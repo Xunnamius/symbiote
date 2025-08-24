@@ -12,6 +12,10 @@ export const { transformer } = makeTransformer(function (context) {
   return generateRootOnlyAssets(context, async function () {
     return [
       {
+        path: toProjectAbsolutePath('.ncurc'),
+        generate: () => $delete
+      },
+      {
         path: toProjectAbsolutePath('.ncurc.js'),
         generate: () => $delete
       },

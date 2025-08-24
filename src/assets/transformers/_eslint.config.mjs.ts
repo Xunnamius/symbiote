@@ -848,54 +848,59 @@ export const { transformer } = makeTransformer(function ({
         .replace(/^]/m, '  ]')}`
     : 'return []';
 
+  const target = toProjectAbsolutePath(eslintConfigProjectBase);
+
   return [
-    // ? We'll delete all possible permutations, then add back the one we want
+    ...[
+      {
+        path: toProjectAbsolutePath('eslint.config.js'),
+        generate: () => $delete
+      },
+      {
+        path: toProjectAbsolutePath('eslint.config.cjs'),
+        generate: () => $delete
+      },
+      {
+        path: toProjectAbsolutePath('eslint.config.mjs'),
+        generate: () => $delete
+      },
+      {
+        path: toProjectAbsolutePath('eslint.config.cts'),
+        generate: () => $delete
+      },
+      {
+        path: toProjectAbsolutePath('eslint.config.json'),
+        generate: () => $delete
+      },
+      {
+        path: toProjectAbsolutePath('.eslintrc'),
+        generate: () => $delete
+      },
+      {
+        path: toProjectAbsolutePath('.eslintrc.js'),
+        generate: () => $delete
+      },
+      {
+        path: toProjectAbsolutePath('.eslintrc.cjs'),
+        generate: () => $delete
+      },
+      {
+        path: toProjectAbsolutePath('.eslintrc.mjs'),
+        generate: () => $delete
+      },
+      {
+        path: toProjectAbsolutePath('.eslintrc.cts'),
+        generate: () => $delete
+      },
+      {
+        path: toProjectAbsolutePath('.eslintrc.json'),
+        generate: () => $delete
+      }
+
+      // ? We'll delete all possible permutations except the one we want
+    ].filter(({ path }) => path !== target),
     {
-      path: toProjectAbsolutePath('eslint.config.js'),
-      generate: () => $delete
-    },
-    {
-      path: toProjectAbsolutePath('eslint.config.cjs'),
-      generate: () => $delete
-    },
-    {
-      path: toProjectAbsolutePath('eslint.config.mjs'),
-      generate: () => $delete
-    },
-    {
-      path: toProjectAbsolutePath('eslint.config.cts'),
-      generate: () => $delete
-    },
-    {
-      path: toProjectAbsolutePath('eslint.config.json'),
-      generate: () => $delete
-    },
-    {
-      path: toProjectAbsolutePath('.eslintrc'),
-      generate: () => $delete
-    },
-    {
-      path: toProjectAbsolutePath('.eslintrc.js'),
-      generate: () => $delete
-    },
-    {
-      path: toProjectAbsolutePath('.eslintrc.cjs'),
-      generate: () => $delete
-    },
-    {
-      path: toProjectAbsolutePath('.eslintrc.mjs'),
-      generate: () => $delete
-    },
-    {
-      path: toProjectAbsolutePath('.eslintrc.cts'),
-      generate: () => $delete
-    },
-    {
-      path: toProjectAbsolutePath('.eslintrc.json'),
-      generate: () => $delete
-    },
-    {
-      path: toProjectAbsolutePath(eslintConfigProjectBase),
+      path: target,
       // TODO: include react stuff automatically for react and next projects and
       // TODO: come up with a different example in the below comment:
       generate: () => /*js*/ `
