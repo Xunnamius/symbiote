@@ -21,6 +21,7 @@ import { createDebugLogger, createGenericLogger } from 'rejoinder';
 import { parsePackageJsonRepositoryIntoOwnerAndRepo } from 'universe:assets/transformers/_package.json.ts';
 
 import {
+  $delete,
   assetPresets,
   compileTemplate,
   compileTemplateInMemory,
@@ -370,8 +371,14 @@ describe('::gatherAssetsFromTransformer', () => {
           });
 
           expect(assets).toContainAllKeys([
+            toPath(projectMetadata.rootPackage.root, '.env.example'),
             toPath(projectMetadata.rootPackage.root, dotEnvDefaultConfigProjectBase)
           ]);
+
+          await expect(
+            assets[toPath(projectMetadata.rootPackage.root, '.env.example')]!()
+            // eslint-disable-next-line @typescript-eslint/no-base-to-string
+          ).resolves.toMatchSnapshot(String($delete));
 
           await expect(
             assets[
@@ -426,7 +433,14 @@ describe('::gatherAssetsFromTransformer', () => {
             options: { transformerFiletype: 'ts' }
           });
 
-          expect(assets).toBeEmpty();
+          expect(assets).toContainAllKeys([
+            toPath(projectMetadata.rootPackage.root, '.env.example')
+          ]);
+
+          await expect(
+            assets[toPath(projectMetadata.rootPackage.root, '.env.example')]!()
+            // eslint-disable-next-line @typescript-eslint/no-base-to-string
+          ).resolves.toMatchSnapshot(String($delete));
         }
 
         {
@@ -556,8 +570,14 @@ describe('::gatherAssetsFromTransformer', () => {
           });
 
           expect(assets).toContainAllKeys([
+            toPath(projectMetadata.rootPackage.root, '.env.example'),
             toPath(projectMetadata.rootPackage.root, dotEnvConfigProjectBase)
           ]);
+
+          await expect(
+            assets[toPath(projectMetadata.rootPackage.root, '.env.example')]!()
+            // eslint-disable-next-line @typescript-eslint/no-base-to-string
+          ).resolves.toMatchSnapshot(String($delete));
 
           await expect(
             assets[toPath(projectMetadata.rootPackage.root, dotEnvConfigProjectBase)]!()
@@ -1105,11 +1125,16 @@ describe('::gatherAssetsFromAllTransformers', () => {
           }
         });
 
-        expect(
-          Object.keys(assets).map((k) =>
-            k.slice(projectMetadata.rootPackage.root.length + 1)
+        await expect(
+          Promise.all(
+            Object.entries(assets).map(async function ([k, v]) {
+              return (
+                ((await v()) === $delete ? '(deleted) ' : '') +
+                k.slice(projectMetadata.rootPackage.root.length + 1)
+              );
+            })
           )
-        ).toMatchSnapshot();
+        ).resolves.toMatchSnapshot();
       });
 
       test('generates expected assets at non-hybrid monorepo', async () => {
@@ -1129,11 +1154,16 @@ describe('::gatherAssetsFromAllTransformers', () => {
           }
         });
 
-        expect(
-          Object.keys(assets).map((k) =>
-            k.slice(projectMetadata.rootPackage.root.length + 1)
+        await expect(
+          Promise.all(
+            Object.entries(assets).map(async function ([k, v]) {
+              return (
+                ((await v()) === $delete ? '(deleted) ' : '') +
+                k.slice(projectMetadata.rootPackage.root.length + 1)
+              );
+            })
           )
-        ).toMatchSnapshot();
+        ).resolves.toMatchSnapshot();
       });
 
       test('generates expected assets at hybridrepo', async () => {
@@ -1153,11 +1183,16 @@ describe('::gatherAssetsFromAllTransformers', () => {
           }
         });
 
-        expect(
-          Object.keys(assets).map((k) =>
-            k.slice(projectMetadata.rootPackage.root.length + 1)
+        await expect(
+          Promise.all(
+            Object.entries(assets).map(async function ([k, v]) {
+              return (
+                ((await v()) === $delete ? '(deleted) ' : '') +
+                k.slice(projectMetadata.rootPackage.root.length + 1)
+              );
+            })
           )
-        ).toMatchSnapshot();
+        ).resolves.toMatchSnapshot();
       });
     }
   }
@@ -2095,8 +2130,8 @@ async function expectAssetsToMatchSnapshots(
   for (const [key, asset] of entries) {
     expect(
       `key: ${key}\nscope: ${scope}\n⏶⏷⏶⏷⏶\n` +
-        // eslint-disable-next-line no-await-in-loop
-        replaceDynamicValuesWithStableStrings(await asset())
+        // eslint-disable-next-line no-await-in-loop, @typescript-eslint/no-base-to-string
+        replaceDynamicValuesWithStableStrings(String(await asset()))
     ).toMatchSnapshot(key);
   }
 }

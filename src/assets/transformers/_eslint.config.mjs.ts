@@ -35,7 +35,7 @@ import {
   parser as eslintTsParser
 } from 'typescript-eslint';
 
-import { makeTransformer } from 'universe:assets.ts';
+import { $delete, makeTransformer } from 'universe:assets.ts';
 
 import {
   globalDebuggerNamespace,
@@ -849,6 +849,51 @@ export const { transformer } = makeTransformer(function ({
     : 'return []';
 
   return [
+    // ? We'll delete all possible permutations, then add back the one we want
+    {
+      path: toProjectAbsolutePath('eslint.config.js'),
+      generate: () => $delete
+    },
+    {
+      path: toProjectAbsolutePath('eslint.config.cjs'),
+      generate: () => $delete
+    },
+    {
+      path: toProjectAbsolutePath('eslint.config.mjs'),
+      generate: () => $delete
+    },
+    {
+      path: toProjectAbsolutePath('eslint.config.cts'),
+      generate: () => $delete
+    },
+    {
+      path: toProjectAbsolutePath('eslint.config.json'),
+      generate: () => $delete
+    },
+    {
+      path: toProjectAbsolutePath('.eslintrc'),
+      generate: () => $delete
+    },
+    {
+      path: toProjectAbsolutePath('.eslintrc.js'),
+      generate: () => $delete
+    },
+    {
+      path: toProjectAbsolutePath('.eslintrc.cjs'),
+      generate: () => $delete
+    },
+    {
+      path: toProjectAbsolutePath('.eslintrc.mjs'),
+      generate: () => $delete
+    },
+    {
+      path: toProjectAbsolutePath('.eslintrc.cts'),
+      generate: () => $delete
+    },
+    {
+      path: toProjectAbsolutePath('.eslintrc.json'),
+      generate: () => $delete
+    },
     {
       path: toProjectAbsolutePath(eslintConfigProjectBase),
       // TODO: include react stuff automatically for react and next projects and

@@ -7,6 +7,7 @@ import {
 } from '@-xun/project';
 
 import {
+  $delete,
   AssetPreset,
   generatePerPackageAssets,
   generateRootOnlyAssets,
@@ -360,6 +361,10 @@ export const { transformer } = makeTransformer(async function (context) {
               )
         },
         {
+          path: toProjectAbsolutePath('tsconfig.lint.json'),
+          generate: () => $delete
+        },
+        {
           path: toProjectAbsolutePath(Tsconfig.ProjectLint),
           generate: () => tsconfigFiles[Tsconfig.ProjectLint]
         }
@@ -375,12 +380,24 @@ export const { transformer } = makeTransformer(async function (context) {
 
         return [
           {
+            path: toPackageAbsolutePath('tsconfig.types.json'),
+            generate: () => $delete
+          },
+          {
             path: toPackageAbsolutePath(Tsconfig.PackageTypes),
             generate: () => tsconfigFiles[Tsconfig.PackageTypes][selector]
           },
           {
+            path: toPackageAbsolutePath('tsconfig.lint.json'),
+            generate: () => $delete
+          },
+          {
             path: toPackageAbsolutePath(Tsconfig.PackageLint),
             generate: () => tsconfigFiles[Tsconfig.PackageLint][selector]
+          },
+          {
+            path: toPackageAbsolutePath('tsconfig.docs.json'),
+            generate: () => $delete
           },
           {
             path: toPackageAbsolutePath(Tsconfig.PackageDocumentation),

@@ -6,6 +6,7 @@ import { webpackConfigProjectBase } from '@-xun/project';
 import { createDebugLogger } from 'rejoinder';
 
 import {
+  $delete,
   AssetPreset,
   generateRootOnlyAssets,
   makeTransformer
@@ -36,6 +37,14 @@ export const { transformer } = makeTransformer(function (context) {
   // * Only the root package gets these files
   return generateRootOnlyAssets(context, async function () {
     return [
+      {
+        path: toProjectAbsolutePath('webpack.config.js'),
+        generate: () => $delete
+      },
+      {
+        path: toProjectAbsolutePath('webpack.config.json'),
+        generate: () => $delete
+      },
       {
         path: toProjectAbsolutePath(webpackConfigProjectBase),
         generate: () => /*js*/ `

@@ -1,7 +1,7 @@
 import { commitlintConfigProjectBase } from '@-xun/project';
 
 import { wellKnownCommitTypes } from 'universe:assets/transformers/_conventional.config.cjs.ts';
-import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
+import { $delete, generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 import { globalDebuggerNamespace } from 'universe:constant.ts';
 
 // {@symbiote/notExtraneous @commitlint/cli @commitlint/config-conventional}
@@ -48,6 +48,10 @@ export const { transformer } = makeTransformer(function (context) {
   // * Only the root package gets these files
   return generateRootOnlyAssets(context, async function () {
     return [
+      {
+        path: toProjectAbsolutePath('commitlint.config.js'),
+        generate: () => $delete
+      },
       {
         path: toProjectAbsolutePath(commitlintConfigProjectBase),
         generate: () => /*js*/ `

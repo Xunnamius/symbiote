@@ -43,6 +43,7 @@ import { createDebugLogger, createGenericLogger } from 'rejoinder';
 import semver from 'semver';
 
 import {
+  $delete,
   AssetPreset,
   generateRootOnlyAssets,
   makeTransformer
@@ -481,6 +482,51 @@ export const { transformer } = makeTransformer(function (context) {
   // * Only the root package gets these files
   return generateRootOnlyAssets(context, async function () {
     return [
+      // ? We'll delete all possible permutations, then add back the one we want
+      {
+        path: toProjectAbsolutePath('babel.config.js'),
+        generate: () => $delete
+      },
+      {
+        path: toProjectAbsolutePath('babel.config.cjs'),
+        generate: () => $delete
+      },
+      {
+        path: toProjectAbsolutePath('babel.config.mjs'),
+        generate: () => $delete
+      },
+      {
+        path: toProjectAbsolutePath('babel.config.cts'),
+        generate: () => $delete
+      },
+      {
+        path: toProjectAbsolutePath('babel.config.json'),
+        generate: () => $delete
+      },
+      {
+        path: toProjectAbsolutePath('.babelrc'),
+        generate: () => $delete
+      },
+      {
+        path: toProjectAbsolutePath('.babelrc.js'),
+        generate: () => $delete
+      },
+      {
+        path: toProjectAbsolutePath('.babelrc.cjs'),
+        generate: () => $delete
+      },
+      {
+        path: toProjectAbsolutePath('.babelrc.mjs'),
+        generate: () => $delete
+      },
+      {
+        path: toProjectAbsolutePath('.babelrc.cts'),
+        generate: () => $delete
+      },
+      {
+        path: toProjectAbsolutePath('.babelrc.json'),
+        generate: () => $delete
+      },
       {
         path: toProjectAbsolutePath(
           assetPreset === AssetPreset.Nextjs

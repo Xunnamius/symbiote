@@ -1,6 +1,7 @@
 import { directoryTestPackageBase, isAccessible, isRootPackage } from '@-xun/project';
 
 import {
+  $delete,
   AssetPreset,
   generatePerPackageAssets,
   generateRootOnlyAssets,
@@ -114,6 +115,10 @@ loadEnv({ path: toPath(__dirname, '..', '.env'), quiet: true });
             ...(!isCwdPackageTheRoot || isLibraryLike
               ? [
                   {
+                    path: toProjectAbsolutePath(outputDir, 'unit-x.test.ts'),
+                    generate: () => $delete
+                  },
+                  {
                     path: toProjectAbsolutePath(outputDir, 'unit.test.ts'),
                     generate: () => /*js*/ `
 // * These tests ensure the exported interfaces under test function as expected.
@@ -121,6 +126,10 @@ loadEnv({ path: toPath(__dirname, '..', '.env'), quiet: true });
 describe('::todo', () => {
   test.todo('this');
 });`
+                  },
+                  {
+                    path: toProjectAbsolutePath(outputDir, 'type-x.test.ts'),
+                    generate: () => $delete
                   },
                   {
                     path: toProjectAbsolutePath(outputDir, 'type.test.ts'),
@@ -142,6 +151,22 @@ describe('::todo', () => {
 
 // eslint-disable-next-line unicorn/require-module-specifiers
 export {};`
+            },
+            {
+              path: toProjectAbsolutePath(
+                outputDir,
+                'integration',
+                'integration-node-smoke.test.ts'
+              ),
+              generate: () => $delete
+            },
+            {
+              path: toProjectAbsolutePath(
+                outputDir,
+                'integration',
+                'integration-x.test.ts'
+              ),
+              generate: () => $delete
             },
             {
               path: toProjectAbsolutePath(
@@ -244,6 +269,10 @@ test.todo('this');`
 
 // eslint-disable-next-line unicorn/require-module-specifiers
 export {};`
+            },
+            {
+              path: toProjectAbsolutePath(outputDir, 'end-to-end', 'e2e-x.test.ts'),
+              generate: () => $delete
             },
             {
               path: toProjectAbsolutePath(outputDir, 'end-to-end', 'e2e.test.ts'),

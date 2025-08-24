@@ -23,7 +23,7 @@ import { run } from '@-xun/run';
 import { createDebugLogger, createGenericLogger } from 'rejoinder';
 import { createGithubLogger } from 'rejoinder-github-actions';
 
-import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
+import { $delete, generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 import buildChangelog, { OutputOrder } from 'universe:commands/build/changelog.ts';
 import projectPrepare from 'universe:commands/project/prepare.ts';
 
@@ -310,6 +310,10 @@ export const { transformer } = makeTransformer(function (context) {
   // * Only the root package gets these files
   return generateRootOnlyAssets(context, async function () {
     return [
+      {
+        path: toProjectAbsolutePath('release.config.js'),
+        generate: () => $delete
+      },
       {
         path: toProjectAbsolutePath(xreleaseConfigProjectBase),
         generate: () => /*js*/ `

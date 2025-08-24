@@ -1,6 +1,6 @@
 import { ncuConfigProjectBase } from '@-xun/project';
 
-import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
+import { $delete, generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 import { globalDebuggerNamespace } from 'universe:constant.ts';
 
 // {@symbiote/notExtraneous npm-check-updates}
@@ -11,6 +11,10 @@ export const { transformer } = makeTransformer(function (context) {
   // * Only the root package gets these files
   return generateRootOnlyAssets(context, async function () {
     return [
+      {
+        path: toProjectAbsolutePath('.ncurc.js'),
+        generate: () => $delete
+      },
       {
         path: toProjectAbsolutePath(ncuConfigProjectBase),
         generate: () => /*js*/ `

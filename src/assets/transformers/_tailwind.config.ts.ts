@@ -1,6 +1,7 @@
 import { tailwindConfigProjectBase } from '@-xun/project';
 
 import {
+  $delete,
   generateRootOnlyAssets,
   makeTransformer,
   reactAssetPresets
@@ -24,6 +25,10 @@ export const { transformer } = makeTransformer(function (context) {
   // * Only the root package gets these files
   return generateRootOnlyAssets(context, async function () {
     return [
+      {
+        path: toProjectAbsolutePath('tailwind.config.mjs'),
+        generate: () => $delete
+      },
       {
         path: toProjectAbsolutePath(tailwindConfigProjectBase),
         generate: () => /*js*/ `

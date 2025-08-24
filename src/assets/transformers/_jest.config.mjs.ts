@@ -11,7 +11,7 @@ import { ProjectError } from '@-xun/project/error';
 import escapeStringRegexp from 'escape-string-regexp~4';
 import { createDebugLogger } from 'rejoinder';
 
-import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
+import { $delete, generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 
 import {
   globalDebuggerNamespace,
@@ -173,6 +173,14 @@ export const { transformer } = makeTransformer(function (context) {
   // * Only the root package gets these files
   return generateRootOnlyAssets(context, function () {
     return [
+      {
+        path: toProjectAbsolutePath('jest.config.js'),
+        generate: () => $delete
+      },
+      {
+        path: toProjectAbsolutePath('jest.config.json'),
+        generate: () => $delete
+      },
       {
         path: toProjectAbsolutePath(jestConfigProjectBase),
         generate: () => /*js*/ `

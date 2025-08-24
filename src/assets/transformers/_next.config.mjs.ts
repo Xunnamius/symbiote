@@ -9,6 +9,7 @@ import {
 import { WebpackCustomSchemeAliasPlugin } from 'universe:assets/transformers/_webpack.config.mjs.ts';
 
 import {
+  $delete,
   AssetPreset,
   generateRootOnlyAssets,
   makeTransformer
@@ -134,6 +135,10 @@ export const { transformer } = makeTransformer(function (context) {
       : 'return {}';
 
     return [
+      {
+        path: toProjectAbsolutePath('next.config.js'),
+        generate: () => $delete
+      },
       {
         path: toProjectAbsolutePath(nextjsConfigPackageBase),
         generate: () => /*js*/ `

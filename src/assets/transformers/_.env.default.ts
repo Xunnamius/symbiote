@@ -7,7 +7,7 @@ import {
   isAccessible
 } from '@-xun/project';
 
-import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
+import { $delete, generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 import { readFile } from 'universe:util.ts';
 
 import type { Asset } from 'universe:assets.ts';
@@ -101,7 +101,12 @@ export const { transformer } = makeTransformer(function (context) {
     const shouldGenerateSecretsFile =
       forceOverwritePotentiallyDestructive || !doesSecretsFileAlreadyExist;
 
-    const assets: Asset[] = [];
+    const assets: Asset[] = [
+      {
+        path: toProjectAbsolutePath('.env.example'),
+        generate: () => $delete
+      }
+    ];
 
     if (shouldGenerateDefaultsFile) {
       assets.push({

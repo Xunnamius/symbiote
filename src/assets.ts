@@ -17,7 +17,7 @@ import { deriveCodecovPackageFlag, readFile } from 'universe:util.ts';
 import type { AbsolutePath, RelativePath } from '@-xun/fs';
 import type { Package, ProjectMetadata, RawAliasMapping } from '@-xun/project';
 import type { ExtendedDebugger, ExtendedLogger } from 'rejoinder';
-import type { EmptyObject, Entry, Promisable } from 'type-fest';
+import type { EmptyObject, Entry, Promisable, Tagged } from 'type-fest';
 
 // ! Try not to use hardAssert, softAssert, or CliError here or in any
 // ! transformers, or in the stuff imported by them.
@@ -30,12 +30,21 @@ const compileTemplatesDebug = assetsDebug.extend('compile-templates');
 const compileTemplateDebug = assetsDebug.extend('compile-template');
 const configTemplateDebug = assetsDebug.extend('config-template');
 
+// ? We do all of this because sometimes "unique symbol" behaves strangely in
+// ? nested conditionals (e.g. in _test.ts)
+/**
+ * @see {@link $delete}
+ */
+export type UniqueDeleteSymbol = Tagged<EmptyObject, '$delete'>;
+
 /**
  * The Symbol represents an asset to be deleted and can be returned as the
  * result of an {@link Asset.generate} function instead of normal string
  * content.
  */
-export const $delete = Symbol.for('symbiote-delete-file-at-path');
+export const $delete = Symbol.for(
+  'symbiote-will-delete-file-at-path'
+) as unknown as UniqueDeleteSymbol;
 
 /**
  * The directory containing files exporting functions that transform

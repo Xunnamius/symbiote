@@ -2154,10 +2154,11 @@ See the symbiote wiki documentation for more details on this command and all ava
 
               await rm(absoluteOutputPath, { force: true });
               countAssetsDeleted += 1;
-              log([LogTag.IF_NOT_HUSHED], `🟥 ${relativeOutputPath}`);
+              log([LogTag.IF_NOT_QUIETED], `🟥 ${relativeOutputPath}`);
             } else {
               await mkdir(absoluteOutputParentPath, { mode: 0o775, recursive: true });
-              await writeFile(absoluteOutputPath, content);
+              // eslint-disable-next-line @typescript-eslint/no-base-to-string
+              await writeFile(absoluteOutputPath, String(content));
               log([LogTag.IF_NOT_HUSHED], `🟩 ${relativeOutputPath}`);
             }
           } catch (error) {

@@ -9,7 +9,7 @@ import deepMerge from 'lodash.mergewith';
 import { createDebugLogger } from 'rejoinder';
 import semver from 'semver';
 
-import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
+import { $delete, generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 import { globalDebuggerNamespace } from 'universe:constant.ts';
 import { ErrorMessage } from 'universe:error.ts';
 
@@ -308,6 +308,10 @@ export const { transformer } = makeTransformer(function (context) {
   // * Only the root package gets these files
   return generateRootOnlyAssets(context, async function () {
     return [
+      {
+        path: toProjectAbsolutePath('conventional.config.js'),
+        generate: () => $delete
+      },
       {
         path: toProjectAbsolutePath(xchangelogConfigProjectBase),
         generate: () => /*js*/ `
