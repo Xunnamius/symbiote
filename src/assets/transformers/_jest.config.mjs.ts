@@ -234,7 +234,6 @@ export function assertEnvironment(): Omit<
   return { isDebugging, skipSlowTestsLevel };
 }
 
-// TODO: this function's extended functionality may still be needed for jest@30
 /**
  * This function prepends a single regular expression _pattern string_ to
  * {@link JestConfig.transformIgnorePatterns} in `config`. This will result in

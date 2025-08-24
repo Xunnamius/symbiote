@@ -3,7 +3,7 @@ import { gacConfigPackageBase } from '@-xun/project';
 import { generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
 import { globalDebuggerNamespace } from 'universe:constant.ts';
 
-// TODO: this function returns one of the types exported by gac package
+// TODO: this function returns one of the types exported by the gac package
 export function moduleExport() {
   return {
     // TODO

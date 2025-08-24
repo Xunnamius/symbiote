@@ -7,7 +7,6 @@ export const { transformer } = makeTransformer(function (context) {
 
   // * Only the root package gets these files
   return generateRootOnlyAssets(context, async function () {
-    // TODO: consider project-wide flags like project.<branch>
     return [
       {
         path: toProjectAbsolutePath(codecovConfigProjectBase),

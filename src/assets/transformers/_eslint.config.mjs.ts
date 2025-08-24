@@ -755,7 +755,7 @@ export async function moduleExport({
     // * Configs applying only to JavaScript files ending in .js
     {
       ...eslintPluginNodeRecommendedExtEither,
-      // ? Fix bug in eslint-plugin-n that illegally sets sourceType to "commonjs"
+      // ? Fix eslint-plugin-n bug that illegally sets sourceType to "commonjs"
       languageOptions: { sourceType: 'script' },
       name: 'node/recommended:.js-only',
       files: ['**/*.js'],
@@ -769,7 +769,7 @@ export async function moduleExport({
     // * Configs applying only to JavaScript files ending in .cjs
     {
       ...eslintPluginNodeRecommendedExtCjs,
-      // ? Fix bug in eslint-plugin-n that illegally sets sourceType to "commonjs"
+      // ? Fix eslint-plugin-n bug that illegally sets sourceType to "commonjs"
       languageOptions: { sourceType: 'script' },
       name: 'node/recommended-script:.cjs-only',
       files: ['**/*.cjs'],
@@ -851,8 +851,8 @@ export const { transformer } = makeTransformer(function ({
   return [
     {
       path: toProjectAbsolutePath(eslintConfigProjectBase),
-      // TODO: include react stuff automatically for react and next projects and come
-      // TODO: up with a different example in the below comment:
+      // TODO: include react stuff automatically for react and next projects and
+      // TODO: come up with a different example in the below comment:
       generate: () => /*js*/ `
 // @ts-check
 
