@@ -8,7 +8,7 @@
 
 > **PluginConfig** = `object`
 
-Defined in: [src/assets/transformers/\_release.config.cjs.ts:101](https://github.com/Xunnamius/symbiote/blob/3044ba2654d63523648bf35278fa1c752d878990/src/assets/transformers/_release.config.cjs.ts#L101)
+Defined in: [src/assets/transformers/\_release.config.cjs.ts:101](https://github.com/Xunnamius/symbiote/blob/d3ba681e901541a46f90d6c5430608fbfc28926c/src/assets/transformers/_release.config.cjs.ts#L101)
 
 The custom configuration object expected by the custom semantic-release
 plugin steps defined below.
@@ -23,7 +23,7 @@ plugin steps defined below.
 
 > **parserOpts**: `NonNullable`\<`XchangelogConfigOptions`\[`"parserOpts"`\]\>
 
-Defined in: [src/assets/transformers/\_release.config.cjs.ts:104](https://github.com/Xunnamius/symbiote/blob/3044ba2654d63523648bf35278fa1c752d878990/src/assets/transformers/_release.config.cjs.ts#L104)
+Defined in: [src/assets/transformers/\_release.config.cjs.ts:104](https://github.com/Xunnamius/symbiote/blob/d3ba681e901541a46f90d6c5430608fbfc28926c/src/assets/transformers/_release.config.cjs.ts#L104)
 
 ***
 
@@ -31,7 +31,7 @@ Defined in: [src/assets/transformers/\_release.config.cjs.ts:104](https://github
 
 > **projectRelativePackageLockPath**: `string`
 
-Defined in: [src/assets/transformers/\_release.config.cjs.ts:102](https://github.com/Xunnamius/symbiote/blob/3044ba2654d63523648bf35278fa1c752d878990/src/assets/transformers/_release.config.cjs.ts#L102)
+Defined in: [src/assets/transformers/\_release.config.cjs.ts:102](https://github.com/Xunnamius/symbiote/blob/d3ba681e901541a46f90d6c5430608fbfc28926c/src/assets/transformers/_release.config.cjs.ts#L102)
 
 ***
 
@@ -39,7 +39,7 @@ Defined in: [src/assets/transformers/\_release.config.cjs.ts:102](https://github
 
 > **releaseSectionPath**: `string`
 
-Defined in: [src/assets/transformers/\_release.config.cjs.ts:103](https://github.com/Xunnamius/symbiote/blob/3044ba2654d63523648bf35278fa1c752d878990/src/assets/transformers/_release.config.cjs.ts#L103)
+Defined in: [src/assets/transformers/\_release.config.cjs.ts:103](https://github.com/Xunnamius/symbiote/blob/d3ba681e901541a46f90d6c5430608fbfc28926c/src/assets/transformers/_release.config.cjs.ts#L103)
 
 ***
 
@@ -47,4 +47,4 @@ Defined in: [src/assets/transformers/\_release.config.cjs.ts:103](https://github
 
 > **writerOpts**: `NonNullable`\<`XchangelogConfigOptions`\[`"writerOpts"`\]\>
 
-Defined in: [src/assets/transformers/\_release.config.cjs.ts:105](https://github.com/Xunnamius/symbiote/blob/3044ba2654d63523648bf35278fa1c752d878990/src/assets/transformers/_release.config.cjs.ts#L105)
+Defined in: [src/assets/transformers/\_release.config.cjs.ts:105](https://github.com/Xunnamius/symbiote/blob/d3ba681e901541a46f90d6c5430608fbfc28926c/src/assets/transformers/_release.config.cjs.ts#L105)

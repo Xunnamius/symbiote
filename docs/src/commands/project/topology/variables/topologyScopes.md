@@ -8,7 +8,7 @@
 
 > `const` **topologyScopes**: [`Unlimited`](../../../../configure/enumerations/UnlimitedGlobalScope.md#unlimited)[]
 
-Defined in: [src/commands/project/topology.ts:39](https://github.com/Xunnamius/symbiote/blob/3044ba2654d63523648bf35278fa1c752d878990/src/commands/project/topology.ts#L39)
+Defined in: [src/commands/project/topology.ts:39](https://github.com/Xunnamius/symbiote/blob/d3ba681e901541a46f90d6c5430608fbfc28926c/src/commands/project/topology.ts#L39)
 
 ## See
 
