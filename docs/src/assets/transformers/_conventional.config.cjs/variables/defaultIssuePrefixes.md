@@ -8,6 +8,6 @@
 
 > `const` **defaultIssuePrefixes**: readonly \[`"#"`\]
 
-Defined in: [src/assets/transformers/\_conventional.config.cjs.ts:240](https://github.com/Xunnamius/symbiote/blob/15958ef64db3e6bbd3a724cff425dee47b08713b/src/assets/transformers/_conventional.config.cjs.ts#L240)
+Defined in: [src/assets/transformers/\_conventional.config.cjs.ts:240](https://github.com/Xunnamius/symbiote/blob/a432129d36367c9c0fe2512d6ba837487d12f425/src/assets/transformers/_conventional.config.cjs.ts#L240)
 
 The character(s) used to reference issues by number on GitHub.
