@@ -145,6 +145,10 @@ describe('::todo', () => {
                 ]
               : []),
             {
+              path: toProjectAbsolutePath(outputDir, 'integration', 'test-config.ts'),
+              generate: () => $delete
+            },
+            {
               path: toProjectAbsolutePath(outputDir, 'integration', '.config.ts'),
               generate: () => /*js*/ `
 // * Configuration state and metadata shared among all integration tests.
@@ -262,6 +266,10 @@ beforeAll(async () => {
 test.todo('this');`
             },
 
+            {
+              path: toProjectAbsolutePath(outputDir, 'end-to-end', 'test-config.ts'),
+              generate: () => $delete
+            },
             {
               path: toProjectAbsolutePath(outputDir, 'end-to-end', '.config.ts'),
               generate: () => /*js*/ `
