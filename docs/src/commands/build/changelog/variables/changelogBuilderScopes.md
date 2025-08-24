@@ -8,7 +8,7 @@
 
 > `const` **changelogBuilderScopes**: [`ThisPackage`](../../../../configure/enumerations/ThisPackageGlobalScope.md#thispackage)[]
 
-Defined in: [src/commands/build/changelog.ts:125](https://github.com/Xunnamius/symbiote/blob/a432129d36367c9c0fe2512d6ba837487d12f425/src/commands/build/changelog.ts#L125)
+Defined in: [src/commands/build/changelog.ts:125](https://github.com/Xunnamius/symbiote/blob/3044ba2654d63523648bf35278fa1c752d878990/src/commands/build/changelog.ts#L125)
 
 ## See
 

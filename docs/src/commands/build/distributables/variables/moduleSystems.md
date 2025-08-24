@@ -8,7 +8,7 @@
 
 > `const` **moduleSystems**: [`ModuleSystem`](../enumerations/ModuleSystem.md)[]
 
-Defined in: [src/commands/build/distributables.ts:144](https://github.com/Xunnamius/symbiote/blob/a432129d36367c9c0fe2512d6ba837487d12f425/src/commands/build/distributables.ts#L144)
+Defined in: [src/commands/build/distributables.ts:144](https://github.com/Xunnamius/symbiote/blob/3044ba2654d63523648bf35278fa1c752d878990/src/commands/build/distributables.ts#L144)
 
 ## See
 
