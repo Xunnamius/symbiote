@@ -430,12 +430,12 @@ With respect to .prettierignore being the single source of truth for formatters:
         if (shouldDoEslint) {
           if (prettierTargetFiles.length) {
             status.eslint = null;
-            await run('npx', ['eslint', '--fix', ...prettierTargetFiles], {
-              cwd: projectRoot
-            }).catch((error: unknown) => {
-              status.eslint = false;
-              throw error;
-            });
+
+            await runNoRejectOnBadExit(
+              'npx',
+              ['eslint', '--fix', ...prettierTargetFiles],
+              { cwd: projectRoot }
+            );
 
             status.eslint = true;
           } else {
