@@ -1304,7 +1304,10 @@ distrib root: ${absoluteOutputDirPath}
                   '.',
                   // ? We handle internal resolution checks in symbiote instead
                   '--ignore-rules',
-                  'internal-resolution-error'
+                  'internal-resolution-error',
+                  // ? If people aren't using allowSyntheticDefaultImports,
+                  // ? that's their problem. Default exports suck anyway
+                  'cjs-only-exports-default'
                 ],
                 {
                   env: { FORCE_COLOR: '1' },
