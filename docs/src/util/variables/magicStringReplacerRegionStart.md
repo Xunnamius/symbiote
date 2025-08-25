@@ -8,7 +8,7 @@
 
 > `const` **magicStringReplacerRegionStart**: `string`
 
-Defined in: [src/util.ts:154](https://github.com/Xunnamius/symbiote/blob/d3ba681e901541a46f90d6c5430608fbfc28926c/src/util.ts#L154)
+Defined in: [src/util.ts:154](https://github.com/Xunnamius/symbiote/blob/8c20d618d9f5aba2b98dbaa28f75ebe8791b6067/src/util.ts#L154)
 
 Magic string used to denote the beginning of a replacer region in Markdown
 files processed by symbiote.

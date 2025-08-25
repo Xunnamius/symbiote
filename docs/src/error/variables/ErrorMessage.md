@@ -8,11 +8,11 @@
 
 > `const` **ErrorMessage**: `object`
 
-Defined in: [src/error.ts:38](https://github.com/Xunnamius/symbiote/blob/d3ba681e901541a46f90d6c5430608fbfc28926c/src/error.ts#L38)
+Defined in: [src/error.ts:38](https://github.com/Xunnamius/symbiote/blob/8c20d618d9f5aba2b98dbaa28f75ebe8791b6067/src/error.ts#L38)
 
 A collection of possible error and warning messages.
 
-## Type declaration
+## Type Declaration
 
 ### specialized
 

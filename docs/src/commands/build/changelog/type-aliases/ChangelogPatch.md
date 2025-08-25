@@ -8,7 +8,7 @@
 
 > **ChangelogPatch** = \[`string` \| `RegExp`, `string`\]
 
-Defined in: [src/commands/build/changelog.ts:63](https://github.com/Xunnamius/symbiote/blob/d3ba681e901541a46f90d6c5430608fbfc28926c/src/commands/build/changelog.ts#L63)
+Defined in: [src/commands/build/changelog.ts:63](https://github.com/Xunnamius/symbiote/blob/8c20d618d9f5aba2b98dbaa28f75ebe8791b6067/src/commands/build/changelog.ts#L63)
 
 A changelog patch that will be applied to the changelog file.
 

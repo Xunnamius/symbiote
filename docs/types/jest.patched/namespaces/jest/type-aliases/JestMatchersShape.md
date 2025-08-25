@@ -10,7 +10,7 @@
 
 Defined in: node\_modules/@types/jest/index.d.ts:816
 
-## Type declaration
+## Type Declaration
 
 ### rejects
 

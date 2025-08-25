@@ -12,7 +12,7 @@ Defined in: node\_modules/@types/jest/index.d.ts:1228
 
 Wrap a class with mock definitions
 
-## Type declaration
+## Type Declaration
 
 ### prototype
 
