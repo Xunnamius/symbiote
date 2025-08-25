@@ -1371,16 +1371,21 @@ distrib root: ${absoluteOutputDirPath}
               // * are: the otherFiles under the types/ dir, the otherFiles that
               // * are JavaScript/TypeScript and at the package root, the
               // * distFiles that are under a relevant src/ dir, srcFiles, and
-              // * testFiles.
+              // * testFiles. Test files excluded by lint-specific tsconfig are
+              // * ignored.
 
               const {
                 dist: distFiles,
                 other: otherFiles,
-                src: srcFiles,
-                test: testFiles
+                src: srcFiles
               } = await gatherPackageFiles(cwdPackage, {
                 // ? Must explicitly recompute since above steps changed things
                 useCached: false
+              });
+
+              const { test: testFiles } = await gatherPackageFiles(cwdPackage, {
+                useCached: true,
+                ignore: await getGlobPathsIgnoredDuringLinting(packageRoot)
               });
 
               const projectRootTypesPath =
@@ -2012,33 +2017,12 @@ distrib root: ${absoluteOutputDirPath}
         const { cwdPackage } = projectMetadata;
         const wellKnownAliases = generateRawAliasMap(projectMetadata);
 
-        const tsConfigLintPath = await Promise.all(
-          [Tsconfig.PackageLint, Tsconfig.ProjectLint].map(async (path) => {
-            const realPath = toAbsolutePath(packageRoot, path);
-
-            return [
-              realPath,
-              await isAccessible(realPath, { useCached: true })
-            ] as const;
-          })
-        ).then((paths) => paths.find(([, accessible]) => accessible)?.[0]);
-
-        const tsConfigLint = tsConfigLintPath
-          ? await readJsonc<{ exclude?: string[] }>(tsConfigLintPath, {
-              useCached: true,
-              try: true
-            })
-          : {};
-
-        const globPathsIgnoredByLinter =
-          'exclude' in tsConfigLint ? tsConfigLint.exclude || [] : [];
-
         const { test: testFiles, other: otherFiles } = await gatherPackageFiles(
           cwdPackage,
           {
             useCached: true,
-            // ? Only consider otherFiles not ignored by linting tsconfigs
-            ignore: globPathsIgnoredByLinter
+            // ? Only consider files not ignored by linting tsconfigs
+            ignore: await getGlobPathsIgnoredDuringLinting(packageRoot)
           }
         );
 
@@ -2081,6 +2065,28 @@ distrib root: ${absoluteOutputDirPath}
             });
           }
         }
+      }
+
+      async function getGlobPathsIgnoredDuringLinting(packageRoot: string) {
+        const tsConfigLintPath = await Promise.all(
+          [Tsconfig.PackageLint, Tsconfig.ProjectLint].map(async (path) => {
+            const realPath = toAbsolutePath(packageRoot, path);
+
+            return [
+              realPath,
+              await isAccessible(realPath, { useCached: true })
+            ] as const;
+          })
+        ).then((paths) => paths.find(([, accessible]) => accessible)?.[0]);
+
+        const tsConfigLint = tsConfigLintPath
+          ? await readJsonc<{ exclude?: string[] }>(tsConfigLintPath, {
+              useCached: true,
+              try: true
+            })
+          : {};
+
+        return 'exclude' in tsConfigLint ? tsConfigLint.exclude || [] : [];
       }
     })
   };
