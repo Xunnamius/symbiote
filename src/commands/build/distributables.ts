@@ -46,6 +46,7 @@ import {
   prefixTypeOnlyImport,
   ProjectAttribute,
   PseudodecoratorTag,
+  readJsonc,
   specifierToPackageName,
   Tsconfig,
   WorkspaceAttribute
@@ -929,8 +930,6 @@ distrib root: ${absoluteOutputDirPath}
             });
 
             const dTsFiles = prebuildDistFiles.filter((p) => p.endsWith('.d.ts'));
-
-            // TODO: get these NODE_ENV values as imports from _babel.config.cjs.ts
             const babelDTsNodeEnvironment = { NODE_ENV: 'production-types' };
 
             // * Modify environment variables for the duration of this promise
@@ -1982,12 +1981,38 @@ distrib root: ${absoluteOutputDirPath}
         const { cwdPackage } = projectMetadata;
         const wellKnownAliases = generateRawAliasMap(projectMetadata);
 
+        const tsConfigLintPath = await Promise.all(
+          [Tsconfig.PackageLint, Tsconfig.ProjectLint].map(async (path) => {
+            const realPath = toAbsolutePath(packageRoot, path);
+
+            return [
+              realPath,
+              await isAccessible(realPath, { useCached: true })
+            ] as const;
+          })
+        ).then((paths) => paths.find(([, accessible]) => accessible)?.[0]);
+
+        const tsConfigLint = tsConfigLintPath
+          ? await readJsonc<{ exclude?: string[] }>(tsConfigLintPath, {
+              useCached: true,
+              try: true
+            })
+          : {};
+
+        const globPathsIgnoredByLinter =
+          'exclude' in tsConfigLint ? tsConfigLint.exclude || [] : [];
+
         const { test: testFiles, other: otherFiles } = await gatherPackageFiles(
           cwdPackage,
-          { useCached: true }
+          {
+            useCached: true,
+            // ? Only consider otherFiles not ignored by linting tsconfigs
+            ignore: globPathsIgnoredByLinter
+          }
         );
 
-        // ? Only consider otherFiles that are at the package root or types/
+        // ? Only consider otherFiles that are at the package root or types/ dir
+        // ? and also have TS extensions
         const nonSourceTypescriptFiles = testFiles
           .concat(
             otherFiles.filter(
