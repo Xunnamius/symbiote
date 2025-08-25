@@ -103,6 +103,7 @@ import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:config
 
 const standardNodeShebang = '#!/usr/bin/env node\n';
 const nodeModulesRelativeBinDir = `node_modules/.bin`;
+const exportsDefaultRegExp = /^exports\.default = /m;
 const collator = new Intl.Collator(undefined, { numeric: true });
 
 /**
@@ -156,6 +157,7 @@ export type CustomCliArguments = GlobalCliArguments<DistributablesBuilderScope> 
   linkCliIntoBin?: boolean;
   prependShebang?: boolean;
   moduleSystem?: ModuleSystem;
+  useImprovedExportDefaultInterop?: boolean;
   generateIntermediatesFor?: IntermediateTranspilationEnvironment;
   outputExtension?: string;
   includeExternalFiles?: Path[];
@@ -297,6 +299,12 @@ export default async function command({
         description: 'Which module system to transpile into',
         default: defaultModuleSystem,
         defaultDescription: `derived from package.json (currently "${defaultModuleSystem}")`
+      },
+      'use-improved-export-default-interop': {
+        boolean: true,
+        description: 'Use replacer heuristics to improve default export support',
+        default: true,
+        requires: { 'module-system': ModuleSystem.Cjs }
       },
       multiversal: {
         boolean: true,
@@ -481,6 +489,7 @@ Finally, note that, when attempting to build a Next.js package, this command wil
       linkCliIntoBin: linkCliIntoBin_,
       prependShebang: prependShebang_,
       moduleSystem: moduleSystem_,
+      useImprovedExportDefaultInterop: useImprovedExportDefaultInterop_,
       skipOutputChecks: skipOutputChecks_,
       skipOutputValidityCheckFor: skipOutputValidityCheckFor_,
       skipOutputExtraneityCheckFor: skipOutputExtraneityCheckFor_,
@@ -537,6 +546,7 @@ Finally, note that, when attempting to build a Next.js package, this command wil
           debug('linkCliIntoBin: %O', linkCliIntoBin_);
           debug('prependShebang: %O', prependShebang_);
           debug('moduleSystem: %O', moduleSystem_);
+          debug('useImprovedExportDefaultInterop: %O', useImprovedExportDefaultInterop_);
           debug('outputExtension (original): %O', outputExtension);
           debug('skipOutputChecks: %O', skipOutputChecks_);
 
@@ -597,6 +607,7 @@ Finally, note that, when attempting to build a Next.js package, this command wil
           const linkCliIntoBin = linkCliIntoBin_;
           const prependShebang = prependShebang_;
           const moduleSystem = moduleSystem_;
+          const useImprovedExportDefaultInterop = useImprovedExportDefaultInterop_;
           const skipOutputChecks = skipOutputChecks_;
           const skipOutputValidityCheckFor = new Set(skipOutputValidityCheckFor_);
           const skipOutputExtraneityCheckFor = new Set(skipOutputExtraneityCheckFor_);
@@ -611,6 +622,10 @@ Finally, note that, when attempting to build a Next.js package, this command wil
           hardAssert(linkCliIntoBin !== undefined, ErrorMessage.GuruMeditation());
           hardAssert(prependShebang !== undefined, ErrorMessage.GuruMeditation());
           hardAssert(moduleSystem !== undefined, ErrorMessage.GuruMeditation());
+          hardAssert(
+            useImprovedExportDefaultInterop !== undefined,
+            ErrorMessage.GuruMeditation()
+          );
           hardAssert(skipOutputChecks !== undefined, ErrorMessage.GuruMeditation());
           hardAssert(partialFilters !== undefined, ErrorMessage.GuruMeditation());
 
@@ -727,6 +742,7 @@ Finally, note that, when attempting to build a Next.js package, this command wil
           debug.message('cwdPackageJsonRelativePath: %O', cwdPackageJsonRelativePath);
 
           let outputNewlineAlready = false;
+          let didUseImprovedExportDefaultInterop = false;
 
           for (const target of allBuildTargets_) {
             // ? The current package's package.json file should never be
@@ -1059,8 +1075,7 @@ distrib root: ${absoluteOutputDirPath}
 
               debug('transpile source: %O => %O', sourcePath, outputPath);
 
-              const { code } =
-                (await babelTransformAsync(sourcePath, babelOptions)) || {};
+              let { code } = (await babelTransformAsync(sourcePath, babelOptions)) || {};
 
               if (code) {
                 debug(
@@ -1068,6 +1083,17 @@ distrib root: ${absoluteOutputDirPath}
                   sourcePath,
                   outputPath
                 );
+
+                // * Improve on babel's lackluster CJS-ESM interop using
+                // * replacer heuristics, if requested
+                if (useImprovedExportDefaultInterop && exportsDefaultRegExp.test(code)) {
+                  didUseImprovedExportDefaultInterop = true;
+                  code =
+                    code.replace(exportsDefaultRegExp, 'module.exports = ') +
+                    (code.trim().endsWith(';') ? '' : ';') +
+                    'exports.default = module.exports;';
+                }
+
                 await writeFile(outputPath, code);
               } else {
                 debug.error('transpilation returned an empty result: %O', outputPath);
@@ -1304,7 +1330,12 @@ distrib root: ${absoluteOutputDirPath}
                   '.',
                   // ? We handle internal resolution checks in symbiote instead
                   '--ignore-rules',
-                  'internal-resolution-error'
+                  'internal-resolution-error',
+                  // ? If people aren't allowing synthetic default imports,
+                  // ? that's their problem
+                  ...(didUseImprovedExportDefaultInterop
+                    ? ['missing-export-equals']
+                    : [])
                 ],
                 {
                   env: { FORCE_COLOR: '1' },
