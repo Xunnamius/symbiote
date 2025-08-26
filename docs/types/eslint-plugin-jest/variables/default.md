@@ -8,7 +8,7 @@
 
 > `const` **default**: `object`
 
-Defined in: [types/eslint-plugin-jest.d.ts:5](https://github.com/Xunnamius/symbiote/blob/f1a40b5448c4c0e7d4ef29eadf33bfec36be686d/types/eslint-plugin-jest.d.ts#L5)
+Defined in: [types/eslint-plugin-jest.d.ts:5](https://github.com/Xunnamius/symbiote/blob/1214379b104dd598631a5db52a98adbb1a28dfdf/types/eslint-plugin-jest.d.ts#L5)
 
 ## Type Declaration
 

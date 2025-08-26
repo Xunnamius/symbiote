@@ -8,7 +8,7 @@
 
 > `const` **config**: `object`
 
-Defined in: [src/assets/transformers/\_vercel.json.ts:11](https://github.com/Xunnamius/symbiote/blob/f1a40b5448c4c0e7d4ef29eadf33bfec36be686d/src/assets/transformers/_vercel.json.ts#L11)
+Defined in: [src/assets/transformers/\_vercel.json.ts:11](https://github.com/Xunnamius/symbiote/blob/1214379b104dd598631a5db52a98adbb1a28dfdf/src/assets/transformers/_vercel.json.ts#L11)
 
 ## Type Declaration
 

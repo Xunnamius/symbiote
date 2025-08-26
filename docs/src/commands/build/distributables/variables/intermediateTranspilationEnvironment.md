@@ -8,7 +8,7 @@
 
 > `const` **intermediateTranspilationEnvironment**: [`IntermediateTranspilationEnvironment`](../enumerations/IntermediateTranspilationEnvironment.md)[]
 
-Defined in: [src/commands/build/distributables.ts:138](https://github.com/Xunnamius/symbiote/blob/f1a40b5448c4c0e7d4ef29eadf33bfec36be686d/src/commands/build/distributables.ts#L138)
+Defined in: [src/commands/build/distributables.ts:138](https://github.com/Xunnamius/symbiote/blob/1214379b104dd598631a5db52a98adbb1a28dfdf/src/commands/build/distributables.ts#L138)
 
 ## See
 
