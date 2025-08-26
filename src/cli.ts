@@ -1,6 +1,7 @@
 import { runProgram } from '@-xun/cli';
 import { toAbsolutePath } from '@-xun/fs';
 
+//{@symbiote/notExtraneous rejoinder-cli}
 import 'rejoinder-github-actions/activator';
 
 import type { GlobalExecutionContext } from 'universe:configure.ts';
