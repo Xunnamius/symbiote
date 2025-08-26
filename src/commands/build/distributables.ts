@@ -1163,7 +1163,7 @@ distrib root: ${absoluteOutputDirPath}
                   const nodeModulesBinDir = `${projectRoot}/${nodeModulesRelativeBinDir}`;
                   const symlinkTargetPath = toRelativePath(
                     nodeModulesBinDir,
-                    toAbsolutePath(projectRoot, binPath)
+                    toAbsolutePath(packageRoot, binPath)
                   );
                   const symlinkTemporaryPath = uniqueFilename(nodeModulesBinDir);
                   const symlinkRealPath = `${nodeModulesBinDir}/${binName}`;
