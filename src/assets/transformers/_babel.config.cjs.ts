@@ -191,7 +191,9 @@ function makeTransformRewriteImportsSourceModuleResolver(
     // {@symbiote/notExtraneous babel-plugin-transform-rewrite-imports}
     'babel-plugin-transform-rewrite-imports',
     {
-      appendExtension: extensionsJavascript[0],
+      appendExtension: ({ specifier }) =>
+        // ? For CLIs, do NOT transform stuff like require.resolve('./commands')
+        specifier === './commands' ? undefined : extensionsJavascript[0],
       recognizedExtensions: [...extensionsJavascript, '.json'],
       injectDynamicRewriter: 'never',
       replaceExtensions: {
@@ -222,7 +224,9 @@ function makeTransformRewriteImportsIntermediatesModuleResolver() {
     // {@symbiote/notExtraneous babel-plugin-transform-rewrite-imports}
     'babel-plugin-transform-rewrite-imports',
     {
-      appendExtension: extensionsJavascript[0],
+      appendExtension: ({ specifier }) =>
+        // ? For CLIs, do NOT transform stuff like require.resolve('./commands')
+        specifier === './commands' ? undefined : extensionsJavascript[0],
       recognizedExtensions: [...extensionsJavascript, '.json'],
       injectDynamicRewriter: 'never',
       replaceExtensions: {
