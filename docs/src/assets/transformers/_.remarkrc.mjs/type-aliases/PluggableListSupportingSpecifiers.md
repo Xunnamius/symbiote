@@ -8,4 +8,4 @@
 
 > **PluggableListSupportingSpecifiers** = `Extract`\<[`RemarkConfig`](RemarkConfig.md)\[`"plugins"`\], `unknown`[]\>\[`number`\]
 
-Defined in: [src/assets/transformers/\_.remarkrc.mjs.ts:18](https://github.com/Xunnamius/symbiote/blob/8c20d618d9f5aba2b98dbaa28f75ebe8791b6067/src/assets/transformers/_.remarkrc.mjs.ts#L18)
+Defined in: [src/assets/transformers/\_.remarkrc.mjs.ts:18](https://github.com/Xunnamius/symbiote/blob/2376b219bdb1558890876bfc92d0b193f658dcce/src/assets/transformers/_.remarkrc.mjs.ts#L18)
