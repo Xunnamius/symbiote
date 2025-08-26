@@ -8,7 +8,7 @@
 
 > **moduleExport**(): `object`
 
-Defined in: [src/assets/transformers/\_lint-staged.config.mjs.ts:8](https://github.com/Xunnamius/symbiote/blob/2376b219bdb1558890876bfc92d0b193f658dcce/src/assets/transformers/_lint-staged.config.mjs.ts#L8)
+Defined in: [src/assets/transformers/\_lint-staged.config.mjs.ts:8](https://github.com/Xunnamius/symbiote/blob/f1a40b5448c4c0e7d4ef29eadf33bfec36be686d/src/assets/transformers/_lint-staged.config.mjs.ts#L8)
 
 ## Returns
 

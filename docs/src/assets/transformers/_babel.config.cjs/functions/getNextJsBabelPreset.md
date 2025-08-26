@@ -8,7 +8,7 @@
 
 > **getNextJsBabelPreset**(): (`string` \| \{ `preset-env`: \{ `exclude`: `string`[]; `modules`: `boolean`; `targets`: `string`; `useBuiltIns`: `boolean`; \}; `preset-react`: \{ `development`: `boolean`; `runtime`: `string`; \}; `preset-typescript`: \{ `allowDeclareFields`: `boolean`; \}; \})[]
 
-Defined in: [src/assets/transformers/\_babel.config.cjs.ts:649](https://github.com/Xunnamius/symbiote/blob/2376b219bdb1558890876bfc92d0b193f658dcce/src/assets/transformers/_babel.config.cjs.ts#L649)
+Defined in: [src/assets/transformers/\_babel.config.cjs.ts:649](https://github.com/Xunnamius/symbiote/blob/f1a40b5448c4c0e7d4ef29eadf33bfec36be686d/src/assets/transformers/_babel.config.cjs.ts#L649)
 
 Returns a `next/babel` configuration object specific to Next.js projects.
 
