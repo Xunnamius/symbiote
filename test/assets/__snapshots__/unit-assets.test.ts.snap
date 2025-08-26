@@ -39084,6 +39084,7 @@ scope: this-package
     "**/type-*.test.ts",
     "**/type-*.test.tsx"
   ],
+  "checkSourceFiles": false,
   "rejectAnyType": true,
   "rejectNeverType": true
 }
@@ -39102,6 +39103,7 @@ scope: unlimited
     "**/type-*.test.ts",
     "**/type-*.test.tsx"
   ],
+  "checkSourceFiles": false,
   "rejectAnyType": true,
   "rejectNeverType": true
 }
@@ -39120,6 +39122,7 @@ scope: unlimited
     "**/type-*.test.ts",
     "**/type-*.test.tsx"
   ],
+  "checkSourceFiles": false,
   "rejectAnyType": true,
   "rejectNeverType": true
 }
@@ -39138,6 +39141,7 @@ scope: unlimited
     "**/type-*.test.ts",
     "**/type-*.test.tsx"
   ],
+  "checkSourceFiles": false,
   "rejectAnyType": true,
   "rejectNeverType": true
 }
@@ -39156,6 +39160,7 @@ scope: unlimited
     "**/type-*.test.ts",
     "**/type-*.test.tsx"
   ],
+  "checkSourceFiles": false,
   "rejectAnyType": true,
   "rejectNeverType": true
 }
@@ -39174,6 +39179,7 @@ scope: unlimited
     "**/type-*.test.ts",
     "**/type-*.test.tsx"
   ],
+  "checkSourceFiles": false,
   "rejectAnyType": true,
   "rejectNeverType": true
 }
@@ -39192,6 +39198,7 @@ scope: this-package
     "**/type-*.test.ts",
     "**/type-*.test.tsx"
   ],
+  "checkSourceFiles": false,
   "rejectAnyType": true,
   "rejectNeverType": true
 }
@@ -39210,6 +39217,7 @@ scope: unlimited
     "**/type-*.test.ts",
     "**/type-*.test.tsx"
   ],
+  "checkSourceFiles": false,
   "rejectAnyType": true,
   "rejectNeverType": true
 }
