@@ -1394,7 +1394,7 @@ const protoPostreleaseTasks: ProtoPostreleaseTask[][] = [
           log.message(
             [LogTag.IF_NOT_SILENCED],
             '✖️ Task execution skipped: no fresh coverage data available because test runner task (%O) was skipped',
-            codecovConfigPath
+            findTaskByDescription(/symbiote test/).id
           );
         } else {
           const { exitCode } = await runNoRejectOnBadExit('codecov', ['--help']);
