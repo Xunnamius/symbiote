@@ -250,6 +250,7 @@
     "@-xun/memoize",
     "@-xun/project",
     "@-xun/run",
+    "babel-plugin-transform-rewrite-imports",
     "bidirectional-resolve",
     "rejoinder",
     "rejoinder-github-actions",
