@@ -6,8 +6,11 @@
 
 <p align="center" width="100%">
 <!-- symbiote-template-region-end -->
+
 {{projectMetadata.cwdPackage.json.description|TODO <!-- TODO: a brief description/blurb -->}}
+
 <!-- symbiote-template-region-start 2 -->
+
 </p>
 
 <hr />
