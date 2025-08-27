@@ -29252,7 +29252,6 @@ scope: this-package
     "type": "git",
     "url": "git+https://github.com/hybridrepo-owner/repo-name.git"
   },
-  "keywords": [],
   "homepage": "https://github.com/hybridrepo-owner/repo-name#readme",
   "bugs": {
     "url": "https://github.com/hybridrepo-owner/repo-name/issues"
@@ -29270,6 +29269,7 @@ scope: this-package
     "/package.json",
     "/README.md"
   ],
+  "keywords": [],
   "exports": {
     ".": {
       "types": "./dist/src/index.d.ts",
@@ -29343,7 +29343,6 @@ scope: unlimited
   "name": "good-hybridrepo",
   "version": "1.3.2-hybridrepo",
   "description": "good-hybridrepo-description",
-  "keywords": [],
   "homepage": "https://github.com/hybridrepo-owner/repo-name#readme",
   "bugs": {
     "url": "https://github.com/hybridrepo-owner/repo-name/issues"
@@ -29360,6 +29359,7 @@ scope: unlimited
     "node": "^20.18.0 || >=22.12.0"
   },
   "private": true,
+  "keywords": [],
   "exports": {
     ".": {
       "types": "./dist/src/index.d.ts",
@@ -29685,7 +29685,6 @@ scope: unlimited
     "type": "git",
     "url": "git+https://github.com/hybridrepo-owner/repo-name.git"
   },
-  "keywords": [],
   "homepage": "https://github.com/hybridrepo-owner/repo-name#readme",
   "bugs": {
     "url": "https://github.com/hybridrepo-owner/repo-name/issues"
@@ -29703,6 +29702,7 @@ scope: unlimited
     "/package.json",
     "/README.md"
   ],
+  "keywords": [],
   "exports": {
     ".": {
       "types": "./dist/src/index.d.ts",
@@ -30081,7 +30081,6 @@ scope: unlimited
   "name": "good-monorepo-no-src-monorepo",
   "version": "0.0.0-monorepo",
   "description": "Monorepo for the repo-name project",
-  "keywords": [],
   "homepage": "https://github.com/monorepo-owner/repo-name#readme",
   "bugs": {
     "url": "https://github.com/monorepo-owner/repo-name/issues"
@@ -30410,7 +30409,6 @@ scope: unlimited
     "url": "git+https://github.com/monorepo-owner/repo-name.git"
   },
   "description": "Monorepo for the repo-name project",
-  "keywords": [],
   "homepage": "https://github.com/monorepo-owner/repo-name#readme",
   "bugs": {
     "url": "https://github.com/monorepo-owner/repo-name/issues"

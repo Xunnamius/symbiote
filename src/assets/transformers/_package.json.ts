@@ -324,6 +324,7 @@ export function generateNonHybridMonorepoProjectXPackageJson(
     typesVersions: _16,
     files: _17,
     publishConfig: _18,
+    keywords: _19,
     ...incomingBaseJson
   } = generateBaseXPackageJson(
     incomingPackageJson,
