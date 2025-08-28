@@ -32265,8 +32265,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
-const debug = createDebugLogger({ namespace: 'cli' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'cli' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
@@ -32333,8 +32333,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
-const debug = createDebugLogger({ namespace: 'cli' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'cli' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
@@ -32380,8 +32380,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
-const debug = createDebugLogger({ namespace: 'cli' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'cli' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
@@ -32490,8 +32490,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
-const debug = createDebugLogger({ namespace: 'private' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'private' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
@@ -32558,8 +32558,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
-const debug = createDebugLogger({ namespace: 'private' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'private' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
@@ -32605,8 +32605,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
-const debug = createDebugLogger({ namespace: 'private' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'private' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
@@ -32715,8 +32715,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
-const debug = createDebugLogger({ namespace: 'webpack' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'webpack' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
@@ -32783,8 +32783,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
-const debug = createDebugLogger({ namespace: 'webpack' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'webpack' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
@@ -32830,8 +32830,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
-const debug = createDebugLogger({ namespace: 'webpack' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'webpack' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
@@ -32940,8 +32940,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
-const debug = createDebugLogger({ namespace: 'good-hybridrepo' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'good-hybridrepo' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
@@ -33008,8 +33008,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
-const debug = createDebugLogger({ namespace: 'good-hybridrepo' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'good-hybridrepo' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
@@ -33055,8 +33055,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
-const debug = createDebugLogger({ namespace: 'good-hybridrepo' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'good-hybridrepo' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
@@ -33207,8 +33207,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
-const debug = createDebugLogger({ namespace: 'webpack' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'webpack' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
@@ -33275,8 +33275,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
-const debug = createDebugLogger({ namespace: 'webpack' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'webpack' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
@@ -33322,8 +33322,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
-const debug = createDebugLogger({ namespace: 'webpack' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'webpack' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
@@ -33432,8 +33432,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
-const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
@@ -33500,8 +33500,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
-const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
@@ -33547,8 +33547,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
-const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
@@ -33657,8 +33657,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
-const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
@@ -33725,8 +33725,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
-const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
@@ -33772,8 +33772,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
-const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
@@ -33882,8 +33882,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
-const debug = createDebugLogger({ namespace: 'pkg-2' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'pkg-2' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
@@ -33950,8 +33950,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
-const debug = createDebugLogger({ namespace: 'pkg-2' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'pkg-2' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
@@ -33997,8 +33997,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
-const debug = createDebugLogger({ namespace: 'pkg-2' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'pkg-2' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
@@ -34107,8 +34107,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
-const debug = createDebugLogger({ namespace: 'pkg-import' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'pkg-import' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
@@ -34175,8 +34175,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
-const debug = createDebugLogger({ namespace: 'pkg-import' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'pkg-import' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
@@ -34222,8 +34222,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
-const debug = createDebugLogger({ namespace: 'pkg-import' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'pkg-import' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
@@ -34374,8 +34374,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
-const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
@@ -34442,8 +34442,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
-const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
@@ -34489,8 +34489,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
-const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'pkg-1' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
@@ -34599,8 +34599,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
-const debug = createDebugLogger({ namespace: 'pkg-2' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'pkg-2' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
@@ -34667,8 +34667,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
-const debug = createDebugLogger({ namespace: 'pkg-2' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'pkg-2' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
@@ -34714,8 +34714,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
-const debug = createDebugLogger({ namespace: 'pkg-2' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'pkg-2' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
@@ -34824,8 +34824,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
-const debug = createDebugLogger({ namespace: 'pkg-import' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'pkg-import' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
@@ -34892,8 +34892,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
-const debug = createDebugLogger({ namespace: 'pkg-import' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'pkg-import' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
@@ -34939,8 +34939,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
-const debug = createDebugLogger({ namespace: 'pkg-import' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'pkg-import' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
@@ -35091,8 +35091,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-e2e\`;
-const debug = createDebugLogger({ namespace: 'good-polyrepo-no-src' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'good-polyrepo-no-src' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
@@ -35159,8 +35159,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-client\`;
-const debug = createDebugLogger({ namespace: 'good-polyrepo-no-src' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'good-polyrepo-no-src' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 
@@ -35206,8 +35206,8 @@ import {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = \`\${packageName.split('/').at(-1)!}-smoke\`;
-const debug = createDebugLogger({ namespace: 'good-polyrepo-no-src' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'good-polyrepo-no-src' }).extend(TEST_IDENTIFIER);
 
 debug('nodeVersion: %O (process.version=%O)', nodeVersion, process.version);
 

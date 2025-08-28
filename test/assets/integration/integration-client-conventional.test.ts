@@ -42,8 +42,8 @@ import type {
 } from 'testverse:util.ts';
 
 const TEST_IDENTIFIER = `${packageName.split('/').at(-1)!}-client-changelog`;
-const debug = createDebugLogger({ namespace: 'symbiote' }).extend(TEST_IDENTIFIER);
 const nodeVersion = process.env.XPIPE_MATRIX_NODE_VERSION || process.version;
+const debug = createDebugLogger({ namespace: 'symbiote' }).extend(TEST_IDENTIFIER);
 
 debug(`nodeVersion: "${nodeVersion}" (process.version=${process.version})`);
 
