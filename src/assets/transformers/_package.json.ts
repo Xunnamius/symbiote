@@ -106,7 +106,10 @@ export function generateBaseXPackageJson(
     ...(!isReactOrNextJs && ('sideEffects' in incomingPackageJson || isLibraryLike)
       ? { sideEffects: incomingPackageJson.sideEffects ?? false }
       : {}),
-    type: incomingPackageJson.type ?? 'commonjs',
+    type:
+      (incomingPackageJson.type ?? preset === AssetPreset.LibEsm)
+        ? 'module'
+        : 'commonjs',
     ...(!isReactOrNextJs && ('exports' in incomingPackageJson || isLibraryLike)
       ? {
           exports: incomingPackageJson.exports ?? {
