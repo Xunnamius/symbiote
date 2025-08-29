@@ -106,6 +106,8 @@ export function baseConfig({
     //collectCoverageFrom: [],
     // ? Tell Jest to transpile node_modules (for ESM interop)
     //transformIgnorePatterns: [],
+    // ? Treat files with these extensions as ESM iff type === "module"
+    extensionsToTreatAsEsm: ['.jsx', '.ts', '.tsx'],
     // ? Make sure jest-haste-map doesn't try to parse and cache fixtures (which
     // ? also means snapshot files from these dirs are ignored as well)
     modulePathIgnorePatterns: [
