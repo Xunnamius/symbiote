@@ -29244,7 +29244,7 @@ scope: this-package
   "name": "good-hybridrepo",
   "version": "1.3.2-hybridrepo",
   "description": "good-hybridrepo-description",
-  "type": "commonjs",
+  "type": "module",
   "bin": {
     "faker": "./dist/src/cli.js"
   },
@@ -29677,7 +29677,7 @@ scope: unlimited
   "name": "good-hybridrepo",
   "version": "1.3.2-hybridrepo",
   "description": "good-hybridrepo-description",
-  "type": "commonjs",
+  "type": "module",
   "bin": {
     "faker": "./dist/src/cli.js"
   },
@@ -29777,7 +29777,7 @@ scope: unlimited
   ],
   "name": "cli",
   "version": "1.0.0",
-  "type": "commonjs",
+  "type": "module",
   "bin": {
     "cli": "./dist/packages/cli/src/cli.js",
     "executable": "./dist/index.js"
@@ -29864,7 +29864,7 @@ scope: unlimited
   "private": true,
   "name": "private",
   "version": "1.0.0",
-  "type": "commonjs",
+  "type": "module",
   "exports": {
     ".": "./dist/index.js"
   },
@@ -29932,7 +29932,7 @@ scope: unlimited
   ],
   "name": "webpack",
   "version": "1.0.0",
-  "type": "commonjs",
+  "type": "module",
   "exports": {
     ".": "./dist/index.mjs"
   },
@@ -30008,7 +30008,7 @@ scope: this-package
   ],
   "name": "pkg-1",
   "version": "1.0.0",
-  "type": "commonjs",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/repo-owner/repo-name.git"
@@ -30403,7 +30403,7 @@ scope: unlimited
   ],
   "name": "good-monorepo-no-src-monorepo",
   "version": "0.0.0-monorepo",
-  "type": "commonjs",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/monorepo-owner/repo-name.git"
@@ -30460,7 +30460,7 @@ scope: unlimited
   ],
   "name": "pkg-1",
   "version": "1.0.0",
-  "type": "commonjs",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/repo-owner/repo-name.git"
@@ -30542,7 +30542,7 @@ scope: unlimited
   ],
   "name": "@namespaced/pkg",
   "version": "1.0.0",
-  "type": "commonjs",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/repo-owner/repo-name.git"
@@ -30627,7 +30627,7 @@ scope: unlimited
   ],
   "name": "@namespaced/importer",
   "version": "1.0.0",
-  "type": "commonjs",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/repo-owner/repo-name.git"
@@ -30693,7 +30693,7 @@ scope: unlimited
 {
   "name": "good-polyrepo-no-src",
   "version": "1.0.0",
-  "type": "commonjs",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/polyrepo-owner/repo-name.git"
@@ -30860,7 +30860,7 @@ scope: unlimited
 {
   "name": "good-polyrepo-no-src",
   "version": "1.0.0",
-  "type": "commonjs",
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/polyrepo-owner/repo-name.git"
