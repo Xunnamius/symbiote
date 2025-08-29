@@ -8,7 +8,7 @@
 
 > **UniqueDeleteSymbol** = `Tagged`\<`EmptyObject`, `"$delete"`\>
 
-Defined in: [src/assets.ts:38](https://github.com/Xunnamius/symbiote/blob/1214379b104dd598631a5db52a98adbb1a28dfdf/src/assets.ts#L38)
+Defined in: [src/assets.ts:38](https://github.com/Xunnamius/symbiote/blob/50bd26ba580f69a990fc1f7bdf0f09da69c3cfeb/src/assets.ts#L38)
 
 ## See
 
