@@ -1,4 +1,4 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
 
 exports[`matches changelog snapshot when there are no semver tags in the repo 1`] = `
 "## fake-pkg@0.0.0 (date)
