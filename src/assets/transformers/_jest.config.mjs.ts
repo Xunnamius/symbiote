@@ -198,7 +198,7 @@ const config = deepMergeConfig(
   {
     // Any custom configs here will be deep merged with moduleExport's result
     // ? Treat files with these extensions as ESM iff type === "module"
-    extensionsToTreatAsEsm: ['.jsx', '.ts', '.tsx'],
+    //extensionsToTreatAsEsm: ['.jsx', '.ts', '.tsx'],
   }
 );
 
