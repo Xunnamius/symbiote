@@ -8,7 +8,7 @@
 
 > **Asset** = `object`
 
-Defined in: [src/assets.ts:170](https://github.com/Xunnamius/symbiote/blob/50bd26ba580f69a990fc1f7bdf0f09da69c3cfeb/src/assets.ts#L170)
+Defined in: [src/assets.ts:170](https://github.com/Xunnamius/symbiote/blob/d4d5b078ef9485d85dd433ed75cef391a4a9376d/src/assets.ts#L170)
 
 An _asset_ maps an absolute output path and a function that generates output.
 
@@ -18,7 +18,7 @@ An _asset_ maps an absolute output path and a function that generates output.
 
 > **generate**: () => `Promisable`\<`string` \| *typeof* [`$delete`](../variables/$delete.md)\>
 
-Defined in: [src/assets.ts:172](https://github.com/Xunnamius/symbiote/blob/50bd26ba580f69a990fc1f7bdf0f09da69c3cfeb/src/assets.ts#L172)
+Defined in: [src/assets.ts:172](https://github.com/Xunnamius/symbiote/blob/d4d5b078ef9485d85dd433ed75cef391a4a9376d/src/assets.ts#L172)
 
 #### Returns
 
@@ -30,4 +30,4 @@ Defined in: [src/assets.ts:172](https://github.com/Xunnamius/symbiote/blob/50bd2
 
 > **path**: `AbsolutePath`
 
-Defined in: [src/assets.ts:171](https://github.com/Xunnamius/symbiote/blob/50bd26ba580f69a990fc1f7bdf0f09da69c3cfeb/src/assets.ts#L171)
+Defined in: [src/assets.ts:171](https://github.com/Xunnamius/symbiote/blob/d4d5b078ef9485d85dd433ed75cef391a4a9376d/src/assets.ts#L171)
