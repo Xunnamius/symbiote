@@ -66,7 +66,7 @@ export * from '@-xun/jest';`
  **  bootstrapping the runtime for every test file.
  */${
    isReactLike
-     ? `
+     ? /*js*/ `
 
 import { toPath } from '@-xun/fs';
 import { config as loadEnv } from 'dotenv';
@@ -82,11 +82,20 @@ import '@testing-library/jest-dom';`
 import 'jest-extended';
 import 'jest-extended/all';${
               isReactLike
-                ? `
+                ? /*js*/ `
 
 loadEnv({ path: toPath(__dirname, '..', '.env'), quiet: true });
 
 //jest.mock('@nhscc/backend-X~npm', () => require('@nhscc/backend-X'));`
+                : ''
+            }${
+              [AssetPreset.LibEsm, AssetPreset.LibWeb].includes(rootAssetPreset!)
+                ? /*js*/ `
+
+// ? Put the jest global back where it belongs for the benefit of ESM projects
+(globalThis.jest as typeof globalThis.jest | undefined) ??= (
+  await import('@jest/globals')
+).jest;`
                 : ''
             }`
           }

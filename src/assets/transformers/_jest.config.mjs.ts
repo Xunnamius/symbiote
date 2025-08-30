@@ -11,7 +11,12 @@ import { ProjectError } from '@-xun/project/error';
 import escapeStringRegexp from 'escape-string-regexp~4';
 import { createDebugLogger } from 'rejoinder';
 
-import { $delete, generateRootOnlyAssets, makeTransformer } from 'universe:assets.ts';
+import {
+  $delete,
+  AssetPreset,
+  generateRootOnlyAssets,
+  makeTransformer
+} from 'universe:assets.ts';
 
 import {
   globalDebuggerNamespace,
@@ -152,6 +157,7 @@ export function moduleExport({
 export const { transformer } = makeTransformer(function (context) {
   const {
     asset,
+    assetPreset,
     shouldDeriveAliases,
     additionalRawAliasMappings,
     projectMetadata,
@@ -183,24 +189,47 @@ export const { transformer } = makeTransformer(function (context) {
       },
       {
         path: toProjectAbsolutePath(jestConfigProjectBase),
-        generate: () => /*js*/ `
+        generate: () => {
+          const isInEsmMode = [AssetPreset.LibEsm, AssetPreset.LibWeb].includes(
+            assetPreset!
+          );
+
+          const esmOnlyAdditionalConfig = isInEsmMode
+            ? `
+    // ? Treat files with these extensions as ESM iff type === "module"
+    extensionsToTreatAsEsm: ['.jsx', '.ts', '.tsx']`
+            : '';
+
+          return /*js*/ `
 // @ts-check
 'use strict';
 
-import { deepMergeConfig } from '@-xun/symbiote/assets';
+${isInEsmMode ? "import { safeDeepClone } from '@-xun/js';\n" : ''}import { deepMergeConfig } from '@-xun/symbiote/assets';
 import { assertEnvironment, moduleExport } from '@-xun/symbiote/assets/${asset}';
-import { createDebugLogger } from 'rejoinder';
+import { createDebugLogger } from 'rejoinder';${isInEsmMode ? "\n\nimport globalBabelConfig from './babel.config.cjs';" : ''}
 
 const debug = createDebugLogger({ namespace: '${globalDebuggerNamespace}:config:jest' });
 
 const config = deepMergeConfig(
   moduleExport({ derivedAliases: getJestAliases(), ...assertEnvironment() }),
   {
-    // Any custom configs here will be deep merged with moduleExport's result
-    // ? Treat files with these extensions as ESM iff type === "module"
-    //extensionsToTreatAsEsm: ['.jsx', '.ts', '.tsx'],
+    // Any custom configs here will be deep merged with moduleExport's result${esmOnlyAdditionalConfig}
   }
-);
+);${
+            isInEsmMode
+              ? /*js*/ `
+
+const esmBabelConfig = safeDeepClone(globalBabelConfig);
+/**@type {any}*/ (esmBabelConfig.env.test).presets[0][1].modules = false;
+
+config.transform = /**@type {any}*/ ({
+  // * Treat as ESM
+  '\\.(ts|mts|jsx|tsx|mjs)?$': ['babel-jest', esmBabelConfig],
+  // * Treat as CJS
+  '\\.(js|cjs|cts)$': 'babel-jest'
+});`
+              : ''
+          }
 
 export default config;
 
@@ -212,7 +241,8 @@ function getJestAliases() {
 ${makeGeneratedAliasesWarningComment(2)}
   ${derivedAliasesSourceSnippet}
 }
-`
+`;
+        }
       }
     ];
   });

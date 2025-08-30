@@ -329,7 +329,7 @@ export default function command({
           string: true,
           array: true,
           description: 'Options passed to the Node runtime via NODE_OPTIONS',
-          default: ['--no-warnings --experimental-vm-modules'],
+          default: ['--no-warnings', '--experimental-vm-modules'],
           check(arg: string[], argv) {
             return (
               arg.length === 0 ||
