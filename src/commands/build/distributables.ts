@@ -736,6 +736,9 @@ Finally, note that, when attempting to build a Next.js package, this command wil
 
             const isTargetTheRootPackageJsonFile = target === 'package.json';
 
+            // TODO: when compiling intermediates for a monorepo package, that
+            // TODO: package's package.json needs to be included in the output
+
             if (
               (!isTranspilingTestIntermediates || !isTargetTheRootPackageJsonFile) &&
               isTargetTheCurrentPackageJsonFile

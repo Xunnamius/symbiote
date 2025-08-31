@@ -15,6 +15,9 @@ const bt = '`';
 // TODO: when module-system === esm, tests need to use esm-ready syntax for json
 // TODO: imports
 
+// TODO: do we need module-system AND ESM-only asset preset? Shouldn't these two
+// TODO: be merged into one (delete the asset preset and use module-system)?
+
 export const { transformer } = makeTransformer(async function (rootContext) {
   const {
     assetPreset: rootAssetPreset,
