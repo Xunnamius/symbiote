@@ -8,7 +8,7 @@
 
 > **default**(`globalExecutionContext`): `ChildConfiguration`\<[`CustomCliArguments`](../type-aliases/CustomCliArguments.md), [`GlobalExecutionContext`](../../../../configure/type-aliases/GlobalExecutionContext.md)\>
 
-Defined in: [src/commands/build/changelog.ts:138](https://github.com/Xunnamius/symbiote/blob/d4d5b078ef9485d85dd433ed75cef391a4a9376d/src/commands/build/changelog.ts#L138)
+Defined in: [src/commands/build/changelog.ts:138](https://github.com/Xunnamius/symbiote/blob/dc192a66d47b6c3a3464852ad43eb71fe137ca73/src/commands/build/changelog.ts#L138)
 
 ## Parameters
 
