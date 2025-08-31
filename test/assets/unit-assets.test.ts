@@ -1,7 +1,5 @@
 // * These tests ensure the exported interfaces under test function as expected.
 
-import { readdirSync } from 'node:fs';
-
 import { dummyToProjectMetadata } from '@-xun/common-dummies/repositories';
 import { toAbsolutePath, toPath } from '@-xun/fs';
 
@@ -27,7 +25,6 @@ import {
   compileTemplateInMemory,
   compileTemplates,
   deepMergeConfig,
-  directoryAssetTransformers,
   gatherAssetsFromAllTransformers,
   gatherAssetsFromTransformer,
   generatePerPackageAssets,
@@ -45,17 +42,20 @@ import {
   magicStringChooserBlockStart
 } from 'universe:util.ts';
 
+import { makeDummyPathFunctions, toAssetsMap } from 'testverse:util.ts';
+
 import type { AbsolutePath, RelativePath } from '@-xun/fs';
-import type { ProjectMetadata, RawAlias } from '@-xun/project';
+import type { RawAlias } from '@-xun/project';
 import type { Merge } from 'type-fest';
 
 import type {
   Asset,
   AssetPreset,
   IncomingTransformerContext,
-  ReifiedAssets,
   TransformerContext
 } from 'universe:assets.ts';
+
+const presetsUnderTest: (AssetPreset | undefined)[] = [undefined, ...assetPresets];
 
 const dummyContext: IncomingTransformerContext = {
   log: createGenericLogger({ namespace: 'unit-assets-dummy-context' }),
@@ -130,222 +130,6 @@ describe('::gatherAssetsFromTransformer', () => {
     ).rejects.toMatchObject({
       message: expect.stringMatching(/failed to retrieve asset/)
     });
-  });
-
-  describe('<generated asset content snapshots>', () => {
-    for (const transformerBasename of readdirSync(directoryAssetTransformers)) {
-      const transformerId = transformerBasename.slice(1, -3);
-
-      // eslint-disable-next-line jest/valid-title
-      describe(transformerId, () => {
-        test('generates expected assets for polyrepo', async () => {
-          expect.hasAssertions();
-
-          const projectMetadata = dummyToProjectMetadata(
-            'goodPolyrepoNoSrcYesDefaultEnv',
-            'self'
-          ) as TransformerContext['projectMetadata'];
-
-          const assets = await gatherAssetsFromTransformer({
-            transformerId,
-            transformerContext: {
-              ...dummyContext,
-              projectMetadata,
-              ...makeDummyPathFunctions(projectMetadata)
-            },
-            options: { transformerFiletype: 'ts' }
-          });
-
-          await expectAssetsToMatchSnapshots(assets, dummyContext.scope);
-        });
-
-        test('generates expected assets for polyrepo (scope=this-package)', async () => {
-          expect.hasAssertions();
-
-          const projectMetadata = dummyToProjectMetadata(
-            'goodPolyrepoNoSrcYesDefaultEnv',
-            'self'
-          ) as TransformerContext['projectMetadata'];
-
-          const assets = await gatherAssetsFromTransformer({
-            transformerId,
-            transformerContext: {
-              ...dummyContext,
-              projectMetadata,
-              ...makeDummyPathFunctions(projectMetadata),
-              scope: DefaultGlobalScope.ThisPackage
-            },
-            options: { transformerFiletype: 'ts' }
-          });
-
-          await expectAssetsToMatchSnapshots(assets, dummyContext.scope);
-        });
-
-        test('generates expected assets for polyrepo (with force)', async () => {
-          expect.hasAssertions();
-
-          const projectMetadata = dummyToProjectMetadata(
-            'goodPolyrepoNoSrcYesDefaultEnv',
-            'self'
-          ) as TransformerContext['projectMetadata'];
-
-          const assets = await gatherAssetsFromTransformer({
-            transformerId,
-            transformerContext: {
-              ...dummyContext,
-              projectMetadata,
-              ...makeDummyPathFunctions(projectMetadata),
-              forceOverwritePotentiallyDestructive: true
-            },
-            options: { transformerFiletype: 'ts' }
-          });
-
-          await expectAssetsToMatchSnapshots(assets, DefaultGlobalScope.ThisPackage);
-        });
-
-        test('generates expected assets at non-hybrid monorepo', async () => {
-          expect.hasAssertions();
-
-          const projectMetadata = dummyToProjectMetadata(
-            'goodMonorepoNoSrc',
-            'pkg-1'
-          ) as TransformerContext['projectMetadata'];
-
-          {
-            const assets = await gatherAssetsFromTransformer({
-              transformerId,
-              transformerContext: {
-                ...dummyContext,
-                projectMetadata,
-                ...makeDummyPathFunctions(projectMetadata)
-              },
-              options: { transformerFiletype: 'ts' }
-            });
-
-            await expectAssetsToMatchSnapshots(assets, dummyContext.scope);
-          }
-        });
-
-        test('generates expected assets at non-hybrid monorepo (scope=this-package)', async () => {
-          expect.hasAssertions();
-
-          const projectMetadata = dummyToProjectMetadata(
-            'goodMonorepoNoSrc',
-            'pkg-1'
-          ) as TransformerContext['projectMetadata'];
-
-          {
-            const assets = await gatherAssetsFromTransformer({
-              transformerId,
-              transformerContext: {
-                ...dummyContext,
-                projectMetadata,
-                ...makeDummyPathFunctions(projectMetadata),
-                scope: DefaultGlobalScope.ThisPackage
-              },
-              options: { transformerFiletype: 'ts' }
-            });
-
-            await expectAssetsToMatchSnapshots(assets, DefaultGlobalScope.ThisPackage);
-          }
-        });
-
-        test('generates expected assets at non-hybrid monorepo (with force)', async () => {
-          expect.hasAssertions();
-
-          const projectMetadata = dummyToProjectMetadata(
-            'goodMonorepoNoSrc',
-            'pkg-1'
-          ) as TransformerContext['projectMetadata'];
-
-          {
-            const assets = await gatherAssetsFromTransformer({
-              transformerId,
-              transformerContext: {
-                ...dummyContext,
-                projectMetadata,
-                ...makeDummyPathFunctions(projectMetadata),
-                forceOverwritePotentiallyDestructive: true
-              },
-              options: { transformerFiletype: 'ts' }
-            });
-
-            await expectAssetsToMatchSnapshots(assets, dummyContext.scope);
-          }
-        });
-
-        test('generates expected assets at hybridrepo', async () => {
-          expect.hasAssertions();
-
-          const projectMetadata = dummyToProjectMetadata(
-            'goodHybridrepo',
-            'self'
-          ) as TransformerContext['projectMetadata'];
-
-          {
-            const assets = await gatherAssetsFromTransformer({
-              transformerId,
-              transformerContext: {
-                ...dummyContext,
-                projectMetadata,
-                ...makeDummyPathFunctions(projectMetadata)
-              },
-              options: { transformerFiletype: 'ts' }
-            });
-
-            await expectAssetsToMatchSnapshots(assets, dummyContext.scope);
-          }
-        });
-
-        test('generates expected assets at hybridrepo (scope=this-package)', async () => {
-          expect.hasAssertions();
-
-          const projectMetadata = dummyToProjectMetadata(
-            'goodHybridrepo',
-            'self'
-          ) as TransformerContext['projectMetadata'];
-
-          {
-            const assets = await gatherAssetsFromTransformer({
-              transformerId,
-              transformerContext: {
-                ...dummyContext,
-                projectMetadata,
-                ...makeDummyPathFunctions(projectMetadata),
-                scope: DefaultGlobalScope.ThisPackage
-              },
-              options: { transformerFiletype: 'ts' }
-            });
-
-            await expectAssetsToMatchSnapshots(assets, DefaultGlobalScope.ThisPackage);
-          }
-        });
-
-        test('generates expected assets at hybridrepo (with force)', async () => {
-          expect.hasAssertions();
-
-          const projectMetadata = dummyToProjectMetadata(
-            'goodHybridrepo',
-            'self'
-          ) as TransformerContext['projectMetadata'];
-
-          {
-            const assets = await gatherAssetsFromTransformer({
-              transformerId,
-              transformerContext: {
-                ...dummyContext,
-                projectMetadata,
-                ...makeDummyPathFunctions(projectMetadata),
-                forceOverwritePotentiallyDestructive: true
-              },
-              options: { transformerFiletype: 'ts' }
-            });
-
-            await expectAssetsToMatchSnapshots(assets, dummyContext.scope);
-          }
-        });
-      });
-    }
   });
 
   describe('<additional asset content tests>', () => {
@@ -1094,8 +878,6 @@ describe('::gatherAssetsFromTransformer', () => {
 });
 
 describe('::gatherAssetsFromAllTransformers', () => {
-  const presetsUnderTest: (AssetPreset | undefined)[] = [undefined, ...assetPresets];
-
   for (const presetUnderTest of presetsUnderTest) {
     describe(
       // eslint-disable-next-line jest/valid-describe-callback
@@ -2115,57 +1897,3 @@ describe('::generateRootOnlyAssets', () => {
     ).resolves.toBeEmpty();
   });
 });
-
-async function expectAssetsToMatchSnapshots(
-  assets: ReifiedAssets,
-  scope: DefaultGlobalScope
-) {
-  const entries = Object.entries(assets);
-
-  if (!entries.length) {
-    // ? Allow empty entries to satisfy expect.hasAssertions
-    expect(true).toBeTrue();
-  }
-
-  for (const [key, asset] of entries) {
-    expect(
-      `key: ${key}\nscope: ${scope}\n⏶⏷⏶⏷⏶\n` +
-        // eslint-disable-next-line no-await-in-loop, @typescript-eslint/no-base-to-string
-        replaceDynamicValuesWithStableStrings(String(await asset()))
-    ).toMatchSnapshot(key);
-  }
-}
-
-function replaceDynamicValuesWithStableStrings(str: string | symbol) {
-  return String(str)
-    .replaceAll(/"@-xun\/symbiote": "[^"]+"/g, '"@-xun/symbiote": "<latest>"')
-    .replaceAll(/"compatibility_date": "[^"]+"/g, '"compatibility_date": "<latest>"');
-}
-
-async function toAssetsMap(assets: ReifiedAssets | Asset[]) {
-  const entries = Array.isArray(assets)
-    ? assets.map(({ path, generate }) => [path, generate] as const)
-    : Object.entries(assets);
-
-  return Object.fromEntries(
-    await Promise.all(entries.map(async ([k, v]) => [k, await v()]))
-  );
-}
-
-function makeDummyPathFunctions({
-  cwdPackage,
-  rootPackage: { root: packageRoot }
-}: ProjectMetadata): Pick<
-  TransformerContext,
-  'toPackageAbsolutePath' | 'toProjectAbsolutePath'
-> {
-  return {
-    toPackageAbsolutePath: (...args) =>
-      toAbsolutePath(
-        packageRoot,
-        'relativeRoot' in cwdPackage ? cwdPackage.relativeRoot : '',
-        ...args
-      ),
-    toProjectAbsolutePath: (...args) => toAbsolutePath(packageRoot, ...args)
-  };
-}
