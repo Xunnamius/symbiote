@@ -304,7 +304,7 @@ export function assertEnvironment(): Omit<
  */
 export function transformSelectEsmPackagesToCjs(
   config: JestConfig,
-  packageNames: string[]
+  packageNames: (string | RegExp)[]
 ): void {
   const transformIgnorePatterns = [
     `/node_modules/(?!(${packageNames
