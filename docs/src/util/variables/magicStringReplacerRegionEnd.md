@@ -8,7 +8,7 @@
 
 > `const` **magicStringReplacerRegionEnd**: `"<!-- symbiote-template-region-end -->"` = `'<!-- symbiote-template-region-end -->'`
 
-Defined in: [src/util.ts:170](https://github.com/Xunnamius/symbiote/blob/421daaf5e320e2f5d7cb32f23e410fefd48b6891/src/util.ts#L170)
+Defined in: [src/util.ts:170](https://github.com/Xunnamius/symbiote/blob/feca973a0a29b4194f5e9720a5df04c799f6fa94/src/util.ts#L170)
 
 Magic string used to denote the beginning of a replacer region in Markdown
 files processed by symbiote.
