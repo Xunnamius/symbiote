@@ -8,6 +8,6 @@
 
 > **BuildOutputCheckError** = `InstanceType`\<*typeof* [`BuildOutputCheckError`](../variables/BuildOutputCheckError.md)\>
 
-Defined in: [src/error.ts:11](https://github.com/Xunnamius/symbiote/blob/d58f752a47908197bf2e7050b119b5cca3d1f350/src/error.ts#L11)
+Defined in: [src/error.ts:11](https://github.com/Xunnamius/symbiote/blob/421daaf5e320e2f5d7cb32f23e410fefd48b6891/src/error.ts#L11)
 
 Represents encountering a project that is not a git repository.
