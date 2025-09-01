@@ -1310,7 +1310,10 @@ distrib root: ${absoluteOutputDirPath}
                   'internal-resolution-error',
                   // ? If people aren't using allowSyntheticDefaultImports,
                   // ? that's their problem. Default exports suck anyway
-                  'cjs-only-exports-default'
+                  'cjs-only-exports-default',
+                  // ? If this is an ESM-only package, then it'll have ESM-only
+                  // ? exports and that's okay
+                  ...(packageAttributes.esm ? ['cjs-resolves-to-esm'] : [])
                 ],
                 {
                   env: { FORCE_COLOR: '1' },
