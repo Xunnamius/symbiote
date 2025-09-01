@@ -6,7 +6,7 @@
 
 # Interface: Describe()
 
-Defined in: [types/jest.patched.d.ts:2](https://github.com/Xunnamius/symbiote/blob/b36b296d7ff1b66d1e0c5e11b10c0eb089462516/types/jest.patched.d.ts#L2)
+Defined in: [types/jest.patched.d.ts:2](https://github.com/Xunnamius/symbiote/blob/d58f752a47908197bf2e7050b119b5cca3d1f350/types/jest.patched.d.ts#L2)
 
 > **Describe**(`name`, `fn`): `void`
 
@@ -40,7 +40,7 @@ Defined in: node\_modules/@types/jest/index.d.ts:638
 
 > **noskip**: `Describe`
 
-Defined in: [types/jest.patched.d.ts:7](https://github.com/Xunnamius/symbiote/blob/b36b296d7ff1b66d1e0c5e11b10c0eb089462516/types/jest.patched.d.ts#L7)
+Defined in: [types/jest.patched.d.ts:7](https://github.com/Xunnamius/symbiote/blob/d58f752a47908197bf2e7050b119b5cca3d1f350/types/jest.patched.d.ts#L7)
 
 Ensures the test contained by this function are run regardless of the
 invocation of `reconfigureJestGlobalsToSkipTestsInThisFileIfRequested`.

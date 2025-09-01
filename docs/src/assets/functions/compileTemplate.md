@@ -8,7 +8,7 @@
 
 > **compileTemplate**(`templatePath`, `context`): `Promise`\<`string`\>
 
-Defined in: [src/assets.ts:545](https://github.com/Xunnamius/symbiote/blob/b36b296d7ff1b66d1e0c5e11b10c0eb089462516/src/assets.ts#L545)
+Defined in: [src/assets.ts:545](https://github.com/Xunnamius/symbiote/blob/d58f752a47908197bf2e7050b119b5cca3d1f350/src/assets.ts#L545)
 
 Takes a path relative to the `src/assets/templates` directory and returns the
 template at that path with all handlebars-style template variables (e.g.
