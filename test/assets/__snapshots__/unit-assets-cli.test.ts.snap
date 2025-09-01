@@ -23723,7 +23723,7 @@ scope: this-package
   "name": "good-hybridrepo",
   "version": "1.3.2-hybridrepo",
   "description": "good-hybridrepo-description",
-  "type": "module",
+  "type": "commonjs",
   "bin": {
     "good-hybridrepo": "./dist/src/cli.js",
     "faker": "./dist/src/cli.js"
@@ -24053,8 +24053,16 @@ scope: unlimited
   "type": "commonjs",
   "exports": {
     ".": {
-      "types": "./dist/packages/private/src/index.d.ts",
-      "default": "./dist/packages/private/src/index.js"
+      "types": "./dist/packages/private/src/cli.d.ts",
+      "default": "./dist/packages/private/src/cli.js"
+    },
+    "./commands/*": {
+      "types": "./dist/packages/private/src/commands/*.d.ts",
+      "default": "./dist/packages/private/src/commands/*.js"
+    },
+    "./configure": {
+      "types": "./dist/packages/private/src/configure.d.ts",
+      "default": "./dist/packages/private/src/configure.js"
     },
     "./package": "./package.json",
     "./package.json": "./package.json"
@@ -24062,12 +24070,21 @@ scope: unlimited
   "typesVersions": {
     "*": {
       "index": [
-        "dist/packages/private/src/index.d.ts"
+        "dist/packages/private/src/cli.d.ts"
+      ],
+      "commands/*": [
+        "dist/packages/private/src/commands/*.d.ts"
+      ],
+      "configure": [
+        "dist/packages/private/src/configure.d.ts"
       ],
       "package": [
         "package.json"
       ]
     }
+  },
+  "bin": {
+    "private": "./dist/packages/private/src/cli.js"
   },
   "engines": {
     "node": "^20.18.0 || >=22.12.0"
@@ -24129,8 +24146,16 @@ scope: unlimited
   "type": "commonjs",
   "exports": {
     ".": {
-      "types": "./dist/packages/webpack/src/index.d.ts",
-      "default": "./dist/packages/webpack/src/index.js"
+      "types": "./dist/packages/webpack/src/cli.d.ts",
+      "default": "./dist/packages/webpack/src/cli.js"
+    },
+    "./commands/*": {
+      "types": "./dist/packages/webpack/src/commands/*.d.ts",
+      "default": "./dist/packages/webpack/src/commands/*.js"
+    },
+    "./configure": {
+      "types": "./dist/packages/webpack/src/configure.d.ts",
+      "default": "./dist/packages/webpack/src/configure.js"
     },
     "./package": "./package.json",
     "./package.json": "./package.json"
@@ -24138,12 +24163,21 @@ scope: unlimited
   "typesVersions": {
     "*": {
       "index": [
-        "dist/packages/webpack/src/index.d.ts"
+        "dist/packages/webpack/src/cli.d.ts"
+      ],
+      "commands/*": [
+        "dist/packages/webpack/src/commands/*.d.ts"
+      ],
+      "configure": [
+        "dist/packages/webpack/src/configure.d.ts"
       ],
       "package": [
         "package.json"
       ]
     }
+  },
+  "bin": {
+    "webpack": "./dist/packages/webpack/src/cli.js"
   },
   "engines": {
     "node": "^20.18.0 || >=22.12.0"
@@ -24188,7 +24222,7 @@ scope: unlimited
   "name": "good-hybridrepo",
   "version": "1.3.2-hybridrepo",
   "description": "good-hybridrepo-description",
-  "type": "module",
+  "type": "commonjs",
   "bin": {
     "good-hybridrepo": "./dist/src/cli.js",
     "faker": "./dist/src/cli.js"
@@ -24303,7 +24337,7 @@ scope: unlimited
   ],
   "name": "cli",
   "version": "1.0.0",
-  "type": "module",
+  "type": "commonjs",
   "bin": {
     "cli": "./dist/packages/cli/src/cli.js",
     "executable": "./dist/index.js"
@@ -24390,7 +24424,7 @@ scope: unlimited
   "private": true,
   "name": "private",
   "version": "1.0.0",
-  "type": "module",
+  "type": "commonjs",
   "exports": {
     ".": "./dist/index.js"
   },
@@ -24458,7 +24492,7 @@ scope: unlimited
   ],
   "name": "webpack",
   "version": "1.0.0",
-  "type": "module",
+  "type": "commonjs",
   "exports": {
     ".": "./dist/index.mjs"
   },
@@ -24534,7 +24568,7 @@ scope: this-package
   ],
   "name": "pkg-1",
   "version": "1.0.0",
-  "type": "module",
+  "type": "commonjs",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/repo-owner/repo-name.git"
@@ -24882,8 +24916,16 @@ scope: unlimited
   "type": "commonjs",
   "exports": {
     ".": {
-      "types": "./dist/packages/pkg-import/src/index.d.ts",
-      "default": "./dist/packages/pkg-import/src/index.js"
+      "types": "./dist/packages/pkg-import/src/cli.d.ts",
+      "default": "./dist/packages/pkg-import/src/cli.js"
+    },
+    "./commands/*": {
+      "types": "./dist/packages/pkg-import/src/commands/*.d.ts",
+      "default": "./dist/packages/pkg-import/src/commands/*.js"
+    },
+    "./configure": {
+      "types": "./dist/packages/pkg-import/src/configure.d.ts",
+      "default": "./dist/packages/pkg-import/src/configure.js"
     },
     "./package": "./package.json",
     "./package.json": "./package.json"
@@ -24891,12 +24933,21 @@ scope: unlimited
   "typesVersions": {
     "*": {
       "index": [
-        "dist/packages/pkg-import/src/index.d.ts"
+        "dist/packages/pkg-import/src/cli.d.ts"
+      ],
+      "commands/*": [
+        "dist/packages/pkg-import/src/commands/*.d.ts"
+      ],
+      "configure": [
+        "dist/packages/pkg-import/src/configure.d.ts"
       ],
       "package": [
         "package.json"
       ]
     }
+  },
+  "bin": {
+    "importer": "./dist/packages/pkg-import/src/cli.js"
   },
   "engines": {
     "node": "^20.18.0 || >=22.12.0"
@@ -24940,7 +24991,7 @@ scope: unlimited
   ],
   "name": "good-monorepo-no-src-monorepo",
   "version": "0.0.0-monorepo",
-  "type": "module",
+  "type": "commonjs",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/monorepo-owner/repo-name.git"
@@ -25000,7 +25051,7 @@ scope: unlimited
   ],
   "name": "pkg-1",
   "version": "1.0.0",
-  "type": "module",
+  "type": "commonjs",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/repo-owner/repo-name.git"
@@ -25082,7 +25133,7 @@ scope: unlimited
   ],
   "name": "@namespaced/pkg",
   "version": "1.0.0",
-  "type": "module",
+  "type": "commonjs",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/repo-owner/repo-name.git"
@@ -25167,7 +25218,7 @@ scope: unlimited
   ],
   "name": "@namespaced/importer",
   "version": "1.0.0",
-  "type": "module",
+  "type": "commonjs",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/repo-owner/repo-name.git"
@@ -25233,7 +25284,7 @@ scope: unlimited
 {
   "name": "good-polyrepo-no-src",
   "version": "1.0.0",
-  "type": "module",
+  "type": "commonjs",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/polyrepo-owner/repo-name.git"
@@ -25426,7 +25477,7 @@ scope: unlimited
 {
   "name": "good-polyrepo-no-src",
   "version": "1.0.0",
-  "type": "module",
+  "type": "commonjs",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/polyrepo-owner/repo-name.git"

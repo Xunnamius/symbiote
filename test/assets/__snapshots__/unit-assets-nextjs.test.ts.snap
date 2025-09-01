@@ -19941,7 +19941,7 @@ scope: this-package
   "name": "good-hybridrepo",
   "version": "1.3.2-hybridrepo",
   "description": "good-hybridrepo-description",
-  "type": "module",
+  "type": "commonjs",
   "bin": {
     "faker": "./dist/src/cli.js"
   },
@@ -20073,20 +20073,9 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> packa
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
-  },
-  "files": [
-    "/dist",
-    "/LICENSE",
-    "/package.json",
-    "/README.md"
-  ],
   "name": "cli",
   "version": "1.0.0",
   "description": "TODO: set a description",
-  "keywords": [],
   "homepage": "https://github.com/hybridrepo-owner/repo-name/tree/main/packages/cli#readme",
   "bugs": {
     "url": "https://github.com/hybridrepo-owner/repo-name/issues"
@@ -20095,55 +20084,20 @@ scope: unlimited
     "type": "git",
     "url": "git+https://github.com/hybridrepo-owner/repo-name.git"
   },
-  "license": "MIT",
   "author": "Xunnamius",
-  "sideEffects": false,
   "type": "commonjs",
-  "exports": {
-    ".": {
-      "types": "./dist/packages/cli/src/cli.d.ts",
-      "default": "./dist/packages/cli/src/cli.js"
-    },
-    "./commands/*": {
-      "types": "./dist/packages/cli/src/commands/*.d.ts",
-      "default": "./dist/packages/cli/src/commands/*.js"
-    },
-    "./configure": {
-      "types": "./dist/packages/cli/src/configure.d.ts",
-      "default": "./dist/packages/cli/src/configure.js"
-    },
-    "./package": "./package.json",
-    "./package.json": "./package.json"
-  },
-  "typesVersions": {
-    "*": {
-      "index": [
-        "dist/packages/cli/src/cli.d.ts"
-      ],
-      "commands/*": [
-        "dist/packages/cli/src/commands/*.d.ts"
-      ],
-      "configure": [
-        "dist/packages/cli/src/configure.d.ts"
-      ],
-      "package": [
-        "package.json"
-      ]
-    }
-  },
-  "bin": {
-    "cli": "./dist/packages/cli/src/cli.js"
-  },
   "engines": {
     "node": "^20.18.0 || >=22.12.0"
   },
   "scripts": {
-    "build": "npm run build:dist --",
+    "build": "NODE_ENV=production npx next build",
     "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
-    "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1 --not-multiversal",
-    "build:docs": "symbiote build docs --env NODE_NO_WARNINGS=1",
-    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "build:dist": "rejoin This package is does not have buildable distributables",
+    "build:docs": "rejoin This package does not have buildable documentation",
+    "release": "rejoin This package is not releasable",
     "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
+    "deploy": "rejoin The deploy command has not been configured",
+    "dev": "next -p \`npx -q acquire-port\`",
     "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush",
     "info": "symbiote project info --env NODE_NO_WARNINGS=1",
     "lint": "npm run lint:package --",
@@ -20172,7 +20126,6 @@ scope: unlimited
   "name": "private",
   "version": "1.0.0",
   "description": "TODO: set a description",
-  "keywords": [],
   "homepage": "https://github.com/hybridrepo-owner/repo-name/tree/main/packages/private#readme",
   "bugs": {
     "url": "https://github.com/hybridrepo-owner/repo-name/issues"
@@ -20181,33 +20134,15 @@ scope: unlimited
     "type": "git",
     "url": "git+https://github.com/hybridrepo-owner/repo-name.git"
   },
-  "license": "MIT",
   "author": "Xunnamius",
-  "sideEffects": false,
   "type": "commonjs",
-  "exports": {
-    ".": {
-      "types": "./dist/packages/private/src/index.d.ts",
-      "default": "./dist/packages/private/src/index.js"
-    },
-    "./package": "./package.json",
-    "./package.json": "./package.json"
-  },
-  "typesVersions": {
-    "*": {
-      "index": [
-        "dist/packages/private/src/index.d.ts"
-      ],
-      "package": [
-        "package.json"
-      ]
-    }
-  },
   "engines": {
     "node": "^20.18.0 || >=22.12.0"
   },
   "scripts": {
     "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
+    "deploy": "rejoin The deploy command has not been configured",
+    "dev": "next -p \`npx -q acquire-port\`",
     "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush",
     "info": "symbiote project info --env NODE_NO_WARNINGS=1",
     "lint": "npm run lint:package --",
@@ -20232,23 +20167,12 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> packa
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
-  },
-  "files": [
-    "/dist",
-    "/LICENSE",
-    "/package.json",
-    "/README.md"
-  ],
   "dependencies": {
     "@namespaced/pkg": "^1.0.0"
   },
   "name": "webpack",
   "version": "1.0.0",
   "description": "TODO: set a description",
-  "keywords": [],
   "homepage": "https://github.com/hybridrepo-owner/repo-name/tree/main/packages/webpack#readme",
   "bugs": {
     "url": "https://github.com/hybridrepo-owner/repo-name/issues"
@@ -20257,38 +20181,20 @@ scope: unlimited
     "type": "git",
     "url": "git+https://github.com/hybridrepo-owner/repo-name.git"
   },
-  "license": "MIT",
   "author": "Xunnamius",
-  "sideEffects": false,
   "type": "commonjs",
-  "exports": {
-    ".": {
-      "types": "./dist/packages/webpack/src/index.d.ts",
-      "default": "./dist/packages/webpack/src/index.js"
-    },
-    "./package": "./package.json",
-    "./package.json": "./package.json"
-  },
-  "typesVersions": {
-    "*": {
-      "index": [
-        "dist/packages/webpack/src/index.d.ts"
-      ],
-      "package": [
-        "package.json"
-      ]
-    }
-  },
   "engines": {
     "node": "^20.18.0 || >=22.12.0"
   },
   "scripts": {
-    "build": "npm run build:dist --",
+    "build": "NODE_ENV=production npx next build",
     "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
-    "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1 --not-multiversal",
-    "build:docs": "symbiote build docs --env NODE_NO_WARNINGS=1",
-    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "build:dist": "rejoin This package is does not have buildable distributables",
+    "build:docs": "rejoin This package does not have buildable documentation",
+    "release": "rejoin This package is not releasable",
     "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
+    "deploy": "rejoin The deploy command has not been configured",
+    "dev": "next -p \`npx -q acquire-port\`",
     "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush",
     "info": "symbiote project info --env NODE_NO_WARNINGS=1",
     "lint": "npm run lint:package --",
@@ -20322,7 +20228,7 @@ scope: unlimited
   "name": "good-hybridrepo",
   "version": "1.3.2-hybridrepo",
   "description": "good-hybridrepo-description",
-  "type": "module",
+  "type": "commonjs",
   "bin": {
     "faker": "./dist/src/cli.js"
   },
@@ -20399,7 +20305,7 @@ scope: unlimited
   ],
   "name": "cli",
   "version": "1.0.0",
-  "type": "module",
+  "type": "commonjs",
   "bin": {
     "cli": "./dist/packages/cli/src/cli.js",
     "executable": "./dist/index.js"
@@ -20486,7 +20392,7 @@ scope: unlimited
   "private": true,
   "name": "private",
   "version": "1.0.0",
-  "type": "module",
+  "type": "commonjs",
   "exports": {
     ".": "./dist/index.js"
   },
@@ -20554,7 +20460,7 @@ scope: unlimited
   ],
   "name": "webpack",
   "version": "1.0.0",
-  "type": "module",
+  "type": "commonjs",
   "exports": {
     ".": "./dist/index.mjs"
   },
@@ -20620,7 +20526,7 @@ scope: this-package
 {
   "name": "pkg-1",
   "version": "1.0.0",
-  "type": "module",
+  "type": "commonjs",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/repo-owner/repo-name.git"
@@ -20725,20 +20631,9 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> packa
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
-  },
-  "files": [
-    "/dist",
-    "/LICENSE",
-    "/package.json",
-    "/README.md"
-  ],
   "name": "pkg-1",
   "version": "1.0.0",
   "description": "TODO: set a description",
-  "keywords": [],
   "homepage": "https://github.com/repo-owner/repo-name/tree/main/packages/pkg-1#readme",
   "bugs": {
     "url": "https://github.com/repo-owner/repo-name/issues"
@@ -20747,55 +20642,20 @@ scope: unlimited
     "type": "git",
     "url": "git+https://github.com/repo-owner/repo-name.git"
   },
-  "license": "MIT",
   "author": "Xunnamius",
-  "sideEffects": false,
   "type": "commonjs",
-  "exports": {
-    ".": {
-      "types": "./dist/packages/pkg-1/src/cli.d.ts",
-      "default": "./dist/packages/pkg-1/src/cli.js"
-    },
-    "./commands/*": {
-      "types": "./dist/packages/pkg-1/src/commands/*.d.ts",
-      "default": "./dist/packages/pkg-1/src/commands/*.js"
-    },
-    "./configure": {
-      "types": "./dist/packages/pkg-1/src/configure.d.ts",
-      "default": "./dist/packages/pkg-1/src/configure.js"
-    },
-    "./package": "./package.json",
-    "./package.json": "./package.json"
-  },
-  "typesVersions": {
-    "*": {
-      "index": [
-        "dist/packages/pkg-1/src/cli.d.ts"
-      ],
-      "commands/*": [
-        "dist/packages/pkg-1/src/commands/*.d.ts"
-      ],
-      "configure": [
-        "dist/packages/pkg-1/src/configure.d.ts"
-      ],
-      "package": [
-        "package.json"
-      ]
-    }
-  },
-  "bin": {
-    "pkg-1": "./dist/packages/pkg-1/src/cli.js"
-  },
   "engines": {
     "node": "^20.18.0 || >=22.12.0"
   },
   "scripts": {
-    "build": "npm run build:dist --",
+    "build": "NODE_ENV=production npx next build",
     "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
-    "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1 --not-multiversal",
-    "build:docs": "symbiote build docs --env NODE_NO_WARNINGS=1",
-    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "build:dist": "rejoin This package is does not have buildable distributables",
+    "build:docs": "rejoin This package does not have buildable documentation",
+    "release": "rejoin This package is not releasable",
     "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
+    "deploy": "rejoin The deploy command has not been configured",
+    "dev": "next -p \`npx -q acquire-port\`",
     "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush",
     "info": "symbiote project info --env NODE_NO_WARNINGS=1",
     "lint": "npm run lint:package --",
@@ -20820,20 +20680,9 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> packa
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
-  },
-  "files": [
-    "/dist",
-    "/LICENSE",
-    "/package.json",
-    "/README.md"
-  ],
   "name": "@namespaced/pkg",
   "version": "1.0.0",
   "description": "TODO: set a description",
-  "keywords": [],
   "homepage": "https://github.com/repo-owner/repo-name/tree/main/packages/pkg-2#readme",
   "bugs": {
     "url": "https://github.com/repo-owner/repo-name/issues"
@@ -20842,55 +20691,20 @@ scope: unlimited
     "type": "git",
     "url": "git+https://github.com/repo-owner/repo-name.git"
   },
-  "license": "MIT",
   "author": "Xunnamius",
-  "sideEffects": false,
   "type": "commonjs",
-  "exports": {
-    ".": {
-      "types": "./dist/packages/pkg-2/src/cli.d.ts",
-      "default": "./dist/packages/pkg-2/src/cli.js"
-    },
-    "./commands/*": {
-      "types": "./dist/packages/pkg-2/src/commands/*.d.ts",
-      "default": "./dist/packages/pkg-2/src/commands/*.js"
-    },
-    "./configure": {
-      "types": "./dist/packages/pkg-2/src/configure.d.ts",
-      "default": "./dist/packages/pkg-2/src/configure.js"
-    },
-    "./package": "./package.json",
-    "./package.json": "./package.json"
-  },
-  "typesVersions": {
-    "*": {
-      "index": [
-        "dist/packages/pkg-2/src/cli.d.ts"
-      ],
-      "commands/*": [
-        "dist/packages/pkg-2/src/commands/*.d.ts"
-      ],
-      "configure": [
-        "dist/packages/pkg-2/src/configure.d.ts"
-      ],
-      "package": [
-        "package.json"
-      ]
-    }
-  },
-  "bin": {
-    "pkg": "./dist/packages/pkg-2/src/cli.js"
-  },
   "engines": {
     "node": "^20.18.0 || >=22.12.0"
   },
   "scripts": {
-    "build": "npm run build:dist --",
+    "build": "NODE_ENV=production npx next build",
     "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
-    "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1 --not-multiversal",
-    "build:docs": "symbiote build docs --env NODE_NO_WARNINGS=1",
-    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "build:dist": "rejoin This package is does not have buildable distributables",
+    "build:docs": "rejoin This package does not have buildable documentation",
+    "release": "rejoin This package is not releasable",
     "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
+    "deploy": "rejoin The deploy command has not been configured",
+    "dev": "next -p \`npx -q acquire-port\`",
     "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush",
     "info": "symbiote project info --env NODE_NO_WARNINGS=1",
     "lint": "npm run lint:package --",
@@ -20915,23 +20729,12 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> packa
 scope: unlimited
 ⏶⏷⏶⏷⏶
 {
-  "publishConfig": {
-    "access": "public",
-    "registry": "https://registry.npmjs.org"
-  },
-  "files": [
-    "/dist",
-    "/LICENSE",
-    "/package.json",
-    "/README.md"
-  ],
   "dependencies": {
     "@namespaced/pkg": "^1.0.0"
   },
   "name": "@namespaced/importer",
   "version": "1.0.0",
   "description": "TODO: set a description",
-  "keywords": [],
   "homepage": "https://github.com/repo-owner/repo-name/tree/main/packages/pkg-import#readme",
   "bugs": {
     "url": "https://github.com/repo-owner/repo-name/issues"
@@ -20940,38 +20743,20 @@ scope: unlimited
     "type": "git",
     "url": "git+https://github.com/repo-owner/repo-name.git"
   },
-  "license": "MIT",
   "author": "Xunnamius",
-  "sideEffects": false,
   "type": "commonjs",
-  "exports": {
-    ".": {
-      "types": "./dist/packages/pkg-import/src/index.d.ts",
-      "default": "./dist/packages/pkg-import/src/index.js"
-    },
-    "./package": "./package.json",
-    "./package.json": "./package.json"
-  },
-  "typesVersions": {
-    "*": {
-      "index": [
-        "dist/packages/pkg-import/src/index.d.ts"
-      ],
-      "package": [
-        "package.json"
-      ]
-    }
-  },
   "engines": {
     "node": "^20.18.0 || >=22.12.0"
   },
   "scripts": {
-    "build": "npm run build:dist --",
+    "build": "NODE_ENV=production npx next build",
     "build:changelog": "symbiote build changelog --env NODE_NO_WARNINGS=1",
-    "build:dist": "symbiote build distributables --env NODE_NO_WARNINGS=1 --not-multiversal",
-    "build:docs": "symbiote build docs --env NODE_NO_WARNINGS=1",
-    "release": "symbiote release --env NODE_NO_WARNINGS=1",
+    "build:dist": "rejoin This package is does not have buildable distributables",
+    "build:docs": "rejoin This package does not have buildable documentation",
+    "release": "rejoin This package is not releasable",
     "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
+    "deploy": "rejoin The deploy command has not been configured",
+    "dev": "next -p \`npx -q acquire-port\`",
     "format": "symbiote format --env NODE_NO_WARNINGS=1 --hush",
     "info": "symbiote project info --env NODE_NO_WARNINGS=1",
     "lint": "npm run lint:package --",
@@ -21004,7 +20789,7 @@ scope: unlimited
   ],
   "name": "good-monorepo-no-src-monorepo",
   "version": "0.0.0-monorepo",
-  "type": "module",
+  "type": "commonjs",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/monorepo-owner/repo-name.git"
@@ -21061,7 +20846,7 @@ scope: unlimited
   ],
   "name": "pkg-1",
   "version": "1.0.0",
-  "type": "module",
+  "type": "commonjs",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/repo-owner/repo-name.git"
@@ -21143,7 +20928,7 @@ scope: unlimited
   ],
   "name": "@namespaced/pkg",
   "version": "1.0.0",
-  "type": "module",
+  "type": "commonjs",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/repo-owner/repo-name.git"
@@ -21228,7 +21013,7 @@ scope: unlimited
   ],
   "name": "@namespaced/importer",
   "version": "1.0.0",
-  "type": "module",
+  "type": "commonjs",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/repo-owner/repo-name.git"
@@ -21294,7 +21079,7 @@ scope: unlimited
 {
   "name": "good-polyrepo-no-src",
   "version": "1.0.0",
-  "type": "module",
+  "type": "commonjs",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/polyrepo-owner/repo-name.git"
@@ -21411,7 +21196,7 @@ scope: unlimited
 {
   "name": "good-polyrepo-no-src",
   "version": "1.0.0",
-  "type": "module",
+  "type": "commonjs",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/polyrepo-owner/repo-name.git"

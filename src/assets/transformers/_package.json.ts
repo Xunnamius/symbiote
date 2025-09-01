@@ -107,9 +107,8 @@ export function generateBaseXPackageJson(
       ? { sideEffects: incomingPackageJson.sideEffects ?? false }
       : {}),
     type:
-      (incomingPackageJson.type ?? preset === AssetPreset.LibEsm)
-        ? 'module'
-        : 'commonjs',
+      incomingPackageJson.type ??
+      (preset === AssetPreset.LibEsm ? 'module' : 'commonjs'),
     ...(!isReactOrNextJs && ('exports' in incomingPackageJson || isLibraryLike)
       ? {
           exports: incomingPackageJson.exports ?? {
@@ -556,7 +555,9 @@ export const { transformer } = makeTransformer(function (context) {
         !isHybridrepo;
 
       const assetPreset =
-        scope === DefaultGlobalScope.ThisPackage || isPackageTheRootPackage
+        scope === DefaultGlobalScope.ThisPackage ||
+        isPackageTheRootPackage ||
+        contextWithCwdPackage.forceOverwritePotentiallyDestructive
           ? incomingAssetPreset
           : // ? Sub-roots default to a lib-type package.json in unlimited scope
             packageAttributes[WorkspaceAttribute.Cli]
