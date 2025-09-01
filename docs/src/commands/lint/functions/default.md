@@ -8,7 +8,7 @@
 
 > **default**(`__namedParameters`): `Promise`\<`Partial`\<`Configuration`\<[`CustomCliArguments`](../type-aliases/CustomCliArguments.md), [`GlobalExecutionContext`](../../../configure/type-aliases/GlobalExecutionContext.md)\>\>\>
 
-Defined in: [src/commands/lint.ts:62](https://github.com/Xunnamius/symbiote/blob/dc192a66d47b6c3a3464852ad43eb71fe137ca73/src/commands/lint.ts#L62)
+Defined in: [src/commands/lint.ts:62](https://github.com/Xunnamius/symbiote/blob/b36b296d7ff1b66d1e0c5e11b10c0eb089462516/src/commands/lint.ts#L62)
 
 ## Parameters
 

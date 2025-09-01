@@ -8,7 +8,7 @@
 
 > `const` **noSpecialInitialCommitIndicator**: `"N/A"` = `'N/A'`
 
-Defined in: [src/util.ts:1125](https://github.com/Xunnamius/symbiote/blob/dc192a66d47b6c3a3464852ad43eb71fe137ca73/src/util.ts#L1125)
+Defined in: [src/util.ts:1125](https://github.com/Xunnamius/symbiote/blob/b36b296d7ff1b66d1e0c5e11b10c0eb089462516/src/util.ts#L1125)
 
 The value populating the SYMBIOTE_SPECIAL_INITIAL_COMMIT environment variable
 when there was no special initialization commit reference found.
