@@ -8,7 +8,7 @@
 
 > **makeMagicStringReplacerRegionStartWithId**(`id`): `string`
 
-Defined in: [src/util.ts:162](https://github.com/Xunnamius/symbiote/blob/48c46d37ea3b78fc8beb9f4e201920c2bff28719/src/util.ts#L162)
+Defined in: [src/util.ts:162](https://github.com/Xunnamius/symbiote/blob/fda4254d9bfeb125461ee3377ddb123772e5d050/src/util.ts#L162)
 
 Create a magic string that denotes the beginning of a replacer region in
 Markdown files processed by symbiote. Note that `id` is NOT escaped.

@@ -8,7 +8,7 @@
 
 > **makeDummyPathFunctions**(`__namedParameters`): `Pick`\<[`TransformerContext`](../../../src/assets/type-aliases/TransformerContext.md), `"toPackageAbsolutePath"` \| `"toProjectAbsolutePath"`\>
 
-Defined in: [test/util.ts:122](https://github.com/Xunnamius/symbiote/blob/48c46d37ea3b78fc8beb9f4e201920c2bff28719/test/util.ts#L122)
+Defined in: [test/util.ts:122](https://github.com/Xunnamius/symbiote/blob/fda4254d9bfeb125461ee3377ddb123772e5d050/test/util.ts#L122)
 
 ## Parameters
 
