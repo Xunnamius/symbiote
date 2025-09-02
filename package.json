@@ -216,7 +216,7 @@
     "remark-lint-strikethrough-marker": "^3.0.1",
     "remark-lint-unordered-list-marker-style": "^4.0.1",
     "remark-reference-links": "^7.0.0",
-    "remark-remove-unused-definitions": "^2.0.0",
+    "remark-remove-unused-definitions": "^3.0.0",
     "remark-remove-url-trailing-slash": "^2.0.0",
     "remark-renumber-references": "^2.0.0",
     "remark-sort-definitions": "^2.0.0",
