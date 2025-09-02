@@ -8,7 +8,7 @@
 
 > **CustomCliArguments** = [`GlobalCliArguments`](../../../configure/type-aliases/GlobalCliArguments.md) & `object`
 
-Defined in: [src/commands/list-tasks.ts:18](https://github.com/Xunnamius/symbiote/blob/fda4254d9bfeb125461ee3377ddb123772e5d050/src/commands/list-tasks.ts#L18)
+Defined in: [src/commands/list-tasks.ts:18](https://github.com/Xunnamius/symbiote/blob/bf93fc6ee8086ef7d92447ad716f3811a334edee/src/commands/list-tasks.ts#L18)
 
 ## Type Declaration
 

@@ -8,7 +8,7 @@
 
 > **assertEnvironment**(): `Promise`\<\{ `allowWarningComments`: `boolean`; `mode`: `"format"` \| `"lint"` \| `"lint-no-undef"`; `projectMetadata`: `ProjectMetadata`; `shouldRenumberReferences`: `boolean`; \}\>
 
-Defined in: [src/assets/transformers/\_.remarkrc.mjs.ts:276](https://github.com/Xunnamius/symbiote/blob/fda4254d9bfeb125461ee3377ddb123772e5d050/src/assets/transformers/_.remarkrc.mjs.ts#L276)
+Defined in: [src/assets/transformers/\_.remarkrc.mjs.ts:276](https://github.com/Xunnamius/symbiote/blob/bf93fc6ee8086ef7d92447ad716f3811a334edee/src/assets/transformers/_.remarkrc.mjs.ts#L276)
 
 ## Returns
 
