@@ -96,6 +96,9 @@
     "test:packages:all": "./node_modules/@-xun/symbiote/dist/src/cli.js test --env NODE_NO_WARNINGS=1 --tests all-local --scope unlimited --coverage",
     "test:packages:all:unit": "./node_modules/@-xun/symbiote/dist/src/cli.js test --env NODE_NO_WARNINGS=1 --tests unit type --scope unlimited --coverage"
   },
+  "overrides": {
+    "tmp": "^0.2.5"
+  },
   "dependencies": {
     "@-xun/changelog": "^1.0.2",
     "@-xun/cli": "^2.0.7",
