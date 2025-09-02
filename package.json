@@ -218,7 +218,7 @@
     "remark-reference-links": "^7.0.0",
     "remark-remove-unused-definitions": "^3.0.0",
     "remark-remove-url-trailing-slash": "^3.0.0",
-    "remark-renumber-references": "^2.0.0",
+    "remark-renumber-references": "^3.0.0",
     "remark-sort-definitions": "^2.0.0",
     "remark-tight-comments": "^2.0.0",
     "remark-validate-links": "^13.1.0",
