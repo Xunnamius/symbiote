@@ -176,7 +176,7 @@
     "rejoinder": "^2.1.0",
     "rejoinder-cli": "^1.0.0",
     "rejoinder-github-actions": "^2.0.3",
-    "remark-capitalize-headings": "^2.0.1",
+    "remark-capitalize-headings": "^3.0.0",
     "remark-cli": "^12.0.1",
     "remark-frontmatter": "^5.0.0",
     "remark-gfm": "^4.0.1",
