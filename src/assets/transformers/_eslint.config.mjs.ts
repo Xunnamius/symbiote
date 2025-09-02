@@ -633,6 +633,8 @@ export async function moduleExport({
       sharedRestrictedImportRules.slice(1)
     : sharedRestrictedImportRules;
 
+  // TODO: consider using the eslint version eventually
+  // eslint-disable-next-line @typescript-eslint/no-deprecated
   return makeTsEslintConfig(
     // * Global ignores applying to all files (any extension)
     // ! Should be the first configuration block (as of 2024)
