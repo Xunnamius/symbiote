@@ -8,7 +8,7 @@
 
 > **ReifiedAssets** = `object`
 
-Defined in: [src/assets.ts:185](https://github.com/Xunnamius/symbiote/blob/feca973a0a29b4194f5e9720a5df04c799f6fa94/src/assets.ts#L185)
+Defined in: [src/assets.ts:185](https://github.com/Xunnamius/symbiote/blob/48c46d37ea3b78fc8beb9f4e201920c2bff28719/src/assets.ts#L185)
 
 An object comprised of `path`-`generate` entries from one or more
 [Asset](Asset.md)s.

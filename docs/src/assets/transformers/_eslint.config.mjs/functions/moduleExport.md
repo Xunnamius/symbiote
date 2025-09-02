@@ -8,7 +8,7 @@
 
 > **moduleExport**(`__namedParameters`): `Promise`\<`Config`[]\>
 
-Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:529](https://github.com/Xunnamius/symbiote/blob/feca973a0a29b4194f5e9720a5df04c799f6fa94/src/assets/transformers/_eslint.config.mjs.ts#L529)
+Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:529](https://github.com/Xunnamius/symbiote/blob/48c46d37ea3b78fc8beb9f4e201920c2bff28719/src/assets/transformers/_eslint.config.mjs.ts#L529)
 
 ## Parameters
 
