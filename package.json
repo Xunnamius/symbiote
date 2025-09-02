@@ -192,7 +192,7 @@
     "remark-lint-heading-increment": "^4.0.1",
     "remark-lint-heading-whitespace": "^1.0.0",
     "remark-lint-heading-word-length": "^3.0.0",
-    "remark-lint-list-item-style": "^2.0.0",
+    "remark-lint-list-item-style": "^3.0.0",
     "remark-lint-no-blockquote-without-marker": "^6.0.1",
     "remark-lint-no-duplicate-defined-urls": "^3.0.1",
     "remark-lint-no-duplicate-definitions": "^4.0.1",
