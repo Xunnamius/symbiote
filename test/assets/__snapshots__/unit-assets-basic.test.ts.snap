@@ -5305,11 +5305,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husk
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.husky/commit-msg.mjs
 scope: this-package
 ⏶⏷⏶⏷⏶
-import {
-  // {@symbiote/notInvalid @-xun/run}
-  runWithInheritedIo
-} from '@-xun/run';
-
+import { runWithInheritedIo } from '@-xun/run';
 import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:commit-msg' });
@@ -5345,11 +5341,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husk
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.husky/pre-commit.mjs
 scope: this-package
 ⏶⏷⏶⏷⏶
-import {
-  // {@symbiote/notInvalid @-xun/run}
-  runWithInheritedIo
-} from '@-xun/run';
-
+import { runWithInheritedIo } from '@-xun/run';
 import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:pre-commit' });
@@ -5400,11 +5392,7 @@ scope: this-package
 
 import { readFile } from 'node:fs/promises';
 
-import {
-  // {@symbiote/notInvalid @-xun/run}
-  run
-} from '@-xun/run';
-
+import { run } from '@-xun/run';
 import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:pre-push' });
@@ -5642,11 +5630,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husk
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.husky/commit-msg.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
-import {
-  // {@symbiote/notInvalid @-xun/run}
-  runWithInheritedIo
-} from '@-xun/run';
-
+import { runWithInheritedIo } from '@-xun/run';
 import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:commit-msg' });
@@ -5682,11 +5666,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husk
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.husky/pre-commit.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
-import {
-  // {@symbiote/notInvalid @-xun/run}
-  runWithInheritedIo
-} from '@-xun/run';
-
+import { runWithInheritedIo } from '@-xun/run';
 import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:pre-commit' });
@@ -5737,11 +5717,7 @@ scope: unlimited
 
 import { readFile } from 'node:fs/promises';
 
-import {
-  // {@symbiote/notInvalid @-xun/run}
-  run
-} from '@-xun/run';
-
+import { run } from '@-xun/run';
 import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:pre-push' });
@@ -5979,11 +5955,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husk
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.husky/commit-msg.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
-import {
-  // {@symbiote/notInvalid @-xun/run}
-  runWithInheritedIo
-} from '@-xun/run';
-
+import { runWithInheritedIo } from '@-xun/run';
 import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:commit-msg' });
@@ -6019,11 +5991,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husk
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.husky/pre-commit.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
-import {
-  // {@symbiote/notInvalid @-xun/run}
-  runWithInheritedIo
-} from '@-xun/run';
-
+import { runWithInheritedIo } from '@-xun/run';
 import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:pre-commit' });
@@ -6074,11 +6042,7 @@ scope: unlimited
 
 import { readFile } from 'node:fs/promises';
 
-import {
-  // {@symbiote/notInvalid @-xun/run}
-  run
-} from '@-xun/run';
-
+import { run } from '@-xun/run';
 import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:pre-push' });
@@ -6316,11 +6280,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husk
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/.husky/commit-msg.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
-import {
-  // {@symbiote/notInvalid @-xun/run}
-  runWithInheritedIo
-} from '@-xun/run';
-
+import { runWithInheritedIo } from '@-xun/run';
 import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:commit-msg' });
@@ -6356,11 +6316,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husk
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/.husky/pre-commit.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
-import {
-  // {@symbiote/notInvalid @-xun/run}
-  runWithInheritedIo
-} from '@-xun/run';
-
+import { runWithInheritedIo } from '@-xun/run';
 import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:pre-commit' });
@@ -6411,11 +6367,7 @@ scope: unlimited
 
 import { readFile } from 'node:fs/promises';
 
-import {
-  // {@symbiote/notInvalid @-xun/run}
-  run
-} from '@-xun/run';
-
+import { run } from '@-xun/run';
 import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:pre-push' });
@@ -6653,11 +6605,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husk
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/.husky/commit-msg.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
-import {
-  // {@symbiote/notInvalid @-xun/run}
-  runWithInheritedIo
-} from '@-xun/run';
-
+import { runWithInheritedIo } from '@-xun/run';
 import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:commit-msg' });
@@ -6693,11 +6641,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husk
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/.husky/pre-commit.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
-import {
-  // {@symbiote/notInvalid @-xun/run}
-  runWithInheritedIo
-} from '@-xun/run';
-
+import { runWithInheritedIo } from '@-xun/run';
 import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:pre-commit' });
@@ -6748,11 +6692,7 @@ scope: unlimited
 
 import { readFile } from 'node:fs/promises';
 
-import {
-  // {@symbiote/notInvalid @-xun/run}
-  run
-} from '@-xun/run';
-
+import { run } from '@-xun/run';
 import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:pre-push' });
@@ -6990,11 +6930,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husk
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.husky/commit-msg.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
-import {
-  // {@symbiote/notInvalid @-xun/run}
-  runWithInheritedIo
-} from '@-xun/run';
-
+import { runWithInheritedIo } from '@-xun/run';
 import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:commit-msg' });
@@ -7030,11 +6966,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husk
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.husky/pre-commit.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
-import {
-  // {@symbiote/notInvalid @-xun/run}
-  runWithInheritedIo
-} from '@-xun/run';
-
+import { runWithInheritedIo } from '@-xun/run';
 import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:pre-commit' });
@@ -7085,11 +7017,7 @@ scope: unlimited
 
 import { readFile } from 'node:fs/promises';
 
-import {
-  // {@symbiote/notInvalid @-xun/run}
-  run
-} from '@-xun/run';
-
+import { run } from '@-xun/run';
 import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:pre-push' });
@@ -7327,11 +7255,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husk
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.husky/commit-msg.mjs
 scope: this-package
 ⏶⏷⏶⏷⏶
-import {
-  // {@symbiote/notInvalid @-xun/run}
-  runWithInheritedIo
-} from '@-xun/run';
-
+import { runWithInheritedIo } from '@-xun/run';
 import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:commit-msg' });
@@ -7367,11 +7291,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husk
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.husky/pre-commit.mjs
 scope: this-package
 ⏶⏷⏶⏷⏶
-import {
-  // {@symbiote/notInvalid @-xun/run}
-  runWithInheritedIo
-} from '@-xun/run';
-
+import { runWithInheritedIo } from '@-xun/run';
 import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:pre-commit' });
@@ -7422,11 +7342,7 @@ scope: this-package
 
 import { readFile } from 'node:fs/promises';
 
-import {
-  // {@symbiote/notInvalid @-xun/run}
-  run
-} from '@-xun/run';
-
+import { run } from '@-xun/run';
 import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:pre-push' });
@@ -7664,11 +7580,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husk
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.husky/commit-msg.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
-import {
-  // {@symbiote/notInvalid @-xun/run}
-  runWithInheritedIo
-} from '@-xun/run';
-
+import { runWithInheritedIo } from '@-xun/run';
 import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:commit-msg' });
@@ -7704,11 +7616,7 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husk
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.husky/pre-commit.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
-import {
-  // {@symbiote/notInvalid @-xun/run}
-  runWithInheritedIo
-} from '@-xun/run';
-
+import { runWithInheritedIo } from '@-xun/run';
 import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:pre-commit' });
@@ -7759,11 +7667,7 @@ scope: unlimited
 
 import { readFile } from 'node:fs/promises';
 
-import {
-  // {@symbiote/notInvalid @-xun/run}
-  run
-} from '@-xun/run';
-
+import { run } from '@-xun/run';
 import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:pre-push' });

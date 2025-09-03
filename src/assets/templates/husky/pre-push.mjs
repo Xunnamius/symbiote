@@ -2,11 +2,7 @@
 
 import { readFile } from 'node:fs/promises';
 
-import {
-  // {@symbiote/notInvalid @-xun/run}
-  run
-} from '@-xun/run';
-
+import { run } from '@-xun/run';
 import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:pre-push' });
