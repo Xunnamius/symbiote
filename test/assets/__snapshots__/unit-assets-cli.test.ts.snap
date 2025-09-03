@@ -5593,20 +5593,37 @@ scope: this-package
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: replace these uglies with JS (mjs) scripts
+node .husky/commit-msg.mjs
+"
+`;
 
-beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets at hybridrepo (scope=this-package): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.husky/commit-msg.mjs 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.husky/commit-msg.mjs
+scope: this-package
+⏶⏷⏶⏷⏶
+import {
+  // {@symbiote/notInvalid @-xun/run}
+  runWithInheritedIo
+} from '@-xun/run';
 
-if beginswith 'rebase' "$GIT_REFLOG_ACTION"; then
-  echo 'husky-hook::commit-msg: skipped commit-msg hook due to rebase'
-  exit 0
-fi
+import { createGenericLogger } from 'rejoinder';
 
-NODE_NO_WARNINGS=1 commitlint -e
-if [ -z "$GAC_VERIFY_SIMPLE" ]; then npm run test; fi
-# TODO: bring back spellchecker:
-#echo
-#NODE_NO_WARNINGS=1 node spellcheck-commit.cjs
+const log = createGenericLogger({ namespace: 'husky-hook:commit-msg' });
+if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+  log.warn('skipped commit-msg hook due to rebase');
+} else {
+  const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
+
+  await runWithInheritedIo('npx', ['commitlint', '-e'], {
+    env: { NODE_NO_WARNINGS: '1' }
+  });
+
+  if (!isInSimpleVerificationMode) {
+    await runWithInheritedIo('npm', ['run', 'test:packages:all:unit']);
+  }
+
+  // TODO: bring back spellchecker
+}
 "
 `;
 
@@ -5616,18 +5633,48 @@ scope: this-package
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: replace these uglies with JS (mjs) scripts
+node .husky/pre-commit.mjs
+"
+`;
 
-beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets at hybridrepo (scope=this-package): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.husky/pre-commit.mjs 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.husky/pre-commit.mjs
+scope: this-package
+⏶⏷⏶⏷⏶
+import {
+  // {@symbiote/notInvalid @-xun/run}
+  runWithInheritedIo
+} from '@-xun/run';
 
-if beginswith 'rebase' "$GIT_REFLOG_ACTION"; then
-  echo 'husky-hook::commit-msg: skipped pre-commit hook due to rebase'
-  exit 0
-fi
+import { createGenericLogger } from 'rejoinder';
 
-if [ -z "$GAC_VERIFY_SIMPLE" ]; then npm run lint:package; fi
-NODE_NO_WARNINGS=1 lint-staged --concurrent false --config lint-staged.config.mjs
-symbiote clean --env NODE_NO_WARNINGS=1 --only-empty-directories --hush --scope unlimited
+const log = createGenericLogger({ namespace: 'husky-hook:pre-commit' });
+if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+  log.warn('skipped pre-commit hook due to rebase');
+} else {
+  const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
+
+  if (!isInSimpleVerificationMode) {
+    await runWithInheritedIo('npm', ['run', 'lint:package']);
+  }
+
+  await runWithInheritedIo(
+    'npx',
+    ['lint-staged', '--concurrent', 'false', '--config', 'lint-staged.config.mjs'],
+    { env: { NODE_NO_WARNINGS: '1' } }
+  );
+
+  await runWithInheritedIo('npx', [
+    'symbiote',
+    'clean',
+    '--env',
+    'NODE_NO_WARNINGS=1',
+    '--only-empty-directories',
+    '--hush',
+    '--scope',
+    'unlimited'
+  ]);
+}
 "
 `;
 
@@ -5637,94 +5684,241 @@ scope: this-package
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: replace these uglies with JS (mjs) scripts
+node .husky/pre-push.mjs
+"
+`;
 
-beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
-prepend() { while read -r line; do echo "\${1}\${line}"; done; }
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets at hybridrepo (scope=this-package): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.husky/pre-push.mjs 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.husky/pre-push.mjs
+scope: this-package
+⏶⏷⏶⏷⏶
+/* eslint-disable @typescript-eslint/prefer-string-starts-ends-with */
 
-if beginswith 'rebase' "$GIT_REFLOG_ACTION"; then
-  echo 'husky-hook::pre-push: pushing commits in the middle of a rebase/merge/cherry-pick is not allowed!'
-  exit 1
-fi
+import { readFile } from 'node:fs/promises';
 
-echo 'husky-hook::pre-push: checking for commits that should not be pushed...'
+import {
+  // {@symbiote/notInvalid @-xun/run}
+  run
+} from '@-xun/run';
 
-log=$(git log HEAD --oneline --not --remotes)
+import { createGenericLogger } from 'rejoinder';
 
-set +e
+const log = createGenericLogger({ namespace: 'husky-hook:pre-push' });
+const errorOutputPrefix = '  ⋗ ';
 
-incompleteCommitsGrep=$(echo "$log" | grep -q -i -e 'mergeme' -e '\\[WIP\\]' -e '\\[NOPUSH\\]'; echo $?)
+// ! vvv
+// !   - Paths should always use forward slashes as separators
+// !   - Regexps must not use the global (g) flag
 
-# ? In the below lines, 'x' is passed as the "zero parameter" so "$@" spits out
-# ? the right stuff. Stuff like this won't be an issue when we switch this to JS
+// ? Files with paths matching any of these regexps are never considered
+// ? "interesting"
+const uninterestingFilePathsRegExps = [
+  /(^|\\/)\\.husky\\//,
+  /(^|\\/)assets\\/templates\\/husky\\//,
+  /CHANGELOG\\.md$/,
+  /\\.snap$/
+];
 
-interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^|/)(\\.husky|assets/templates/husky)/' | grep -vE '\\.snap$')
+// ? Files with paths matching this regexp are considered package.json files
+const interestingPackageJsonPathRegExp = /^(packages\\/[^/]+\\/)?package\\.json$/;
 
-incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+// ? Files with paths matching this regexp are considered markdown files
+const interestingMarkdownPathRegExp = /\\.md$/;
 
-interestingPackageJsonFiles=$(echo "$interestingXxxFiles" | grep -E '^(packages/[^/]+/)?package\\.json$')
+// ? Files with paths matching this regexp are considered test files
+const interestingTestPathRegExp = /\\.test\\.ts$/;
 
-incompletePackageJsonFilesGrep=$(echo "$interestingPackageJsonFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -P -e "--assets-preset [^\\x22]*?(\\x27|((basic|cli|lib|react|nextjs) [^\\x22]*){3})" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+// ? A commit message matching any of these regexps will prevent pushes
+const unpushableCommitMessageMatchers = [
+  {
+    regexp: /mergeme/i,
+    reason: 'Incomplete commits (contains "mergeme" in their headers)'
+  },
+  {
+    regexp: /\\[wip]/i,
+    reason: 'Incomplete commits (contains "[wip]" in their headers)'
+  },
+  {
+    regexp: /\\[nopush]/i,
+    reason: 'Incomplete commits (contains "[nopush]" in their headers)'
+  }
+];
 
-interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -vE '/CHANGELOG.md$')
+// ? Interesting files' contents matching any of these regexps will prevent
+// ? pushes
+const unpushableFileContentMatchers = [
+  { regexp: /\\bXXX:/i, reason: 'Files at HEAD with "XXX" error comments' }
+];
 
-incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+// ? Interesting package.json files' contents matching any of these regexps will
+// ? prevent pushes
+const unpushablePackageJsonFileContentMatchers = [
+  {
+    regexp: /--assets-preset [^"]*?('|((basic|cli|lib|react|nextjs) [^"]*){3})/i,
+    reason: 'Root package.json files at HEAD with incomplete scripts'
+  }
+];
 
-interestingTestFiles=$(echo "$interestingXxxFiles" | grep '\\.test\\.ts$')
+// ? Interesting markdown files' contents matching any of these regexps will
+// ? prevent pushes
+const unpushableMarkdownFileContentMatchers = [
+  {
+    regexp: /-✄-/iu,
+    reason: 'Markdown files at HEAD with unmerged replacer regions'
+  }
+];
 
-incompleteTestFilesGrep=$(echo "$interestingTestFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -E -e "(it|test|describe)\\.only\\(" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+// ? Interesting test files' contents matching any of these regexps will prevent
+// ? pushes
+const unpushableTestFileContentMatchers = [
+  {
+    regexp: /(it|test|describe)\\.only\\(/,
+    reason: 'Test files at HEAD with erroneously focused tests'
+  }
+];
 
-set -e
+// ! ^^^
 
-# ? Make sure no commits to be pushed contain "mergeme" etc in their headers, no
-# ? relevant markdown files contain "-✄-" in their contents, no files anywhere
-# ? anywhere contain "XXX: " in their contents, no test files contain
-# ? erroneously focused tests, and no package.json files have incomplete scripts
-if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$incompleteXxxFilesGrep" != 0 ] || [ "$incompleteTestFilesGrep" != 0 ] || [ "$incompletePackageJsonFilesGrep" != 0 ]; then
-  echo 'husky-hook::pre-push: BAD COMMIT(S) DETECTED!'
-  echo 'husky-hook::pre-push: merge, delete, reword, or otherwise rectify the following commits before trying again:'
+if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+  log.error(
+    'Pushing commits in the middle of a rebase/merge/cherry-pick is not allowed!'
+  );
 
-  if [ "$incompleteCommitsGrep" = 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: incomplete commits (e.g. WIP, mergeme, NOPUSH):'
-    echo
-    echo "$log" | grep -i -e 'mergeme' -e '\\[WIP\\]' -e '\\[NOPUSH\\]' | prepend '  ⋗ '
-  fi
+  process.exitCode = 1;
+} else {
+  log('Checking for commits that should not be pushed...');
 
-  if [ "$incompleteMdFilesGrep" != 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: markdown files at HEAD with unmerged replacer regions:'
-    echo
-    echo "$interestingMdFiles" | xargs -d '\\n' -P 0 grep -i -l -H -F -e '-✄-' | prepend '  ⋗ '
-  fi
+  const [{ stdout: gitLogCommits }, { stdout: gitLsTreeFiles }] = await Promise.all([
+    run('git', ['log', 'HEAD', '--oneline', '--not', '--remotes'], { lines: true }),
+    run('git', ['ls-tree', '-r', '--full-tree', '--name-only', 'HEAD'], { lines: true })
+  ]);
 
-  if [ "$incompleteXxxFilesGrep" != 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: files at HEAD with "XXX" error comments:'
-    echo
-    echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 grep -l -H -F -e 'XXX: ' | prepend '  ⋗ '
-  fi
+  const interestingFilePaths = gitLsTreeFiles.filter((path) =>
+    uninterestingFilePathsRegExps.some((regexp) => !regexp.test(path))
+  );
 
-  if [ "$incompleteTestFilesGrep" != 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: files at HEAD with erroneously focused tests:'
-    echo
-    echo "$interestingTestFiles" | xargs -d '\\n' -P 0 grep -i -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
-  fi
+  /** @type {{[reason: string]: string[]}} */
+  const unpushableCommitsLogLines = reduce(
+    gitLogCommits.flatMap((line) =>
+      unpushableCommitMessageMatchers
+        .filter(({ regexp }) => regexp.test(line))
+        .map(toEntry(line))
+    )
+  );
 
-  if [ "$incompletePackageJsonFilesGrep" != 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: package.json files at HEAD with incomplete scripts:'
-    echo
-    echo "$interestingPackageJsonFiles" | xargs -d '\\n' -P 0 grep -i -l -H -P -e "--assets-preset [^\\x22]*?(\\x27|((basic|cli|lib|react|nextjs) [^\\x22]*){3})" | prepend '  ⋗ '
-  fi
+  /** @type {{[reason: string]: string[]}} */
+  const unpushableFilePaths = reduce(
+    (
+      await Promise.all(
+        interestingFilePaths.map(async (path) => {
+          // ? If the file is not readable, then skip it
+          const fileContents = await readFile(path, 'utf8').catch(() => undefined);
+          const result = [];
 
-  echo
-  exit 2;
-else
-  echo 'husky-hook::pre-push: ✅'
-  exit 0;
-fi
+          const isInterestingPackageJson = interestingPackageJsonPathRegExp.test(path);
+          const isInterestingMarkdown = interestingMarkdownPathRegExp.test(path);
+          const isInterestingTest = interestingTestPathRegExp.test(path);
+
+          if (!fileContents) {
+            return result;
+          }
+
+          result.push(
+            ...unpushableFileContentMatchers
+              .filter(({ regexp }) => regexp.test(fileContents))
+              .map(toEntry(path))
+          );
+
+          if (isInterestingPackageJson) {
+            result.push(
+              ...unpushablePackageJsonFileContentMatchers
+                .filter(({ regexp }) => regexp.test(fileContents))
+                .map(toEntry(path))
+            );
+          }
+
+          if (isInterestingMarkdown) {
+            result.push(
+              ...unpushableMarkdownFileContentMatchers
+                .filter(({ regexp }) => regexp.test(fileContents))
+                .map(toEntry(path))
+            );
+          }
+
+          if (isInterestingTest) {
+            result.push(
+              ...unpushableTestFileContentMatchers
+                .filter(({ regexp }) => regexp.test(fileContents))
+                .map(toEntry(path))
+            );
+          }
+
+          return result;
+        })
+      )
+    ).flat()
+  );
+
+  const hasUnpushableCommits = !!Object.keys(unpushableCommitsLogLines).length;
+  const hasUnpushableFiles = !!Object.keys(unpushableFilePaths).length;
+
+  if (hasUnpushableCommits || hasUnpushableFiles) {
+    log.error('PUSH ABORTED: BAD COMMIT(S) DETECTED!');
+    log.error('Rectify the following issues before trying again:');
+
+    Object.entries(unpushableCommitsLogLines).forEach(([reason, lines]) => {
+      log.newline();
+      log.error(\`\${reason}:\`);
+      log.newline();
+
+      lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
+    });
+
+    Object.entries(unpushableFilePaths).forEach(([reason, lines]) => {
+      log.newline();
+      log.error(\`\${reason}:\`);
+      log.newline();
+
+      lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
+    });
+
+    process.exitCode = 2;
+  } else {
+    log('✅');
+    process.exitCode = 0;
+  }
+}
+
+/**
+ * Returns a function that maps a RegExp-reason object to a reason-value object
+ * entry.
+ *
+ * @param {string} value
+ * @returns {(target: typeof unpushableCommitMessageMatchers[number]) => [
+ *  string, string
+ * ]}
+ */
+function toEntry(value) {
+  return ({ reason }) => [reason, value];
+}
+
+/**
+ * Reduces \`keysValuesArray\` to an object of string keys and aggregated string
+ * array values.
+ *
+ * @param {string[][]} keysValuesArray
+ */
+function reduce(keysValuesArray) {
+  /** @type {Record<string, string[]>} */
+  const aggregate = {};
+
+  for (const [key, value] of keysValuesArray) {
+    aggregate[key] ??= [];
+    aggregate[key].push(value);
+  }
+
+  return aggregate;
+}
 "
 `;
 
@@ -5734,20 +5928,37 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: replace these uglies with JS (mjs) scripts
+node .husky/commit-msg.mjs
+"
+`;
 
-beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.husky/commit-msg.mjs 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.husky/commit-msg.mjs
+scope: unlimited
+⏶⏷⏶⏷⏶
+import {
+  // {@symbiote/notInvalid @-xun/run}
+  runWithInheritedIo
+} from '@-xun/run';
 
-if beginswith 'rebase' "$GIT_REFLOG_ACTION"; then
-  echo 'husky-hook::commit-msg: skipped commit-msg hook due to rebase'
-  exit 0
-fi
+import { createGenericLogger } from 'rejoinder';
 
-NODE_NO_WARNINGS=1 commitlint -e
-if [ -z "$GAC_VERIFY_SIMPLE" ]; then npm run test; fi
-# TODO: bring back spellchecker:
-#echo
-#NODE_NO_WARNINGS=1 node spellcheck-commit.cjs
+const log = createGenericLogger({ namespace: 'husky-hook:commit-msg' });
+if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+  log.warn('skipped commit-msg hook due to rebase');
+} else {
+  const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
+
+  await runWithInheritedIo('npx', ['commitlint', '-e'], {
+    env: { NODE_NO_WARNINGS: '1' }
+  });
+
+  if (!isInSimpleVerificationMode) {
+    await runWithInheritedIo('npm', ['run', 'test:packages:all:unit']);
+  }
+
+  // TODO: bring back spellchecker
+}
 "
 `;
 
@@ -5757,18 +5968,48 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: replace these uglies with JS (mjs) scripts
+node .husky/pre-commit.mjs
+"
+`;
 
-beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.husky/pre-commit.mjs 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.husky/pre-commit.mjs
+scope: unlimited
+⏶⏷⏶⏷⏶
+import {
+  // {@symbiote/notInvalid @-xun/run}
+  runWithInheritedIo
+} from '@-xun/run';
 
-if beginswith 'rebase' "$GIT_REFLOG_ACTION"; then
-  echo 'husky-hook::commit-msg: skipped pre-commit hook due to rebase'
-  exit 0
-fi
+import { createGenericLogger } from 'rejoinder';
 
-if [ -z "$GAC_VERIFY_SIMPLE" ]; then npm run lint:package; fi
-NODE_NO_WARNINGS=1 lint-staged --concurrent false --config lint-staged.config.mjs
-symbiote clean --env NODE_NO_WARNINGS=1 --only-empty-directories --hush --scope unlimited
+const log = createGenericLogger({ namespace: 'husky-hook:pre-commit' });
+if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+  log.warn('skipped pre-commit hook due to rebase');
+} else {
+  const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
+
+  if (!isInSimpleVerificationMode) {
+    await runWithInheritedIo('npm', ['run', 'lint:package']);
+  }
+
+  await runWithInheritedIo(
+    'npx',
+    ['lint-staged', '--concurrent', 'false', '--config', 'lint-staged.config.mjs'],
+    { env: { NODE_NO_WARNINGS: '1' } }
+  );
+
+  await runWithInheritedIo('npx', [
+    'symbiote',
+    'clean',
+    '--env',
+    'NODE_NO_WARNINGS=1',
+    '--only-empty-directories',
+    '--hush',
+    '--scope',
+    'unlimited'
+  ]);
+}
 "
 `;
 
@@ -5778,94 +6019,241 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: replace these uglies with JS (mjs) scripts
+node .husky/pre-push.mjs
+"
+`;
 
-beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
-prepend() { while read -r line; do echo "\${1}\${line}"; done; }
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets at hybridrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.husky/pre-push.mjs 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.husky/pre-push.mjs
+scope: unlimited
+⏶⏷⏶⏷⏶
+/* eslint-disable @typescript-eslint/prefer-string-starts-ends-with */
 
-if beginswith 'rebase' "$GIT_REFLOG_ACTION"; then
-  echo 'husky-hook::pre-push: pushing commits in the middle of a rebase/merge/cherry-pick is not allowed!'
-  exit 1
-fi
+import { readFile } from 'node:fs/promises';
 
-echo 'husky-hook::pre-push: checking for commits that should not be pushed...'
+import {
+  // {@symbiote/notInvalid @-xun/run}
+  run
+} from '@-xun/run';
 
-log=$(git log HEAD --oneline --not --remotes)
+import { createGenericLogger } from 'rejoinder';
 
-set +e
+const log = createGenericLogger({ namespace: 'husky-hook:pre-push' });
+const errorOutputPrefix = '  ⋗ ';
 
-incompleteCommitsGrep=$(echo "$log" | grep -q -i -e 'mergeme' -e '\\[WIP\\]' -e '\\[NOPUSH\\]'; echo $?)
+// ! vvv
+// !   - Paths should always use forward slashes as separators
+// !   - Regexps must not use the global (g) flag
 
-# ? In the below lines, 'x' is passed as the "zero parameter" so "$@" spits out
-# ? the right stuff. Stuff like this won't be an issue when we switch this to JS
+// ? Files with paths matching any of these regexps are never considered
+// ? "interesting"
+const uninterestingFilePathsRegExps = [
+  /(^|\\/)\\.husky\\//,
+  /(^|\\/)assets\\/templates\\/husky\\//,
+  /CHANGELOG\\.md$/,
+  /\\.snap$/
+];
 
-interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^|/)(\\.husky|assets/templates/husky)/' | grep -vE '\\.snap$')
+// ? Files with paths matching this regexp are considered package.json files
+const interestingPackageJsonPathRegExp = /^(packages\\/[^/]+\\/)?package\\.json$/;
 
-incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+// ? Files with paths matching this regexp are considered markdown files
+const interestingMarkdownPathRegExp = /\\.md$/;
 
-interestingPackageJsonFiles=$(echo "$interestingXxxFiles" | grep -E '^(packages/[^/]+/)?package\\.json$')
+// ? Files with paths matching this regexp are considered test files
+const interestingTestPathRegExp = /\\.test\\.ts$/;
 
-incompletePackageJsonFilesGrep=$(echo "$interestingPackageJsonFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -P -e "--assets-preset [^\\x22]*?(\\x27|((basic|cli|lib|react|nextjs) [^\\x22]*){3})" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+// ? A commit message matching any of these regexps will prevent pushes
+const unpushableCommitMessageMatchers = [
+  {
+    regexp: /mergeme/i,
+    reason: 'Incomplete commits (contains "mergeme" in their headers)'
+  },
+  {
+    regexp: /\\[wip]/i,
+    reason: 'Incomplete commits (contains "[wip]" in their headers)'
+  },
+  {
+    regexp: /\\[nopush]/i,
+    reason: 'Incomplete commits (contains "[nopush]" in their headers)'
+  }
+];
 
-interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -vE '/CHANGELOG.md$')
+// ? Interesting files' contents matching any of these regexps will prevent
+// ? pushes
+const unpushableFileContentMatchers = [
+  { regexp: /\\bXXX:/i, reason: 'Files at HEAD with "XXX" error comments' }
+];
 
-incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+// ? Interesting package.json files' contents matching any of these regexps will
+// ? prevent pushes
+const unpushablePackageJsonFileContentMatchers = [
+  {
+    regexp: /--assets-preset [^"]*?('|((basic|cli|lib|react|nextjs) [^"]*){3})/i,
+    reason: 'Root package.json files at HEAD with incomplete scripts'
+  }
+];
 
-interestingTestFiles=$(echo "$interestingXxxFiles" | grep '\\.test\\.ts$')
+// ? Interesting markdown files' contents matching any of these regexps will
+// ? prevent pushes
+const unpushableMarkdownFileContentMatchers = [
+  {
+    regexp: /-✄-/iu,
+    reason: 'Markdown files at HEAD with unmerged replacer regions'
+  }
+];
 
-incompleteTestFilesGrep=$(echo "$interestingTestFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -E -e "(it|test|describe)\\.only\\(" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+// ? Interesting test files' contents matching any of these regexps will prevent
+// ? pushes
+const unpushableTestFileContentMatchers = [
+  {
+    regexp: /(it|test|describe)\\.only\\(/,
+    reason: 'Test files at HEAD with erroneously focused tests'
+  }
+];
 
-set -e
+// ! ^^^
 
-# ? Make sure no commits to be pushed contain "mergeme" etc in their headers, no
-# ? relevant markdown files contain "-✄-" in their contents, no files anywhere
-# ? anywhere contain "XXX: " in their contents, no test files contain
-# ? erroneously focused tests, and no package.json files have incomplete scripts
-if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$incompleteXxxFilesGrep" != 0 ] || [ "$incompleteTestFilesGrep" != 0 ] || [ "$incompletePackageJsonFilesGrep" != 0 ]; then
-  echo 'husky-hook::pre-push: BAD COMMIT(S) DETECTED!'
-  echo 'husky-hook::pre-push: merge, delete, reword, or otherwise rectify the following commits before trying again:'
+if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+  log.error(
+    'Pushing commits in the middle of a rebase/merge/cherry-pick is not allowed!'
+  );
 
-  if [ "$incompleteCommitsGrep" = 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: incomplete commits (e.g. WIP, mergeme, NOPUSH):'
-    echo
-    echo "$log" | grep -i -e 'mergeme' -e '\\[WIP\\]' -e '\\[NOPUSH\\]' | prepend '  ⋗ '
-  fi
+  process.exitCode = 1;
+} else {
+  log('Checking for commits that should not be pushed...');
 
-  if [ "$incompleteMdFilesGrep" != 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: markdown files at HEAD with unmerged replacer regions:'
-    echo
-    echo "$interestingMdFiles" | xargs -d '\\n' -P 0 grep -i -l -H -F -e '-✄-' | prepend '  ⋗ '
-  fi
+  const [{ stdout: gitLogCommits }, { stdout: gitLsTreeFiles }] = await Promise.all([
+    run('git', ['log', 'HEAD', '--oneline', '--not', '--remotes'], { lines: true }),
+    run('git', ['ls-tree', '-r', '--full-tree', '--name-only', 'HEAD'], { lines: true })
+  ]);
 
-  if [ "$incompleteXxxFilesGrep" != 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: files at HEAD with "XXX" error comments:'
-    echo
-    echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 grep -l -H -F -e 'XXX: ' | prepend '  ⋗ '
-  fi
+  const interestingFilePaths = gitLsTreeFiles.filter((path) =>
+    uninterestingFilePathsRegExps.some((regexp) => !regexp.test(path))
+  );
 
-  if [ "$incompleteTestFilesGrep" != 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: files at HEAD with erroneously focused tests:'
-    echo
-    echo "$interestingTestFiles" | xargs -d '\\n' -P 0 grep -i -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
-  fi
+  /** @type {{[reason: string]: string[]}} */
+  const unpushableCommitsLogLines = reduce(
+    gitLogCommits.flatMap((line) =>
+      unpushableCommitMessageMatchers
+        .filter(({ regexp }) => regexp.test(line))
+        .map(toEntry(line))
+    )
+  );
 
-  if [ "$incompletePackageJsonFilesGrep" != 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: package.json files at HEAD with incomplete scripts:'
-    echo
-    echo "$interestingPackageJsonFiles" | xargs -d '\\n' -P 0 grep -i -l -H -P -e "--assets-preset [^\\x22]*?(\\x27|((basic|cli|lib|react|nextjs) [^\\x22]*){3})" | prepend '  ⋗ '
-  fi
+  /** @type {{[reason: string]: string[]}} */
+  const unpushableFilePaths = reduce(
+    (
+      await Promise.all(
+        interestingFilePaths.map(async (path) => {
+          // ? If the file is not readable, then skip it
+          const fileContents = await readFile(path, 'utf8').catch(() => undefined);
+          const result = [];
 
-  echo
-  exit 2;
-else
-  echo 'husky-hook::pre-push: ✅'
-  exit 0;
-fi
+          const isInterestingPackageJson = interestingPackageJsonPathRegExp.test(path);
+          const isInterestingMarkdown = interestingMarkdownPathRegExp.test(path);
+          const isInterestingTest = interestingTestPathRegExp.test(path);
+
+          if (!fileContents) {
+            return result;
+          }
+
+          result.push(
+            ...unpushableFileContentMatchers
+              .filter(({ regexp }) => regexp.test(fileContents))
+              .map(toEntry(path))
+          );
+
+          if (isInterestingPackageJson) {
+            result.push(
+              ...unpushablePackageJsonFileContentMatchers
+                .filter(({ regexp }) => regexp.test(fileContents))
+                .map(toEntry(path))
+            );
+          }
+
+          if (isInterestingMarkdown) {
+            result.push(
+              ...unpushableMarkdownFileContentMatchers
+                .filter(({ regexp }) => regexp.test(fileContents))
+                .map(toEntry(path))
+            );
+          }
+
+          if (isInterestingTest) {
+            result.push(
+              ...unpushableTestFileContentMatchers
+                .filter(({ regexp }) => regexp.test(fileContents))
+                .map(toEntry(path))
+            );
+          }
+
+          return result;
+        })
+      )
+    ).flat()
+  );
+
+  const hasUnpushableCommits = !!Object.keys(unpushableCommitsLogLines).length;
+  const hasUnpushableFiles = !!Object.keys(unpushableFilePaths).length;
+
+  if (hasUnpushableCommits || hasUnpushableFiles) {
+    log.error('PUSH ABORTED: BAD COMMIT(S) DETECTED!');
+    log.error('Rectify the following issues before trying again:');
+
+    Object.entries(unpushableCommitsLogLines).forEach(([reason, lines]) => {
+      log.newline();
+      log.error(\`\${reason}:\`);
+      log.newline();
+
+      lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
+    });
+
+    Object.entries(unpushableFilePaths).forEach(([reason, lines]) => {
+      log.newline();
+      log.error(\`\${reason}:\`);
+      log.newline();
+
+      lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
+    });
+
+    process.exitCode = 2;
+  } else {
+    log('✅');
+    process.exitCode = 0;
+  }
+}
+
+/**
+ * Returns a function that maps a RegExp-reason object to a reason-value object
+ * entry.
+ *
+ * @param {string} value
+ * @returns {(target: typeof unpushableCommitMessageMatchers[number]) => [
+ *  string, string
+ * ]}
+ */
+function toEntry(value) {
+  return ({ reason }) => [reason, value];
+}
+
+/**
+ * Reduces \`keysValuesArray\` to an object of string keys and aggregated string
+ * array values.
+ *
+ * @param {string[][]} keysValuesArray
+ */
+function reduce(keysValuesArray) {
+  /** @type {Record<string, string[]>} */
+  const aggregate = {};
+
+  for (const [key, value] of keysValuesArray) {
+    aggregate[key] ??= [];
+    aggregate[key].push(value);
+  }
+
+  return aggregate;
+}
 "
 `;
 
@@ -5875,20 +6263,37 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: replace these uglies with JS (mjs) scripts
+node .husky/commit-msg.mjs
+"
+`;
 
-beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets at hybridrepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.husky/commit-msg.mjs 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.husky/commit-msg.mjs
+scope: unlimited
+⏶⏷⏶⏷⏶
+import {
+  // {@symbiote/notInvalid @-xun/run}
+  runWithInheritedIo
+} from '@-xun/run';
 
-if beginswith 'rebase' "$GIT_REFLOG_ACTION"; then
-  echo 'husky-hook::commit-msg: skipped commit-msg hook due to rebase'
-  exit 0
-fi
+import { createGenericLogger } from 'rejoinder';
 
-NODE_NO_WARNINGS=1 commitlint -e
-if [ -z "$GAC_VERIFY_SIMPLE" ]; then npm run test; fi
-# TODO: bring back spellchecker:
-#echo
-#NODE_NO_WARNINGS=1 node spellcheck-commit.cjs
+const log = createGenericLogger({ namespace: 'husky-hook:commit-msg' });
+if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+  log.warn('skipped commit-msg hook due to rebase');
+} else {
+  const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
+
+  await runWithInheritedIo('npx', ['commitlint', '-e'], {
+    env: { NODE_NO_WARNINGS: '1' }
+  });
+
+  if (!isInSimpleVerificationMode) {
+    await runWithInheritedIo('npm', ['run', 'test:packages:all:unit']);
+  }
+
+  // TODO: bring back spellchecker
+}
 "
 `;
 
@@ -5898,18 +6303,48 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: replace these uglies with JS (mjs) scripts
+node .husky/pre-commit.mjs
+"
+`;
 
-beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets at hybridrepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.husky/pre-commit.mjs 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.husky/pre-commit.mjs
+scope: unlimited
+⏶⏷⏶⏷⏶
+import {
+  // {@symbiote/notInvalid @-xun/run}
+  runWithInheritedIo
+} from '@-xun/run';
 
-if beginswith 'rebase' "$GIT_REFLOG_ACTION"; then
-  echo 'husky-hook::commit-msg: skipped pre-commit hook due to rebase'
-  exit 0
-fi
+import { createGenericLogger } from 'rejoinder';
 
-if [ -z "$GAC_VERIFY_SIMPLE" ]; then npm run lint:package; fi
-NODE_NO_WARNINGS=1 lint-staged --concurrent false --config lint-staged.config.mjs
-symbiote clean --env NODE_NO_WARNINGS=1 --only-empty-directories --hush --scope unlimited
+const log = createGenericLogger({ namespace: 'husky-hook:pre-commit' });
+if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+  log.warn('skipped pre-commit hook due to rebase');
+} else {
+  const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
+
+  if (!isInSimpleVerificationMode) {
+    await runWithInheritedIo('npm', ['run', 'lint:package']);
+  }
+
+  await runWithInheritedIo(
+    'npx',
+    ['lint-staged', '--concurrent', 'false', '--config', 'lint-staged.config.mjs'],
+    { env: { NODE_NO_WARNINGS: '1' } }
+  );
+
+  await runWithInheritedIo('npx', [
+    'symbiote',
+    'clean',
+    '--env',
+    'NODE_NO_WARNINGS=1',
+    '--only-empty-directories',
+    '--hush',
+    '--scope',
+    'unlimited'
+  ]);
+}
 "
 `;
 
@@ -5919,94 +6354,241 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: replace these uglies with JS (mjs) scripts
+node .husky/pre-push.mjs
+"
+`;
 
-beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
-prepend() { while read -r line; do echo "\${1}\${line}"; done; }
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets at hybridrepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.husky/pre-push.mjs 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.husky/pre-push.mjs
+scope: unlimited
+⏶⏷⏶⏷⏶
+/* eslint-disable @typescript-eslint/prefer-string-starts-ends-with */
 
-if beginswith 'rebase' "$GIT_REFLOG_ACTION"; then
-  echo 'husky-hook::pre-push: pushing commits in the middle of a rebase/merge/cherry-pick is not allowed!'
-  exit 1
-fi
+import { readFile } from 'node:fs/promises';
 
-echo 'husky-hook::pre-push: checking for commits that should not be pushed...'
+import {
+  // {@symbiote/notInvalid @-xun/run}
+  run
+} from '@-xun/run';
 
-log=$(git log HEAD --oneline --not --remotes)
+import { createGenericLogger } from 'rejoinder';
 
-set +e
+const log = createGenericLogger({ namespace: 'husky-hook:pre-push' });
+const errorOutputPrefix = '  ⋗ ';
 
-incompleteCommitsGrep=$(echo "$log" | grep -q -i -e 'mergeme' -e '\\[WIP\\]' -e '\\[NOPUSH\\]'; echo $?)
+// ! vvv
+// !   - Paths should always use forward slashes as separators
+// !   - Regexps must not use the global (g) flag
 
-# ? In the below lines, 'x' is passed as the "zero parameter" so "$@" spits out
-# ? the right stuff. Stuff like this won't be an issue when we switch this to JS
+// ? Files with paths matching any of these regexps are never considered
+// ? "interesting"
+const uninterestingFilePathsRegExps = [
+  /(^|\\/)\\.husky\\//,
+  /(^|\\/)assets\\/templates\\/husky\\//,
+  /CHANGELOG\\.md$/,
+  /\\.snap$/
+];
 
-interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^|/)(\\.husky|assets/templates/husky)/' | grep -vE '\\.snap$')
+// ? Files with paths matching this regexp are considered package.json files
+const interestingPackageJsonPathRegExp = /^(packages\\/[^/]+\\/)?package\\.json$/;
 
-incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+// ? Files with paths matching this regexp are considered markdown files
+const interestingMarkdownPathRegExp = /\\.md$/;
 
-interestingPackageJsonFiles=$(echo "$interestingXxxFiles" | grep -E '^(packages/[^/]+/)?package\\.json$')
+// ? Files with paths matching this regexp are considered test files
+const interestingTestPathRegExp = /\\.test\\.ts$/;
 
-incompletePackageJsonFilesGrep=$(echo "$interestingPackageJsonFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -P -e "--assets-preset [^\\x22]*?(\\x27|((basic|cli|lib|react|nextjs) [^\\x22]*){3})" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+// ? A commit message matching any of these regexps will prevent pushes
+const unpushableCommitMessageMatchers = [
+  {
+    regexp: /mergeme/i,
+    reason: 'Incomplete commits (contains "mergeme" in their headers)'
+  },
+  {
+    regexp: /\\[wip]/i,
+    reason: 'Incomplete commits (contains "[wip]" in their headers)'
+  },
+  {
+    regexp: /\\[nopush]/i,
+    reason: 'Incomplete commits (contains "[nopush]" in their headers)'
+  }
+];
 
-interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -vE '/CHANGELOG.md$')
+// ? Interesting files' contents matching any of these regexps will prevent
+// ? pushes
+const unpushableFileContentMatchers = [
+  { regexp: /\\bXXX:/i, reason: 'Files at HEAD with "XXX" error comments' }
+];
 
-incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+// ? Interesting package.json files' contents matching any of these regexps will
+// ? prevent pushes
+const unpushablePackageJsonFileContentMatchers = [
+  {
+    regexp: /--assets-preset [^"]*?('|((basic|cli|lib|react|nextjs) [^"]*){3})/i,
+    reason: 'Root package.json files at HEAD with incomplete scripts'
+  }
+];
 
-interestingTestFiles=$(echo "$interestingXxxFiles" | grep '\\.test\\.ts$')
+// ? Interesting markdown files' contents matching any of these regexps will
+// ? prevent pushes
+const unpushableMarkdownFileContentMatchers = [
+  {
+    regexp: /-✄-/iu,
+    reason: 'Markdown files at HEAD with unmerged replacer regions'
+  }
+];
 
-incompleteTestFilesGrep=$(echo "$interestingTestFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -E -e "(it|test|describe)\\.only\\(" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+// ? Interesting test files' contents matching any of these regexps will prevent
+// ? pushes
+const unpushableTestFileContentMatchers = [
+  {
+    regexp: /(it|test|describe)\\.only\\(/,
+    reason: 'Test files at HEAD with erroneously focused tests'
+  }
+];
 
-set -e
+// ! ^^^
 
-# ? Make sure no commits to be pushed contain "mergeme" etc in their headers, no
-# ? relevant markdown files contain "-✄-" in their contents, no files anywhere
-# ? anywhere contain "XXX: " in their contents, no test files contain
-# ? erroneously focused tests, and no package.json files have incomplete scripts
-if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$incompleteXxxFilesGrep" != 0 ] || [ "$incompleteTestFilesGrep" != 0 ] || [ "$incompletePackageJsonFilesGrep" != 0 ]; then
-  echo 'husky-hook::pre-push: BAD COMMIT(S) DETECTED!'
-  echo 'husky-hook::pre-push: merge, delete, reword, or otherwise rectify the following commits before trying again:'
+if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+  log.error(
+    'Pushing commits in the middle of a rebase/merge/cherry-pick is not allowed!'
+  );
 
-  if [ "$incompleteCommitsGrep" = 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: incomplete commits (e.g. WIP, mergeme, NOPUSH):'
-    echo
-    echo "$log" | grep -i -e 'mergeme' -e '\\[WIP\\]' -e '\\[NOPUSH\\]' | prepend '  ⋗ '
-  fi
+  process.exitCode = 1;
+} else {
+  log('Checking for commits that should not be pushed...');
 
-  if [ "$incompleteMdFilesGrep" != 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: markdown files at HEAD with unmerged replacer regions:'
-    echo
-    echo "$interestingMdFiles" | xargs -d '\\n' -P 0 grep -i -l -H -F -e '-✄-' | prepend '  ⋗ '
-  fi
+  const [{ stdout: gitLogCommits }, { stdout: gitLsTreeFiles }] = await Promise.all([
+    run('git', ['log', 'HEAD', '--oneline', '--not', '--remotes'], { lines: true }),
+    run('git', ['ls-tree', '-r', '--full-tree', '--name-only', 'HEAD'], { lines: true })
+  ]);
 
-  if [ "$incompleteXxxFilesGrep" != 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: files at HEAD with "XXX" error comments:'
-    echo
-    echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 grep -l -H -F -e 'XXX: ' | prepend '  ⋗ '
-  fi
+  const interestingFilePaths = gitLsTreeFiles.filter((path) =>
+    uninterestingFilePathsRegExps.some((regexp) => !regexp.test(path))
+  );
 
-  if [ "$incompleteTestFilesGrep" != 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: files at HEAD with erroneously focused tests:'
-    echo
-    echo "$interestingTestFiles" | xargs -d '\\n' -P 0 grep -i -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
-  fi
+  /** @type {{[reason: string]: string[]}} */
+  const unpushableCommitsLogLines = reduce(
+    gitLogCommits.flatMap((line) =>
+      unpushableCommitMessageMatchers
+        .filter(({ regexp }) => regexp.test(line))
+        .map(toEntry(line))
+    )
+  );
 
-  if [ "$incompletePackageJsonFilesGrep" != 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: package.json files at HEAD with incomplete scripts:'
-    echo
-    echo "$interestingPackageJsonFiles" | xargs -d '\\n' -P 0 grep -i -l -H -P -e "--assets-preset [^\\x22]*?(\\x27|((basic|cli|lib|react|nextjs) [^\\x22]*){3})" | prepend '  ⋗ '
-  fi
+  /** @type {{[reason: string]: string[]}} */
+  const unpushableFilePaths = reduce(
+    (
+      await Promise.all(
+        interestingFilePaths.map(async (path) => {
+          // ? If the file is not readable, then skip it
+          const fileContents = await readFile(path, 'utf8').catch(() => undefined);
+          const result = [];
 
-  echo
-  exit 2;
-else
-  echo 'husky-hook::pre-push: ✅'
-  exit 0;
-fi
+          const isInterestingPackageJson = interestingPackageJsonPathRegExp.test(path);
+          const isInterestingMarkdown = interestingMarkdownPathRegExp.test(path);
+          const isInterestingTest = interestingTestPathRegExp.test(path);
+
+          if (!fileContents) {
+            return result;
+          }
+
+          result.push(
+            ...unpushableFileContentMatchers
+              .filter(({ regexp }) => regexp.test(fileContents))
+              .map(toEntry(path))
+          );
+
+          if (isInterestingPackageJson) {
+            result.push(
+              ...unpushablePackageJsonFileContentMatchers
+                .filter(({ regexp }) => regexp.test(fileContents))
+                .map(toEntry(path))
+            );
+          }
+
+          if (isInterestingMarkdown) {
+            result.push(
+              ...unpushableMarkdownFileContentMatchers
+                .filter(({ regexp }) => regexp.test(fileContents))
+                .map(toEntry(path))
+            );
+          }
+
+          if (isInterestingTest) {
+            result.push(
+              ...unpushableTestFileContentMatchers
+                .filter(({ regexp }) => regexp.test(fileContents))
+                .map(toEntry(path))
+            );
+          }
+
+          return result;
+        })
+      )
+    ).flat()
+  );
+
+  const hasUnpushableCommits = !!Object.keys(unpushableCommitsLogLines).length;
+  const hasUnpushableFiles = !!Object.keys(unpushableFilePaths).length;
+
+  if (hasUnpushableCommits || hasUnpushableFiles) {
+    log.error('PUSH ABORTED: BAD COMMIT(S) DETECTED!');
+    log.error('Rectify the following issues before trying again:');
+
+    Object.entries(unpushableCommitsLogLines).forEach(([reason, lines]) => {
+      log.newline();
+      log.error(\`\${reason}:\`);
+      log.newline();
+
+      lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
+    });
+
+    Object.entries(unpushableFilePaths).forEach(([reason, lines]) => {
+      log.newline();
+      log.error(\`\${reason}:\`);
+      log.newline();
+
+      lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
+    });
+
+    process.exitCode = 2;
+  } else {
+    log('✅');
+    process.exitCode = 0;
+  }
+}
+
+/**
+ * Returns a function that maps a RegExp-reason object to a reason-value object
+ * entry.
+ *
+ * @param {string} value
+ * @returns {(target: typeof unpushableCommitMessageMatchers[number]) => [
+ *  string, string
+ * ]}
+ */
+function toEntry(value) {
+  return ({ reason }) => [reason, value];
+}
+
+/**
+ * Reduces \`keysValuesArray\` to an object of string keys and aggregated string
+ * array values.
+ *
+ * @param {string[][]} keysValuesArray
+ */
+function reduce(keysValuesArray) {
+  /** @type {Record<string, string[]>} */
+  const aggregate = {};
+
+  for (const [key, value] of keysValuesArray) {
+    aggregate[key] ??= [];
+    aggregate[key].push(value);
+  }
+
+  return aggregate;
+}
 "
 `;
 
@@ -6016,20 +6598,37 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: replace these uglies with JS (mjs) scripts
+node .husky/commit-msg.mjs
+"
+`;
 
-beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/.husky/commit-msg.mjs 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/.husky/commit-msg.mjs
+scope: unlimited
+⏶⏷⏶⏷⏶
+import {
+  // {@symbiote/notInvalid @-xun/run}
+  runWithInheritedIo
+} from '@-xun/run';
 
-if beginswith 'rebase' "$GIT_REFLOG_ACTION"; then
-  echo 'husky-hook::commit-msg: skipped commit-msg hook due to rebase'
-  exit 0
-fi
+import { createGenericLogger } from 'rejoinder';
 
-NODE_NO_WARNINGS=1 commitlint -e
-if [ -z "$GAC_VERIFY_SIMPLE" ]; then npm run test; fi
-# TODO: bring back spellchecker:
-#echo
-#NODE_NO_WARNINGS=1 node spellcheck-commit.cjs
+const log = createGenericLogger({ namespace: 'husky-hook:commit-msg' });
+if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+  log.warn('skipped commit-msg hook due to rebase');
+} else {
+  const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
+
+  await runWithInheritedIo('npx', ['commitlint', '-e'], {
+    env: { NODE_NO_WARNINGS: '1' }
+  });
+
+  if (!isInSimpleVerificationMode) {
+    await runWithInheritedIo('npm', ['run', 'test:packages:all:unit']);
+  }
+
+  // TODO: bring back spellchecker
+}
 "
 `;
 
@@ -6039,18 +6638,48 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: replace these uglies with JS (mjs) scripts
+node .husky/pre-commit.mjs
+"
+`;
 
-beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/.husky/pre-commit.mjs 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/.husky/pre-commit.mjs
+scope: unlimited
+⏶⏷⏶⏷⏶
+import {
+  // {@symbiote/notInvalid @-xun/run}
+  runWithInheritedIo
+} from '@-xun/run';
 
-if beginswith 'rebase' "$GIT_REFLOG_ACTION"; then
-  echo 'husky-hook::commit-msg: skipped pre-commit hook due to rebase'
-  exit 0
-fi
+import { createGenericLogger } from 'rejoinder';
 
-if [ -z "$GAC_VERIFY_SIMPLE" ]; then npm run lint:package; fi
-NODE_NO_WARNINGS=1 lint-staged --concurrent false --config lint-staged.config.mjs
-symbiote clean --env NODE_NO_WARNINGS=1 --only-empty-directories --hush --scope unlimited
+const log = createGenericLogger({ namespace: 'husky-hook:pre-commit' });
+if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+  log.warn('skipped pre-commit hook due to rebase');
+} else {
+  const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
+
+  if (!isInSimpleVerificationMode) {
+    await runWithInheritedIo('npm', ['run', 'lint:package']);
+  }
+
+  await runWithInheritedIo(
+    'npx',
+    ['lint-staged', '--concurrent', 'false', '--config', 'lint-staged.config.mjs'],
+    { env: { NODE_NO_WARNINGS: '1' } }
+  );
+
+  await runWithInheritedIo('npx', [
+    'symbiote',
+    'clean',
+    '--env',
+    'NODE_NO_WARNINGS=1',
+    '--only-empty-directories',
+    '--hush',
+    '--scope',
+    'unlimited'
+  ]);
+}
 "
 `;
 
@@ -6060,94 +6689,241 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: replace these uglies with JS (mjs) scripts
+node .husky/pre-push.mjs
+"
+`;
 
-beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
-prepend() { while read -r line; do echo "\${1}\${line}"; done; }
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets at non-hybrid monorepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/.husky/pre-push.mjs 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/.husky/pre-push.mjs
+scope: unlimited
+⏶⏷⏶⏷⏶
+/* eslint-disable @typescript-eslint/prefer-string-starts-ends-with */
 
-if beginswith 'rebase' "$GIT_REFLOG_ACTION"; then
-  echo 'husky-hook::pre-push: pushing commits in the middle of a rebase/merge/cherry-pick is not allowed!'
-  exit 1
-fi
+import { readFile } from 'node:fs/promises';
 
-echo 'husky-hook::pre-push: checking for commits that should not be pushed...'
+import {
+  // {@symbiote/notInvalid @-xun/run}
+  run
+} from '@-xun/run';
 
-log=$(git log HEAD --oneline --not --remotes)
+import { createGenericLogger } from 'rejoinder';
 
-set +e
+const log = createGenericLogger({ namespace: 'husky-hook:pre-push' });
+const errorOutputPrefix = '  ⋗ ';
 
-incompleteCommitsGrep=$(echo "$log" | grep -q -i -e 'mergeme' -e '\\[WIP\\]' -e '\\[NOPUSH\\]'; echo $?)
+// ! vvv
+// !   - Paths should always use forward slashes as separators
+// !   - Regexps must not use the global (g) flag
 
-# ? In the below lines, 'x' is passed as the "zero parameter" so "$@" spits out
-# ? the right stuff. Stuff like this won't be an issue when we switch this to JS
+// ? Files with paths matching any of these regexps are never considered
+// ? "interesting"
+const uninterestingFilePathsRegExps = [
+  /(^|\\/)\\.husky\\//,
+  /(^|\\/)assets\\/templates\\/husky\\//,
+  /CHANGELOG\\.md$/,
+  /\\.snap$/
+];
 
-interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^|/)(\\.husky|assets/templates/husky)/' | grep -vE '\\.snap$')
+// ? Files with paths matching this regexp are considered package.json files
+const interestingPackageJsonPathRegExp = /^(packages\\/[^/]+\\/)?package\\.json$/;
 
-incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+// ? Files with paths matching this regexp are considered markdown files
+const interestingMarkdownPathRegExp = /\\.md$/;
 
-interestingPackageJsonFiles=$(echo "$interestingXxxFiles" | grep -E '^(packages/[^/]+/)?package\\.json$')
+// ? Files with paths matching this regexp are considered test files
+const interestingTestPathRegExp = /\\.test\\.ts$/;
 
-incompletePackageJsonFilesGrep=$(echo "$interestingPackageJsonFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -P -e "--assets-preset [^\\x22]*?(\\x27|((basic|cli|lib|react|nextjs) [^\\x22]*){3})" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+// ? A commit message matching any of these regexps will prevent pushes
+const unpushableCommitMessageMatchers = [
+  {
+    regexp: /mergeme/i,
+    reason: 'Incomplete commits (contains "mergeme" in their headers)'
+  },
+  {
+    regexp: /\\[wip]/i,
+    reason: 'Incomplete commits (contains "[wip]" in their headers)'
+  },
+  {
+    regexp: /\\[nopush]/i,
+    reason: 'Incomplete commits (contains "[nopush]" in their headers)'
+  }
+];
 
-interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -vE '/CHANGELOG.md$')
+// ? Interesting files' contents matching any of these regexps will prevent
+// ? pushes
+const unpushableFileContentMatchers = [
+  { regexp: /\\bXXX:/i, reason: 'Files at HEAD with "XXX" error comments' }
+];
 
-incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+// ? Interesting package.json files' contents matching any of these regexps will
+// ? prevent pushes
+const unpushablePackageJsonFileContentMatchers = [
+  {
+    regexp: /--assets-preset [^"]*?('|((basic|cli|lib|react|nextjs) [^"]*){3})/i,
+    reason: 'Root package.json files at HEAD with incomplete scripts'
+  }
+];
 
-interestingTestFiles=$(echo "$interestingXxxFiles" | grep '\\.test\\.ts$')
+// ? Interesting markdown files' contents matching any of these regexps will
+// ? prevent pushes
+const unpushableMarkdownFileContentMatchers = [
+  {
+    regexp: /-✄-/iu,
+    reason: 'Markdown files at HEAD with unmerged replacer regions'
+  }
+];
 
-incompleteTestFilesGrep=$(echo "$interestingTestFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -E -e "(it|test|describe)\\.only\\(" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+// ? Interesting test files' contents matching any of these regexps will prevent
+// ? pushes
+const unpushableTestFileContentMatchers = [
+  {
+    regexp: /(it|test|describe)\\.only\\(/,
+    reason: 'Test files at HEAD with erroneously focused tests'
+  }
+];
 
-set -e
+// ! ^^^
 
-# ? Make sure no commits to be pushed contain "mergeme" etc in their headers, no
-# ? relevant markdown files contain "-✄-" in their contents, no files anywhere
-# ? anywhere contain "XXX: " in their contents, no test files contain
-# ? erroneously focused tests, and no package.json files have incomplete scripts
-if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$incompleteXxxFilesGrep" != 0 ] || [ "$incompleteTestFilesGrep" != 0 ] || [ "$incompletePackageJsonFilesGrep" != 0 ]; then
-  echo 'husky-hook::pre-push: BAD COMMIT(S) DETECTED!'
-  echo 'husky-hook::pre-push: merge, delete, reword, or otherwise rectify the following commits before trying again:'
+if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+  log.error(
+    'Pushing commits in the middle of a rebase/merge/cherry-pick is not allowed!'
+  );
 
-  if [ "$incompleteCommitsGrep" = 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: incomplete commits (e.g. WIP, mergeme, NOPUSH):'
-    echo
-    echo "$log" | grep -i -e 'mergeme' -e '\\[WIP\\]' -e '\\[NOPUSH\\]' | prepend '  ⋗ '
-  fi
+  process.exitCode = 1;
+} else {
+  log('Checking for commits that should not be pushed...');
 
-  if [ "$incompleteMdFilesGrep" != 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: markdown files at HEAD with unmerged replacer regions:'
-    echo
-    echo "$interestingMdFiles" | xargs -d '\\n' -P 0 grep -i -l -H -F -e '-✄-' | prepend '  ⋗ '
-  fi
+  const [{ stdout: gitLogCommits }, { stdout: gitLsTreeFiles }] = await Promise.all([
+    run('git', ['log', 'HEAD', '--oneline', '--not', '--remotes'], { lines: true }),
+    run('git', ['ls-tree', '-r', '--full-tree', '--name-only', 'HEAD'], { lines: true })
+  ]);
 
-  if [ "$incompleteXxxFilesGrep" != 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: files at HEAD with "XXX" error comments:'
-    echo
-    echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 grep -l -H -F -e 'XXX: ' | prepend '  ⋗ '
-  fi
+  const interestingFilePaths = gitLsTreeFiles.filter((path) =>
+    uninterestingFilePathsRegExps.some((regexp) => !regexp.test(path))
+  );
 
-  if [ "$incompleteTestFilesGrep" != 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: files at HEAD with erroneously focused tests:'
-    echo
-    echo "$interestingTestFiles" | xargs -d '\\n' -P 0 grep -i -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
-  fi
+  /** @type {{[reason: string]: string[]}} */
+  const unpushableCommitsLogLines = reduce(
+    gitLogCommits.flatMap((line) =>
+      unpushableCommitMessageMatchers
+        .filter(({ regexp }) => regexp.test(line))
+        .map(toEntry(line))
+    )
+  );
 
-  if [ "$incompletePackageJsonFilesGrep" != 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: package.json files at HEAD with incomplete scripts:'
-    echo
-    echo "$interestingPackageJsonFiles" | xargs -d '\\n' -P 0 grep -i -l -H -P -e "--assets-preset [^\\x22]*?(\\x27|((basic|cli|lib|react|nextjs) [^\\x22]*){3})" | prepend '  ⋗ '
-  fi
+  /** @type {{[reason: string]: string[]}} */
+  const unpushableFilePaths = reduce(
+    (
+      await Promise.all(
+        interestingFilePaths.map(async (path) => {
+          // ? If the file is not readable, then skip it
+          const fileContents = await readFile(path, 'utf8').catch(() => undefined);
+          const result = [];
 
-  echo
-  exit 2;
-else
-  echo 'husky-hook::pre-push: ✅'
-  exit 0;
-fi
+          const isInterestingPackageJson = interestingPackageJsonPathRegExp.test(path);
+          const isInterestingMarkdown = interestingMarkdownPathRegExp.test(path);
+          const isInterestingTest = interestingTestPathRegExp.test(path);
+
+          if (!fileContents) {
+            return result;
+          }
+
+          result.push(
+            ...unpushableFileContentMatchers
+              .filter(({ regexp }) => regexp.test(fileContents))
+              .map(toEntry(path))
+          );
+
+          if (isInterestingPackageJson) {
+            result.push(
+              ...unpushablePackageJsonFileContentMatchers
+                .filter(({ regexp }) => regexp.test(fileContents))
+                .map(toEntry(path))
+            );
+          }
+
+          if (isInterestingMarkdown) {
+            result.push(
+              ...unpushableMarkdownFileContentMatchers
+                .filter(({ regexp }) => regexp.test(fileContents))
+                .map(toEntry(path))
+            );
+          }
+
+          if (isInterestingTest) {
+            result.push(
+              ...unpushableTestFileContentMatchers
+                .filter(({ regexp }) => regexp.test(fileContents))
+                .map(toEntry(path))
+            );
+          }
+
+          return result;
+        })
+      )
+    ).flat()
+  );
+
+  const hasUnpushableCommits = !!Object.keys(unpushableCommitsLogLines).length;
+  const hasUnpushableFiles = !!Object.keys(unpushableFilePaths).length;
+
+  if (hasUnpushableCommits || hasUnpushableFiles) {
+    log.error('PUSH ABORTED: BAD COMMIT(S) DETECTED!');
+    log.error('Rectify the following issues before trying again:');
+
+    Object.entries(unpushableCommitsLogLines).forEach(([reason, lines]) => {
+      log.newline();
+      log.error(\`\${reason}:\`);
+      log.newline();
+
+      lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
+    });
+
+    Object.entries(unpushableFilePaths).forEach(([reason, lines]) => {
+      log.newline();
+      log.error(\`\${reason}:\`);
+      log.newline();
+
+      lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
+    });
+
+    process.exitCode = 2;
+  } else {
+    log('✅');
+    process.exitCode = 0;
+  }
+}
+
+/**
+ * Returns a function that maps a RegExp-reason object to a reason-value object
+ * entry.
+ *
+ * @param {string} value
+ * @returns {(target: typeof unpushableCommitMessageMatchers[number]) => [
+ *  string, string
+ * ]}
+ */
+function toEntry(value) {
+  return ({ reason }) => [reason, value];
+}
+
+/**
+ * Reduces \`keysValuesArray\` to an object of string keys and aggregated string
+ * array values.
+ *
+ * @param {string[][]} keysValuesArray
+ */
+function reduce(keysValuesArray) {
+  /** @type {Record<string, string[]>} */
+  const aggregate = {};
+
+  for (const [key, value] of keysValuesArray) {
+    aggregate[key] ??= [];
+    aggregate[key].push(value);
+  }
+
+  return aggregate;
+}
 "
 `;
 
@@ -6157,20 +6933,37 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: replace these uglies with JS (mjs) scripts
+node .husky/commit-msg.mjs
+"
+`;
 
-beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/.husky/commit-msg.mjs 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/.husky/commit-msg.mjs
+scope: unlimited
+⏶⏷⏶⏷⏶
+import {
+  // {@symbiote/notInvalid @-xun/run}
+  runWithInheritedIo
+} from '@-xun/run';
 
-if beginswith 'rebase' "$GIT_REFLOG_ACTION"; then
-  echo 'husky-hook::commit-msg: skipped commit-msg hook due to rebase'
-  exit 0
-fi
+import { createGenericLogger } from 'rejoinder';
 
-NODE_NO_WARNINGS=1 commitlint -e
-if [ -z "$GAC_VERIFY_SIMPLE" ]; then npm run test; fi
-# TODO: bring back spellchecker:
-#echo
-#NODE_NO_WARNINGS=1 node spellcheck-commit.cjs
+const log = createGenericLogger({ namespace: 'husky-hook:commit-msg' });
+if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+  log.warn('skipped commit-msg hook due to rebase');
+} else {
+  const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
+
+  await runWithInheritedIo('npx', ['commitlint', '-e'], {
+    env: { NODE_NO_WARNINGS: '1' }
+  });
+
+  if (!isInSimpleVerificationMode) {
+    await runWithInheritedIo('npm', ['run', 'test:packages:all:unit']);
+  }
+
+  // TODO: bring back spellchecker
+}
 "
 `;
 
@@ -6180,18 +6973,48 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: replace these uglies with JS (mjs) scripts
+node .husky/pre-commit.mjs
+"
+`;
 
-beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/.husky/pre-commit.mjs 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/.husky/pre-commit.mjs
+scope: unlimited
+⏶⏷⏶⏷⏶
+import {
+  // {@symbiote/notInvalid @-xun/run}
+  runWithInheritedIo
+} from '@-xun/run';
 
-if beginswith 'rebase' "$GIT_REFLOG_ACTION"; then
-  echo 'husky-hook::commit-msg: skipped pre-commit hook due to rebase'
-  exit 0
-fi
+import { createGenericLogger } from 'rejoinder';
 
-if [ -z "$GAC_VERIFY_SIMPLE" ]; then npm run lint:package; fi
-NODE_NO_WARNINGS=1 lint-staged --concurrent false --config lint-staged.config.mjs
-symbiote clean --env NODE_NO_WARNINGS=1 --only-empty-directories --hush --scope unlimited
+const log = createGenericLogger({ namespace: 'husky-hook:pre-commit' });
+if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+  log.warn('skipped pre-commit hook due to rebase');
+} else {
+  const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
+
+  if (!isInSimpleVerificationMode) {
+    await runWithInheritedIo('npm', ['run', 'lint:package']);
+  }
+
+  await runWithInheritedIo(
+    'npx',
+    ['lint-staged', '--concurrent', 'false', '--config', 'lint-staged.config.mjs'],
+    { env: { NODE_NO_WARNINGS: '1' } }
+  );
+
+  await runWithInheritedIo('npx', [
+    'symbiote',
+    'clean',
+    '--env',
+    'NODE_NO_WARNINGS=1',
+    '--only-empty-directories',
+    '--hush',
+    '--scope',
+    'unlimited'
+  ]);
+}
 "
 `;
 
@@ -6201,94 +7024,241 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: replace these uglies with JS (mjs) scripts
+node .husky/pre-push.mjs
+"
+`;
 
-beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
-prepend() { while read -r line; do echo "\${1}\${line}"; done; }
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets at non-hybrid monorepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/.husky/pre-push.mjs 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/.husky/pre-push.mjs
+scope: unlimited
+⏶⏷⏶⏷⏶
+/* eslint-disable @typescript-eslint/prefer-string-starts-ends-with */
 
-if beginswith 'rebase' "$GIT_REFLOG_ACTION"; then
-  echo 'husky-hook::pre-push: pushing commits in the middle of a rebase/merge/cherry-pick is not allowed!'
-  exit 1
-fi
+import { readFile } from 'node:fs/promises';
 
-echo 'husky-hook::pre-push: checking for commits that should not be pushed...'
+import {
+  // {@symbiote/notInvalid @-xun/run}
+  run
+} from '@-xun/run';
 
-log=$(git log HEAD --oneline --not --remotes)
+import { createGenericLogger } from 'rejoinder';
 
-set +e
+const log = createGenericLogger({ namespace: 'husky-hook:pre-push' });
+const errorOutputPrefix = '  ⋗ ';
 
-incompleteCommitsGrep=$(echo "$log" | grep -q -i -e 'mergeme' -e '\\[WIP\\]' -e '\\[NOPUSH\\]'; echo $?)
+// ! vvv
+// !   - Paths should always use forward slashes as separators
+// !   - Regexps must not use the global (g) flag
 
-# ? In the below lines, 'x' is passed as the "zero parameter" so "$@" spits out
-# ? the right stuff. Stuff like this won't be an issue when we switch this to JS
+// ? Files with paths matching any of these regexps are never considered
+// ? "interesting"
+const uninterestingFilePathsRegExps = [
+  /(^|\\/)\\.husky\\//,
+  /(^|\\/)assets\\/templates\\/husky\\//,
+  /CHANGELOG\\.md$/,
+  /\\.snap$/
+];
 
-interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^|/)(\\.husky|assets/templates/husky)/' | grep -vE '\\.snap$')
+// ? Files with paths matching this regexp are considered package.json files
+const interestingPackageJsonPathRegExp = /^(packages\\/[^/]+\\/)?package\\.json$/;
 
-incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+// ? Files with paths matching this regexp are considered markdown files
+const interestingMarkdownPathRegExp = /\\.md$/;
 
-interestingPackageJsonFiles=$(echo "$interestingXxxFiles" | grep -E '^(packages/[^/]+/)?package\\.json$')
+// ? Files with paths matching this regexp are considered test files
+const interestingTestPathRegExp = /\\.test\\.ts$/;
 
-incompletePackageJsonFilesGrep=$(echo "$interestingPackageJsonFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -P -e "--assets-preset [^\\x22]*?(\\x27|((basic|cli|lib|react|nextjs) [^\\x22]*){3})" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+// ? A commit message matching any of these regexps will prevent pushes
+const unpushableCommitMessageMatchers = [
+  {
+    regexp: /mergeme/i,
+    reason: 'Incomplete commits (contains "mergeme" in their headers)'
+  },
+  {
+    regexp: /\\[wip]/i,
+    reason: 'Incomplete commits (contains "[wip]" in their headers)'
+  },
+  {
+    regexp: /\\[nopush]/i,
+    reason: 'Incomplete commits (contains "[nopush]" in their headers)'
+  }
+];
 
-interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -vE '/CHANGELOG.md$')
+// ? Interesting files' contents matching any of these regexps will prevent
+// ? pushes
+const unpushableFileContentMatchers = [
+  { regexp: /\\bXXX:/i, reason: 'Files at HEAD with "XXX" error comments' }
+];
 
-incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+// ? Interesting package.json files' contents matching any of these regexps will
+// ? prevent pushes
+const unpushablePackageJsonFileContentMatchers = [
+  {
+    regexp: /--assets-preset [^"]*?('|((basic|cli|lib|react|nextjs) [^"]*){3})/i,
+    reason: 'Root package.json files at HEAD with incomplete scripts'
+  }
+];
 
-interestingTestFiles=$(echo "$interestingXxxFiles" | grep '\\.test\\.ts$')
+// ? Interesting markdown files' contents matching any of these regexps will
+// ? prevent pushes
+const unpushableMarkdownFileContentMatchers = [
+  {
+    regexp: /-✄-/iu,
+    reason: 'Markdown files at HEAD with unmerged replacer regions'
+  }
+];
 
-incompleteTestFilesGrep=$(echo "$interestingTestFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -E -e "(it|test|describe)\\.only\\(" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+// ? Interesting test files' contents matching any of these regexps will prevent
+// ? pushes
+const unpushableTestFileContentMatchers = [
+  {
+    regexp: /(it|test|describe)\\.only\\(/,
+    reason: 'Test files at HEAD with erroneously focused tests'
+  }
+];
 
-set -e
+// ! ^^^
 
-# ? Make sure no commits to be pushed contain "mergeme" etc in their headers, no
-# ? relevant markdown files contain "-✄-" in their contents, no files anywhere
-# ? anywhere contain "XXX: " in their contents, no test files contain
-# ? erroneously focused tests, and no package.json files have incomplete scripts
-if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$incompleteXxxFilesGrep" != 0 ] || [ "$incompleteTestFilesGrep" != 0 ] || [ "$incompletePackageJsonFilesGrep" != 0 ]; then
-  echo 'husky-hook::pre-push: BAD COMMIT(S) DETECTED!'
-  echo 'husky-hook::pre-push: merge, delete, reword, or otherwise rectify the following commits before trying again:'
+if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+  log.error(
+    'Pushing commits in the middle of a rebase/merge/cherry-pick is not allowed!'
+  );
 
-  if [ "$incompleteCommitsGrep" = 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: incomplete commits (e.g. WIP, mergeme, NOPUSH):'
-    echo
-    echo "$log" | grep -i -e 'mergeme' -e '\\[WIP\\]' -e '\\[NOPUSH\\]' | prepend '  ⋗ '
-  fi
+  process.exitCode = 1;
+} else {
+  log('Checking for commits that should not be pushed...');
 
-  if [ "$incompleteMdFilesGrep" != 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: markdown files at HEAD with unmerged replacer regions:'
-    echo
-    echo "$interestingMdFiles" | xargs -d '\\n' -P 0 grep -i -l -H -F -e '-✄-' | prepend '  ⋗ '
-  fi
+  const [{ stdout: gitLogCommits }, { stdout: gitLsTreeFiles }] = await Promise.all([
+    run('git', ['log', 'HEAD', '--oneline', '--not', '--remotes'], { lines: true }),
+    run('git', ['ls-tree', '-r', '--full-tree', '--name-only', 'HEAD'], { lines: true })
+  ]);
 
-  if [ "$incompleteXxxFilesGrep" != 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: files at HEAD with "XXX" error comments:'
-    echo
-    echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 grep -l -H -F -e 'XXX: ' | prepend '  ⋗ '
-  fi
+  const interestingFilePaths = gitLsTreeFiles.filter((path) =>
+    uninterestingFilePathsRegExps.some((regexp) => !regexp.test(path))
+  );
 
-  if [ "$incompleteTestFilesGrep" != 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: files at HEAD with erroneously focused tests:'
-    echo
-    echo "$interestingTestFiles" | xargs -d '\\n' -P 0 grep -i -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
-  fi
+  /** @type {{[reason: string]: string[]}} */
+  const unpushableCommitsLogLines = reduce(
+    gitLogCommits.flatMap((line) =>
+      unpushableCommitMessageMatchers
+        .filter(({ regexp }) => regexp.test(line))
+        .map(toEntry(line))
+    )
+  );
 
-  if [ "$incompletePackageJsonFilesGrep" != 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: package.json files at HEAD with incomplete scripts:'
-    echo
-    echo "$interestingPackageJsonFiles" | xargs -d '\\n' -P 0 grep -i -l -H -P -e "--assets-preset [^\\x22]*?(\\x27|((basic|cli|lib|react|nextjs) [^\\x22]*){3})" | prepend '  ⋗ '
-  fi
+  /** @type {{[reason: string]: string[]}} */
+  const unpushableFilePaths = reduce(
+    (
+      await Promise.all(
+        interestingFilePaths.map(async (path) => {
+          // ? If the file is not readable, then skip it
+          const fileContents = await readFile(path, 'utf8').catch(() => undefined);
+          const result = [];
 
-  echo
-  exit 2;
-else
-  echo 'husky-hook::pre-push: ✅'
-  exit 0;
-fi
+          const isInterestingPackageJson = interestingPackageJsonPathRegExp.test(path);
+          const isInterestingMarkdown = interestingMarkdownPathRegExp.test(path);
+          const isInterestingTest = interestingTestPathRegExp.test(path);
+
+          if (!fileContents) {
+            return result;
+          }
+
+          result.push(
+            ...unpushableFileContentMatchers
+              .filter(({ regexp }) => regexp.test(fileContents))
+              .map(toEntry(path))
+          );
+
+          if (isInterestingPackageJson) {
+            result.push(
+              ...unpushablePackageJsonFileContentMatchers
+                .filter(({ regexp }) => regexp.test(fileContents))
+                .map(toEntry(path))
+            );
+          }
+
+          if (isInterestingMarkdown) {
+            result.push(
+              ...unpushableMarkdownFileContentMatchers
+                .filter(({ regexp }) => regexp.test(fileContents))
+                .map(toEntry(path))
+            );
+          }
+
+          if (isInterestingTest) {
+            result.push(
+              ...unpushableTestFileContentMatchers
+                .filter(({ regexp }) => regexp.test(fileContents))
+                .map(toEntry(path))
+            );
+          }
+
+          return result;
+        })
+      )
+    ).flat()
+  );
+
+  const hasUnpushableCommits = !!Object.keys(unpushableCommitsLogLines).length;
+  const hasUnpushableFiles = !!Object.keys(unpushableFilePaths).length;
+
+  if (hasUnpushableCommits || hasUnpushableFiles) {
+    log.error('PUSH ABORTED: BAD COMMIT(S) DETECTED!');
+    log.error('Rectify the following issues before trying again:');
+
+    Object.entries(unpushableCommitsLogLines).forEach(([reason, lines]) => {
+      log.newline();
+      log.error(\`\${reason}:\`);
+      log.newline();
+
+      lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
+    });
+
+    Object.entries(unpushableFilePaths).forEach(([reason, lines]) => {
+      log.newline();
+      log.error(\`\${reason}:\`);
+      log.newline();
+
+      lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
+    });
+
+    process.exitCode = 2;
+  } else {
+    log('✅');
+    process.exitCode = 0;
+  }
+}
+
+/**
+ * Returns a function that maps a RegExp-reason object to a reason-value object
+ * entry.
+ *
+ * @param {string} value
+ * @returns {(target: typeof unpushableCommitMessageMatchers[number]) => [
+ *  string, string
+ * ]}
+ */
+function toEntry(value) {
+  return ({ reason }) => [reason, value];
+}
+
+/**
+ * Reduces \`keysValuesArray\` to an object of string keys and aggregated string
+ * array values.
+ *
+ * @param {string[][]} keysValuesArray
+ */
+function reduce(keysValuesArray) {
+  /** @type {Record<string, string[]>} */
+  const aggregate = {};
+
+  for (const [key, value] of keysValuesArray) {
+    aggregate[key] ??= [];
+    aggregate[key].push(value);
+  }
+
+  return aggregate;
+}
 "
 `;
 
@@ -6298,20 +7268,37 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: replace these uglies with JS (mjs) scripts
+node .husky/commit-msg.mjs
+"
+`;
 
-beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets for polyrepo (scope=this-package): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.husky/commit-msg.mjs 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.husky/commit-msg.mjs
+scope: unlimited
+⏶⏷⏶⏷⏶
+import {
+  // {@symbiote/notInvalid @-xun/run}
+  runWithInheritedIo
+} from '@-xun/run';
 
-if beginswith 'rebase' "$GIT_REFLOG_ACTION"; then
-  echo 'husky-hook::commit-msg: skipped commit-msg hook due to rebase'
-  exit 0
-fi
+import { createGenericLogger } from 'rejoinder';
 
-NODE_NO_WARNINGS=1 commitlint -e
-if [ -z "$GAC_VERIFY_SIMPLE" ]; then npm run test; fi
-# TODO: bring back spellchecker:
-#echo
-#NODE_NO_WARNINGS=1 node spellcheck-commit.cjs
+const log = createGenericLogger({ namespace: 'husky-hook:commit-msg' });
+if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+  log.warn('skipped commit-msg hook due to rebase');
+} else {
+  const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
+
+  await runWithInheritedIo('npx', ['commitlint', '-e'], {
+    env: { NODE_NO_WARNINGS: '1' }
+  });
+
+  if (!isInSimpleVerificationMode) {
+    await runWithInheritedIo('npm', ['run', 'test:packages:all:unit']);
+  }
+
+  // TODO: bring back spellchecker
+}
 "
 `;
 
@@ -6321,18 +7308,48 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: replace these uglies with JS (mjs) scripts
+node .husky/pre-commit.mjs
+"
+`;
 
-beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets for polyrepo (scope=this-package): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.husky/pre-commit.mjs 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.husky/pre-commit.mjs
+scope: unlimited
+⏶⏷⏶⏷⏶
+import {
+  // {@symbiote/notInvalid @-xun/run}
+  runWithInheritedIo
+} from '@-xun/run';
 
-if beginswith 'rebase' "$GIT_REFLOG_ACTION"; then
-  echo 'husky-hook::commit-msg: skipped pre-commit hook due to rebase'
-  exit 0
-fi
+import { createGenericLogger } from 'rejoinder';
 
-if [ -z "$GAC_VERIFY_SIMPLE" ]; then npm run lint:package; fi
-NODE_NO_WARNINGS=1 lint-staged --concurrent false --config lint-staged.config.mjs
-symbiote clean --env NODE_NO_WARNINGS=1 --only-empty-directories --hush --scope unlimited
+const log = createGenericLogger({ namespace: 'husky-hook:pre-commit' });
+if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+  log.warn('skipped pre-commit hook due to rebase');
+} else {
+  const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
+
+  if (!isInSimpleVerificationMode) {
+    await runWithInheritedIo('npm', ['run', 'lint:package']);
+  }
+
+  await runWithInheritedIo(
+    'npx',
+    ['lint-staged', '--concurrent', 'false', '--config', 'lint-staged.config.mjs'],
+    { env: { NODE_NO_WARNINGS: '1' } }
+  );
+
+  await runWithInheritedIo('npx', [
+    'symbiote',
+    'clean',
+    '--env',
+    'NODE_NO_WARNINGS=1',
+    '--only-empty-directories',
+    '--hush',
+    '--scope',
+    'unlimited'
+  ]);
+}
 "
 `;
 
@@ -6342,94 +7359,241 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: replace these uglies with JS (mjs) scripts
+node .husky/pre-push.mjs
+"
+`;
 
-beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
-prepend() { while read -r line; do echo "\${1}\${line}"; done; }
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets for polyrepo (scope=this-package): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.husky/pre-push.mjs 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.husky/pre-push.mjs
+scope: unlimited
+⏶⏷⏶⏷⏶
+/* eslint-disable @typescript-eslint/prefer-string-starts-ends-with */
 
-if beginswith 'rebase' "$GIT_REFLOG_ACTION"; then
-  echo 'husky-hook::pre-push: pushing commits in the middle of a rebase/merge/cherry-pick is not allowed!'
-  exit 1
-fi
+import { readFile } from 'node:fs/promises';
 
-echo 'husky-hook::pre-push: checking for commits that should not be pushed...'
+import {
+  // {@symbiote/notInvalid @-xun/run}
+  run
+} from '@-xun/run';
 
-log=$(git log HEAD --oneline --not --remotes)
+import { createGenericLogger } from 'rejoinder';
 
-set +e
+const log = createGenericLogger({ namespace: 'husky-hook:pre-push' });
+const errorOutputPrefix = '  ⋗ ';
 
-incompleteCommitsGrep=$(echo "$log" | grep -q -i -e 'mergeme' -e '\\[WIP\\]' -e '\\[NOPUSH\\]'; echo $?)
+// ! vvv
+// !   - Paths should always use forward slashes as separators
+// !   - Regexps must not use the global (g) flag
 
-# ? In the below lines, 'x' is passed as the "zero parameter" so "$@" spits out
-# ? the right stuff. Stuff like this won't be an issue when we switch this to JS
+// ? Files with paths matching any of these regexps are never considered
+// ? "interesting"
+const uninterestingFilePathsRegExps = [
+  /(^|\\/)\\.husky\\//,
+  /(^|\\/)assets\\/templates\\/husky\\//,
+  /CHANGELOG\\.md$/,
+  /\\.snap$/
+];
 
-interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^|/)(\\.husky|assets/templates/husky)/' | grep -vE '\\.snap$')
+// ? Files with paths matching this regexp are considered package.json files
+const interestingPackageJsonPathRegExp = /^(packages\\/[^/]+\\/)?package\\.json$/;
 
-incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+// ? Files with paths matching this regexp are considered markdown files
+const interestingMarkdownPathRegExp = /\\.md$/;
 
-interestingPackageJsonFiles=$(echo "$interestingXxxFiles" | grep -E '^(packages/[^/]+/)?package\\.json$')
+// ? Files with paths matching this regexp are considered test files
+const interestingTestPathRegExp = /\\.test\\.ts$/;
 
-incompletePackageJsonFilesGrep=$(echo "$interestingPackageJsonFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -P -e "--assets-preset [^\\x22]*?(\\x27|((basic|cli|lib|react|nextjs) [^\\x22]*){3})" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+// ? A commit message matching any of these regexps will prevent pushes
+const unpushableCommitMessageMatchers = [
+  {
+    regexp: /mergeme/i,
+    reason: 'Incomplete commits (contains "mergeme" in their headers)'
+  },
+  {
+    regexp: /\\[wip]/i,
+    reason: 'Incomplete commits (contains "[wip]" in their headers)'
+  },
+  {
+    regexp: /\\[nopush]/i,
+    reason: 'Incomplete commits (contains "[nopush]" in their headers)'
+  }
+];
 
-interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -vE '/CHANGELOG.md$')
+// ? Interesting files' contents matching any of these regexps will prevent
+// ? pushes
+const unpushableFileContentMatchers = [
+  { regexp: /\\bXXX:/i, reason: 'Files at HEAD with "XXX" error comments' }
+];
 
-incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+// ? Interesting package.json files' contents matching any of these regexps will
+// ? prevent pushes
+const unpushablePackageJsonFileContentMatchers = [
+  {
+    regexp: /--assets-preset [^"]*?('|((basic|cli|lib|react|nextjs) [^"]*){3})/i,
+    reason: 'Root package.json files at HEAD with incomplete scripts'
+  }
+];
 
-interestingTestFiles=$(echo "$interestingXxxFiles" | grep '\\.test\\.ts$')
+// ? Interesting markdown files' contents matching any of these regexps will
+// ? prevent pushes
+const unpushableMarkdownFileContentMatchers = [
+  {
+    regexp: /-✄-/iu,
+    reason: 'Markdown files at HEAD with unmerged replacer regions'
+  }
+];
 
-incompleteTestFilesGrep=$(echo "$interestingTestFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -E -e "(it|test|describe)\\.only\\(" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+// ? Interesting test files' contents matching any of these regexps will prevent
+// ? pushes
+const unpushableTestFileContentMatchers = [
+  {
+    regexp: /(it|test|describe)\\.only\\(/,
+    reason: 'Test files at HEAD with erroneously focused tests'
+  }
+];
 
-set -e
+// ! ^^^
 
-# ? Make sure no commits to be pushed contain "mergeme" etc in their headers, no
-# ? relevant markdown files contain "-✄-" in their contents, no files anywhere
-# ? anywhere contain "XXX: " in their contents, no test files contain
-# ? erroneously focused tests, and no package.json files have incomplete scripts
-if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$incompleteXxxFilesGrep" != 0 ] || [ "$incompleteTestFilesGrep" != 0 ] || [ "$incompletePackageJsonFilesGrep" != 0 ]; then
-  echo 'husky-hook::pre-push: BAD COMMIT(S) DETECTED!'
-  echo 'husky-hook::pre-push: merge, delete, reword, or otherwise rectify the following commits before trying again:'
+if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+  log.error(
+    'Pushing commits in the middle of a rebase/merge/cherry-pick is not allowed!'
+  );
 
-  if [ "$incompleteCommitsGrep" = 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: incomplete commits (e.g. WIP, mergeme, NOPUSH):'
-    echo
-    echo "$log" | grep -i -e 'mergeme' -e '\\[WIP\\]' -e '\\[NOPUSH\\]' | prepend '  ⋗ '
-  fi
+  process.exitCode = 1;
+} else {
+  log('Checking for commits that should not be pushed...');
 
-  if [ "$incompleteMdFilesGrep" != 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: markdown files at HEAD with unmerged replacer regions:'
-    echo
-    echo "$interestingMdFiles" | xargs -d '\\n' -P 0 grep -i -l -H -F -e '-✄-' | prepend '  ⋗ '
-  fi
+  const [{ stdout: gitLogCommits }, { stdout: gitLsTreeFiles }] = await Promise.all([
+    run('git', ['log', 'HEAD', '--oneline', '--not', '--remotes'], { lines: true }),
+    run('git', ['ls-tree', '-r', '--full-tree', '--name-only', 'HEAD'], { lines: true })
+  ]);
 
-  if [ "$incompleteXxxFilesGrep" != 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: files at HEAD with "XXX" error comments:'
-    echo
-    echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 grep -l -H -F -e 'XXX: ' | prepend '  ⋗ '
-  fi
+  const interestingFilePaths = gitLsTreeFiles.filter((path) =>
+    uninterestingFilePathsRegExps.some((regexp) => !regexp.test(path))
+  );
 
-  if [ "$incompleteTestFilesGrep" != 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: files at HEAD with erroneously focused tests:'
-    echo
-    echo "$interestingTestFiles" | xargs -d '\\n' -P 0 grep -i -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
-  fi
+  /** @type {{[reason: string]: string[]}} */
+  const unpushableCommitsLogLines = reduce(
+    gitLogCommits.flatMap((line) =>
+      unpushableCommitMessageMatchers
+        .filter(({ regexp }) => regexp.test(line))
+        .map(toEntry(line))
+    )
+  );
 
-  if [ "$incompletePackageJsonFilesGrep" != 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: package.json files at HEAD with incomplete scripts:'
-    echo
-    echo "$interestingPackageJsonFiles" | xargs -d '\\n' -P 0 grep -i -l -H -P -e "--assets-preset [^\\x22]*?(\\x27|((basic|cli|lib|react|nextjs) [^\\x22]*){3})" | prepend '  ⋗ '
-  fi
+  /** @type {{[reason: string]: string[]}} */
+  const unpushableFilePaths = reduce(
+    (
+      await Promise.all(
+        interestingFilePaths.map(async (path) => {
+          // ? If the file is not readable, then skip it
+          const fileContents = await readFile(path, 'utf8').catch(() => undefined);
+          const result = [];
 
-  echo
-  exit 2;
-else
-  echo 'husky-hook::pre-push: ✅'
-  exit 0;
-fi
+          const isInterestingPackageJson = interestingPackageJsonPathRegExp.test(path);
+          const isInterestingMarkdown = interestingMarkdownPathRegExp.test(path);
+          const isInterestingTest = interestingTestPathRegExp.test(path);
+
+          if (!fileContents) {
+            return result;
+          }
+
+          result.push(
+            ...unpushableFileContentMatchers
+              .filter(({ regexp }) => regexp.test(fileContents))
+              .map(toEntry(path))
+          );
+
+          if (isInterestingPackageJson) {
+            result.push(
+              ...unpushablePackageJsonFileContentMatchers
+                .filter(({ regexp }) => regexp.test(fileContents))
+                .map(toEntry(path))
+            );
+          }
+
+          if (isInterestingMarkdown) {
+            result.push(
+              ...unpushableMarkdownFileContentMatchers
+                .filter(({ regexp }) => regexp.test(fileContents))
+                .map(toEntry(path))
+            );
+          }
+
+          if (isInterestingTest) {
+            result.push(
+              ...unpushableTestFileContentMatchers
+                .filter(({ regexp }) => regexp.test(fileContents))
+                .map(toEntry(path))
+            );
+          }
+
+          return result;
+        })
+      )
+    ).flat()
+  );
+
+  const hasUnpushableCommits = !!Object.keys(unpushableCommitsLogLines).length;
+  const hasUnpushableFiles = !!Object.keys(unpushableFilePaths).length;
+
+  if (hasUnpushableCommits || hasUnpushableFiles) {
+    log.error('PUSH ABORTED: BAD COMMIT(S) DETECTED!');
+    log.error('Rectify the following issues before trying again:');
+
+    Object.entries(unpushableCommitsLogLines).forEach(([reason, lines]) => {
+      log.newline();
+      log.error(\`\${reason}:\`);
+      log.newline();
+
+      lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
+    });
+
+    Object.entries(unpushableFilePaths).forEach(([reason, lines]) => {
+      log.newline();
+      log.error(\`\${reason}:\`);
+      log.newline();
+
+      lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
+    });
+
+    process.exitCode = 2;
+  } else {
+    log('✅');
+    process.exitCode = 0;
+  }
+}
+
+/**
+ * Returns a function that maps a RegExp-reason object to a reason-value object
+ * entry.
+ *
+ * @param {string} value
+ * @returns {(target: typeof unpushableCommitMessageMatchers[number]) => [
+ *  string, string
+ * ]}
+ */
+function toEntry(value) {
+  return ({ reason }) => [reason, value];
+}
+
+/**
+ * Reduces \`keysValuesArray\` to an object of string keys and aggregated string
+ * array values.
+ *
+ * @param {string[][]} keysValuesArray
+ */
+function reduce(keysValuesArray) {
+  /** @type {Record<string, string[]>} */
+  const aggregate = {};
+
+  for (const [key, value] of keysValuesArray) {
+    aggregate[key] ??= [];
+    aggregate[key].push(value);
+  }
+
+  return aggregate;
+}
 "
 `;
 
@@ -6439,20 +7603,37 @@ scope: this-package
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: replace these uglies with JS (mjs) scripts
+node .husky/commit-msg.mjs
+"
+`;
 
-beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets for polyrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.husky/commit-msg.mjs 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.husky/commit-msg.mjs
+scope: this-package
+⏶⏷⏶⏷⏶
+import {
+  // {@symbiote/notInvalid @-xun/run}
+  runWithInheritedIo
+} from '@-xun/run';
 
-if beginswith 'rebase' "$GIT_REFLOG_ACTION"; then
-  echo 'husky-hook::commit-msg: skipped commit-msg hook due to rebase'
-  exit 0
-fi
+import { createGenericLogger } from 'rejoinder';
 
-NODE_NO_WARNINGS=1 commitlint -e
-if [ -z "$GAC_VERIFY_SIMPLE" ]; then npm run test; fi
-# TODO: bring back spellchecker:
-#echo
-#NODE_NO_WARNINGS=1 node spellcheck-commit.cjs
+const log = createGenericLogger({ namespace: 'husky-hook:commit-msg' });
+if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+  log.warn('skipped commit-msg hook due to rebase');
+} else {
+  const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
+
+  await runWithInheritedIo('npx', ['commitlint', '-e'], {
+    env: { NODE_NO_WARNINGS: '1' }
+  });
+
+  if (!isInSimpleVerificationMode) {
+    await runWithInheritedIo('npm', ['run', 'test:packages:all:unit']);
+  }
+
+  // TODO: bring back spellchecker
+}
 "
 `;
 
@@ -6462,18 +7643,48 @@ scope: this-package
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: replace these uglies with JS (mjs) scripts
+node .husky/pre-commit.mjs
+"
+`;
 
-beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets for polyrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.husky/pre-commit.mjs 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.husky/pre-commit.mjs
+scope: this-package
+⏶⏷⏶⏷⏶
+import {
+  // {@symbiote/notInvalid @-xun/run}
+  runWithInheritedIo
+} from '@-xun/run';
 
-if beginswith 'rebase' "$GIT_REFLOG_ACTION"; then
-  echo 'husky-hook::commit-msg: skipped pre-commit hook due to rebase'
-  exit 0
-fi
+import { createGenericLogger } from 'rejoinder';
 
-if [ -z "$GAC_VERIFY_SIMPLE" ]; then npm run lint:package; fi
-NODE_NO_WARNINGS=1 lint-staged --concurrent false --config lint-staged.config.mjs
-symbiote clean --env NODE_NO_WARNINGS=1 --only-empty-directories --hush --scope unlimited
+const log = createGenericLogger({ namespace: 'husky-hook:pre-commit' });
+if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+  log.warn('skipped pre-commit hook due to rebase');
+} else {
+  const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
+
+  if (!isInSimpleVerificationMode) {
+    await runWithInheritedIo('npm', ['run', 'lint:package']);
+  }
+
+  await runWithInheritedIo(
+    'npx',
+    ['lint-staged', '--concurrent', 'false', '--config', 'lint-staged.config.mjs'],
+    { env: { NODE_NO_WARNINGS: '1' } }
+  );
+
+  await runWithInheritedIo('npx', [
+    'symbiote',
+    'clean',
+    '--env',
+    'NODE_NO_WARNINGS=1',
+    '--only-empty-directories',
+    '--hush',
+    '--scope',
+    'unlimited'
+  ]);
+}
 "
 `;
 
@@ -6483,94 +7694,241 @@ scope: this-package
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: replace these uglies with JS (mjs) scripts
+node .husky/pre-push.mjs
+"
+`;
 
-beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
-prepend() { while read -r line; do echo "\${1}\${line}"; done; }
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets for polyrepo (with force): /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.husky/pre-push.mjs 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.husky/pre-push.mjs
+scope: this-package
+⏶⏷⏶⏷⏶
+/* eslint-disable @typescript-eslint/prefer-string-starts-ends-with */
 
-if beginswith 'rebase' "$GIT_REFLOG_ACTION"; then
-  echo 'husky-hook::pre-push: pushing commits in the middle of a rebase/merge/cherry-pick is not allowed!'
-  exit 1
-fi
+import { readFile } from 'node:fs/promises';
 
-echo 'husky-hook::pre-push: checking for commits that should not be pushed...'
+import {
+  // {@symbiote/notInvalid @-xun/run}
+  run
+} from '@-xun/run';
 
-log=$(git log HEAD --oneline --not --remotes)
+import { createGenericLogger } from 'rejoinder';
 
-set +e
+const log = createGenericLogger({ namespace: 'husky-hook:pre-push' });
+const errorOutputPrefix = '  ⋗ ';
 
-incompleteCommitsGrep=$(echo "$log" | grep -q -i -e 'mergeme' -e '\\[WIP\\]' -e '\\[NOPUSH\\]'; echo $?)
+// ! vvv
+// !   - Paths should always use forward slashes as separators
+// !   - Regexps must not use the global (g) flag
 
-# ? In the below lines, 'x' is passed as the "zero parameter" so "$@" spits out
-# ? the right stuff. Stuff like this won't be an issue when we switch this to JS
+// ? Files with paths matching any of these regexps are never considered
+// ? "interesting"
+const uninterestingFilePathsRegExps = [
+  /(^|\\/)\\.husky\\//,
+  /(^|\\/)assets\\/templates\\/husky\\//,
+  /CHANGELOG\\.md$/,
+  /\\.snap$/
+];
 
-interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^|/)(\\.husky|assets/templates/husky)/' | grep -vE '\\.snap$')
+// ? Files with paths matching this regexp are considered package.json files
+const interestingPackageJsonPathRegExp = /^(packages\\/[^/]+\\/)?package\\.json$/;
 
-incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+// ? Files with paths matching this regexp are considered markdown files
+const interestingMarkdownPathRegExp = /\\.md$/;
 
-interestingPackageJsonFiles=$(echo "$interestingXxxFiles" | grep -E '^(packages/[^/]+/)?package\\.json$')
+// ? Files with paths matching this regexp are considered test files
+const interestingTestPathRegExp = /\\.test\\.ts$/;
 
-incompletePackageJsonFilesGrep=$(echo "$interestingPackageJsonFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -P -e "--assets-preset [^\\x22]*?(\\x27|((basic|cli|lib|react|nextjs) [^\\x22]*){3})" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+// ? A commit message matching any of these regexps will prevent pushes
+const unpushableCommitMessageMatchers = [
+  {
+    regexp: /mergeme/i,
+    reason: 'Incomplete commits (contains "mergeme" in their headers)'
+  },
+  {
+    regexp: /\\[wip]/i,
+    reason: 'Incomplete commits (contains "[wip]" in their headers)'
+  },
+  {
+    regexp: /\\[nopush]/i,
+    reason: 'Incomplete commits (contains "[nopush]" in their headers)'
+  }
+];
 
-interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -vE '/CHANGELOG.md$')
+// ? Interesting files' contents matching any of these regexps will prevent
+// ? pushes
+const unpushableFileContentMatchers = [
+  { regexp: /\\bXXX:/i, reason: 'Files at HEAD with "XXX" error comments' }
+];
 
-incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+// ? Interesting package.json files' contents matching any of these regexps will
+// ? prevent pushes
+const unpushablePackageJsonFileContentMatchers = [
+  {
+    regexp: /--assets-preset [^"]*?('|((basic|cli|lib|react|nextjs) [^"]*){3})/i,
+    reason: 'Root package.json files at HEAD with incomplete scripts'
+  }
+];
 
-interestingTestFiles=$(echo "$interestingXxxFiles" | grep '\\.test\\.ts$')
+// ? Interesting markdown files' contents matching any of these regexps will
+// ? prevent pushes
+const unpushableMarkdownFileContentMatchers = [
+  {
+    regexp: /-✄-/iu,
+    reason: 'Markdown files at HEAD with unmerged replacer regions'
+  }
+];
 
-incompleteTestFilesGrep=$(echo "$interestingTestFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -E -e "(it|test|describe)\\.only\\(" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+// ? Interesting test files' contents matching any of these regexps will prevent
+// ? pushes
+const unpushableTestFileContentMatchers = [
+  {
+    regexp: /(it|test|describe)\\.only\\(/,
+    reason: 'Test files at HEAD with erroneously focused tests'
+  }
+];
 
-set -e
+// ! ^^^
 
-# ? Make sure no commits to be pushed contain "mergeme" etc in their headers, no
-# ? relevant markdown files contain "-✄-" in their contents, no files anywhere
-# ? anywhere contain "XXX: " in their contents, no test files contain
-# ? erroneously focused tests, and no package.json files have incomplete scripts
-if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$incompleteXxxFilesGrep" != 0 ] || [ "$incompleteTestFilesGrep" != 0 ] || [ "$incompletePackageJsonFilesGrep" != 0 ]; then
-  echo 'husky-hook::pre-push: BAD COMMIT(S) DETECTED!'
-  echo 'husky-hook::pre-push: merge, delete, reword, or otherwise rectify the following commits before trying again:'
+if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+  log.error(
+    'Pushing commits in the middle of a rebase/merge/cherry-pick is not allowed!'
+  );
 
-  if [ "$incompleteCommitsGrep" = 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: incomplete commits (e.g. WIP, mergeme, NOPUSH):'
-    echo
-    echo "$log" | grep -i -e 'mergeme' -e '\\[WIP\\]' -e '\\[NOPUSH\\]' | prepend '  ⋗ '
-  fi
+  process.exitCode = 1;
+} else {
+  log('Checking for commits that should not be pushed...');
 
-  if [ "$incompleteMdFilesGrep" != 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: markdown files at HEAD with unmerged replacer regions:'
-    echo
-    echo "$interestingMdFiles" | xargs -d '\\n' -P 0 grep -i -l -H -F -e '-✄-' | prepend '  ⋗ '
-  fi
+  const [{ stdout: gitLogCommits }, { stdout: gitLsTreeFiles }] = await Promise.all([
+    run('git', ['log', 'HEAD', '--oneline', '--not', '--remotes'], { lines: true }),
+    run('git', ['ls-tree', '-r', '--full-tree', '--name-only', 'HEAD'], { lines: true })
+  ]);
 
-  if [ "$incompleteXxxFilesGrep" != 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: files at HEAD with "XXX" error comments:'
-    echo
-    echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 grep -l -H -F -e 'XXX: ' | prepend '  ⋗ '
-  fi
+  const interestingFilePaths = gitLsTreeFiles.filter((path) =>
+    uninterestingFilePathsRegExps.some((regexp) => !regexp.test(path))
+  );
 
-  if [ "$incompleteTestFilesGrep" != 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: files at HEAD with erroneously focused tests:'
-    echo
-    echo "$interestingTestFiles" | xargs -d '\\n' -P 0 grep -i -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
-  fi
+  /** @type {{[reason: string]: string[]}} */
+  const unpushableCommitsLogLines = reduce(
+    gitLogCommits.flatMap((line) =>
+      unpushableCommitMessageMatchers
+        .filter(({ regexp }) => regexp.test(line))
+        .map(toEntry(line))
+    )
+  );
 
-  if [ "$incompletePackageJsonFilesGrep" != 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: package.json files at HEAD with incomplete scripts:'
-    echo
-    echo "$interestingPackageJsonFiles" | xargs -d '\\n' -P 0 grep -i -l -H -P -e "--assets-preset [^\\x22]*?(\\x27|((basic|cli|lib|react|nextjs) [^\\x22]*){3})" | prepend '  ⋗ '
-  fi
+  /** @type {{[reason: string]: string[]}} */
+  const unpushableFilePaths = reduce(
+    (
+      await Promise.all(
+        interestingFilePaths.map(async (path) => {
+          // ? If the file is not readable, then skip it
+          const fileContents = await readFile(path, 'utf8').catch(() => undefined);
+          const result = [];
 
-  echo
-  exit 2;
-else
-  echo 'husky-hook::pre-push: ✅'
-  exit 0;
-fi
+          const isInterestingPackageJson = interestingPackageJsonPathRegExp.test(path);
+          const isInterestingMarkdown = interestingMarkdownPathRegExp.test(path);
+          const isInterestingTest = interestingTestPathRegExp.test(path);
+
+          if (!fileContents) {
+            return result;
+          }
+
+          result.push(
+            ...unpushableFileContentMatchers
+              .filter(({ regexp }) => regexp.test(fileContents))
+              .map(toEntry(path))
+          );
+
+          if (isInterestingPackageJson) {
+            result.push(
+              ...unpushablePackageJsonFileContentMatchers
+                .filter(({ regexp }) => regexp.test(fileContents))
+                .map(toEntry(path))
+            );
+          }
+
+          if (isInterestingMarkdown) {
+            result.push(
+              ...unpushableMarkdownFileContentMatchers
+                .filter(({ regexp }) => regexp.test(fileContents))
+                .map(toEntry(path))
+            );
+          }
+
+          if (isInterestingTest) {
+            result.push(
+              ...unpushableTestFileContentMatchers
+                .filter(({ regexp }) => regexp.test(fileContents))
+                .map(toEntry(path))
+            );
+          }
+
+          return result;
+        })
+      )
+    ).flat()
+  );
+
+  const hasUnpushableCommits = !!Object.keys(unpushableCommitsLogLines).length;
+  const hasUnpushableFiles = !!Object.keys(unpushableFilePaths).length;
+
+  if (hasUnpushableCommits || hasUnpushableFiles) {
+    log.error('PUSH ABORTED: BAD COMMIT(S) DETECTED!');
+    log.error('Rectify the following issues before trying again:');
+
+    Object.entries(unpushableCommitsLogLines).forEach(([reason, lines]) => {
+      log.newline();
+      log.error(\`\${reason}:\`);
+      log.newline();
+
+      lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
+    });
+
+    Object.entries(unpushableFilePaths).forEach(([reason, lines]) => {
+      log.newline();
+      log.error(\`\${reason}:\`);
+      log.newline();
+
+      lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
+    });
+
+    process.exitCode = 2;
+  } else {
+    log('✅');
+    process.exitCode = 0;
+  }
+}
+
+/**
+ * Returns a function that maps a RegExp-reason object to a reason-value object
+ * entry.
+ *
+ * @param {string} value
+ * @returns {(target: typeof unpushableCommitMessageMatchers[number]) => [
+ *  string, string
+ * ]}
+ */
+function toEntry(value) {
+  return ({ reason }) => [reason, value];
+}
+
+/**
+ * Reduces \`keysValuesArray\` to an object of string keys and aggregated string
+ * array values.
+ *
+ * @param {string[][]} keysValuesArray
+ */
+function reduce(keysValuesArray) {
+  /** @type {Record<string, string[]>} */
+  const aggregate = {};
+
+  for (const [key, value] of keysValuesArray) {
+    aggregate[key] ??= [];
+    aggregate[key].push(value);
+  }
+
+  return aggregate;
+}
 "
 `;
 
@@ -6580,20 +7938,37 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: replace these uglies with JS (mjs) scripts
+node .husky/commit-msg.mjs
+"
+`;
 
-beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets for polyrepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.husky/commit-msg.mjs 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.husky/commit-msg.mjs
+scope: unlimited
+⏶⏷⏶⏷⏶
+import {
+  // {@symbiote/notInvalid @-xun/run}
+  runWithInheritedIo
+} from '@-xun/run';
 
-if beginswith 'rebase' "$GIT_REFLOG_ACTION"; then
-  echo 'husky-hook::commit-msg: skipped commit-msg hook due to rebase'
-  exit 0
-fi
+import { createGenericLogger } from 'rejoinder';
 
-NODE_NO_WARNINGS=1 commitlint -e
-if [ -z "$GAC_VERIFY_SIMPLE" ]; then npm run test; fi
-# TODO: bring back spellchecker:
-#echo
-#NODE_NO_WARNINGS=1 node spellcheck-commit.cjs
+const log = createGenericLogger({ namespace: 'husky-hook:commit-msg' });
+if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+  log.warn('skipped commit-msg hook due to rebase');
+} else {
+  const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
+
+  await runWithInheritedIo('npx', ['commitlint', '-e'], {
+    env: { NODE_NO_WARNINGS: '1' }
+  });
+
+  if (!isInSimpleVerificationMode) {
+    await runWithInheritedIo('npm', ['run', 'test:packages:all:unit']);
+  }
+
+  // TODO: bring back spellchecker
+}
 "
 `;
 
@@ -6603,18 +7978,48 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: replace these uglies with JS (mjs) scripts
+node .husky/pre-commit.mjs
+"
+`;
 
-beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets for polyrepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.husky/pre-commit.mjs 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.husky/pre-commit.mjs
+scope: unlimited
+⏶⏷⏶⏷⏶
+import {
+  // {@symbiote/notInvalid @-xun/run}
+  runWithInheritedIo
+} from '@-xun/run';
 
-if beginswith 'rebase' "$GIT_REFLOG_ACTION"; then
-  echo 'husky-hook::commit-msg: skipped pre-commit hook due to rebase'
-  exit 0
-fi
+import { createGenericLogger } from 'rejoinder';
 
-if [ -z "$GAC_VERIFY_SIMPLE" ]; then npm run lint:package; fi
-NODE_NO_WARNINGS=1 lint-staged --concurrent false --config lint-staged.config.mjs
-symbiote clean --env NODE_NO_WARNINGS=1 --only-empty-directories --hush --scope unlimited
+const log = createGenericLogger({ namespace: 'husky-hook:pre-commit' });
+if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+  log.warn('skipped pre-commit hook due to rebase');
+} else {
+  const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
+
+  if (!isInSimpleVerificationMode) {
+    await runWithInheritedIo('npm', ['run', 'lint:package']);
+  }
+
+  await runWithInheritedIo(
+    'npx',
+    ['lint-staged', '--concurrent', 'false', '--config', 'lint-staged.config.mjs'],
+    { env: { NODE_NO_WARNINGS: '1' } }
+  );
+
+  await runWithInheritedIo('npx', [
+    'symbiote',
+    'clean',
+    '--env',
+    'NODE_NO_WARNINGS=1',
+    '--only-empty-directories',
+    '--hush',
+    '--scope',
+    'unlimited'
+  ]);
+}
 "
 `;
 
@@ -6624,94 +8029,241 @@ scope: unlimited
 ⏶⏷⏶⏷⏶
 #!/bin/sh
 
-# TODO: replace these uglies with JS (mjs) scripts
+node .husky/pre-push.mjs
+"
+`;
 
-beginswith() { case $2 in "$1"*) true;; *) false;; esac; }
-prepend() { while read -r line; do echo "\${1}\${line}"; done; }
+exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husky generates expected assets for polyrepo: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.husky/pre-push.mjs 1`] = `
+"key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.husky/pre-push.mjs
+scope: unlimited
+⏶⏷⏶⏷⏶
+/* eslint-disable @typescript-eslint/prefer-string-starts-ends-with */
 
-if beginswith 'rebase' "$GIT_REFLOG_ACTION"; then
-  echo 'husky-hook::pre-push: pushing commits in the middle of a rebase/merge/cherry-pick is not allowed!'
-  exit 1
-fi
+import { readFile } from 'node:fs/promises';
 
-echo 'husky-hook::pre-push: checking for commits that should not be pushed...'
+import {
+  // {@symbiote/notInvalid @-xun/run}
+  run
+} from '@-xun/run';
 
-log=$(git log HEAD --oneline --not --remotes)
+import { createGenericLogger } from 'rejoinder';
 
-set +e
+const log = createGenericLogger({ namespace: 'husky-hook:pre-push' });
+const errorOutputPrefix = '  ⋗ ';
 
-incompleteCommitsGrep=$(echo "$log" | grep -q -i -e 'mergeme' -e '\\[WIP\\]' -e '\\[NOPUSH\\]'; echo $?)
+// ! vvv
+// !   - Paths should always use forward slashes as separators
+// !   - Regexps must not use the global (g) flag
 
-# ? In the below lines, 'x' is passed as the "zero parameter" so "$@" spits out
-# ? the right stuff. Stuff like this won't be an issue when we switch this to JS
+// ? Files with paths matching any of these regexps are never considered
+// ? "interesting"
+const uninterestingFilePathsRegExps = [
+  /(^|\\/)\\.husky\\//,
+  /(^|\\/)assets\\/templates\\/husky\\//,
+  /CHANGELOG\\.md$/,
+  /\\.snap$/
+];
 
-interestingXxxFiles=$(git ls-tree -r --full-tree --name-only HEAD | grep -vE '(^|/)(\\.husky|assets/templates/husky)/' | grep -vE '\\.snap$')
+// ? Files with paths matching this regexp are considered package.json files
+const interestingPackageJsonPathRegExp = /^(packages\\/[^/]+\\/)?package\\.json$/;
 
-incompleteXxxFilesGrep=$(echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -F -e "XXX: " "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+// ? Files with paths matching this regexp are considered markdown files
+const interestingMarkdownPathRegExp = /\\.md$/;
 
-interestingPackageJsonFiles=$(echo "$interestingXxxFiles" | grep -E '^(packages/[^/]+/)?package\\.json$')
+// ? Files with paths matching this regexp are considered test files
+const interestingTestPathRegExp = /\\.test\\.ts$/;
 
-incompletePackageJsonFilesGrep=$(echo "$interestingPackageJsonFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -P -e "--assets-preset [^\\x22]*?(\\x27|((basic|cli|lib|react|nextjs) [^\\x22]*){3})" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+// ? A commit message matching any of these regexps will prevent pushes
+const unpushableCommitMessageMatchers = [
+  {
+    regexp: /mergeme/i,
+    reason: 'Incomplete commits (contains "mergeme" in their headers)'
+  },
+  {
+    regexp: /\\[wip]/i,
+    reason: 'Incomplete commits (contains "[wip]" in their headers)'
+  },
+  {
+    regexp: /\\[nopush]/i,
+    reason: 'Incomplete commits (contains "[nopush]" in their headers)'
+  }
+];
 
-interestingMdFiles=$(echo "$interestingXxxFiles" | grep '\\.md$' | grep -vE '(^|/)(src|test|docs)/' | grep -vE '/CHANGELOG.md$')
+// ? Interesting files' contents matching any of these regexps will prevent
+// ? pushes
+const unpushableFileContentMatchers = [
+  { regexp: /\\bXXX:/i, reason: 'Files at HEAD with "XXX" error comments' }
+];
 
-incompleteMdFilesGrep=$(echo "$interestingMdFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -F -e "-✄-" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+// ? Interesting package.json files' contents matching any of these regexps will
+// ? prevent pushes
+const unpushablePackageJsonFileContentMatchers = [
+  {
+    regexp: /--assets-preset [^"]*?('|((basic|cli|lib|react|nextjs) [^"]*){3})/i,
+    reason: 'Root package.json files at HEAD with incomplete scripts'
+  }
+];
 
-interestingTestFiles=$(echo "$interestingXxxFiles" | grep '\\.test\\.ts$')
+// ? Interesting markdown files' contents matching any of these regexps will
+// ? prevent pushes
+const unpushableMarkdownFileContentMatchers = [
+  {
+    regexp: /-✄-/iu,
+    reason: 'Markdown files at HEAD with unmerged replacer regions'
+  }
+];
 
-incompleteTestFilesGrep=$(echo "$interestingTestFiles" | xargs -d '\\n' -P 0 sh -c 'if grep -q -i -E -e "(it|test|describe)\\.only\\(" "$@"; then exit 255; else true; fi' 'x' 1>/dev/null 2>&1; echo $?)
+// ? Interesting test files' contents matching any of these regexps will prevent
+// ? pushes
+const unpushableTestFileContentMatchers = [
+  {
+    regexp: /(it|test|describe)\\.only\\(/,
+    reason: 'Test files at HEAD with erroneously focused tests'
+  }
+];
 
-set -e
+// ! ^^^
 
-# ? Make sure no commits to be pushed contain "mergeme" etc in their headers, no
-# ? relevant markdown files contain "-✄-" in their contents, no files anywhere
-# ? anywhere contain "XXX: " in their contents, no test files contain
-# ? erroneously focused tests, and no package.json files have incomplete scripts
-if [ "$incompleteCommitsGrep" = 0 ] || [ "$incompleteMdFilesGrep" != 0 ] || [ "$incompleteXxxFilesGrep" != 0 ] || [ "$incompleteTestFilesGrep" != 0 ] || [ "$incompletePackageJsonFilesGrep" != 0 ]; then
-  echo 'husky-hook::pre-push: BAD COMMIT(S) DETECTED!'
-  echo 'husky-hook::pre-push: merge, delete, reword, or otherwise rectify the following commits before trying again:'
+if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+  log.error(
+    'Pushing commits in the middle of a rebase/merge/cherry-pick is not allowed!'
+  );
 
-  if [ "$incompleteCommitsGrep" = 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: incomplete commits (e.g. WIP, mergeme, NOPUSH):'
-    echo
-    echo "$log" | grep -i -e 'mergeme' -e '\\[WIP\\]' -e '\\[NOPUSH\\]' | prepend '  ⋗ '
-  fi
+  process.exitCode = 1;
+} else {
+  log('Checking for commits that should not be pushed...');
 
-  if [ "$incompleteMdFilesGrep" != 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: markdown files at HEAD with unmerged replacer regions:'
-    echo
-    echo "$interestingMdFiles" | xargs -d '\\n' -P 0 grep -i -l -H -F -e '-✄-' | prepend '  ⋗ '
-  fi
+  const [{ stdout: gitLogCommits }, { stdout: gitLsTreeFiles }] = await Promise.all([
+    run('git', ['log', 'HEAD', '--oneline', '--not', '--remotes'], { lines: true }),
+    run('git', ['ls-tree', '-r', '--full-tree', '--name-only', 'HEAD'], { lines: true })
+  ]);
 
-  if [ "$incompleteXxxFilesGrep" != 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: files at HEAD with "XXX" error comments:'
-    echo
-    echo "$interestingXxxFiles" | xargs -d '\\n' -P 0 grep -l -H -F -e 'XXX: ' | prepend '  ⋗ '
-  fi
+  const interestingFilePaths = gitLsTreeFiles.filter((path) =>
+    uninterestingFilePathsRegExps.some((regexp) => !regexp.test(path))
+  );
 
-  if [ "$incompleteTestFilesGrep" != 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: files at HEAD with erroneously focused tests:'
-    echo
-    echo "$interestingTestFiles" | xargs -d '\\n' -P 0 grep -i -l -H -E -e '(it|test|describe)\\.only\\(' | prepend '  ⋗ '
-  fi
+  /** @type {{[reason: string]: string[]}} */
+  const unpushableCommitsLogLines = reduce(
+    gitLogCommits.flatMap((line) =>
+      unpushableCommitMessageMatchers
+        .filter(({ regexp }) => regexp.test(line))
+        .map(toEntry(line))
+    )
+  );
 
-  if [ "$incompletePackageJsonFilesGrep" != 0 ]; then
-    echo
-    echo 'husky-hook::pre-push: package.json files at HEAD with incomplete scripts:'
-    echo
-    echo "$interestingPackageJsonFiles" | xargs -d '\\n' -P 0 grep -i -l -H -P -e "--assets-preset [^\\x22]*?(\\x27|((basic|cli|lib|react|nextjs) [^\\x22]*){3})" | prepend '  ⋗ '
-  fi
+  /** @type {{[reason: string]: string[]}} */
+  const unpushableFilePaths = reduce(
+    (
+      await Promise.all(
+        interestingFilePaths.map(async (path) => {
+          // ? If the file is not readable, then skip it
+          const fileContents = await readFile(path, 'utf8').catch(() => undefined);
+          const result = [];
 
-  echo
-  exit 2;
-else
-  echo 'husky-hook::pre-push: ✅'
-  exit 0;
-fi
+          const isInterestingPackageJson = interestingPackageJsonPathRegExp.test(path);
+          const isInterestingMarkdown = interestingMarkdownPathRegExp.test(path);
+          const isInterestingTest = interestingTestPathRegExp.test(path);
+
+          if (!fileContents) {
+            return result;
+          }
+
+          result.push(
+            ...unpushableFileContentMatchers
+              .filter(({ regexp }) => regexp.test(fileContents))
+              .map(toEntry(path))
+          );
+
+          if (isInterestingPackageJson) {
+            result.push(
+              ...unpushablePackageJsonFileContentMatchers
+                .filter(({ regexp }) => regexp.test(fileContents))
+                .map(toEntry(path))
+            );
+          }
+
+          if (isInterestingMarkdown) {
+            result.push(
+              ...unpushableMarkdownFileContentMatchers
+                .filter(({ regexp }) => regexp.test(fileContents))
+                .map(toEntry(path))
+            );
+          }
+
+          if (isInterestingTest) {
+            result.push(
+              ...unpushableTestFileContentMatchers
+                .filter(({ regexp }) => regexp.test(fileContents))
+                .map(toEntry(path))
+            );
+          }
+
+          return result;
+        })
+      )
+    ).flat()
+  );
+
+  const hasUnpushableCommits = !!Object.keys(unpushableCommitsLogLines).length;
+  const hasUnpushableFiles = !!Object.keys(unpushableFilePaths).length;
+
+  if (hasUnpushableCommits || hasUnpushableFiles) {
+    log.error('PUSH ABORTED: BAD COMMIT(S) DETECTED!');
+    log.error('Rectify the following issues before trying again:');
+
+    Object.entries(unpushableCommitsLogLines).forEach(([reason, lines]) => {
+      log.newline();
+      log.error(\`\${reason}:\`);
+      log.newline();
+
+      lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
+    });
+
+    Object.entries(unpushableFilePaths).forEach(([reason, lines]) => {
+      log.newline();
+      log.error(\`\${reason}:\`);
+      log.newline();
+
+      lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
+    });
+
+    process.exitCode = 2;
+  } else {
+    log('✅');
+    process.exitCode = 0;
+  }
+}
+
+/**
+ * Returns a function that maps a RegExp-reason object to a reason-value object
+ * entry.
+ *
+ * @param {string} value
+ * @returns {(target: typeof unpushableCommitMessageMatchers[number]) => [
+ *  string, string
+ * ]}
+ */
+function toEntry(value) {
+  return ({ reason }) => [reason, value];
+}
+
+/**
+ * Reduces \`keysValuesArray\` to an object of string keys and aggregated string
+ * array values.
+ *
+ * @param {string[][]} keysValuesArray
+ */
+function reduce(keysValuesArray) {
+  /** @type {Record<string, string[]>} */
+  const aggregate = {};
+
+  for (const [key, value] of keysValuesArray) {
+    aggregate[key] ??= [];
+    aggregate[key].push(value);
+  }
+
+  return aggregate;
+}
 "
 `;
 
