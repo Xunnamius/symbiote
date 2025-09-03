@@ -8,7 +8,7 @@
 
 > **makeReplacerRegionIdMatcherRegExp**(`id`, `__namedParameters`): `RegExp`
 
-Defined in: [src/util.ts:186](https://github.com/Xunnamius/symbiote/blob/5baec034070630bef8d87e6af86e863ce8273a75/src/util.ts#L186)
+Defined in: [src/util.ts:186](https://github.com/Xunnamius/symbiote/blob/79d395cced979d17188580f3f3b776aa6e57df18/src/util.ts#L186)
 
 Create a regular expression that will match a specific replacer region in a
 string. Contains one unnamed matching group by default: `contents`.

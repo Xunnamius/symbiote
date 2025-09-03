@@ -8,7 +8,7 @@
 
 > `const` **wellKnownCommitTypes**: `NonNullable`\<`XchangelogSpec`\[`"types"`\]\>
 
-Defined in: [src/assets/transformers/\_conventional.config.cjs.ts:269](https://github.com/Xunnamius/symbiote/blob/5baec034070630bef8d87e6af86e863ce8273a75/src/assets/transformers/_conventional.config.cjs.ts#L269)
+Defined in: [src/assets/transformers/\_conventional.config.cjs.ts:269](https://github.com/Xunnamius/symbiote/blob/79d395cced979d17188580f3f3b776aa6e57df18/src/assets/transformers/_conventional.config.cjs.ts#L269)
 
 These are the only conventional commit types supported by symbiote-based
 pipelines and are therefore considered "well known".
