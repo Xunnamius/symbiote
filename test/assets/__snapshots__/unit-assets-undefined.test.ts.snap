@@ -5866,7 +5866,9 @@ const errorOutputPrefix = '  ⋗ ';
 // ? "interesting"
 const uninterestingFilePathsRegExps = [
   /(^|\\/)\\.husky\\//,
+  /(^|\\/)docs\\//,
   /(^|\\/)assets\\/templates\\/husky\\//,
+  /(^|\\/)assets\\/transformers\\/_eslint/,
   /CHANGELOG\\.md$/,
   /\\.snap$/
 ];
@@ -5946,7 +5948,7 @@ if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
   ]);
 
   const interestingFilePaths = gitLsTreeFiles.filter((path) =>
-    uninterestingFilePathsRegExps.some((regexp) => !regexp.test(path))
+    uninterestingFilePathsRegExps.every((regexp) => !regexp.test(path))
   );
 
   /** @type {{[reason: string]: string[]}} */
@@ -6201,7 +6203,9 @@ const errorOutputPrefix = '  ⋗ ';
 // ? "interesting"
 const uninterestingFilePathsRegExps = [
   /(^|\\/)\\.husky\\//,
+  /(^|\\/)docs\\//,
   /(^|\\/)assets\\/templates\\/husky\\//,
+  /(^|\\/)assets\\/transformers\\/_eslint/,
   /CHANGELOG\\.md$/,
   /\\.snap$/
 ];
@@ -6281,7 +6285,7 @@ if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
   ]);
 
   const interestingFilePaths = gitLsTreeFiles.filter((path) =>
-    uninterestingFilePathsRegExps.some((regexp) => !regexp.test(path))
+    uninterestingFilePathsRegExps.every((regexp) => !regexp.test(path))
   );
 
   /** @type {{[reason: string]: string[]}} */
@@ -6536,7 +6540,9 @@ const errorOutputPrefix = '  ⋗ ';
 // ? "interesting"
 const uninterestingFilePathsRegExps = [
   /(^|\\/)\\.husky\\//,
+  /(^|\\/)docs\\//,
   /(^|\\/)assets\\/templates\\/husky\\//,
+  /(^|\\/)assets\\/transformers\\/_eslint/,
   /CHANGELOG\\.md$/,
   /\\.snap$/
 ];
@@ -6616,7 +6622,7 @@ if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
   ]);
 
   const interestingFilePaths = gitLsTreeFiles.filter((path) =>
-    uninterestingFilePathsRegExps.some((regexp) => !regexp.test(path))
+    uninterestingFilePathsRegExps.every((regexp) => !regexp.test(path))
   );
 
   /** @type {{[reason: string]: string[]}} */
@@ -6871,7 +6877,9 @@ const errorOutputPrefix = '  ⋗ ';
 // ? "interesting"
 const uninterestingFilePathsRegExps = [
   /(^|\\/)\\.husky\\//,
+  /(^|\\/)docs\\//,
   /(^|\\/)assets\\/templates\\/husky\\//,
+  /(^|\\/)assets\\/transformers\\/_eslint/,
   /CHANGELOG\\.md$/,
   /\\.snap$/
 ];
@@ -6951,7 +6959,7 @@ if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
   ]);
 
   const interestingFilePaths = gitLsTreeFiles.filter((path) =>
-    uninterestingFilePathsRegExps.some((regexp) => !regexp.test(path))
+    uninterestingFilePathsRegExps.every((regexp) => !regexp.test(path))
   );
 
   /** @type {{[reason: string]: string[]}} */
@@ -7206,7 +7214,9 @@ const errorOutputPrefix = '  ⋗ ';
 // ? "interesting"
 const uninterestingFilePathsRegExps = [
   /(^|\\/)\\.husky\\//,
+  /(^|\\/)docs\\//,
   /(^|\\/)assets\\/templates\\/husky\\//,
+  /(^|\\/)assets\\/transformers\\/_eslint/,
   /CHANGELOG\\.md$/,
   /\\.snap$/
 ];
@@ -7286,7 +7296,7 @@ if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
   ]);
 
   const interestingFilePaths = gitLsTreeFiles.filter((path) =>
-    uninterestingFilePathsRegExps.some((regexp) => !regexp.test(path))
+    uninterestingFilePathsRegExps.every((regexp) => !regexp.test(path))
   );
 
   /** @type {{[reason: string]: string[]}} */
@@ -7541,7 +7551,9 @@ const errorOutputPrefix = '  ⋗ ';
 // ? "interesting"
 const uninterestingFilePathsRegExps = [
   /(^|\\/)\\.husky\\//,
+  /(^|\\/)docs\\//,
   /(^|\\/)assets\\/templates\\/husky\\//,
+  /(^|\\/)assets\\/transformers\\/_eslint/,
   /CHANGELOG\\.md$/,
   /\\.snap$/
 ];
@@ -7621,7 +7633,7 @@ if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
   ]);
 
   const interestingFilePaths = gitLsTreeFiles.filter((path) =>
-    uninterestingFilePathsRegExps.some((regexp) => !regexp.test(path))
+    uninterestingFilePathsRegExps.every((regexp) => !regexp.test(path))
   );
 
   /** @type {{[reason: string]: string[]}} */
@@ -7876,7 +7888,9 @@ const errorOutputPrefix = '  ⋗ ';
 // ? "interesting"
 const uninterestingFilePathsRegExps = [
   /(^|\\/)\\.husky\\//,
+  /(^|\\/)docs\\//,
   /(^|\\/)assets\\/templates\\/husky\\//,
+  /(^|\\/)assets\\/transformers\\/_eslint/,
   /CHANGELOG\\.md$/,
   /\\.snap$/
 ];
@@ -7956,7 +7970,7 @@ if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
   ]);
 
   const interestingFilePaths = gitLsTreeFiles.filter((path) =>
-    uninterestingFilePathsRegExps.some((regexp) => !regexp.test(path))
+    uninterestingFilePathsRegExps.every((regexp) => !regexp.test(path))
   );
 
   /** @type {{[reason: string]: string[]}} */
@@ -8211,7 +8225,9 @@ const errorOutputPrefix = '  ⋗ ';
 // ? "interesting"
 const uninterestingFilePathsRegExps = [
   /(^|\\/)\\.husky\\//,
+  /(^|\\/)docs\\//,
   /(^|\\/)assets\\/templates\\/husky\\//,
+  /(^|\\/)assets\\/transformers\\/_eslint/,
   /CHANGELOG\\.md$/,
   /\\.snap$/
 ];
@@ -8291,7 +8307,7 @@ if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
   ]);
 
   const interestingFilePaths = gitLsTreeFiles.filter((path) =>
-    uninterestingFilePathsRegExps.some((regexp) => !regexp.test(path))
+    uninterestingFilePathsRegExps.every((regexp) => !regexp.test(path))
   );
 
   /** @type {{[reason: string]: string[]}} */

@@ -98,7 +98,7 @@ if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
   ]);
 
   const interestingFilePaths = gitLsTreeFiles.filter((path) =>
-    uninterestingFilePathsRegExps.some((regexp) => !regexp.test(path))
+    uninterestingFilePathsRegExps.every((regexp) => !regexp.test(path))
   );
 
   /** @type {{[reason: string]: string[]}} */
