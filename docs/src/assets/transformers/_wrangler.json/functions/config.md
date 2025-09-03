@@ -8,7 +8,7 @@
 
 > **config**(): `object`
 
-Defined in: [src/assets/transformers/\_wrangler.json.ts:13](https://github.com/Xunnamius/symbiote/blob/bf93fc6ee8086ef7d92447ad716f3811a334edee/src/assets/transformers/_wrangler.json.ts#L13)
+Defined in: [src/assets/transformers/\_wrangler.json.ts:13](https://github.com/Xunnamius/symbiote/blob/5baec034070630bef8d87e6af86e863ce8273a75/src/assets/transformers/_wrangler.json.ts#L13)
 
 ## Returns
 
