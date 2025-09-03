@@ -1,4 +1,8 @@
-import { runWithInheritedIo } from '@-xun/run';
+import {
+  // {@symbiote/notInvalid @-xun/run}
+  runWithInheritedIo
+} from '@-xun/run';
+
 import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:commit-msg' });
