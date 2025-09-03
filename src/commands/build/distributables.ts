@@ -1518,7 +1518,7 @@ distrib root: ${absoluteOutputDirPath}
               );
 
               for (const [filepath, specifiers_] of distImportEntries) {
-                const dbg1 = dbg.extend('1-prod');
+                const dbg1 = dbg.extend('inv-prod');
                 const isTypescriptDefinitionFile = filepath.endsWith('.d.ts');
                 const specifiers = specifiers_.normal.union(specifiers_.typeOnly);
 
@@ -1526,18 +1526,37 @@ distrib root: ${absoluteOutputDirPath}
                 dbg1('isTypescriptDefinitionFile: %O', isTypescriptDefinitionFile);
 
                 for (const specifier of specifiers) {
+                  const isAbsoluteImport = isAbsolutePath(specifier);
+                  const isRelativeImport = isLocalLookingRegExp.test(specifier);
+                  const packageName = specifierToPackageName(specifier);
+
+                  dbg1(
+                    'evaluating package name <== specifier: %O <== %O',
+                    packageName,
+                    specifier
+                  );
+
                   if (shouldSkipCheckForSpecifier(specifier, 'invalid')) {
-                    dbg1.warn('ignored (explicitly skipped) specifier: %O', specifier);
+                    if (isAbsoluteImport || isRelativeImport) {
+                      dbg1.warn('ignored (explicitly skipped) specifier: %O', specifier);
+                    } else {
+                      distImportPackages.add(packageName);
+                      dbg1.warn(
+                        'ignored (explicitly skipped but presence noted) specifier: %O',
+                        specifier
+                      );
+                    }
+
                     continue;
                   }
 
                   // ? Is the specifier erroneously an absolute import?
-                  if (isAbsolutePath(specifier)) {
+                  if (isAbsoluteImport) {
                     dbg1.error('absolute specifier: %O', specifier);
                     distLocalImportsOutsideDist.push([filepath, specifier]);
                   }
                   // ? Is the specifier a relative import?
-                  else if (isLocalLookingRegExp.test(specifier)) {
+                  else if (isRelativeImport) {
                     const absoluteSpecifier = toAbsolutePath(
                       toDirname(filepath),
                       specifier
@@ -1588,17 +1607,14 @@ distrib root: ${absoluteOutputDirPath}
                   }
                   // ? Must be an external NPM dependency
                   else {
-                    const packageName = specifierToPackageName(specifier);
                     distImportPackages.add(packageName);
-
-                    dbg1('package specifier: %O <== %O', packageName, specifier);
 
                     // ? Is it erroneously missing in package.json production
                     // ? dependencies?
                     if (!prodDeps.has(packageName)) {
                       if (shouldSkipCheckForSpecifier(packageName, 'invalid')) {
                         dbg1.warn(
-                          'ignored (explicitly skipped) missing package specifier: %O <== %O',
+                          'ignored (explicitly skipped but presence noted) missing package specifier: %O <== %O',
                           packageName,
                           specifier
                         );
@@ -1619,7 +1635,7 @@ distrib root: ${absoluteOutputDirPath}
               }
 
               for (const [filepath, specifiers_] of otherImportEntries) {
-                const dbg2 = dbg.extend('2-dev');
+                const dbg2 = dbg.extend('inv-dev');
                 const specifiers = specifiers_.normal.union(specifiers_.typeOnly);
 
                 dbg2('checking %O import specifiers in %O', specifiers.size, filepath);
@@ -1639,27 +1655,37 @@ distrib root: ${absoluteOutputDirPath}
                   const specifier =
                     (mappedPath ? './' + mappedPath : undefined) ?? specifier_;
 
+                  const packageName = specifierToPackageName(specifier);
+
+                  dbg2(
+                    'evaluating package name <== specifier: %O <== %O',
+                    packageName,
+                    specifier
+                  );
+
                   if (
                     isAbsolutePath(specifier) ||
                     isLocalLookingRegExp.test(specifier)
                   ) {
                     dbg2.warn('ignored (skipped) specifier: %O', specifier);
                     continue;
-                  } else if (shouldSkipCheckForSpecifier(specifier, 'invalid')) {
-                    dbg2.warn('ignored (explicitly skipped) specifier: %O', specifier);
-                    continue;
                   }
 
-                  const packageName = specifierToPackageName(specifier);
                   otherImportPackages.add(packageName);
 
-                  dbg2('package specifier: %O <== %O', packageName, specifier);
+                  if (shouldSkipCheckForSpecifier(specifier, 'invalid')) {
+                    dbg2.warn(
+                      'ignored (explicitly skipped but presence noted) specifier: %O',
+                      specifier
+                    );
+                    continue;
+                  }
 
                   // ? Is it erroneously missing in package.json dependencies?
                   if (!allDeps.has(packageName)) {
                     if (shouldSkipCheckForSpecifier(packageName, 'invalid')) {
                       dbg2.warn(
-                        'ignored (explicitly skipped) missing package specifier: %O <== %O',
+                        'ignored (explicitly skipped but presence noted) missing package specifier: %O <== %O',
                         packageName,
                         specifier
                       );
@@ -1681,7 +1707,7 @@ distrib root: ${absoluteOutputDirPath}
               // ? For prod dependencies in package.json, error if any are
               // ? extraneous with respect to dist files
               for (const packageName of prodDeps) {
-                const dbg3 = dbg.extend('3-prod');
+                const dbg3 = dbg.extend('ext-prod');
 
                 if (shouldSkipCheckForSpecifier(packageName, 'extraneous')) {
                   dbg3.warn('ignored (explicitly skipped) dependency: %O', packageName);
@@ -1707,7 +1733,7 @@ distrib root: ${absoluteOutputDirPath}
               // ? For dev dependencies in package.json, error if any are
               // ? extraneous with respect to non-dist files
               for (const packageName of devDeps) {
-                const dbg4 = dbg.extend('4-dev');
+                const dbg4 = dbg.extend('ext-dev');
 
                 if (shouldSkipCheckForSpecifier(packageName, 'extraneous')) {
                   dbg4.warn('ignored (explicitly skipped) dependency: %O', packageName);
