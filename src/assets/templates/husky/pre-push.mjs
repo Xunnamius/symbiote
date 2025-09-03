@@ -20,7 +20,9 @@ const errorOutputPrefix = '  ⋗ ';
 // ? "interesting"
 const uninterestingFilePathsRegExps = [
   /(^|\/)\.husky\//,
+  /(^|\/)docs\//,
   /(^|\/)assets\/templates\/husky\//,
+  /(^|\/)assets\/transformers\/_eslint/,
   /CHANGELOG\.md$/,
   /\.snap$/
 ];
