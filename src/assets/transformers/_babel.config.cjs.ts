@@ -80,7 +80,7 @@ const dbgCoreJs = debug.extend('check-core');
 const dbgModuleExport = debug.extend('export');
 const dbgMakeReplacer = debug.extend('make-replacer');
 const dbgMakePlugin = debug.extend('make-plugin');
-const dbgReplacer = debug.extend('replacing');
+const dbgReplacing = debug.extend('replacing');
 const dbgResolver = debug.extend('resolving');
 
 const log = createGenericLogger({
@@ -784,9 +784,9 @@ function doCoreJsVersionChecksAndReturnHardcodedVersion({
 }
 
 /**
- * Takes a definition file (`.d.ts`) path relative to the project root and
- * returns a function that, when called, will return a path relative to the file
- * being transpiled by Babel after performing some light validation.
+ * Takes a path relative to the project root and returns a function that, when
+ * called, will return a path relative to the file being transpiled by Babel
+ * after performing some light validation.
  */
 function makeDistReplacerEntry(
   [specifierRegExp, rawProjectRootRelativeReplacerPath]: [string, RelativePath],
@@ -854,7 +854,7 @@ function makeDistReplacerEntry(
         specifierTargetProjectRootRelativeSourcePath ===
         toPath(specifierSubRootPrefix, 'package.json');
 
-      dbgReplacer.message(
+      dbgReplacing.message(
         'type %O regexp %O matched a specifier: %O imported from input file %O',
         type,
         specifierRegExp,
@@ -862,26 +862,26 @@ function makeDistReplacerEntry(
         inputPath
       );
 
-      dbgReplacer('originalSpecifier: %O', originalSpecifier);
-      dbgReplacer(
+      dbgReplacing('originalSpecifier: %O', originalSpecifier);
+      dbgReplacing(
         'specifierTargetWithOldExtension: %O',
         specifierTargetWithOldExtension
       );
-      dbgReplacer('specifierSubRootPrefix: %O', specifierSubRootPrefix);
-      dbgReplacer(
+      dbgReplacing('specifierSubRootPrefix: %O', specifierSubRootPrefix);
+      dbgReplacing(
         'inputFileOutputPathWithOldExtension: %O',
         inputFileOutputPathWithOldExtension
       );
-      dbgReplacer(
+      dbgReplacing(
         'specifierTargetProjectRootRelativeSourcePath: %O',
         specifierTargetProjectRootRelativeSourcePath
       );
-      dbgReplacer(
+      dbgReplacing(
         'isSpecifierTargetUnderAPackageRootNodeModules: %O',
         isSpecifierTargetUnderAPackageRootNodeModules
       );
-      dbgReplacer('isSpecifierTargetAPackageJson: %O', isSpecifierTargetAPackageJson);
-      dbgReplacer(
+      dbgReplacing('isSpecifierTargetAPackageJson: %O', isSpecifierTargetAPackageJson);
+      dbgReplacing(
         'isSpecifierTargetThePackageRootPackageJson: %O',
         isSpecifierTargetThePackageRootPackageJson
       );
@@ -899,14 +899,11 @@ function makeDistReplacerEntry(
       const isSpecifierTargetValidlyOutsideDistDirectory =
         // ? node_modules is always outside the ./dist directory
         isSpecifierTargetUnderAPackageRootNodeModules ||
-        // ? When cwd is not the root package, any package.json counts as
-        // ? outside the ./dist directory
-        (!isCwdPackageTheRootPackage && isSpecifierTargetAPackageJson) ||
-        // ? When cwd is the root package, sub-root package.json imports, while
-        // ? ill-advised, are not actually outside the ./dist directory
-        (isCwdPackageTheRootPackage && isSpecifierTargetThePackageRootPackageJson);
+        // ? The cwd package's package.json file is always outside the ./dist
+        // ? directory
+        isSpecifierTargetThePackageRootPackageJson;
 
-      dbgReplacer(
+      dbgReplacing(
         'isSpecifierTargetValidlyOutsideDistDirectory: %O',
         isSpecifierTargetValidlyOutsideDistDirectory
       );
@@ -932,7 +929,7 @@ function makeDistReplacerEntry(
               )
       );
 
-      dbgReplacer('specifierTargetOutputPath: %O', specifierTargetOutputPath);
+      dbgReplacing('specifierTargetOutputPath: %O', specifierTargetOutputPath);
 
       // * Note how we purposely avoided adding missing extensions to the
       // * path above. Also note that the outputFile
