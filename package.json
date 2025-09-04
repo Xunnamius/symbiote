@@ -147,7 +147,7 @@
     "babel-jest": "next",
     "babel-plugin-explicit-exports-references": "^1.0.2",
     "babel-plugin-transform-rewrite-imports": "^1.5.4",
-    "bidirectional-resolve": "^2.0.2",
+    "bidirectional-resolve": "^2.0.3",
     "confusing-browser-globals": "^1.0.11",
     "core-js": "^3.45.1",
     "doctoc": "^2.2.1",
