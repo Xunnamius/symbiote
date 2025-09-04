@@ -8,7 +8,7 @@
 
 > **generateRootOnlyAssets**(`transformerContext`, `adder`): `Promise`\<[`Asset`](../type-aliases/Asset.md)[]\>
 
-Defined in: [src/assets.ts:841](https://github.com/Xunnamius/symbiote/blob/cef28b21a1184891fa2969c3a3fa80ab4446b3b6/src/assets.ts#L841)
+Defined in: [src/assets.ts:841](https://github.com/Xunnamius/symbiote/blob/3708c142929779cedae6f80fd8d92e8d468daaf9/src/assets.ts#L841)
 
 Takes a [TransformerContext](../type-aliases/TransformerContext.md) and an adder function and returns an array
 of [Asset](../type-aliases/Asset.md)s when the current package is a RootPackage or scope

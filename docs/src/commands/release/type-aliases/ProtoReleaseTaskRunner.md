@@ -8,7 +8,7 @@
 
 > **ProtoReleaseTaskRunner** = (`executionContext`, `argv`, `taskContext`) => `ReturnType`\<[`ReleaseTaskRunner`](ReleaseTaskRunner.md)\>
 
-Defined in: [src/commands/release.ts:158](https://github.com/Xunnamius/symbiote/blob/cef28b21a1184891fa2969c3a3fa80ab4446b3b6/src/commands/release.ts#L158)
+Defined in: [src/commands/release.ts:158](https://github.com/Xunnamius/symbiote/blob/3708c142929779cedae6f80fd8d92e8d468daaf9/src/commands/release.ts#L158)
 
 A partial release task with loose typings for quickly authoring new tasks.
 

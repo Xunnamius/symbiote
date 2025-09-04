@@ -8,7 +8,7 @@
 
 > **writeFile**(`path`, `contents`): `Promise`\<`void`\>
 
-Defined in: [src/util.ts:1052](https://github.com/Xunnamius/symbiote/blob/cef28b21a1184891fa2969c3a3fa80ab4446b3b6/src/util.ts#L1052)
+Defined in: [src/util.ts:1052](https://github.com/Xunnamius/symbiote/blob/3708c142929779cedae6f80fd8d92e8d468daaf9/src/util.ts#L1052)
 
 ## Parameters
 

@@ -8,4 +8,4 @@
 
 > **transformer**: [`Transformer`](../../../type-aliases/Transformer.md)
 
-Defined in: [src/assets/transformers/\_commitlint.config.mjs.ts:45](https://github.com/Xunnamius/symbiote/blob/cef28b21a1184891fa2969c3a3fa80ab4446b3b6/src/assets/transformers/_commitlint.config.mjs.ts#L45)
+Defined in: [src/assets/transformers/\_commitlint.config.mjs.ts:45](https://github.com/Xunnamius/symbiote/blob/3708c142929779cedae6f80fd8d92e8d468daaf9/src/assets/transformers/_commitlint.config.mjs.ts#L45)

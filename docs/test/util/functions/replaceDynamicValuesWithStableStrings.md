@@ -8,7 +8,7 @@
 
 > **replaceDynamicValuesWithStableStrings**(`str`): `string`
 
-Defined in: [test/util.ts:106](https://github.com/Xunnamius/symbiote/blob/cef28b21a1184891fa2969c3a3fa80ab4446b3b6/test/util.ts#L106)
+Defined in: [test/util.ts:106](https://github.com/Xunnamius/symbiote/blob/3708c142929779cedae6f80fd8d92e8d468daaf9/test/util.ts#L106)
 
 ## Parameters
 

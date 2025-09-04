@@ -6,7 +6,7 @@
 
 # Enumeration: UnlimitedGlobalScope
 
-Defined in: [src/configure.ts:108](https://github.com/Xunnamius/symbiote/blob/cef28b21a1184891fa2969c3a3fa80ab4446b3b6/src/configure.ts#L108)
+Defined in: [src/configure.ts:108](https://github.com/Xunnamius/symbiote/blob/3708c142929779cedae6f80fd8d92e8d468daaf9/src/configure.ts#L108)
 
 This enum represents a subset of [DefaultGlobalScope](DefaultGlobalScope.md), and is useful for type
 checking commands that only operate in the "unlimited" scope.
@@ -21,7 +21,7 @@ checking commands that only operate in the "unlimited" scope.
 
 > **Unlimited**: `"unlimited"`
 
-Defined in: [src/configure.ts:112](https://github.com/Xunnamius/symbiote/blob/cef28b21a1184891fa2969c3a3fa80ab4446b3b6/src/configure.ts#L112)
+Defined in: [src/configure.ts:112](https://github.com/Xunnamius/symbiote/blob/3708c142929779cedae6f80fd8d92e8d468daaf9/src/configure.ts#L112)
 
 #### See
 

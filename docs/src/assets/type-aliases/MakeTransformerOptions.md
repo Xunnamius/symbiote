@@ -8,7 +8,7 @@
 
 > **MakeTransformerOptions** = `object`
 
-Defined in: [src/assets.ts:343](https://github.com/Xunnamius/symbiote/blob/cef28b21a1184891fa2969c3a3fa80ab4446b3b6/src/assets.ts#L343)
+Defined in: [src/assets.ts:343](https://github.com/Xunnamius/symbiote/blob/3708c142929779cedae6f80fd8d92e8d468daaf9/src/assets.ts#L343)
 
 Options to tweak the runtime of [makeTransformer](../functions/makeTransformer.md).
 
@@ -18,7 +18,7 @@ Options to tweak the runtime of [makeTransformer](../functions/makeTransformer.m
 
 > `optional` **trimContents**: `"start"` \| `"end"` \| `"both"` \| `"both-then-append-newline"` \| `false`
 
-Defined in: [src/assets.ts:349](https://github.com/Xunnamius/symbiote/blob/cef28b21a1184891fa2969c3a3fa80ab4446b3b6/src/assets.ts#L349)
+Defined in: [src/assets.ts:349](https://github.com/Xunnamius/symbiote/blob/3708c142929779cedae6f80fd8d92e8d468daaf9/src/assets.ts#L349)
 
 Whether the generated asset contents should be trimmed and how.
 

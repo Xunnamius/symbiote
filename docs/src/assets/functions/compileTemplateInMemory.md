@@ -8,7 +8,7 @@
 
 > **compileTemplateInMemory**(`rawTemplate`, `context`): `string`
 
-Defined in: [src/assets.ts:570](https://github.com/Xunnamius/symbiote/blob/cef28b21a1184891fa2969c3a3fa80ab4446b3b6/src/assets.ts#L570)
+Defined in: [src/assets.ts:570](https://github.com/Xunnamius/symbiote/blob/3708c142929779cedae6f80fd8d92e8d468daaf9/src/assets.ts#L570)
 
 Takes a string and returns that string with all handlebars-style "template
 variables" (e.g. `{{variableName}}`) with matching keys in `TemplateContext`

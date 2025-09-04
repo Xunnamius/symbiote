@@ -8,7 +8,7 @@
 
 > `const` **releaseScopes**: [`ThisPackage`](../../../configure/enumerations/ThisPackageGlobalScope.md#thispackage)[]
 
-Defined in: [src/commands/release.ts:89](https://github.com/Xunnamius/symbiote/blob/cef28b21a1184891fa2969c3a3fa80ab4446b3b6/src/commands/release.ts#L89)
+Defined in: [src/commands/release.ts:89](https://github.com/Xunnamius/symbiote/blob/3708c142929779cedae6f80fd8d92e8d468daaf9/src/commands/release.ts#L89)
 
 ## See
 

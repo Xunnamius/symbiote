@@ -8,7 +8,7 @@
 
 > **runGlobalPreChecks**(`__namedParameters`): `Promise`\<\{ `projectMetadata`: `ProjectMetadata`; \}\>
 
-Defined in: [src/util.ts:309](https://github.com/Xunnamius/symbiote/blob/cef28b21a1184891fa2969c3a3fa80ab4446b3b6/src/util.ts#L309)
+Defined in: [src/util.ts:309](https://github.com/Xunnamius/symbiote/blob/3708c142929779cedae6f80fd8d92e8d468daaf9/src/util.ts#L309)
 
 This function runs common checks against the runtime to ensure the
 environment is suitable for running symbiote.
