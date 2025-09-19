@@ -57,7 +57,7 @@ export const githubUrlRegExp = /github.com\/([^/]+)\/([^/]+?)(?:\.git)?$/;
 
 // TODO: generators should probably be simplified, they seem a little spaghetti
 
-export function generateBaseXPackageJson(
+function generateBaseXPackageJson(
   ...[
     incomingPackageJson,
     _,
@@ -249,7 +249,7 @@ export function generateBaseXPackageJson(
 }
 
 // * For the ROOT PACKAGE in a polyrepo
-export function generatePolyrepoXPackageJson(
+function generatePolyrepoXPackageJson(
   ...[
     incomingPackageJson,
     isHybridrepo,
@@ -292,7 +292,7 @@ export function generatePolyrepoXPackageJson(
 }
 
 // * For the ROOT PACKAGE in a non-hybrid monorepo
-export function generateNonHybridMonorepoProjectXPackageJson(
+function generateNonHybridMonorepoProjectXPackageJson(
   ...[
     incomingPackageJson,
     isHybridrepo,
@@ -372,7 +372,7 @@ export function generateNonHybridMonorepoProjectXPackageJson(
 }
 
 // * For the ROOT PACKAGE in a hybrid monorepo
-export function generateHybridrepoProjectXPackageJson(
+function generateHybridrepoProjectXPackageJson(
   ...[
     incomingPackageJson,
     isHybridrepo,
@@ -414,7 +414,7 @@ export function generateHybridrepoProjectXPackageJson(
 }
 
 // * For non-root packages within a monorepo/hybridrepo
-export function generateSubRootXPackageJson(
+function generateSubRootXPackageJson(
   ...[
     incomingPackageJson,
     isHybridrepo,
