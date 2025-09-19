@@ -8,4 +8,4 @@
 
 > `const` **dummyContext**: [`IncomingTransformerContext`](../../../src/assets/type-aliases/IncomingTransformerContext.md)
 
-Defined in: [test/util.ts:54](https://github.com/Xunnamius/symbiote/blob/3708c142929779cedae6f80fd8d92e8d468daaf9/test/util.ts#L54)
+Defined in: [test/util.ts:54](https://github.com/Xunnamius/symbiote/blob/25135a1844b8500302680a71b90428852179ec2c/test/util.ts#L54)

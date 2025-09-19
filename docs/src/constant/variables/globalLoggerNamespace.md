@@ -8,6 +8,6 @@
 
 > `const` **globalLoggerNamespace**: `"symbiote"` = `globalCliName`
 
-Defined in: [src/constant.ts:9](https://github.com/Xunnamius/symbiote/blob/3708c142929779cedae6f80fd8d92e8d468daaf9/src/constant.ts#L9)
+Defined in: [src/constant.ts:9](https://github.com/Xunnamius/symbiote/blob/25135a1844b8500302680a71b90428852179ec2c/src/constant.ts#L9)
 
 The CLI-wide namespace that appears in logger output.

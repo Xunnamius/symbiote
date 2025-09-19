@@ -19,9 +19,4 @@
 
 - [deriveGitHubUrl](functions/deriveGitHubUrl.md)
 - [deriveJsonRepositoryValue](functions/deriveJsonRepositoryValue.md)
-- [generateBaseXPackageJson](functions/generateBaseXPackageJson.md)
-- [generateHybridrepoProjectXPackageJson](functions/generateHybridrepoProjectXPackageJson.md)
-- [generateNonHybridMonorepoProjectXPackageJson](functions/generateNonHybridMonorepoProjectXPackageJson.md)
-- [generatePolyrepoXPackageJson](functions/generatePolyrepoXPackageJson.md)
-- [generateSubRootXPackageJson](functions/generateSubRootXPackageJson.md)
 - [parsePackageJsonRepositoryIntoOwnerAndRepo](functions/parsePackageJsonRepositoryIntoOwnerAndRepo.md)
