@@ -108,7 +108,7 @@
     "@-xun/js": "^2.0.0",
     "@-xun/memoize": "^1.1.0",
     "@-xun/project": "^2.0.11",
-    "@-xun/run": "^2.0.0",
+    "@-xun/run": "^2.0.1",
     "@-xun/types": "^1.3.0",
     "@arethetypeswrong/cli": "^0.18.2",
     "@babel/cli": "^7.28.3",
