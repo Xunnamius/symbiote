@@ -56,7 +56,7 @@ import type { AsStrictExecutionContext, ChildConfiguration } from '@-xun/cli';
 import type { ProjectMetadata, XPackageJson } from '@-xun/project';
 import type { RunOptions } from '@-xun/run';
 import type { ExtendedDebugger, ExtendedLogger } from 'rejoinder';
-import type { Merge, OmitIndexSignature, StringKeyOf } from 'type-fest';
+import type { KeyAsString, Merge, OmitIndexSignature } from 'type-fest';
 import type { CustomCliArguments as ProjectPrepareCliArguments } from 'universe:commands/project/prepare.ts';
 import type { CustomCliArguments as ProjectRenovateCliArguments } from 'universe:commands/project/renovate.ts';
 import type { GlobalCliArguments, GlobalExecutionContext } from 'universe:configure.ts';
@@ -170,7 +170,7 @@ export type ReleaseTask =
       id: number;
       skippable: boolean;
       allowMissingNpmScripts: boolean;
-      npmScripts: StringKeyOf<
+      npmScripts: KeyAsString<
         OmitIndexSignature<NonNullable<XPackageJson['scripts']>>
       >[];
       actionDescription?: string;

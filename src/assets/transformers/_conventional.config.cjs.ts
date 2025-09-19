@@ -618,7 +618,7 @@ export function moduleExport({
         });
 
         // ? Sort multi-line BC notes before single-line notes
-        commit.notes = commit.notes.sort((noteA, noteB) => {
+        commit.notes = commit.notes.toSorted((noteA, noteB) => {
           const noteAIsMultiline = noteA.text.includes('\n\n');
           const noteBIsMultiline = noteB.text.includes('\n\n');
 
