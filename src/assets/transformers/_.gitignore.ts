@@ -113,6 +113,8 @@ $RECYCLE.BIN
 *.lnk
 _book
 CertificateAuthorityCertificate.pem
+.pg_prove
+.prove
 
 # Custom
 `
