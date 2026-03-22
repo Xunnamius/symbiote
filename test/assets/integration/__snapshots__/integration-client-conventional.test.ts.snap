@@ -5,9 +5,11 @@ exports[`matches changelog snapshot when there are no semver tags in the repo 1`
 
 ### 💥 BREAKING CHANGES 💥
 
-* Changes [#55](https://github.com/fake-user/fake-repo/issues/55) [#66](https://github.com/fake-user/fake-repo/issues/66), and [#77](https://github.com/fake-user/fake-repo/issues/77) are huge.
+* **CHANGES: Not backwards compatible (GH-2) (GH-3).**
 
-* CHANGES: Not backwards compatible (GH-2) (GH-3).
+  This is due to [#1234<img alt="external reference" title="(this issue is from a different repository)" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==" />](https://github.com/other-fake-user/other-fake-repo/issues/1234).
+
+* Changes [#55](https://github.com/fake-user/fake-repo/issues/55) [#66](https://github.com/fake-user/fake-repo/issues/66), and [#77](https://github.com/fake-user/fake-repo/issues/77) are huge.
 
 * Continuously integrated.
 
@@ -15,7 +17,7 @@ exports[`matches changelog snapshot when there are no semver tags in the repo 1`
 
 ### ✨ Features
 
-* Amazing new module ([X](https://github.com/fake-user/fake-repo/commit/X)) <sup>see [#1234<img alt="external reference" title="(this issue is from a different repository)" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==" />](https://github.com/other-fake-user/other-fake-repo/issues/1234)</sup>
+* Amazing new module ([X](https://github.com/fake-user/fake-repo/commit/X))
 * **awesome:** address EXAMPLE-1 EXAMPLE-2 ([X](https://github.com/fake-user/fake-repo/commit/X))
 
 ### 🪄 Fixes
@@ -105,7 +107,7 @@ exports[`matches changelog snapshot when there are semver tags in the repo 1`] =
 
 ### ⚙️ Build system
 
-* **deps:** bump @dummy/package from 7.1.2 to 8.0.0 (thanks [@Xunnamius](https://github.com/Xunnamius), [@suimannux](https://github.com/suimannux) [@user1](https://github.com/user1)/[@user2](https://github.com/user2), [@user3](https://github.com/user3)/@+u%+(#bad email@aol.com with help from [@merchanz039f9](https://github.com/merchanz039f9)) ([X](https://github.com/fake-user/fake-repo/commit/X))
+* **deps:** bump @dummy/package from 7.1.2 to 8.0.0 (thanks [@Xunnamius](https://github.com/Xunnamius), [@suimannux](https://github.com/suimannux) [@user1](https://github.com/user1)/[@user2](https://github.com/user2), [@user3](https://github.com/user3)/@+u%+(bad email@aol.com with help from [@merchanz039f9](https://github.com/merchanz039f9)) ([X](https://github.com/fake-user/fake-repo/commit/X))
 
 ### fake-pkg[@0.2.1](https://github.com/fake-user/fake-repo/compare/fake-pkg@0.2.0...fake-pkg@0.2.1) (date)
 
@@ -125,9 +127,11 @@ exports[`matches changelog snapshot when there are semver tags in the repo 1`] =
 
 ### 💥 BREAKING CHANGES 💥
 
-* Changes [#55](https://github.com/fake-user/fake-repo/issues/55) [#66](https://github.com/fake-user/fake-repo/issues/66), and [#77](https://github.com/fake-user/fake-repo/issues/77) are huge.
+* **CHANGES: Not backwards compatible (GH-2) (GH-3).**
 
-* CHANGES: Not backwards compatible (GH-2) (GH-3).
+  This is due to [#1234<img alt="external reference" title="(this issue is from a different repository)" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==" />](https://github.com/other-fake-user/other-fake-repo/issues/1234).
+
+* Changes [#55](https://github.com/fake-user/fake-repo/issues/55) [#66](https://github.com/fake-user/fake-repo/issues/66), and [#77](https://github.com/fake-user/fake-repo/issues/77) are huge.
 
 * Continuously integrated.
 
@@ -147,7 +151,7 @@ exports[`matches changelog snapshot when there are semver tags in the repo 1`] =
 
 ### ✨ Features
 
-* Amazing new module ([X](https://github.com/fake-user/fake-repo/commit/X)) <sup>see [#1234<img alt="external reference" title="(this issue is from a different repository)" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==" />](https://github.com/other-fake-user/other-fake-repo/issues/1234)</sup>
+* Amazing new module ([X](https://github.com/fake-user/fake-repo/commit/X))
 * **awesome1:** addresses the issue brought up in [#133](https://github.com/fake-user/fake-repo/issues/133), [#233](https://github.com/fake-user/fake-repo/issues/233) ([X](https://github.com/fake-user/fake-repo/commit/X))
 * **awesome2:** [#331<img alt="external reference" title="(this issue is from a different repository)" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==" />](https://github.com/owner/repo/issues/331), [#441<img alt="external reference" title="(this issue is from a different repository)" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==" />](https://github.com/owner/repo/issues/441), and [#551](https://github.com/fake-user/fake-repo/issues/551) ([X](https://github.com/fake-user/fake-repo/commit/X))
 * **awesome:** address EXAMPLE-1 EXAMPLE-2 ([X](https://github.com/fake-user/fake-repo/commit/X))

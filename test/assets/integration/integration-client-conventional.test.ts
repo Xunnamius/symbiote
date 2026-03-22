@@ -28,10 +28,9 @@ import {
   reconfigureJestGlobalsToSkipTestsInThisFileIfRequested
 } from 'testverse:util.ts';
 
-import type {
-  XchangelogConfig,
-  XchangelogOptions
-} from '@-xun/changelog' with { 'resolution-mode': 'import' };
+import type { XchangelogConfig, XchangelogOptions } from '@-xun/changelog' with {
+  'resolution-mode': 'import'
+};
 
 import type { Promisable } from 'type-fest';
 
@@ -1301,7 +1300,7 @@ function generatePatchesForEnvironment9(): TestEnvironmentPatch[] {
     {
       messages: [
         'fix: use npm@5 (@username)',
-        'build(deps): bump @dummy/package from 7.1.2 to 8.0.0 (thanks @Xunnamius, @suimannux @user1/@user2, @user3/@+u%+(#bad email@aol.com with help from @merchanz039f9)\n\nBREAKING CHANGE: The Change is huge. Big. Really big.\n\nReally. Like super big.\nWow!\n\nHere\nare\nsome\nextra details!',
+        'build(deps): bump @dummy/package from 7.1.2 to 8.0.0 (thanks @Xunnamius, @suimannux @user1/@user2, @user3/@+u%+(bad email@aol.com with help from @merchanz039f9)\n\nBREAKING CHANGE: The Change is huge. Big. Really big.\n\nReally. Like super big.\nWow!\n\nHere\nare\nsome\nextra details!',
         'feat: complex new feature\n\nThis is a complex new feature with many reviewers\nReviewer: @hutson\nFixes: #99\nRefs: #100\n\nBREAKING CHANGE: this completely changes the API',
         'FEAT(FOO)!: incredible new flag FIXES: #33-#22'
       ],
