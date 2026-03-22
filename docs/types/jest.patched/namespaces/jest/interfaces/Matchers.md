@@ -465,7 +465,7 @@ For comparing floating point or big integer numbers.
 
 ##### expected
 
-`number` | `bigint`
+`number` \| `bigint`
 
 #### Returns
 
@@ -485,7 +485,7 @@ For comparing floating point or big integer numbers.
 
 ##### expected
 
-`number` | `bigint`
+`number` \| `bigint`
 
 #### Returns
 
@@ -520,11 +520,11 @@ Supports both number and BigInt values.
 
 ##### min
 
-`number` | `bigint`
+`number` \| `bigint`
 
 ##### max
 
-`number` | `bigint`
+`number` \| `bigint`
 
 #### Returns
 
@@ -588,7 +588,7 @@ For comparing floating point or big integer numbers.
 
 ##### expected
 
-`number` | `bigint`
+`number` \| `bigint`
 
 #### Returns
 
@@ -608,7 +608,7 @@ For comparing floating point or big integer numbers.
 
 ##### expected
 
-`number` | `bigint`
+`number` \| `bigint`
 
 #### Returns
 
@@ -935,7 +935,7 @@ Use `.toChangeBy` when checking if a value changed by an amount.
 
 ##### by?
 
-`number` | `bigint`
+`number` \| `bigint`
 
 #### Returns
 
@@ -1261,7 +1261,7 @@ Use `.toContainKey` when checking if an object contains the provided key.
 
 ##### key
 
-`string` | keyof `E`
+`string` \| keyof `E`
 
 #### Returns
 
@@ -1760,7 +1760,7 @@ the equality of all fields.
 
 ##### propertyPath
 
-`string` | readonly `any`[]
+`string` \| readonly `any`[]
 
 ##### value?
 
@@ -1880,7 +1880,7 @@ Use `.toIncludeAllMembers` when checking if an `Array` contains all the same mem
 
 ##### members
 
-`E` | readonly `E`[]
+`E` \| readonly `E`[]
 
 #### Returns
 
@@ -1906,7 +1906,7 @@ Use `.toIncludeAllPartialMembers` when checking if an `Array` contains all the s
 
 ##### members
 
-`E` | readonly `E`[]
+`E` \| readonly `E`[]
 
 #### Returns
 
@@ -1932,7 +1932,7 @@ Use `.toIncludeAnyMembers` when checking if an `Array` contains any of the membe
 
 ##### members
 
-`E` | readonly `E`[]
+`E` \| readonly `E`[]
 
 #### Returns
 
@@ -2048,7 +2048,7 @@ Check that a string matches a regular expression.
 
 ##### expected
 
-`string` | `RegExp`
+`string` \| `RegExp`
 
 #### Returns
 
@@ -2394,7 +2394,7 @@ Used to test that a function throws when it is called.
 
 ##### error?
 
-`string` | `RegExp` | `Error` | [`Constructable`](Constructable.md)
+`string` \| `RegExp` \| `Error` \| [`Constructable`](Constructable.md)
 
 #### Returns
 
@@ -2455,11 +2455,11 @@ Use `.toThrowWithMessage` when checking if a callback function throws an error o
 
 ##### type
 
-(...`args`) => `object` | (...`args`) => `object`
+((...`args`) => `object`) \| ((...`args`) => `object`)
 
 ##### message
 
-`string` | `RegExp`
+`string` \| `RegExp`
 
 #### Returns
 

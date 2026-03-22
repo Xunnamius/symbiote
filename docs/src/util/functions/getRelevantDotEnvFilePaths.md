@@ -6,9 +6,9 @@
 
 # Function: getRelevantDotEnvFilePaths()
 
-> **getRelevantDotEnvFilePaths**(`projectMetadata`, `scope`): `AbsolutePath`[]
+> **getRelevantDotEnvFilePaths**(`projectMetadata`, `scope?`): `AbsolutePath`[]
 
-Defined in: [src/util.ts:405](https://github.com/Xunnamius/symbiote/blob/25135a1844b8500302680a71b90428852179ec2c/src/util.ts#L405)
+Defined in: [src/util.ts:405](https://github.com/Xunnamius/symbiote/blob/2addc204c768058478c644c99aa7f180ba8bd721/src/util.ts#L405)
 
 Returns all dotenv file paths relevant to the current package in reverse
 order of precedence; the most important dotenv file will be last in the
@@ -20,11 +20,11 @@ Use `scope` (default: `"both"`) to narrow which dotenv paths are returned.
 
 ### projectMetadata
 
-`undefined` | `GenericProjectMetadata`
+`GenericProjectMetadata` \| `undefined`
 
-### scope
+### scope?
 
-`"both"` | `"package-only"` | `"project-only"`
+`"both"` \| `"package-only"` \| `"project-only"`
 
 ## Returns
 

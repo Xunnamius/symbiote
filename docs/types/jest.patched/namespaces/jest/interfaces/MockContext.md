@@ -67,7 +67,7 @@ invocations of all mocks in a test file. The index is starting with `1`.
 
 ### lastCall?
 
-> `optional` **lastCall**: `Y`
+> `optional` **lastCall?**: `Y`
 
 Defined in: node\_modules/@types/jest/index.d.ts:1478
 

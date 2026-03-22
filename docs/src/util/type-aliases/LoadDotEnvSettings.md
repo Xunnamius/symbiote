@@ -8,7 +8,7 @@
 
 > **LoadDotEnvSettings** = `object` & `Pick`\<`DotenvConfigOptions`, `"override"`\>
 
-Defined in: [src/util.ts:771](https://github.com/Xunnamius/symbiote/blob/25135a1844b8500302680a71b90428852179ec2c/src/util.ts#L771)
+Defined in: [src/util.ts:771](https://github.com/Xunnamius/symbiote/blob/2addc204c768058478c644c99aa7f180ba8bd721/src/util.ts#L771)
 
 ## Type Declaration
 
@@ -35,7 +35,7 @@ If `true`, do not throw on errors.
 
 > **log**: `ExtendedLogger`
 
-### onFail()
+### onFail
 
 > **onFail**: () => `void`
 
@@ -47,7 +47,7 @@ Action to take upon environment validation failure.
 
 ### updateProcessEnv?
 
-> `optional` **updateProcessEnv**: `boolean`
+> `optional` **updateProcessEnv?**: `boolean`
 
 If `true`, loaded environment variables will be added to `process.env`
 with respect to `override`, and this function will return `void`. If

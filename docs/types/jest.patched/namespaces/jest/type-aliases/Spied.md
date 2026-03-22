@@ -16,4 +16,4 @@ Constructs the type of a spied class or function.
 
 ### T
 
-`T` *extends* (...`args`) => `any` \| (...`args`) => `any`
+`T` *extends* ((...`args`) => `any`) \| ((...`args`) => `any`)

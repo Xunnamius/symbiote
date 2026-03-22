@@ -4,7 +4,7 @@
 
 [@-xun/symbiote](../../../../../README.md) / [types/jest.patched](../../../README.md) / [jest](../README.md) / Constructor
 
-# Type Alias: Constructor()
+# Type Alias: Constructor
 
 > **Constructor** = (...`args`) => `any`
 

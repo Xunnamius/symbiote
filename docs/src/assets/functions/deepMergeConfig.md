@@ -6,9 +6,9 @@
 
 # Function: deepMergeConfig()
 
-> **deepMergeConfig**\<`ConfigurationType`\>(`originalConfiguration`, `overwrites`, `customReplacer`): `ConfigurationType`
+> **deepMergeConfig**\<`ConfigurationType`\>(`originalConfiguration`, `overwrites?`, `customReplacer?`): `ConfigurationType`
 
-Defined in: [src/assets.ts:648](https://github.com/Xunnamius/symbiote/blob/25135a1844b8500302680a71b90428852179ec2c/src/assets.ts#L648)
+Defined in: [src/assets.ts:648](https://github.com/Xunnamius/symbiote/blob/2addc204c768058478c644c99aa7f180ba8bd721/src/assets.ts#L648)
 
 A thin wrapper around lodash's mergeWith that does not mutate
 `originalConfiguration`.
@@ -30,11 +30,11 @@ properties will unset previously defined properties.
 
 `ConfigurationType`
 
-### overwrites
+### overwrites?
 
-`ConfigurationType` | `EmptyObject`
+`ConfigurationType` \| `EmptyObject`
 
-### customReplacer
+### customReplacer?
 
 (`value`, `srcValue`, `key`, `object`, `source`, `stack`) => `any`
 

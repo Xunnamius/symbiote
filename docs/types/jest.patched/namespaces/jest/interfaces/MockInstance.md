@@ -42,7 +42,7 @@ Provides access to the mock's metadata
 
 ### getMockImplementation()
 
-> **getMockImplementation**(): `undefined` \| (...`args`) => `T`
+> **getMockImplementation**(): ((...`args`) => `T`) \| `undefined`
 
 Defined in: node\_modules/@types/jest/index.d.ts:1299
 
@@ -50,7 +50,7 @@ Returns the function that was set as the implementation of the mock (using mockI
 
 #### Returns
 
-`undefined` \| (...`args`) => `T`
+((...`args`) => `T`) \| `undefined`
 
 ***
 

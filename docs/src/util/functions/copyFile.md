@@ -8,7 +8,7 @@
 
 > **copyFile**(`from`, `to`): `Promise`\<`void`\>
 
-Defined in: [src/util.ts:1063](https://github.com/Xunnamius/symbiote/blob/25135a1844b8500302680a71b90428852179ec2c/src/util.ts#L1063)
+Defined in: [src/util.ts:1063](https://github.com/Xunnamius/symbiote/blob/2addc204c768058478c644c99aa7f180ba8bd721/src/util.ts#L1063)
 
 ## Parameters
 

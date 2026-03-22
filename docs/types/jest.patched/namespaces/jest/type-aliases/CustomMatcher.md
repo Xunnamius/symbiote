@@ -4,7 +4,7 @@
 
 [@-xun/symbiote](../../../../../README.md) / [types/jest.patched](../../../README.md) / [jest](../README.md) / CustomMatcher
 
-# Type Alias: CustomMatcher()
+# Type Alias: CustomMatcher
 
 > **CustomMatcher** = (`this`, `received`, ...`actual`) => [`CustomMatcherResult`](../interfaces/CustomMatcherResult.md) \| `Promise`\<[`CustomMatcherResult`](../interfaces/CustomMatcherResult.md)\>
 

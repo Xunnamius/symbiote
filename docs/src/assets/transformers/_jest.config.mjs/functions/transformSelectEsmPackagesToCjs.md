@@ -8,7 +8,7 @@
 
 > **transformSelectEsmPackagesToCjs**(`config`, `packageNames`): `void`
 
-Defined in: [src/assets/transformers/\_jest.config.mjs.ts:305](https://github.com/Xunnamius/symbiote/blob/25135a1844b8500302680a71b90428852179ec2c/src/assets/transformers/_jest.config.mjs.ts#L305)
+Defined in: [src/assets/transformers/\_jest.config.mjs.ts:305](https://github.com/Xunnamius/symbiote/blob/2addc204c768058478c644c99aa7f180ba8bd721/src/assets/transformers/_jest.config.mjs.ts#L305)
 
 This function prepends a single regular expression _pattern string_ to
 [JestConfig.transformIgnorePatterns](moduleExport.md#moduleexport) in `config`. This will result in
@@ -93,7 +93,7 @@ transformIgnorePatterns: [String.raw`\.pnp\.[^/]+$`]
 
 #### coverageReporters?
 
-(`"json"` \| `"none"` \| `"clover"` \| `"cobertura"` \| `"html-spa"` \| `"html"` \| `"json-summary"` \| `"lcov"` \| `"lcovonly"` \| `"teamcity"` \| `"text"` \| `"text-lcov"` \| `"text-summary"` \| \[`"json"` \| `"none"` \| `"clover"` \| `"cobertura"` \| `"html-spa"` \| `"html"` \| `"json-summary"` \| `"lcov"` \| `"lcovonly"` \| `"teamcity"` \| `"text"` \| `"text-lcov"` \| `"text-summary"`, \{\[`key`: `string`\]: `unknown`; \}\])[]
+(`"json"` \| `"none"` \| `"text"` \| `"clover"` \| `"cobertura"` \| `"html-spa"` \| `"html"` \| `"json-summary"` \| `"lcov"` \| `"lcovonly"` \| `"teamcity"` \| `"text-lcov"` \| `"text-summary"` \| \[`"json"` \| `"none"` \| `"text"` \| `"clover"` \| `"cobertura"` \| `"html-spa"` \| `"html"` \| `"json-summary"` \| `"lcov"` \| `"lcovonly"` \| `"teamcity"` \| `"text-lcov"` \| `"text-summary"`, \{\[`key`: `string`\]: `unknown`; \}\])[]
 
 #### coverageThreshold?
 
@@ -173,15 +173,15 @@ transformIgnorePatterns: [String.raw`\.pnp\.[^/]+$`]
 
 #### globalSetup?
 
-`null` \| `string`
+`string` \| `null`
 
 #### globalTeardown?
 
-`null` \| `string`
+`string` \| `null`
 
 #### haste?
 
-\{ `computeSha1?`: `boolean`; `defaultPlatform?`: `null` \| `string`; `enableSymlinks?`: `boolean`; `forceNodeFilesystemAPI?`: `boolean`; `hasteImplModulePath?`: `string`; `hasteMapModulePath?`: `string`; `platforms?`: `string`[]; `retainAllFiles?`: `boolean`; `throwOnModuleCollision?`: `boolean`; \}
+\{ `computeSha1?`: `boolean`; `defaultPlatform?`: `string` \| `null`; `enableSymlinks?`: `boolean`; `forceNodeFilesystemAPI?`: `boolean`; `hasteImplModulePath?`: `string`; `hasteMapModulePath?`: `string`; `platforms?`: `string`[]; `retainAllFiles?`: `boolean`; `throwOnModuleCollision?`: `boolean`; \}
 
 #### haste.computeSha1?
 
@@ -189,7 +189,7 @@ transformIgnorePatterns: [String.raw`\.pnp\.[^/]+$`]
 
 #### haste.defaultPlatform?
 
-`null` \| `string`
+`string` \| `null`
 
 #### haste.enableSymlinks?
 
@@ -305,11 +305,11 @@ transformIgnorePatterns: [String.raw`\.pnp\.[^/]+$`]
 
 #### preset?
 
-`null` \| `string`
+`string` \| `null`
 
 #### prettierPath?
 
-`null` \| `string`
+`string` \| `null`
 
 #### projects?
 
@@ -321,7 +321,7 @@ transformIgnorePatterns: [String.raw`\.pnp\.[^/]+$`]
 
 #### replname?
 
-`null` \| `string`
+`string` \| `null`
 
 #### reporters?
 
@@ -337,7 +337,7 @@ transformIgnorePatterns: [String.raw`\.pnp\.[^/]+$`]
 
 #### resolver?
 
-`null` \| `string`
+`string` \| `null`
 
 #### restoreMocks?
 

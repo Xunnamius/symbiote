@@ -4,7 +4,7 @@
 
 [@-xun/symbiote](../../../../../README.md) / [types/jest.patched](../../../README.md) / [jest](../README.md) / CustomAsymmetricMatcher
 
-# Type Alias: CustomAsymmetricMatcher()\<TMatcher\>
+# Type Alias: CustomAsymmetricMatcher\<TMatcher\>
 
 > **CustomAsymmetricMatcher**\<`TMatcher`\> = (...`args`) => [`AsymmetricMatcher`](../interfaces/AsymmetricMatcher.md)
 

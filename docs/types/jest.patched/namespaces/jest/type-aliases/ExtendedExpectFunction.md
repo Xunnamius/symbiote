@@ -4,7 +4,7 @@
 
 [@-xun/symbiote](../../../../../README.md) / [types/jest.patched](../../../README.md) / [jest](../README.md) / ExtendedExpectFunction
 
-# Type Alias: ExtendedExpectFunction()\<TMatchers\>
+# Type Alias: ExtendedExpectFunction\<TMatchers\>
 
 > **ExtendedExpectFunction**\<`TMatchers`\> = \<`TActual`\>(`actual`) => [`JestExtendedMatchers`](JestExtendedMatchers.md)\<`TMatchers`, `TActual`\>
 

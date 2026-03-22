@@ -6,9 +6,9 @@
 
 # Function: generatePerPackageAssets()
 
-> **generatePerPackageAssets**(`transformerContext`, `adder`, `__namedParameters`): `Promise`\<[`Asset`](../type-aliases/Asset.md)[]\>
+> **generatePerPackageAssets**(`transformerContext`, `adder`, `__namedParameters?`): `Promise`\<[`Asset`](../type-aliases/Asset.md)[]\>
 
-Defined in: [src/assets.ts:746](https://github.com/Xunnamius/symbiote/blob/25135a1844b8500302680a71b90428852179ec2c/src/assets.ts#L746)
+Defined in: [src/assets.ts:746](https://github.com/Xunnamius/symbiote/blob/2addc204c768058478c644c99aa7f180ba8bd721/src/assets.ts#L746)
 
 Takes a [TransformerContext](../type-aliases/TransformerContext.md) and an adder function and returns an array
 of [Asset](../type-aliases/Asset.md)s generated per each package in ProjectMetadata,
@@ -32,9 +32,9 @@ using this function. When context access is required, use the
 
 ### adder
 
-(`helpers`) => `Promisable`\<`undefined` \| [`Asset`](../type-aliases/Asset.md)[]\>
+(`helpers`) => `Promisable`\<[`Asset`](../type-aliases/Asset.md)[] \| `undefined`\>
 
-### \_\_namedParameters
+### \_\_namedParameters?
 
 #### includeRootPackageInNonHybridMonorepo?
 

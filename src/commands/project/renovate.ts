@@ -92,7 +92,11 @@ import type {
 
 import type { AbsolutePath } from '@-xun/fs';
 import type { Package, XPackageJson } from '@-xun/project';
-import type { RestEndpointMethodTypes } from '@octokit/rest' with { 'resolution-mode': 'import' };
+
+import type { RestEndpointMethodTypes } from '@octokit/rest' with {
+  'resolution-mode': 'import'
+};
+
 import type { ExtendedDebugger, ExtendedLogger } from 'rejoinder';
 import type { CamelCasedProperties, KeysOfUnion, Merge } from 'type-fest';
 import type { AssetPreset, IncomingTransformerContext } from 'universe:assets.ts';

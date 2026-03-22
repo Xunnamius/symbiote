@@ -16,13 +16,13 @@ For use in `.prettierrc.js`, `.prettierrc.ts`, `.prettierrc.cjs`, `.prettierrc.c
 
 ## Indexable
 
-\[`key`: `string`\]: `unknown`
+> \[`key`: `string`\]: `unknown`
 
 ## Properties
 
 ### \_\_embeddedInHtml?
 
-> `optional` **\_\_embeddedInHtml**: `boolean`
+> `optional` **\_\_embeddedInHtml?**: `boolean`
 
 Defined in: node\_modules/prettier/doc.d.ts:226
 
@@ -34,7 +34,7 @@ Defined in: node\_modules/prettier/doc.d.ts:226
 
 ### arrowParens?
 
-> `optional` **arrowParens**: `"always"` \| `"avoid"`
+> `optional` **arrowParens?**: `"always"` \| `"avoid"`
 
 Defined in: node\_modules/prettier/index.d.ts:403
 
@@ -54,7 +54,7 @@ Include parentheses around a sole arrow function parameter.
 
 ### bracketSameLine?
 
-> `optional` **bracketSameLine**: `boolean`
+> `optional` **bracketSameLine?**: `boolean`
 
 Defined in: node\_modules/prettier/index.d.ts:355
 
@@ -75,7 +75,7 @@ false
 
 ### bracketSpacing?
 
-> `optional` **bracketSpacing**: `boolean`
+> `optional` **bracketSpacing?**: `boolean`
 
 Defined in: node\_modules/prettier/index.d.ts:344
 
@@ -95,7 +95,7 @@ true
 
 ### checkIgnorePragma?
 
-> `optional` **checkIgnorePragma**: `boolean`
+> `optional` **checkIgnorePragma?**: `boolean`
 
 Defined in: node\_modules/prettier/index.d.ts:392
 
@@ -115,7 +115,7 @@ false
 
 ### embeddedLanguageFormatting?
 
-> `optional` **embeddedLanguageFormatting**: `"off"` \| `"auto"`
+> `optional` **embeddedLanguageFormatting?**: `"off"` \| `"auto"`
 
 Defined in: node\_modules/prettier/index.d.ts:432
 
@@ -135,7 +135,7 @@ Control whether Prettier formats quoted code embedded in the file.
 
 ### endOfLine?
 
-> `optional` **endOfLine**: `"auto"` \| `"lf"` \| `"crlf"` \| `"cr"`
+> `optional` **endOfLine?**: `"auto"` \| `"lf"` \| `"crlf"` \| `"cr"`
 
 Defined in: node\_modules/prettier/index.d.ts:417
 
@@ -155,7 +155,7 @@ Which end of line characters to apply.
 
 ### experimentalOperatorPosition?
 
-> `optional` **experimentalOperatorPosition**: `"start"` \| `"end"`
+> `optional` **experimentalOperatorPosition?**: `"start"` \| `"end"`
 
 Defined in: node\_modules/prettier/index.d.ts:442
 
@@ -175,7 +175,7 @@ Where to print operators when binary expressions wrap lines.
 
 ### experimentalTernaries?
 
-> `optional` **experimentalTernaries**: `boolean`
+> `optional` **experimentalTernaries?**: `boolean`
 
 Defined in: node\_modules/prettier/index.d.ts:448
 
@@ -196,7 +196,7 @@ false
 
 ### filepath?
 
-> `optional` **filepath**: `string`
+> `optional` **filepath?**: `string`
 
 Defined in: node\_modules/prettier/index.d.ts:373
 
@@ -210,7 +210,7 @@ Specify the input filepath. This will be used to do parser inference.
 
 ### htmlWhitespaceSensitivity?
 
-> `optional` **htmlWhitespaceSensitivity**: `"ignore"` \| `"strict"` \| `"css"`
+> `optional` **htmlWhitespaceSensitivity?**: `"ignore"` \| `"strict"` \| `"css"`
 
 Defined in: node\_modules/prettier/index.d.ts:412
 
@@ -230,7 +230,7 @@ How to handle whitespaces in HTML.
 
 ### insertPragma?
 
-> `optional` **insertPragma**: `boolean`
+> `optional` **insertPragma?**: `boolean`
 
 Defined in: node\_modules/prettier/index.d.ts:387
 
@@ -261,7 +261,7 @@ false
 
 ### ~~jsxBracketSameLine?~~
 
-> `optional` **jsxBracketSameLine**: `boolean`
+> `optional` **jsxBracketSameLine?**: `boolean`
 
 Defined in: node\_modules/prettier/index.d.ts:454
 
@@ -285,7 +285,7 @@ use bracketSameLine instead
 
 ### jsxSingleQuote?
 
-> `optional` **jsxSingleQuote**: `boolean`
+> `optional` **jsxSingleQuote?**: `boolean`
 
 Defined in: node\_modules/prettier/index.d.ts:334
 
@@ -305,7 +305,7 @@ false
 
 ### objectWrap?
 
-> `optional` **objectWrap**: `"preserve"` \| `"collapse"`
+> `optional` **objectWrap?**: `"preserve"` \| `"collapse"`
 
 Defined in: node\_modules/prettier/index.d.ts:349
 
@@ -325,13 +325,13 @@ How to wrap object literals.
 
 ### overrides?
 
-> `optional` **overrides**: `object`[]
+> `optional` **overrides?**: `object`[]
 
 Defined in: node\_modules/prettier/index.d.ts:310
 
 #### excludeFiles?
 
-> `optional` **excludeFiles**: `string` \| `string`[]
+> `optional` **excludeFiles?**: `string` \| `string`[]
 
 #### files
 
@@ -339,13 +339,13 @@ Defined in: node\_modules/prettier/index.d.ts:310
 
 #### options?
 
-> `optional` **options**: `Options`
+> `optional` **options?**: `Options`
 
 ***
 
 ### parentParser?
 
-> `optional` **parentParser**: `string`
+> `optional` **parentParser?**: `string`
 
 Defined in: node\_modules/prettier/doc.d.ts:225
 
@@ -357,7 +357,7 @@ Defined in: node\_modules/prettier/doc.d.ts:225
 
 ### parser?
 
-> `optional` **parser**: `LiteralUnion`\<`BuiltInParserName`, `string`\>
+> `optional` **parser?**: `LiteralUnion`\<`BuiltInParserName`, `string`\>
 
 Defined in: node\_modules/prettier/index.d.ts:369
 
@@ -371,7 +371,7 @@ Specify which parser to use.
 
 ### plugins?
 
-> `optional` **plugins**: (`string` \| `URL` \| `Plugin`\<`any`\>)[]
+> `optional` **plugins?**: (`string` \| `URL` \| `Plugin`\<`any`\>)[]
 
 Defined in: node\_modules/prettier/index.d.ts:407
 
@@ -385,7 +385,7 @@ Provide ability to support new languages to prettier.
 
 ### printWidth?
 
-> `optional` **printWidth**: `number`
+> `optional` **printWidth?**: `number`
 
 Defined in: node\_modules/prettier/doc.d.ts:214
 
@@ -405,7 +405,7 @@ Specify the line length that the printer will wrap on.
 
 ### proseWrap?
 
-> `optional` **proseWrap**: `"never"` \| `"always"` \| `"preserve"`
+> `optional` **proseWrap?**: `"never"` \| `"always"` \| `"preserve"`
 
 Defined in: node\_modules/prettier/index.d.ts:398
 
@@ -426,7 +426,7 @@ In some cases you may want to rely on editor/viewer soft wrapping instead, so th
 
 ### quoteProps?
 
-> `optional` **quoteProps**: `"preserve"` \| `"as-needed"` \| `"consistent"`
+> `optional` **quoteProps?**: `"preserve"` \| `"as-needed"` \| `"consistent"`
 
 Defined in: node\_modules/prettier/index.d.ts:422
 
@@ -446,7 +446,7 @@ Change when properties in objects are quoted.
 
 ### rangeEnd?
 
-> `optional` **rangeEnd**: `number`
+> `optional` **rangeEnd?**: `number`
 
 Defined in: node\_modules/prettier/index.d.ts:365
 
@@ -466,7 +466,7 @@ Number.POSITIVE_INFINITY
 
 ### rangeStart?
 
-> `optional` **rangeStart**: `number`
+> `optional` **rangeStart?**: `number`
 
 Defined in: node\_modules/prettier/index.d.ts:360
 
@@ -486,7 +486,7 @@ Format only a segment of a file.
 
 ### requirePragma?
 
-> `optional` **requirePragma**: `boolean`
+> `optional` **requirePragma?**: `boolean`
 
 Defined in: node\_modules/prettier/index.d.ts:379
 
@@ -507,7 +507,7 @@ false
 
 ### semi?
 
-> `optional` **semi**: `boolean`
+> `optional` **semi?**: `boolean`
 
 Defined in: node\_modules/prettier/index.d.ts:324
 
@@ -527,7 +527,7 @@ true
 
 ### singleAttributePerLine?
 
-> `optional` **singleAttributePerLine**: `boolean`
+> `optional` **singleAttributePerLine?**: `boolean`
 
 Defined in: node\_modules/prettier/index.d.ts:437
 
@@ -547,7 +547,7 @@ false
 
 ### singleQuote?
 
-> `optional` **singleQuote**: `boolean`
+> `optional` **singleQuote?**: `boolean`
 
 Defined in: node\_modules/prettier/index.d.ts:329
 
@@ -567,7 +567,7 @@ false
 
 ### tabWidth?
 
-> `optional` **tabWidth**: `number`
+> `optional` **tabWidth?**: `number`
 
 Defined in: node\_modules/prettier/doc.d.ts:219
 
@@ -587,7 +587,7 @@ Specify the number of spaces per indentation-level.
 
 ### trailingComma?
 
-> `optional` **trailingComma**: `"all"` \| `"none"` \| `"es5"`
+> `optional` **trailingComma?**: `"all"` \| `"none"` \| `"es5"`
 
 Defined in: node\_modules/prettier/index.d.ts:339
 
@@ -607,7 +607,7 @@ Print trailing commas wherever possible.
 
 ### useTabs?
 
-> `optional` **useTabs**: `boolean`
+> `optional` **useTabs?**: `boolean`
 
 Defined in: node\_modules/prettier/doc.d.ts:224
 
@@ -627,7 +627,7 @@ false
 
 ### vueIndentScriptAndStyle?
 
-> `optional` **vueIndentScriptAndStyle**: `boolean`
+> `optional` **vueIndentScriptAndStyle?**: `boolean`
 
 Defined in: node\_modules/prettier/index.d.ts:427
 

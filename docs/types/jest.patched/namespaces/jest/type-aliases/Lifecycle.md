@@ -4,7 +4,7 @@
 
 [@-xun/symbiote](../../../../../README.md) / [types/jest.patched](../../../README.md) / [jest](../README.md) / Lifecycle
 
-# Type Alias: Lifecycle()
+# Type Alias: Lifecycle
 
 > **Lifecycle** = (`fn`, `timeout?`) => `any`
 

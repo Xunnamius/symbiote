@@ -4,7 +4,7 @@
 
 [@-xun/symbiote](../../../../../README.md) / [types/jest.patched](../../../README.md) / [jest](../README.md) / Func
 
-# Type Alias: Func()
+# Type Alias: Func
 
 > **Func** = (...`args`) => `any`
 

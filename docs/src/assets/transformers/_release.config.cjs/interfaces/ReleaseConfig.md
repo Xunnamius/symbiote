@@ -16,7 +16,7 @@ configuration file and shareable configurations.
 
 ## Indexable
 
-\[`name`: `string`\]: `any`
+> \[`name`: `string`\]: `any`
 
 Any other options supported by plugins.
 
@@ -24,7 +24,7 @@ Any other options supported by plugins.
 
 ### branches?
 
-> `optional` **branches**: `BranchSpec` \| readonly `BranchSpec`[]
+> `optional` **branches?**: `BranchSpec` \| readonly `BranchSpec`[]
 
 Defined in: node\_modules/semantic-release/index.d.ts:624
 
@@ -63,7 +63,7 @@ for more details.
 
 ### ci?
 
-> `optional` **ci**: `boolean`
+> `optional` **ci?**: `boolean`
 
 Defined in: node\_modules/semantic-release/index.d.ts:676
 
@@ -74,7 +74,7 @@ This allows for making releases from a local machine.
 
 ### dryRun?
 
-> `optional` **dryRun**: `boolean`
+> `optional` **dryRun?**: `boolean`
 
 Defined in: node\_modules/semantic-release/index.d.ts:670
 
@@ -84,7 +84,7 @@ Dry-run mode, skip publishing, print next version and release notes.
 
 ### extends?
 
-> `optional` **extends**: `string` \| readonly `string`[]
+> `optional` **extends?**: `string` \| readonly `string`[]
 
 Defined in: node\_modules/semantic-release/index.d.ts:590
 
@@ -103,7 +103,7 @@ configuration.
 
 ### plugins?
 
-> `optional` **plugins**: readonly `PluginSpec`\<`any`\>[]
+> `optional` **plugins?**: readonly `PluginSpec`\<`any`\>[]
 
 Defined in: node\_modules/semantic-release/index.d.ts:665
 
@@ -128,7 +128,7 @@ Default: `[
 
 ### repositoryUrl?
 
-> `optional` **repositoryUrl**: `string`
+> `optional` **repositoryUrl?**: `string`
 
 Defined in: node\_modules/semantic-release/index.d.ts:634
 
@@ -143,7 +143,7 @@ Default: `repository` property in `package.json`, or git origin url.
 
 ### tagFormat?
 
-> `optional` **tagFormat**: `string`
+> `optional` **tagFormat?**: `string`
 
 Defined in: node\_modules/semantic-release/index.d.ts:645
 

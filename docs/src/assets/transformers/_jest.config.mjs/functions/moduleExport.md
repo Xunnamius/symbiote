@@ -8,7 +8,7 @@
 
 > **moduleExport**(`__namedParameters`): `object`
 
-Defined in: [src/assets/transformers/\_jest.config.mjs.ts:130](https://github.com/Xunnamius/symbiote/blob/25135a1844b8500302680a71b90428852179ec2c/src/assets/transformers/_jest.config.mjs.ts#L130)
+Defined in: [src/assets/transformers/\_jest.config.mjs.ts:130](https://github.com/Xunnamius/symbiote/blob/2addc204c768058478c644c99aa7f180ba8bd721/src/assets/transformers/_jest.config.mjs.ts#L130)
 
 ## Parameters
 
@@ -37,63 +37,63 @@ as `1` while entirely skipping tests from files with names containing
 
 ### automock?
 
-> `optional` **automock**: `boolean`
+> `optional` **automock?**: `boolean`
 
 ### bail?
 
-> `optional` **bail**: `number` \| `boolean`
+> `optional` **bail?**: `number` \| `boolean`
 
 ### cache?
 
-> `optional` **cache**: `boolean`
+> `optional` **cache?**: `boolean`
 
 ### cacheDirectory?
 
-> `optional` **cacheDirectory**: `string`
+> `optional` **cacheDirectory?**: `string`
 
 ### changedFilesWithAncestor?
 
-> `optional` **changedFilesWithAncestor**: `boolean`
+> `optional` **changedFilesWithAncestor?**: `boolean`
 
 ### changedSince?
 
-> `optional` **changedSince**: `string`
+> `optional` **changedSince?**: `string`
 
 ### ci?
 
-> `optional` **ci**: `boolean`
+> `optional` **ci?**: `boolean`
 
 ### clearMocks?
 
-> `optional` **clearMocks**: `boolean`
+> `optional` **clearMocks?**: `boolean`
 
 ### collectCoverage?
 
-> `optional` **collectCoverage**: `boolean`
+> `optional` **collectCoverage?**: `boolean`
 
 ### collectCoverageFrom?
 
-> `optional` **collectCoverageFrom**: `string`[]
+> `optional` **collectCoverageFrom?**: `string`[]
 
 ### coverageDirectory?
 
-> `optional` **coverageDirectory**: `string`
+> `optional` **coverageDirectory?**: `string`
 
 ### coveragePathIgnorePatterns?
 
-> `optional` **coveragePathIgnorePatterns**: `string`[]
+> `optional` **coveragePathIgnorePatterns?**: `string`[]
 
 ### coverageProvider?
 
-> `optional` **coverageProvider**: `"babel"` \| `"v8"`
+> `optional` **coverageProvider?**: `"babel"` \| `"v8"`
 
 ### coverageReporters?
 
-> `optional` **coverageReporters**: (`"json"` \| `"none"` \| `"clover"` \| `"cobertura"` \| `"html-spa"` \| `"html"` \| `"json-summary"` \| `"lcov"` \| `"lcovonly"` \| `"teamcity"` \| `"text"` \| `"text-lcov"` \| `"text-summary"` \| \[`"json"` \| `"none"` \| `"clover"` \| `"cobertura"` \| `"html-spa"` \| `"html"` \| `"json-summary"` \| `"lcov"` \| `"lcovonly"` \| `"teamcity"` \| `"text"` \| `"text-lcov"` \| `"text-summary"`, \{\[`key`: `string`\]: `unknown`; \}\])[]
+> `optional` **coverageReporters?**: (`"json"` \| `"none"` \| `"text"` \| `"clover"` \| `"cobertura"` \| `"html-spa"` \| `"html"` \| `"json-summary"` \| `"lcov"` \| `"lcovonly"` \| `"teamcity"` \| `"text-lcov"` \| `"text-summary"` \| \[`"json"` \| `"none"` \| `"text"` \| `"clover"` \| `"cobertura"` \| `"html-spa"` \| `"html"` \| `"json-summary"` \| `"lcov"` \| `"lcovonly"` \| `"teamcity"` \| `"text-lcov"` \| `"text-summary"`, \{\[`key`: `string`\]: `unknown`; \}\])[]
 
 ### coverageThreshold?
 
-> `optional` **coverageThreshold**: `object`
+> `optional` **coverageThreshold?**: `object`
 
 #### Index Signature
 
@@ -105,71 +105,71 @@ as `1` while entirely skipping tests from files with names containing
 
 #### coverageThreshold.global.branches?
 
-> `optional` **branches**: `number`
+> `optional` **branches?**: `number`
 
 #### coverageThreshold.global.functions?
 
-> `optional` **functions**: `number`
+> `optional` **functions?**: `number`
 
 #### coverageThreshold.global.lines?
 
-> `optional` **lines**: `number`
+> `optional` **lines?**: `number`
 
 #### coverageThreshold.global.statements?
 
-> `optional` **statements**: `number`
+> `optional` **statements?**: `number`
 
 ### dependencyExtractor?
 
-> `optional` **dependencyExtractor**: `string`
+> `optional` **dependencyExtractor?**: `string`
 
 ### detectLeaks?
 
-> `optional` **detectLeaks**: `boolean`
+> `optional` **detectLeaks?**: `boolean`
 
 ### detectOpenHandles?
 
-> `optional` **detectOpenHandles**: `boolean`
+> `optional` **detectOpenHandles?**: `boolean`
 
 ### displayName?
 
-> `optional` **displayName**: `string` \| \{ `color`: `"black"` \| `"red"` \| `"green"` \| `"yellow"` \| `"blue"` \| `"magenta"` \| `"cyan"` \| `"white"` \| `"gray"` \| `"grey"` \| `"blackBright"` \| `"redBright"` \| `"greenBright"` \| `"yellowBright"` \| `"blueBright"` \| `"magentaBright"` \| `"cyanBright"` \| `"whiteBright"`; `name`: `string`; \}
+> `optional` **displayName?**: `string` \| \{ `color`: `"black"` \| `"red"` \| `"green"` \| `"yellow"` \| `"blue"` \| `"magenta"` \| `"cyan"` \| `"white"` \| `"gray"` \| `"grey"` \| `"blackBright"` \| `"redBright"` \| `"greenBright"` \| `"yellowBright"` \| `"blueBright"` \| `"magentaBright"` \| `"cyanBright"` \| `"whiteBright"`; `name`: `string`; \}
 
 ### errorOnDeprecated?
 
-> `optional` **errorOnDeprecated**: `boolean`
+> `optional` **errorOnDeprecated?**: `boolean`
 
 ### expand?
 
-> `optional` **expand**: `boolean`
+> `optional` **expand?**: `boolean`
 
 ### extensionsToTreatAsEsm?
 
-> `optional` **extensionsToTreatAsEsm**: `string`[]
+> `optional` **extensionsToTreatAsEsm?**: `string`[]
 
 ### fakeTimers?
 
-> `optional` **fakeTimers**: \{ enableGlobally?: boolean \| undefined; \} & (\{ advanceTimers?: number \| boolean \| undefined; doNotFake?: ("Date" \| "hrtime" \| "nextTick" \| "performance" \| "queueMicrotask" \| "requestAnimationFrame" \| "cancelAnimationFrame" \| "requestIdleCallback" \| "cancelIdleCallback" \| "setImmediate" \| "clearImmediate" \| "setInterval" \| "clearInterval" \| "setTimeout" \| "clearTimeout")\[\] \| undefined; now?: number \| undefined; timerLimit?: number \| undefined; legacyFakeTimers?: false \| undefined; \} \| \{ legacyFakeTimers?: true \| undefined; \})
+> `optional` **fakeTimers?**: \{ enableGlobally?: boolean \| undefined; \} & (\{ advanceTimers?: number \| boolean \| undefined; doNotFake?: ("Date" \| "hrtime" \| "nextTick" \| "performance" \| "queueMicrotask" \| "requestAnimationFrame" \| "cancelAnimationFrame" \| "requestIdleCallback" \| "cancelIdleCallback" \| "setImmediate" \| "clearImmediate" \| "setInterval" \| "clearInterval" \| "setTimeout" \| "clearTimeout")\[\] \| undefined; now?: number \| undefined; timerLimit?: number \| undefined; legacyFakeTimers?: false \| undefined; \} \| \{ legacyFakeTimers?: true \| undefined; \})
 
 ### filter?
 
-> `optional` **filter**: `string`
+> `optional` **filter?**: `string`
 
 ### findRelatedTests?
 
-> `optional` **findRelatedTests**: `boolean`
+> `optional` **findRelatedTests?**: `boolean`
 
 ### forceCoverageMatch?
 
-> `optional` **forceCoverageMatch**: `string`[]
+> `optional` **forceCoverageMatch?**: `string`[]
 
 ### forceExit?
 
-> `optional` **forceExit**: `boolean`
+> `optional` **forceExit?**: `boolean`
 
 ### globals?
 
-> `optional` **globals**: `object`
+> `optional` **globals?**: `object`
 
 #### Index Signature
 
@@ -177,95 +177,95 @@ as `1` while entirely skipping tests from files with names containing
 
 ### globalSetup?
 
-> `optional` **globalSetup**: `null` \| `string`
+> `optional` **globalSetup?**: `string` \| `null`
 
 ### globalTeardown?
 
-> `optional` **globalTeardown**: `null` \| `string`
+> `optional` **globalTeardown?**: `string` \| `null`
 
 ### haste?
 
-> `optional` **haste**: `object`
+> `optional` **haste?**: `object`
 
 #### haste.computeSha1?
 
-> `optional` **computeSha1**: `boolean`
+> `optional` **computeSha1?**: `boolean`
 
 #### haste.defaultPlatform?
 
-> `optional` **defaultPlatform**: `null` \| `string`
+> `optional` **defaultPlatform?**: `string` \| `null`
 
 #### haste.enableSymlinks?
 
-> `optional` **enableSymlinks**: `boolean`
+> `optional` **enableSymlinks?**: `boolean`
 
 #### haste.forceNodeFilesystemAPI?
 
-> `optional` **forceNodeFilesystemAPI**: `boolean`
+> `optional` **forceNodeFilesystemAPI?**: `boolean`
 
 #### haste.hasteImplModulePath?
 
-> `optional` **hasteImplModulePath**: `string`
+> `optional` **hasteImplModulePath?**: `string`
 
 #### haste.hasteMapModulePath?
 
-> `optional` **hasteMapModulePath**: `string`
+> `optional` **hasteMapModulePath?**: `string`
 
 #### haste.platforms?
 
-> `optional` **platforms**: `string`[]
+> `optional` **platforms?**: `string`[]
 
 #### haste.retainAllFiles?
 
-> `optional` **retainAllFiles**: `boolean`
+> `optional` **retainAllFiles?**: `boolean`
 
 #### haste.throwOnModuleCollision?
 
-> `optional` **throwOnModuleCollision**: `boolean`
+> `optional` **throwOnModuleCollision?**: `boolean`
 
 ### id?
 
-> `optional` **id**: `string`
+> `optional` **id?**: `string`
 
 ### injectGlobals?
 
-> `optional` **injectGlobals**: `boolean`
+> `optional` **injectGlobals?**: `boolean`
 
 ### json?
 
-> `optional` **json**: `boolean`
+> `optional` **json?**: `boolean`
 
 ### lastCommit?
 
-> `optional` **lastCommit**: `boolean`
+> `optional` **lastCommit?**: `boolean`
 
 ### listTests?
 
-> `optional` **listTests**: `boolean`
+> `optional` **listTests?**: `boolean`
 
 ### logHeapUsage?
 
-> `optional` **logHeapUsage**: `boolean`
+> `optional` **logHeapUsage?**: `boolean`
 
 ### maxConcurrency?
 
-> `optional` **maxConcurrency**: `number`
+> `optional` **maxConcurrency?**: `number`
 
 ### maxWorkers?
 
-> `optional` **maxWorkers**: `string` \| `number`
+> `optional` **maxWorkers?**: `string` \| `number`
 
 ### moduleDirectories?
 
-> `optional` **moduleDirectories**: `string`[]
+> `optional` **moduleDirectories?**: `string`[]
 
 ### moduleFileExtensions?
 
-> `optional` **moduleFileExtensions**: `string`[]
+> `optional` **moduleFileExtensions?**: `string`[]
 
 ### moduleNameMapper?
 
-> `optional` **moduleNameMapper**: `object`
+> `optional` **moduleNameMapper?**: `object`
 
 #### Index Signature
 
@@ -273,223 +273,223 @@ as `1` while entirely skipping tests from files with names containing
 
 ### modulePathIgnorePatterns?
 
-> `optional` **modulePathIgnorePatterns**: `string`[]
+> `optional` **modulePathIgnorePatterns?**: `string`[]
 
 ### modulePaths?
 
-> `optional` **modulePaths**: `string`[]
+> `optional` **modulePaths?**: `string`[]
 
 ### noStackTrace?
 
-> `optional` **noStackTrace**: `boolean`
+> `optional` **noStackTrace?**: `boolean`
 
 ### notify?
 
-> `optional` **notify**: `boolean`
+> `optional` **notify?**: `boolean`
 
 ### notifyMode?
 
-> `optional` **notifyMode**: `string`
+> `optional` **notifyMode?**: `string`
 
 ### onlyChanged?
 
-> `optional` **onlyChanged**: `boolean`
+> `optional` **onlyChanged?**: `boolean`
 
 ### onlyFailures?
 
-> `optional` **onlyFailures**: `boolean`
+> `optional` **onlyFailures?**: `boolean`
 
 ### openHandlesTimeout?
 
-> `optional` **openHandlesTimeout**: `number`
+> `optional` **openHandlesTimeout?**: `number`
 
 ### outputFile?
 
-> `optional` **outputFile**: `string`
+> `optional` **outputFile?**: `string`
 
 ### passWithNoTests?
 
-> `optional` **passWithNoTests**: `boolean`
+> `optional` **passWithNoTests?**: `boolean`
 
 ### preset?
 
-> `optional` **preset**: `null` \| `string`
+> `optional` **preset?**: `string` \| `null`
 
 ### prettierPath?
 
-> `optional` **prettierPath**: `null` \| `string`
+> `optional` **prettierPath?**: `string` \| `null`
 
 ### projects?
 
-> `optional` **projects**: (`string` \| \{\[`key`: `string`\]: `unknown`; \})[]
+> `optional` **projects?**: (`string` \| \{\[`key`: `string`\]: `unknown`; \})[]
 
 ### randomize?
 
-> `optional` **randomize**: `boolean`
+> `optional` **randomize?**: `boolean`
 
 ### replname?
 
-> `optional` **replname**: `null` \| `string`
+> `optional` **replname?**: `string` \| `null`
 
 ### reporters?
 
-> `optional` **reporters**: (`string` \| \[`string`, \{\[`key`: `string`\]: `unknown`; \}\])[]
+> `optional` **reporters?**: (`string` \| \[`string`, \{\[`key`: `string`\]: `unknown`; \}\])[]
 
 ### resetMocks?
 
-> `optional` **resetMocks**: `boolean`
+> `optional` **resetMocks?**: `boolean`
 
 ### resetModules?
 
-> `optional` **resetModules**: `boolean`
+> `optional` **resetModules?**: `boolean`
 
 ### resolver?
 
-> `optional` **resolver**: `null` \| `string`
+> `optional` **resolver?**: `string` \| `null`
 
 ### restoreMocks?
 
-> `optional` **restoreMocks**: `boolean`
+> `optional` **restoreMocks?**: `boolean`
 
 ### rootDir?
 
-> `optional` **rootDir**: `string`
+> `optional` **rootDir?**: `string`
 
 ### roots?
 
-> `optional` **roots**: `string`[]
+> `optional` **roots?**: `string`[]
 
 ### runner?
 
-> `optional` **runner**: `string`
+> `optional` **runner?**: `string`
 
 ### runTestsByPath?
 
-> `optional` **runTestsByPath**: `boolean`
+> `optional` **runTestsByPath?**: `boolean`
 
 ### runtime?
 
-> `optional` **runtime**: `string`
+> `optional` **runtime?**: `string`
 
 ### sandboxInjectedGlobals?
 
-> `optional` **sandboxInjectedGlobals**: `string`[]
+> `optional` **sandboxInjectedGlobals?**: `string`[]
 
 ### setupFiles?
 
-> `optional` **setupFiles**: `string`[]
+> `optional` **setupFiles?**: `string`[]
 
 ### setupFilesAfterEnv?
 
-> `optional` **setupFilesAfterEnv**: `string`[]
+> `optional` **setupFilesAfterEnv?**: `string`[]
 
 ### showSeed?
 
-> `optional` **showSeed**: `boolean`
+> `optional` **showSeed?**: `boolean`
 
 ### silent?
 
-> `optional` **silent**: `boolean`
+> `optional` **silent?**: `boolean`
 
 ### skipFilter?
 
-> `optional` **skipFilter**: `boolean`
+> `optional` **skipFilter?**: `boolean`
 
 ### skipNodeResolution?
 
-> `optional` **skipNodeResolution**: `boolean`
+> `optional` **skipNodeResolution?**: `boolean`
 
 ### slowTestThreshold?
 
-> `optional` **slowTestThreshold**: `number`
+> `optional` **slowTestThreshold?**: `number`
 
 ### snapshotFormat?
 
-> `optional` **snapshotFormat**: `object`
+> `optional` **snapshotFormat?**: `object`
 
 #### snapshotFormat.callToJSON?
 
-> `optional` **callToJSON**: `boolean`
+> `optional` **callToJSON?**: `boolean`
 
 #### snapshotFormat.compareKeys?
 
-> `optional` **compareKeys**: `null`
+> `optional` **compareKeys?**: `null`
 
 #### snapshotFormat.escapeRegex?
 
-> `optional` **escapeRegex**: `boolean`
+> `optional` **escapeRegex?**: `boolean`
 
 #### snapshotFormat.escapeString?
 
-> `optional` **escapeString**: `boolean`
+> `optional` **escapeString?**: `boolean`
 
 #### snapshotFormat.highlight?
 
-> `optional` **highlight**: `boolean`
+> `optional` **highlight?**: `boolean`
 
 #### snapshotFormat.indent?
 
-> `optional` **indent**: `number`
+> `optional` **indent?**: `number`
 
 #### snapshotFormat.maxDepth?
 
-> `optional` **maxDepth**: `number`
+> `optional` **maxDepth?**: `number`
 
 #### snapshotFormat.maxWidth?
 
-> `optional` **maxWidth**: `number`
+> `optional` **maxWidth?**: `number`
 
 #### snapshotFormat.min?
 
-> `optional` **min**: `boolean`
+> `optional` **min?**: `boolean`
 
 #### snapshotFormat.printBasicPrototype?
 
-> `optional` **printBasicPrototype**: `boolean`
+> `optional` **printBasicPrototype?**: `boolean`
 
 #### snapshotFormat.printFunctionName?
 
-> `optional` **printFunctionName**: `boolean`
+> `optional` **printFunctionName?**: `boolean`
 
 #### snapshotFormat.theme?
 
-> `optional` **theme**: `object`
+> `optional` **theme?**: `object`
 
 #### snapshotFormat.theme.comment?
 
-> `optional` **comment**: `string`
+> `optional` **comment?**: `string`
 
 #### snapshotFormat.theme.content?
 
-> `optional` **content**: `string`
+> `optional` **content?**: `string`
 
 #### snapshotFormat.theme.prop?
 
-> `optional` **prop**: `string`
+> `optional` **prop?**: `string`
 
 #### snapshotFormat.theme.tag?
 
-> `optional` **tag**: `string`
+> `optional` **tag?**: `string`
 
 #### snapshotFormat.theme.value?
 
-> `optional` **value**: `string`
+> `optional` **value?**: `string`
 
 ### snapshotResolver?
 
-> `optional` **snapshotResolver**: `string`
+> `optional` **snapshotResolver?**: `string`
 
 ### snapshotSerializers?
 
-> `optional` **snapshotSerializers**: `string`[]
+> `optional` **snapshotSerializers?**: `string`[]
 
 ### testEnvironment?
 
-> `optional` **testEnvironment**: `string`
+> `optional` **testEnvironment?**: `string`
 
 ### testEnvironmentOptions?
 
-> `optional` **testEnvironmentOptions**: `object`
+> `optional` **testEnvironmentOptions?**: `object`
 
 #### Index Signature
 
@@ -497,47 +497,47 @@ as `1` while entirely skipping tests from files with names containing
 
 ### testFailureExitCode?
 
-> `optional` **testFailureExitCode**: `number`
+> `optional` **testFailureExitCode?**: `number`
 
 ### testLocationInResults?
 
-> `optional` **testLocationInResults**: `boolean`
+> `optional` **testLocationInResults?**: `boolean`
 
 ### testMatch?
 
-> `optional` **testMatch**: `string` \| `string`[]
+> `optional` **testMatch?**: `string` \| `string`[]
 
 ### testNamePattern?
 
-> `optional` **testNamePattern**: `string`
+> `optional` **testNamePattern?**: `string`
 
 ### testPathIgnorePatterns?
 
-> `optional` **testPathIgnorePatterns**: `string`[]
+> `optional` **testPathIgnorePatterns?**: `string`[]
 
 ### testRegex?
 
-> `optional` **testRegex**: `string` \| `string`[]
+> `optional` **testRegex?**: `string` \| `string`[]
 
 ### testResultsProcessor?
 
-> `optional` **testResultsProcessor**: `string`
+> `optional` **testResultsProcessor?**: `string`
 
 ### testRunner?
 
-> `optional` **testRunner**: `string`
+> `optional` **testRunner?**: `string`
 
 ### testSequencer?
 
-> `optional` **testSequencer**: `string`
+> `optional` **testSequencer?**: `string`
 
 ### testTimeout?
 
-> `optional` **testTimeout**: `number`
+> `optional` **testTimeout?**: `number`
 
 ### transform?
 
-> `optional` **transform**: `object`
+> `optional` **transform?**: `object`
 
 #### Index Signature
 
@@ -545,55 +545,55 @@ as `1` while entirely skipping tests from files with names containing
 
 ### transformIgnorePatterns?
 
-> `optional` **transformIgnorePatterns**: `string`[]
+> `optional` **transformIgnorePatterns?**: `string`[]
 
 ### unmockedModulePathPatterns?
 
-> `optional` **unmockedModulePathPatterns**: `string`[]
+> `optional` **unmockedModulePathPatterns?**: `string`[]
 
 ### updateSnapshot?
 
-> `optional` **updateSnapshot**: `boolean`
+> `optional` **updateSnapshot?**: `boolean`
 
 ### useStderr?
 
-> `optional` **useStderr**: `boolean`
+> `optional` **useStderr?**: `boolean`
 
 ### verbose?
 
-> `optional` **verbose**: `boolean`
+> `optional` **verbose?**: `boolean`
 
 ### waitForUnhandledRejections?
 
-> `optional` **waitForUnhandledRejections**: `boolean`
+> `optional` **waitForUnhandledRejections?**: `boolean`
 
 ### watch?
 
-> `optional` **watch**: `boolean`
+> `optional` **watch?**: `boolean`
 
 ### watchAll?
 
-> `optional` **watchAll**: `boolean`
+> `optional` **watchAll?**: `boolean`
 
 ### watchman?
 
-> `optional` **watchman**: `boolean`
+> `optional` **watchman?**: `boolean`
 
 ### watchPathIgnorePatterns?
 
-> `optional` **watchPathIgnorePatterns**: `string`[]
+> `optional` **watchPathIgnorePatterns?**: `string`[]
 
 ### watchPlugins?
 
-> `optional` **watchPlugins**: (`string` \| \[`string`, `unknown`\])[]
+> `optional` **watchPlugins?**: (`string` \| \[`string`, `unknown`\])[]
 
 ### workerIdleMemoryLimit?
 
-> `optional` **workerIdleMemoryLimit**: `string` \| `number`
+> `optional` **workerIdleMemoryLimit?**: `string` \| `number`
 
 ### workerThreads?
 
-> `optional` **workerThreads**: `boolean`
+> `optional` **workerThreads?**: `boolean`
 
 ## See
 

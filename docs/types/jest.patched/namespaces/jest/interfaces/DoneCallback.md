@@ -34,7 +34,7 @@ Defined in: node\_modules/@types/jest/index.d.ts:517
 
 ##### error?
 
-`string` | \{ `message`: `string`; \}
+`string` \| \{ `message`: `string`; \}
 
 #### Returns
 

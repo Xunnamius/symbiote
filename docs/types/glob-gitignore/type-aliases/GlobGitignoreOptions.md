@@ -8,13 +8,13 @@
 
 > **GlobGitignoreOptions** = `Omit`\<`GlobOptions`, `"ignore"`\> & `object`
 
-Defined in: [types/glob-gitignore.d.ts:4](https://github.com/Xunnamius/symbiote/blob/25135a1844b8500302680a71b90428852179ec2c/types/glob-gitignore.d.ts#L4)
+Defined in: [types/glob-gitignore.d.ts:4](https://github.com/Xunnamius/symbiote/blob/2addc204c768058478c644c99aa7f180ba8bd721/types/glob-gitignore.d.ts#L4)
 
 ## Type Declaration
 
 ### ignore?
 
-> `optional` **ignore**: `string` \| `string`[]
+> `optional` **ignore?**: `string` \| `string`[]
 
 A string or array of strings used to determine which globbed paths are
 ignored. Typically this is the result of parsing a .gitignore file (or file

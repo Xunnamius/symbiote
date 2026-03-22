@@ -8,8 +8,14 @@ import { globalDebuggerNamespace } from 'universe:constant.ts';
 import { ErrorMessage } from 'universe:error.ts';
 
 import type { Package, ProjectMetadata } from '@-xun/project';
-import type { Options as MdastUtilityToMarkdownOptions } from 'mdast-util-to-markdown' with { 'resolution-mode': 'import' };
-import type { Options as UnifiedEngineOptions } from 'unified-engine' with { 'resolution-mode': 'import' };
+
+import type { Options as MdastUtilityToMarkdownOptions } from 'mdast-util-to-markdown' with {
+  'resolution-mode': 'import'
+};
+
+import type { Options as UnifiedEngineOptions } from 'unified-engine' with {
+  'resolution-mode': 'import'
+};
 
 const debug = createDebugLogger({
   namespace: `${globalDebuggerNamespace}:asset:remark`

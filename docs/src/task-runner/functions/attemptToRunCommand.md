@@ -6,9 +6,9 @@
 
 # Function: attemptToRunCommand()
 
-> **attemptToRunCommand**(`cmd`, `cmdArgs`, `__namedParameters`): `Promise`\<`undefined` \| `number`\>
+> **attemptToRunCommand**(`cmd`, `cmdArgs`, `__namedParameters`): `Promise`\<`number` \| `undefined`\>
 
-Defined in: [src/task-runner.ts:9](https://github.com/Xunnamius/symbiote/blob/25135a1844b8500302680a71b90428852179ec2c/src/task-runner.ts#L9)
+Defined in: [src/task-runner.ts:9](https://github.com/Xunnamius/symbiote/blob/2addc204c768058478c644c99aa7f180ba8bd721/src/task-runner.ts#L9)
 
 ## Parameters
 
@@ -18,7 +18,7 @@ Defined in: [src/task-runner.ts:9](https://github.com/Xunnamius/symbiote/blob/25
 
 ### cmdArgs
 
-`undefined` | `string`[]
+`string`[] \| `undefined`
 
 ### \_\_namedParameters
 
@@ -26,4 +26,4 @@ Defined in: [src/task-runner.ts:9](https://github.com/Xunnamius/symbiote/blob/25
 
 ## Returns
 
-`Promise`\<`undefined` \| `number`\>
+`Promise`\<`number` \| `undefined`\>

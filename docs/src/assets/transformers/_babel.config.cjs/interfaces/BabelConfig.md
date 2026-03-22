@@ -12,7 +12,7 @@ Defined in: node\_modules/@types/babel\_\_core/index.d.ts:29
 
 ### assumptions?
 
-> `optional` **assumptions**: `null` \| \{\[`name`: `string`\]: `boolean`; \}
+> `optional` **assumptions?**: \{\[`name`: `string`\]: `boolean`; \} \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:36
 
@@ -27,7 +27,7 @@ https://babeljs.io/docs/en/assumptions
 
 ### ast?
 
-> `optional` **ast**: `null` \| `boolean`
+> `optional` **ast?**: `boolean` \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:43
 
@@ -39,7 +39,7 @@ Default: `false`
 
 ### auxiliaryCommentAfter?
 
-> `optional` **auxiliaryCommentAfter**: `null` \| `string`
+> `optional` **auxiliaryCommentAfter?**: `string` \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:50
 
@@ -51,7 +51,7 @@ Default: `null`
 
 ### auxiliaryCommentBefore?
 
-> `optional` **auxiliaryCommentBefore**: `null` \| `string`
+> `optional` **auxiliaryCommentBefore?**: `string` \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:57
 
@@ -63,7 +63,7 @@ Default: `null`
 
 ### babelrc?
 
-> `optional` **babelrc**: `null` \| `boolean`
+> `optional` **babelrc?**: `boolean` \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:88
 
@@ -76,7 +76,7 @@ Default: `true`
 
 ### babelrcRoots?
 
-> `optional` **babelrcRoots**: `null` \| `boolean` \| `MatchPattern` \| `MatchPattern`[]
+> `optional` **babelrcRoots?**: `boolean` \| `MatchPattern` \| `MatchPattern`[] \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:96
 
@@ -89,7 +89,7 @@ Default: `(root)`
 
 ### browserslistConfigFile?
 
-> `optional` **browserslistConfigFile**: `null` \| `boolean`
+> `optional` **browserslistConfigFile?**: `boolean` \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:107
 
@@ -105,7 +105,7 @@ Default: `true`
 
 ### browserslistEnv?
 
-> `optional` **browserslistEnv**: `null` \| `string`
+> `optional` **browserslistEnv?**: `string` \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:114
 
@@ -117,7 +117,7 @@ Default: `undefined`
 
 ### caller?
 
-> `optional` **caller**: `TransformCaller`
+> `optional` **caller?**: `TransformCaller`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:170
 
@@ -132,7 +132,7 @@ https://babeljs.io/docs/en/next/options#caller
 
 ### cloneInputAst?
 
-> `optional` **cloneInputAst**: `null` \| `boolean`
+> `optional` **cloneInputAst?**: `boolean` \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:122
 
@@ -145,7 +145,7 @@ Default: `true`
 
 ### code?
 
-> `optional` **code**: `null` \| `boolean`
+> `optional` **code?**: `boolean` \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:141
 
@@ -157,7 +157,7 @@ Default: `true`
 
 ### comments?
 
-> `optional` **comments**: `null` \| `boolean`
+> `optional` **comments?**: `boolean` \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:148
 
@@ -169,7 +169,7 @@ Default: `true`
 
 ### compact?
 
-> `optional` **compact**: `null` \| `boolean` \| `"auto"`
+> `optional` **compact?**: `boolean` \| `"auto"` \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:155
 
@@ -181,7 +181,7 @@ Default: `"auto"`
 
 ### configFile?
 
-> `optional` **configFile**: `null` \| `string` \| `boolean`
+> `optional` **configFile?**: `string` \| `boolean` \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:80
 
@@ -193,7 +193,7 @@ Default: `undefined`
 
 ### cwd?
 
-> `optional` **cwd**: `null` \| `string`
+> `optional` **cwd?**: `string` \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:162
 
@@ -205,7 +205,7 @@ Default: `"."`
 
 ### env?
 
-> `optional` **env**: `null` \| \{\[`index`: `string`\]: `undefined` \| `null` \| `TransformOptions`; \}
+> `optional` **env?**: \{\[`index`: `string`\]: `TransformOptions` \| `null` \| `undefined`; \} \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:178
 
@@ -218,7 +218,7 @@ Default: `{}`
 
 ### envName?
 
-> `optional` **envName**: `string`
+> `optional` **envName?**: `string`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:129
 
@@ -230,7 +230,7 @@ Default: env vars
 
 ### exclude?
 
-> `optional` **exclude**: `MatchPattern` \| `MatchPattern`[]
+> `optional` **exclude?**: `MatchPattern` \| `MatchPattern`[]
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:134
 
@@ -240,7 +240,7 @@ If any of patterns match, the current configuration object is considered inactiv
 
 ### extends?
 
-> `optional` **extends**: `null` \| `string`
+> `optional` **extends?**: `string` \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:185
 
@@ -252,7 +252,7 @@ Default: `null`
 
 ### filename?
 
-> `optional` **filename**: `null` \| `string`
+> `optional` **filename?**: `string` \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:192
 
@@ -264,7 +264,7 @@ Default: `"unknown"`
 
 ### filenameRelative?
 
-> `optional` **filenameRelative**: `null` \| `string`
+> `optional` **filenameRelative?**: `string` \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:199
 
@@ -276,7 +276,7 @@ Default: `(filename)`
 
 ### generatorOpts?
 
-> `optional` **generatorOpts**: `null` \| `GeneratorOptions`
+> `optional` **generatorOpts?**: `GeneratorOptions` \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:206
 
@@ -288,7 +288,7 @@ Default: `{}`
 
 ### getModuleId?
 
-> `optional` **getModuleId**: `null` \| (`moduleName`) => `undefined` \| `null` \| `string`
+> `optional` **getModuleId?**: ((`moduleName`) => `string` \| `null` \| `undefined`) \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:213
 
@@ -300,7 +300,7 @@ Default: `null`
 
 ### highlightCode?
 
-> `optional` **highlightCode**: `null` \| `boolean`
+> `optional` **highlightCode?**: `boolean` \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:220
 
@@ -312,7 +312,7 @@ Default: `true`
 
 ### ignore?
 
-> `optional` **ignore**: `null` \| `MatchPattern`[]
+> `optional` **ignore?**: `MatchPattern`[] \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:227
 
@@ -324,7 +324,7 @@ Default: `null`
 
 ### include?
 
-> `optional` **include**: `MatchPattern` \| `MatchPattern`[]
+> `optional` **include?**: `MatchPattern` \| `MatchPattern`[]
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:232
 
@@ -334,7 +334,7 @@ This option is a synonym for "test"
 
 ### inputSourceMap?
 
-> `optional` **inputSourceMap**: `null` \| `InputSourceMap`
+> `optional` **inputSourceMap?**: `InputSourceMap` \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:239
 
@@ -346,7 +346,7 @@ Default: `null`
 
 ### minified?
 
-> `optional` **minified**: `null` \| `boolean`
+> `optional` **minified?**: `boolean` \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:246
 
@@ -358,7 +358,7 @@ Default: `false`
 
 ### moduleId?
 
-> `optional` **moduleId**: `null` \| `string`
+> `optional` **moduleId?**: `string` \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:253
 
@@ -370,7 +370,7 @@ Default: `null`
 
 ### moduleIds?
 
-> `optional` **moduleIds**: `null` \| `boolean`
+> `optional` **moduleIds?**: `boolean` \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:260
 
@@ -382,7 +382,7 @@ Default: `false`
 
 ### moduleRoot?
 
-> `optional` **moduleRoot**: `null` \| `string`
+> `optional` **moduleRoot?**: `string` \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:267
 
@@ -394,7 +394,7 @@ Default: `(sourceRoot)`
 
 ### only?
 
-> `optional` **only**: `null` \| `MatchPattern`[]
+> `optional` **only?**: `MatchPattern`[] \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:275
 
@@ -407,7 +407,7 @@ Default: `null`
 
 ### overrides?
 
-> `optional` **overrides**: `TransformOptions`[]
+> `optional` **overrides?**: `TransformOptions`[]
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:281
 
@@ -418,7 +418,7 @@ This feature is best used alongside the "test"/"include"/"exclude" options to pr
 
 ### parserOpts?
 
-> `optional` **parserOpts**: `null` \| `Partial`\<`Options`\>
+> `optional` **parserOpts?**: `Partial`\<`Options`\> \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:288
 
@@ -430,7 +430,7 @@ Default: `{}`
 
 ### plugins?
 
-> `optional` **plugins**: `null` \| `PluginItem`[]
+> `optional` **plugins?**: `PluginItem`[] \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:295
 
@@ -442,7 +442,7 @@ Default: `[]`
 
 ### presets?
 
-> `optional` **presets**: `null` \| `PluginItem`[]
+> `optional` **presets?**: `PluginItem`[] \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:302
 
@@ -454,7 +454,7 @@ Default: `[]`
 
 ### retainLines?
 
-> `optional` **retainLines**: `null` \| `boolean`
+> `optional` **retainLines?**: `boolean` \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:309
 
@@ -466,7 +466,7 @@ Default: `false`
 
 ### root?
 
-> `optional` **root**: `null` \| `string`
+> `optional` **root?**: `string` \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:64
 
@@ -478,7 +478,7 @@ Default: `"."`
 
 ### rootMode?
 
-> `optional` **rootMode**: `"root"` \| `"upward"` \| `"upward-optional"`
+> `optional` **rootMode?**: `"root"` \| `"upward"` \| `"upward-optional"`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:73
 
@@ -494,7 +494,7 @@ https://babeljs.io/docs/en/next/options#rootmode
 
 ### shouldPrintComment?
 
-> `optional` **shouldPrintComment**: `null` \| (`commentContents`) => `boolean`
+> `optional` **shouldPrintComment?**: ((`commentContents`) => `boolean`) \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:316
 
@@ -506,7 +506,7 @@ Default: `null`
 
 ### sourceFileName?
 
-> `optional` **sourceFileName**: `null` \| `string`
+> `optional` **sourceFileName?**: `string` \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:323
 
@@ -518,7 +518,7 @@ Default: `(filenameRelative)`
 
 ### sourceMaps?
 
-> `optional` **sourceMaps**: `null` \| `boolean` \| `"both"` \| `"inline"`
+> `optional` **sourceMaps?**: `boolean` \| `"both"` \| `"inline"` \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:331
 
@@ -531,7 +531,7 @@ Default: `false`
 
 ### sourceRoot?
 
-> `optional` **sourceRoot**: `null` \| `string`
+> `optional` **sourceRoot?**: `string` \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:338
 
@@ -543,7 +543,7 @@ Default: `(moduleRoot)`
 
 ### sourceType?
 
-> `optional` **sourceType**: `null` \| `"module"` \| `"script"` \| `"unambiguous"`
+> `optional` **sourceType?**: `"module"` \| `"script"` \| `"unambiguous"` \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:346
 
@@ -556,7 +556,7 @@ Default: `("module")`
 
 ### targets?
 
-> `optional` **targets**: `string` \| `string`[] \| \{ `android?`: `string`; `browsers?`: `string` \| `string`[]; `chrome?`: `string`; `deno?`: `string`; `edge?`: `string`; `electron?`: `string`; `esmodules?`: `boolean`; `firefox?`: `string`; `ie?`: `string`; `ios?`: `string`; `node?`: `true` \| `"current"` \| `Omit`\<`string`, `"current"`\>; `opera?`: `string`; `rhino?`: `string`; `safari?`: `"tp"` \| `Omit`\<`string`, `"tp"`\>; `samsung?`: `string`; \}
+> `optional` **targets?**: `string` \| `string`[] \| \{ `android?`: `string`; `browsers?`: `string` \| `string`[]; `chrome?`: `string`; `deno?`: `string`; `edge?`: `string`; `electron?`: `string`; `esmodules?`: `boolean`; `firefox?`: `string`; `ie?`: `string`; `ios?`: `string`; `node?`: `true` \| `"current"` \| `Omit`\<`string`, `"current"`\>; `opera?`: `string`; `rhino?`: `string`; `safari?`: `"tp"` \| `Omit`\<`string`, `"tp"`\>; `samsung?`: `string`; \}
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:359
 
@@ -569,7 +569,7 @@ Default: `{}`
 
 ### test?
 
-> `optional` **test**: `MatchPattern` \| `MatchPattern`[]
+> `optional` **test?**: `MatchPattern` \| `MatchPattern`[]
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:351
 
@@ -579,7 +579,7 @@ If all patterns fail to match, the current configuration object is considered in
 
 ### wrapPluginVisitorMethod?
 
-> `optional` **wrapPluginVisitorMethod**: `null` \| (`pluginAlias`, `visitorType`, `callback`) => (`path`, `state`) => `void`
+> `optional` **wrapPluginVisitorMethod?**: ((`pluginAlias`, `visitorType`, `callback`) => (`path`, `state`) => `void`) \| `null`
 
 Defined in: node\_modules/@types/babel\_\_core/index.d.ts:384
 

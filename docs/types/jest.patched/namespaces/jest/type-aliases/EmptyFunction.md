@@ -4,7 +4,7 @@
 
 [@-xun/symbiote](../../../../../README.md) / [types/jest.patched](../../../README.md) / [jest](../README.md) / EmptyFunction
 
-# Type Alias: EmptyFunction()
+# Type Alias: EmptyFunction
 
 > **EmptyFunction** = () => `void`
 

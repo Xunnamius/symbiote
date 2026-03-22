@@ -4,7 +4,7 @@
 
 [@-xun/symbiote](../../../../../README.md) / [types/jest.patched](../../../README.md) / [jest](../README.md) / MockableFunction
 
-# Type Alias: MockableFunction()
+# Type Alias: MockableFunction
 
 > **MockableFunction** = (...`args`) => `any`
 

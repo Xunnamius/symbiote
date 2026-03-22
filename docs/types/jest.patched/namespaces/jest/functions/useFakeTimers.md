@@ -16,7 +16,7 @@ Instructs Jest to use fake versions of the standard timer functions.
 
 ### config?
 
-`FakeTimersConfig` | `LegacyFakeTimersConfig`
+`FakeTimersConfig` \| `LegacyFakeTimersConfig`
 
 ## Returns
 

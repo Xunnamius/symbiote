@@ -42,10 +42,9 @@ import {
   noSpecialInitialCommitIndicator
 } from 'universe:util.ts';
 
-import type {
-  XchangelogConfig,
-  XchangelogConfigOptions
-} from '@-xun/changelog' with { 'resolution-mode': 'import' };
+import type { XchangelogConfig, XchangelogConfigOptions } from '@-xun/changelog' with {
+  'resolution-mode': 'import'
+};
 
 import type { ExecutionContext } from '@-xun/cli';
 import type { ProjectMetadata } from '@-xun/project';
@@ -447,9 +446,8 @@ export async function generateNotes(
     GlobalExecutionContext
   >(buildChangelog, pseudoBfGlobalExecutionContext);
 
-  const { generateNotes: generateRawNotes } = await import(
-    '@semantic-release/release-notes-generator'
-  );
+  const { generateNotes: generateRawNotes } =
+    await import('@semantic-release/release-notes-generator');
 
   generateNotesDebug(
     'generating release notes with @semantic-release/release-notes-generator'

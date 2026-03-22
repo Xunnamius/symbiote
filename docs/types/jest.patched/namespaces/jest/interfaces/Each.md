@@ -28,25 +28,7 @@ readonly `T`[]
 
 ### Returns
 
-> (`name`, `fn`, `timeout?`): `void`
-
-#### Parameters
-
-##### name
-
-`string`
-
-##### fn
-
-(...`args`) => `any`
-
-##### timeout?
-
-`number`
-
-#### Returns
-
-`void`
+(`name`, `fn`, `timeout?`) => `void`
 
 ## Call Signature
 
@@ -68,25 +50,7 @@ readonly `T`[]
 
 ### Returns
 
-> (`name`, `fn`, `timeout?`): `void`
-
-#### Parameters
-
-##### name
-
-`string`
-
-##### fn
-
-(...`args`) => `any`
-
-##### timeout?
-
-`number`
-
-#### Returns
-
-`void`
+(`name`, `fn`, `timeout?`) => `void`
 
 ## Call Signature
 
@@ -108,25 +72,7 @@ readonly `T`[]
 
 ### Returns
 
-> (`name`, `fn`, `timeout?`): `void`
-
-#### Parameters
-
-##### name
-
-`string`
-
-##### fn
-
-(`arg`, `done`) => `any`
-
-##### timeout?
-
-`number`
-
-#### Returns
-
-`void`
+(`name`, `fn`, `timeout?`) => `void`
 
 ## Call Signature
 
@@ -142,25 +88,7 @@ readonly readonly `any`[][]
 
 ### Returns
 
-> (`name`, `fn`, `timeout?`): `void`
-
-#### Parameters
-
-##### name
-
-`string`
-
-##### fn
-
-(...`args`) => `any`
-
-##### timeout?
-
-`number`
-
-#### Returns
-
-`void`
+(`name`, `fn`, `timeout?`) => `void`
 
 ## Call Signature
 
@@ -180,22 +108,4 @@ Defined in: node\_modules/@types/jest/index.d.ts:549
 
 ### Returns
 
-> (`name`, `fn`, `timeout?`): `void`
-
-#### Parameters
-
-##### name
-
-`string`
-
-##### fn
-
-(`arg`, `done`) => `any`
-
-##### timeout?
-
-`number`
-
-#### Returns
-
-`void`
+(`name`, `fn`, `timeout?`) => `void`

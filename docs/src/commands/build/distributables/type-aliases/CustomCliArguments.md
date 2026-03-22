@@ -8,7 +8,7 @@
 
 > **CustomCliArguments** = [`GlobalCliArguments`](../../../../configure/type-aliases/GlobalCliArguments.md)\<[`ThisPackageGlobalScope`](../../../../configure/enumerations/ThisPackageGlobalScope.md)\> & `object`
 
-Defined in: [src/commands/build/distributables.ts:152](https://github.com/Xunnamius/symbiote/blob/25135a1844b8500302680a71b90428852179ec2c/src/commands/build/distributables.ts#L152)
+Defined in: [src/commands/build/distributables.ts:152](https://github.com/Xunnamius/symbiote/blob/2addc204c768058478c644c99aa7f180ba8bd721/src/commands/build/distributables.ts#L152)
 
 ## Type Declaration
 
@@ -26,31 +26,31 @@ Defined in: [src/commands/build/distributables.ts:152](https://github.com/Xunnam
 
 ### excludeInternalFiles?
 
-> `optional` **excludeInternalFiles**: `Path`[]
+> `optional` **excludeInternalFiles?**: `Path`[]
 
 ### generateIntermediatesFor?
 
-> `optional` **generateIntermediatesFor**: [`IntermediateTranspilationEnvironment`](../enumerations/IntermediateTranspilationEnvironment.md)
+> `optional` **generateIntermediatesFor?**: [`IntermediateTranspilationEnvironment`](../enumerations/IntermediateTranspilationEnvironment.md)
 
 ### generateTypes?
 
-> `optional` **generateTypes**: `boolean`
+> `optional` **generateTypes?**: `boolean`
 
 ### includeExternalAssets?
 
-> `optional` **includeExternalAssets**: `Path`[]
+> `optional` **includeExternalAssets?**: `Path`[]
 
 ### includeExternalFiles?
 
-> `optional` **includeExternalFiles**: `Path`[]
+> `optional` **includeExternalFiles?**: `Path`[]
 
 ### linkCliIntoBin?
 
-> `optional` **linkCliIntoBin**: `boolean`
+> `optional` **linkCliIntoBin?**: `boolean`
 
 ### moduleSystem?
 
-> `optional` **moduleSystem**: [`ModuleSystem`](../enumerations/ModuleSystem.md)
+> `optional` **moduleSystem?**: [`ModuleSystem`](../enumerations/ModuleSystem.md)
 
 ### multiversal
 
@@ -58,32 +58,32 @@ Defined in: [src/commands/build/distributables.ts:152](https://github.com/Xunnam
 
 ### outputExtension?
 
-> `optional` **outputExtension**: `string`
+> `optional` **outputExtension?**: `string`
 
 ### partialFilter?
 
-> `optional` **partialFilter**: `RegExp`[]
+> `optional` **partialFilter?**: `RegExp`[]
 
 ### prependShebang?
 
-> `optional` **prependShebang**: `boolean`
+> `optional` **prependShebang?**: `boolean`
 
 ### skipOutputBijectionCheckFor?
 
-> `optional` **skipOutputBijectionCheckFor**: (`string` \| `RegExp`)[]
+> `optional` **skipOutputBijectionCheckFor?**: (`string` \| `RegExp`)[]
 
 ### skipOutputChecks?
 
-> `optional` **skipOutputChecks**: `boolean`
+> `optional` **skipOutputChecks?**: `boolean`
 
 ### skipOutputExtraneityCheckFor?
 
-> `optional` **skipOutputExtraneityCheckFor**: (`string` \| `RegExp`)[]
+> `optional` **skipOutputExtraneityCheckFor?**: (`string` \| `RegExp`)[]
 
 ### skipOutputTypeResolutionChecks?
 
-> `optional` **skipOutputTypeResolutionChecks**: `boolean`
+> `optional` **skipOutputTypeResolutionChecks?**: `boolean`
 
 ### skipOutputValidityCheckFor?
 
-> `optional` **skipOutputValidityCheckFor**: (`string` \| `RegExp`)[]
+> `optional` **skipOutputValidityCheckFor?**: (`string` \| `RegExp`)[]

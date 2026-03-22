@@ -4,7 +4,7 @@
 
 [@-xun/symbiote](../../../../../README.md) / [types/jest.patched](../../../README.md) / [jest](../README.md) / CustomJestMatcher
 
-# Type Alias: CustomJestMatcher()\<TMatcher, TMatcherReturn\>
+# Type Alias: CustomJestMatcher\<TMatcher, TMatcherReturn\>
 
 > **CustomJestMatcher**\<`TMatcher`, `TMatcherReturn`\> = (...`args`) => `TMatcherReturn`
 

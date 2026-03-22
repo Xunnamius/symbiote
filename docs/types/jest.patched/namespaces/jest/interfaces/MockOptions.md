@@ -12,6 +12,6 @@ Defined in: node\_modules/@types/jest/index.d.ts:452
 
 ### virtual?
 
-> `optional` **virtual**: `boolean`
+> `optional` **virtual?**: `boolean`
 
 Defined in: node\_modules/@types/jest/index.d.ts:453

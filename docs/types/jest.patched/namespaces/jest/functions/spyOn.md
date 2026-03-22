@@ -8,7 +8,7 @@
 
 ## Call Signature
 
-> **spyOn**\<`T`, `Key`, `A`, `Value`\>(`object`, `method`, `accessType`): `A` *extends* `"set"` ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`void`, \[`Value`\], `any`\> : `A` *extends* `"get"` ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`Value`, \[\], `any`\> : `Value` *extends* [`Constructor`](../type-aliases/Constructor.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`InstanceType`\<`Value`\<`Value`\>\>, [`ConstructorArgsType`](../type-aliases/ConstructorArgsType.md)\<`Value`\<`Value`\>\>, `any`\> : `Value` *extends* [`Func`](../type-aliases/Func.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`ReturnType`\<`Value`\<`Value`\>\>, [`ArgsType`](../type-aliases/ArgsType.md)\<`Value`\<`Value`\>\>, `any`\> : `never`
+> **spyOn**\<`T`, `Key`, `A`, `Value`\>(`object`, `method`, `accessType`): `A` *extends* `"set"` ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`void`, \[`Value`\], `any`\> : `A` *extends* `"get"` ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`Value`, \[\], `any`\> : `Value` *extends* [`Constructor`](../type-aliases/Constructor.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`InstanceType`\<`Value`\>, [`ConstructorArgsType`](../type-aliases/ConstructorArgsType.md)\<`Value`\>, `any`\> : `Value` *extends* [`Func`](../type-aliases/Func.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`ReturnType`\<`Value`\>, [`ArgsType`](../type-aliases/ArgsType.md)\<`Value`\>, `any`\> : `never`
 
 Defined in: node\_modules/@types/jest/index.d.ts:410
 
@@ -51,7 +51,7 @@ other test libraries.
 
 ### Returns
 
-`A` *extends* `"set"` ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`void`, \[`Value`\], `any`\> : `A` *extends* `"get"` ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`Value`, \[\], `any`\> : `Value` *extends* [`Constructor`](../type-aliases/Constructor.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`InstanceType`\<`Value`\<`Value`\>\>, [`ConstructorArgsType`](../type-aliases/ConstructorArgsType.md)\<`Value`\<`Value`\>\>, `any`\> : `Value` *extends* [`Func`](../type-aliases/Func.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`ReturnType`\<`Value`\<`Value`\>\>, [`ArgsType`](../type-aliases/ArgsType.md)\<`Value`\<`Value`\>\>, `any`\> : `never`
+`A` *extends* `"set"` ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`void`, \[`Value`\], `any`\> : `A` *extends* `"get"` ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`Value`, \[\], `any`\> : `Value` *extends* [`Constructor`](../type-aliases/Constructor.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`InstanceType`\<`Value`\>, [`ConstructorArgsType`](../type-aliases/ConstructorArgsType.md)\<`Value`\>, `any`\> : `Value` *extends* [`Func`](../type-aliases/Func.md) ? [`SpyInstance`](../interfaces/SpyInstance.md)\<`ReturnType`\<`Value`\>, [`ArgsType`](../type-aliases/ArgsType.md)\<`Value`\>, `any`\> : `never`
 
 ### Example
 

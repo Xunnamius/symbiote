@@ -70,7 +70,7 @@ Defined in: node\_modules/@types/jest/index.d.ts:1152
 
 ### \[metadata\]
 
-> **\[metadata\]**: `null` \| `DecoratorMetadataObject`
+> **\[metadata\]**: `DecoratorMetadataObject` \| `null`
 
 Defined in: node\_modules/typescript/lib/lib.esnext.decorators.d.ts:27
 
@@ -295,7 +295,7 @@ A list of arguments to be passed to the method.
 
 ### getMockImplementation()
 
-> **getMockImplementation**(): `undefined` \| (...`args`) => `T`
+> **getMockImplementation**(): ((...`args`) => `T`) \| `undefined`
 
 Defined in: node\_modules/@types/jest/index.d.ts:1299
 
@@ -303,7 +303,7 @@ Returns the function that was set as the implementation of the mock (using mockI
 
 #### Returns
 
-`undefined` \| (...`args`) => `T`
+((...`args`) => `T`) \| `undefined`
 
 #### Inherited from
 

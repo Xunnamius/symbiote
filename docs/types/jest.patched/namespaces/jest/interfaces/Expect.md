@@ -46,7 +46,7 @@ The value to apply matchers against.
 
 ## Indexable
 
-\[`key`: `string`\]: `any`
+> \[`key`: `string`\]: `any`
 
 ## Properties
 
@@ -422,7 +422,7 @@ Matches any string that contains the exact provided string
 
 ##### str
 
-`string` | `RegExp`
+`string` \| `RegExp`
 
 #### Returns
 
@@ -843,11 +843,11 @@ Supports both number and BigInt values.
 
 ##### min
 
-`number` | `bigint`
+`number` \| `bigint`
 
 ##### max
 
-`number` | `bigint`
+`number` \| `bigint`
 
 #### Returns
 
@@ -1179,7 +1179,7 @@ Use `.toChangeBy` when checking if a value changed by an amount.
 
 ##### by?
 
-`number` | `bigint`
+`number` \| `bigint`
 
 #### Returns
 
@@ -1795,7 +1795,7 @@ Use `.toIncludeAllMembers` when checking if an `Array` contains all of the same 
 
 ##### members
 
-`E` | readonly `E`[]
+`E` \| readonly `E`[]
 
 #### Returns
 
@@ -1825,7 +1825,7 @@ Use `.toIncludeAllPartialMembers` when checking if an `Array` contains all the s
 
 ##### members
 
-`E` | readonly `E`[]
+`E` \| readonly `E`[]
 
 #### Returns
 
@@ -1855,7 +1855,7 @@ Use `.toIncludeAnyMembers` when checking if an `Array` contains any of the membe
 
 ##### members
 
-`E` | readonly `E`[]
+`E` \| readonly `E`[]
 
 #### Returns
 
@@ -2165,11 +2165,11 @@ Use `.toThrowWithMessage` when checking if a callback function throws an error o
 
 ##### type
 
-(...`args`) => `object` | (...`args`) => `object`
+((...`args`) => `object`) \| ((...`args`) => `object`)
 
 ##### message
 
-`string` | `RegExp`
+`string` \| `RegExp`
 
 #### Returns
 

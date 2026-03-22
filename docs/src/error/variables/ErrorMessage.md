@@ -8,7 +8,7 @@
 
 > `const` **ErrorMessage**: `object`
 
-Defined in: [src/error.ts:38](https://github.com/Xunnamius/symbiote/blob/25135a1844b8500302680a71b90428852179ec2c/src/error.ts#L38)
+Defined in: [src/error.ts:38](https://github.com/Xunnamius/symbiote/blob/2addc204c768058478c644c99aa7f180ba8bd721/src/error.ts#L38)
 
 A collection of possible error and warning messages.
 
@@ -39,11 +39,11 @@ punctuation and capitalization rules as the other error messages.
 
 ###### cwdPackageCoreJsDependency
 
-`undefined` | `string`
+`string` \| `undefined`
 
 ###### packageName
 
-`undefined` | `string`
+`string` \| `undefined`
 
 ###### packageRoot
 
@@ -277,7 +277,7 @@ punctuation and capitalization rules as the other error messages.
 
 ##### packageName
 
-`undefined` | `string`
+`string` \| `undefined`
 
 ##### packageRoot
 
@@ -1133,7 +1133,7 @@ readonly `string`[]
 
 ##### type
 
-`undefined` | `string`
+`string` \| `undefined`
 
 ##### variableName
 
@@ -1189,7 +1189,7 @@ readonly `string`[]
 
 ### WrongProjectAttributes()
 
-> **WrongProjectAttributes**(`expected`, `actual`, `preposition`): `string`
+> **WrongProjectAttributes**(`expected`, `actual`, `preposition?`): `string`
 
 #### Parameters
 
@@ -1243,7 +1243,7 @@ readonly `string`[]
 
 `boolean`
 
-##### preposition
+##### preposition?
 
 `string` = `'with'`
 

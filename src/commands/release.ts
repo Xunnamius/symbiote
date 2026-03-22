@@ -262,8 +262,10 @@ export interface ProtoPostreleaseTask extends BaseProtoTask {
 /**
  * A partially defined release-`type` {@link ReleaseTask}.
  */
-export interface ProtoCoreReleaseTask
-  extends Omit<BaseProtoTask, 'skippable' | 'npmScripts' | 'emoji'> {
+export interface ProtoCoreReleaseTask extends Omit<
+  BaseProtoTask,
+  'skippable' | 'npmScripts' | 'emoji'
+> {
   skippable?: false;
   npmScripts?: never[];
   emoji?: '';

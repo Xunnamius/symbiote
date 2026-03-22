@@ -41,7 +41,10 @@ import {
   writeFile
 } from 'universe:util.ts';
 
-import type { XchangelogConfig } from '@-xun/changelog' with { 'resolution-mode': 'import' };
+import type { XchangelogConfig } from '@-xun/changelog' with {
+  'resolution-mode': 'import'
+};
+
 import type { AsStrictExecutionContext, ChildConfiguration } from '@-xun/cli';
 import type { Path } from '@-xun/fs';
 import type { Promisable } from 'type-fest';

@@ -23,7 +23,7 @@ jest.setSystemTime().
 
 ### now?
 
-`number` | `Date`
+`number` \| `Date`
 
 ## Returns
 

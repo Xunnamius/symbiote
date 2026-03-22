@@ -10,7 +10,7 @@ Defined in: node\_modules/@types/jest/index.d.ts:656
 
 ## Properties
 
-### message()
+### message
 
 > **message**: () => `string`
 

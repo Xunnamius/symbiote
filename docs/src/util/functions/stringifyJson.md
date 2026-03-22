@@ -6,9 +6,9 @@
 
 # Function: stringifyJson()
 
-> **stringifyJson**(`o`, `spaceTabs`): `string`
+> **stringifyJson**(`o`, `spaceTabs?`): `string`
 
-Defined in: [src/util.ts:1037](https://github.com/Xunnamius/symbiote/blob/25135a1844b8500302680a71b90428852179ec2c/src/util.ts#L1037)
+Defined in: [src/util.ts:1037](https://github.com/Xunnamius/symbiote/blob/2addc204c768058478c644c99aa7f180ba8bd721/src/util.ts#L1037)
 
 Take a JavaScript object and return its stringified form with some semblance
 of proper formatting. Also appends a newline.
@@ -19,7 +19,7 @@ of proper formatting. Also appends a newline.
 
 `Jsonifiable`
 
-### spaceTabs
+### spaceTabs?
 
 `number` = `2`
 

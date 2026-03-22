@@ -6,9 +6,9 @@
 
 # Function: defaultCustomReplacer()
 
-> **defaultCustomReplacer**(`objValue`, `srcValue`, `key`, `object`, `source`): `undefined` \| `any`[]
+> **defaultCustomReplacer**(`objValue`, `srcValue`, `key`, `object`, `source`): `any`[] \| `undefined`
 
-Defined in: [src/assets.ts:668](https://github.com/Xunnamius/symbiote/blob/25135a1844b8500302680a71b90428852179ec2c/src/assets.ts#L668)
+Defined in: [src/assets.ts:668](https://github.com/Xunnamius/symbiote/blob/2addc204c768058478c644c99aa7f180ba8bd721/src/assets.ts#L668)
 
 Custom lodash merge customizer that causes successive `undefined` source
 values to unset (delete) the destination property if it exists, and to
@@ -35,15 +35,15 @@ concatenated to the old array).
 
 ### object
 
-`undefined` | `Record`\<`string`, `unknown`\>
+`Record`\<`string`, `unknown`\> \| `undefined`
 
 ### source
 
-`undefined` | `Record`\<`string`, `unknown`\>
+`Record`\<`string`, `unknown`\> \| `undefined`
 
 ## Returns
 
-`undefined` \| `any`[]
+`any`[] \| `undefined`
 
 ## See
 

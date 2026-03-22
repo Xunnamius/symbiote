@@ -4,11 +4,11 @@
 
 [@-xun/symbiote](../../../../README.md) / [src/commands/release](../README.md) / ReleaseTaskRunner
 
-# Type Alias: ReleaseTaskRunner()
+# Type Alias: ReleaseTaskRunner
 
 > **ReleaseTaskRunner** = (`argv`, `taskContextPartial`) => `Promise`\<`void`\>
 
-Defined in: [src/commands/release.ts:145](https://github.com/Xunnamius/symbiote/blob/25135a1844b8500302680a71b90428852179ec2c/src/commands/release.ts#L145)
+Defined in: [src/commands/release.ts:145](https://github.com/Xunnamius/symbiote/blob/2addc204c768058478c644c99aa7f180ba8bd721/src/commands/release.ts#L145)
 
 A reified [ProtoReleaseTaskRunner](ProtoReleaseTaskRunner.md). Generated automatically by tooling.
 

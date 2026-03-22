@@ -8,7 +8,7 @@
 
 > **overwriteProperty**\<`T`\>(`configs`, `property`, `value`): `Config`[]
 
-Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:1049](https://github.com/Xunnamius/symbiote/blob/25135a1844b8500302680a71b90428852179ec2c/src/assets/transformers/_eslint.config.mjs.ts#L1049)
+Defined in: [src/assets/transformers/\_eslint.config.mjs.ts:1051](https://github.com/Xunnamius/symbiote/blob/2addc204c768058478c644c99aa7f180ba8bd721/src/assets/transformers/_eslint.config.mjs.ts#L1051)
 
 Accepts an [EslintConfig](../type-aliases/EslintConfig.md) object (or an array of them) and returns a
 flattened array with each object's `property` property overwritten by the
@@ -37,7 +37,7 @@ const eslintConfig = makeTsEslintConfig({
 
 ### configs
 
-`Config` | `Config`[]
+`Config` \| `Config`[]
 
 ### property
 

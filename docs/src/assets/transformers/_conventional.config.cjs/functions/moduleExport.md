@@ -8,7 +8,7 @@
 
 > **moduleExport**(`__namedParameters`): `XchangelogConfig`
 
-Defined in: [src/assets/transformers/\_conventional.config.cjs.ts:389](https://github.com/Xunnamius/symbiote/blob/25135a1844b8500302680a71b90428852179ec2c/src/assets/transformers/_conventional.config.cjs.ts#L389)
+Defined in: [src/assets/transformers/\_conventional.config.cjs.ts:389](https://github.com/Xunnamius/symbiote/blob/2addc204c768058478c644c99aa7f180ba8bd721/src/assets/transformers/_conventional.config.cjs.ts#L389)
 
 This function returns a `@-xun/changelog` configuration preset. See the
 documentation for details.
@@ -39,7 +39,7 @@ objects in upstream conventional-commits-writer.
 
 #### configOverrides
 
-(`config`) => `XchangelogConfig` \| `Partial`\<`XchangelogConfig`\> = `{}`
+((`config`) => `XchangelogConfig`) \| `Partial`\<`XchangelogConfig`\>
 
 #### projectMetadata
 

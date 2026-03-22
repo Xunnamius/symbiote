@@ -4,7 +4,7 @@
 
 [@-xun/symbiote](../../../../../README.md) / [types/jest.patched](../../../README.md) / [jest](../README.md) / EqualityTester
 
-# Type Alias: EqualityTester()
+# Type Alias: EqualityTester
 
 > **EqualityTester** = (`a`, `b`) => `boolean` \| `undefined`
 
