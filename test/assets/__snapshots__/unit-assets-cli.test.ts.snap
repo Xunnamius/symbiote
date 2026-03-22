@@ -25308,7 +25308,7 @@ scope: this-package
   "author": "Xunnamius",
   "sideEffects": false,
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "private": true,
   "files": [
@@ -25421,7 +25421,7 @@ scope: unlimited
     "good-hybridrepo": "./dist/src/cli.js"
   },
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "private": true,
   "keywords": [],
@@ -25569,7 +25569,7 @@ scope: unlimited
     "cli": "./dist/packages/cli/src/cli.js"
   },
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -25655,7 +25655,7 @@ scope: unlimited
     "private": "./dist/packages/private/src/cli.js"
   },
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
@@ -25748,7 +25748,7 @@ scope: unlimited
     "webpack": "./dist/packages/webpack/src/cli.js"
   },
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -25807,7 +25807,7 @@ scope: unlimited
   "author": "Xunnamius",
   "sideEffects": false,
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "private": true,
   "files": [
@@ -25956,7 +25956,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -26020,7 +26020,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
@@ -26091,7 +26091,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -26173,7 +26173,7 @@ scope: this-package
     }
   },
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -26233,7 +26233,7 @@ scope: unlimited
     "good-monorepo-no-src": "./dist/src/cli.js"
   },
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "private": true,
   "scripts": {
@@ -26325,7 +26325,7 @@ scope: unlimited
     "pkg-1": "./dist/packages/pkg-1/src/cli.js"
   },
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -26420,7 +26420,7 @@ scope: unlimited
     "pkg": "./dist/packages/pkg-2/src/cli.js"
   },
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -26518,7 +26518,7 @@ scope: unlimited
     "importer": "./dist/packages/pkg-import/src/cli.js"
   },
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -26576,7 +26576,7 @@ scope: unlimited
     "good-monorepo-no-src": "./dist/src/cli.js"
   },
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "private": true,
   "scripts": {
@@ -26656,7 +26656,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -26741,7 +26741,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -26817,7 +26817,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -26895,7 +26895,7 @@ scope: unlimited
     "/README.md"
   ],
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "publishConfig": {
     "access": "public",
@@ -26998,7 +26998,7 @@ scope: this-package
     "/README.md"
   ],
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "publishConfig": {
     "access": "public",
@@ -27088,7 +27088,7 @@ scope: unlimited
     "/README.md"
   ],
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "publishConfig": {
     "access": "public",

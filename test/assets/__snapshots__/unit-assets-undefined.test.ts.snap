@@ -26345,7 +26345,7 @@ scope: this-package
   "author": "Xunnamius",
   "sideEffects": false,
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "private": true,
   "files": [
@@ -26441,7 +26441,7 @@ scope: unlimited
   "sideEffects": false,
   "type": "commonjs",
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "private": true,
   "keywords": [],
@@ -26558,7 +26558,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -26627,7 +26627,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
@@ -26703,7 +26703,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -26761,7 +26761,7 @@ scope: unlimited
   "author": "Xunnamius",
   "sideEffects": false,
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "private": true,
   "files": [
@@ -26896,7 +26896,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -26960,7 +26960,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
@@ -27031,7 +27031,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -27105,7 +27105,7 @@ scope: this-package
     }
   },
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -27162,7 +27162,7 @@ scope: unlimited
   "sideEffects": false,
   "type": "commonjs",
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "private": true,
   "scripts": {
@@ -27237,7 +27237,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -27315,7 +27315,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -27396,7 +27396,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -27451,7 +27451,7 @@ scope: unlimited
   "author": "Xunnamius",
   "sideEffects": false,
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "private": true,
   "scripts": {
@@ -27531,7 +27531,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -27616,7 +27616,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -27692,7 +27692,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -27761,7 +27761,7 @@ scope: unlimited
     "/README.md"
   ],
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "publishConfig": {
     "access": "public",
@@ -27847,7 +27847,7 @@ scope: this-package
     "/README.md"
   ],
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "publishConfig": {
     "access": "public",
@@ -27928,7 +27928,7 @@ scope: unlimited
     "/README.md"
   ],
   "engines": {
-    "node": "^20.18.0 || >=22.12.0"
+    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "publishConfig": {
     "access": "public",
