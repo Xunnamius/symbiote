@@ -230,7 +230,7 @@
     "semver": "^7.7.4",
     "sort-package-json": "^3.6.1",
     "toss-expression": "^0.1.2",
-    "tstyche": "^4.3.0",
+    "tstyche": "^6.2.0",
     "type-fest": "^5.0.1",
     "typedoc": "^0.28.13",
     "typedoc-plugin-markdown": "^4.9.0",
