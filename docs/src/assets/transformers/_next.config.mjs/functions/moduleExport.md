@@ -8,7 +8,7 @@
 
 > **moduleExport**(`__namedParameters`): `Record`\<`string`, `unknown`\>
 
-Defined in: [src/assets/transformers/\_next.config.mjs.ts:28](https://github.com/Xunnamius/symbiote/blob/2addc204c768058478c644c99aa7f180ba8bd721/src/assets/transformers/_next.config.mjs.ts#L28)
+Defined in: [src/assets/transformers/\_next.config.mjs.ts:28](https://github.com/Xunnamius/symbiote/blob/68dd659d6dfd3bcf6be03ab6772222ae59d5b644/src/assets/transformers/_next.config.mjs.ts#L28)
 
 ## Parameters
 

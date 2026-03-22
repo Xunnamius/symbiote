@@ -8,7 +8,7 @@
 
 > **moduleExport**(`__namedParameters`): `XchangelogConfig`
 
-Defined in: [src/assets/transformers/\_conventional.config.cjs.ts:389](https://github.com/Xunnamius/symbiote/blob/2addc204c768058478c644c99aa7f180ba8bd721/src/assets/transformers/_conventional.config.cjs.ts#L389)
+Defined in: [src/assets/transformers/\_conventional.config.cjs.ts:389](https://github.com/Xunnamius/symbiote/blob/68dd659d6dfd3bcf6be03ab6772222ae59d5b644/src/assets/transformers/_conventional.config.cjs.ts#L389)
 
 This function returns a `@-xun/changelog` configuration preset. See the
 documentation for details.

@@ -8,7 +8,7 @@
 
 > `const` **inlineExternalImageElement**: `string`
 
-Defined in: [src/assets/transformers/\_conventional.config.cjs.ts:136](https://github.com/Xunnamius/symbiote/blob/2addc204c768058478c644c99aa7f180ba8bd721/src/assets/transformers/_conventional.config.cjs.ts#L136)
+Defined in: [src/assets/transformers/\_conventional.config.cjs.ts:136](https://github.com/Xunnamius/symbiote/blob/68dd659d6dfd3bcf6be03ab6772222ae59d5b644/src/assets/transformers/_conventional.config.cjs.ts#L136)
 
 The inline image HTML element appended to links leading to external
 repositories. This value is also duplicated in the commit.hbs template file.
