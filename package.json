@@ -122,7 +122,7 @@
     "@commitlint/cli": "^20.5.0",
     "@commitlint/config-conventional": "^20.5.0",
     "@eslint/compat": "^2.0.3",
-    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/eslintrc": "^3.3.5",
     "@eslint/js": "^9.36.0",
     "@octokit/plugin-retry": "^8.0.2",
     "@octokit/plugin-throttling": "^11.0.2",
