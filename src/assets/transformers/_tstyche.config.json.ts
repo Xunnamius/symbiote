@@ -21,7 +21,6 @@ export const { transformer } = makeTransformer(function (context) {
               '**/type-*.test.ts',
               '**/type-*.test.tsx'
             ],
-            checkSourceFiles: false,
             rejectAnyType: true,
             rejectNeverType: true
           })
