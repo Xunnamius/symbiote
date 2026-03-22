@@ -244,7 +244,7 @@
     "@-xun/project-fs": "^2.0.6",
     "@-xun/symbiote": "^4.15.4",
     "next": "^16.2.1",
-    "webpack": "^5.102.0"
+    "webpack": "^5.105.4"
   },
   "bundleDependencies": [
     "@-xun/changelog",
