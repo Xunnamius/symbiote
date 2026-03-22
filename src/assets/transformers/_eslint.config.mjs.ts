@@ -417,6 +417,8 @@ function jestRules(): NonNullable<EslintConfig['rules']> {
     'jest/prefer-ending-with-an-expect': 'off',
     'jest/prefer-mock-return-shorthand': 'off',
     'jest/valid-expect-with-promise': 'off',
+    // TODO: disabled because this rule is broken until my PR is merged upstream
+    'jest/valid-mock-module-path': 'off',
     'jest/require-hook': [
       'error',
       {
