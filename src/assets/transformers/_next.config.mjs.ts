@@ -83,12 +83,13 @@ export function moduleExport({
       MAX_CONTENT_LENGTH_BYTES: process.env.MAX_CONTENT_LENGTH_BYTES
     },
 
-    eslint: {
-      // ! This prevents production builds from failing in the presence of
-      // ! ESLint errors; linting is handled during CL/CI rather than at deploy
-      // ! time.
-      ignoreDuringBuilds: true
-    },
+    // ? Seems next@16 no longer supports linting built-in (which is good!)
+    // eslint: {
+    //   // ! This prevents production builds from failing in the presence of
+    //   // ! ESLint errors; linting is handled during CL/CI rather than at deploy
+    //   // ! time.
+    //   ignoreDuringBuilds: true
+    // },
 
     typescript: {
       // ! This prevents production builds from failing in the presence of

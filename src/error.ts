@@ -19,7 +19,7 @@ export const { BuildOutputCheckError } = makeNamedError(
      * via `super`.
      */
     constructor(message: string);
-    constructor(message: string | undefined = undefined) {
+    constructor(message?: string) {
       super(message ?? ErrorMessage.BuildOutputChecksFailed());
     }
   },

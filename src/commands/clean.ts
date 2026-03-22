@@ -207,7 +207,7 @@ The default value for --exclude-paths includes the following regular expressions
           ignoredPathsSet
             .difference(pathsThatAreNotAnEmptyDirectorySet)
             .values()
-            .filter((path) => path && path.endsWith('/'))
+            .filter((path) => path.endsWith('/'))
             .map(relativePathToDeletionTarget)
             .toArray()
         );

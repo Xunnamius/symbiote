@@ -1389,7 +1389,7 @@ describe('::generatePerPackageAssets', () => {
         ]);
       }
 
-      expect(adder.mock.calls).toHaveLength(packages.length);
+      expect(adder).toHaveBeenCalledTimes(packages.length);
     }
 
     {
@@ -1426,7 +1426,7 @@ describe('::generatePerPackageAssets', () => {
         ]);
       }
 
-      expect(adder.mock.calls).toHaveLength(packages.length);
+      expect(adder).toHaveBeenCalledTimes(packages.length);
     }
   });
 
@@ -1468,7 +1468,7 @@ describe('::generatePerPackageAssets', () => {
       ]);
     }
 
-    expect(adder.mock.calls).toHaveLength(packages.length);
+    expect(adder).toHaveBeenCalledTimes(packages.length);
   });
 
   it('calls adder function on cwdPackage only when scope=this-package', async () => {
@@ -1546,7 +1546,7 @@ describe('::generatePerPackageAssets', () => {
         ]);
       }
 
-      expect(adder.mock.calls).toHaveLength(pkgs.length);
+      expect(adder).toHaveBeenCalledTimes(pkgs.length);
     }
 
     {
@@ -1581,7 +1581,7 @@ describe('::generatePerPackageAssets', () => {
         ]);
       }
 
-      expect(adder.mock.calls).toHaveLength(pkgs.length + 1);
+      expect(adder).toHaveBeenCalledTimes(pkgs.length + 1);
     }
   });
 
@@ -1627,7 +1627,7 @@ describe('::generatePerPackageAssets', () => {
         ]);
       }
 
-      expect(adder.mock.calls).toHaveLength(pkgs.length);
+      expect(adder).toHaveBeenCalledTimes(pkgs.length);
     }
 
     {
@@ -1664,7 +1664,7 @@ describe('::generatePerPackageAssets', () => {
         ]);
       }
 
-      expect(adder.mock.calls).toHaveLength(pkgs.length + 1);
+      expect(adder).toHaveBeenCalledTimes(pkgs.length + 1);
     }
   });
 

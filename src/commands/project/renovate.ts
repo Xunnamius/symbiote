@@ -1485,7 +1485,9 @@ To create and recreate alias tags for existing release tags more generally, see 
         force || (shouldUpdateRepoName && oldRemoteUrl.includes(oldRepoName));
 
       const updatedRemoteUrl = oldRemoteUrl.replace(
-        new RegExp(`/${force ? '[^/]+' : escapeStringRegexp(oldRepoName)}(?:\\.git)?$`),
+        new RegExp(
+          String.raw`/${force ? '[^/]+' : escapeStringRegexp(oldRepoName)}(?:\.git)?$`
+        ),
         `/${updatedRepoName}.git`
       );
 

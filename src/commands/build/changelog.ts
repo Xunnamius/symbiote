@@ -411,7 +411,7 @@ Use --import-section-file to add a custom release section to the changelog. The 
                   ? chunk_.replace(
                       // ? Replace "@Unreleased" with "@unreleased" in heading
                       new RegExp(
-                        `^(#+\\s+${escapeStringRegexp(cwdPackageName)})\\[@Unreleased]`,
+                        String.raw`^(#+\s+${escapeStringRegexp(cwdPackageName)})\[@Unreleased]`,
                         'm'
                       ),
                       '$1[@unreleased]'

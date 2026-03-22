@@ -217,16 +217,16 @@ const config = deepMergeConfig(
   }
 );${
             isInEsmMode
-              ? /*js*/ `
+              ? /*js*/ String.raw`
 
 const esmBabelConfig = safeDeepClone(globalBabelConfig);
 /**@type {any}*/ (esmBabelConfig.env.test).presets[0][1].modules = false;
 
 config.transform = /**@type {any}*/ ({
   // * Treat as ESM
-  '\\.(ts|mts|jsx|tsx|mjs)?$': ['babel-jest', esmBabelConfig],
+  '\.(ts|mts|jsx|tsx|mjs)?$': ['babel-jest', esmBabelConfig],
   // * Treat as CJS
-  '\\.(js|cjs|cts)$': 'babel-jest'
+  '\.(js|cjs|cts)$': 'babel-jest'
 });`
               : ''
           }

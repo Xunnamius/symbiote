@@ -160,7 +160,7 @@ const translateTsExtensionsToJsRegExp = /(.+)\.(c|m)?ts(x)?$/;
 const translateTsExtensionsToJsRegExpReplacer = '$1.$2js$3';
 
 const dTsExtensionsToReplaceRegExp = new RegExp(
-  `\\.(${dTsExtensionsToReplace
+  String.raw`\.(${dTsExtensionsToReplace
     // ? Replace only the first dot in multi-dot extensions (like .d.ts)
     .map((x) => x.replace('.', '').replaceAll('.', String.raw`\.`))
     .join('|')})$`
@@ -1027,8 +1027,8 @@ function makeDistReplacerEntry(
 
                 dbgResolver('resolver options: %O', options);
 
-                let updatedTarget = '';
-                let entrypoints = [];
+                let updatedTarget: string;
+                let entrypoints: string[];
 
                 if (target === '.') {
                   // * In this special case, the bare package name is used as

@@ -387,7 +387,7 @@ export function assertEnvironment(): Omit<
  * objects in upstream conventional-commits-writer.
  */
 export function moduleExport({
-  configOverrides = {},
+  configOverrides,
   specialInitialCommit,
   projectMetadata
 }: {
@@ -763,7 +763,7 @@ export function moduleExport({
         deepMerge(intermediateConfig, configOverrides, mergeCustomizer);
 
   const commitSectionOrder = Array.from(
-    new Set(finalConfig.types?.map(({ section }) => section) ?? [])
+    new Set(finalConfig.types?.map(({ section }) => section))
   );
 
   const nonHiddenKnownTypesPartialPattern = finalConfig.types
@@ -772,7 +772,7 @@ export function moduleExport({
     .join('|');
 
   const relevantRevertCommitHeaderPattern = new RegExp(
-    `(^(${nonHiddenKnownTypesPartialPattern ?? 'feat|fix'})\\W)|(^[^!(:]*(\\([^)]*\\))?!:)`,
+    String.raw`(^(${nonHiddenKnownTypesPartialPattern ?? 'feat|fix'})\W)|(^[^!(:]*(\([^)]*\))?!:)`,
     'i'
   );
 
@@ -781,7 +781,7 @@ export function moduleExport({
 
   const issuePattern = finalConfig.issuePrefixes.length
     ? new RegExp(
-        `(?:\\b([a-z0-9_.-]+)\\/([a-z0-9_.-]+))?(${finalConfig.issuePrefixes.map((str) => escapeStringRegExp(str)).join('|')})([0-9]+)`,
+        String.raw`(?:\b([a-z0-9_.-]+)\/([a-z0-9_.-]+))?(${finalConfig.issuePrefixes.map((str) => escapeStringRegExp(str)).join('|')})([0-9]+)`,
         'gi'
       )
     : neverMatchAnythingPattern;
