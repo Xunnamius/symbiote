@@ -119,7 +119,7 @@
     "@babel/preset-env": "^7.29.3",
     "@babel/preset-react": "^7.28.5",
     "@babel/preset-typescript": "^7.28.5",
-    "@commitlint/cli": "^20.5.0",
+    "@commitlint/cli": "^20.5.3",
     "@commitlint/config-conventional": "^20.5.0",
     "@eslint/compat": "^2.0.3",
     "@eslint/eslintrc": "^3.3.5",
