@@ -116,7 +116,7 @@
     "@babel/eslint-parser": "^7.28.6",
     "@babel/plugin-proposal-export-default-from": "^7.27.1",
     "@babel/plugin-syntax-typescript": "^7.28.6",
-    "@babel/preset-env": "^7.29.2",
+    "@babel/preset-env": "^7.29.3",
     "@babel/preset-react": "^7.28.5",
     "@babel/preset-typescript": "^7.28.5",
     "@commitlint/cli": "^20.5.0",
