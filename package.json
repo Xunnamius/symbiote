@@ -169,7 +169,7 @@
     "jest-circus": "30.3.0",
     "jest-extended": "^7.0.0",
     "jest-silent-reporter": "^0.6.0",
-    "libsodium-wrappers": "^0.8.2",
+    "libsodium-wrappers": "^0.8.4",
     "lint-staged": "^16.4.0",
     "lodash.get": "^4.4.2",
     "lodash.mergewith": "^4.6.2",
