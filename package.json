@@ -174,7 +174,7 @@
     "lodash.get": "^4.4.2",
     "lodash.mergewith": "^4.6.2",
     "mdast-util-to-markdown": "^2.1.2",
-    "npm-check-updates": "^19.6.5",
+    "npm-check-updates": "^22.1.0",
     "prettier": "^3.8.1",
     "rejoinder": "^2.1.0",
     "rejoinder-cli": "^1.0.0",
