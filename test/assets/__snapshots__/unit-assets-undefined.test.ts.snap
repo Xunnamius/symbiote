@@ -5774,12 +5774,12 @@ import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:commit-msg' });
 
-if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
-  log.warn('skipped commit-msg hook due to rebase');
-} else {
-  const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
+try {
+  if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+    log.warn('skipped commit-msg hook due to rebase');
+  } else {
+    const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
 
-  try {
     await runWithInheritedIo('npx', ['commitlint', '-e'], {
       env: { NODE_NO_WARNINGS: '1' }
     });
@@ -5787,11 +5787,11 @@ if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
     if (!isInSimpleVerificationMode) {
       await runWithInheritedIo('npm', ['run', 'test:packages:all:unit']);
     }
-  } catch {
-    process.exitCode = 1;
-  }
 
-  // TODO: bring back spellchecker
+    // TODO: bring back spellchecker
+  }
+} catch {
+  process.exitCode = 1;
 }
 "
 `;
@@ -5810,19 +5810,30 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husk
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.husky/pre-commit.mjs
 scope: this-package
 ⏶⏷⏶⏷⏶
-import { runWithInheritedIo } from '@-xun/run';
+import { run, runWithInheritedIo } from '@-xun/run';
 import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:pre-commit' });
 
-if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
-  log.warn('skipped pre-commit hook due to rebase');
-} else {
-  const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
+try {
+  if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+    log.warn('skipped pre-commit hook due to rebase');
+  } else {
+    const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
 
-  try {
     if (!isInSimpleVerificationMode) {
-      await runWithInheritedIo('npm', ['run', 'lint:package']);
+      const [hasLintPackageCommand, hasLintPackagesCommand] = await Promise.all([
+        run('npm', ['run']).then(({ stdout }) => /\\blint:package\\b/.test(stdout)),
+        run('npm', ['run']).then(({ stdout }) => /\\blint:packages\\b/.test(stdout))
+      ]);
+
+      if (hasLintPackageCommand) {
+        await runWithInheritedIo('npm', ['run', 'lint:package']);
+      }
+
+      if (hasLintPackagesCommand) {
+        await runWithInheritedIo('npm', ['run', 'lint:packages']);
+      }
     }
 
     await runWithInheritedIo(
@@ -5841,9 +5852,9 @@ if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
       '--scope',
       'unlimited'
     ]);
-  } catch {
-    process.exitCode = 1;
   }
+} catch {
+  process.exitCode = 1;
 }
 "
 `;
@@ -5947,114 +5958,120 @@ const unpushableTestFileContentMatchers = [
 
 // ! ^^^
 
-if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
-  log.error(
-    'Pushing commits in the middle of a rebase/merge/cherry-pick is not allowed!'
-  );
+try {
+  if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+    log.error(
+      'Pushing commits in the middle of a rebase/merge/cherry-pick is not allowed!'
+    );
 
-  process.exitCode = 1;
-} else {
-  log('Checking for commits that should not be pushed...');
-
-  const [{ stdout: gitLogCommits }, { stdout: gitLsTreeFiles }] = await Promise.all([
-    run('git', ['log', 'HEAD', '--oneline', '--not', '--remotes'], { lines: true }),
-    run('git', ['ls-tree', '-r', '--full-tree', '--name-only', 'HEAD'], { lines: true })
-  ]);
-
-  const interestingFilePaths = gitLsTreeFiles.filter((path) =>
-    uninterestingFilePathsRegExps.every((regexp) => !regexp.test(path))
-  );
-
-  /** @type {{[reason: string]: string[]}} */
-  const unpushableCommitsLogLines = reduce(
-    gitLogCommits.flatMap((line) =>
-      unpushableCommitMessageMatchers
-        .filter(({ regexp }) => regexp.test(line))
-        .map(toEntry(line))
-    )
-  );
-
-  /** @type {{[reason: string]: string[]}} */
-  const unpushableFilePaths = reduce(
-    (
-      await Promise.all(
-        interestingFilePaths.map(async (path) => {
-          // ? If the file is not readable, then skip it
-          const fileContents = await readFile(path, 'utf8').catch(() => undefined);
-          const result = [];
-
-          const isInterestingPackageJson = interestingPackageJsonPathRegExp.test(path);
-          const isInterestingMarkdown = interestingMarkdownPathRegExp.test(path);
-          const isInterestingTest = interestingTestPathRegExp.test(path);
-
-          if (!fileContents) {
-            return result;
-          }
-
-          result.push(
-            ...unpushableFileContentMatchers
-              .filter(({ regexp }) => regexp.test(fileContents))
-              .map(toEntry(path))
-          );
-
-          if (isInterestingPackageJson) {
-            result.push(
-              ...unpushablePackageJsonFileContentMatchers
-                .filter(({ regexp }) => regexp.test(fileContents))
-                .map(toEntry(path))
-            );
-          }
-
-          if (isInterestingMarkdown) {
-            result.push(
-              ...unpushableMarkdownFileContentMatchers
-                .filter(({ regexp }) => regexp.test(fileContents))
-                .map(toEntry(path))
-            );
-          }
-
-          if (isInterestingTest) {
-            result.push(
-              ...unpushableTestFileContentMatchers
-                .filter(({ regexp }) => regexp.test(fileContents))
-                .map(toEntry(path))
-            );
-          }
-
-          return result;
-        })
-      )
-    ).flat()
-  );
-
-  const hasUnpushableCommits = !!Object.keys(unpushableCommitsLogLines).length;
-  const hasUnpushableFiles = !!Object.keys(unpushableFilePaths).length;
-
-  if (hasUnpushableCommits || hasUnpushableFiles) {
-    log.error('PUSH ABORTED: BAD COMMIT(S) DETECTED!');
-    log.error('Rectify the following issues before trying again:');
-
-    Object.entries(unpushableCommitsLogLines).forEach(([reason, lines]) => {
-      log.newline();
-      log.error(\`\${reason}:\`);
-      log.newline();
-
-      lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
-    });
-
-    Object.entries(unpushableFilePaths).forEach(([reason, lines]) => {
-      log.newline();
-      log.error(\`\${reason}:\`);
-      log.newline();
-
-      lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
-    });
-
-    process.exitCode = 2;
+    process.exitCode = 1;
   } else {
-    log('✅');
-    process.exitCode = 0;
+    log('Checking for commits that should not be pushed...');
+
+    const [{ stdout: gitLogCommits }, { stdout: gitLsTreeFiles }] = await Promise.all([
+      run('git', ['log', 'HEAD', '--oneline', '--not', '--remotes'], { lines: true }),
+      run('git', ['ls-tree', '-r', '--full-tree', '--name-only', 'HEAD'], {
+        lines: true
+      })
+    ]);
+
+    const interestingFilePaths = gitLsTreeFiles.filter((path) =>
+      uninterestingFilePathsRegExps.every((regexp) => !regexp.test(path))
+    );
+
+    /** @type {{[reason: string]: string[]}} */
+    const unpushableCommitsLogLines = reduce(
+      gitLogCommits.flatMap((line) =>
+        unpushableCommitMessageMatchers
+          .filter(({ regexp }) => regexp.test(line))
+          .map(toEntry(line))
+      )
+    );
+
+    /** @type {{[reason: string]: string[]}} */
+    const unpushableFilePaths = reduce(
+      (
+        await Promise.all(
+          interestingFilePaths.map(async (path) => {
+            // ? If the file is not readable, then skip it
+            const fileContents = await readFile(path, 'utf8').catch(() => undefined);
+            const result = [];
+
+            const isInterestingPackageJson = interestingPackageJsonPathRegExp.test(path);
+            const isInterestingMarkdown = interestingMarkdownPathRegExp.test(path);
+            const isInterestingTest = interestingTestPathRegExp.test(path);
+
+            if (!fileContents) {
+              return result;
+            }
+
+            result.push(
+              ...unpushableFileContentMatchers
+                .filter(({ regexp }) => regexp.test(fileContents))
+                .map(toEntry(path))
+            );
+
+            if (isInterestingPackageJson) {
+              result.push(
+                ...unpushablePackageJsonFileContentMatchers
+                  .filter(({ regexp }) => regexp.test(fileContents))
+                  .map(toEntry(path))
+              );
+            }
+
+            if (isInterestingMarkdown) {
+              result.push(
+                ...unpushableMarkdownFileContentMatchers
+                  .filter(({ regexp }) => regexp.test(fileContents))
+                  .map(toEntry(path))
+              );
+            }
+
+            if (isInterestingTest) {
+              result.push(
+                ...unpushableTestFileContentMatchers
+                  .filter(({ regexp }) => regexp.test(fileContents))
+                  .map(toEntry(path))
+              );
+            }
+
+            return result;
+          })
+        )
+      ).flat()
+    );
+
+    const hasUnpushableCommits = !!Object.keys(unpushableCommitsLogLines).length;
+    const hasUnpushableFiles = !!Object.keys(unpushableFilePaths).length;
+
+    if (hasUnpushableCommits || hasUnpushableFiles) {
+      log.error('PUSH ABORTED: BAD COMMIT(S) DETECTED!');
+      log.error('Rectify the following issues before trying again:');
+
+      Object.entries(unpushableCommitsLogLines).forEach(([reason, lines]) => {
+        log.newline();
+        log.error(\`\${reason}:\`);
+        log.newline();
+
+        lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
+      });
+
+      Object.entries(unpushableFilePaths).forEach(([reason, lines]) => {
+        log.newline();
+        log.error(\`\${reason}:\`);
+        log.newline();
+
+        lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
+      });
+
+      process.exitCode = 2;
+    } else {
+      log('✅');
+      process.exitCode = 0;
+    }
   }
+} catch {
+  process.exitCode = 1;
 }
 
 /**
@@ -6109,12 +6126,12 @@ import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:commit-msg' });
 
-if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
-  log.warn('skipped commit-msg hook due to rebase');
-} else {
-  const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
+try {
+  if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+    log.warn('skipped commit-msg hook due to rebase');
+  } else {
+    const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
 
-  try {
     await runWithInheritedIo('npx', ['commitlint', '-e'], {
       env: { NODE_NO_WARNINGS: '1' }
     });
@@ -6122,11 +6139,11 @@ if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
     if (!isInSimpleVerificationMode) {
       await runWithInheritedIo('npm', ['run', 'test:packages:all:unit']);
     }
-  } catch {
-    process.exitCode = 1;
-  }
 
-  // TODO: bring back spellchecker
+    // TODO: bring back spellchecker
+  }
+} catch {
+  process.exitCode = 1;
 }
 "
 `;
@@ -6145,19 +6162,30 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husk
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.husky/pre-commit.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
-import { runWithInheritedIo } from '@-xun/run';
+import { run, runWithInheritedIo } from '@-xun/run';
 import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:pre-commit' });
 
-if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
-  log.warn('skipped pre-commit hook due to rebase');
-} else {
-  const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
+try {
+  if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+    log.warn('skipped pre-commit hook due to rebase');
+  } else {
+    const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
 
-  try {
     if (!isInSimpleVerificationMode) {
-      await runWithInheritedIo('npm', ['run', 'lint:package']);
+      const [hasLintPackageCommand, hasLintPackagesCommand] = await Promise.all([
+        run('npm', ['run']).then(({ stdout }) => /\\blint:package\\b/.test(stdout)),
+        run('npm', ['run']).then(({ stdout }) => /\\blint:packages\\b/.test(stdout))
+      ]);
+
+      if (hasLintPackageCommand) {
+        await runWithInheritedIo('npm', ['run', 'lint:package']);
+      }
+
+      if (hasLintPackagesCommand) {
+        await runWithInheritedIo('npm', ['run', 'lint:packages']);
+      }
     }
 
     await runWithInheritedIo(
@@ -6176,9 +6204,9 @@ if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
       '--scope',
       'unlimited'
     ]);
-  } catch {
-    process.exitCode = 1;
   }
+} catch {
+  process.exitCode = 1;
 }
 "
 `;
@@ -6282,114 +6310,120 @@ const unpushableTestFileContentMatchers = [
 
 // ! ^^^
 
-if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
-  log.error(
-    'Pushing commits in the middle of a rebase/merge/cherry-pick is not allowed!'
-  );
+try {
+  if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+    log.error(
+      'Pushing commits in the middle of a rebase/merge/cherry-pick is not allowed!'
+    );
 
-  process.exitCode = 1;
-} else {
-  log('Checking for commits that should not be pushed...');
-
-  const [{ stdout: gitLogCommits }, { stdout: gitLsTreeFiles }] = await Promise.all([
-    run('git', ['log', 'HEAD', '--oneline', '--not', '--remotes'], { lines: true }),
-    run('git', ['ls-tree', '-r', '--full-tree', '--name-only', 'HEAD'], { lines: true })
-  ]);
-
-  const interestingFilePaths = gitLsTreeFiles.filter((path) =>
-    uninterestingFilePathsRegExps.every((regexp) => !regexp.test(path))
-  );
-
-  /** @type {{[reason: string]: string[]}} */
-  const unpushableCommitsLogLines = reduce(
-    gitLogCommits.flatMap((line) =>
-      unpushableCommitMessageMatchers
-        .filter(({ regexp }) => regexp.test(line))
-        .map(toEntry(line))
-    )
-  );
-
-  /** @type {{[reason: string]: string[]}} */
-  const unpushableFilePaths = reduce(
-    (
-      await Promise.all(
-        interestingFilePaths.map(async (path) => {
-          // ? If the file is not readable, then skip it
-          const fileContents = await readFile(path, 'utf8').catch(() => undefined);
-          const result = [];
-
-          const isInterestingPackageJson = interestingPackageJsonPathRegExp.test(path);
-          const isInterestingMarkdown = interestingMarkdownPathRegExp.test(path);
-          const isInterestingTest = interestingTestPathRegExp.test(path);
-
-          if (!fileContents) {
-            return result;
-          }
-
-          result.push(
-            ...unpushableFileContentMatchers
-              .filter(({ regexp }) => regexp.test(fileContents))
-              .map(toEntry(path))
-          );
-
-          if (isInterestingPackageJson) {
-            result.push(
-              ...unpushablePackageJsonFileContentMatchers
-                .filter(({ regexp }) => regexp.test(fileContents))
-                .map(toEntry(path))
-            );
-          }
-
-          if (isInterestingMarkdown) {
-            result.push(
-              ...unpushableMarkdownFileContentMatchers
-                .filter(({ regexp }) => regexp.test(fileContents))
-                .map(toEntry(path))
-            );
-          }
-
-          if (isInterestingTest) {
-            result.push(
-              ...unpushableTestFileContentMatchers
-                .filter(({ regexp }) => regexp.test(fileContents))
-                .map(toEntry(path))
-            );
-          }
-
-          return result;
-        })
-      )
-    ).flat()
-  );
-
-  const hasUnpushableCommits = !!Object.keys(unpushableCommitsLogLines).length;
-  const hasUnpushableFiles = !!Object.keys(unpushableFilePaths).length;
-
-  if (hasUnpushableCommits || hasUnpushableFiles) {
-    log.error('PUSH ABORTED: BAD COMMIT(S) DETECTED!');
-    log.error('Rectify the following issues before trying again:');
-
-    Object.entries(unpushableCommitsLogLines).forEach(([reason, lines]) => {
-      log.newline();
-      log.error(\`\${reason}:\`);
-      log.newline();
-
-      lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
-    });
-
-    Object.entries(unpushableFilePaths).forEach(([reason, lines]) => {
-      log.newline();
-      log.error(\`\${reason}:\`);
-      log.newline();
-
-      lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
-    });
-
-    process.exitCode = 2;
+    process.exitCode = 1;
   } else {
-    log('✅');
-    process.exitCode = 0;
+    log('Checking for commits that should not be pushed...');
+
+    const [{ stdout: gitLogCommits }, { stdout: gitLsTreeFiles }] = await Promise.all([
+      run('git', ['log', 'HEAD', '--oneline', '--not', '--remotes'], { lines: true }),
+      run('git', ['ls-tree', '-r', '--full-tree', '--name-only', 'HEAD'], {
+        lines: true
+      })
+    ]);
+
+    const interestingFilePaths = gitLsTreeFiles.filter((path) =>
+      uninterestingFilePathsRegExps.every((regexp) => !regexp.test(path))
+    );
+
+    /** @type {{[reason: string]: string[]}} */
+    const unpushableCommitsLogLines = reduce(
+      gitLogCommits.flatMap((line) =>
+        unpushableCommitMessageMatchers
+          .filter(({ regexp }) => regexp.test(line))
+          .map(toEntry(line))
+      )
+    );
+
+    /** @type {{[reason: string]: string[]}} */
+    const unpushableFilePaths = reduce(
+      (
+        await Promise.all(
+          interestingFilePaths.map(async (path) => {
+            // ? If the file is not readable, then skip it
+            const fileContents = await readFile(path, 'utf8').catch(() => undefined);
+            const result = [];
+
+            const isInterestingPackageJson = interestingPackageJsonPathRegExp.test(path);
+            const isInterestingMarkdown = interestingMarkdownPathRegExp.test(path);
+            const isInterestingTest = interestingTestPathRegExp.test(path);
+
+            if (!fileContents) {
+              return result;
+            }
+
+            result.push(
+              ...unpushableFileContentMatchers
+                .filter(({ regexp }) => regexp.test(fileContents))
+                .map(toEntry(path))
+            );
+
+            if (isInterestingPackageJson) {
+              result.push(
+                ...unpushablePackageJsonFileContentMatchers
+                  .filter(({ regexp }) => regexp.test(fileContents))
+                  .map(toEntry(path))
+              );
+            }
+
+            if (isInterestingMarkdown) {
+              result.push(
+                ...unpushableMarkdownFileContentMatchers
+                  .filter(({ regexp }) => regexp.test(fileContents))
+                  .map(toEntry(path))
+              );
+            }
+
+            if (isInterestingTest) {
+              result.push(
+                ...unpushableTestFileContentMatchers
+                  .filter(({ regexp }) => regexp.test(fileContents))
+                  .map(toEntry(path))
+              );
+            }
+
+            return result;
+          })
+        )
+      ).flat()
+    );
+
+    const hasUnpushableCommits = !!Object.keys(unpushableCommitsLogLines).length;
+    const hasUnpushableFiles = !!Object.keys(unpushableFilePaths).length;
+
+    if (hasUnpushableCommits || hasUnpushableFiles) {
+      log.error('PUSH ABORTED: BAD COMMIT(S) DETECTED!');
+      log.error('Rectify the following issues before trying again:');
+
+      Object.entries(unpushableCommitsLogLines).forEach(([reason, lines]) => {
+        log.newline();
+        log.error(\`\${reason}:\`);
+        log.newline();
+
+        lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
+      });
+
+      Object.entries(unpushableFilePaths).forEach(([reason, lines]) => {
+        log.newline();
+        log.error(\`\${reason}:\`);
+        log.newline();
+
+        lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
+      });
+
+      process.exitCode = 2;
+    } else {
+      log('✅');
+      process.exitCode = 0;
+    }
   }
+} catch {
+  process.exitCode = 1;
 }
 
 /**
@@ -6444,12 +6478,12 @@ import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:commit-msg' });
 
-if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
-  log.warn('skipped commit-msg hook due to rebase');
-} else {
-  const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
+try {
+  if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+    log.warn('skipped commit-msg hook due to rebase');
+  } else {
+    const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
 
-  try {
     await runWithInheritedIo('npx', ['commitlint', '-e'], {
       env: { NODE_NO_WARNINGS: '1' }
     });
@@ -6457,11 +6491,11 @@ if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
     if (!isInSimpleVerificationMode) {
       await runWithInheritedIo('npm', ['run', 'test:packages:all:unit']);
     }
-  } catch {
-    process.exitCode = 1;
-  }
 
-  // TODO: bring back spellchecker
+    // TODO: bring back spellchecker
+  }
+} catch {
+  process.exitCode = 1;
 }
 "
 `;
@@ -6480,19 +6514,30 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husk
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-hybridrepo/.husky/pre-commit.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
-import { runWithInheritedIo } from '@-xun/run';
+import { run, runWithInheritedIo } from '@-xun/run';
 import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:pre-commit' });
 
-if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
-  log.warn('skipped pre-commit hook due to rebase');
-} else {
-  const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
+try {
+  if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+    log.warn('skipped pre-commit hook due to rebase');
+  } else {
+    const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
 
-  try {
     if (!isInSimpleVerificationMode) {
-      await runWithInheritedIo('npm', ['run', 'lint:package']);
+      const [hasLintPackageCommand, hasLintPackagesCommand] = await Promise.all([
+        run('npm', ['run']).then(({ stdout }) => /\\blint:package\\b/.test(stdout)),
+        run('npm', ['run']).then(({ stdout }) => /\\blint:packages\\b/.test(stdout))
+      ]);
+
+      if (hasLintPackageCommand) {
+        await runWithInheritedIo('npm', ['run', 'lint:package']);
+      }
+
+      if (hasLintPackagesCommand) {
+        await runWithInheritedIo('npm', ['run', 'lint:packages']);
+      }
     }
 
     await runWithInheritedIo(
@@ -6511,9 +6556,9 @@ if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
       '--scope',
       'unlimited'
     ]);
-  } catch {
-    process.exitCode = 1;
   }
+} catch {
+  process.exitCode = 1;
 }
 "
 `;
@@ -6617,114 +6662,120 @@ const unpushableTestFileContentMatchers = [
 
 // ! ^^^
 
-if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
-  log.error(
-    'Pushing commits in the middle of a rebase/merge/cherry-pick is not allowed!'
-  );
+try {
+  if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+    log.error(
+      'Pushing commits in the middle of a rebase/merge/cherry-pick is not allowed!'
+    );
 
-  process.exitCode = 1;
-} else {
-  log('Checking for commits that should not be pushed...');
-
-  const [{ stdout: gitLogCommits }, { stdout: gitLsTreeFiles }] = await Promise.all([
-    run('git', ['log', 'HEAD', '--oneline', '--not', '--remotes'], { lines: true }),
-    run('git', ['ls-tree', '-r', '--full-tree', '--name-only', 'HEAD'], { lines: true })
-  ]);
-
-  const interestingFilePaths = gitLsTreeFiles.filter((path) =>
-    uninterestingFilePathsRegExps.every((regexp) => !regexp.test(path))
-  );
-
-  /** @type {{[reason: string]: string[]}} */
-  const unpushableCommitsLogLines = reduce(
-    gitLogCommits.flatMap((line) =>
-      unpushableCommitMessageMatchers
-        .filter(({ regexp }) => regexp.test(line))
-        .map(toEntry(line))
-    )
-  );
-
-  /** @type {{[reason: string]: string[]}} */
-  const unpushableFilePaths = reduce(
-    (
-      await Promise.all(
-        interestingFilePaths.map(async (path) => {
-          // ? If the file is not readable, then skip it
-          const fileContents = await readFile(path, 'utf8').catch(() => undefined);
-          const result = [];
-
-          const isInterestingPackageJson = interestingPackageJsonPathRegExp.test(path);
-          const isInterestingMarkdown = interestingMarkdownPathRegExp.test(path);
-          const isInterestingTest = interestingTestPathRegExp.test(path);
-
-          if (!fileContents) {
-            return result;
-          }
-
-          result.push(
-            ...unpushableFileContentMatchers
-              .filter(({ regexp }) => regexp.test(fileContents))
-              .map(toEntry(path))
-          );
-
-          if (isInterestingPackageJson) {
-            result.push(
-              ...unpushablePackageJsonFileContentMatchers
-                .filter(({ regexp }) => regexp.test(fileContents))
-                .map(toEntry(path))
-            );
-          }
-
-          if (isInterestingMarkdown) {
-            result.push(
-              ...unpushableMarkdownFileContentMatchers
-                .filter(({ regexp }) => regexp.test(fileContents))
-                .map(toEntry(path))
-            );
-          }
-
-          if (isInterestingTest) {
-            result.push(
-              ...unpushableTestFileContentMatchers
-                .filter(({ regexp }) => regexp.test(fileContents))
-                .map(toEntry(path))
-            );
-          }
-
-          return result;
-        })
-      )
-    ).flat()
-  );
-
-  const hasUnpushableCommits = !!Object.keys(unpushableCommitsLogLines).length;
-  const hasUnpushableFiles = !!Object.keys(unpushableFilePaths).length;
-
-  if (hasUnpushableCommits || hasUnpushableFiles) {
-    log.error('PUSH ABORTED: BAD COMMIT(S) DETECTED!');
-    log.error('Rectify the following issues before trying again:');
-
-    Object.entries(unpushableCommitsLogLines).forEach(([reason, lines]) => {
-      log.newline();
-      log.error(\`\${reason}:\`);
-      log.newline();
-
-      lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
-    });
-
-    Object.entries(unpushableFilePaths).forEach(([reason, lines]) => {
-      log.newline();
-      log.error(\`\${reason}:\`);
-      log.newline();
-
-      lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
-    });
-
-    process.exitCode = 2;
+    process.exitCode = 1;
   } else {
-    log('✅');
-    process.exitCode = 0;
+    log('Checking for commits that should not be pushed...');
+
+    const [{ stdout: gitLogCommits }, { stdout: gitLsTreeFiles }] = await Promise.all([
+      run('git', ['log', 'HEAD', '--oneline', '--not', '--remotes'], { lines: true }),
+      run('git', ['ls-tree', '-r', '--full-tree', '--name-only', 'HEAD'], {
+        lines: true
+      })
+    ]);
+
+    const interestingFilePaths = gitLsTreeFiles.filter((path) =>
+      uninterestingFilePathsRegExps.every((regexp) => !regexp.test(path))
+    );
+
+    /** @type {{[reason: string]: string[]}} */
+    const unpushableCommitsLogLines = reduce(
+      gitLogCommits.flatMap((line) =>
+        unpushableCommitMessageMatchers
+          .filter(({ regexp }) => regexp.test(line))
+          .map(toEntry(line))
+      )
+    );
+
+    /** @type {{[reason: string]: string[]}} */
+    const unpushableFilePaths = reduce(
+      (
+        await Promise.all(
+          interestingFilePaths.map(async (path) => {
+            // ? If the file is not readable, then skip it
+            const fileContents = await readFile(path, 'utf8').catch(() => undefined);
+            const result = [];
+
+            const isInterestingPackageJson = interestingPackageJsonPathRegExp.test(path);
+            const isInterestingMarkdown = interestingMarkdownPathRegExp.test(path);
+            const isInterestingTest = interestingTestPathRegExp.test(path);
+
+            if (!fileContents) {
+              return result;
+            }
+
+            result.push(
+              ...unpushableFileContentMatchers
+                .filter(({ regexp }) => regexp.test(fileContents))
+                .map(toEntry(path))
+            );
+
+            if (isInterestingPackageJson) {
+              result.push(
+                ...unpushablePackageJsonFileContentMatchers
+                  .filter(({ regexp }) => regexp.test(fileContents))
+                  .map(toEntry(path))
+              );
+            }
+
+            if (isInterestingMarkdown) {
+              result.push(
+                ...unpushableMarkdownFileContentMatchers
+                  .filter(({ regexp }) => regexp.test(fileContents))
+                  .map(toEntry(path))
+              );
+            }
+
+            if (isInterestingTest) {
+              result.push(
+                ...unpushableTestFileContentMatchers
+                  .filter(({ regexp }) => regexp.test(fileContents))
+                  .map(toEntry(path))
+              );
+            }
+
+            return result;
+          })
+        )
+      ).flat()
+    );
+
+    const hasUnpushableCommits = !!Object.keys(unpushableCommitsLogLines).length;
+    const hasUnpushableFiles = !!Object.keys(unpushableFilePaths).length;
+
+    if (hasUnpushableCommits || hasUnpushableFiles) {
+      log.error('PUSH ABORTED: BAD COMMIT(S) DETECTED!');
+      log.error('Rectify the following issues before trying again:');
+
+      Object.entries(unpushableCommitsLogLines).forEach(([reason, lines]) => {
+        log.newline();
+        log.error(\`\${reason}:\`);
+        log.newline();
+
+        lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
+      });
+
+      Object.entries(unpushableFilePaths).forEach(([reason, lines]) => {
+        log.newline();
+        log.error(\`\${reason}:\`);
+        log.newline();
+
+        lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
+      });
+
+      process.exitCode = 2;
+    } else {
+      log('✅');
+      process.exitCode = 0;
+    }
   }
+} catch {
+  process.exitCode = 1;
 }
 
 /**
@@ -6779,12 +6830,12 @@ import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:commit-msg' });
 
-if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
-  log.warn('skipped commit-msg hook due to rebase');
-} else {
-  const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
+try {
+  if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+    log.warn('skipped commit-msg hook due to rebase');
+  } else {
+    const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
 
-  try {
     await runWithInheritedIo('npx', ['commitlint', '-e'], {
       env: { NODE_NO_WARNINGS: '1' }
     });
@@ -6792,11 +6843,11 @@ if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
     if (!isInSimpleVerificationMode) {
       await runWithInheritedIo('npm', ['run', 'test:packages:all:unit']);
     }
-  } catch {
-    process.exitCode = 1;
-  }
 
-  // TODO: bring back spellchecker
+    // TODO: bring back spellchecker
+  }
+} catch {
+  process.exitCode = 1;
 }
 "
 `;
@@ -6815,19 +6866,30 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husk
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/.husky/pre-commit.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
-import { runWithInheritedIo } from '@-xun/run';
+import { run, runWithInheritedIo } from '@-xun/run';
 import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:pre-commit' });
 
-if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
-  log.warn('skipped pre-commit hook due to rebase');
-} else {
-  const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
+try {
+  if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+    log.warn('skipped pre-commit hook due to rebase');
+  } else {
+    const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
 
-  try {
     if (!isInSimpleVerificationMode) {
-      await runWithInheritedIo('npm', ['run', 'lint:package']);
+      const [hasLintPackageCommand, hasLintPackagesCommand] = await Promise.all([
+        run('npm', ['run']).then(({ stdout }) => /\\blint:package\\b/.test(stdout)),
+        run('npm', ['run']).then(({ stdout }) => /\\blint:packages\\b/.test(stdout))
+      ]);
+
+      if (hasLintPackageCommand) {
+        await runWithInheritedIo('npm', ['run', 'lint:package']);
+      }
+
+      if (hasLintPackagesCommand) {
+        await runWithInheritedIo('npm', ['run', 'lint:packages']);
+      }
     }
 
     await runWithInheritedIo(
@@ -6846,9 +6908,9 @@ if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
       '--scope',
       'unlimited'
     ]);
-  } catch {
-    process.exitCode = 1;
   }
+} catch {
+  process.exitCode = 1;
 }
 "
 `;
@@ -6952,114 +7014,120 @@ const unpushableTestFileContentMatchers = [
 
 // ! ^^^
 
-if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
-  log.error(
-    'Pushing commits in the middle of a rebase/merge/cherry-pick is not allowed!'
-  );
+try {
+  if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+    log.error(
+      'Pushing commits in the middle of a rebase/merge/cherry-pick is not allowed!'
+    );
 
-  process.exitCode = 1;
-} else {
-  log('Checking for commits that should not be pushed...');
-
-  const [{ stdout: gitLogCommits }, { stdout: gitLsTreeFiles }] = await Promise.all([
-    run('git', ['log', 'HEAD', '--oneline', '--not', '--remotes'], { lines: true }),
-    run('git', ['ls-tree', '-r', '--full-tree', '--name-only', 'HEAD'], { lines: true })
-  ]);
-
-  const interestingFilePaths = gitLsTreeFiles.filter((path) =>
-    uninterestingFilePathsRegExps.every((regexp) => !regexp.test(path))
-  );
-
-  /** @type {{[reason: string]: string[]}} */
-  const unpushableCommitsLogLines = reduce(
-    gitLogCommits.flatMap((line) =>
-      unpushableCommitMessageMatchers
-        .filter(({ regexp }) => regexp.test(line))
-        .map(toEntry(line))
-    )
-  );
-
-  /** @type {{[reason: string]: string[]}} */
-  const unpushableFilePaths = reduce(
-    (
-      await Promise.all(
-        interestingFilePaths.map(async (path) => {
-          // ? If the file is not readable, then skip it
-          const fileContents = await readFile(path, 'utf8').catch(() => undefined);
-          const result = [];
-
-          const isInterestingPackageJson = interestingPackageJsonPathRegExp.test(path);
-          const isInterestingMarkdown = interestingMarkdownPathRegExp.test(path);
-          const isInterestingTest = interestingTestPathRegExp.test(path);
-
-          if (!fileContents) {
-            return result;
-          }
-
-          result.push(
-            ...unpushableFileContentMatchers
-              .filter(({ regexp }) => regexp.test(fileContents))
-              .map(toEntry(path))
-          );
-
-          if (isInterestingPackageJson) {
-            result.push(
-              ...unpushablePackageJsonFileContentMatchers
-                .filter(({ regexp }) => regexp.test(fileContents))
-                .map(toEntry(path))
-            );
-          }
-
-          if (isInterestingMarkdown) {
-            result.push(
-              ...unpushableMarkdownFileContentMatchers
-                .filter(({ regexp }) => regexp.test(fileContents))
-                .map(toEntry(path))
-            );
-          }
-
-          if (isInterestingTest) {
-            result.push(
-              ...unpushableTestFileContentMatchers
-                .filter(({ regexp }) => regexp.test(fileContents))
-                .map(toEntry(path))
-            );
-          }
-
-          return result;
-        })
-      )
-    ).flat()
-  );
-
-  const hasUnpushableCommits = !!Object.keys(unpushableCommitsLogLines).length;
-  const hasUnpushableFiles = !!Object.keys(unpushableFilePaths).length;
-
-  if (hasUnpushableCommits || hasUnpushableFiles) {
-    log.error('PUSH ABORTED: BAD COMMIT(S) DETECTED!');
-    log.error('Rectify the following issues before trying again:');
-
-    Object.entries(unpushableCommitsLogLines).forEach(([reason, lines]) => {
-      log.newline();
-      log.error(\`\${reason}:\`);
-      log.newline();
-
-      lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
-    });
-
-    Object.entries(unpushableFilePaths).forEach(([reason, lines]) => {
-      log.newline();
-      log.error(\`\${reason}:\`);
-      log.newline();
-
-      lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
-    });
-
-    process.exitCode = 2;
+    process.exitCode = 1;
   } else {
-    log('✅');
-    process.exitCode = 0;
+    log('Checking for commits that should not be pushed...');
+
+    const [{ stdout: gitLogCommits }, { stdout: gitLsTreeFiles }] = await Promise.all([
+      run('git', ['log', 'HEAD', '--oneline', '--not', '--remotes'], { lines: true }),
+      run('git', ['ls-tree', '-r', '--full-tree', '--name-only', 'HEAD'], {
+        lines: true
+      })
+    ]);
+
+    const interestingFilePaths = gitLsTreeFiles.filter((path) =>
+      uninterestingFilePathsRegExps.every((regexp) => !regexp.test(path))
+    );
+
+    /** @type {{[reason: string]: string[]}} */
+    const unpushableCommitsLogLines = reduce(
+      gitLogCommits.flatMap((line) =>
+        unpushableCommitMessageMatchers
+          .filter(({ regexp }) => regexp.test(line))
+          .map(toEntry(line))
+      )
+    );
+
+    /** @type {{[reason: string]: string[]}} */
+    const unpushableFilePaths = reduce(
+      (
+        await Promise.all(
+          interestingFilePaths.map(async (path) => {
+            // ? If the file is not readable, then skip it
+            const fileContents = await readFile(path, 'utf8').catch(() => undefined);
+            const result = [];
+
+            const isInterestingPackageJson = interestingPackageJsonPathRegExp.test(path);
+            const isInterestingMarkdown = interestingMarkdownPathRegExp.test(path);
+            const isInterestingTest = interestingTestPathRegExp.test(path);
+
+            if (!fileContents) {
+              return result;
+            }
+
+            result.push(
+              ...unpushableFileContentMatchers
+                .filter(({ regexp }) => regexp.test(fileContents))
+                .map(toEntry(path))
+            );
+
+            if (isInterestingPackageJson) {
+              result.push(
+                ...unpushablePackageJsonFileContentMatchers
+                  .filter(({ regexp }) => regexp.test(fileContents))
+                  .map(toEntry(path))
+              );
+            }
+
+            if (isInterestingMarkdown) {
+              result.push(
+                ...unpushableMarkdownFileContentMatchers
+                  .filter(({ regexp }) => regexp.test(fileContents))
+                  .map(toEntry(path))
+              );
+            }
+
+            if (isInterestingTest) {
+              result.push(
+                ...unpushableTestFileContentMatchers
+                  .filter(({ regexp }) => regexp.test(fileContents))
+                  .map(toEntry(path))
+              );
+            }
+
+            return result;
+          })
+        )
+      ).flat()
+    );
+
+    const hasUnpushableCommits = !!Object.keys(unpushableCommitsLogLines).length;
+    const hasUnpushableFiles = !!Object.keys(unpushableFilePaths).length;
+
+    if (hasUnpushableCommits || hasUnpushableFiles) {
+      log.error('PUSH ABORTED: BAD COMMIT(S) DETECTED!');
+      log.error('Rectify the following issues before trying again:');
+
+      Object.entries(unpushableCommitsLogLines).forEach(([reason, lines]) => {
+        log.newline();
+        log.error(\`\${reason}:\`);
+        log.newline();
+
+        lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
+      });
+
+      Object.entries(unpushableFilePaths).forEach(([reason, lines]) => {
+        log.newline();
+        log.error(\`\${reason}:\`);
+        log.newline();
+
+        lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
+      });
+
+      process.exitCode = 2;
+    } else {
+      log('✅');
+      process.exitCode = 0;
+    }
   }
+} catch {
+  process.exitCode = 1;
 }
 
 /**
@@ -7114,12 +7182,12 @@ import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:commit-msg' });
 
-if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
-  log.warn('skipped commit-msg hook due to rebase');
-} else {
-  const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
+try {
+  if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+    log.warn('skipped commit-msg hook due to rebase');
+  } else {
+    const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
 
-  try {
     await runWithInheritedIo('npx', ['commitlint', '-e'], {
       env: { NODE_NO_WARNINGS: '1' }
     });
@@ -7127,11 +7195,11 @@ if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
     if (!isInSimpleVerificationMode) {
       await runWithInheritedIo('npm', ['run', 'test:packages:all:unit']);
     }
-  } catch {
-    process.exitCode = 1;
-  }
 
-  // TODO: bring back spellchecker
+    // TODO: bring back spellchecker
+  }
+} catch {
+  process.exitCode = 1;
 }
 "
 `;
@@ -7150,19 +7218,30 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husk
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-monorepo-no-src/.husky/pre-commit.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
-import { runWithInheritedIo } from '@-xun/run';
+import { run, runWithInheritedIo } from '@-xun/run';
 import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:pre-commit' });
 
-if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
-  log.warn('skipped pre-commit hook due to rebase');
-} else {
-  const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
+try {
+  if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+    log.warn('skipped pre-commit hook due to rebase');
+  } else {
+    const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
 
-  try {
     if (!isInSimpleVerificationMode) {
-      await runWithInheritedIo('npm', ['run', 'lint:package']);
+      const [hasLintPackageCommand, hasLintPackagesCommand] = await Promise.all([
+        run('npm', ['run']).then(({ stdout }) => /\\blint:package\\b/.test(stdout)),
+        run('npm', ['run']).then(({ stdout }) => /\\blint:packages\\b/.test(stdout))
+      ]);
+
+      if (hasLintPackageCommand) {
+        await runWithInheritedIo('npm', ['run', 'lint:package']);
+      }
+
+      if (hasLintPackagesCommand) {
+        await runWithInheritedIo('npm', ['run', 'lint:packages']);
+      }
     }
 
     await runWithInheritedIo(
@@ -7181,9 +7260,9 @@ if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
       '--scope',
       'unlimited'
     ]);
-  } catch {
-    process.exitCode = 1;
   }
+} catch {
+  process.exitCode = 1;
 }
 "
 `;
@@ -7287,114 +7366,120 @@ const unpushableTestFileContentMatchers = [
 
 // ! ^^^
 
-if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
-  log.error(
-    'Pushing commits in the middle of a rebase/merge/cherry-pick is not allowed!'
-  );
+try {
+  if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+    log.error(
+      'Pushing commits in the middle of a rebase/merge/cherry-pick is not allowed!'
+    );
 
-  process.exitCode = 1;
-} else {
-  log('Checking for commits that should not be pushed...');
-
-  const [{ stdout: gitLogCommits }, { stdout: gitLsTreeFiles }] = await Promise.all([
-    run('git', ['log', 'HEAD', '--oneline', '--not', '--remotes'], { lines: true }),
-    run('git', ['ls-tree', '-r', '--full-tree', '--name-only', 'HEAD'], { lines: true })
-  ]);
-
-  const interestingFilePaths = gitLsTreeFiles.filter((path) =>
-    uninterestingFilePathsRegExps.every((regexp) => !regexp.test(path))
-  );
-
-  /** @type {{[reason: string]: string[]}} */
-  const unpushableCommitsLogLines = reduce(
-    gitLogCommits.flatMap((line) =>
-      unpushableCommitMessageMatchers
-        .filter(({ regexp }) => regexp.test(line))
-        .map(toEntry(line))
-    )
-  );
-
-  /** @type {{[reason: string]: string[]}} */
-  const unpushableFilePaths = reduce(
-    (
-      await Promise.all(
-        interestingFilePaths.map(async (path) => {
-          // ? If the file is not readable, then skip it
-          const fileContents = await readFile(path, 'utf8').catch(() => undefined);
-          const result = [];
-
-          const isInterestingPackageJson = interestingPackageJsonPathRegExp.test(path);
-          const isInterestingMarkdown = interestingMarkdownPathRegExp.test(path);
-          const isInterestingTest = interestingTestPathRegExp.test(path);
-
-          if (!fileContents) {
-            return result;
-          }
-
-          result.push(
-            ...unpushableFileContentMatchers
-              .filter(({ regexp }) => regexp.test(fileContents))
-              .map(toEntry(path))
-          );
-
-          if (isInterestingPackageJson) {
-            result.push(
-              ...unpushablePackageJsonFileContentMatchers
-                .filter(({ regexp }) => regexp.test(fileContents))
-                .map(toEntry(path))
-            );
-          }
-
-          if (isInterestingMarkdown) {
-            result.push(
-              ...unpushableMarkdownFileContentMatchers
-                .filter(({ regexp }) => regexp.test(fileContents))
-                .map(toEntry(path))
-            );
-          }
-
-          if (isInterestingTest) {
-            result.push(
-              ...unpushableTestFileContentMatchers
-                .filter(({ regexp }) => regexp.test(fileContents))
-                .map(toEntry(path))
-            );
-          }
-
-          return result;
-        })
-      )
-    ).flat()
-  );
-
-  const hasUnpushableCommits = !!Object.keys(unpushableCommitsLogLines).length;
-  const hasUnpushableFiles = !!Object.keys(unpushableFilePaths).length;
-
-  if (hasUnpushableCommits || hasUnpushableFiles) {
-    log.error('PUSH ABORTED: BAD COMMIT(S) DETECTED!');
-    log.error('Rectify the following issues before trying again:');
-
-    Object.entries(unpushableCommitsLogLines).forEach(([reason, lines]) => {
-      log.newline();
-      log.error(\`\${reason}:\`);
-      log.newline();
-
-      lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
-    });
-
-    Object.entries(unpushableFilePaths).forEach(([reason, lines]) => {
-      log.newline();
-      log.error(\`\${reason}:\`);
-      log.newline();
-
-      lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
-    });
-
-    process.exitCode = 2;
+    process.exitCode = 1;
   } else {
-    log('✅');
-    process.exitCode = 0;
+    log('Checking for commits that should not be pushed...');
+
+    const [{ stdout: gitLogCommits }, { stdout: gitLsTreeFiles }] = await Promise.all([
+      run('git', ['log', 'HEAD', '--oneline', '--not', '--remotes'], { lines: true }),
+      run('git', ['ls-tree', '-r', '--full-tree', '--name-only', 'HEAD'], {
+        lines: true
+      })
+    ]);
+
+    const interestingFilePaths = gitLsTreeFiles.filter((path) =>
+      uninterestingFilePathsRegExps.every((regexp) => !regexp.test(path))
+    );
+
+    /** @type {{[reason: string]: string[]}} */
+    const unpushableCommitsLogLines = reduce(
+      gitLogCommits.flatMap((line) =>
+        unpushableCommitMessageMatchers
+          .filter(({ regexp }) => regexp.test(line))
+          .map(toEntry(line))
+      )
+    );
+
+    /** @type {{[reason: string]: string[]}} */
+    const unpushableFilePaths = reduce(
+      (
+        await Promise.all(
+          interestingFilePaths.map(async (path) => {
+            // ? If the file is not readable, then skip it
+            const fileContents = await readFile(path, 'utf8').catch(() => undefined);
+            const result = [];
+
+            const isInterestingPackageJson = interestingPackageJsonPathRegExp.test(path);
+            const isInterestingMarkdown = interestingMarkdownPathRegExp.test(path);
+            const isInterestingTest = interestingTestPathRegExp.test(path);
+
+            if (!fileContents) {
+              return result;
+            }
+
+            result.push(
+              ...unpushableFileContentMatchers
+                .filter(({ regexp }) => regexp.test(fileContents))
+                .map(toEntry(path))
+            );
+
+            if (isInterestingPackageJson) {
+              result.push(
+                ...unpushablePackageJsonFileContentMatchers
+                  .filter(({ regexp }) => regexp.test(fileContents))
+                  .map(toEntry(path))
+              );
+            }
+
+            if (isInterestingMarkdown) {
+              result.push(
+                ...unpushableMarkdownFileContentMatchers
+                  .filter(({ regexp }) => regexp.test(fileContents))
+                  .map(toEntry(path))
+              );
+            }
+
+            if (isInterestingTest) {
+              result.push(
+                ...unpushableTestFileContentMatchers
+                  .filter(({ regexp }) => regexp.test(fileContents))
+                  .map(toEntry(path))
+              );
+            }
+
+            return result;
+          })
+        )
+      ).flat()
+    );
+
+    const hasUnpushableCommits = !!Object.keys(unpushableCommitsLogLines).length;
+    const hasUnpushableFiles = !!Object.keys(unpushableFilePaths).length;
+
+    if (hasUnpushableCommits || hasUnpushableFiles) {
+      log.error('PUSH ABORTED: BAD COMMIT(S) DETECTED!');
+      log.error('Rectify the following issues before trying again:');
+
+      Object.entries(unpushableCommitsLogLines).forEach(([reason, lines]) => {
+        log.newline();
+        log.error(\`\${reason}:\`);
+        log.newline();
+
+        lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
+      });
+
+      Object.entries(unpushableFilePaths).forEach(([reason, lines]) => {
+        log.newline();
+        log.error(\`\${reason}:\`);
+        log.newline();
+
+        lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
+      });
+
+      process.exitCode = 2;
+    } else {
+      log('✅');
+      process.exitCode = 0;
+    }
   }
+} catch {
+  process.exitCode = 1;
 }
 
 /**
@@ -7449,12 +7534,12 @@ import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:commit-msg' });
 
-if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
-  log.warn('skipped commit-msg hook due to rebase');
-} else {
-  const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
+try {
+  if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+    log.warn('skipped commit-msg hook due to rebase');
+  } else {
+    const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
 
-  try {
     await runWithInheritedIo('npx', ['commitlint', '-e'], {
       env: { NODE_NO_WARNINGS: '1' }
     });
@@ -7462,11 +7547,11 @@ if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
     if (!isInSimpleVerificationMode) {
       await runWithInheritedIo('npm', ['run', 'test:packages:all:unit']);
     }
-  } catch {
-    process.exitCode = 1;
-  }
 
-  // TODO: bring back spellchecker
+    // TODO: bring back spellchecker
+  }
+} catch {
+  process.exitCode = 1;
 }
 "
 `;
@@ -7485,19 +7570,30 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husk
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.husky/pre-commit.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
-import { runWithInheritedIo } from '@-xun/run';
+import { run, runWithInheritedIo } from '@-xun/run';
 import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:pre-commit' });
 
-if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
-  log.warn('skipped pre-commit hook due to rebase');
-} else {
-  const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
+try {
+  if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+    log.warn('skipped pre-commit hook due to rebase');
+  } else {
+    const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
 
-  try {
     if (!isInSimpleVerificationMode) {
-      await runWithInheritedIo('npm', ['run', 'lint:package']);
+      const [hasLintPackageCommand, hasLintPackagesCommand] = await Promise.all([
+        run('npm', ['run']).then(({ stdout }) => /\\blint:package\\b/.test(stdout)),
+        run('npm', ['run']).then(({ stdout }) => /\\blint:packages\\b/.test(stdout))
+      ]);
+
+      if (hasLintPackageCommand) {
+        await runWithInheritedIo('npm', ['run', 'lint:package']);
+      }
+
+      if (hasLintPackagesCommand) {
+        await runWithInheritedIo('npm', ['run', 'lint:packages']);
+      }
     }
 
     await runWithInheritedIo(
@@ -7516,9 +7612,9 @@ if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
       '--scope',
       'unlimited'
     ]);
-  } catch {
-    process.exitCode = 1;
   }
+} catch {
+  process.exitCode = 1;
 }
 "
 `;
@@ -7622,114 +7718,120 @@ const unpushableTestFileContentMatchers = [
 
 // ! ^^^
 
-if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
-  log.error(
-    'Pushing commits in the middle of a rebase/merge/cherry-pick is not allowed!'
-  );
+try {
+  if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+    log.error(
+      'Pushing commits in the middle of a rebase/merge/cherry-pick is not allowed!'
+    );
 
-  process.exitCode = 1;
-} else {
-  log('Checking for commits that should not be pushed...');
-
-  const [{ stdout: gitLogCommits }, { stdout: gitLsTreeFiles }] = await Promise.all([
-    run('git', ['log', 'HEAD', '--oneline', '--not', '--remotes'], { lines: true }),
-    run('git', ['ls-tree', '-r', '--full-tree', '--name-only', 'HEAD'], { lines: true })
-  ]);
-
-  const interestingFilePaths = gitLsTreeFiles.filter((path) =>
-    uninterestingFilePathsRegExps.every((regexp) => !regexp.test(path))
-  );
-
-  /** @type {{[reason: string]: string[]}} */
-  const unpushableCommitsLogLines = reduce(
-    gitLogCommits.flatMap((line) =>
-      unpushableCommitMessageMatchers
-        .filter(({ regexp }) => regexp.test(line))
-        .map(toEntry(line))
-    )
-  );
-
-  /** @type {{[reason: string]: string[]}} */
-  const unpushableFilePaths = reduce(
-    (
-      await Promise.all(
-        interestingFilePaths.map(async (path) => {
-          // ? If the file is not readable, then skip it
-          const fileContents = await readFile(path, 'utf8').catch(() => undefined);
-          const result = [];
-
-          const isInterestingPackageJson = interestingPackageJsonPathRegExp.test(path);
-          const isInterestingMarkdown = interestingMarkdownPathRegExp.test(path);
-          const isInterestingTest = interestingTestPathRegExp.test(path);
-
-          if (!fileContents) {
-            return result;
-          }
-
-          result.push(
-            ...unpushableFileContentMatchers
-              .filter(({ regexp }) => regexp.test(fileContents))
-              .map(toEntry(path))
-          );
-
-          if (isInterestingPackageJson) {
-            result.push(
-              ...unpushablePackageJsonFileContentMatchers
-                .filter(({ regexp }) => regexp.test(fileContents))
-                .map(toEntry(path))
-            );
-          }
-
-          if (isInterestingMarkdown) {
-            result.push(
-              ...unpushableMarkdownFileContentMatchers
-                .filter(({ regexp }) => regexp.test(fileContents))
-                .map(toEntry(path))
-            );
-          }
-
-          if (isInterestingTest) {
-            result.push(
-              ...unpushableTestFileContentMatchers
-                .filter(({ regexp }) => regexp.test(fileContents))
-                .map(toEntry(path))
-            );
-          }
-
-          return result;
-        })
-      )
-    ).flat()
-  );
-
-  const hasUnpushableCommits = !!Object.keys(unpushableCommitsLogLines).length;
-  const hasUnpushableFiles = !!Object.keys(unpushableFilePaths).length;
-
-  if (hasUnpushableCommits || hasUnpushableFiles) {
-    log.error('PUSH ABORTED: BAD COMMIT(S) DETECTED!');
-    log.error('Rectify the following issues before trying again:');
-
-    Object.entries(unpushableCommitsLogLines).forEach(([reason, lines]) => {
-      log.newline();
-      log.error(\`\${reason}:\`);
-      log.newline();
-
-      lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
-    });
-
-    Object.entries(unpushableFilePaths).forEach(([reason, lines]) => {
-      log.newline();
-      log.error(\`\${reason}:\`);
-      log.newline();
-
-      lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
-    });
-
-    process.exitCode = 2;
+    process.exitCode = 1;
   } else {
-    log('✅');
-    process.exitCode = 0;
+    log('Checking for commits that should not be pushed...');
+
+    const [{ stdout: gitLogCommits }, { stdout: gitLsTreeFiles }] = await Promise.all([
+      run('git', ['log', 'HEAD', '--oneline', '--not', '--remotes'], { lines: true }),
+      run('git', ['ls-tree', '-r', '--full-tree', '--name-only', 'HEAD'], {
+        lines: true
+      })
+    ]);
+
+    const interestingFilePaths = gitLsTreeFiles.filter((path) =>
+      uninterestingFilePathsRegExps.every((regexp) => !regexp.test(path))
+    );
+
+    /** @type {{[reason: string]: string[]}} */
+    const unpushableCommitsLogLines = reduce(
+      gitLogCommits.flatMap((line) =>
+        unpushableCommitMessageMatchers
+          .filter(({ regexp }) => regexp.test(line))
+          .map(toEntry(line))
+      )
+    );
+
+    /** @type {{[reason: string]: string[]}} */
+    const unpushableFilePaths = reduce(
+      (
+        await Promise.all(
+          interestingFilePaths.map(async (path) => {
+            // ? If the file is not readable, then skip it
+            const fileContents = await readFile(path, 'utf8').catch(() => undefined);
+            const result = [];
+
+            const isInterestingPackageJson = interestingPackageJsonPathRegExp.test(path);
+            const isInterestingMarkdown = interestingMarkdownPathRegExp.test(path);
+            const isInterestingTest = interestingTestPathRegExp.test(path);
+
+            if (!fileContents) {
+              return result;
+            }
+
+            result.push(
+              ...unpushableFileContentMatchers
+                .filter(({ regexp }) => regexp.test(fileContents))
+                .map(toEntry(path))
+            );
+
+            if (isInterestingPackageJson) {
+              result.push(
+                ...unpushablePackageJsonFileContentMatchers
+                  .filter(({ regexp }) => regexp.test(fileContents))
+                  .map(toEntry(path))
+              );
+            }
+
+            if (isInterestingMarkdown) {
+              result.push(
+                ...unpushableMarkdownFileContentMatchers
+                  .filter(({ regexp }) => regexp.test(fileContents))
+                  .map(toEntry(path))
+              );
+            }
+
+            if (isInterestingTest) {
+              result.push(
+                ...unpushableTestFileContentMatchers
+                  .filter(({ regexp }) => regexp.test(fileContents))
+                  .map(toEntry(path))
+              );
+            }
+
+            return result;
+          })
+        )
+      ).flat()
+    );
+
+    const hasUnpushableCommits = !!Object.keys(unpushableCommitsLogLines).length;
+    const hasUnpushableFiles = !!Object.keys(unpushableFilePaths).length;
+
+    if (hasUnpushableCommits || hasUnpushableFiles) {
+      log.error('PUSH ABORTED: BAD COMMIT(S) DETECTED!');
+      log.error('Rectify the following issues before trying again:');
+
+      Object.entries(unpushableCommitsLogLines).forEach(([reason, lines]) => {
+        log.newline();
+        log.error(\`\${reason}:\`);
+        log.newline();
+
+        lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
+      });
+
+      Object.entries(unpushableFilePaths).forEach(([reason, lines]) => {
+        log.newline();
+        log.error(\`\${reason}:\`);
+        log.newline();
+
+        lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
+      });
+
+      process.exitCode = 2;
+    } else {
+      log('✅');
+      process.exitCode = 0;
+    }
   }
+} catch {
+  process.exitCode = 1;
 }
 
 /**
@@ -7784,12 +7886,12 @@ import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:commit-msg' });
 
-if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
-  log.warn('skipped commit-msg hook due to rebase');
-} else {
-  const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
+try {
+  if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+    log.warn('skipped commit-msg hook due to rebase');
+  } else {
+    const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
 
-  try {
     await runWithInheritedIo('npx', ['commitlint', '-e'], {
       env: { NODE_NO_WARNINGS: '1' }
     });
@@ -7797,11 +7899,11 @@ if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
     if (!isInSimpleVerificationMode) {
       await runWithInheritedIo('npm', ['run', 'test:packages:all:unit']);
     }
-  } catch {
-    process.exitCode = 1;
-  }
 
-  // TODO: bring back spellchecker
+    // TODO: bring back spellchecker
+  }
+} catch {
+  process.exitCode = 1;
 }
 "
 `;
@@ -7820,19 +7922,30 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husk
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.husky/pre-commit.mjs
 scope: this-package
 ⏶⏷⏶⏷⏶
-import { runWithInheritedIo } from '@-xun/run';
+import { run, runWithInheritedIo } from '@-xun/run';
 import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:pre-commit' });
 
-if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
-  log.warn('skipped pre-commit hook due to rebase');
-} else {
-  const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
+try {
+  if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+    log.warn('skipped pre-commit hook due to rebase');
+  } else {
+    const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
 
-  try {
     if (!isInSimpleVerificationMode) {
-      await runWithInheritedIo('npm', ['run', 'lint:package']);
+      const [hasLintPackageCommand, hasLintPackagesCommand] = await Promise.all([
+        run('npm', ['run']).then(({ stdout }) => /\\blint:package\\b/.test(stdout)),
+        run('npm', ['run']).then(({ stdout }) => /\\blint:packages\\b/.test(stdout))
+      ]);
+
+      if (hasLintPackageCommand) {
+        await runWithInheritedIo('npm', ['run', 'lint:package']);
+      }
+
+      if (hasLintPackagesCommand) {
+        await runWithInheritedIo('npm', ['run', 'lint:packages']);
+      }
     }
 
     await runWithInheritedIo(
@@ -7851,9 +7964,9 @@ if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
       '--scope',
       'unlimited'
     ]);
-  } catch {
-    process.exitCode = 1;
   }
+} catch {
+  process.exitCode = 1;
 }
 "
 `;
@@ -7957,114 +8070,120 @@ const unpushableTestFileContentMatchers = [
 
 // ! ^^^
 
-if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
-  log.error(
-    'Pushing commits in the middle of a rebase/merge/cherry-pick is not allowed!'
-  );
+try {
+  if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+    log.error(
+      'Pushing commits in the middle of a rebase/merge/cherry-pick is not allowed!'
+    );
 
-  process.exitCode = 1;
-} else {
-  log('Checking for commits that should not be pushed...');
-
-  const [{ stdout: gitLogCommits }, { stdout: gitLsTreeFiles }] = await Promise.all([
-    run('git', ['log', 'HEAD', '--oneline', '--not', '--remotes'], { lines: true }),
-    run('git', ['ls-tree', '-r', '--full-tree', '--name-only', 'HEAD'], { lines: true })
-  ]);
-
-  const interestingFilePaths = gitLsTreeFiles.filter((path) =>
-    uninterestingFilePathsRegExps.every((regexp) => !regexp.test(path))
-  );
-
-  /** @type {{[reason: string]: string[]}} */
-  const unpushableCommitsLogLines = reduce(
-    gitLogCommits.flatMap((line) =>
-      unpushableCommitMessageMatchers
-        .filter(({ regexp }) => regexp.test(line))
-        .map(toEntry(line))
-    )
-  );
-
-  /** @type {{[reason: string]: string[]}} */
-  const unpushableFilePaths = reduce(
-    (
-      await Promise.all(
-        interestingFilePaths.map(async (path) => {
-          // ? If the file is not readable, then skip it
-          const fileContents = await readFile(path, 'utf8').catch(() => undefined);
-          const result = [];
-
-          const isInterestingPackageJson = interestingPackageJsonPathRegExp.test(path);
-          const isInterestingMarkdown = interestingMarkdownPathRegExp.test(path);
-          const isInterestingTest = interestingTestPathRegExp.test(path);
-
-          if (!fileContents) {
-            return result;
-          }
-
-          result.push(
-            ...unpushableFileContentMatchers
-              .filter(({ regexp }) => regexp.test(fileContents))
-              .map(toEntry(path))
-          );
-
-          if (isInterestingPackageJson) {
-            result.push(
-              ...unpushablePackageJsonFileContentMatchers
-                .filter(({ regexp }) => regexp.test(fileContents))
-                .map(toEntry(path))
-            );
-          }
-
-          if (isInterestingMarkdown) {
-            result.push(
-              ...unpushableMarkdownFileContentMatchers
-                .filter(({ regexp }) => regexp.test(fileContents))
-                .map(toEntry(path))
-            );
-          }
-
-          if (isInterestingTest) {
-            result.push(
-              ...unpushableTestFileContentMatchers
-                .filter(({ regexp }) => regexp.test(fileContents))
-                .map(toEntry(path))
-            );
-          }
-
-          return result;
-        })
-      )
-    ).flat()
-  );
-
-  const hasUnpushableCommits = !!Object.keys(unpushableCommitsLogLines).length;
-  const hasUnpushableFiles = !!Object.keys(unpushableFilePaths).length;
-
-  if (hasUnpushableCommits || hasUnpushableFiles) {
-    log.error('PUSH ABORTED: BAD COMMIT(S) DETECTED!');
-    log.error('Rectify the following issues before trying again:');
-
-    Object.entries(unpushableCommitsLogLines).forEach(([reason, lines]) => {
-      log.newline();
-      log.error(\`\${reason}:\`);
-      log.newline();
-
-      lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
-    });
-
-    Object.entries(unpushableFilePaths).forEach(([reason, lines]) => {
-      log.newline();
-      log.error(\`\${reason}:\`);
-      log.newline();
-
-      lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
-    });
-
-    process.exitCode = 2;
+    process.exitCode = 1;
   } else {
-    log('✅');
-    process.exitCode = 0;
+    log('Checking for commits that should not be pushed...');
+
+    const [{ stdout: gitLogCommits }, { stdout: gitLsTreeFiles }] = await Promise.all([
+      run('git', ['log', 'HEAD', '--oneline', '--not', '--remotes'], { lines: true }),
+      run('git', ['ls-tree', '-r', '--full-tree', '--name-only', 'HEAD'], {
+        lines: true
+      })
+    ]);
+
+    const interestingFilePaths = gitLsTreeFiles.filter((path) =>
+      uninterestingFilePathsRegExps.every((regexp) => !regexp.test(path))
+    );
+
+    /** @type {{[reason: string]: string[]}} */
+    const unpushableCommitsLogLines = reduce(
+      gitLogCommits.flatMap((line) =>
+        unpushableCommitMessageMatchers
+          .filter(({ regexp }) => regexp.test(line))
+          .map(toEntry(line))
+      )
+    );
+
+    /** @type {{[reason: string]: string[]}} */
+    const unpushableFilePaths = reduce(
+      (
+        await Promise.all(
+          interestingFilePaths.map(async (path) => {
+            // ? If the file is not readable, then skip it
+            const fileContents = await readFile(path, 'utf8').catch(() => undefined);
+            const result = [];
+
+            const isInterestingPackageJson = interestingPackageJsonPathRegExp.test(path);
+            const isInterestingMarkdown = interestingMarkdownPathRegExp.test(path);
+            const isInterestingTest = interestingTestPathRegExp.test(path);
+
+            if (!fileContents) {
+              return result;
+            }
+
+            result.push(
+              ...unpushableFileContentMatchers
+                .filter(({ regexp }) => regexp.test(fileContents))
+                .map(toEntry(path))
+            );
+
+            if (isInterestingPackageJson) {
+              result.push(
+                ...unpushablePackageJsonFileContentMatchers
+                  .filter(({ regexp }) => regexp.test(fileContents))
+                  .map(toEntry(path))
+              );
+            }
+
+            if (isInterestingMarkdown) {
+              result.push(
+                ...unpushableMarkdownFileContentMatchers
+                  .filter(({ regexp }) => regexp.test(fileContents))
+                  .map(toEntry(path))
+              );
+            }
+
+            if (isInterestingTest) {
+              result.push(
+                ...unpushableTestFileContentMatchers
+                  .filter(({ regexp }) => regexp.test(fileContents))
+                  .map(toEntry(path))
+              );
+            }
+
+            return result;
+          })
+        )
+      ).flat()
+    );
+
+    const hasUnpushableCommits = !!Object.keys(unpushableCommitsLogLines).length;
+    const hasUnpushableFiles = !!Object.keys(unpushableFilePaths).length;
+
+    if (hasUnpushableCommits || hasUnpushableFiles) {
+      log.error('PUSH ABORTED: BAD COMMIT(S) DETECTED!');
+      log.error('Rectify the following issues before trying again:');
+
+      Object.entries(unpushableCommitsLogLines).forEach(([reason, lines]) => {
+        log.newline();
+        log.error(\`\${reason}:\`);
+        log.newline();
+
+        lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
+      });
+
+      Object.entries(unpushableFilePaths).forEach(([reason, lines]) => {
+        log.newline();
+        log.error(\`\${reason}:\`);
+        log.newline();
+
+        lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
+      });
+
+      process.exitCode = 2;
+    } else {
+      log('✅');
+      process.exitCode = 0;
+    }
   }
+} catch {
+  process.exitCode = 1;
 }
 
 /**
@@ -8119,12 +8238,12 @@ import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:commit-msg' });
 
-if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
-  log.warn('skipped commit-msg hook due to rebase');
-} else {
-  const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
+try {
+  if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+    log.warn('skipped commit-msg hook due to rebase');
+  } else {
+    const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
 
-  try {
     await runWithInheritedIo('npx', ['commitlint', '-e'], {
       env: { NODE_NO_WARNINGS: '1' }
     });
@@ -8132,11 +8251,11 @@ if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
     if (!isInSimpleVerificationMode) {
       await runWithInheritedIo('npm', ['run', 'test:packages:all:unit']);
     }
-  } catch {
-    process.exitCode = 1;
-  }
 
-  // TODO: bring back spellchecker
+    // TODO: bring back spellchecker
+  }
+} catch {
+  process.exitCode = 1;
 }
 "
 `;
@@ -8155,19 +8274,30 @@ exports[`::gatherAssetsFromTransformer <generated asset content snapshots> .husk
 "key: /repos/symbiote/node_modules/@-xun/common-dummies/dist/packages/common-dummies/dummies/repositories/good-polyrepo-no-src-yes-default-env/.husky/pre-commit.mjs
 scope: unlimited
 ⏶⏷⏶⏷⏶
-import { runWithInheritedIo } from '@-xun/run';
+import { run, runWithInheritedIo } from '@-xun/run';
 import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:pre-commit' });
 
-if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
-  log.warn('skipped pre-commit hook due to rebase');
-} else {
-  const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
+try {
+  if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+    log.warn('skipped pre-commit hook due to rebase');
+  } else {
+    const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
 
-  try {
     if (!isInSimpleVerificationMode) {
-      await runWithInheritedIo('npm', ['run', 'lint:package']);
+      const [hasLintPackageCommand, hasLintPackagesCommand] = await Promise.all([
+        run('npm', ['run']).then(({ stdout }) => /\\blint:package\\b/.test(stdout)),
+        run('npm', ['run']).then(({ stdout }) => /\\blint:packages\\b/.test(stdout))
+      ]);
+
+      if (hasLintPackageCommand) {
+        await runWithInheritedIo('npm', ['run', 'lint:package']);
+      }
+
+      if (hasLintPackagesCommand) {
+        await runWithInheritedIo('npm', ['run', 'lint:packages']);
+      }
     }
 
     await runWithInheritedIo(
@@ -8186,9 +8316,9 @@ if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
       '--scope',
       'unlimited'
     ]);
-  } catch {
-    process.exitCode = 1;
   }
+} catch {
+  process.exitCode = 1;
 }
 "
 `;
@@ -8292,114 +8422,120 @@ const unpushableTestFileContentMatchers = [
 
 // ! ^^^
 
-if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
-  log.error(
-    'Pushing commits in the middle of a rebase/merge/cherry-pick is not allowed!'
-  );
+try {
+  if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+    log.error(
+      'Pushing commits in the middle of a rebase/merge/cherry-pick is not allowed!'
+    );
 
-  process.exitCode = 1;
-} else {
-  log('Checking for commits that should not be pushed...');
-
-  const [{ stdout: gitLogCommits }, { stdout: gitLsTreeFiles }] = await Promise.all([
-    run('git', ['log', 'HEAD', '--oneline', '--not', '--remotes'], { lines: true }),
-    run('git', ['ls-tree', '-r', '--full-tree', '--name-only', 'HEAD'], { lines: true })
-  ]);
-
-  const interestingFilePaths = gitLsTreeFiles.filter((path) =>
-    uninterestingFilePathsRegExps.every((regexp) => !regexp.test(path))
-  );
-
-  /** @type {{[reason: string]: string[]}} */
-  const unpushableCommitsLogLines = reduce(
-    gitLogCommits.flatMap((line) =>
-      unpushableCommitMessageMatchers
-        .filter(({ regexp }) => regexp.test(line))
-        .map(toEntry(line))
-    )
-  );
-
-  /** @type {{[reason: string]: string[]}} */
-  const unpushableFilePaths = reduce(
-    (
-      await Promise.all(
-        interestingFilePaths.map(async (path) => {
-          // ? If the file is not readable, then skip it
-          const fileContents = await readFile(path, 'utf8').catch(() => undefined);
-          const result = [];
-
-          const isInterestingPackageJson = interestingPackageJsonPathRegExp.test(path);
-          const isInterestingMarkdown = interestingMarkdownPathRegExp.test(path);
-          const isInterestingTest = interestingTestPathRegExp.test(path);
-
-          if (!fileContents) {
-            return result;
-          }
-
-          result.push(
-            ...unpushableFileContentMatchers
-              .filter(({ regexp }) => regexp.test(fileContents))
-              .map(toEntry(path))
-          );
-
-          if (isInterestingPackageJson) {
-            result.push(
-              ...unpushablePackageJsonFileContentMatchers
-                .filter(({ regexp }) => regexp.test(fileContents))
-                .map(toEntry(path))
-            );
-          }
-
-          if (isInterestingMarkdown) {
-            result.push(
-              ...unpushableMarkdownFileContentMatchers
-                .filter(({ regexp }) => regexp.test(fileContents))
-                .map(toEntry(path))
-            );
-          }
-
-          if (isInterestingTest) {
-            result.push(
-              ...unpushableTestFileContentMatchers
-                .filter(({ regexp }) => regexp.test(fileContents))
-                .map(toEntry(path))
-            );
-          }
-
-          return result;
-        })
-      )
-    ).flat()
-  );
-
-  const hasUnpushableCommits = !!Object.keys(unpushableCommitsLogLines).length;
-  const hasUnpushableFiles = !!Object.keys(unpushableFilePaths).length;
-
-  if (hasUnpushableCommits || hasUnpushableFiles) {
-    log.error('PUSH ABORTED: BAD COMMIT(S) DETECTED!');
-    log.error('Rectify the following issues before trying again:');
-
-    Object.entries(unpushableCommitsLogLines).forEach(([reason, lines]) => {
-      log.newline();
-      log.error(\`\${reason}:\`);
-      log.newline();
-
-      lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
-    });
-
-    Object.entries(unpushableFilePaths).forEach(([reason, lines]) => {
-      log.newline();
-      log.error(\`\${reason}:\`);
-      log.newline();
-
-      lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
-    });
-
-    process.exitCode = 2;
+    process.exitCode = 1;
   } else {
-    log('✅');
-    process.exitCode = 0;
+    log('Checking for commits that should not be pushed...');
+
+    const [{ stdout: gitLogCommits }, { stdout: gitLsTreeFiles }] = await Promise.all([
+      run('git', ['log', 'HEAD', '--oneline', '--not', '--remotes'], { lines: true }),
+      run('git', ['ls-tree', '-r', '--full-tree', '--name-only', 'HEAD'], {
+        lines: true
+      })
+    ]);
+
+    const interestingFilePaths = gitLsTreeFiles.filter((path) =>
+      uninterestingFilePathsRegExps.every((regexp) => !regexp.test(path))
+    );
+
+    /** @type {{[reason: string]: string[]}} */
+    const unpushableCommitsLogLines = reduce(
+      gitLogCommits.flatMap((line) =>
+        unpushableCommitMessageMatchers
+          .filter(({ regexp }) => regexp.test(line))
+          .map(toEntry(line))
+      )
+    );
+
+    /** @type {{[reason: string]: string[]}} */
+    const unpushableFilePaths = reduce(
+      (
+        await Promise.all(
+          interestingFilePaths.map(async (path) => {
+            // ? If the file is not readable, then skip it
+            const fileContents = await readFile(path, 'utf8').catch(() => undefined);
+            const result = [];
+
+            const isInterestingPackageJson = interestingPackageJsonPathRegExp.test(path);
+            const isInterestingMarkdown = interestingMarkdownPathRegExp.test(path);
+            const isInterestingTest = interestingTestPathRegExp.test(path);
+
+            if (!fileContents) {
+              return result;
+            }
+
+            result.push(
+              ...unpushableFileContentMatchers
+                .filter(({ regexp }) => regexp.test(fileContents))
+                .map(toEntry(path))
+            );
+
+            if (isInterestingPackageJson) {
+              result.push(
+                ...unpushablePackageJsonFileContentMatchers
+                  .filter(({ regexp }) => regexp.test(fileContents))
+                  .map(toEntry(path))
+              );
+            }
+
+            if (isInterestingMarkdown) {
+              result.push(
+                ...unpushableMarkdownFileContentMatchers
+                  .filter(({ regexp }) => regexp.test(fileContents))
+                  .map(toEntry(path))
+              );
+            }
+
+            if (isInterestingTest) {
+              result.push(
+                ...unpushableTestFileContentMatchers
+                  .filter(({ regexp }) => regexp.test(fileContents))
+                  .map(toEntry(path))
+              );
+            }
+
+            return result;
+          })
+        )
+      ).flat()
+    );
+
+    const hasUnpushableCommits = !!Object.keys(unpushableCommitsLogLines).length;
+    const hasUnpushableFiles = !!Object.keys(unpushableFilePaths).length;
+
+    if (hasUnpushableCommits || hasUnpushableFiles) {
+      log.error('PUSH ABORTED: BAD COMMIT(S) DETECTED!');
+      log.error('Rectify the following issues before trying again:');
+
+      Object.entries(unpushableCommitsLogLines).forEach(([reason, lines]) => {
+        log.newline();
+        log.error(\`\${reason}:\`);
+        log.newline();
+
+        lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
+      });
+
+      Object.entries(unpushableFilePaths).forEach(([reason, lines]) => {
+        log.newline();
+        log.error(\`\${reason}:\`);
+        log.newline();
+
+        lines.forEach((line) => log.error(\`\${errorOutputPrefix}\${line}\`));
+      });
+
+      process.exitCode = 2;
+    } else {
+      log('✅');
+      process.exitCode = 0;
+    }
   }
+} catch {
+  process.exitCode = 1;
 }
 
 /**
@@ -26345,7 +26481,7 @@ scope: this-package
   "author": "Xunnamius",
   "sideEffects": false,
   "engines": {
-    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
+    "node": "^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "private": true,
   "files": [
@@ -26441,7 +26577,7 @@ scope: unlimited
   "sideEffects": false,
   "type": "commonjs",
   "engines": {
-    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
+    "node": "^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "private": true,
   "keywords": [],
@@ -26558,7 +26694,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
+    "node": "^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -26627,7 +26763,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
+    "node": "^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
@@ -26703,7 +26839,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
+    "node": "^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -26761,7 +26897,7 @@ scope: unlimited
   "author": "Xunnamius",
   "sideEffects": false,
   "engines": {
-    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
+    "node": "^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "private": true,
   "files": [
@@ -26896,7 +27032,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
+    "node": "^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -26960,7 +27096,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
+    "node": "^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "clean": "symbiote clean --env NODE_NO_WARNINGS=1",
@@ -27031,7 +27167,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
+    "node": "^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -27105,7 +27241,7 @@ scope: this-package
     }
   },
   "engines": {
-    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
+    "node": "^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -27162,7 +27298,7 @@ scope: unlimited
   "sideEffects": false,
   "type": "commonjs",
   "engines": {
-    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
+    "node": "^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "private": true,
   "scripts": {
@@ -27237,7 +27373,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
+    "node": "^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -27315,7 +27451,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
+    "node": "^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -27396,7 +27532,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
+    "node": "^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -27451,7 +27587,7 @@ scope: unlimited
   "author": "Xunnamius",
   "sideEffects": false,
   "engines": {
-    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
+    "node": "^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "private": true,
   "scripts": {
@@ -27531,7 +27667,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
+    "node": "^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -27616,7 +27752,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
+    "node": "^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -27692,7 +27828,7 @@ scope: unlimited
     }
   },
   "engines": {
-    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
+    "node": "^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "scripts": {
     "build": "npm run build:dist --",
@@ -27761,7 +27897,7 @@ scope: unlimited
     "/README.md"
   ],
   "engines": {
-    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
+    "node": "^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "publishConfig": {
     "access": "public",
@@ -27847,7 +27983,7 @@ scope: this-package
     "/README.md"
   ],
   "engines": {
-    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
+    "node": "^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "publishConfig": {
     "access": "public",
@@ -27928,7 +28064,7 @@ scope: unlimited
     "/README.md"
   ],
   "engines": {
-    "node": "^20.20.0 || ^22.22.0 || ^24.14.0 || >=25.8.0"
+    "node": "^22.22.0 || ^24.14.0 || >=25.8.0"
   },
   "publishConfig": {
     "access": "public",
@@ -32525,7 +32661,6 @@ scope: this-package
     // ? Due to paths, the effect of this prop is limited (often ignored)
     "allowArbitraryExtensions": true,
     "alwaysStrict": true,
-    "baseUrl": ".",
     // ? Does too much; opt-in (provided by allowJs) is better
     "checkJs": false,
     "jsx": "preserve",
@@ -32600,6 +32735,8 @@ scope: this-package
     "skipLibCheck": true,
     "strict": true,
     "target": "ESNext"
+    // ? With TypeScript 6.0, all node_modules/@types must be specified manually
+    "types": ["node", "jest"]
   },
   "include": [
     "types/**/*",
@@ -33231,7 +33368,6 @@ scope: unlimited
     // ? Due to paths, the effect of this prop is limited (often ignored)
     "allowArbitraryExtensions": true,
     "alwaysStrict": true,
-    "baseUrl": ".",
     // ? Does too much; opt-in (provided by allowJs) is better
     "checkJs": false,
     "jsx": "preserve",
@@ -33306,6 +33442,8 @@ scope: unlimited
     "skipLibCheck": true,
     "strict": true,
     "target": "ESNext"
+    // ? With TypeScript 6.0, all node_modules/@types must be specified manually
+    "types": ["node", "jest"]
   },
   "include": [
     "types/**/*",
@@ -33937,7 +34075,6 @@ scope: unlimited
     // ? Due to paths, the effect of this prop is limited (often ignored)
     "allowArbitraryExtensions": true,
     "alwaysStrict": true,
-    "baseUrl": ".",
     // ? Does too much; opt-in (provided by allowJs) is better
     "checkJs": false,
     "jsx": "preserve",
@@ -34012,6 +34149,8 @@ scope: unlimited
     "skipLibCheck": true,
     "strict": true,
     "target": "ESNext"
+    // ? With TypeScript 6.0, all node_modules/@types must be specified manually
+    "types": ["node", "jest"]
   },
   "include": [
     "types/**/*",
@@ -34662,7 +34801,6 @@ scope: unlimited
     // ? Due to paths, the effect of this prop is limited (often ignored)
     "allowArbitraryExtensions": true,
     "alwaysStrict": true,
-    "baseUrl": ".",
     // ? Does too much; opt-in (provided by allowJs) is better
     "checkJs": false,
     "jsx": "preserve",
@@ -34737,6 +34875,8 @@ scope: unlimited
     "skipLibCheck": true,
     "strict": true,
     "target": "ESNext"
+    // ? With TypeScript 6.0, all node_modules/@types must be specified manually
+    "types": ["node", "jest"]
   },
   "include": [
     "types/**/*",
@@ -35239,7 +35379,6 @@ scope: unlimited
     // ? Due to paths, the effect of this prop is limited (often ignored)
     "allowArbitraryExtensions": true,
     "alwaysStrict": true,
-    "baseUrl": ".",
     // ? Does too much; opt-in (provided by allowJs) is better
     "checkJs": false,
     "jsx": "preserve",
@@ -35314,6 +35453,8 @@ scope: unlimited
     "skipLibCheck": true,
     "strict": true,
     "target": "ESNext"
+    // ? With TypeScript 6.0, all node_modules/@types must be specified manually
+    "types": ["node", "jest"]
   },
   "include": [
     "types/**/*",
@@ -35515,7 +35656,6 @@ scope: unlimited
     // ? Due to paths, the effect of this prop is limited (often ignored)
     "allowArbitraryExtensions": true,
     "alwaysStrict": true,
-    "baseUrl": ".",
     // ? Does too much; opt-in (provided by allowJs) is better
     "checkJs": false,
     "jsx": "preserve",
@@ -35560,6 +35700,8 @@ scope: unlimited
     "skipLibCheck": true,
     "strict": true,
     "target": "ESNext"
+    // ? With TypeScript 6.0, all node_modules/@types must be specified manually
+    "types": ["node", "jest"]
   },
   "include": [
     "types/**/*",
@@ -35768,7 +35910,6 @@ scope: this-package
     // ? Due to paths, the effect of this prop is limited (often ignored)
     "allowArbitraryExtensions": true,
     "alwaysStrict": true,
-    "baseUrl": ".",
     // ? Does too much; opt-in (provided by allowJs) is better
     "checkJs": false,
     "jsx": "preserve",
@@ -35813,6 +35954,8 @@ scope: this-package
     "skipLibCheck": true,
     "strict": true,
     "target": "ESNext"
+    // ? With TypeScript 6.0, all node_modules/@types must be specified manually
+    "types": ["node", "jest"]
   },
   "include": [
     "types/**/*",
@@ -36021,7 +36164,6 @@ scope: unlimited
     // ? Due to paths, the effect of this prop is limited (often ignored)
     "allowArbitraryExtensions": true,
     "alwaysStrict": true,
-    "baseUrl": ".",
     // ? Does too much; opt-in (provided by allowJs) is better
     "checkJs": false,
     "jsx": "preserve",
@@ -36066,6 +36208,8 @@ scope: unlimited
     "skipLibCheck": true,
     "strict": true,
     "target": "ESNext"
+    // ? With TypeScript 6.0, all node_modules/@types must be specified manually
+    "types": ["node", "jest"]
   },
   "include": [
     "types/**/*",
@@ -36116,7 +36260,6 @@ scope: this-package
     "**/type-*.test.ts",
     "**/type-*.test.tsx"
   ],
-  "checkSourceFiles": false,
   "rejectAnyType": true,
   "rejectNeverType": true
 }
@@ -36135,7 +36278,6 @@ scope: unlimited
     "**/type-*.test.ts",
     "**/type-*.test.tsx"
   ],
-  "checkSourceFiles": false,
   "rejectAnyType": true,
   "rejectNeverType": true
 }
@@ -36154,7 +36296,6 @@ scope: unlimited
     "**/type-*.test.ts",
     "**/type-*.test.tsx"
   ],
-  "checkSourceFiles": false,
   "rejectAnyType": true,
   "rejectNeverType": true
 }
@@ -36173,7 +36314,6 @@ scope: unlimited
     "**/type-*.test.ts",
     "**/type-*.test.tsx"
   ],
-  "checkSourceFiles": false,
   "rejectAnyType": true,
   "rejectNeverType": true
 }
@@ -36192,7 +36332,6 @@ scope: unlimited
     "**/type-*.test.ts",
     "**/type-*.test.tsx"
   ],
-  "checkSourceFiles": false,
   "rejectAnyType": true,
   "rejectNeverType": true
 }
@@ -36211,7 +36350,6 @@ scope: unlimited
     "**/type-*.test.ts",
     "**/type-*.test.tsx"
   ],
-  "checkSourceFiles": false,
   "rejectAnyType": true,
   "rejectNeverType": true
 }
@@ -36230,7 +36368,6 @@ scope: this-package
     "**/type-*.test.ts",
     "**/type-*.test.tsx"
   ],
-  "checkSourceFiles": false,
   "rejectAnyType": true,
   "rejectNeverType": true
 }
@@ -36249,7 +36386,6 @@ scope: unlimited
     "**/type-*.test.ts",
     "**/type-*.test.tsx"
   ],
-  "checkSourceFiles": false,
   "rejectAnyType": true,
   "rejectNeverType": true
 }
