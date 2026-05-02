@@ -31,7 +31,6 @@ const tsconfigFiles = {
     // ? Due to paths, the effect of this prop is limited (often ignored)
     "allowArbitraryExtensions": true,
     "alwaysStrict": true,
-    "baseUrl": ".",
     // ? Does too much; opt-in (provided by allowJs) is better
     "checkJs": false,
     "jsx": "preserve",
@@ -67,6 +66,8 @@ ${makeGeneratedAliasesWarningComment(4)}
     "skipLibCheck": true,
     "strict": true,
     "target": "ESNext"
+    // ? With TypeScript 6.0, all node_modules/@types must be specified manually
+    "types": ["node", "jest"]
   },
   "include": [
     "types/**/*",
