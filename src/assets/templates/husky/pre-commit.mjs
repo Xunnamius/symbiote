@@ -1,16 +1,27 @@
-import { runWithInheritedIo } from '@-xun/run';
+import { run, runWithInheritedIo } from '@-xun/run';
 import { createGenericLogger } from 'rejoinder';
 
 const log = createGenericLogger({ namespace: 'husky-hook:pre-commit' });
 
-if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
-  log.warn('skipped pre-commit hook due to rebase');
-} else {
-  const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
+try {
+  if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
+    log.warn('skipped pre-commit hook due to rebase');
+  } else {
+    const isInSimpleVerificationMode = !!process.env.GAC_VERIFY_SIMPLE;
 
-  try {
     if (!isInSimpleVerificationMode) {
-      await runWithInheritedIo('npm', ['run', 'lint:package']);
+      const [hasLintPackageCommand, hasLintPackagesCommand] = await Promise.all([
+        run('npm', ['run']).then(({ stdout }) => /\blint:package\b/.test(stdout)),
+        run('npm', ['run']).then(({ stdout }) => /\blint:packages\b/.test(stdout))
+      ]);
+
+      if (hasLintPackageCommand) {
+        await runWithInheritedIo('npm', ['run', 'lint:package']);
+      }
+
+      if (hasLintPackagesCommand) {
+        await runWithInheritedIo('npm', ['run', 'lint:packages']);
+      }
     }
 
     await runWithInheritedIo(
@@ -29,7 +40,7 @@ if (process.env.GIT_REFLOG_ACTION?.startsWith('rebase')) {
       '--scope',
       'unlimited'
     ]);
-  } catch {
-    process.exitCode = 1;
   }
+} catch {
+  process.exitCode = 1;
 }
