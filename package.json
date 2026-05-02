@@ -121,7 +121,7 @@
     "@babel/preset-typescript": "^7.28.5",
     "@commitlint/cli": "^20.5.3",
     "@commitlint/config-conventional": "^20.5.3",
-    "@eslint/compat": "^2.0.3",
+    "@eslint/compat": "^2.0.5",
     "@eslint/eslintrc": "^3.3.5",
     "@eslint/js": "^9.36.0",
     "@octokit/plugin-retry": "^8.1.0",
