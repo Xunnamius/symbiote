@@ -8,7 +8,7 @@
 
 > **moduleExport**(`__namedParameters`): `object`
 
-Defined in: [src/assets/transformers/\_jest.config.mjs.ts:130](https://github.com/Xunnamius/symbiote/blob/f20b0099c70f0313928eae8f1b370bfc00e9dda1/src/assets/transformers/_jest.config.mjs.ts#L130)
+Defined in: [src/assets/transformers/\_jest.config.mjs.ts:130](https://github.com/Xunnamius/symbiote/blob/4622d77b8dbe6c643a89cc16b7f2f59cc5d27edf/src/assets/transformers/_jest.config.mjs.ts#L130)
 
 ## Parameters
 
@@ -89,7 +89,7 @@ as `1` while entirely skipping tests from files with names containing
 
 ### coverageReporters?
 
-> `optional` **coverageReporters?**: (`"json"` \| `"none"` \| `"clover"` \| `"cobertura"` \| `"html-spa"` \| `"html"` \| `"json-summary"` \| `"lcov"` \| `"lcovonly"` \| `"teamcity"` \| `"text"` \| `"text-lcov"` \| `"text-summary"` \| \[`"json"` \| `"none"` \| `"clover"` \| `"cobertura"` \| `"html-spa"` \| `"html"` \| `"json-summary"` \| `"lcov"` \| `"lcovonly"` \| `"teamcity"` \| `"text"` \| `"text-lcov"` \| `"text-summary"`, \{\[`key`: `string`\]: `unknown`; \}\])[]
+> `optional` **coverageReporters?**: (`"json"` \| `"none"` \| `"text"` \| `"clover"` \| `"cobertura"` \| `"html-spa"` \| `"html"` \| `"json-summary"` \| `"lcov"` \| `"lcovonly"` \| `"teamcity"` \| `"text-lcov"` \| `"text-summary"` \| \[`"json"` \| `"none"` \| `"text"` \| `"clover"` \| `"cobertura"` \| `"html-spa"` \| `"html"` \| `"json-summary"` \| `"lcov"` \| `"lcovonly"` \| `"teamcity"` \| `"text-lcov"` \| `"text-summary"`, \{\[`key`: `string`\]: `unknown`; \}\])[]
 
 ### coverageThreshold?
 
