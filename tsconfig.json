@@ -26,7 +26,6 @@
       "ScriptHost",
       "DOM.Iterable"
     ],
-    "types": ["node", "jest"],
     "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "noEmit": true,
@@ -51,7 +50,9 @@
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "ESNext"
+    "target": "ESNext",
+    // ? With TypeScript 6.0, all node_modules/@types must be specified manually
+    "types": ["node", "jest"]
   },
   "include": [
     "types/**/*",
@@ -66,7 +67,10 @@
     "**/.wrangler/**/*",
     "**/node_modules/**/*",
     "**/*.ignore",
-    "**/*.ignore.*/**/*",
-    "**/ignore.*"
+    "**/*.ignore/**/*",
+    "**/ignore.*",
+    "**/ignore.*/**/*",
+    "**/*.ignore.*",
+    "**/*.ignore.*/**/*"
   ]
 }

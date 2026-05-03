@@ -14,13 +14,14 @@ const { deepMergeConfig } = require('./node_modules/@-xun/symbiote/dist/src/asse
 
 const debug = createDebugLogger({ namespace: 'symbiote:config:babel' });
 
-module.exports = deepMergeConfig(
+const config = deepMergeConfig(
   moduleExport({
     derivedAliases: getBabelAliases(),
     ...assertEnvironment({ projectRoot: __dirname })
   }),
   {
     // Any custom configs here will be deep merged with moduleExport's result
+    //
     // You may wish to enable explicit exports references for improved testing
     // DX, but be aware that it is currently a wee buggy as of 5/2025 (fix it!)
     //
@@ -32,6 +33,7 @@ module.exports = deepMergeConfig(
   }
 );
 
+module.exports = config;
 debug('exported config: %O', module.exports);
 
 function getBabelAliases() {
