@@ -65,7 +65,7 @@ ${makeGeneratedAliasesWarningComment(4)}
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "ESNext"
+    "target": "ESNext",
     // ? With TypeScript 6.0, all node_modules/@types must be specified manually
     "types": ["node", "jest"]
   },
