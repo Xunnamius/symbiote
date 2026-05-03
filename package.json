@@ -240,7 +240,7 @@
     "unique-filename": "^5.0.0"
   },
   "devDependencies": {
-    "@-xun/common-dummies": "^2.1.4",
+    "@-xun/common-dummies": "^2.1.5",
     "@-xun/project-fs": "^2.0.7",
     "@-xun/symbiote": "^4.15.9",
     "next": "^16.2.4",
