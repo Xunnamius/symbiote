@@ -8,7 +8,7 @@
 
 > **LoadDotEnvSimplifiedSettings** = `Merge`\<[`LoadDotEnvSettings`](LoadDotEnvSettings.md), \{ `failInstructions?`: `undefined`; `force?`: `undefined`; `log?`: `undefined`; `onFail?`: `undefined`; \}\>
 
-Defined in: [src/util.ts:804](https://github.com/Xunnamius/symbiote/blob/c224670ed4152319490e37dbcda7cf2d057821a9/src/util.ts#L804)
+Defined in: [src/util.ts:804](https://github.com/Xunnamius/symbiote/blob/71cf4058a7d60956563b1b93abfba27549fc9444/src/util.ts#L804)
 
 ## See
 

@@ -8,7 +8,7 @@
 
 > `const` **$delete**: [`UniqueDeleteSymbol`](../type-aliases/UniqueDeleteSymbol.md)
 
-Defined in: [src/assets.ts:45](https://github.com/Xunnamius/symbiote/blob/c224670ed4152319490e37dbcda7cf2d057821a9/src/assets.ts#L45)
+Defined in: [src/assets.ts:45](https://github.com/Xunnamius/symbiote/blob/71cf4058a7d60956563b1b93abfba27549fc9444/src/assets.ts#L45)
 
 The Symbol represents an asset to be deleted and can be returned as the
 result of an [Asset.generate](../type-aliases/Asset.md#generate) function instead of normal string
