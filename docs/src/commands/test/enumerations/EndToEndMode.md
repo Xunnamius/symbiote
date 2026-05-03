@@ -6,7 +6,7 @@
 
 # Enumeration: EndToEndMode
 
-Defined in: [src/commands/test.ts:126](https://github.com/Xunnamius/symbiote/blob/fac242489149fd8a5b5f201d27f75f93aa572058/src/commands/test.ts#L126)
+Defined in: [src/commands/test.ts:126](https://github.com/Xunnamius/symbiote/blob/f20b0099c70f0313928eae8f1b370bfc00e9dda1/src/commands/test.ts#L126)
 
 The possible valid values for the `process.env.SYMBIOTE_TEST_E2E_MODE`
 environment variable (not including `undefined`).
@@ -17,7 +17,7 @@ environment variable (not including `undefined`).
 
 > **Real**: `"real"`
 
-Defined in: [src/commands/test.ts:127](https://github.com/Xunnamius/symbiote/blob/fac242489149fd8a5b5f201d27f75f93aa572058/src/commands/test.ts#L127)
+Defined in: [src/commands/test.ts:127](https://github.com/Xunnamius/symbiote/blob/f20b0099c70f0313928eae8f1b370bfc00e9dda1/src/commands/test.ts#L127)
 
 ***
 
@@ -25,4 +25,4 @@ Defined in: [src/commands/test.ts:127](https://github.com/Xunnamius/symbiote/blo
 
 > **Simulated**: `"simulated"`
 
-Defined in: [src/commands/test.ts:128](https://github.com/Xunnamius/symbiote/blob/fac242489149fd8a5b5f201d27f75f93aa572058/src/commands/test.ts#L128)
+Defined in: [src/commands/test.ts:128](https://github.com/Xunnamius/symbiote/blob/f20b0099c70f0313928eae8f1b370bfc00e9dda1/src/commands/test.ts#L128)

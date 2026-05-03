@@ -8,7 +8,7 @@
 
 > `const` **projectLinterScopes**: [`Unlimited`](../../../../configure/enumerations/UnlimitedGlobalScope.md#unlimited)[]
 
-Defined in: [src/commands/project/lint.ts:19](https://github.com/Xunnamius/symbiote/blob/fac242489149fd8a5b5f201d27f75f93aa572058/src/commands/project/lint.ts#L19)
+Defined in: [src/commands/project/lint.ts:19](https://github.com/Xunnamius/symbiote/blob/f20b0099c70f0313928eae8f1b370bfc00e9dda1/src/commands/project/lint.ts#L19)
 
 ## See
 

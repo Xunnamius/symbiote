@@ -72,7 +72,7 @@ Defined in: node\_modules/@types/jest/index.d.ts:1152
 
 > **\[metadata\]**: `DecoratorMetadataObject` \| `null`
 
-Defined in: node\_modules/typescript/lib/lib.esnext.decorators.d.ts:27
+Defined in: node\_modules/typescript/lib/lib.esnext.decorators.d.ts:25
 
 #### Inherited from
 
@@ -84,7 +84,7 @@ Defined in: node\_modules/typescript/lib/lib.esnext.decorators.d.ts:27
 
 > **arguments**: `any`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:305
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:303
 
 #### Inherited from
 
@@ -96,7 +96,7 @@ Defined in: node\_modules/typescript/lib/lib.es5.d.ts:305
 
 > **caller**: `Function`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:306
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:304
 
 #### Inherited from
 
@@ -108,7 +108,7 @@ Defined in: node\_modules/typescript/lib/lib.es5.d.ts:306
 
 > `readonly` **length**: `number`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:302
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:300
 
 #### Inherited from
 
@@ -134,7 +134,7 @@ Provides access to the mock's metadata
 
 > `readonly` **name**: `string`
 
-Defined in: node\_modules/typescript/lib/lib.es2015.core.d.ts:97
+Defined in: node\_modules/typescript/lib/lib.es2015.core.d.ts:95
 
 Returns the name of the function. Function names are read-only and can not be changed.
 
@@ -148,7 +148,7 @@ Returns the name of the function. Function names are read-only and can not be ch
 
 > **prototype**: `any`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:301
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:299
 
 #### Inherited from
 
@@ -160,7 +160,7 @@ Defined in: node\_modules/typescript/lib/lib.es5.d.ts:301
 
 > **\[hasInstance\]**(`value`): `boolean`
 
-Defined in: node\_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts:164
+Defined in: node\_modules/typescript/lib/lib.es2015.symbol.wellknown.d.ts:162
 
 Determines whether the given value inherits from this function if this function was used
 as a constructor function.
@@ -188,7 +188,7 @@ A constructor function can control which objects are recognized as its instances
 
 > **apply**(`this`, `thisArg`, `argArray?`): `any`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:281
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:279
 
 Calls the function, substituting the specified object for the this value of the function, and the specified array for the arguments of the function.
 
@@ -224,7 +224,7 @@ A set of arguments to be passed to the function.
 
 > **bind**(`this`, `thisArg`, ...`argArray`): `any`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:296
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:294
 
 For a given function, creates a bound function that has the same body as the original function.
 The this object of the bound function is associated with the specified object, and has the specified initial parameters.
@@ -261,7 +261,7 @@ A list of arguments to be passed to the new function.
 
 > **call**(`this`, `thisArg`, ...`argArray`): `any`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:288
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:286
 
 Calls a method of an object, substituting another object for the current object.
 
@@ -732,7 +732,7 @@ console.log(myMockFn(), myMockFn(), myMockFn(), myMockFn());
 
 > **toString**(): `string`
 
-Defined in: node\_modules/typescript/lib/lib.es5.d.ts:299
+Defined in: node\_modules/typescript/lib/lib.es5.d.ts:297
 
 Returns a string representation of a function.
 
