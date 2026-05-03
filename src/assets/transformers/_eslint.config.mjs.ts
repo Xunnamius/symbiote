@@ -206,7 +206,8 @@ function genericRules(
     // ? I will decide when I feel like using an explicit return type
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     // ? Limit the power of ts comments
-    '@typescript-eslint/prefer-ts-expect-error': 'warn',
+    // ? Note: this was replaced by @typescript-eslint/ban-ts-comment
+    '@typescript-eslint/prefer-ts-expect-error': 'off',
     // ? Sauce
     '@typescript-eslint/no-misused-promises': ['error'],
     // ? Sauce
