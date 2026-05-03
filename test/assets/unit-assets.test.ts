@@ -870,7 +870,7 @@ describe('::gatherAssetsFromTransformer', () => {
         );
 
         await expect(assets[dummyAbsolutePath]!()).resolves.toInclude(
-          '"finalverse": ["the/final/verse"]'
+          '"finalverse": ["./the/final/verse"]'
         );
       }
     });

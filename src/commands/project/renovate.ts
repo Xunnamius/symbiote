@@ -2179,6 +2179,7 @@ See the symbiote wiki documentation for more details on this command and all ava
             debug.error('content generation failure: %O', error);
             log.error(`❗ ${relativeOutputPath}`);
             throw new Error('wrapper', {
+              // eslint-disable-next-line preserve-caught-error
               cause: { error, outputPath: absoluteOutputPath }
             });
           }

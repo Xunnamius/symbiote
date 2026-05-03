@@ -965,7 +965,7 @@ function makeDistReplacerEntry(
                     'aforementioned "potentially bad specifier target output path" is NOT OK!'
                   );
 
-                  throw new Error(ErrorMessage.GuruMeditation());
+                  throw new Error(ErrorMessage.GuruMeditation(), { cause: error });
                 }
               } catch (subError) {
                 throw new ProjectError(

@@ -34,6 +34,7 @@ export const { transformer } = makeTransformer(function (context) {
       context
     );
 
+    // eslint-disable-next-line unicorn/no-useless-iterator-to-array
     for (const [index, { path, generate }] of templates.entries().toArray()) {
       const existingContentsPath = path.replace(
         endsWithExampleJsonRegExp,

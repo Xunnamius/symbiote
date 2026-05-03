@@ -916,7 +916,7 @@ export function loadDotEnv(
         debug: !!process.env.DEBUG,
         path,
         override: true,
-        processEnv: environmentContainer as DotenvPopulateInput
+        processEnv: environmentContainer
       });
 
       if (result.error) {

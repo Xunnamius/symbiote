@@ -796,7 +796,7 @@ export async function moduleExport({
         ...nodeRules(reifiedRestrictedImportRules),
         ...mjsRules()
       }
-    } as EslintConfig,
+    },
 
     // * Rules applying only to TypeScript files
     {
@@ -824,7 +824,7 @@ export async function moduleExport({
         ...eslintPluginJestAll.rules,
         ...jestRules()
       }
-    } as EslintConfig
+    }
   );
 }
 
